@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title"><%= projectFormat.charAt(0).toUpperCase() + projectFormat.slice(1) %></h4>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <div class="row">
+      <h4><p id="" class="col-md-6 text-center">Select the <%= projectFormat %>.</p></h4>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="list-group">
+          <% if (templates && templates.length) { %>
+          <% templates.forEach(function(template) { %>
+          <a class="list-group-item">
+            <div class="media col-md-2">
+              <figure class="pull-left">
+                <img class="media-object img-rounded img-responsive" src="<%= template.icon %>" alt="No Image" >
+              </figure>
+            </div>
+            <div class="col-md-7">
+              <h4 class="list-group-item-name">
+                <%= template.name %>
+              </h4>
+              <p class="list-group-item-description">
+                <%= template.description %>
+              </p>
+              <p class="list-group-item-src hidden">
+                <%= template.src %>
+              </p>
+            </div>
+            <div class="col-md-3">
+              <% if (template.language) { %>
+              <p class="list-group-item-language">
+                Language: <span><%= template.language %></span>
+              </p>
+              <% } %>
+            </div>
+          </a>
+          <% })}; %>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+</div>

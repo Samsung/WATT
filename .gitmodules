@@ -1,0 +1,4 @@
+[submodule "libs/brackets-server/brackets-src"]
+	path = libs/brackets-server/brackets-src
+	url = https://github.com/adobe/brackets.git
+	ignore = dirty

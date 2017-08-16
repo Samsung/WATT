@@ -1,0 +1,17 @@
+<div class="modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{ExtensionStrings.CERTIFICATE_DIALOG_TITLE}}</h1>
+    </div>
+    <div class="modal-body">
+        {{#fields}}
+        <div class="field-container input-field">
+          <label class="inline-label" for="{{id}}">{{description}}{{#required}} *{{/required}}</label>
+          <input id="{{id}}" class="right-input" type="{{type}}" value="{{value}}"/>
+        </div>
+        {{/fields}}
+    </div>
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">{{Strings.CANCEL}}</button>
+        <button id="{{okButtonId}}" class="dialog-button btn primary" data-button-id="ok" disabled>{{Strings.OK}}</button>
+    </div>
+</div>

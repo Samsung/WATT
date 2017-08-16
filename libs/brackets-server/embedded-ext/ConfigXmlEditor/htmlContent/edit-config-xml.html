@@ -1,0 +1,486 @@
+<div class="config-view">
+    <div class="tab">
+        <button class="tablinks" id="tabOverview">Overview</button>
+        <button class="tablinks" id="tabFeatures">Features</button>
+        <button class="tablinks" id="tabPrivileges">Privileges</button>
+        <button class="tablinks" id="tabLocalization">Localization</button>
+        <button class="tablinks" id="tabPolicy">Policy</button>
+        <button class="tablinks" id="tabPreferences">Preferences</button>
+        <button class="tablinks" id="tabTizen">Tizen</button>
+        <button class="tablinks" id="tabSource">Source</button>
+
+        <button class="saveButton" id="saveChanges" style="width: 10%">Save</button>
+    </div>
+
+    <div id="Overview" class="tabcontent">
+        <h2>Overview</h2>
+        <div class="page">
+            <h3>General Information</h3>
+            <p class="subtitle">This section describes general information about this web application.</p></br>
+
+            <table class="generalTable">
+                <tr>
+                    <td class="tableLeft">Identifier</td>
+                    <td class="tableRight" colspan=3>
+                        <input class="input" type="text" id="identifier" value="" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Name</td>
+                    <td><input class="input" type="text" id="name" value="" style="width: 98%;"/></td>
+                    <td class="tableMiddle">Version</td>
+                    <td><input class="input" type="text" id="version" value="" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Content</td>
+                    <td class="tableRight" colspan=3>
+                        <input type="text" class="input" id="content" value="" style="width: 88%;"/>
+                        <button class="button" id="contentSelect" style="width: 10%">Browse...</button>
+                    </td>
+                </tr>
+            </table>
+            </br></br>
+
+            <p class="subtitle">Icon</p>
+            <table class="iconTable">
+                <tr>
+                    <td class="tableLeft">Source</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="icon" value="" style="width: 88%;"/>
+                        <button class="button" id="iconSelect" style="width: 10%">Browse...</button>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Launcher icon</td>
+                    <td class="tableRight">
+                        <img id="iconImage"></img>
+                </tr>
+            </table>
+            </br></br>
+
+            <h3>Managing the Application</h3>
+            <p class="subtitle">This section describes specific information about this web application.</p></br>
+
+            <p class="subtitle">Author</p>
+            <table class="iconTable">
+                <tr>
+                    <td class="tableLeft">Author</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="author" value="" style="width: 100%;"/>
+                </tr>
+                <tr>
+                    <td class="tableLeft">E-mail</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="email" value="" style="width: 100%;"/>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Web Site</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="website" value="" style="width: 100%;"/>
+                </tr>
+            </table>
+            </br>
+
+            <p class="subtitle">License</p>
+            <table class="iconTable">
+                <tr>
+                    <td class="tableLeft">License</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="license" value="" style="width: 100%;"/>
+                </tr>
+                <tr>
+                    <td class="tableLeft">License URL</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="licenseURL" value="" style="width: 100%;"/>
+                </tr>
+            </table></br>
+
+            <p class="subtitle">Description</p>
+            <textarea id="description" cols="40" rows="5" style="width: 100%;"></textarea>
+            </br></br>
+
+            <h3>Managing the Application UI</h3>
+            <p class="subtitle">This section describes UI information about this web application.</p></br>
+
+            <p class="subtitle">Application UI</p>
+            <table class="iconTable">
+                <tr>
+                    <td class="tableLeft">Width</td>
+                    <td><input type="number" class="input" id="width" value="0" min="0" max="2000" style="width: 98%;"/></td>
+                    <td class="tableMiddle">Height</td>
+                    <td><input type="number" class="input" id="height" value="0" min="0" max="2000" style="width: 100%;"/></td>
+                </tr>
+                <tr>
+                    <td class="tableLeft">View Modes</td>
+                    <td class="tableRight" colspan=3>
+                        <select id="viewModes" style="width: 100%;">
+                            <option value="maximized">maximized</option>
+                            <option value="fullscreen">fullscreen</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            </br></br></br></br>
+        </div>
+    </div>
+
+    <div id="Features" class="tabcontent">
+        <h2>Features</h3>
+        <div class="page">
+            <h3>Managing the Features</h3>
+            <p class="subtitle">You can declare required software or hardware features.<br/>
+            This declaration can be used for application filtering on Tizen market place.<br/>
+            For more detailed description, please refer application filtering guideline.
+            </p></br>
+            <button class="button" id="removeFeature" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="addFeature" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <select multiple="multiple" id="featureSelector" style="width: 100%; height: 200px; background: white;"></select>
+        </div>
+    </div>
+
+    <div id="Privileges" class="tabcontent">
+        <h2>Privileges</h2>
+        <div class="page">
+            <h3>Managing the Privileges</h3>
+            <p class="subtitle">'tizen:privilege' element indicates what sensitive API or API groups this web application declares that it may attempt to access.
+            </p></br>
+            <button class="button" id="removePrivilege" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="addPrivilege" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <select multiple="multiple" id="privilegeSelector" style="width: 100%; height: 200px; background: white;"></select>
+        </div>
+    </div>
+
+    <div id="Localization" class="tabcontent">
+        <h2>Localization</h2>
+        <div class="page">
+            <h3>Managing the Localization</h3>
+            <p class="subtitle">Localization for selected node element of config.xml.
+            </p></br>
+            <div id="errorName" style="width: 100%; font-weight: bold; font-size: 15px; color: red;"></div></br>
+            <p class="subtitle">Name</p>
+            <button class="button" id="removeName" style="width: 10%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editName" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addName" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable nameTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Language</th>
+                    <th>Name</th>
+                </tr>
+            </table><br/>
+
+            <div id="errorDescription" style="width: 100%; font-weight: bold; font-size: 15px; color: red;"></div></br>
+            <p class="subtitle">Description</p>
+            <button class="button" id="removeDescription" style="width: 10%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editDescription" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addDescription" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable descriptionTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Language</th>
+                    <th>Description</th>
+                </tr>
+            </table><br/>
+
+            <div id="errorLicense" style="width: 100%; font-weight: bold; font-size: 15px; color: red;"></div></br>
+            <p class="subtitle">License</p>
+            <button class="button" id="removeLicense" style="width: 10%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editLicense" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addLicense" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable licenseTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Language</th>
+                    <th>License</th>
+                    <th>License URL</th>
+                </tr>
+            </table><br/>
+        </div>
+    </div>
+
+    <div id="Policy" class="tabcontent">
+        <h2>Policy</h2>
+        <div class="page">
+            <h3>Managing the Policy</h3>
+            <p class="subtitle">This section describes the URL nvigation and content security policy for web application.<br/>
+                                For more detailed description and usage of each field, please refer to "Tizen Web App Programming > Application Development Process > Setting Widget Configuration > Policy" guideline.
+            </p></br>
+            <table class="generalTable">
+                <tr>
+                    <td class="tableLeftWide">content-security-policy</td>
+                    <td class="tableRightNarrow">
+                        <input class="input" type="text" id="contentSecurityPolicy" value="" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeftWide">content-security-policy-report-only</td>
+                    <td class="tableRightNarrow">
+                        <input class="input" type="text" id="contentSecurityPolicyReportOnly" value="" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeftWide">allow-navigation</td>
+                    <td class="tableRightNarrow">
+                        <input class="input" type="text" id="allowNavigation" value="" style="width: 100%;"/>
+                    </td>
+                </tr>
+            </table><br/>
+            <p class="subtitle">Access</p>
+            <button class="button" id="removeAccess" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editAccess" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addAccess" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable accessTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Network URL</th>
+                    <th>Allow subdomain</th>
+                </tr>
+            </table>
+            <br/><br/><br/><br/>
+        </div>
+    </div>
+
+    <div id="Preferences" class="tabcontent">
+        <h2>Preferences</h2>
+         <div class="page">
+            <h3>Managing the Preferences</h3>
+            <p class="subtitle">'preference' elements are name value combination which can be set or retrieved through web application API.
+            </p></br>
+            <button class="button" id="removePreference" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editPreference" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addPreference" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable preferencesTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>Read-only</th>
+                </tr>
+            </table>
+            <br/><br/><br/><br/>
+        </div>
+    </div>
+
+    <div id="Tizen" class="tabcontent">
+        <h2>Tizen</h2>
+        <div class="page">
+            <h3>Managing the Tizen</h3>
+            <p class="subtitle">This section describes Tizen specific information about this web application.
+            </p></br>
+            <p class="subtitle">Application</p>
+            <table class="applicationTable">
+                <tr>
+                    <td class="tableLeft">ID</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="aplicationID" value="" style="width: 88%;" disabled/>
+                        <button class="button" id="generateID" style="width: 10%">Generate</button>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Required version</td>
+                    <td class="tableRight">
+                        <select id="requiredVersion" style="width: 50%;">
+                            <option value="4.0">4.0</option>
+                            <option value="3.0">3.0</option>
+                            <option value="2.4">2.4</option>
+                            <option value="2.3.2">2.3.2</option>
+                            <option value="2.3.1">2.3.1</option>
+                            <option value="2.3">2.3</option>
+                            <option value="2.2">2.2</option>
+                            <option value="2.1">2.1</option>
+                            <option value="2.0">2.0</option>
+                            <option value="1.0">1.0</option>
+                        </select>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Launch Mode</td>
+                    <td class="tableRight">
+                        <select id="launchMode" style="width: 50%;">
+                            <option value="none">none</option>
+                            <option value="caller">caller</option>
+                            <option value="single">single</option>
+                            <option value="group">group</option>
+                        </select>
+                </tr>
+                    <td class="tableLeft">Ambient support</td>
+                    <td class="tableRight">
+                        <select id="viewModes" style="width: 50%;" disabled>
+                            <option value="disable">disable</option>
+                        </select>
+                </tr>
+            </table>
+            </br></br>
+            <p class="subtitle">Content</p>
+            <table class="contentTable">
+                <tr>
+                    <td class="tableLeft">Source</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="contentTizen" value="" style="width: 100%;"/>
+                </tr>
+            </table>
+            </br></br>
+            <p class="subtitle">Setting</p>
+            <table class="contentTable">
+                <tr>
+                    <td class="tableLeft">Screen orientation</td>
+                    <td class="tableData">
+                        <select id="screenOrientation" style="width: 98%;">
+                            <option value="portrait">portrait</option>
+                            <option value="landscape">landscape</option>
+                            <option value="auto-rotation">auto-rotation</option>
+                        </select>
+                    </td>
+                    <td class="tableMiddle">Context Menu</td>
+                    <td>
+                        <select id="contextMenu" style="width: 100%;">
+                            <option value="enable">enable</option>
+                            <option value="disable">disable</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeft" style="line-height: normal;">Background support</td>
+                    <td class="tableData">
+                        <select id="backgroundSupport" style="width: 98%;">
+                            <option value="enable">enable</option>
+                            <option value="disable">disable</option>
+                        </select>
+                    </td>
+                    <td class="tableMiddle">Encryption</td>
+                    <td style="width: 40%;">
+                        <select id="encryption" style="width: 100%;">
+                            <option value="enable">enable</option>
+                            <option value="disable">disable</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeft">Install Location</td>
+                    <td class="tableData">
+                        <select id="installLocation" style="width: 98%;">
+                            <option value="auto">auto</option>
+                            <option value="internal-only">internal-only</option>
+                            <option value="prefer-external">prefer-external</option>
+                        </select>
+                    </td>
+                    <td class="tableMiddle">HW Key Event</td>
+                    <td>
+                        <select id="hwKeyEvent" style="width: 100%;">
+                            <option value="enable">enable</option>
+                            <option value="disable">disable</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br/><br/>
+
+            <h3>Background Category</h3>
+            <p class="subtitle">Background category types.
+            </p></br>
+            <button class="button" id="removeBgCategory" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="addBgCategory" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <select multiple="multiple" id="bgCategorySelector" style="width: 100%; height: 200px; background: white;"></select>
+            <br/><br/>
+
+            <h3>Application Control</h3>
+            <p class="subtitle">You can export your application functionalities by defining an application control.
+            </p></br>
+            <button class="button" id="removeAppControl" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editAppControl" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addAppControl" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable appControlTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Source</th>
+                    <th>Operation</th>
+                    <th>URI</th>
+                    <th>MIME</th>
+                    <th>Reload</th>
+                </tr>
+            </table>
+            <br/><br/>
+
+            <h3>Meta Data</h3>
+            <p class="subtitle">You can add user-defined key-value pairs to the application.
+            </p></br>
+            <button class="button" id="removeMetaData" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editMetaData" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addMetaData" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable metaDataTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </table>
+            <br/><br/>
+
+            <h3>Account</h3>
+            <p class="subtitle">You can add Account for the application.
+            </p></br>
+            <button class="button" id="removeAccount" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editAccount" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addAccount" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable accountTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Name</th>
+                    <th>Multiple account</th>
+                    <th>Icon</th>
+                    <th>Small Icon</th>
+                </tr>
+            </table>
+            <br/><br/>
+
+            <h3>Category</h3>
+            <p class="subtitle">You can add custom or predefined categories for the application.
+            </p></br>
+            <button class="button" id="removeCategory" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="addCategory" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <select multiple="multiple" id="categorySelector" style="width: 100%; height: 200px; background: white;"></select>
+            <br/><br/>
+
+            <h3>Service</h3>
+            <p class="subtitle">You can define Service for a running ECMA-262 script in the background.
+            </p></br>
+            <button class="button" id="removeService" style="width: 5%; margin-bottom: 5px;">Remove</button>
+            <button class="button" id="editService" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addService" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable serviceTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>ID</th>
+                    <th>Content</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                </tr>
+            </table>
+
+            <br/><br/>
+
+            <h3>Web Widget</h3>
+            <p class="subtitle">You can create widget applications, which are Tizen web applications shown on the home screen.
+            </p></br>
+            <button class="button" id="editWebWidget" style="width: 5%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <table class="dataTable webWidgetTable">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>ID</th>
+                    <th>Primary</th>
+                    <th>Label</th>
+                    <th>Content</th>
+                    <th>Preview</th>
+                </tr>
+            </table>
+
+            </br></br></br></br>
+        </div>
+    </div>
+
+    <div id="Source" class="tabcontent">
+        <h2>Source</h2>
+        <div class="page">
+            <textarea id="source" style="width: 100%;"></textarea>
+            </br></br></br>
+        </div>
+    </div>
+</div>

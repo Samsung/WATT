@@ -1,0 +1,6 @@
+[
+    "Bad character “%” after “<”. Probable cause: Unescaped “<”. Try escaping it as “&lt;”.",
+    "Non-space characters found without seeing a doctype first. Expected “<!DOCTYPE html>”.",
+    "Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.",
+    "Element “head” is missing a required instance of child element “title”."
+]

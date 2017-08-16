@@ -1,0 +1,473 @@
+#!/usr/bin/env python
+
+import argparse, os, pkg_resources, platform, subprocess, select, sys, tarfile
+
+class Log:
+  level = 0
+
+  @classmethod
+  def set_level(cls, l):
+    cls.level = l
+
+  @classmethod
+  def err(cls, s, newline=True):
+    cls.__write(3, s, newline)
+  @classmethod
+  def warn(cls, s, newline=True):
+    cls.__write(2, s, newline)
+  @classmethod
+  def info(cls, s, newline=True):
+   cls. __write(1, s, newline)
+  @classmethod
+  def trace(cls, s, newline=True):
+   cls. __write(0, s, newline)
+
+  @classmethod
+  def __write(cls, l, s, newline):
+    if cls.level > l: return
+    # refer https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+    style = ['', '\033[1;34m', '\033[1;32m', '\033[1;31m']
+    RESET = '\033[0m'
+    sys.stdout.write(style[l] + s + RESET + ('\n' if newline else ''))
+    sys.stdout.flush()
+
+def import_additional():
+  additional_packages = ['psutil', 'requests']
+  for p in additional_packages:
+    try:
+      m = __import__(p)
+    except ImportError:
+      Log.info('Install %s packages. (sudo privileges required)' % p)
+      subprocess.call(['sudo', 'pip', 'install', p])
+      m = __import__(p)
+    globals()[p] = m
+import_additional()
+
+SERVICE = 'WATT'
+
+root_path = os.path.abspath(os.path.dirname(__file__))
+tool_path = os.path.join(root_path, 'tools')
+
+os_name = platform.system()
+if os_name == 'Linux':
+  linux_dist = platform.linux_distribution()
+  os_name = linux_dist[0]
+
+if os_name != 'Ubuntu' and os_name != 'Darwin':
+  Log.err('Unsupport %s os' % os_name)
+  sys.exit(1)
+
+def install_nodejs():
+  if os_name == 'Darwin':
+    Log.info('Install nodejs with "brew"')
+    cmds = ['brew update', 'brew install node']
+  else:
+    Log.info('Install nodejs with "apt-get" (sudo privileges required)')
+    cmds = ['curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -', \
+      'sudo apt-get install -y nodejs']
+
+  try:
+    for cmd in cmds: subprocess.check_call(cmd, shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during install nodejs.')
+    return False
+  return True
+
+def get_version(s):
+  v = pkg_resources.parse_version(s).base_version.split('!')[-1].split('.')
+  return map(int, v)
+
+def ensure_nodejs():
+  status = subprocess.call('which node > /dev/null', shell=True)
+  if status != 0 and not install_nodejs():
+    Log.err('''Fail to install nodejs. Please install nodejs manually.
+(https://nodejs.org/en/download/)''')
+    return False
+  ver = get_version(subprocess.check_output('node --version', shell=True))
+  active = 6
+  if ver[0] < active:
+    Log.err('''Current nodejs is to old to run this.
+Please remove nodejs and install newer version nodejs or re-run this.''')
+    return False
+  if ver[0] != active:
+    Log.warn('''Current nodejs is not active lts version.
+(https://github.com/nodejs/LTS#lts-schedule1)''')
+  return True
+
+def install_grunt(path):
+  try:
+    pre = subprocess.check_output('npm config get prefix', shell=True).strip()
+    subprocess.check_call('npm config set prefix %s' % path, shell=True)
+    subprocess.check_call('npm install -g grunt-cli', shell=True)
+  except:
+    Log.err('Exception is occurred during install grunt')
+    return False
+  finally:
+    if pre == 'undefined' or pre == '/usr':
+      subprocess.check_call('npm config delete prefix', shell=True)
+    elif isinstance(pre, str):
+      subprocess.check_call('npm config set prefix %s' % pre, shell=True)
+  return True
+
+def install_nodejs_dependencies(path, mode, option):
+  dest = os.path.join(path, 'node_modules')
+  if mode == 'quick':
+    if os.path.isdir(dest):
+      Log.info('Skip installing nodejs dependencies of %s in quick mode' % path)
+      return True
+  if mode == 'reinstall':
+    if os.path.isdir(dest):
+      Log.info('Remove previously dependencies of %s in reinstall mode' % path)
+      subprocess.call('rm -rf %s;git checkout %s 2>/dev/null' % (dest, dest), shell=True)
+  Log.info('Install nodejs dependencies in %s' % path)
+  cmd = 'cd %s;npm install %s && npm ls --prod --dev>/dev/null' % (path, option)
+  try:
+    subprocess.check_call(cmd, shell=True)
+  except:
+    Log.err('''Fail to install nodejs dependencies of %s.
+(If your network works in proxy, then you may need to set some keys of "npm config".)
+(proxy, https-proxy, strict-ssl, cafile, etc.) (https://docs.npmjs.com/misc/config)''' % path)
+    return False
+  return True
+
+def prepare_nodejs(mode):
+  Log.info('Check nodejs')
+  if not ensure_nodejs():
+    return False, ''
+  Log.info('Check grunt')
+  npm_path = os.path.join(tool_path, 'npm')
+  bin_path = os.path.join(npm_path, 'bin')
+  status = subprocess.call('which grunt > /dev/null', shell=True)
+  if status != 0:
+    if not os.path.isfile(os.path.join(bin_path, 'grunt')) \
+        and not install_grunt(npm_path):
+      Log.err('Fail to install grunt.')
+      return False, ''
+
+  install_option = []
+  ver = get_version(subprocess.check_output('npm --version', shell=True))
+  if ver[0] >= 3:
+    install_option.append('--legacy-bundling')
+  pathlist = ['.',
+    'libs/brackets-server/brackets-src',
+    'libs/brackets-server/brackets-src/src/LiveDevelopment/MultiBrowserImpl/transports/node',
+    'libs/brackets-server',
+    'libs/brackets-server/embedded-ext/project/node',
+    'libs/brackets-server/embedded-ext/importfile/node',
+    'libs/brackets-server/embedded-ext/tizen-profile/node']
+  install_option = ' '.join(install_option)
+  for path in pathlist:
+    if not install_nodejs_dependencies(path, mode, install_option):
+      Log.err('Fail to install dependencies in %s' % path)
+      return False, ''
+  return True, bin_path
+
+def install_mongodb():
+  supported = ('trusty', 'xenial')
+
+  if os_name == 'Darwin':
+    Log.info('Install mongodb with "brew"')
+    cmds = ['brew update', 'brew install mongodb']
+  elif (os_name == 'Ubuntu') and (linux_dist[2] in supported):
+    Log.info('Install mongodb with "apt-get" (sudo privileges required)')
+    cmds = ['sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80' \
+      + ' --recv 0C49F3730359A14518585931BC711F9BA15703C6', '', \
+      'sudo apt-get update', 'sudo apt-get install -y mongodb-org']
+    if linux_dist[2] == 'trusty':
+      cmds[1] = 'echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu' \
+        + ' trusty/mongodb-org/3.4 multiverse"' \
+        + ' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list'
+    else:
+      cmds[1] = 'echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/' \
+        + 'ubuntu xenial/mongodb-org/3.4 multiverse"' \
+        + ' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list'
+  else:
+    Log.err('Cannot install mongodb automatically in %s(%s)' \
+      % (os_name, linux_dist[2]))
+    return False
+
+  try:
+    for cmd in cmds: subprocess.check_call(cmd, shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during install mongodb.')
+    return False
+  return True
+
+def is_run_process(name):
+  for p in psutil.process_iter():
+    if p.name() == name:
+      return True
+  return False
+
+def check_mongodb():
+  Log.info('Check mongodb service')
+  if is_run_process('mongod'):
+    Log.info('mongodb service is started already.')
+    return True
+
+  Log.warn('mongodb service is not started.')
+  status = subprocess.call('which mongod > /dev/null', shell=True)
+  if status != 0 and not install_mongodb():
+    Log.err('''Fail to install mongodb. Please install mongodb manually.
+(https://docs.mongodb.com/manual/installation/)''')
+    return False
+
+  Log.info('Try to start mongodb service. (sudo privileges required)')
+  try:
+    if os_name == 'Ubuntu':
+      subprocess.check_call(['sudo', 'service', 'mongod', 'start'])
+    else:
+      subprocess.Popen(['mongod', '--dbpath', root_path])
+  except subprocess.CalledProcessError:
+    Log.err(u'''Fail to start mongodb service.
+If use mongodb 3.2 version in ubuntu 16.04, then check systemd service name.
+(https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/#ubuntu-16-04-only-create-systemd-service-file)''')
+    return False
+  return True
+
+def download_file(url, dest_path):
+  parent_dir = os.path.dirname(dest_path)
+  file_object = None
+  try:
+    if not os.path.isdir(parent_dir): os.makedirs(parent_dir)
+    res = requests.get(url)
+    file_object = open(dest_path, 'wb')
+    file_object.write(res.content)
+  except requests.exceptions.SSLError:
+    Log.err(u'''SSLError is occured.
+Please check REQUESTS_CA_BUNDLE environ variable for certificate.
+(eq. set /etc/ssl/certs/ca-certificates.crt)''')
+    return False
+  except:
+    Log.err('Fail to download %s' % url)
+    return False
+  finally:
+    if file_object: file_object.close()
+  return True
+
+def preinstall_emsdk():
+  if os_name == 'Ubuntu':
+    cmds = ['sudo apt-get update', 'sudo apt-get install -y build-essential cmake git-core']
+    try:
+      for cmd in cmds: subprocess.check_call(cmd, shell=True)
+    except subprocess.CalledProcessError:
+      Log.err('Exception is occurred during pre-install.')
+      return False
+  return True
+
+def ensure_emsdk(emsdk_path):
+  bin_path = os.path.join(emsdk_path, 'emsdk')
+  if os.path.isfile(bin_path): return True
+  if not preinstall_emsdk(): return False
+
+  work_path = os.path.dirname(emsdk_path)
+  Log.warn('Download emsdk tool')
+  url = 'https://s3.amazonaws.com/mozilla-games/emscripten/releases/'
+  file_name = 'emsdk-portable.tar.gz'
+  dest_path = os.path.join(work_path, file_name)
+  if not download_file(url + file_name, dest_path): return False
+
+  tar = tarfile.open(dest_path)
+  tar.extractall(work_path)
+  tar.close()
+  os.remove(dest_path)
+  portable_path = os.path.join(work_path, 'emsdk-portable')
+  os.rename(portable_path, emsdk_path)
+  return True
+
+def get_emscripten_path(version):
+  Log.info('Check emscripten')
+  emsdk_path = os.path.join(tool_path, 'emsdk')
+  emscripten_path = os.path.join(emsdk_path, 'emscripten', version)
+  if platform.machine().endswith('64'):
+    clang_version = 'clang-e%s-64bit' % version
+    clang_path = os.path.join(emsdk_path, 'clang', 'e%s_64bit' % version)
+  else:
+    clang_version = 'clang-tag-e%s-32bit' % version
+    clang_path = os.path.join(emsdk_path, 'clang', 'tag-e%s' % version)
+  os.putenv('LLVM', clang_path)
+  if os.path.isdir(emscripten_path): return emscripten_path
+
+  if not ensure_emsdk(emsdk_path):
+    Log.err('''Fail to install emscripten. Please install emscripten manually.
+(https://kripken.github.io/emscripten-site/docs/getting_started/downloads.html)''')
+    return ''
+
+  Log.warn('Download emscripten. (version:%s). It takes a lot of time.' % version)
+  bin_path = os.path.join(emsdk_path, 'emsdk')
+  cmds = [
+    '%s update-tags' % bin_path,
+    '%s install %s emscripten-%s' % (bin_path, clang_version, version)
+  ]
+  try:
+    for cmd in cmds: subprocess.check_call(cmd, shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during download emscripten.')
+    return ''
+  return emscripten_path
+
+def get_tizen_path():
+  path = os.path.join(os.path.expanduser('~'), 'tizen-studio')
+  tizen_path = os.path.join(path, 'tools', 'ide', 'bin', 'tizen')
+  pkg_manager = os.path.join(path, 'package-manager', 'package-manager-cli.bin')
+  if not os.path.isdir(path) or not os.path.isfile(tizen_path) or not os.path.isfile(pkg_manager):
+    Log.warn('''Can not find tizen studio.
+Please ensure to execute tizen command if use WGT packaging.''')
+    return ''
+  subprocess.Popen('%s show-pkgs | grep "^i" | grep NativeCLI > /dev/null || %s install NativeCLI'
+    % (pkg_manager, pkg_manager), shell=True)
+  return os.path.dirname(tizen_path)
+
+def run_service(verbose):
+  print_msg = True
+  need_rebuild = False
+  watch_srv = None
+  srv_cmd = ['node', 'app.js']
+  rlist = [sys.stdin]
+  devnull = open(os.devnull, 'w')
+
+  Log.info('Build if necessary.')
+  try:
+    subprocess.check_call('cd libs/brackets-server/brackets-dist 2>/dev/null' \
+      '|| { cd libs/brackets-server; grunt build; }', shell=True)
+  except:
+    Log.err('Fail to build. Please try rerun after fix build break.')
+    return 1
+
+  if verbose:
+    out = None
+    err = None
+  else:
+    out = devnull
+    err = subprocess.PIPE
+
+  service = subprocess.Popen(srv_cmd, stdout=out, stderr=err)
+  Log.info('%s is started' % SERVICE)
+
+  try:
+    while True:
+      if print_msg:
+        Log.info('Enter command (build | b, deps | d, rerun | r, watch | w, exit | x)\n> ', False)
+        print_msg = False
+      ready_rlist, _, _ = select.select(rlist, [], [], 5)
+      if watch_srv and watch_srv.stdout in ready_rlist:
+        msg = watch_srv.stdout.readline().strip()
+        if msg.startswith('[WatchEvent]'):
+          if verbose: Log.trace(msg)
+          if not need_rebuild: Log.info('File changing is detected')
+          need_rebuild = True
+      if sys.stdin in ready_rlist:
+        print_msg = True
+        cmd_list = sys.stdin.readline().strip().lower().split()
+        cmd = cmd_list[0] if len(cmd_list) > 0 else ''
+        if cmd == 'build' or cmd == 'b':
+          try:
+            subprocess.check_call('cd libs/brackets-server; grunt build', shell=True)
+          except:
+            Log.err('Fail to build. Please try rerun after fix build break.')
+          need_rebuild = False
+        elif cmd == 'deps' or cmd == 'd':
+          if len(cmd_list) == 1:
+            Log.info('mode value is missing. It will use update mode.')
+            cmd_list.append('update')
+          prepare_nodejs(cmd_list[1])
+        elif cmd == 'rerun' or cmd == 'r':
+          if (need_rebuild):
+            Log.warn('Need rebuild')
+            try:
+              subprocess.check_call('cd libs/brackets-server; grunt build', shell=True)
+            except:
+              Log.err('Fail to build. Please try rerun after fix build break.')
+              continue
+            need_rebuild = False
+          service.terminate()
+          service.communicate()
+          service = subprocess.Popen(srv_cmd, stdout=out, stderr=err)
+          Log.info('%s is restarted' % SERVICE)
+        elif cmd == 'watch' or cmd == 'w':
+          watch_srv = subprocess.Popen(['grunt', 'watch'], stdout=subprocess.PIPE, stderr=err)
+          rlist.append(watch_srv.stdout)
+          Log.info('watch service start (File changing is not handled in initialize time)')
+        elif cmd == 'exit' or cmd == 'x':
+          break
+        else:
+          Log.warn('Invalid command (%s) was entered.' % cmd)
+      pid, _ = os.waitpid(service.pid, os.WNOHANG)
+      if pid == service.pid:
+        Log.err('%s needs restarting because of implicityly termination' % SERVICE)
+        if service.stderr and (not service.stderr.closed):
+          Log.trace(service.stderr.read())
+        service = subprocess.Popen(srv_cmd, stdout=out, stderr=err)
+  except KeyboardInterrupt:
+    pass
+  finally:
+    if watch_srv:
+      watch_srv.terminate()
+      watch_srv.communicate()
+    service.terminate()
+    service.communicate()
+
+  if service.returncode != 0:
+    Log.err('%s is terminated with abnormal code.(%d)' \
+      % (SERVICE, service.returncode))
+    if service.stderr and (not service.stderr.closed):
+      Log.trace(service.stderr.read())
+  return service.returncode
+
+def main():
+  parser = argparse.ArgumentParser(description=('Launch %s' % SERVICE))
+  parser.add_argument('-v', '--verbose', action='store_true',
+    help='If set, print message from %s' % SERVICE)
+  parser.add_argument('-d', '--dry', action='store_true',
+    help='If set, do dry run')
+  parser.add_argument('-n', '--npm', choices=['quick', 'update', 'reinstall'],
+    default='quick', help='Check mode for installing dependency packages')
+  group = parser.add_mutually_exclusive_group()
+  group.add_argument('-ep', '--emscripten_path',
+    help='If set, use the emscripten at specified path')
+  group.add_argument('-ev', '--emscripten_version', default='1.37.16',
+    help='If set, use the emscripten with specified version')
+  args = parser.parse_args()
+
+  Log.info('Update submodules')
+  if (subprocess.call('git submodule update --init --recursive', shell=True)) != 0:
+    Log.err('Fail to initialize or update submodules.')
+    return 1
+
+  ret, grunt_path = prepare_nodejs(args.npm)
+  if not ret:
+    return 1
+
+  if not check_mongodb():
+    return 1
+
+  if args.emscripten_path == None or not os.path.isdir(args.emscripten_path):
+    if args.emscripten_path != None:
+      Log.warn('emscripten path (%s) is not valid.' % args.emscripten_path)
+    emscripten_path = ''
+  else:
+    emscripten_path = args.emscripten_path
+  if emscripten_path == '':
+    emscripten_path = get_emscripten_path(args.emscripten_version)
+    if emscripten_path == '': return 1
+
+  Log.info('Use emscripten at %s' % emscripten_path)
+  pathlist = [grunt_path, emscripten_path, os.path.join(tool_path, 'WebIDLBinder'), '']
+  tizen_path = get_tizen_path()
+  if tizen_path != '':
+    pathlist.insert(-1, tizen_path)
+  # Temporary path for API-Grepper
+  pathlist.insert(-1, os.path.join(tool_path, 'api_grepper', '0.0.1'))
+  os.putenv('PATH', os.pathsep.join(pathlist) + os.environ['PATH'])
+
+  # Path for NACL_SDK_ROOT
+  os.putenv('NACL_SDK_ROOT', os.path.join(tool_path, 'nacl_sdk', 'pepper_49'))
+
+  if args.dry:
+    Log.warn('Skip run service')
+    return 0
+
+  return run_service(args.verbose)
+
+if __name__ == '__main__':
+  returncode = main()

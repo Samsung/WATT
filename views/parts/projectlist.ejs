@@ -1,0 +1,33 @@
+<% projects.forEach(function (project) { %>
+  <li class="item">
+    <div class="product-img">
+      <img class="project-image" alt="No Image" src="/projects/<%= project._id %>/icon.png"  onerror="this.src='';"/>
+    </div>
+    <div class="product-info">
+      <a href="/brackets/<%= project._id %>" target="_blank" class="project-title"><%= project.name %></a>
+      <span class="project-description"><%= project.description %></span>
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit-project" data-backdrop="false" data-whatever="<%= project._id %>">Edit</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a data-toggle="modal" data-target="#export-project" data-backdrop="false" data-whatever="<%= project._id%>">Export project</a></li>
+          <li><a data-toggle="modal" data-target="#delete-project" data-backdrop="false" data-whatever="<%= project._id%>">Delete Project</a></li>
+        </ul>
+      </div>
+      <span class="product-description">
+        <div class="row">
+          <div class="col-md-2"> Type: <%= project.type %></div>
+          <% if (project.type === "web") { %>
+          <div class="col-md-2"> Profile: <%= project.profile %> <%= project.version %> </div>
+          <% } else { %>
+          <div class="col-md-2"></div>
+          <% } %>
+          <div class="col-md-4"> Created: <%= project.created %> </div>
+        </div>
+      </span>
+    </div>
+  </li>
+<% });%>

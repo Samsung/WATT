@@ -1,0 +1,56 @@
+<!-- modal for new project -->
+<div class="modal fade" id="edit-project" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Project</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <span>Project name: </span>
+          <input class="form-control" id="edit-project-name" placeholder="Type Project Name" type="text" maxlength="20">
+        </div>
+        <div class="form-group">
+          <span>Project description: </span>
+          <input class="form-control" id="edit-project-description" placeholder="Type Project Description" type="text" maxlength="40">
+        </div>
+        <div class="form-group">
+          <span>Project type: </span>
+          <input class="form-control" id="edit-project-type" type="text" readonly>
+        </div>
+        <div class="form-group" id="edit-project-profile" style="display:none;">
+          <span>Profile: </span>
+          <div class="btn-group">
+            <button id="edit-profile" type="button" class="btn btn-default">mobile</button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul id="edit-profile-dropdown" class="dropdown-menu">
+              <li>mobile</li>
+              <li>wearable</li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group" id="edit-project-version" style="display:none;">
+          <span>Version: </span>
+          <div class="btn-group">
+            <button id="edit-version" type="button" class="btn btn-default">4.0</button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul id="edit-version-dropdown" class="dropdown-menu">
+              <li>4.0</li>
+              <li>3.0</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancel</button>
+        <button id="edit-save-button" type="button" class="btn btn-default btn-flat">SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>

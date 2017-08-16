@@ -1,0 +1,18 @@
+{
+    "name": "mskocik.brackets.icons",
+    "title": "Brackets Tree Icons",
+    "description": "File & folder icons in Brackets' file tree.",
+    "homepage": "https://github.com/mskocik/brackets-tree-icons",
+    "version": "1.2.2",
+    "author": "Martin Skocik (https://github.com/mskocik)",
+    "license": "MIT",
+    "keywords": [
+        "icons",
+        "file",
+        "tree",
+        "sidebar"
+    ],
+    "engines": {
+        "brackets": ">=1.8.x"
+    }
+}

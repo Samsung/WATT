@@ -1,0 +1,10 @@
+{
+  "name": "import",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ImportDomain.js",
+  "dependencies": {
+    "fs-extra": "^3.0.1"
+  },
+  "author": "Hunseop Jeong"
+}

@@ -1,0 +1,15 @@
+{
+    "name": "importfile",
+    "title": "Brackets Import file Dialog",
+    "description": "Import file",
+    "version": "0.0.1",
+    "author": "HUnseop Jeong | hs85.jeong@samsung.com",
+    "license": "MIT",
+    "i18n": [
+        "en",
+        "ko"
+    ],
+    "engines": {
+        "brackets": ">=0.34.0"
+    }
+}

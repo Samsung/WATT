@@ -1,0 +1,34 @@
+<!-- modal for export project -->
+<div class="modal fade" id="export-project" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Export Project</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row text-center">
+          <h4>Select target to export project</h4>
+        </div>
+        <br>
+          <ul id="export-list">
+            <li class="btn btn-app" type="web">
+              <img src="image/web.png"/>
+              Web
+            </li>
+            <li class="btn btn-app" type="wasm">
+              <img src="image/share.png"/>
+              Share
+            </li>
+            <li class="btn btn-app" type="web">
+              <img src="image/tizen.png"/>
+              Tizen
+            </li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancel</button>
+        <button id="export-button" type="button" class="btn btn-default btn-flat">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Calculator",
+    "description": "Native code for simple calculation",
+    "src": "Calculator",
+    "icon": "icon.png",
+    "language": "C++",
+    "type": "wasm"
+  },
+  {
+    "name": "Hello World",
+    "description": "Native code to print 'Hello World'",
+    "src": "HelloWorld",
+    "icon": "icon.png",
+    "language": "C",
+    "type": "wasm"
+  },
+  {
+    "name": "Matrix",
+    "description": "Native code to calculate matrix coordinates.",
+    "src": "Matrix",
+    "icon": "icon.png",
+    "language": "C++",
+    "type": "wasm"
+  },
+  {
+    "name": "Hello World",
+    "description": "Print 'Hello World' using compiled 'Hello World' WASM module",
+    "src": "HelloWorld",
+    "icon": "icon.png",
+    "type": "web"
+  },
+  {
+    "name": "Matrix",
+    "description": "Move, scale and rotate rectangle using compiled 'Matrix' WASM module",
+    "src": "Matrix",
+    "icon": "icon.png",
+    "type": "web"
+  },
+  {
+    "name": "Unreal",
+    "description": "Sample application to use Unreal API using Unreal WASM module",
+    "src": "Unreal",
+    "icon": "icon.png",
+    "type": "web"
+  },
+  {
+    "name": "Wash Machine",
+    "description": "Spin many objects like as Wash Machine using Ammo.js and Three.js",
+    "src": "WashMachine",
+    "icon": "icon.png",
+    "type": "web"
+  }
+]

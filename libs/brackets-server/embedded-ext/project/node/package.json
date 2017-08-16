@@ -1,0 +1,10 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "project menu",
+  "dependencies": {
+    "replace-ext": "^1.0.0",
+    "tmp": ">=0.0.31"
+  },
+  "license": "Apache-2.0"
+}

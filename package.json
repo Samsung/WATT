@@ -1,0 +1,65 @@
+{
+  "name": "watt",
+  "version": "0.4.2",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js",
+    "test": "nyc --reporter=text --reporter=html mocha -- --timeout 10000 ./test ./libs/brackets-server/embedded-ext/project/test"
+  },
+  "nyc": {
+    "exclude": [
+      "libs/*.js",
+      "libs/brackets-server/lib/**",
+      "(**/|)test/**"
+    ]
+  },
+  "engines": {
+    "node": ">6.9.5"
+  },
+  "dependencies": {
+    "admin-lte": "^2.3.11",
+    "async": "^2.3.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.16.0",
+    "bootstrap": "^3.3.7",
+    "config": "^1.25.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "creative": "https://github.com/BlackrockDigital/startbootstrap-creative/archive/v3.3.7+1.tar.gz",
+    "debug": "~2.6.0",
+    "decompress-unzip": "^4.0.1",
+    "ejs": "~2.5.5",
+    "express": "~4.14.1",
+    "express-session": "^1.15.1",
+    "font-awesome": "^4.7.0",
+    "fs-extra": "^2.0.0",
+    "grunt": "^1.0.1",
+    "image-to-uri": "^1.0.0",
+    "jquery": "^3.2.1",
+    "jquery.easing": "^1.4.1",
+    "magnific-popup": "^1.1.0",
+    "mongoose": "^4.8.4",
+    "morgan": "~1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "scrollreveal": "^3.3.6",
+    "serve-favicon": "~2.3.2",
+    "socket.io": "^2.0.3",
+    "web-app-manifest-validator": "^1.0.0",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "grunt-contrib-csslint": "^2.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^20.0.0",
+    "grunt-gitnewer": "^1.0.5",
+    "grunt-html": "^8.4.0",
+    "load-grunt-tasks": "^3.5.2",
+    "mocha": "^3.2.0",
+    "nyc": "^11.0.2",
+    "tmp": "^0.0.31"
+  }
+}

@@ -1,0 +1,28 @@
+<div class="compile-file-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{ExtensionStrings.DIALOG_TITLE}}</h1>
+    </div>
+    <div class="modal-body">
+        <div class="field-container input-field">
+          <label class="npd-label" for="compile-file">{{ExtensionStrings.COMPILE_FILE_lABEL}}</label>
+          <input type="text" id="compile-file" readonly/>
+          <button id="change-file" class="dialog-button btn">{{ExtensionStrings.CHANGE}}</button>
+        </div>
+        <div class="field-container input-field">
+          <label id="compile-type" class="npd-label">{{ExtensionStrings.CHOOSE_COMPILE_TYPE_LABEL}}</label>
+          <select id="compile-type-option" required>
+              <option id="c">{{ExtensionStrings.C_COMPILE_OPTION_LABEL}}</option>
+              <option id="c++">{{ExtensionStrings.CPP_COMPILE_OPTION_LABEL}}</option>
+              <option id="cmake">{{ExtensionStrings.CMAKE_COMPILE_OPTION_LABEL}}</option>
+          </select>
+        </div>
+        <div class="field-container input-field">
+          <label class="npd-label" for="compile-option">{{ExtensionStrings.COMPILE_OPTION_LABEL}}</label>
+          <input type="text" id="compile-option"/>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">{{Strings.CANCEL}}</button>
+        <button class="dialog-button btn primary" data-button-id="ok">{{Strings.OK}}</button>
+    </div>
+</div>

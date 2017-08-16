@@ -1,0 +1,161 @@
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    height: 37px;
+    background-color: #fff;
+}
+
+div.tab .tablinks {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: 0.3s;
+}
+
+div.tab .tablinks:hover {
+    background-color: #e0f0fa;
+}
+
+div.tab .tablinks.active {
+    background-color: #e0f0fa;
+}
+
+.tabcontent {
+    display: none;
+    height: 100%;
+    overflow-x: scroll;
+    padding: 12px 150px 0px 150px;
+}
+
+.tableLeft {
+    width: 10%;
+    font-weight: bold;
+}
+
+.tableLeftWide {
+    width: 20%;
+    font-weight: bold;
+}
+
+.tableLeftPopup {
+    width: 20%;
+    font-weight: bold;
+}
+
+.tableMiddle {
+    width: 10%;
+    font-weight: bold;
+}
+
+.tableRight {
+    width: 90%;
+}
+
+.tableRightNarrow {
+    width: 80%;
+}
+
+.tableData {
+    width: 40%;
+}
+
+.generalTable {
+    width: 100%;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.iconTable, .applicationTable, .contentTable {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: separate;
+    padding: 10px;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.dataTable {
+    width: 100%;
+    background-color: white;
+}
+
+.dataTable th, .dataTable td {
+    border: 1px solid #ddd;
+    height: 30px;
+}
+
+.dataTable select {
+    margin-bottom: 0px;
+    background: none;
+}
+
+.dataTable tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.dataTable input[type=text] {
+    background-color: inherit;
+    height: 28px !important;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.page {
+    border-top: 1px solid black;
+}
+
+.input {
+    height: 28px !important;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+}
+
+.button, .saveButton {
+    background-color: #fff;
+    border: 1px solid black;
+    color: black;
+    height: 28px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover, .saveButton:hover {
+    background-color: #e0f0fa;
+    color: black;
+}
+
+.button:active, .saveButton:active {
+    background-color: #008aee;
+    color: white;
+}
+
+.subtitle {
+    font-size: 15px;
+}
+
+.saveButton {
+    float: right;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+.filterSearch, .customPrivilege {
+    width: 100%;
+    background: white;
+}
+
+.CodeMirror {
+    height: 100%;
+}
+
+.CodeMirror-gutter, .CodeMirror-lines {
+    background-color: white;
+}

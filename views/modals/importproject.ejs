@@ -1,0 +1,47 @@
+<!-- modal for new project -->
+<div class="modal fade" id="import-project" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Import Project</h4>
+      </div>
+      <div class="modal-body">
+        <div id="select-file-url">
+          <ul id="import-tabs" class="nav nav-tabs">
+            <li role="presentation" class="active"><a id="import-file-button">FILE</a></li>
+            <li role="presentation"><a id="import-url-button">URL</a></li>
+          </ul><br>
+          <div id="import-file-tab">
+            <div class="field-container input-field import-file-box">
+              <span> From archive file:</span>
+              <input id="import-file-input" class="import-file-input" value="Select file" readonly>
+              <label for="import-file">Browse</label>
+              <input type="file" id="import-file" accept=".wgt,.zip"/>
+            </div>
+          </div>
+          <div id="import-url-tab" style="display:none;">
+            Work In Progress..
+          </div>
+        </div><br>
+        <div id="import-project-property" style="display:none;">
+          <div class="form-group">
+            <span>Project name: </span>
+            <input class="form-control" id="import-project-name" placeholder="Type Project Name" type="text" maxlength="20">
+          </div>
+          <div class="form-group">
+            <span>Project description: </span>
+            <input class="form-control" id="import-project-description" placeholder="Type Project Description" type="text" maxlength="40">
+          </div>
+        </div>
+      </div><br><br>
+      <div class="modal-footer">
+        <div class="btn-group" role="group">
+          <button id="import-back-button" type="button" class="btn btn-default btn-flat" disabled="disabled">&lt; Back</button>
+          <button id="import-next-button" type="button" class="btn btn-default btn-flat">Next &gt;</button>
+        </div>
+        <button id="import-cancel-button" type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancel</button>
+        <button id="import-button" type="button" class="btn btn-default btn-flat" disabled="disabled">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>

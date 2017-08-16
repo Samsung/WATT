@@ -1,0 +1,103 @@
+@font-face {
+	font-family: 'icomoon';
+	font-weight: normal;
+	font-style: normal;
+	src: url(../fonts/icomoon.woff) format('woff');
+}
+.file-icon:before {
+	content: attr(data-icon);
+	font-family: "icomoon";
+	text-align: center;
+	width: 20px;
+	text-shadow: none;
+	text-decoration: none;
+	vertical-align: middle;
+	display: inline-block;
+	border-left: 2px solid transparent;
+}
+.jstree-open > a .file-icon:before {
+	content: '\e001';
+}
+.file-icon {
+	color: #94a3a7;
+}
+.jstree-icon {
+	display: none !important;
+}
+.jstree-icons ul li {
+	position: relative;
+}
+.jstree-icons ul li:before {
+	content: '';
+	width: 6px;
+	height: 1px;
+	position: absolute;
+	top: 12px;
+	left: -6px;
+	border-bottom: 1px dashed rgba(144, 144, 144, 0.65);
+}
+.jstree ins.file-icon {
+	position: relative;
+	margin-left: -20px !important;
+	margin-right: 5px;
+	background: none;
+}
+ul li.jstree-open> ul {
+	margin-left: 10px;
+	position: relative;
+	padding-left: 10px;
+}
+li.jstree-open> ul:before {
+	content: '';
+	width: 1px;
+	position: absolute;
+	top:0;
+	bottom: 11px;
+	left: 0;
+	border-left: 1px dashed rgba(144, 144, 144, 0.65);
+/*	background-color: #94a3a7;*/
+}
+.jstree-brackets li > a {
+	padding-bottom: 0;
+}
+li.jstree-open > a > div,
+li.jstree-open > div,
+li.jstree-closed > a > div,
+li.jstree-closed > div,
+li.jstree-leaf > a > div,
+li.jstree-leaf > div
+{
+	width: 20px !important;
+}
+#project-files-container .jstree-brackets .jstree-rename-input {
+	height: 20px;
+	margin-bottom: 0px;
+}
+#working-set-list-container .file-icon {
+	padding-right: 2px;
+}
+#project-files-container a {
+	padding-left: 0px !important;
+}
+/* brackets git extension correlation */
+.git-modified a, .git-new a {
+	position: relative;
+}
+.git-new a:before {
+	background: #91cc41;
+}
+.git-modified a:before {
+	background: #e3b551;
+}
+.jstree-brackets .git-new a:before,
+.jstree-brackets .git-modified a:before {
+	left: -9999px;
+}
+.jstree-brackets li.git-new .file-icon:before,
+.jstree-brackets li.git-modified .file-icon:before
+{
+	border-left: 2px solid #91cc41;
+}
+.jstree-brackets li.git-modified .file-icon:before {
+	border-color: #e3b551;
+}

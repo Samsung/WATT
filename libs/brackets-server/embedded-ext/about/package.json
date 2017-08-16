@@ -1,0 +1,17 @@
+{
+    "name": "about watt",
+    "title": "About WATT",
+    "description": "about watt",
+    "version": "0.0.1",
+    "private": true,
+    "preferGlobal": "true",
+    "author": "KwangHyuk Kim | hyuki.kim@samsung.com",
+    "license": "MIT",
+    "i18n": [
+        "en",
+        "ko"
+    ],
+    "engines": {
+      "brackets": ">=0.34.0"
+    }
+}

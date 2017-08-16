@@ -1,0 +1,4 @@
+{
+    "DBHost": "mongodb://localhost:27017/watt",
+    "PORT": 3000
+}

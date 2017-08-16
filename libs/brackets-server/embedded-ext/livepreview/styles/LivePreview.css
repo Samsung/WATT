@@ -1,0 +1,37 @@
+/* Toolbar icon */
+#live-preview-icon {
+    background-image: url(images/preview.png);
+}
+
+#live-preview-icon.active {
+    background-image: url(images/preview_active.png);
+}
+
+#panel-live-preview {
+    position: relative;
+}
+
+#panel-live-preview-frame {
+    border: none;
+}
+
+#fullscreen-toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 8px;
+    right: 21px;
+    width: 28px;
+    height: 32px;
+    background-image: url(images/fullscreen.png);
+    background-size: contain;
+    padding: 0;
+    opacity: 0.05;
+    transition-property: opacity;
+    transition-duration: .2s;
+    -webkit-filter: drop-shadow(0 0 2px #fff);
+    filter: drop-shadow(0 0 1px #fff);
+}
+
+#panel-live-preview:hover #fullscreen-toggle {
+    opacity: 0.8;
+}
