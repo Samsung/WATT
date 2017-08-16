@@ -1,0 +1,42 @@
+/* Toolbar icon */
+#panel-apis-viewer {
+    padding-left: 10px;
+    padding-top: 10px;
+    position: relative;
+    border-top: 1px white solid;
+    height: auto;
+    display: none;
+    overflow: hidden;
+}
+
+#panel-apis-viewer h4 {
+    color: white;
+    display: inline;
+    display: inline;
+}
+
+#apiList {
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 400px;
+}
+
+#wasmFileSelect {
+    display: inline;
+    background-color: inherit;
+    color: white;
+    width: 77%;
+}
+
+#apiSearch {
+    width: 94%;
+}
+
+#interface {
+   margin-top: 10px;
+   color: white;
+}
+
+#method {
+    color: white;
+}

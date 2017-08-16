@@ -1,0 +1,86 @@
+            <div id="error" style="width: 100%; font-weight: bold; font-size: 15px; color: red;"></div></br>
+            <table class="generalTable">
+                <tr>
+                    <td class="tableLeftPopup">ID</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="idInput" value="" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeftPopup">on-boot</td>
+                    <td class="tableRight">
+                        <select id="onBoot" style="width: 100%; margin-left: 0px;">
+                            <option value="false">false</option>
+                            <option value="true">true</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeftPopup">auto-restart</td>
+                    <td class="tableRight">
+                        <select id="autoRestart" style="width: 100%; margin-left: 0px;">
+                            <option value="false">false</option>
+                            <option value="true">true</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tableLeftPopup">Content</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="contentInput" value="" style="width: 78%;" readonly/>
+                        <button class="button" id="contentButton" style="width: 20%">Browse...</button>
+                </tr>
+                <tr>
+                    <td class="tableLeftPopup">Icon</td>
+                    <td class="tableRight">
+                        <input type="text" class="input" id="iconInput" value="" style="width: 78%;" readonly/>
+                        <button class="button" id="iconButton" style="width: 20%">Browse...</button>
+                </tr>
+            </table><br/>
+
+            <p class="subtitle">Name</p>
+            <button class="button" id="removeName" style="width: 10%; argin-bottom: 5px;">Remove</button>
+            <button class="button" id="editName" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addName" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable nameTablePopup">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Language</th>
+                    <th>Name</th>
+                </tr>
+            </table><br/>
+
+            <p class="subtitle">Description</p>
+            <button class="button" id="removeDescription" style="width: 10%; argin-bottom: 5px;">Remove</button>
+            <button class="button" id="editDescriptio" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addDescription" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable descriptionTablePopup">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Language</th>
+                    <th>Description</th>
+                </tr>
+            </table><br/>
+
+            <p class="subtitle">Meta Data</p>
+            <button class="button" id="removeMetaData" style="width: 10%; argin-bottom: 5px;">Remove</button>
+            <button class="button" id="editMetaData" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Edit</button>
+            <button class="button" id="addMetaData" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable metaDataTablePopup">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </table><br/>
+
+            <p class="subtitle">Category</p>
+            <button class="button" id="removeCategory" style="width: 10%; argin-bottom: 5px;">Remove</button>
+            <button class="button" id="addCategory" style="width: 10%; margin-right: 5px; margin-bottom: 5px;">Add</button>
+            <table class="dataTable categoryTablePopup">
+                <tr>
+                    <th style="width: 70px;">Select</th>
+                    <th>Category</th>
+                </tr>
+            </table>
+            <br/><br/>

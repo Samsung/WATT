@@ -1,0 +1,178 @@
+<!-- modal for new project -->
+<div class="modal fade" id="new-project" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!-- Dialog for the project type -->
+      <div id="project-type">
+        <div class="modal-header">
+          <h4 class="modal-title">Project Type</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <h4><p class="col-md-6 text-center">Select the type of project.</p></h4>
+            </div>
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <h3><p><b>Web Assembly</b></p></h3>
+                <button id="wasm-button" class="btn btn-default btn-primary">
+                  <div class="col-md-3 text-center">
+                    <h3><b>C / C++</b></h3>
+                  </div>
+                </button>
+              </div>
+              <div class="col-md-3 text-center">
+                <h3><p><b>Web Application</b></p></h3>
+                <button id="web-button" class="btn btn-default">
+                  <div class="col-md-3 text-center">
+                    <h3><b>HTML / JS</b></h3>
+                </div>
+                </button>
+              </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialog for the project format -->
+      <div id="project-format" style="display:none;">
+        <div class="modal-header">
+          <h4 class="modal-title">Project Format</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <h4><p class="col-md-6 text-center">Select the format of project.</p></h4>
+            </div>
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <h2><p><b>Template</b></p></h2>
+                <button id="template-button" class="btn btn-default btn-primary">
+                  <img width="96" height="96" src="/image/template.png" alt="...">
+                </button>
+              </div>
+              <div class="col-md-3 text-center">
+                <h2><p><b>Sample</b></p></h2>
+                <button id="sample-button" class="btn btn-default">
+                  <img width="96" height="96" src="/image/sample.png" alt="...">
+                </button>
+              </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialog for the application profile and version -->
+      <div id="profile-version" style="display:none;">
+        <div class="modal-header">
+          <h4 class="modal-title">Profile &amp; Version</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <h4><p class="col-md-6 text-center">Select the application profile and version.</p></h4>
+            </div>
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <h2><p><b>Mobile</b></p></h2>
+                <button id="mobile-button" class="btn btn-primary">
+                  <img width="96" height="96" src="/image/mobile.png" alt="mobile">
+                </button>
+                <br/><br/>
+                <div class="btn-group">
+                  <button id="mobile-version" type="button" class="btn btn-default">Mobile v4.0</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul id="mobile-version-dropdown" class="dropdown-menu">
+                    <li>Mobile v4.0</li>
+                    <li>Mobile v3.0</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 text-center">
+                <h2><p><b>Wearable</b></p></h2>
+                <button id="wearable-button" class="btn btn-default">
+                  <img width="96" height="96" src="/image/wearable.png" alt="wearable">
+                </button>
+                <br/><br/>
+                <div class="btn-group">
+                  <button id="wearable-version" type="button" class="btn btn-default">Wearable v4.0</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul id="wearable-version-dropdown" class="dropdown-menu">
+                    <li>Wearable v4.0</li>
+                    <li>Wearable v3.0</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialog for the application template or sample -->
+      <div id="template-sample" style="display:none;">
+      </div>
+
+      <!-- Dialog for the project properties -->
+      <div id="project-property" style="display:none;">
+        <div class="modal-header">
+          <h4 class="modal-title">Project Properties</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <h4><p class="col-md-6 text-center">Define the project properties.</p></h4>
+            </div>
+            <br/><br/><br/>
+            <div class="row">
+              <div class="col-md-2 text-center">
+                <img width="96" height="96" src="/image/template.png" alt="...">
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">Project name</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" id="project-name" placeholder="Type Project Name" type="text" maxlength="20">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Description</label>
+                    <div class="col-sm-8">
+                      <input class="form-control" id="project-description" placeholder="Type Project Description" type="text" maxlength="40">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="btn-group" role="group">
+          <button id="back-button" type="button" class="btn btn-default btn-flat" disabled="disabled">&lt; Back</button>
+          <button id="next-button" type="button" class="btn btn-default btn-flat">Next &gt;</button>
+        </div>
+        <button id="cancel-button" type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancel</button>
+        <button id="finish-button" type="button" class="btn btn-default btn-flat" disabled="disabled">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.npd-label {
+    margin: 0;
+}
+
+.import-file-dialog input {
+    margin: 2px 0;
+}
+
+#file-list {
+    width: 480px;
+    height: 100px;
+    overflow: scroll;
+    background-color: white;
+    border: 1px solid rgb(156, 158, 158);
+    box-shadow: rgba(0,0,0,0.117647) 0px 1px 0px 0px inset;
+    border-radius: 3px 0 0 3px;
+}
+
+#import-file {
+    border-radius: 3px 0 0 3px;
+    cursor: text;
+}
+
+#into-folder {
+    width: 470px;
+    border: 1px solid rgb(156, 158, 158);
+    box-shadow: rgba(0,0,0,0.117647) 0px 1px 0px 0px inset;
+    outline: none;
+}
+
+#change-folder {
+    border-radius: 0 3px 3px 0;
+    margin: 0 0 0 -4px;
+}

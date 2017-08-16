@@ -1,0 +1,21 @@
+<div class="import-file-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{ExtensionStrings.IMPORT_FILE_MENU_TITLE}}</h1>
+    </div>
+    <div class="modal-body">
+        <div class="field-container input-field">
+          <label class="npd-label" for="import-file">{{ExtensionStrings.IMPORT_FILE_LABEL}}</label>
+          <input type="file" id="import-file" multiple/>
+          <div id="file-list"></div>
+        </div>
+        <div class="field-container input-field">
+          <label class="npd-label" for="into-folder">{{ExtensionStrings.INTO_FOLDER_LABEL}}</label>
+          <input type="text" id="into-folder" readonly/>
+          <button id="change-folder" class="dialog-button btn">{{ExtensionStrings.CHANGE_FOLDER}}</button>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">{{Strings.CANCEL}}</button>
+        <button class="dialog-button btn primary" data-button-id="ok">{{Strings.OK}}</button>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+    "name": "compile",
+    "title": "Brackets Compile Dialog",
+    "description": "Compile the file without leaving Brackets.",
+    "version": "0.0.1",
+    "author": "HUnseop Jeong | hs85.jeong@samsung.com",
+    "license": "MIT",
+    "i18n": [
+        "en"
+    ],
+    "engines": {
+        "brackets": ">=0.34.0"
+    }
+}

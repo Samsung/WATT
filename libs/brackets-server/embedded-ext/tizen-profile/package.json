@@ -1,0 +1,14 @@
+{
+    "name": "tizen-profile",
+    "title": "Tizen Security Profile",
+    "description": "Generate certificate for sigining Tizen Web Applications",
+    "version": "0.0.1",
+    "author": "Grzegorz Ludwikowski | g.ludwikowsk@samsung.com",
+    "license": "MIT",
+    "i18n": [
+        "en"
+    ],
+    "engines": {
+        "brackets": ">=0.34.0"
+    }
+}

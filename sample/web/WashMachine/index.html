@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ammo.js</title>
+    <script src="js/three.min.js"></script>
+    <script src="js/washmachine.js"></script>
+    <script src="js/ammo_wasm_loader.min.js"></script>
+    <script src="js/ammo_utils.js"></script>
+    <style>
+      body { margin: 0px; }
+    </style>
+  </head>
+  <body>
+    <div id="preview"></div>
+  </body>
+  <script>
+    instantiateAmmoLib('wasm/ammo.wasm')
+      .then( ammo => {
+        var Ammo = ammo;
+        const objects_number = 50;
+        const simulation_frames = 120;  // timeStamp for simulationStep
+        const test_length = 0;        // how much frames will be render
+        begin(objects_number, simulation_frames, test_length);
+      })
+      .catch(errorMessage =>
+        console.error("Ammo can not been instantiated: " + errorMessage)
+      );
+  </script>
+</html>

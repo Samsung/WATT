@@ -1,0 +1,33 @@
+{
+    "problems-panel": {
+        "visible": false
+    },
+    "projectPath": "/projects/",
+    "afterFirstLaunch": "true",
+    "projectId": "",
+    "projectName": "",
+    "project": {
+        "/projects/": {
+            "project.treeState": [],
+            "mainView.state": {
+                "orientation": null,
+                "activePaneId": "first-pane",
+                "splitPercentage": 1,
+                "panes": {
+                    "first-pane": []
+                }
+            },
+            "code-folding.folds": {}
+        }
+    },
+    "workingSetSortMethod": "cmd.sortWorkingSetByAdded",
+    "auto-install-extensions": {},
+    "lastNotifiedBuildNumber": 17108,
+    "extensionUpdateInfo": [],
+    "recentProjects": [],
+    "updateInfo": [],
+    "nextHealthDataSendTime": 1488256061280,
+    "lastInfoURLFetchTime": 1488254264990,
+    "lastExtensionRegistryCheckTime": 1488254265637,
+    "healthDataNotificationShown": true
+}

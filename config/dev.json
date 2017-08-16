@@ -1,0 +1,4 @@
+{
+    "DBHost": "mongodb://localhost:27017/dev",
+    "PORT": 3001
+}

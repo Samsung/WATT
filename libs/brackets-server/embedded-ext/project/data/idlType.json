@@ -1,0 +1,16 @@
+{
+    "bool":"boolean",
+    "float":"float",
+    "double":"double",
+    "char":"byte",
+    "char *":"DOMString",
+    "string":"DOMString",
+    "std::string":"DOMString",
+    "unsigned char":"octet",
+    "unsigned short int":"unsigned short",
+    "unsigned short":"unsigned short",
+    "unsigned long":"unsigned long",
+    "int":"long",
+    "void":"void",
+    "void*":"VoidPtr"
+}

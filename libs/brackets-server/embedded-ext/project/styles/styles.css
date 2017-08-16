@@ -1,0 +1,79 @@
+.npd-label {
+    margin: 0;
+}
+
+.npd-label span {
+    color: #888;
+}
+
+.compile-file-dialog input, .compile-file-dialog select {
+    margin: 2px 0;
+}
+
+#compile-file {
+    border-radius: 3px 0 0 3px;
+    cursor: text;
+    width: 470px;
+}
+
+#change-file {
+    border-radius: 0 3px 3px 0;
+    margin: 0 0 0 -4px;
+}
+
+#compile-type-option {
+    width: 280px;
+    border: 1px solid rgb(156, 158, 158);
+    box-shadow: rgba(0,0,0,0.117647) 0px 1px 0px 0px inset;
+    outline: none;
+}
+
+#compile-type-option:focus {
+    box-shadow: 0 0 0 2px #6fb5f1;
+    border: 1px solid #0055ad;
+}
+
+#compile-option {
+    width: 550px;
+    border: 1px solid rgb(156, 158, 158);
+    box-shadow: rgba(0,0,0,0.117647) 0px 1px 0px 0px inset;
+    outline: none;
+}
+
+.compile-err-msg {
+    font-family: "Courier New", Courier, monospace;
+    white-space: pre-wrap;
+}
+
+/* API Picking */
+.select, .select-tree {
+    border: 1px solid black;
+    width: 550px;
+    overflow: hidden;
+    list-style-type: none;
+    margin: 10px;
+}
+
+.select .group-label {
+    background-color: white;
+}
+
+.select .option-label {
+    background-color: white;
+    display: block;
+}
+
+.select .hidden-checkbox {
+    display: none;
+}
+
+.select .hidden-checkbox:checked + .option-label,
+.select-tree .hidden-checkbox:checked ~ .group-children,
+.select-tree .hidden-checkbox:checked ~ .group-children * {
+    background-color: lightblue;
+}
+
+.select-tree .group-children {
+    list-style-type: none;
+    padding-left: 20px;
+}

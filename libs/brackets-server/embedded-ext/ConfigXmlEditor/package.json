@@ -1,0 +1,10 @@
+{
+    "name": "WATT.ConfigXMLEditor",
+    "title": "Config XML Editor",
+    "description": "Config XML editor based on the one available in Tizen Studio",
+    "version": "0.0.1",
+    "author": "@LukaszBialek",
+    "engines": {
+        "brackets": ">=0.44.0"
+    }
+}

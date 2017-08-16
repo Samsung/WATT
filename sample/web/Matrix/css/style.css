@@ -1,0 +1,16 @@
+#extraBox {
+    top: 100px;
+    left: 100px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(red, yellow);;
+    position: absolute;
+}
+#controlBox {
+    top: 100px;
+    left: 400px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(red, yellow);;
+    position: absolute;
+}
