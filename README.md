@@ -1,15 +1,15 @@
-![](https://github.sec.samsung.net/RS7-HighPerformanceWeb/WATT/blob/master/public/image/watt.png)
+![](https://github.com/Samsung/WATT/blob/master/public/image/watt.png)
 # WATT (Web Assembly Translation Toolkit)
 
 WATT is server-based web assembly IDE.
 
-If you want to contribute code, please check the [contribution guidelines](http://github.sec.samsung.net/RS7-HighPerformanceWeb/WATT/blob/master/CONTRIBUTING.md).
+If you want to contribute code, please check the [contribution guidelines](https://github.com/Samsung/WATT/blob/master/CONTRIBUTING.md).
 
 ## Prerequisites
 * Install [Node](https://nodejs.org/en/download/) (>= v6.95 LTS Version)
   v6.9.5 is recommended because of v8-debug dependency.
 * Install [MongoDB](https://www.mongodb.com/download-center?jmp=nav#community)
-* Install [Emscripten](http://github.sec.samsung.net/RS7-HighPerformanceWeb/WATT/wiki/Installation-Guide#emscripten)
+* Install [Emscripten](http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html)
 
 ### Optional dependencies
 1. Tizen SDK for building .wgt packages
@@ -28,7 +28,7 @@ If you want to contribute code, please check the [contribution guidelines](http:
 ## Quick Start
 * Getting the sources:
 ```bash
-git clone http://github.sec.samsung.net/RS7-HighPerformanceWeb/WATT.git
+git clone https://github.com/Samsung/WATT.git
 cd WATT
 ```
 

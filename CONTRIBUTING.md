@@ -12,7 +12,6 @@ We recommend that use a 1 commit for the pull request. If you want to upload man
 You should add following content to your commit message:
 - Title
 - Description
-- BUG ID (If you have a JIRA issue, write the URL with the 'BUG:')
 - Signed off (You can add the signed-off using git '-s' option)
 
 - Example
@@ -21,10 +20,11 @@ You should add following content to your commit message:
 
   This is example patch for the WATT
 
-  BUG: http://suprem.sec.samsung.net/jira/browse/RWASP-0
-
   Signed-off-by: WATT <watt@samsung.com>
 ```
+
+It would be good to comment when the commit is related to known issue.
+
 
 ### Coding styles
 We have to abide by the following coding styles:
