@@ -15,7 +15,12 @@ var Socket = require('socket.io');
 
 var util = require('./libs/util');
 
-mongoose.connect(config.DBHost);
+var options = {
+  useMongoClient: true
+};
+
+mongoose.Promise = global.Promise;
+mongoose.connect(config.DBHost, options);
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
