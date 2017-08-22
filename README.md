@@ -57,4 +57,4 @@ On browser, http://localhost:3000/
 ```
 
 ## License
-TBD
+Refer [WATT License](https://github.com/Samsung/WATT/wiki/License)
