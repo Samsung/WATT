@@ -69,7 +69,7 @@ if (ENVIRONMENT_IS_NODE) {
   var nodeFS;
   var nodePath;
 
-  Module['read'] = function read(filename, binary) {
+  Module['read'] = function shell_read(filename, binary) {
     if (!nodeFS) nodeFS = require('fs');
     if (!nodePath) nodePath = require('path');
     filename = nodePath['normalize'](filename);
@@ -120,7 +120,7 @@ else if (ENVIRONMENT_IS_SHELL) {
   if (typeof read != 'undefined') {
     Module['read'] = read;
   } else {
-    Module['read'] = function read() { throw 'no read() available' };
+    Module['read'] = function shell_read() { throw 'no read() available' };
   }
 
   Module['readBinary'] = function readBinary(f) {
@@ -138,14 +138,30 @@ else if (ENVIRONMENT_IS_SHELL) {
     Module['arguments'] = arguments;
   }
 
+  if (typeof quit === 'function') {
+    Module['quit'] = function(status, toThrow) {
+      quit(status);
+    }
+  }
+
 }
 else if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
-  Module['read'] = function read(url) {
+  Module['read'] = function shell_read(url) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, false);
     xhr.send(null);
     return xhr.responseText;
   };
+
+  if (ENVIRONMENT_IS_WORKER) {
+    Module['readBinary'] = function readBinary(url) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, false);
+      xhr.responseType = 'arraybuffer';
+      xhr.send(null);
+      return new Uint8Array(xhr.response);
+    };
+  }
 
   Module['readAsync'] = function readAsync(url, onload, onerror) {
     var xhr = new XMLHttpRequest();
@@ -167,10 +183,10 @@ else if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
   }
 
   if (typeof console !== 'undefined') {
-    if (!Module['print']) Module['print'] = function print(x) {
+    if (!Module['print']) Module['print'] = function shell_print(x) {
       console.log(x);
     };
-    if (!Module['printErr']) Module['printErr'] = function printErr(x) {
+    if (!Module['printErr']) Module['printErr'] = function shell_printErr(x) {
       console.warn(x);
     };
   } else {
@@ -216,6 +232,11 @@ if (!Module['arguments']) {
 if (!Module['thisProgram']) {
   Module['thisProgram'] = './this.program';
 }
+if (!Module['quit']) {
+  Module['quit'] = function(status, toThrow) {
+    throw toThrow;
+  }
+}
 
 // *** Environment setup code ***
 
@@ -258,6 +279,7 @@ moduleOverrides = undefined;
 var Runtime = {
   setTempRet0: function (value) {
     tempRet0 = value;
+    return value;
   },
   getTempRet0: function () {
     return tempRet0;
@@ -394,6 +416,7 @@ Module["Runtime"] = Runtime;
 var ABORT = 0; // whether we are quitting the application. no code should run after this. set in exit() and abort()
 var EXITSTATUS = 0;
 
+/** @type {function(*, string=)} */
 function assert(condition, text) {
   if (!condition) {
     abort('Assertion failed: ' + text);
@@ -552,6 +575,7 @@ var cwrap, ccall;
 Module["ccall"] = ccall;
 Module["cwrap"] = cwrap;
 
+/** @type {function(number, number, string, boolean=)} */
 function setValue(ptr, value, type, noSafe) {
   type = type || 'i8';
   if (type.charAt(type.length-1) === '*') type = 'i32'; // pointers are 32-bit
@@ -568,7 +592,7 @@ function setValue(ptr, value, type, noSafe) {
 }
 Module["setValue"] = setValue;
 
-
+/** @type {function(number, string, boolean=)} */
 function getValue(ptr, type, noSafe) {
   type = type || 'i8';
   if (type.charAt(type.length-1) === '*') type = 'i32'; // pointers are 32-bit
@@ -610,6 +634,7 @@ Module["ALLOC_NONE"] = ALLOC_NONE;
 //         is initial data - if @slab is a number, then this does not matter at all and is
 //         ignored.
 // @allocator: How to allocate memory, see ALLOC_*
+/** @type {function((TypedArray|Array<number>|number), string, number, number=)} */
 function allocate(slab, types, allocator, ptr) {
   var zeroinit, size;
   if (typeof slab === 'number') {
@@ -645,7 +670,7 @@ function allocate(slab, types, allocator, ptr) {
 
   if (singleType === 'i8') {
     if (slab.subarray || slab.slice) {
-      HEAPU8.set(slab, ret);
+      HEAPU8.set(/** @type {!Uint8Array} */ (slab), ret);
     } else {
       HEAPU8.set(new Uint8Array(slab), ret);
     }
@@ -691,7 +716,8 @@ function getMemory(size) {
 }
 Module["getMemory"] = getMemory;
 
-function Pointer_stringify(ptr, /* optional */ length) {
+/** @type {function(number, number=)} */
+function Pointer_stringify(ptr, length) {
   if (length === 0 || !ptr) return '';
   // TODO: use TextDecoder
   // Find the length, and check for UTF while doing so
@@ -1121,18 +1147,37 @@ Module["stackTrace"] = stackTrace;
 
 // Memory management
 
-var PAGE_SIZE = 4096;
+var PAGE_SIZE = 16384;
+var WASM_PAGE_SIZE = 65536;
+var ASMJS_PAGE_SIZE = 16777216;
+var MIN_TOTAL_MEMORY = 16777216;
 
-function alignMemoryPage(x) {
-  if (x % 4096 > 0) {
-    x += (4096 - (x % 4096));
+function alignUp(x, multiple) {
+  if (x % multiple > 0) {
+    x += multiple - (x % multiple);
   }
   return x;
 }
 
-var HEAP;
-var buffer;
-var HEAP8, HEAPU8, HEAP16, HEAPU16, HEAP32, HEAPU32, HEAPF32, HEAPF64;
+var HEAP,
+/** @type {ArrayBuffer} */
+  buffer,
+/** @type {Int8Array} */
+  HEAP8,
+/** @type {Uint8Array} */
+  HEAPU8,
+/** @type {Int16Array} */
+  HEAP16,
+/** @type {Uint16Array} */
+  HEAPU16,
+/** @type {Int32Array} */
+  HEAP32,
+/** @type {Uint32Array} */
+  HEAPU32,
+/** @type {Float32Array} */
+  HEAPF32,
+/** @type {Float64Array} */
+  HEAPF64;
 
 function updateGlobalBuffer(buf) {
   Module['buffer'] = buffer = buf;
@@ -1173,11 +1218,11 @@ function checkStackCookie() {
 }
 
 function abortStackOverflow(allocSize) {
-  abort('Stack overflow! Attempted to allocate ' + allocSize + ' bytes on the stack, but stack has only ' + (STACK_MAX - asm.stackSave() + allocSize) + ' bytes available!');
+  abort('Stack overflow! Attempted to allocate ' + allocSize + ' bytes on the stack, but stack has only ' + (STACK_MAX - Module['asm'].stackSave() + allocSize) + ' bytes available!');
 }
 
 function abortOnCannotGrowMemory() {
-  abort('Cannot enlarge memory arrays. Either (1) compile with  -s TOTAL_MEMORY=X  with X higher than the current value ' + TOTAL_MEMORY + ', (2) compile with  -s ALLOW_MEMORY_GROWTH=1  which adjusts the size at runtime but prevents some optimizations, (3) set Module.TOTAL_MEMORY to a higher value before the program runs, or if you want malloc to return NULL (0) instead of this abort, compile with  -s ABORTING_MALLOC=0 ');
+  abort('Cannot enlarge memory arrays. Either (1) compile with  -s TOTAL_MEMORY=X  with X higher than the current value ' + TOTAL_MEMORY + ', (2) compile with  -s ALLOW_MEMORY_GROWTH=1  which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with  -s ABORTING_MALLOC=0 ');
 }
 
 
@@ -1188,25 +1233,11 @@ function enlargeMemory() {
 
 var TOTAL_STACK = Module['TOTAL_STACK'] || 5242880;
 var TOTAL_MEMORY = Module['TOTAL_MEMORY'] || 16777216;
-
-var WASM_PAGE_SIZE = 64 * 1024;
-
-var totalMemory = WASM_PAGE_SIZE;
-while (totalMemory < TOTAL_MEMORY || totalMemory < 2*TOTAL_STACK) {
-  if (totalMemory < 16*1024*1024) {
-    totalMemory *= 2;
-  } else {
-    totalMemory += 16*1024*1024;
-  }
-}
-if (totalMemory !== TOTAL_MEMORY) {
-  Module.printErr('increasing TOTAL_MEMORY to ' + totalMemory + ' to be compliant with the asm.js spec (and given that TOTAL_STACK=' + TOTAL_STACK + ')');
-  TOTAL_MEMORY = totalMemory;
-}
+if (TOTAL_MEMORY < TOTAL_STACK) Module.printErr('TOTAL_MEMORY should be larger than TOTAL_STACK, was ' + TOTAL_MEMORY + '! (TOTAL_STACK=' + TOTAL_STACK + ')');
 
 // Initialize the runtime's memory
 // check for full engine support (use string 'subarray' to avoid closure compiler confusion)
-assert(typeof Int32Array !== 'undefined' && typeof Float64Array !== 'undefined' && !!(new Int32Array(1)['subarray']) && !!(new Int32Array(1)['set']),
+assert(typeof Int32Array !== 'undefined' && typeof Float64Array !== 'undefined' && Int32Array.prototype.subarray !== undefined && Int32Array.prototype.set !== undefined,
        'JS engine does not provide full typed array support');
 
 
@@ -1219,7 +1250,7 @@ if (Module['buffer']) {
   // Use a WebAssembly memory where available
   if (typeof WebAssembly === 'object' && typeof WebAssembly.Memory === 'function') {
     assert(TOTAL_MEMORY % WASM_PAGE_SIZE === 0);
-    Module['wasmMemory'] = new WebAssembly.Memory({ initial: TOTAL_MEMORY / WASM_PAGE_SIZE, maximum: TOTAL_MEMORY / WASM_PAGE_SIZE });
+    Module['wasmMemory'] = new WebAssembly.Memory({ 'initial': TOTAL_MEMORY / WASM_PAGE_SIZE, 'maximum': TOTAL_MEMORY / WASM_PAGE_SIZE });
     buffer = Module['wasmMemory'].buffer;
   } else
   {
@@ -1260,9 +1291,9 @@ function callRuntimeCallbacks(callbacks) {
     var func = callback.func;
     if (typeof func === 'number') {
       if (callback.arg === undefined) {
-        Runtime.dynCall('v', func);
+        Module['dynCall_v'](func);
       } else {
-        Runtime.dynCall('vi', func, [callback.arg]);
+        Module['dynCall_vi'](func, callback.arg);
       }
     } else {
       func(callback.arg === undefined ? null : callback.arg);
@@ -1348,8 +1379,8 @@ Module["addOnPostRun"] = addOnPostRun;
 
 // Tools
 
-
-function intArrayFromString(stringy, dontAddNull, length /* optional */) {
+/** @type {function(string, boolean=, number=)} */
+function intArrayFromString(stringy, dontAddNull, length) {
   var len = length > 0 ? length : lengthBytesUTF8(stringy)+1;
   var u8array = new Array(len);
   var numBytesWritten = stringToUTF8Array(stringy, u8array, 0, u8array.length);
@@ -1376,10 +1407,11 @@ Module["intArrayToString"] = intArrayToString;
 // a maximum length limit of how many bytes it is allowed to write. Prefer calling the
 // function stringToUTF8Array() instead, which takes in a maximum length that can be used
 // to be secure from out of bounds writes.
+/** @deprecated */
 function writeStringToMemory(string, buffer, dontAddNull) {
   Runtime.warnOnce('writeStringToMemory is deprecated and should not be called! Use stringToUTF8() instead!');
 
-  var lastChar, end;
+  var /** @type {number} */ lastChar, /** @type {number} */ end;
   if (dontAddNull) {
     // stringToUTF8Array always appends null. If we don't want to do that, remember the
     // character that existed at the location where the null will be placed, and restore
@@ -1608,9 +1640,15 @@ function integrateWasmJS(Module) {
   var method = Module['wasmJSMethod'] || 'native-wasm';
   Module['wasmJSMethod'] = method;
 
-  var wasmTextFile = Module['wasmTextFile'] || 'HelloWorld.wast';
-  var wasmBinaryFile = Module['wasmBinaryFile'] || 'HelloWorld.wasm';
-  var asmjsCodeFile = Module['asmjsCodeFile'] || 'HelloWorld.asm.js';
+  var wasmTextFile = Module['wasmTextFile'] || 'main.wast';
+  var wasmBinaryFile = Module['wasmBinaryFile'] || 'main.wasm';
+  var asmjsCodeFile = Module['asmjsCodeFile'] || 'main.temp.asm.js';
+
+  if (typeof Module['locateFile'] === 'function') {
+    wasmTextFile = Module['locateFile'](wasmTextFile);
+    wasmBinaryFile = Module['locateFile'](wasmBinaryFile);
+    asmjsCodeFile = Module['locateFile'](asmjsCodeFile);
+  }
 
   // utilities
 
@@ -1709,15 +1747,37 @@ function integrateWasmJS(Module) {
   }
 
   function getBinary() {
-    var binary;
-    if (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) {
-      binary = Module['wasmBinary'];
-      assert(binary, "on the web, we need the wasm binary to be preloaded and set on Module['wasmBinary']. emcc.py will do that for you when generating HTML (but not JS)");
-      binary = new Uint8Array(binary);
-    } else {
-      binary = Module['readBinary'](wasmBinaryFile);
+    try {
+      var binary;
+      if (Module['wasmBinary']) {
+        binary = Module['wasmBinary'];
+        binary = new Uint8Array(binary);
+      } else if (Module['readBinary']) {
+        binary = Module['readBinary'](wasmBinaryFile);
+      } else {
+        throw "on the web, we need the wasm binary to be preloaded and set on Module['wasmBinary']. emcc.py will do that for you when generating HTML (but not JS)";
+      }
+      return binary;
     }
-    return binary;
+    catch (err) {
+      abort(err);
+    }
+  }
+
+  function getBinaryPromise() {
+    // if we don't have the binary yet, and have the Fetch api, use that
+    if (!Module['wasmBinary'] && typeof fetch === 'function') {
+      return fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function(response) {
+        if (!response['ok']) {
+          throw "failed to load wasm binary file at '" + wasmBinaryFile + "'";
+        }
+        return response['arrayBuffer']();
+      });
+    }
+    // Otherwise, getBinary should be able to get it synchronously
+    return new Promise(function(resolve, reject) {
+      resolve(getBinary());
+    });
   }
 
   // do-method functions
@@ -1758,22 +1818,40 @@ function integrateWasmJS(Module) {
     };
     info['global.Math'] = global.Math;
     info['env'] = env;
-    var instance;
-    try {
-      instance = new WebAssembly.Instance(new WebAssembly.Module(getBinary()), info)
-    } catch (e) {
-      Module['printErr']('failed to compile wasm module: ' + e);
-      if (e.toString().indexOf('imported Memory with incompatible size') >= 0) {
-        Module['printErr']('Memory size incompatibility issues may be due to changing TOTAL_MEMORY at runtime to something too large. Use ALLOW_MEMORY_GROWTH to allow any size memory (and also make sure not to set TOTAL_MEMORY at runtime to something smaller than it was at compile time).');
-      }
-      return false;
+    // handle a generated wasm instance, receiving its exports and
+    // performing other necessary setup
+    function receiveInstance(instance) {
+      exports = instance.exports;
+      if (exports.memory) mergeMemory(exports.memory);
+      Module['asm'] = exports;
+      Module["usingWasm"] = true;
+      removeRunDependency('wasm-instantiate');
     }
-    exports = instance.exports;
-    if (exports.memory) mergeMemory(exports.memory);
 
-    Module["usingWasm"] = true;
+    addRunDependency('wasm-instantiate'); // we can't run yet
 
-    return exports;
+    // User shell pages can write their own Module.instantiateWasm = function(imports, successCallback) callback
+    // to manually instantiate the Wasm module themselves. This allows pages to run the instantiation parallel
+    // to any other async startup actions they are performing.
+    if (Module['instantiateWasm']) {
+      try {
+        return Module['instantiateWasm'](info, receiveInstance);
+      } catch(e) {
+        Module['printErr']('Module.instantiateWasm callback failed with error: ' + e);
+        return false;
+      }
+    }
+
+    getBinaryPromise().then(function(binary) {
+      return WebAssembly.instantiate(binary, info)
+    }).then(function(output) {
+      // receiveInstance() will swap in the exports (to Module.asm) so they can be called
+      receiveInstance(output['instance']);
+    }).catch(function(reason) {
+      Module['printErr']('failed to asynchronously prepare wasm: ' + reason);
+      abort(reason);
+    });
+    return {}; // no exports yet; we'll fill them in later
   }
 
   function doWasmPolyfill(global, env, providedBuffer, method) {
@@ -1846,22 +1924,46 @@ function integrateWasmJS(Module) {
   Module['asmPreload'] = Module['asm'];
 
   // Memory growth integration code
-  Module['reallocBuffer'] = function(size) {
-    size = Math.ceil(size / wasmPageSize) * wasmPageSize; // round up to wasm page size
+
+  var asmjsReallocBuffer = Module['reallocBuffer'];
+
+  var wasmReallocBuffer = function(size) {
+    var PAGE_MULTIPLE = Module["usingWasm"] ? WASM_PAGE_SIZE : ASMJS_PAGE_SIZE; // In wasm, heap size must be a multiple of 64KB. In asm.js, they need to be multiples of 16MB.
+    size = alignUp(size, PAGE_MULTIPLE); // round up to wasm page size
     var old = Module['buffer'];
-    var result = exports['__growWasmMemory'](size / wasmPageSize); // tiny wasm method that just does grow_memory
+    var oldSize = old.byteLength;
     if (Module["usingWasm"]) {
-      if (result !== (-1 | 0)) {
-        // success in native wasm memory growth, get the buffer from the memory
-        return Module['buffer'] = Module['wasmMemory'].buffer;
-      } else {
+      // native wasm support
+      try {
+        var result = Module['wasmMemory'].grow((size - oldSize) / wasmPageSize); // .grow() takes a delta compared to the previous size
+        if (result !== (-1 | 0)) {
+          // success in native wasm memory growth, get the buffer from the memory
+          return Module['buffer'] = Module['wasmMemory'].buffer;
+        } else {
+          return null;
+        }
+      } catch(e) {
+        console.error('Module.reallocBuffer: Attempted to grow from ' + oldSize  + ' bytes to ' + size + ' bytes, but got error: ' + e);
         return null;
       }
     } else {
+      // wasm interpreter support
+      exports['__growWasmMemory']((size - oldSize) / wasmPageSize); // tiny wasm method that just does grow_memory
       // in interpreter, we replace Module.buffer if we allocate
       return Module['buffer'] !== old ? Module['buffer'] : null; // if it was reallocated, it changed
     }
   };
+
+  Module['reallocBuffer'] = function(size) {
+    if (finalMethod === 'asmjs') {
+      return asmjsReallocBuffer(size);
+    } else {
+      return wasmReallocBuffer(size);
+    }
+  };
+
+  // we may try more than one; this is the final one, that worked and we are using
+  var finalMethod = '';
 
   // Provide an "asm.js function" for the application, called to "link" the asm.js module. We instantiate
   // the wasm module at that time, and it receives imports and provides exports and so forth, the app
@@ -1878,9 +1980,9 @@ function integrateWasmJS(Module) {
       var MAX_TABLE_SIZE = Module['wasmMaxTableSize'];
       if (typeof WebAssembly === 'object' && typeof WebAssembly.Table === 'function') {
         if (MAX_TABLE_SIZE !== undefined) {
-          env['table'] = new WebAssembly.Table({ initial: TABLE_SIZE, maximum: MAX_TABLE_SIZE, element: 'anyfunc' });
+          env['table'] = new WebAssembly.Table({ 'initial': TABLE_SIZE, 'maximum': MAX_TABLE_SIZE, 'element': 'anyfunc' });
         } else {
-          env['table'] = new WebAssembly.Table({ initial: TABLE_SIZE, element: 'anyfunc' });
+          env['table'] = new WebAssembly.Table({ 'initial': TABLE_SIZE, element: 'anyfunc' });
         }
       } else {
         env['table'] = new Array(TABLE_SIZE); // works in binaryen interpreter at least
@@ -1903,7 +2005,8 @@ function integrateWasmJS(Module) {
     for (var i = 0; i < methods.length; i++) {
       var curr = methods[i];
 
-      Module['printErr']('trying binaryen method: ' + curr);
+
+      finalMethod = curr;
 
       if (curr === 'native-wasm') {
         if (exports = doNativeWasm(global, env, providedBuffer)) break;
@@ -1912,13 +2015,12 @@ function integrateWasmJS(Module) {
       } else if (curr === 'interpret-asm2wasm' || curr === 'interpret-s-expr' || curr === 'interpret-binary') {
         if (exports = doWasmPolyfill(global, env, providedBuffer, curr)) break;
       } else {
-        throw 'bad method: ' + curr;
+        abort('bad method: ' + curr);
       }
     }
 
     if (!exports) throw 'no binaryen method succeeded. consider enabling more options, like interpreting, if you want that: https://github.com/kripken/emscripten/wiki/WebAssembly#binaryen-methods';
 
-    Module['printErr']('binaryen method succeeded.');
 
     return exports;
   };
@@ -1935,18 +2037,18 @@ var ASM_CONSTS = [];
 
 
 
-STATIC_BASE = 1024;
+STATIC_BASE = Runtime.GLOBAL_BASE;
 
-STATICTOP = STATIC_BASE + 5168;
-  /* global initializers */  __ATINIT__.push();
-  
-
-memoryInitializer = Module["wasmJSMethod"].indexOf("asmjs") >= 0 || Module["wasmJSMethod"].indexOf("interpret-asm2wasm") >= 0 ? "HelloWorld.html.mem" : null;
+STATICTOP = STATIC_BASE + 5456;
+/* global initializers */  __ATINIT__.push();
 
 
+memoryInitializer = Module["wasmJSMethod"].indexOf("asmjs") >= 0 || Module["wasmJSMethod"].indexOf("interpret-asm2wasm") >= 0 ? "main.html.mem" : null;
 
 
-var STATIC_BUMP = 5168;
+
+
+var STATIC_BUMP = 5456;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 
@@ -2001,11 +2103,6 @@ function copyTempDouble(ptr) {
    
   Module["_memset"] = _memset;
 
-  function _pthread_cleanup_push(routine, arg) {
-      __ATEXIT__.push(function() { Runtime.dynCall('vi', routine, [arg]) })
-      _pthread_cleanup_push.level = __ATEXIT__.length;
-    }
-
   function ___lock() {}
 
   
@@ -2015,18 +2112,12 @@ function copyTempDouble(ptr) {
     } 
   Module["_memcpy"] = _memcpy;
 
-  function _pthread_cleanup_pop() {
-      assert(_pthread_cleanup_push.level == __ATEXIT__.length, 'cannot pop if something else added meanwhile!');
-      __ATEXIT__.pop();
-      _pthread_cleanup_push.level = __ATEXIT__.length;
-    }
-
   function _abort() {
       Module['abort']();
     }
 
    
-  Module["_pthread_self"] = _pthread_self;
+  Module["_llvm_bswap_i32"] = _llvm_bswap_i32;
 
   
   var SYSCALLS={varargs:0,get:function (varargs) {
@@ -2047,8 +2138,8 @@ function copyTempDouble(ptr) {
   try {
    // llseek
       var stream = SYSCALLS.getStreamFromFD(), offset_high = SYSCALLS.get(), offset_low = SYSCALLS.get(), result = SYSCALLS.get(), whence = SYSCALLS.get();
+      // NOTE: offset_high is unused - Emscripten's off_t is 32-bit
       var offset = offset_low;
-      assert(offset_high === 0);
       FS.llseek(stream, offset, whence);
       HEAP32[((result)>>2)]=stream.position;
       if (stream.getdents && offset === 0 && whence === 0) stream.getdents = null; // reset readdir state
@@ -2132,23 +2223,20 @@ staticSealed = true; // seal the static portion of memory
 assert(DYNAMIC_BASE < TOTAL_MEMORY, "TOTAL_MEMORY not big enough for stack");
 
 
-
 function nullFunc_ii(x) { Module["printErr"]("Invalid function pointer called with signature 'ii'. Perhaps this is an invalid value (e.g. caused by calling a virtual method on a NULL pointer)? Or calling a function with an incorrect type, which will fail? (it is worth building your source files with -Werror (warnings are errors), as warnings can indicate undefined behavior which can cause this)");  Module["printErr"]("Build with ASSERTIONS=2 for more info.");abort(x) }
 
 function nullFunc_iiii(x) { Module["printErr"]("Invalid function pointer called with signature 'iiii'. Perhaps this is an invalid value (e.g. caused by calling a virtual method on a NULL pointer)? Or calling a function with an incorrect type, which will fail? (it is worth building your source files with -Werror (warnings are errors), as warnings can indicate undefined behavior which can cause this)");  Module["printErr"]("Build with ASSERTIONS=2 for more info.");abort(x) }
 
-function nullFunc_vi(x) { Module["printErr"]("Invalid function pointer called with signature 'vi'. Perhaps this is an invalid value (e.g. caused by calling a virtual method on a NULL pointer)? Or calling a function with an incorrect type, which will fail? (it is worth building your source files with -Werror (warnings are errors), as warnings can indicate undefined behavior which can cause this)");  Module["printErr"]("Build with ASSERTIONS=2 for more info.");abort(x) }
+Module['wasmTableSize'] = 10;
 
-Module['wasmTableSize'] = 18;
-
-Module['wasmMaxTableSize'] = 18;
+Module['wasmMaxTableSize'] = 10;
 
 function invoke_ii(index,a1) {
   try {
     return Module["dynCall_ii"](index,a1);
   } catch(e) {
     if (typeof e !== 'number' && e !== 'longjmp') throw e;
-    asm["setThrew"](1, 0);
+    Module["setThrew"](1, 0);
   }
 }
 
@@ -2157,22 +2245,13 @@ function invoke_iiii(index,a1,a2,a3) {
     return Module["dynCall_iiii"](index,a1,a2,a3);
   } catch(e) {
     if (typeof e !== 'number' && e !== 'longjmp') throw e;
-    asm["setThrew"](1, 0);
-  }
-}
-
-function invoke_vi(index,a1) {
-  try {
-    Module["dynCall_vi"](index,a1);
-  } catch(e) {
-    if (typeof e !== 'number' && e !== 'longjmp') throw e;
-    asm["setThrew"](1, 0);
+    Module["setThrew"](1, 0);
   }
 }
 
 Module.asmGlobalArg = { "Math": Math, "Int8Array": Int8Array, "Int16Array": Int16Array, "Int32Array": Int32Array, "Uint8Array": Uint8Array, "Uint16Array": Uint16Array, "Uint32Array": Uint32Array, "Float32Array": Float32Array, "Float64Array": Float64Array, "NaN": NaN, "Infinity": Infinity };
 
-Module.asmLibraryArg = { "abort": abort, "assert": assert, "enlargeMemory": enlargeMemory, "getTotalMemory": getTotalMemory, "abortOnCannotGrowMemory": abortOnCannotGrowMemory, "abortStackOverflow": abortStackOverflow, "nullFunc_ii": nullFunc_ii, "nullFunc_iiii": nullFunc_iiii, "nullFunc_vi": nullFunc_vi, "invoke_ii": invoke_ii, "invoke_iiii": invoke_iiii, "invoke_vi": invoke_vi, "_pthread_cleanup_pop": _pthread_cleanup_pop, "___lock": ___lock, "_abort": _abort, "___setErrNo": ___setErrNo, "___syscall6": ___syscall6, "___syscall140": ___syscall140, "_pthread_cleanup_push": _pthread_cleanup_push, "_emscripten_memcpy_big": _emscripten_memcpy_big, "___syscall54": ___syscall54, "___unlock": ___unlock, "___syscall146": ___syscall146, "DYNAMICTOP_PTR": DYNAMICTOP_PTR, "tempDoublePtr": tempDoublePtr, "ABORT": ABORT, "STACKTOP": STACKTOP, "STACK_MAX": STACK_MAX };
+Module.asmLibraryArg = { "abort": abort, "assert": assert, "enlargeMemory": enlargeMemory, "getTotalMemory": getTotalMemory, "abortOnCannotGrowMemory": abortOnCannotGrowMemory, "abortStackOverflow": abortStackOverflow, "nullFunc_ii": nullFunc_ii, "nullFunc_iiii": nullFunc_iiii, "invoke_ii": invoke_ii, "invoke_iiii": invoke_iiii, "___lock": ___lock, "___syscall6": ___syscall6, "___setErrNo": ___setErrNo, "_abort": _abort, "___syscall140": ___syscall140, "_emscripten_memcpy_big": _emscripten_memcpy_big, "___syscall54": ___syscall54, "___unlock": ___unlock, "___syscall146": ___syscall146, "DYNAMICTOP_PTR": DYNAMICTOP_PTR, "tempDoublePtr": tempDoublePtr, "ABORT": ABORT, "STACKTOP": STACKTOP, "STACK_MAX": STACK_MAX };
 // EMSCRIPTEN_START_ASM
 var asm =Module["asm"]// EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
@@ -2181,6 +2260,12 @@ var real__malloc = asm["_malloc"]; asm["_malloc"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__malloc.apply(null, arguments);
+};
+
+var real_getTempRet0 = asm["getTempRet0"]; asm["getTempRet0"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real_getTempRet0.apply(null, arguments);
 };
 
 var real__free = asm["_free"]; asm["_free"] = function() {
@@ -2195,10 +2280,22 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__main.apply(null, arguments);
 };
 
-var real__pthread_self = asm["_pthread_self"]; asm["_pthread_self"] = function() {
+var real_setTempRet0 = asm["setTempRet0"]; asm["setTempRet0"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__pthread_self.apply(null, arguments);
+return real_setTempRet0.apply(null, arguments);
+};
+
+var real_establishStackSpace = asm["establishStackSpace"]; asm["establishStackSpace"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real_establishStackSpace.apply(null, arguments);
+};
+
+var real_stackSave = asm["stackSave"]; asm["stackSave"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real_stackSave.apply(null, arguments);
 };
 
 var real__sbrk = asm["_sbrk"]; asm["_sbrk"] = function() {
@@ -2207,10 +2304,10 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__sbrk.apply(null, arguments);
 };
 
-var real__fflush = asm["_fflush"]; asm["_fflush"] = function() {
+var real__emscripten_get_global_libc = asm["_emscripten_get_global_libc"]; asm["_emscripten_get_global_libc"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__fflush.apply(null, arguments);
+return real__emscripten_get_global_libc.apply(null, arguments);
 };
 
 var real____errno_location = asm["___errno_location"]; asm["___errno_location"] = function() {
@@ -2218,32 +2315,69 @@ assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. w
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real____errno_location.apply(null, arguments);
 };
-var _malloc = Module["_malloc"] = asm["_malloc"];
-var _free = Module["_free"] = asm["_free"];
-var _main = Module["_main"] = asm["_main"];
-var _pthread_self = Module["_pthread_self"] = asm["_pthread_self"];
-var _memset = Module["_memset"] = asm["_memset"];
-var _sbrk = Module["_sbrk"] = asm["_sbrk"];
-var _memcpy = Module["_memcpy"] = asm["_memcpy"];
-var _fflush = Module["_fflush"] = asm["_fflush"];
-var ___errno_location = Module["___errno_location"] = asm["___errno_location"];
-var runPostSets = Module["runPostSets"] = asm["runPostSets"];
-var dynCall_ii = Module["dynCall_ii"] = asm["dynCall_ii"];
-var dynCall_iiii = Module["dynCall_iiii"] = asm["dynCall_iiii"];
-var dynCall_vi = Module["dynCall_vi"] = asm["dynCall_vi"];
+
+var real_setThrew = asm["setThrew"]; asm["setThrew"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real_setThrew.apply(null, arguments);
+};
+
+var real__fflush = asm["_fflush"]; asm["_fflush"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__fflush.apply(null, arguments);
+};
+
+var real_stackAlloc = asm["stackAlloc"]; asm["stackAlloc"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real_stackAlloc.apply(null, arguments);
+};
+
+var real_stackRestore = asm["stackRestore"]; asm["stackRestore"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real_stackRestore.apply(null, arguments);
+};
+
+var real__llvm_bswap_i32 = asm["_llvm_bswap_i32"]; asm["_llvm_bswap_i32"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__llvm_bswap_i32.apply(null, arguments);
+};
+Module["asm"] = asm;
+var _malloc = Module["_malloc"] = function() { return Module["asm"]["_malloc"].apply(null, arguments) };
+var getTempRet0 = Module["getTempRet0"] = function() { return Module["asm"]["getTempRet0"].apply(null, arguments) };
+var _free = Module["_free"] = function() { return Module["asm"]["_free"].apply(null, arguments) };
+var _main = Module["_main"] = function() { return Module["asm"]["_main"].apply(null, arguments) };
+var setTempRet0 = Module["setTempRet0"] = function() { return Module["asm"]["setTempRet0"].apply(null, arguments) };
+var establishStackSpace = Module["establishStackSpace"] = function() { return Module["asm"]["establishStackSpace"].apply(null, arguments) };
+var stackSave = Module["stackSave"] = function() { return Module["asm"]["stackSave"].apply(null, arguments) };
+var _memset = Module["_memset"] = function() { return Module["asm"]["_memset"].apply(null, arguments) };
+var _sbrk = Module["_sbrk"] = function() { return Module["asm"]["_sbrk"].apply(null, arguments) };
+var _emscripten_get_global_libc = Module["_emscripten_get_global_libc"] = function() { return Module["asm"]["_emscripten_get_global_libc"].apply(null, arguments) };
+var _memcpy = Module["_memcpy"] = function() { return Module["asm"]["_memcpy"].apply(null, arguments) };
+var ___errno_location = Module["___errno_location"] = function() { return Module["asm"]["___errno_location"].apply(null, arguments) };
+var setThrew = Module["setThrew"] = function() { return Module["asm"]["setThrew"].apply(null, arguments) };
+var _fflush = Module["_fflush"] = function() { return Module["asm"]["_fflush"].apply(null, arguments) };
+var stackAlloc = Module["stackAlloc"] = function() { return Module["asm"]["stackAlloc"].apply(null, arguments) };
+var stackRestore = Module["stackRestore"] = function() { return Module["asm"]["stackRestore"].apply(null, arguments) };
+var _llvm_bswap_i32 = Module["_llvm_bswap_i32"] = function() { return Module["asm"]["_llvm_bswap_i32"].apply(null, arguments) };
+var runPostSets = Module["runPostSets"] = function() { return Module["asm"]["runPostSets"].apply(null, arguments) };
+var dynCall_ii = Module["dynCall_ii"] = function() { return Module["asm"]["dynCall_ii"].apply(null, arguments) };
+var dynCall_iiii = Module["dynCall_iiii"] = function() { return Module["asm"]["dynCall_iiii"].apply(null, arguments) };
 ;
-
-Runtime.stackAlloc = asm['stackAlloc'];
-Runtime.stackSave = asm['stackSave'];
-Runtime.stackRestore = asm['stackRestore'];
-Runtime.establishStackSpace = asm['establishStackSpace'];
-
-Runtime.setTempRet0 = asm['setTempRet0'];
-Runtime.getTempRet0 = asm['getTempRet0'];
-
+Runtime.stackAlloc = Module['stackAlloc'];
+Runtime.stackSave = Module['stackSave'];
+Runtime.stackRestore = Module['stackRestore'];
+Runtime.establishStackSpace = Module['establishStackSpace'];
+Runtime.setTempRet0 = Module['setTempRet0'];
+Runtime.getTempRet0 = Module['getTempRet0'];
 
 
 // === Auto-generated postamble setup entry stuff ===
+
+Module['asm'] = asm;
 
 
 
@@ -2302,6 +2436,11 @@ if (memoryInitializer) {
 }
 
 
+
+/**
+ * @constructor
+ * @extends {Error}
+ */
 function ExitStatus(status) {
   this.name = "ExitStatus";
   this.message = "Program terminated with exit(" + status + ")";
@@ -2362,8 +2501,12 @@ Module['callMain'] = Module.callMain = function callMain(args) {
       Module['noExitRuntime'] = true;
       return;
     } else {
-      if (e && typeof e === 'object' && e.stack) Module.printErr('exception thrown: ' + [e, e.stack]);
-      throw e;
+      var toLog = e;
+      if (e && typeof e === 'object' && e.stack) {
+        toLog = [e, e.stack];
+      }
+      Module.printErr('exception thrown: ' + toLog);
+      Module['quit'](1, e);
     }
   } finally {
     calledMain = true;
@@ -2373,13 +2516,13 @@ Module['callMain'] = Module.callMain = function callMain(args) {
 
 
 
+/** @type {function(Array=)} */
 function run(args) {
   args = args || Module['arguments'];
 
   if (preloadStartTime === null) preloadStartTime = Date.now();
 
   if (runDependencies > 0) {
-    Module.printErr('run() called, but dependencies remain, so not running');
     return;
   }
 
@@ -2447,17 +2590,18 @@ function exit(status, implicit) {
 
   if (ENVIRONMENT_IS_NODE) {
     process['exit'](status);
-  } else if (ENVIRONMENT_IS_SHELL && typeof quit === 'function') {
-    quit(status);
   }
-  // if we reach here, we must throw an exception to halt the current execution
-  throw new ExitStatus(status);
+  Module['quit'](status, new ExitStatus(status));
 }
 Module['exit'] = Module.exit = exit;
 
 var abortDecorators = [];
 
 function abort(what) {
+  if (Module['onAbort']) {
+    Module['onAbort'](what);
+  }
+
   if (what !== undefined) {
     Module.print(what);
     Module.printErr(what);
