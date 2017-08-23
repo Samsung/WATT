@@ -44,6 +44,7 @@ $(TARGET): $(OBJECTS)
 clean:
 	rm -f $(shell find . -name "*.o") *.wasm *.wast *.js $(TARGET)
 `;
+let canBuild = false;
 
 function prepareMakefile(makefileContents) {
     return new Promise((resolve, reject) => {
@@ -65,62 +66,75 @@ function prepareMakefile(makefileContents) {
 }
 
 describe("'project' extension", () => {
-    describe(".wgt packaging", () => {
-        it("should be able to check packaging availability", (done) => {
-            project.checkBuildWGT((result) => {
-                expect(result).to.equal(true);
-                done();
-            });
+    before((done) => {
+        project.checkBuildWGT((result) => {
+            canBuild = result;
+            done();
         });
     });
-    describe("build files management", () => {
-        it("should get build files", (done) => {
-            prepareMakefile(makefileNormal).then(([dirPath, cleanupCallback]) => {
-                // FIXME: getBuiltFiles fails if we pass false for makefileInProject
-                // because it expects "SOURCES=..." and default makefile has "SOURCES =..."
-                project.getBuiltFiles(null, true, dirPath, (error, resultJSON) => {
-                    /* jshint expr: true */
-                    // FIXME: error is always null
-                    expect(error).to.be.null;
-                    const result = JSON.parse(resultJSON);
-                    // FIXME: result.error should be null, not string "null"
-                    expect(result.error).to.equal("null");
-                    expect(result.stdout).to.equal("SOURCES=calculator.cpp\n");
-                    expect(result.stderr).to.equal("");
-                    cleanupCallback();
+
+    describe(".wgt packaging", () => {
+        if (canBuild) {
+            it("should be able to check packaging availability", (done) => {
+                project.checkBuildWGT((result) => {
+                    expect(result).to.equal(true);
                     done();
                 });
-            }).catch((error) => {
-                assert.fail("Test setup failed or uncaught exception: " + error);
             });
-        });
-        it("should update build files", (done) => {
-            prepareMakefile(makefileNormal).then(([dirPath, cleanupCallback]) => {
-                const newFiles = "main.cpp library.cpp";
-                project.updateBuiltFiles(null, true, newFiles, dirPath, (error, resultJSON) => {
-                    /* jshint expr: true */
-                    // FIXME: error is always null
-                    expect(error).to.be.null;
-                    const result = JSON.parse(resultJSON);
-                    // FIXME: result.error should be null, not string "null"
-                    expect(result.error).to.equal("null");
-                    expect(result.stdout).to.equal("");
-                    expect(result.stderr).to.equal("");
-                    project.getBuiltFiles(null, true, dirPath, (error, resultJSON) => {
+        }
+    });
+
+    describe("build files management", () => {
+        if (canBuild) {
+            it("should get build files", (done) => {
+                    prepareMakefile(makefileNormal).then(([dirPath, cleanupCallback]) => {
+                        // FIXME: getBuiltFiles fails if we pass false for makefileInProject
+                        // because it expects "SOURCES=..." and default makefile has "SOURCES =..."
+                        project.getBuiltFiles(null, true, dirPath, (error, resultJSON) => {
+                            /* jshint expr: true */
+                            // FIXME: error is always null
+                            expect(error).to.be.null;
+                            const result = JSON.parse(resultJSON);
+                            // FIXME: result.error should be null, not string "null"
+                            expect(result.error).to.equal("null");
+                            expect(result.stdout).to.equal("SOURCES=calculator.cpp\n");
+                            expect(result.stderr).to.equal("");
+                            cleanupCallback();
+                            done();
+                        });
+                    }).catch((error) => {
+                        assert.fail("Test setup failed or uncaught exception: " + error);
+                    });
+            });
+
+            it("should update build files", (done) => {
+                prepareMakefile(makefileNormal).then(([dirPath, cleanupCallback]) => {
+                    const newFiles = "main.cpp library.cpp";
+                    project.updateBuiltFiles(null, true, newFiles, dirPath, (error, resultJSON) => {
+                        /* jshint expr: true */
                         // FIXME: error is always null
                         expect(error).to.be.null;
                         const result = JSON.parse(resultJSON);
                         // FIXME: result.error should be null, not string "null"
                         expect(result.error).to.equal("null");
-                        expect(result.stdout).to.equal("SOURCES=" + newFiles + "\n");
+                        expect(result.stdout).to.equal("");
                         expect(result.stderr).to.equal("");
-                        cleanupCallback();
-                        done();
+                        project.getBuiltFiles(null, true, dirPath, (error, resultJSON) => {
+                            // FIXME: error is always null
+                            expect(error).to.be.null;
+                            const result = JSON.parse(resultJSON);
+                            // FIXME: result.error should be null, not string "null"
+                            expect(result.error).to.equal("null");
+                            expect(result.stdout).to.equal("SOURCES=" + newFiles + "\n");
+                            expect(result.stderr).to.equal("");
+                            cleanupCallback();
+                            done();
+                        });
                     });
+                }).catch((error) => {
+                    assert.fail("Test setup failed or uncaught exception: " + error);
                 });
-            }).catch((error) => {
-                assert.fail("Test setup failed or uncaught exception: " + error);
             });
-        });
+        }
     });
 });
