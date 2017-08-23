@@ -50,8 +50,12 @@ tool_path = os.path.join(root_path, 'tools')
 
 os_name = platform.system()
 if os_name == 'Linux':
-  linux_dist = platform.linux_distribution()
-  os_name = linux_dist[0]
+  try:
+    os_name = subprocess.check_output(['lsb_release', '-i']).strip().split('\t')[1]
+    os_dist = subprocess.check_output(['lsb_release', '-c']).strip().split('\t')[1]
+  except subprocess.CalledProcessError:
+    Log.err('Unsupport os')
+    sys.exit(1)
 
 if os_name != 'Ubuntu' and os_name != 'Darwin':
   Log.err('Unsupport %s os' % os_name)
@@ -168,12 +172,12 @@ def install_mongodb():
   if os_name == 'Darwin':
     Log.info('Install mongodb with "brew"')
     cmds = ['brew update', 'brew install mongodb']
-  elif (os_name == 'Ubuntu') and (linux_dist[2] in supported):
+  elif (os_name == 'Ubuntu') and (os_dist in supported):
     Log.info('Install mongodb with "apt-get" (sudo privileges required)')
     cmds = ['sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80' \
       + ' --recv 0C49F3730359A14518585931BC711F9BA15703C6', '', \
       'sudo apt-get update', 'sudo apt-get install -y mongodb-org']
-    if linux_dist[2] == 'trusty':
+    if os_dist == 'trusty':
       cmds[1] = 'echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu' \
         + ' trusty/mongodb-org/3.4 multiverse"' \
         + ' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list'
@@ -183,7 +187,7 @@ def install_mongodb():
         + ' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list'
   else:
     Log.err('Cannot install mongodb automatically in %s(%s)' \
-      % (os_name, linux_dist[2]))
+      % (os_name, os_dist))
     return False
 
   try:
