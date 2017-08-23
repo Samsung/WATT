@@ -17,5 +17,21 @@
       </div>
     </div>
   </body>
-  <script src="js/main.js"></script>
+  <script>
+    var Module = {
+        wasmBinaryFile: 'wasm/HelloWorld.wasm',
+        print: (function() {
+          var element = document.getElementById('output');
+          if (element) element.value = ''; // clear browser cache
+          return function(text) {
+            if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+            if (element) {
+              element.innerHTML += text + "\n";
+              element.scrollTop = element.scrollHeight; // focus on bottom
+            }
+          };
+        })()
+    };
+  </script>
+  <script src="js/HelloWorld.js"></script>
 </html>
