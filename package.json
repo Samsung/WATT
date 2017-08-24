@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./app.js",
-    "test": "nyc --reporter=text --reporter=html mocha --timeout=10000 ./test ./libs/brackets-server/embedded-ext/project/test"
+    "test": "make test"
   },
   "nyc": {
     "exclude": [
