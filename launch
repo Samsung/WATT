@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import argparse, os, pkg_resources, platform, subprocess, select, sys, tarfile
+import argparse, os, platform, select, subprocess, sys, tarfile
 
 class Log:
   level = 0
@@ -31,18 +31,6 @@ class Log:
     sys.stdout.write(style[l] + s + RESET + ('\n' if newline else ''))
     sys.stdout.flush()
 
-def import_additional():
-  additional_packages = ['psutil', 'requests']
-  for p in additional_packages:
-    try:
-      m = __import__(p)
-    except ImportError:
-      Log.info('Install %s packages. (sudo privileges required)' % p)
-      subprocess.call(['sudo', 'pip', 'install', p])
-      m = __import__(p)
-    globals()[p] = m
-import_additional()
-
 SERVICE = 'WATT'
 
 root_path = os.path.abspath(os.path.dirname(__file__))
@@ -69,6 +57,40 @@ def install_curl():
     Log.err('Exception is occurred during install curl.')
     return False
   return True
+
+def install_pip():
+  if os_name == 'Darwin':
+    Log.info('Install pip with "brew"')
+    cmds = ['brew update', 'brew install python']
+  else:
+    Log.info('Install pip with "apt-get" (sudo privileges required)')
+    cmds = ['sudo apt-get install -y python-pip']
+
+  try:
+    for cmd in cmds: subprocess.check_call(cmd, shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during install pip.')
+    return False
+  return True
+
+def import_additional():
+  status = subprocess.call('which pip > /dev/null', shell=True)
+  if status != 0 and not install_pip():
+    Log.err('Fail to install pip')
+    sys.exit(1)
+
+  additional_packages = ['pkg_resources', 'psutil', 'requests']
+  for package in additional_packages:
+    try:
+      module = __import__(package)
+    except ImportError:
+      Log.info('Install %s packages. (sudo privileges required)' % package)
+      status = subprocess.call(['sudo', 'pip', 'install', package])
+      if status != 0:
+        Log.err('Fail to install %s' % package)
+      module = __import__(package)
+    globals()[package] = module
+import_additional()
 
 def install_nodejs():
   if os_name == 'Darwin':
