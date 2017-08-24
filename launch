@@ -61,11 +61,25 @@ if os_name != 'Ubuntu' and os_name != 'Darwin':
   Log.err('Unsupport %s os' % os_name)
   sys.exit(1)
 
+def install_curl():
+  Log.info('Install curl with "apt-get" (sudo privileges required)')
+  try:
+    subprocess.check_call('sudo apt-get install -y curl', shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during install curl.')
+    return False
+  return True
+
 def install_nodejs():
   if os_name == 'Darwin':
     Log.info('Install nodejs with "brew"')
     cmds = ['brew update', 'brew install node']
   else:
+    status = subprocess.call('which curl > /dev/null', shell=True)
+    if status != 0 and not install_curl():
+      Log.err('Fail to install curl')
+      sys.exit(1)
+
     Log.info('Install nodejs with "apt-get" (sudo privileges required)')
     cmds = ['curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -', \
       'sudo apt-get install -y nodejs']
