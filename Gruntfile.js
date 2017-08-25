@@ -65,9 +65,12 @@ module.exports = function (grunt) {
       },
       bracketsServer: {
         options: {
-          csslintrc: 'libs/brackets-server/.csslintrc'
+          csslintrc: 'libs/brackets-server/embedded-ext/.csslintrc'
         },
-        src: [ 'libs/brackets-server/embedded-ext/**/*.css' ]
+        src: [
+          'libs/brackets-server/embedded-ext/**/*.css',
+          '!libs/brackets-server/embedded-ext/**/node_modules/**'
+        ]
       }
     },
     watch: {
