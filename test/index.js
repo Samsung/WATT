@@ -11,6 +11,7 @@ var User = require('../models/user');
 chai.use(chaiHttp);
 
 describe('index route', () => {
+
   before((done) => {
     User.remove({}, (err) => {
       done();
@@ -73,4 +74,33 @@ describe('index route', () => {
         });
     });
   });
+
+  describe('/GET logout', () => {
+    it('it should GET logout', (done) => {
+      chai.request(server)
+        .get('/logout')
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('/GET logout after login', () => {
+    var agent = chai.request.agent(server);
+
+    it('it should GET logout after login', (done) => {
+      agent.post('/login')
+        .send({email: 'test@samsung.com', password: 'test'})
+        .end((loginError, loginResult) => {
+          loginResult.should.have.status(200);
+          agent.get('/logout')
+            .end((logoutError, logoutResult) => {
+              logoutResult.should.have.status(200);
+              done();
+            });
+        });
+    });
+  });
+
 });
