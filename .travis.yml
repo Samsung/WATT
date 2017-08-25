@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - "6"
+
+before_install:
+  - pip install psutil
+  - pip install requests
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: enabled
+    - os: osx
+
+install:
+  - ./launch -d

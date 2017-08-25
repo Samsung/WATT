@@ -1,5 +1,7 @@
 ![](https://github.com/Samsung/WATT/blob/master/public/image/watt.png)
 # WATT (Web Assembly Translation Toolkit)
+[![License](https://img.shields.io/badge/licence-Apache%202.0-brightgreen.svg?style=flat)](LICENSE)
+[![Build Status](https://travis-ci.org/Samsung/WATT.svg?branch=master)](https://travis-ci.org/Samsung/WATT)
 
 WATT is server-based web assembly IDE.
 
