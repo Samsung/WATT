@@ -80,6 +80,31 @@
             callback(null);
         }
 
+        function copyFile(projectId, src, name, dest, callback) {
+            const sourcePath = path.join(process.cwd(), 'projects', projectId, src, name);
+            const destPath = path.join(process.cwd(), 'projects', projectId, dest, name);
+
+            fse.copy(sourcePath, destPath, (err) => {
+                if (err) {
+                    return callback(err);
+                }
+
+                callback();
+            });
+        }
+
+        function moveFile(projectId, src, name, dest, callback) {
+            const sourcePath = path.join(process.cwd(), 'projects', projectId, src, name);
+            const destPath = path.join(process.cwd(), 'projects', projectId, dest, name);
+
+            fse.move(sourcePath, destPath, (err) => {
+                if (err) {
+                    return callback(err);
+                }
+
+                callback();
+            });
+        }
 
         _domainManager.registerCommand(
             "importNode",
@@ -121,6 +146,35 @@
             []
         );
 
+        _domainManager.registerCommand(
+            "importNode",
+            "COPY",
+            copyFile,
+            true,
+            "Copy File",
+            [
+                {name: "projectId", type: "string"},
+                {name: "src", type: "string"},
+                {name: "name", type: "string"},
+                {name: "dest", type: "string"}
+            ],
+            []
+        );
+
+        _domainManager.registerCommand(
+            "importNode",
+            "CUT",
+            moveFile,
+            true,
+            "Move File",
+            [
+                {name: "projectId", type: "string"},
+                {name: "src", type: "string"},
+                {name: "name", type: "string"},
+                {name: "dest", type: "string"}
+            ],
+            []
+        );
     }
 
     exports.init = init;
