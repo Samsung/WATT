@@ -343,6 +343,7 @@ module.exports = function (grunt) {
                           "project/node/**",
                           "importfile/node/**",
                           "tizen-profile/node/**",
+                          "pwe/node/**"
                         ]
                     },
                     /* styles, fonts and images */

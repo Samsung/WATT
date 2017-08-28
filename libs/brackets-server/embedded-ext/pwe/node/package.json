@@ -1,0 +1,15 @@
+{
+  "name": "S-hub_in_WATT",
+  "version": "1.0.0",
+  "description": "Generates a service worker and manifest file & Export a project to S-hub.",
+  "dependencies": {
+    "sw-precache": "^5.1.1",
+    "web-app-manifest-validator": "^1.0.0",
+    "webpack-pwa-manifest": "git+https://github.com/ka355/webpack-pwa-manifest.git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/googlechrome/sw-precache.git"
+  },
+  "license": "Apache-2.0"
+}

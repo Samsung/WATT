@@ -1,0 +1,5 @@
+{
+    "DBHost": "mongodb://localhost:27017/pwe",
+    "PORT": 3004,
+    "PWE": true
+}

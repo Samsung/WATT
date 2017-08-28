@@ -23,6 +23,7 @@
 <div class="wrapper">
 
 <header class="main-header">
+  <% if (!isPWE) { %>
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
@@ -52,6 +53,7 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
+  <% } %>
 </header>
 <!-- Full Width Column -->
 <div class="content-wrapper">
@@ -111,6 +113,10 @@
 
 <script>
   var projects = <%- JSON.stringify(projects) %>;
+  var isPWE = false;
+  <% if (isPWE) { %>
+    isPWE = true;
+  <% } %>
 </script>
 
 <script src="/js/project.js"></script>
