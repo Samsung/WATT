@@ -77,6 +77,9 @@ app.use('/project', require('./routes/project')(express));
 app.use('/update', require('./routes/update')(express));
 app.use('/brackets', require('./routes/brackets')(express, server, wsServer));
 app.use('/brackets-ext', require('./routes/brackets-ext')(express));
+if (config.PWE) {
+  app.use('/pwe', require('./routes/pwe')(express, passport));
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

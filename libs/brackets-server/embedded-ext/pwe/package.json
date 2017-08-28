@@ -1,0 +1,12 @@
+{
+    "name": "S-hub_in_WATT",
+    "title": "S-hub_in_WATT",
+    "description": "Generates a service worker and manifest file & Export a project to S-hub.",
+    "license": "Apache-2.0",
+    "i18n": [
+        "en"
+    ],
+    "engines": {
+        "brackets": ">=0.34.0"
+    }
+}

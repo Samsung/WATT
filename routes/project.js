@@ -29,6 +29,7 @@ module.exports = function(express) {
       res.render('project', {
         user: user,
         projects : projects,
+        isPWE: config.PWE
       });
     });
   });
@@ -177,6 +178,9 @@ module.exports = function(express) {
           state.projectType = data.type;
           state.projectProfile = data.profile;
           state.projectVersion = data.version;
+          if (process.env.NODE_ENV === 'pwe') {
+            state.projectUser = user.pwe.id;
+          }
           fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), callback);
         });
       }

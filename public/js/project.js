@@ -1,3 +1,4 @@
+/* global isPWE */
 'use strict';
 
 // Element for the project list
@@ -114,6 +115,13 @@ $('#new-project').on('show.bs.modal', function() {
   templateBtn.trigger('click');
   wasmBtn.trigger('click');
 
+  if (isPWE) {
+    projectTypeDlg.hide();
+    projectFormatDlg.show();
+    currentProcess = 'project-format';
+    projectType = 'pwe';
+  }
+
   // Update the list of template or sample
   function updateTemplateSample(projectFormat, projectType) {
     $.post('/update/template', {
@@ -169,6 +177,10 @@ $('#new-project').on('show.bs.modal', function() {
         profileVersionDlg.show();
         currentProcess = 'profile-version';
       } else {
+        if (projectType === 'pwe') {
+          backBtn.removeAttr('disabled');
+        }
+
         // Skip profile-version on WASM Module
         updateTemplateSample(projectFormat, projectType);
         templateSampleDlg.show();
@@ -218,6 +230,10 @@ $('#new-project').on('show.bs.modal', function() {
         profileVersionDlg.show();
         currentProcess = 'profile-version';
       } else {
+        if (projectType === 'pwe') {
+          backBtn.attr('disabled', 'disabled');
+        }
+
         templateSampleDlg.hide();
         projectFormatDlg.show();
         currentProcess = 'project-format';
