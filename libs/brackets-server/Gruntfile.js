@@ -117,25 +117,28 @@ function addEmbeddedExtesions(config) {
         rj = config.requirejs;
 
     dirs.forEach(function (file) {
-        var mod = {
-            options: {
-                name: "main",
-                out: "brackets-dist/extensions/default/" + file + "/main.js",
-                baseUrl: "embedded-ext/" + file + "/",
-                preserveLicenseComments: false,
-                optimize: "uglify2",
-                uglify2: {},
-                paths: {
-                    "text" : "../../brackets-src/src/thirdparty/text/text",
-                    "i18n" : "../../brackets-src/src/thirdparty/i18n/i18n",
-                },
-                generateSourceMaps: true,
-                useSourceUrl: true,
-                wrap: false
-            }
-        };
+        var stat = fs.statSync(root + "/" + file);
+        if(stat.isDirectory()) {
+            var mod = {
+                options: {
+                    name: "main",
+                    out: "brackets-dist/extensions/default/" + file + "/main.js",
+                    baseUrl: "embedded-ext/" + file + "/",
+                    preserveLicenseComments: false,
+                    optimize: "uglify2",
+                    uglify2: {},
+                    paths: {
+                        "text" : "../../brackets-src/src/thirdparty/text/text",
+                        "i18n" : "../../brackets-src/src/thirdparty/i18n/i18n",
+                    },
+                    generateSourceMaps: true,
+                    useSourceUrl: true,
+                    wrap: false
+                }
+            };
 
-        rj[file] = mod;
+            rj[file] = mod;
+        }
     });
 }
 
