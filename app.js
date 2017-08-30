@@ -130,6 +130,7 @@ function normalizePort(val) {
  */
 
 function onError(error) {
+  var exitCondition = false;
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -140,14 +141,22 @@ function onError(error) {
   switch (error.code) {
   case 'EACCES':
     console.error(bind + ' requires elevated privileges');
-    process.exit(1);
+    exitCondition = true;
     break;
   case 'EADDRINUSE':
     console.error(bind + ' is already in use');
-    process.exit(1);
+    exitCondition = true;
     break;
   default:
     throw error;
+  }
+
+  if (exitCondition) {
+    if (config.util.getEnv('NODE_ENV') !== 'test') {
+      process.exit(1); 
+    } else {
+      throw error;
+    }
   }
 }
 
@@ -160,3 +169,8 @@ function onListening() {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   console.log('Listening on ' + bind);
 }
+
+if (config.util.getEnv('NODE_ENV') === 'test') {
+  module.exports.normalizePort = normalizePort; // in order to support unit test
+}
+
