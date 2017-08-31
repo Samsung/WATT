@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import argparse, os, platform, select, subprocess, sys, tarfile
+import argparse, os, platform, select, stat, subprocess, sys, tarfile, zipfile
 
 class Log:
   level = 0
@@ -347,6 +347,48 @@ def get_emscripten_path(version):
     return ''
   return emscripten_path
 
+def ensure_nacl(nacl_path):
+  bin_path = os.path.join(nacl_path, 'naclsdk')
+  if os.path.isfile(bin_path): return True
+
+  work_path = os.path.dirname(nacl_path)
+  Log.warn('Download NaCl tool')
+  url = 'http://storage.googleapis.com/nativeclient-mirror/nacl/nacl_sdk/'
+  file_name = 'nacl_sdk.zip'
+  dest_path = os.path.join(work_path, file_name)
+  if not download_file(url + file_name, dest_path): return False
+
+  zip = zipfile.ZipFile(dest_path)
+  zip.extractall(work_path)
+  zip.close()
+  os.remove(dest_path)
+  return True
+
+def get_nacl_path():
+  Log.info('Check Google Native client SDK')
+  nacl_path = os.path.join(tool_path, 'nacl_sdk')
+  nacl_pepper_path = os.path.join(nacl_path, 'pepper_49')
+
+  if os.path.isdir(nacl_pepper_path): return nacl_pepper_path
+
+  if not ensure_nacl(nacl_path):
+    Log.err('''Fail to install Chrome Native Client SDK. Please install NaCl SDK manually.
+(https://developer.chrome.com/native-client/sdk/download)''')
+    return ''
+
+  bin_path = os.path.join(nacl_path, 'naclsdk')
+  st = os.stat(bin_path)
+  os.chmod(bin_path, st.st_mode | stat.S_IEXEC)
+  cmds = [
+    '%s update %s' % (bin_path, 'pepper_49')
+  ]
+  try:
+    for cmd in cmds: subprocess.check_call(cmd, shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during download NaCl SDK.')
+    return ''
+  return nacl_pepper_path
+
 def get_tizen_path():
   path = os.path.join(os.path.expanduser('~'), 'tizen-studio')
   tizen_path = os.path.join(path, 'tools', 'ide', 'bin', 'tizen')
@@ -463,6 +505,8 @@ def main():
     help='If set, do dry run')
   parser.add_argument('-n', '--npm', choices=['quick', 'update', 'reinstall'],
     default='quick', help='Check mode for installing dependency packages')
+  parser.add_argument('-ns', '--nacl_sdk', action='store_true',
+    help='If set, install Google Native Client SDK')
   group = parser.add_mutually_exclusive_group()
   group.add_argument('-ep', '--emscripten_path',
     help='If set, use the emscripten at specified path')
@@ -501,8 +545,9 @@ def main():
   pathlist.insert(-1, os.path.join(tool_path, 'api_grepper', '0.0.1'))
   os.putenv('PATH', os.pathsep.join(pathlist) + os.environ['PATH'])
 
-  # Path for NACL_SDK_ROOT
-  os.putenv('NACL_SDK_ROOT', os.path.join(tool_path, 'nacl_sdk', 'pepper_49'))
+  if args.nacl_sdk:
+    # Path for NACL_SDK_ROOT
+    os.putenv('NACL_SDK_ROOT', get_nacl_path())
 
   if args.dry:
     Log.warn('Skip run service')
