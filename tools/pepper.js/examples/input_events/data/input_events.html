@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright (c) 2012 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<head>
+  <title>Input Events</title>
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <title>Input Events</title>
+  <link rel="stylesheet" type="text/css" href="../../examples.css" />
+  <script type="text/javascript" src="../../loadnacl.js"></script>
+  <script type="text/javascript" src="../../common.js"></script>
+  <script type="text/javascript" src="example.js"></script>
+</head>
+<body data-name="input_events" data-tools="emscripten newlib pnacl" data-configs="Debug Release" data-path="../{tc}/{config}">
+  <h2>Input Events</h2>
+  <p><b>Status:</b> <span id="statusField">no status</span></p>
+  <!-- The NaCl plugin will be embedded inside the element with id "listener".
+      See common.js.-->
+  <div id="listener"></div>
+  <button id="killButton">Kill worker thread and queue</button>
+  <p>Click on the embed to give it focus.  Move the mouse, poke the
+  keyboard, and see the events show up below.</p>
+  <h2>Events</h2>
+  <pre>
+    <p><b id='eventString'>None</b></p>
+  </pre>
+</body>
+</html>

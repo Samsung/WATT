@@ -1,0 +1,262 @@
+<html>
+<head>
+  <title>pepper.js Examples</title>
+  <link rel="stylesheet" type="text/css" href="examples.css" />
+<script>
+var isOfficial = location.hostname === "trypepperjs.appspot.com";
+if (isOfficial) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-44787103-1', 'trypepperjs.appspot.com');
+  ga('send', 'pageview');
+}
+</script>
+  <script type="text/javascript" src="loadnacl.js"></script>
+</head>
+<body class="pepperjs">
+<div style="padding-bottom: 10px; width: 800px;">
+<h1 style="display: inline;">pepper.js Examples</h1>
+<span style="float: right;">
+  (<a href="https://github.com/google/pepper.js">Get the source</a>)
+</span>
+</div>
+<div style="width: 820px">
+
+<div id="sidebar" style="float: left; display: block; width: 150px; margin-right: 10px;">
+
+<a href="help.html">Need help?</a>
+
+<div id="menu">
+</div>
+<div class="options">
+<input type="checkbox" id="dev_mode" onchange="buildMenu()"/>
+<label for="dev_mode">Developer Mode</label>
+</div>
+</div>
+
+<div style="width: 100%; margin: 0 0 0 160px;">
+<iframe id="content" width="660px" height="100%"
+  style="padding: 0; border: 0; margin: 0; background-color: white;"
+  allowfullscreen="true"></iframe>
+</div>
+</div>
+<script>
+var show = function(url) {
+  if (isOfficial) {
+    url = "http://gonacl.commondatastorage.googleapis.com/pepper.js/" + url;
+  }
+  document.getElementById("content").src = url;
+  return false;
+};
+
+var examples = [
+  {"name": "Earth", "url": "earth/data/earth.html"},
+  {"name": "Voronoi", "url": "voronoi/data/voronoi.html"},
+  {"name": "OpenGL ES", "url": "hello_world_gles/data/hello_world_gles.html"},
+  {"name": "Pi Generator", "url": "pi_generator/data/pi_generator.html"},
+  {"name": "Sine Synth", "url": "sine_synth/data/sine_synth.html"},
+  {"name": "File IO", "url": "file_io/data/file_io.html"},
+  {"name": "GetURL", "url": "geturl/data/geturl.html"},
+  {"name": "Pointer Lock", "url": "mouselock/data/mouselock.html"},
+  {"name": "Input Events", "url": "input_events/data/input_events.html"},
+  {"name": "Hello World", "url": "hello_world/data/hello_world.html"},
+  {"name": "Bullet Physics", "url": "bullet/data/bullet.html"},
+];
+
+var tests = [
+  {"name": "PPAPI Messaging", "url": "tests/ppapi_messaging/ppapi_messaging.html"},
+  {"name": "PPAPI GetURL", "url": "tests/ppapi_geturl/ppapi_geturl.html"},
+  {"name": "PPAPI Websocket", "url": "tests/ppapi_websocket/ppapi_websocket.html"},
+  {"name": "PPAPI Vars", "url": "tests/ppapi_vars/ppapi_vars.html"},
+  {"name": "PPAPI Test Suite", "url": "tests/ppapi/tests/data/test_case.html"},
+  {"name": "Stress", "url": "stress/data/stress.html"},
+  {"name": "Probe Interfaces", "url": "probe_interfaces/data/probe_interfaces.html"},
+];
+
+var sectionTitle = function(text) {
+  var b = document.createElement("b");
+  b.appendChild(document.createTextNode(text));
+  var div = document.createElement("div");
+  div.className = "section_title";
+  div.appendChild(b);
+  return div;
+};
+
+var createMenu = function(title) {
+  var menu = document.createElement("div");
+  menu.className = "menu";
+  menu.appendChild(sectionTitle(title));
+  return menu;
+};
+
+var menuItem = function(text, callback, disable) {
+  if (disable) {
+    var div = document.createElement("div");
+    div.className = "disabled_item";
+    div.appendChild(document.createTextNode(text));
+    return div;
+  } else {
+    var a = document.createElement("a");
+    a.href = "#";
+    a.onclick = callback;
+    a.appendChild(document.createTextNode(text));
+    var div = document.createElement("div");
+    div.className = "unselected_item";
+    div.appendChild(a);
+    return div;
+  }
+};
+
+var toolchains = [
+  {"name": "Emscripten", "tc": "emscripten", enabled: nacl.hasEmscripten()},
+  {"name": "PNaCl", "tc": "pnacl", enabled: nacl.hasPNaCl()},
+  {"name": "NaCl", "tc": "newlib", enabled: nacl.hasNaCl()},
+];
+
+var createToolchains = function(toolchains, parent) {
+  var menu = createMenu("Toolchain");
+  parent.appendChild(menu);
+
+  for (var i = 0; i < toolchains.length; i++) {
+    var toolchain = toolchains[i];
+    var callback = (function(tc) {
+      return function() {
+        setToolchain(tc);
+        return false;
+    };
+    })(toolchain.tc);
+    var item = menuItem(toolchain.name, callback, !toolchain.enabled);
+    toolchain_map[toolchain.tc] = item;
+    menu.appendChild(item);
+  }
+};
+
+  
+var configs = [
+  "Release",
+  "Debug",
+];
+
+var createConfigs = function(parent) {
+  var menu = createMenu("Config");
+  parent.appendChild(menu);
+
+  for (var i = 0; i < configs.length; i++) {
+    var config = configs[i];
+    var callback = (function(config) {
+      return function() {
+        setConfig(config);
+        return false;
+    };
+    })(config);
+    var item = menuItem(config, callback);
+    config_map[config] = item;
+    menu.appendChild(item);
+  }
+};
+
+var state = {};
+var toolchain_map = {};
+var config_map = {};
+var example_map = {};
+
+var loadExample = function() {
+  show(state.example + "?tc=" + state.tc + "&config=" + state.config);
+};
+
+var setSelected = function(element, selected) {
+  if (element) {
+    if (selected) {
+      element.className = "selected_item";
+    } else {
+      element.className = "unselected_item";
+    }
+  }
+};
+
+var setToolchain = function(tc) {
+  setSelected(toolchain_map[state.tc], false);
+  state.tc = tc;
+  setSelected(toolchain_map[state.tc], true);
+  loadExample();
+};
+
+var setConfig = function(config) {
+  setSelected(config_map[state.config], false);
+  state.config = config;
+  setSelected(config_map[state.config], true);
+  loadExample();
+};
+
+var setExample = function(example) {
+  setSelected(example_map[state.example], false);
+  state.example = example;
+  setSelected(example_map[state.example], true);
+  loadExample();
+};
+
+
+// Generate a table of examples.
+var createLinks = function(title, examples, parent) {
+  var menu = createMenu(title);
+  parent.appendChild(menu);
+
+  for (var i = 0; i < examples.length; i++) {
+    var example = examples[i];
+    var callback = (function(name) {
+      return function() {
+        setExample(name);
+        return false;
+    };
+    })(example.url);
+    var item = menuItem(example.name, callback)
+    example_map[example.url] = item;
+    menu.appendChild(item);
+  }
+};
+
+var buildMenu = function() {
+  // Reset the global state.
+  state = {
+    example: examples[0].url,
+    tc: toolchains[0].tc,
+    config: configs[0]
+  };
+
+  toolchain_map = {};
+  config_map = {};
+  example_map = {};
+
+  // Clear the DOM.
+  var menu = document.getElementById("menu");
+  while (menu.hasChildNodes()) {
+    menu.removeChild(menu.lastChild);
+  }
+
+  var dev_mode = document.getElementById("dev_mode").checked;
+
+  var all_toolchains = toolchains;
+  var all_examples = examples.concat(tests);
+  if (!dev_mode) {
+    all_toolchains = all_toolchains.slice(0, -1);
+    all_examples = all_examples.slice(0, -8);
+  }
+
+  createToolchains(all_toolchains, menu);
+  if (dev_mode) {
+    createConfigs(menu);
+  }
+  createLinks("Example", all_examples, menu);
+
+  setSelected(toolchain_map[state.tc], true);
+  setSelected(config_map[state.config], true);
+  setSelected(example_map[state.example], true);
+  loadExample();
+};
+
+buildMenu();
+</script>
+</body>
+</html>

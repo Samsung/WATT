@@ -1,0 +1,23 @@
+# Build directory
+/lib/
+
+# SDK build locations
+newlib/
+glibc/
+pnacl/
+emscripten/
+
+# The submodule
+!/emscripten/
+
+# python
+*.pyc
+*.pyo
+
+# emacs
+*~
+\#*\#
+.\#*
+
+# OSX
+.DS_Store
