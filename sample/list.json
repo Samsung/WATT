@@ -24,6 +24,14 @@
     "type": "wasm"
   },
   {
+    "name": "[NaCl] Hello World",
+    "description": "Convert 'Hello World' NaCl sample to WASM",
+    "src": "HelloWorld_NaCl",
+    "icon": "icon.png",
+    "language": "C++",
+    "type": "wasm"
+  },
+  {
     "name": "Hello World",
     "description": "Print 'Hello World' using compiled 'Hello World' WASM module",
     "src": "HelloWorld",
