@@ -197,7 +197,7 @@ def prepare_nodejs(mode):
     'libs/brackets-server',
     'libs/brackets-server/embedded-ext/project/node',
     'libs/brackets-server/embedded-ext/pwe/node',
-    'libs/brackets-server/embedded-ext/importfile/node',
+    'libs/brackets-server/embedded-ext/file-extension/node',
     'libs/brackets-server/embedded-ext/tizen-profile/node']
   install_option = ' '.join(install_option)
   for path in pathlist:

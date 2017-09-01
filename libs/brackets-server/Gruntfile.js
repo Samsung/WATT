@@ -341,7 +341,7 @@ module.exports = function (grunt) {
                         cwd: "embedded-ext/",
                         src: [
                           "project/node/**",
-                          "importfile/node/**",
+                          "file-extension/node/**",
                           "tizen-profile/node/**",
                           "pwe/node/**"
                         ]
