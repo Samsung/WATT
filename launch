@@ -32,21 +32,24 @@ class Log:
     sys.stdout.flush()
 
 SERVICE = 'WATT'
+OS_UBUNTU = 'Ubuntu'
+OS_LINUX = 'Linux'
+OS_DARWIN = 'Darwin'
 
 root_path = os.path.abspath(os.path.dirname(__file__))
 tool_path = os.path.join(root_path, 'tools')
 
 os_name = platform.system()
-if os_name == 'Linux':
+if os_name == OS_LINUX:
   try:
     os_name = subprocess.check_output(['lsb_release', '-i']).strip().split('\t')[1]
     os_dist = subprocess.check_output(['lsb_release', '-c']).strip().split('\t')[1]
   except subprocess.CalledProcessError:
-    Log.err('Unsupport os')
+    Log.err('Unsupported os')
     sys.exit(1)
 
-if os_name != 'Ubuntu' and os_name != 'Darwin':
-  Log.err('Unsupport %s os' % os_name)
+if os_name != OS_UBUNTU and os_name != OS_DARWIN:
+  Log.err('Unsupported %s os' % os_name)
   sys.exit(1)
 
 def install_curl():
@@ -59,7 +62,7 @@ def install_curl():
   return True
 
 def install_pip():
-  if os_name == 'Darwin':
+  if os_name == OS_DARWIN:
     Log.info('Install pip with "brew"')
     cmds = ['brew update', 'brew install python']
   else:
@@ -93,7 +96,7 @@ def import_additional():
 import_additional()
 
 def install_nodejs():
-  if os_name == 'Darwin':
+  if os_name == OS_DARWIN:
     Log.info('Install nodejs with "brew"')
     cmds = ['brew update', 'brew install node']
   else:
@@ -206,10 +209,10 @@ def prepare_nodejs(mode):
 def install_mongodb():
   supported = ('trusty', 'xenial')
 
-  if os_name == 'Darwin':
+  if os_name == OS_DARWIN:
     Log.info('Install mongodb with "brew"')
     cmds = ['brew update', 'brew install mongodb']
-  elif (os_name == 'Ubuntu') and (os_dist in supported):
+  elif (os_name == OS_UBUNTU) and (os_dist in supported):
     Log.info('Install mongodb with "apt-get" (sudo privileges required)')
     cmds = ['sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80' \
       + ' --recv 0C49F3730359A14518585931BC711F9BA15703C6', '', \
@@ -255,7 +258,7 @@ def check_mongodb():
 
   Log.info('Try to start mongodb service. (sudo privileges required)')
   try:
-    if os_name == 'Ubuntu':
+    if os_name == OS_UBUNTU:
       subprocess.check_call(['sudo', 'service', 'mongod', 'start'])
     else:
       subprocess.Popen(['mongod', '--dbpath', root_path])
@@ -287,7 +290,7 @@ Please check REQUESTS_CA_BUNDLE environ variable for certificate.
   return True
 
 def preinstall_emsdk():
-  if os_name == 'Ubuntu':
+  if os_name == OS_UBUNTU:
     cmds = ['sudo apt-get update', 'sudo apt-get install -y build-essential cmake git-core']
     try:
       for cmd in cmds: subprocess.check_call(cmd, shell=True)
