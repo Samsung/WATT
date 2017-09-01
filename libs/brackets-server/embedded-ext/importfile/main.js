@@ -25,8 +25,13 @@ define(function (require, exports, module) {
     var _domainPath = ExtensionUtils.getModulePath(module, "node/ImportDomain"),
         _nodeDomain = new NodeDomain("importNode", _domainPath);
 
-    var FILE_IMPORT_FILE = "file.importfile";
+    var FILE_IMPORT_FILE = "file.import.file";
     var FILE_IMPORT_SHARED_FILE = "file.import.shared.file";
+
+    const FILE_COPY_FILE = "file.copy.file";
+    const FILE_CUT_FILE = "file.cut.file";
+    const FILE_PASTE_FILE = "file.paste.file";
+    let operation, selected, selectedFile;
 
     var $fileListOutput;
 
@@ -234,14 +239,87 @@ define(function (require, exports, module) {
         });
     }
 
+    function handleCopyFile() {
+        selectedFile = selected;
+        operation = "COPY";
+    }
+
+    function handleCutFile() {
+        selectedFile = selected;
+        operation = "CUT";
+    }
+
+    // Remove unnecessary prefix path
+    function convertRelativePath(path) {
+        var newPath = path.split("/");
+        newPath.splice(0, 2);
+        return newPath.join("/");
+    }
+
+    function handlePasteFile() {
+        selected = ProjectManager.getSelectedItem();
+        if (selected) {
+            let selectedPath = "";
+            if (selected.isFile) {
+                selectedPath = selected.parentPath;
+            } else {
+                selectedPath = selected.fullPath;
+            }
+
+            // Check incorrect copy
+            if (selectedPath.startsWith(selectedFile.fullPath)) {
+                return showErrorDialog(ExtensionStrings.ERROR_MSG_INCORRECT_COPY);
+            }
+
+            FileSystem.resolve(selectedFile.fullPath, (resolveError, entry) => {
+                if (resolveError) {
+                    return showErrorDialog(resolveError);
+                }
+
+                const projectId = PreferencesManager.getViewState("projectId");
+                const sourcePath = convertRelativePath(entry.parentPath);
+                const destPath = convertRelativePath(selectedPath);
+
+                _nodeDomain.exec(operation, projectId, sourcePath, entry.name, destPath)
+                .done(() => {
+                    ProjectManager.refreshFileTree();
+                }).fail((error) => {
+                    console.error(error);
+                });
+
+                selectedFile = null;
+            });
+        }
+    }
+
     ExtensionUtils.loadStyleSheet(module, "styles/styles.css");
 
     CommandManager.register(ExtensionStrings.IMPORT_FILE_MENU_TITLE, FILE_IMPORT_FILE, handleImportFile);
     CommandManager.register(ExtensionStrings.IMPORT_SHARED_FILE_MENU_TITLE, FILE_IMPORT_SHARED_FILE, handleImportSharedFile);
+
+    const copyCmd = CommandManager.register(ExtensionStrings.COPY_FILE, FILE_COPY_FILE, handleCopyFile);
+    const cutCmd = CommandManager.register(ExtensionStrings.CUT_FILE, FILE_CUT_FILE, handleCutFile);
+    const pasteCmd = CommandManager.register(ExtensionStrings.PASTE_FILE, FILE_PASTE_FILE, handlePasteFile);
+
     KeyBindingManager.addBinding(FILE_IMPORT_FILE, KeyboardPrefs.importfile);
 
     var contextMenu = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
     contextMenu.addMenuItem(FILE_IMPORT_FILE, undefined, Menus.AFTER, Commands.FILE_NEW_FOLDER);
+
+    contextMenu.addMenuItem(FILE_PASTE_FILE, undefined, Menus.AFTER, Commands.FILE_DELETE);
+    contextMenu.addMenuItem(FILE_CUT_FILE, undefined, Menus.AFTER, Commands.FILE_DELETE);
+    contextMenu.addMenuItem(FILE_COPY_FILE, undefined, Menus.AFTER, Commands.FILE_DELETE);
+    contextMenu.addMenuDivider(Menus.AFTER, Commands.FILE_DELETE);
+
+    function updateEnabledState() {
+        selected = ProjectManager.getSelectedItem();
+
+        copyCmd.setEnabled(selected);
+        cutCmd.setEnabled(selected);
+        pasteCmd.setEnabled(selected && selectedFile);
+    }
+
+    contextMenu.on("beforeContextMenuOpen", updateEnabledState);
 
     var fileMenu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     fileMenu.addMenuItem(FILE_IMPORT_FILE, undefined, Menus.AFTER, Commands.FILE_OPEN);
