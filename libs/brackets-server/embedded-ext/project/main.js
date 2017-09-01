@@ -53,7 +53,8 @@ define(function (require, exports, module) {
         return Dialogs.showModalDialog(
             DefaultDialogs.DIALOG_ID_INFO,
             ExtensionStrings.COMPILING_DIALOG_TITLE,
-            require("text!htmlContent/Loading-Dialog.html")
+            require("text!htmlContent/Loading-Dialog.html"),
+            []
         );
     }
 
@@ -300,7 +301,9 @@ define(function (require, exports, module) {
 
     function handleBuildWGT() {
         const projectId = PreferencesManager.getViewState("projectId");
+        const loadingDialog = showLoadingDialog();
         _nodeDomain.exec("buildWGT", projectId, "/projects/").done(function() {
+            loadingDialog.close();
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_OK,
                 ExtensionStrings.MENU_TITLE_OPTIONS_SELECT,
@@ -309,6 +312,7 @@ define(function (require, exports, module) {
                 ProjectManager.refreshFileTree();  // show .wgt file
             });
         }).fail((error) => {
+            loadingDialog.close();
             const result = JSON.parse(error);
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_ERROR,
