@@ -33,6 +33,6 @@ define(function (require, exports, module) {
         // Then create a menu item bound to the command
         // The label of the menu item is the name we gave the command (see above)
         var menu = Menus.getMenu(Menus.AppMenuBar.HELP_MENU);
-        menu.addMenuItem(HELP_ABOUT_WATT, undefined, Menus.BEFORE, Commands.HELP_ABOUT);
+        menu.addMenuItem(HELP_ABOUT_WATT);
     });
 });
