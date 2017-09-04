@@ -16,6 +16,6 @@ define({
     "IMPORT_FILE_MENU_TITLE"            : "파일 삽입",
     "IMPORT_SHARED_FILE_LABEL"          : "공유 프로젝트 선택 :",
     "IMPORT_SHARED_FILE_MENU_TITLE"     : "공유 파일 삽입",
-    "INTO_FOLDER_lABEL"                 : "저장 폴더 :",
+    "INTO_FOLDER_LABEL"                 : "저장 폴더 :",
     "PASTE_FILE"                        : "붙여넣기"
 });

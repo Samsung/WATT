@@ -16,6 +16,6 @@ define({
     "IMPORT_FILE_MENU_TITLE"            : "Import File",
     "IMPORT_SHARED_FILE_LABEL"          : "Select Shared Project :",
     "IMPORT_SHARED_FILE_MENU_TITLE"     : "Import Shared File",
-    "INTO_FOLDER_lABEL"                 : "Into Folder :",
+    "INTO_FOLDER_LABEL"                 : "Into Folder :",
     "PASTE_FILE"                        : "Paste"
 });
