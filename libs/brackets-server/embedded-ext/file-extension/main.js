@@ -280,11 +280,11 @@ define(function (require, exports, module) {
                 const destPath = convertRelativePath(selectedPath);
 
                 _nodeDomain.exec(operation, projectId, sourcePath, entry.name, destPath)
-                .done(() => {
-                    ProjectManager.refreshFileTree();
-                }).fail((error) => {
-                    console.error(error);
-                });
+                    .done(() => {
+                        ProjectManager.refreshFileTree();
+                    }).fail((error) => {
+                        console.error(error);
+                    });
 
                 selectedFile = null;
             });

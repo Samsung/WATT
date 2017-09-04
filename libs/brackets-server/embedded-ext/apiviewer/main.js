@@ -65,7 +65,7 @@ define(function (require, exports, module) {
         });
     }
 
-    function fillApisFromIDL(entry) {
+    function fillApisFromWebIDL(entry) {
         let WebIDL2 = require("../../node_modules/webidl2/lib/webidl2");
         FileUtils.readAsText(entry).done(function(text) {
             try {
@@ -75,9 +75,9 @@ define(function (require, exports, module) {
                     if (interf.name) {
                         apiText += "<li id=\"interface\"> " + interf.name;
                         if (interf.members) {
-                            apiText += "<ul>"
+                            apiText += "<ul>";
                             for (const method of interf.members) {
-                                apiText += "<li id=\"method\">"
+                                apiText += "<li id=\"method\">";
                                 apiText += method.name;
                                 if (method.hasOwnProperty('arguments')) {
                                     if (method.arguments.length > 0) {
@@ -86,26 +86,30 @@ define(function (require, exports, module) {
                                         for (const param of method.arguments) {
                                             if (param.hasOwnProperty('idlType')
                                                 && param.idlType.hasOwnProperty('idlType')
-                                                && param.idlType.idlType.length > 0)
+                                                && param.idlType.idlType.length > 0) {
                                                 apiText += param.idlType.idlType + " ";
+                                            }
                                             if (param.hasOwnProperty('name')
-                                                && param.name.length > 0)
-                                            apiText += param.name;
+                                                && param.name.length > 0) {
+                                                apiText += param.name;
+                                            }
                                             counter++;
                                             // don't add ", " for last parameter
-                                            if (counter < method.arguments.length)
-                                                 apiText += ", ";
+                                            if (counter < method.arguments.length) {
+                                                apiText += ", ";
+                                            }
                                         }
                                         apiText +=  ")";
                                     }
-                                    else // no parameters in method
+                                    else { // no parameters in method
                                         apiText +=  "()";
+                                    }
                                 }
-                                apiText += "</li>"
+                                apiText += "</li>";
                             }
-                            apiText += "</ul>"
+                            apiText += "</ul>";
                         }
-                        apiText += "</li>"
+                        apiText += "</li>";
                     }
                 }
                 apiText + "</ul>";
@@ -139,7 +143,7 @@ define(function (require, exports, module) {
                         function(entry) {
                             if (entry.length !== 0) {
                                 console.log("displayAPIs - using file: " + entry[0]);
-                                fillApisFromIDL(entry[0]);
+                                fillApisFromWebIDL(entry[0]);
                             } else {
                                 apiList.innerHTML = missingFileMessage;
                             }
@@ -154,20 +158,17 @@ define(function (require, exports, module) {
         if (!entry) {
             return;
         }
-
-        if (entry && entry.isDirectory) {
-            ProjectManager.getAllFiles(filterWasmJson).then(
-                function(entry) {
-                    if (entry.length === 0) {
-                        apiList.innerHTML = missingFileMessage;
-                    }
-                }
-            );
+        if (entry.isDirectory) {
+            // directory structure has changed, refresh all
+            displayAPIs();
             return;
         }
-
-        if (entry._name === "WASM.json") {
-            fillApis(entry);
+        else if (entry.isFile) {
+            if (entry._name === "WASM.json") {
+                fillApisFromPickAPI(entry);
+            } else if (entry._name === "WASM.idl") {
+                fillApisFromWebIDL(entry);
+            }
         }
     }
 
