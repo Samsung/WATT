@@ -4,7 +4,6 @@ var debug = require('debug')('routes:project');
 var fs = require('fs');
 var fse = require('fs-extra');
 var path = require('path');
-var unzip = require('decompress-unzip')();
 var xml2js = require('xml2js');
 
 var util = require('../libs/util');

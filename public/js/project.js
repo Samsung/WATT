@@ -428,43 +428,73 @@ $('#import-project').on('show.bs.modal', function() {
     var projectName = projectNameInput.val();
     var projectDescription = projectDescriptionInput.val();
 
+    // Show progress dialog
+    $('#progress-dialog').modal('show');
+
     if (currentTab === 'file') {
-      // Check for the various File API support.
-      if (window.File && window.FileReader && window.FileList && window.Blob) {
-        // Great success! All the File APIs are supported.
-        var reader = new FileReader();
+      var formData = new FormData();
+      formData.append('uploads[]', file, file.name);
 
-        reader.onloadend = function(event) {
-          if (event.target.readyState === FileReader.DONE) {
-            $.ajax({
-              url: '/import/archive',
-              type: 'put',
-              data: {
-                name: projectName,
-                filename: file.name,
-                description: projectDescription,
-                archive: event.target.result
-              }
-            }).done(function() {
-              $.get('/update').done(function(data) {
-                projectList.html(data);
-                projectBox.show();
-                $('#import-project').modal('hide');
-              });
-            }).fail(function(err) {
-              if (err) {
-                console.error(err);
-                window.alert(err.responseText);
-              }
+      $.ajax({
+        url: '/import/archive',
+        type: 'put',
+        data: {
+          name: projectName,
+          filename: file.name,
+          description: projectDescription
+        }
+      }).done(function(projectId) {
+        $.ajax({
+          url: '/import/archive/upload/'+projectId,
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(){
+            $('#progress-dialog').modal('hide');
+            $.get('/update').done(function(data) {
+              projectList.html(data);
+              projectBox.show();
+              $('#import-project').modal('hide');
             });
+          },
+          error: function(err) {
+            $('#progress-dialog').modal('hide');
+            console.error(err);
+            window.alert(err.responseText);
+          },
+          xhr: function() {
+            // create an XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // listen to the 'progress' event
+            xhr.upload.addEventListener('progress', function(evt) {
+              if (evt.lengthComputable) {
+                // calculate the percentage of upload completed
+                var percentComplete = evt.loaded / evt.total;
+                percentComplete = parseInt(percentComplete * 100);
+
+                // update the Bootstrap progress bar with the new percentage
+                $('.progress-bar').text(percentComplete + '%');
+                $('.progress-bar').width(percentComplete + '%');
+
+                // once the upload reaches 100%, set the progress bar text to done
+                if (percentComplete === 100) {
+                  $('.progress-bar').html('Done');
+                }
+              }
+            }, false);
+
+            return xhr;
           }
-        };
-
-        reader.readAsBinaryString(file);
-
-      } else {
-        window.alert('The File APIs are not fully supported in this browser.');
-      }
+        });
+      }).fail(function(err) {
+        if (err) {
+          $('#progress-dialog').modal('hide');
+          console.error(err);
+          window.alert(err.responseText);
+        }
+      });
     } else {
       // currentTab === 'url'
       // WIP...
