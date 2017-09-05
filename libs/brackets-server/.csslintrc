@@ -1,5 +1,8 @@
 {
+  "box-model": false,
+  "ids": false,
+  "known-properties": false,
+  "outline-none": false,
   "qualified-headings": true,
-  "unique-headings": true,
-  "known-properties": false
+  "unique-headings": true
 }

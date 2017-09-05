@@ -50,10 +50,16 @@ module.exports = function (grunt) {
         options: {
           ignore: [
             'Start tag seen without seeing a doctype first. Expected “<!DOCTYPE html>”.',
-            'Element “head” is missing a required instance of child element “title”.'
+            'Element “head” is missing a required instance of child element “title”.',
+            'Consider adding a “lang” attribute to the “html” start tag to declare the language of this document.',
+            'The “for” attribute of the “label” element must refer to a non-hidden form control.',
+            /This document appears to be written in .*[가-힣]+.* Consider adding “lang=".*"” \(or variant\) to the “html” start tag./
           ]
         },
-        src: [ 'libs/brackets-server/embedded-ext/**/*.html' ]
+        src: [
+          'libs/brackets-server/embedded-ext/**/*.html',
+          '!libs/brackets-server/embedded-ext/**/node_modules/**'
+        ]
       }
     },
     csslint: {

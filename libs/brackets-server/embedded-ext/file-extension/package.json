@@ -1,7 +1,7 @@
 {
-    "name": "importfile",
-    "title": "Brackets Import file Dialog",
-    "description": "Import file",
+    "name": "file-extension",
+    "title": "File extension",
+    "description": "The extension for the file management",
     "version": "0.0.1",
     "author": "HUnseop Jeong | hs85.jeong@samsung.com",
     "license": "MIT",

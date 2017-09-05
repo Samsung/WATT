@@ -7,6 +7,7 @@ define({
     "CHANGE_FOLDER"                     : "변경",
     "COPY_FILE"                         : "복사",
     "CUT_FILE"                          : "잘라내기",
+    "DOWNLOAD_FILE"                     : "다운로드",
     "ERROR_DIALOG_TITLE"                : "에러",
     "ERROR_MSG_FOLDER_CHANGE"           : "폴더 변경 실패!",
     "ERROR_MSG_FILE_API"                : "당신의 브라우져가 File API를 완벽하게 지원하지 않습니다.",

@@ -4,7 +4,7 @@ define(function (require, exports, module) {
     "use strict";
 
     // Brackets modules
-    var Commands                 = brackets.getModule("command/Commands"),
+    const Commands               = brackets.getModule("command/Commands"),
         CommandManager           = brackets.getModule("command/CommandManager"),
         DefaultDialogs           = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs                  = brackets.getModule("widgets/Dialogs"),
@@ -17,23 +17,22 @@ define(function (require, exports, module) {
         ProjectManager           = brackets.getModule("project/ProjectManager"),
         Strings                  = brackets.getModule("strings");
 
-    var ExtensionStrings               = require("strings"),
+    const ExtensionStrings             = require("strings"),
         ImportFileDialogTemplate       = require("text!htmlContent/Import-File.html"),
         ImportSharedFileDialogTemplate = require("text!htmlContent/Import-Shared-File.html"),
         KeyboardPrefs                  = JSON.parse(require("text!keyboard.json"));
 
-    var _domainPath = ExtensionUtils.getModulePath(module, "node/ImportDomain"),
+    const _domainPath = ExtensionUtils.getModulePath(module, "node/ImportDomain"),
         _nodeDomain = new NodeDomain("importNode", _domainPath);
 
-    var FILE_IMPORT_FILE = "file.import.file";
-    var FILE_IMPORT_SHARED_FILE = "file.import.shared.file";
 
     const FILE_COPY_FILE = "file.copy.file";
     const FILE_CUT_FILE = "file.cut.file";
+    const FILE_DOWNLOAD = "file.download";
+    const FILE_IMPORT_FILE = "file.import.file";
+    const FILE_IMPORT_SHARED_FILE = "file.import.shared.file";
     const FILE_PASTE_FILE = "file.paste.file";
-    let operation, selected, selectedFile;
-
-    var $fileListOutput;
+    let operation, selected, selectedFile, $fileListOutput;
 
     function showErrorDialog(message) {
         Dialogs.showModalDialog(
@@ -292,6 +291,19 @@ define(function (require, exports, module) {
         }
     }
 
+    function handleDownloadFile() {
+        const selected = ProjectManager.getSelectedItem();
+
+        if (selected && selected.isFile) {
+            const projectId = PreferencesManager.getViewState("projectId");
+            const filePath = brackets.app.convertFilePathToServerPath(selected.fullPath, projectId);
+            const anchor = document.createElement("a");
+            anchor.href = filePath;
+            anchor.download = selected.name;
+            anchor.click();
+        }
+    }
+
     ExtensionUtils.loadStyleSheet(module, "styles/styles.css");
 
     CommandManager.register(ExtensionStrings.IMPORT_FILE_MENU_TITLE, FILE_IMPORT_FILE, handleImportFile);
@@ -299,11 +311,12 @@ define(function (require, exports, module) {
 
     const copyCmd = CommandManager.register(ExtensionStrings.COPY_FILE, FILE_COPY_FILE, handleCopyFile);
     const cutCmd = CommandManager.register(ExtensionStrings.CUT_FILE, FILE_CUT_FILE, handleCutFile);
+    const downloadCmd = CommandManager.register(ExtensionStrings.DOWNLOAD_FILE, FILE_DOWNLOAD, handleDownloadFile);
     const pasteCmd = CommandManager.register(ExtensionStrings.PASTE_FILE, FILE_PASTE_FILE, handlePasteFile);
 
     KeyBindingManager.addBinding(FILE_IMPORT_FILE, KeyboardPrefs.importfile);
 
-    var contextMenu = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
+    const contextMenu = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
     contextMenu.addMenuItem(FILE_IMPORT_FILE, undefined, Menus.AFTER, Commands.FILE_NEW_FOLDER);
 
     contextMenu.addMenuItem(FILE_PASTE_FILE, undefined, Menus.AFTER, Commands.FILE_DELETE);
@@ -311,20 +324,24 @@ define(function (require, exports, module) {
     contextMenu.addMenuItem(FILE_COPY_FILE, undefined, Menus.AFTER, Commands.FILE_DELETE);
     contextMenu.addMenuDivider(Menus.AFTER, Commands.FILE_DELETE);
 
+    contextMenu.addMenuItem(FILE_DOWNLOAD, undefined, Menus.AFTER, Commands.FILE_RENAME);
+    contextMenu.addMenuDivider(Menus.AFTER, Commands.FILE_RENAME);
+
     function updateEnabledState() {
         selected = ProjectManager.getSelectedItem();
 
         copyCmd.setEnabled(selected);
         cutCmd.setEnabled(selected);
+        downloadCmd.setEnabled(selected && selected.isFile);
         pasteCmd.setEnabled(selected && selectedFile);
     }
 
     contextMenu.on("beforeContextMenuOpen", updateEnabledState);
 
-    var fileMenu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
+    const fileMenu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     fileMenu.addMenuItem(FILE_IMPORT_FILE, undefined, Menus.AFTER, Commands.FILE_OPEN);
 
-    var projectType = PreferencesManager.getViewState("projectType");
+    const projectType = PreferencesManager.getViewState("projectType");
     if (projectType === "web") {
         fileMenu.addMenuItem(FILE_IMPORT_SHARED_FILE, undefined, Menus.AFTER, FILE_IMPORT_FILE);
     }

@@ -7,6 +7,7 @@ define({
     "CHANGE_FOLDER"                     : "Change...",
     "COPY_FILE"                         : "Copy",
     "CUT_FILE"                          : "Cut",
+    "DOWNLOAD_FILE"                     : "Download",
     "ERROR_DIALOG_TITLE"                : "Error",
     "ERROR_MSG_FOLDER_CHANGE"           : "Folder Change Failed!",
     "ERROR_MSG_FILE_API"                : "The File APIs are not fully supported in this browser.",
