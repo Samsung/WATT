@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <title>pepper.js Example Help</title>
+  <link rel="stylesheet" type="text/css" href="examples.css" />
+<script>
+var isOfficial = location.hostname === "trypepperjs.appspot.com";
+if (isOfficial) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-44787103-1', 'trypepperjs.appspot.com');
+  ga('send', 'pageview');
+}
+</script>
+  <script type="text/javascript" src="loadnacl.js"></script>
+</head>
+
+<body class="pepperjs">
+<div class="outer">
+<div class="inner">
+<h1>pepper.js Examples Help</h1>
+<div class="content">
+<p>The examples are <a href="examples.html">here</a>.  Before you
+dive in, please make sure your browser is set up to run them.  For the
+most part, this means "make sure your browser is up to date."</p>
+
+<p>The Emscripten examples <span id="emscripten_check"
+class="error">will not work</span> in your browser. The Emscripten
+examples requires typed arrays.  IE 9, for example, is not supported.</p>
+
+<p>The PNaCl examples <span id="pnacl_check" class="error">will
+not work</span> in your browser.  PNaCl requires Chrome 31 or newer.
+You are <span id="chrome_version" class="error">not running Chrome</span>.</p>
+
+<p>Note: The PNaCl translator is currently downloaded asynchronously from the
+main Chrome distribution, and in theory translation may fail if the newest
+version has not yet been downloaded.  If the PNaCl examples are not
+working you may need to wait a bit and restart the browser.  You can also go to
+chrome://components and click "Check for update" to push it along.</p>
+
+<p>If you're having problems, please send a message to <a href="https://groups.google.com/forum/#!forum/native-client-discuss">native-client-discuss</a>.</p>
+
+<h3>JavaScript API Support</h3>
+
+<p>pepper.js uses APIs that are currently not supported by every
+browser.  If your browser does not support these APIs, some of the
+examples may not work.</p>
+
+<ul>
+  <li><A href="http://caniuse.com/webgl">WebGL</a> <span id="webgl_check" class="error">will not work</span> in your browser.</li>
+  <li><a href="http://caniuse.com/fullscreen">Fullscreen</a> <span id="fullscreen_check" class="error">will not work</span> in your browser.</li>
+  <li>Pointer Lock <span id="pointerlock_check" class="error">will not work</span> in your browser.</li>
+  <li><a href="http://caniuse.com/audio-api">Web Audio</a> <span id="webaudio_check" class="error">will not work</span> in your browser.</li>
+</ul>
+
+<h3>Developer Mode</h3>
+<p>Checking the "Developer Mode" checkbox reveals options that are
+handy for day-to-day development but don't make for a compelling
+demo.  Developer mode adds the NaCl toolchain, Debug and Release
+builds, and a bunch of tests.</p>
+
+<p>The "NaCl" toolchain is the predecessor or PNaCl.  Because the
+original NaCl toolchain produces architecture-specific binaries, they
+are restricted to the Chrome Web Store by default.  Running NaCl on
+the web requires it be explicitly enabled in Chrome, either by
+enabling "Native Client" in chrome://flags or passing --enable-nacl to
+Chrome on the command line.  Check chrome://nacl to see if
+non-portable NaCl is enabled outside the web store.</p>
+
+<p>Note that "PNaCl Debug" examples are actually plain-old NaCl modules
+compiled using the PNaCl toolchain - no translation is being done in
+the browser.  Only "PNaCl Release" translates in the browser.</p>
+
+
+<script type="text/javascript">
+(function() {
+  var makeEmbed = function(src, mime) {
+    var e = document.createElement("embed");
+    e.setAttribute('width', 1);
+    e.setAttribute('height', 1);
+    e.setAttribute('type', mime);
+    e.setAttribute('src', src);
+    return e;
+  };
+
+  var setStatus = function(name, state) {
+    if (state) {
+      var s = document.getElementById(name);
+      s.textContent = "should work";
+      s.className = "ok";
+    }
+  };
+
+  setStatus("emscripten_check", nacl.hasEmscripten());
+  setStatus("pnacl_check", nacl.hasPNaCl());
+  setStatus("webgl_check", nacl.hasWebGL());
+  setStatus("fullscreen_check", nacl.hasFullscreen());
+  setStatus("pointerlock_check", nacl.hasPointerLock());
+  setStatus("webaudio_check", nacl.hasWebAudio());
+
+  var version = nacl.chromeMajorVersion();
+  if (version != null) {
+    var s = document.getElementById("chrome_version");
+    s.textContent = "running Chrome " + version;
+    if (version >= 31) {
+      s.className = "ok";
+    }
+  }
+})();
+</script>
+
+
+<h3>Browser Notes</h3>
+<h4>Firefox</h4>
+<ul>
+  <li>Firefox <a href="http://nightly.mozilla.org/">25 or later</a> is
+  required for some of the examples.  The Web Audio API, etc, are only starting to be supported.</li>
+  <li>Switching to fullscreen will unlock the mouse in Firefox.</li>
+  <li>Scaling 3D to fullscreen appears to be slow. Unscaled 3D seems to be fine.</li>
+</ul>
+
+<h4>Safari</h4>
+<ul>
+  <li>WebGL must be <a href="https://discussions.apple.com/thread/3300585">manually enabled</a> on Safari.</li>
+  <li>Mouse lock is not supported in Safari.</li>
+</ul>
+
+<h4>Internet Explorer</h4>
+<ul>
+  <li>IE10 is partially supported - Graphics_3D, Audio, Fullscreen, and Pointer Lock APIs cannot be implemented.</li>
+  <li>IE9 does not support typed arrays, which means that it cannot
+  run code generated by Emscripten's asm.js backend.  It is possible
+  to use Emscripten's non-typed array code generation mode, but this
+  is slow and <a href="https://github.com/kripken/emscripten/issues/495">not recommended</a>.</li>
+</ul>
+
+<h4>Mobile</h4>
+<ul>
+  <li>Not throughly tested.  There are known issues with the examples,
+  such as requiring "escape" and "enter" key presses.</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
