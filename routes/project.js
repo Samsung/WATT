@@ -106,6 +106,11 @@ module.exports = function(express) {
         });
       },
       function(callback) {
+        // Skip copy template when empty check box is enabled
+        if (data.templateName === '') {
+          return callback(null);
+        }
+
         // Copy the template to project folder
         var templatePath = path.join(process.cwd(), data.format, data.type, data.templateName);
         fse.ensureDir(templatePath, function(error) {

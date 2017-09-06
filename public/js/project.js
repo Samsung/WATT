@@ -29,6 +29,7 @@ $('#new-project').on('show.bs.modal', function() {
 
   // Variable for the project
   var currentProcess = 'project-type',
+    emptyProject = false,
     projectFormat = 'template',
     projectProfile = 'mobile',
     projectVersion = '4.0',
@@ -86,6 +87,20 @@ $('#new-project').on('show.bs.modal', function() {
     webBtn.addClass('btn-primary');
   });
 
+  $("#empty-checkbox").on('change', function() {
+    emptyProject = this.checked;
+    if (emptyProject) {
+      templateBtn.attr('disabled', 'disabled');
+      templateBtn.removeClass('btn-primary');
+      sampleBtn.attr('disabled', 'disabled');
+      sampleBtn.removeClass('btn-primary');
+    } else {
+      templateBtn.addClass('btn-primary');
+      templateBtn.removeAttr('disabled');
+      sampleBtn.removeAttr('disabled');
+    }
+  });
+
   $('#mobile-version-dropdown>li').click(function() {
     var version = $(this).text();
     mobileVersion.text(version);
@@ -114,6 +129,7 @@ $('#new-project').on('show.bs.modal', function() {
   mobileBtn.trigger('click');
   templateBtn.trigger('click');
   wasmBtn.trigger('click');
+  $('#empty-checkbox')[0].checked = false;
 
   if (isPWE) {
     projectTypeDlg.hide();
@@ -181,24 +197,37 @@ $('#new-project').on('show.bs.modal', function() {
           backBtn.removeAttr('disabled');
         }
 
-        // Skip profile-version on WASM Module
-        updateTemplateSample(projectFormat, projectType);
-        templateSampleDlg.show();
-        currentProcess = 'template-sample';
+        if (emptyProject) {
+          propertyDlg.show();
+          nextBtn.attr('disabled', 'disabled');
+          currentProcess = 'project-property';
+        } else {
+          // Skip profile-version on WASM Module
+          updateTemplateSample(projectFormat, projectType);
+          templateSampleDlg.show();
+          currentProcess = 'template-sample';
+        }
       }
 
       break;
     case 'profile-version':
+      profileVersionDlg.hide();
+
       if (mobileBtn.hasClass('btn-primary')) {
         projectProfile = 'mobile';
       } else if (wearableBtn.hasClass('btn-primary')) {
         projectProfile = 'wearable';
       }
 
-      updateTemplateSample(projectFormat, projectType);
-      profileVersionDlg.hide();
-      templateSampleDlg.show();
-      currentProcess = 'template-sample';
+      if (emptyProject) {
+        propertyDlg.show();
+        nextBtn.attr('disabled', 'disabled');
+        currentProcess = 'project-property';
+      } else {
+        updateTemplateSample(projectFormat, projectType);
+        templateSampleDlg.show();
+        currentProcess = 'template-sample';
+      }
       break;
     case 'template-sample':
       templateSampleDlg.hide();
@@ -241,10 +270,21 @@ $('#new-project').on('show.bs.modal', function() {
       break;
     case 'project-property':
       propertyDlg.hide();
-      templateSampleDlg.show();
       nextBtn.removeAttr('disabled');
       finishBtn.attr('disabled', 'disabled');
-      currentProcess = 'template-sample';
+
+      if (emptyProject) {
+        if (projectType === 'web') {
+          profileVersionDlg.show();
+          currentProcess = 'profile-version';
+        } else {
+          projectFormatDlg.show();
+          currentProcess = 'project-format';
+        }
+      } else {
+        templateSampleDlg.show();
+        currentProcess = 'template-sample';
+      }
       break;
     }
   });
@@ -298,6 +338,7 @@ $('#new-project').on('show.bs.modal', function() {
 $('#new-project').on('hide.bs.modal', function() {
   $('#back-button').off();
   $('#cancel-button').off();
+  $("#empty-checkbox").off();
   $('#finish-button').off();
   $('#mobile-button').off();
   $('#mobile-version-dropdown>li').off();
