@@ -60,6 +60,7 @@
     "grunt-html": "^8.4.0",
     "load-grunt-tasks": "^3.5.2",
     "mocha": "^3.2.0",
+    "node-mocks-http": "^0.0.6",
     "nyc": "^11.0.2",
     "shared-git-hooks": "^1.2.1",
     "tmp": "^0.0.31"
