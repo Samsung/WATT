@@ -4,8 +4,8 @@ node_js:
   - "6"
 
 before_install:
-  - pip install psutil
-  - pip install requests
+  - pip install psutil --user travis
+  - pip install requests --user travis
 
 matrix:
   include:
