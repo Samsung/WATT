@@ -404,6 +404,16 @@ Please ensure to execute tizen command if use WGT packaging.''')
     % (pkg_manager, pkg_manager), shell=True)
   return os.path.dirname(tizen_path)
 
+def build_brackets():
+  Log.info('Build brackets if necessary.')
+  try:
+    subprocess.check_call('cd libs/brackets-server/brackets-dist 2>/dev/null' \
+      '|| { cd libs/brackets-server; grunt build; }', shell=True)
+  except:
+    Log.err('Fail to build. Please try rerun after fix build break.')
+    return False
+  return True
+
 def run_service(verbose):
   print_msg = True
   need_rebuild = False
@@ -411,14 +421,6 @@ def run_service(verbose):
   srv_cmd = ['node', 'app.js']
   rlist = [sys.stdin]
   devnull = open(os.devnull, 'w')
-
-  Log.info('Build if necessary.')
-  try:
-    subprocess.check_call('cd libs/brackets-server/brackets-dist 2>/dev/null' \
-      '|| { cd libs/brackets-server; grunt build; }', shell=True)
-  except:
-    Log.err('Fail to build. Please try rerun after fix build break.')
-    return 1
 
   if verbose:
     out = None
@@ -524,6 +526,9 @@ def main():
 
   ret, grunt_path = prepare_nodejs(args.npm)
   if not ret:
+    return 1
+
+  if not build_brackets():
     return 1
 
   if not check_mongodb():
