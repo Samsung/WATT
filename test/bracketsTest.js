@@ -19,7 +19,7 @@ describe('test /routes/brackets.js', () => {
       if (error) {
         return done(error);
       }
-      chai.request(server)
+      agent
         .post('/signup')
         .send({email: 'test@samsung.com', password: 'test'})
         .end((err, res) => {
