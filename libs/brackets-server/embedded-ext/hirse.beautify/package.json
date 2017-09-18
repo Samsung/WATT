@@ -1,0 +1,15 @@
+{
+    "name": "hirse.beautify",
+    "version": "1.0.2",
+    "title": "Brackets Beautify",
+    "description": "Format JavaScript, HTML, and CSS files and related languages. This is a fork of drewhamlett's Beautify extension using the latest version (1.5.10) of the js-beautify library.",
+    "engines": {
+        "brackets": ">=1.3.0"
+    },
+    "homepage": "https://github.com/Hirse/brackets-beautify",
+    "author": "Jan Pilzer (https://github.com/Hirse)",
+    "license": "MIT",
+    "categories":"formatting",
+    "keywords": ["beautify", "beautifier", "format", "formatting", "tidy", "pretty", "prettify", "JavaScript", "CSS", "XML", "HTML", "SVG"],
+    "i18n": ["en", "ko"]
+}
