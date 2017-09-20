@@ -33,6 +33,7 @@ module.exports = function (grunt) {
           'libs/brackets-server/lib/**/*.js',
           '!libs/brackets-server/embedded-ext/brackets-indent-guides/snap.svg-min.js',
           '!libs/brackets-server/embedded-ext/client-fs/thirdparty/**',
+          '!libs/brackets-server/embedded-ext/hirse.beautify/thirdparty/**',
           '!libs/brackets-server/embedded-ext/**/node_modules/**'
         ]
       }
