@@ -106,7 +106,6 @@ define(function (require) {
     CommandManager.register(Strings.BEAUTIFY, COMMAND_ID, format);
 
     var editMenu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
-    editMenu.addMenuDivider();
     editMenu.addMenuItem(COMMAND_ID, keyBindings);
     Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU).addMenuItem(COMMAND_ID);
 });

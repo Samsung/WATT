@@ -340,6 +340,7 @@ module.exports = function (grunt) {
                         dest: "brackets-srv/extensions/default",
                         cwd: "embedded-ext/",
                         src: [
+                          "brackets-minify/node/**",
                           "project/node/**",
                           "file-extension/node/**",
                           "tizen-profile/node/**",
