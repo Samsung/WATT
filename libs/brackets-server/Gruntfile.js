@@ -255,20 +255,6 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            prepare: {
-                files: [
-                    /* hack files */
-                    {
-                        expand: true,
-                        dest: "brackets-src/src/",
-                        cwd: "hacks/src/",
-                        src: [
-                            "**",
-                            "!search/node/FindInFilesDomain.js"
-                        ]
-                    }
-                ]
-            },
             dist: {
                 files: [
                     {
@@ -523,6 +509,30 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+        },
+        git: {
+            reset: {
+                options: {
+                    hard: "3df0ac6fa18b1ccfc34f6d234da2aa8c43643a93",
+                    simple: {
+                        cwd: './brackets-src'
+                    }
+                }
+            },
+            apply: {
+                options: {
+                    index: [
+                        '../hacks/patch/0001-Add-BinaryView-in-order-to-present-selction-of-wasm-.patch',
+                        '../hacks/patch/0001-Drag-and-Drop-folder-implementation.patch',
+                        '../hacks/patch/0001-Fix-find-in-files-feature-correctly.patch',
+                        '../hacks/patch/0001-Fix-ImageViewer-to-show-the-image-correctly.patch',
+                        '../hacks/patch/0001-Remove-unused-menus-and-buttons.patch'
+                    ],
+                    simple: {
+                        cwd: './brackets-src/'
+                    }
+                }
+            }
         }
     };
 
@@ -550,7 +560,7 @@ module.exports = function (grunt) {
     // task: build
     grunt.registerTask("build", [
         "clean",
-        "copy:prepare",
+        "git",
         "less",
         "targethtml",
         "replace",

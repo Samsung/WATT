@@ -1,0 +1,176 @@
+From 986ce78b6c6bd58355c52412ded836388ad6ea8a Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Thu, 21 Sep 2017 10:02:23 +0900
+Subject: [PATCH] Remove unused menus and buttons
+
+Signed-off-by: Hunseop Jeong <hs85.jeong@samsung.com>
+---
+ src/command/DefaultMenus.js                  | 47 ----------------------------
+ src/extensions/default/DebugCommands/main.js | 43 +++++++++----------------
+ src/htmlContent/main-view.html               |  3 --
+ 3 files changed, 14 insertions(+), 79 deletions(-)
+
+diff --git a/src/command/DefaultMenus.js b/src/command/DefaultMenus.js
+index 90f091b..624cc3f 100644
+--- a/src/command/DefaultMenus.js
++++ b/src/command/DefaultMenus.js
+@@ -51,12 +51,6 @@ define(function (require, exports, module) {
+         menu.addMenuItem(Commands.FILE_SAVE);
+         menu.addMenuItem(Commands.FILE_SAVE_ALL);
+         menu.addMenuItem(Commands.FILE_SAVE_AS);
+-        menu.addMenuDivider();
+-        menu.addMenuItem(Commands.FILE_LIVE_FILE_PREVIEW);
+-        menu.addMenuItem(Commands.TOGGLE_LIVE_PREVIEW_MB_MODE);
+-        menu.addMenuItem(Commands.FILE_PROJECT_SETTINGS);
+-        menu.addMenuDivider();
+-        menu.addMenuItem(Commands.FILE_EXTENSION_MANAGER);
+ 
+         // suppress redundant quit menu item on mac
+         if (brackets.platform !== "mac" || !brackets.nativeMenus) {
+@@ -166,46 +160,6 @@ define(function (require, exports, module) {
+          * Help menu
+          */
+         menu = Menus.addMenu(Strings.HELP_MENU, Menus.AppMenuBar.HELP_MENU);
+-        menu.addMenuItem(Commands.HELP_CHECK_FOR_UPDATE);
+-
+-        menu.addMenuDivider();
+-        if (brackets.config.how_to_use_url) {
+-            menu.addMenuItem(Commands.HELP_HOW_TO_USE_BRACKETS);
+-        }
+-        if (brackets.config.support_url) {
+-            menu.addMenuItem(Commands.HELP_SUPPORT);
+-        }
+-        if (brackets.config.suggest_feature_url) {
+-            menu.addMenuItem(Commands.HELP_SUGGEST);
+-        }
+-        if (brackets.config.release_notes_url) {
+-            menu.addMenuItem(Commands.HELP_RELEASE_NOTES);
+-        }
+-        if (brackets.config.get_involved_url) {
+-            menu.addMenuItem(Commands.HELP_GET_INVOLVED);
+-        }
+-
+-        menu.addMenuDivider();
+-        menu.addMenuItem(Commands.HELP_SHOW_EXT_FOLDER);
+-
+-        var hasAboutItem = (brackets.platform !== "mac" || !brackets.nativeMenus);
+-
+-        // Add final divider only if we have a homepage URL or twitter URL or about item
+-        if (hasAboutItem || brackets.config.homepage_url || brackets.config.twitter_url) {
+-            menu.addMenuDivider();
+-        }
+-
+-        if (brackets.config.homepage_url) {
+-            menu.addMenuItem(Commands.HELP_HOMEPAGE);
+-        }
+-
+-        if (brackets.config.twitter_url) {
+-            menu.addMenuItem(Commands.HELP_TWITTER);
+-        }
+-        // supress redundant about menu item in mac shell
+-        if (hasAboutItem) {
+-            menu.addMenuItem(Commands.HELP_ABOUT);
+-        }
+ 
+ 
+         /*
+@@ -244,7 +198,6 @@ define(function (require, exports, module) {
+         project_cmenu.addMenuItem(Commands.FILE_NEW_FOLDER);
+         project_cmenu.addMenuItem(Commands.FILE_RENAME);
+         project_cmenu.addMenuItem(Commands.FILE_DELETE);
+-        project_cmenu.addMenuItem(Commands.NAVIGATE_SHOW_IN_OS);
+         project_cmenu.addMenuDivider();
+         project_cmenu.addMenuItem(Commands.CMD_FIND_IN_SUBTREE);
+         project_cmenu.addMenuItem(Commands.CMD_REPLACE_IN_SUBTREE);
+diff --git a/src/extensions/default/DebugCommands/main.js b/src/extensions/default/DebugCommands/main.js
+index c97d5fc..a84a672 100644
+--- a/src/extensions/default/DebugCommands/main.js
++++ b/src/extensions/default/DebugCommands/main.js
+@@ -64,10 +64,10 @@ define(function (require, exports, module) {
+      */
+     var DEBUG_MENU = "debug-menu";
+ 
+-     /**
+-      * Debug commands IDs
+-      * @enum {string}
+-      */
++    /**
++     * Debug commands IDs
++     * @enum {string}
++     */
+     var DEBUG_REFRESH_WINDOW                  = "debug.refreshWindow", // string must MATCH string in native code (brackets_extensions)
+         DEBUG_SHOW_DEVELOPER_TOOLS            = "debug.showDeveloperTools",
+         DEBUG_RUN_UNIT_TESTS                  = "debug.runUnitTests",
+@@ -350,11 +350,11 @@ define(function (require, exports, module) {
+         }
+     }
+ 
+-   /*
+-    * This method tries to deduce the preference type
+-    * based on various parameters like objects initial
+-    * value, object type, object's type property.
+-    */
++    /*
++     * This method tries to deduce the preference type
++     * based on various parameters like objects initial
++     * value, object type, object's type property.
++     */
+     function _getPrefType(prefItem) {
+ 
+         var finalPrefType = "undefined";
+@@ -438,11 +438,11 @@ define(function (require, exports, module) {
+         return false;
+     }
+ 
+-   /*
+-    * This method tries to match between initial objects
+-    * and key objects and then aggregates objects from both
+-    * the properties.
+-    */
++    /*
++     * This method tries to match between initial objects
++     * and key objects and then aggregates objects from both
++     * the properties.
++     */
+     function _getChildPrefs(prefItem) {
+ 
+         var finalObj = {},
+@@ -794,21 +794,6 @@ define(function (require, exports, module) {
+      * Debug menu
+      */
+     var menu = Menus.addMenu(Strings.DEBUG_MENU, DEBUG_MENU, Menus.BEFORE, Menus.AppMenuBar.HELP_MENU);
+-    menu.addMenuItem(DEBUG_SHOW_DEVELOPER_TOOLS, KeyboardPrefs.showDeveloperTools);
+-    menu.addMenuItem(DEBUG_REFRESH_WINDOW, KeyboardPrefs.refreshWindow);
+-    menu.addMenuItem(DEBUG_RELOAD_WITHOUT_USER_EXTS, KeyboardPrefs.reloadWithoutUserExts);
+-    menu.addMenuItem(DEBUG_NEW_BRACKETS_WINDOW);
+-    menu.addMenuDivider();
+-    menu.addMenuItem(DEBUG_SWITCH_LANGUAGE);
+-    menu.addMenuDivider();
+-    menu.addMenuItem(DEBUG_RUN_UNIT_TESTS);
+-    menu.addMenuItem(DEBUG_SHOW_PERF_DATA);
+-    menu.addMenuItem(DEBUG_OPEN_BRACKETS_SOURCE);
+-    menu.addMenuDivider();
+-    menu.addMenuItem(DEBUG_ENABLE_NODE_DEBUGGER);
+-    menu.addMenuItem(DEBUG_LOG_NODE_STATE);
+-    menu.addMenuItem(DEBUG_RESTART_NODE);
+-    menu.addMenuItem(DEBUG_SHOW_ERRORS_IN_STATUS_BAR);
+     menu.addMenuItem(DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW); // this command will enable defaultPreferences and brackets preferences to be open side by side in split view.
+     menu.addMenuItem(Commands.FILE_OPEN_KEYMAP);      // this command is defined in core, but exposed only in Debug menu for now
+ 
+diff --git a/src/htmlContent/main-view.html b/src/htmlContent/main-view.html
+index a55490c..48b4eb8 100644
+--- a/src/htmlContent/main-view.html
++++ b/src/htmlContent/main-view.html
+@@ -88,9 +88,6 @@
+         <div id="main-toolbar" class="toolbar no-focus collapsible">
+             <!-- Top-aligned buttons -->
+             <div class="buttons">
+-                <a id="toolbar-go-live" href="#"></a> <!-- tooltip for this is set in JS -->
+-                <a id="toolbar-extension-manager" title="{{Strings.EXTENSION_MANAGER_TITLE}}" href="#"></a>
+-                <a id="update-notification" title="{{Strings.UPDATE_NOTIFICATION_TOOLTIP}}" href="#" style="display: none"></a>
+             </div>
+             <div class="bottom-buttons"></div>
+         </div>
+-- 
+2.7.4
+

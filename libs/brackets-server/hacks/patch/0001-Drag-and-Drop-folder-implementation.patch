@@ -1,0 +1,51 @@
+From 1cec70ade1667dea227a559f68329fc98f3aa7e2 Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Thu, 21 Sep 2017 10:06:23 +0900
+Subject: [PATCH] Drag and Drop folder implementation
+
+Signed-off-by: KwangHyuk Kim hyuki.kim@samsung.com
+---
+ src/utils/DragAndDrop.js | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/src/utils/DragAndDrop.js b/src/utils/DragAndDrop.js
+index 92291bf..8984c23 100644
+--- a/src/utils/DragAndDrop.js
++++ b/src/utils/DragAndDrop.js
+@@ -1,4 +1,4 @@
+- /*
++/*
+  * Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
+  *
+  * Permission is hereby granted, free of charge, to any person obtaining a
+@@ -93,7 +93,7 @@ define(function (require, exports, module) {
+                     }
+ 
+                     CommandManager.execute(Commands.CMD_ADD_TO_WORKINGSET_AND_OPEN,
+-                                           {fullPath: path, silent: true})
++                        {fullPath: path, silent: true})
+                         .done(function () {
+                             result.resolve();
+                         })
+@@ -182,11 +182,13 @@ define(function (require, exports, module) {
+                 event.stopPropagation();
+                 event.preventDefault();
+ 
+-                brackets.app.getDroppedFiles(function (err, paths) {
+-                    if (!err) {
+-                        openDroppedFiles(paths);
+-                    }
+-                });
++                if (brackets.app.getDroppedFiles) {
++                    brackets.app.getDroppedFiles(function (err, paths) {
++                        if (!err) {
++                            openDroppedFiles(paths);
++                        }
++                    });
++                }
+             }
+         }
+ 
+-- 
+2.7.4
+
