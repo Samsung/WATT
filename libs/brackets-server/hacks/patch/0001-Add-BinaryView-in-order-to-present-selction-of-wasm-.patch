@@ -1,0 +1,320 @@
+From a9e11996358e227225acfb89bc983b1123cd5b3e Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Wed, 20 Sep 2017 21:44:47 +0900
+Subject: [PATCH] Add BinaryView in order to present selction of wasm file.
+
+WasmView to present information of selected wasm file when
+user chooses wasm file on project view is added.
+
+Signed-off-by: KwangHyuk Kim <hyuki.kim@samsung.com>
+---
+ src/brackets.js                  |   3 +-
+ src/editor/BinaryViewer.js       | 184 +++++++++++++++++++++++++++++++++++++++
+ src/htmlContent/binary-view.html |   9 ++
+ src/language/languages.json      |   4 +-
+ src/styles/brackets.less         |  10 +--
+ 5 files changed, 202 insertions(+), 8 deletions(-)
+ create mode 100644 src/editor/BinaryViewer.js
+ create mode 100644 src/htmlContent/binary-view.html
+
+diff --git a/src/brackets.js b/src/brackets.js
+index a362e8d..78906da 100644
+--- a/src/brackets.js
++++ b/src/brackets.js
+@@ -122,6 +122,7 @@ define(function (require, exports, module) {
+     require("editor/EditorOptionHandlers");
+     require("editor/EditorStatusBar");
+     require("editor/ImageViewer");
++    require("editor/BinaryViewer");
+     require("extensibility/InstallExtensionDialog");
+     require("extensibility/ExtensionManagerDialog");
+     require("help/HelpCommandHandlers");
+@@ -241,7 +242,7 @@ define(function (require, exports, module) {
+ 
+             // Load the initial project after extensions have loaded
+             extensionLoaderPromise.always(function () {
+-               // Signal that extensions are loaded
++                // Signal that extensions are loaded
+                 AppInit._dispatchReady(AppInit.EXTENSIONS_LOADED);
+ 
+                 // Finish UI initialization
+diff --git a/src/editor/BinaryViewer.js b/src/editor/BinaryViewer.js
+new file mode 100644
+index 0000000..ad10d41
+--- /dev/null
++++ b/src/editor/BinaryViewer.js
+@@ -0,0 +1,184 @@
++/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
++/*global define, $, Mustache */
++define(function (require, exports, module) {
++    "use strict";
++
++    var DocumentManager     = require("document/DocumentManager"),
++        FileSystem          = require("filesystem/FileSystem"),
++        LanguageManager     = require("language/LanguageManager"),
++        MainViewFactory     = require("view/MainViewFactory"),
++        ProjectManager      = require("project/ProjectManager"),
++        _                   = require("thirdparty/lodash");
++
++    var BinaryViewTemplate  = require("text!htmlContent/binary-view.html");
++
++    var _viewers = {};
++
++    /**
++     * BinarView objects are constructed when an binary file is opened 
++     * @see {@link Pane} for more information about where BinaryViews are rendered
++     * 
++     * @constructor
++     * @param {!File} file - The binary file object to render
++     * @param {!jQuery} container - The container to render the binary view in
++     */
++    function BinaryView(file, $container) {
++        this.file = file;
++        this.$el = $(Mustache.render(BinaryViewTemplate));
++
++        $container.append(this.$el);
++
++        this._naturalWidth = 0;
++        this._naturalHeight = 0;
++        this._scale = 100;           // 100%
++        this._scaleDivInfo = null;   // coordinates of hidden scale sticker
++
++        this.relPath = ProjectManager.makeProjectRelativeIfPossible(this.file.fullPath);
++
++        this.$binaryPath = this.$el.find(".binary-path");
++
++        this.$binaryPath.text(this.relPath).attr("title", this.relPath);
++
++        _viewers[file.fullPath] = this;
++
++        DocumentManager.on("fileNameChange.BinaryView", _.bind(this._onFilenameChange, this));
++    }
++
++    /**
++     * DocumentManger.fileNameChange handler - when an binary is renamed, we must
++     * update the view
++     * 
++     * @param {jQuery.Event} e - event
++     * @param {!string} oldPath - the name of the file that's changing changing
++     * @param {!string} newPath - the name of the file that's changing changing
++     * @private
++     */
++    BinaryView.prototype._onFilenameChange = function (e, oldPath, newPath) {
++        /*
++         * File objects are already updated when the event is triggered
++         * so we just need to see if the file has the same path as our binary
++         */
++        if (this.file.fullPath === newPath) {
++            this.relPath = ProjectManager.makeProjectRelativeIfPossible(newPath);
++            this.$binaryPath.text(this.relPath).attr("title", this.relPath);
++        }
++    };
++
++    /**
++     * View Interface functions
++     */
++
++    /*
++     * Retrieves the file object for this view
++     * return {!File} the file object for this view
++     */
++    BinaryView.prototype.getFile = function () {
++        return this.file;
++    };
++
++    /*
++     * Updates the layout of the view
++     */
++    BinaryView.prototype.updateLayout = function () {
++
++        var $container = this.$el.parent();
++
++        var pos = $container.position(),
++            iWidth = $container.innerWidth(),
++            iHeight = $container.innerHeight(),
++            oWidth = $container.outerWidth(),
++            oHeight = $container.outerHeight();
++
++        // $view is "position:absolute" so
++        //  we have to update the height, width and position
++        this.$el.css({
++            top: pos.top + ((oHeight - iHeight) / 2),
++            left: pos.left + ((oWidth - iWidth) / 2),
++            width: iWidth,
++            height: iHeight
++        });
++    };
++
++    /*
++     * Destroys the view
++     */
++    BinaryView.prototype.destroy = function () {
++        delete _viewers[this.file.fullPath];
++        DocumentManager.off(".BinaryView");
++        this.$el.remove();
++    };
++
++    /*
++     * Refreshes the binary view with what's on disk
++     */
++    BinaryView.prototype.refresh = function () {
++        // Not implemented yet
++    };
++
++    /*
++     * Creates an binary view object and adds it to the specified pane
++     * @param {!File} file - the file to create an binary of
++     * @param {!Pane} pane - the pane in which to host the view
++     * @return {jQuery.Promise}
++     */
++    function _createBinaryView(file, pane) {
++        var view = pane.getViewForPath(file.fullPath);
++
++        if (view) {
++            pane.showView(view);
++        } else {
++            view = new BinaryView(file, pane.$content);
++            pane.addView(view, true);
++        }
++        return new $.Deferred().resolve().promise();
++    }
++
++    /**
++     * Handles file system change events so we can refresh
++     *  binary viewers for the files that changed on disk due to external editors
++     * @param {jQuery.event} event - event object
++     * @param {?File} file - file object that changed
++     * @param {Array.<FileSystemEntry>=} added If entry is a Directory, contains zero or more added children
++     * @param {Array.<FileSystemEntry>=} removed If entry is a Directory, contains zero or more removed children
++     */
++    function _handleFileSystemChange(event, entry, added, removed) {
++        // this may have been called because files were added
++        //  or removed to the file system.  We don't care about those
++        if (!entry || entry.isDirectory) {
++            return;
++        }
++
++        // Look for a viewer for the changed file
++        var viewer = _viewers[entry.fullPath];
++
++        // viewer found, call its refresh method
++        if (viewer) {
++            viewer.refresh();
++        }
++    }
++
++    /*
++     * Install an event listener to receive all file system change events
++     * so we can refresh the view when changes are made to the binary in an external editor
++     */
++    FileSystem.on("change", _handleFileSystemChange);
++
++    /*
++     * Initialization, register our view factory
++     */
++    MainViewFactory.registerViewFactory({
++        canOpenFile: function (fullPath) {
++            var lang = LanguageManager.getLanguageForPath(fullPath);
++            return (lang.getId() === "wasm" || lang.getId() === "binary");
++        },
++        openFile: function (file, pane) {
++            return _createBinaryView(file, pane);
++        }
++    });
++
++    /*
++     * This is for extensions that want to create a
++     * view factory based on BinaryView
++     */
++    exports.BinaryView = BinaryView;
++});
+\ No newline at end of file
+diff --git a/src/htmlContent/binary-view.html b/src/htmlContent/binary-view.html
+new file mode 100644
+index 0000000..074cd4c
+--- /dev/null
++++ b/src/htmlContent/binary-view.html
+@@ -0,0 +1,9 @@
++<div class="binary-view">
++    <div class="binary-centering">
++        <div class="binary-header">
++            <div class="binary-path"></div>    
++            <br>
++            <div class="binary-message"> binary file is not allowed to be opened. </div>
++        </div>
++    </div>
++</div>
+diff --git a/src/language/languages.json b/src/language/languages.json
+index 3ee49f8..6260316 100644
+--- a/src/language/languages.json
++++ b/src/language/languages.json
+@@ -272,7 +272,7 @@
+         "fileExtensions": ["mp3", "wav", "aif", "aiff", "ogg"],
+         "isBinary": true
+     },
+-    
++
+     "binary": {
+         "name": "Other Binary",
+         "fileExtensions": [
+@@ -282,7 +282,7 @@
+             "jsz", "lib", "mpeg", "mpg", "mp4", "msi", "node", "o", "obj", "odc",
+             "odb", "odf", "odg", "odp", "ods", "odt", "otf", "pak", "pdb", "pdf",
+             "pdi", "ppt", "pptx", "psd", "rar", "sdf", "so", "sqlite", "suo", "svgz",
+-            "swf", "tar", "tif", "tiff", "ttf", "woff", "xls", "xlsx", "zip"
++            "swf", "tar", "tif", "tiff", "ttf", "wasm", "wgt", "woff", "xls", "xlsx", "zip"
+         ],
+         "isBinary": true
+     },
+diff --git a/src/styles/brackets.less b/src/styles/brackets.less
+index f0cb5ca..e8d72d2 100644
+--- a/src/styles/brackets.less
++++ b/src/styles/brackets.less
+@@ -344,7 +344,7 @@ a, img {
+         box-sizing: border-box;
+ 
+         /* Image Preview */
+-        .image-view {
++        .image-view, .binary-view {
+             overflow: hidden;
+             position: absolute;
+             top: 0px;
+@@ -352,7 +352,7 @@ a, img {
+             bottom: 0px;
+             left: 0px;
+             text-align: center;
+-            .image-centering {
++            .image-centering, .binary-centering {
+                 display: inline-block;
+                 vertical-align: middle;
+                 width: 90%; //As long as the width isn't set on the image itself theres no need for max-width/height
+@@ -363,7 +363,7 @@ a, img {
+             }
+         }
+ 
+-        .image-view:before {
++        .image-view:before, .binary-view:before {
+             content: '';
+             display: inline-block;
+             height: 100%;
+@@ -382,7 +382,7 @@ a, img {
+             }
+         }
+ 
+-        .image-header {
++        .image-header, .binary-header {
+             display: block;
+             width: 100%;
+             height: 38px;
+@@ -390,7 +390,7 @@ a, img {
+         }
+ 
+         .image-data,
+-        .image-path {
++        .image-path, .binary-path, .binary-message {
+             text-align: left;
+             .user-select(text);
+             white-space: nowrap;
+-- 
+2.7.4
+

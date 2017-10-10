@@ -47,6 +47,7 @@
     "grunt-release": "*",
     "grunt-replace": "*",
     "grunt-shell": "*",
+    "grunt-simple-git": "^1.0.1",
     "grunt-simple-mocha": "*",
     "grunt-targethtml": "*",
     "grunt-text-replace": "*",

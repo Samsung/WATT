@@ -1,0 +1,77 @@
+From 6f08b970a0b5cb263d340a2d3eff02f9e80db586 Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Thu, 21 Sep 2017 10:04:35 +0900
+Subject: [PATCH] Fix 'find in files' feature correctly
+
+Signed-off-by: Hunseop Jeong <hs85.jeong@samsung.com>
+---
+ src/search/FindInFiles.js | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
+
+diff --git a/src/search/FindInFiles.js b/src/search/FindInFiles.js
+index ce965dc..347d4fe 100644
+--- a/src/search/FindInFiles.js
++++ b/src/search/FindInFiles.js
+@@ -432,14 +432,14 @@ define(function (require, exports, module) {
+     function _updateDocumentInNode(docPath) {
+         DocumentManager.getDocumentForPath(docPath).done(function (doc) {
+             var updateObject = {
+-                    "filePath": docPath,
+-                    "docContents": doc.getText()
+-                };
++                "filePath": docPath,
++                "docContents": doc.getText()
++            };
+             searchDomain.exec("documentChanged", updateObject);
+         });
+     }
+ 
+-     /**
++    /**
+      * @private
+      * sends all changed documents that we have tracked to node
+      */
+@@ -492,13 +492,18 @@ define(function (require, exports, module) {
+ 
+                 if (fileListResult.length) {
+                     var searchObject;
++
++
+                     if (searchScopeChanged) {
+                         var files = fileListResult
+                             .filter(function (entry) {
+                                 return entry.isFile && _isReadableText(entry.fullPath);
+                             })
+                             .map(function (entry) {
+-                                return entry.fullPath;
++                                var projectId = PreferencesManager.getViewState("projectId");
++                                var serverPath = entry.fullPath.split("/");
++                                serverPath.splice(2, 0, projectId);
++                                return serverPath.join("/");
+                             });
+ 
+                         /* The following line prioritizes the open Document in editor and
+@@ -690,7 +695,7 @@ define(function (require, exports, module) {
+     _fileNameChangeHandler = function (event, oldName, newName) {
+         var resultsChanged = false;
+ 
+-            // Update the search results
++        // Update the search results
+         _.forEach(searchModel.results, function (item, fullPath) {
+             if (fullPath.indexOf(oldName) === 0) {
+                 // node search : inform node about the rename
+@@ -848,7 +853,10 @@ define(function (require, exports, module) {
+                 files = files.filter(function (entry) {
+                     return entry.isFile && _isReadableText(entry.fullPath);
+                 }).map(function (entry) {
+-                    return entry.fullPath;
++                    var projectId = PreferencesManager.getViewState("projectId");
++                    var serverPath = entry.fullPath.split("/");
++                    serverPath.splice(2, 0, projectId);
++                    return serverPath.join("/");
+                 });
+                 FindUtils.notifyIndexingStarted();
+                 searchDomain.exec("initCache", files);
+-- 
+2.7.4
+
