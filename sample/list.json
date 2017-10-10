@@ -46,13 +46,6 @@
     "type": "web"
   },
   {
-    "name": "Unreal",
-    "description": "Sample application to use Unreal API using Unreal WASM module",
-    "src": "Unreal",
-    "icon": "icon.png",
-    "type": "web"
-  },
-  {
     "name": "Wash Machine",
     "description": "Spin many objects like as Wash Machine using Ammo.js and Three.js",
     "src": "WashMachine",
