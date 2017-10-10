@@ -50,6 +50,7 @@
 
         "no-trailing-spaces": 0,
         "eol-last": 0,
+        "quotes": ["error", "double", { "avoidEscape": true }]
     },
     "parserOptions": {
       "ecmaVersion": 6

@@ -81,8 +81,8 @@
         }
 
         function copyFile(projectId, src, name, dest, callback) {
-            const sourcePath = path.join(process.cwd(), 'projects', projectId, src, name);
-            const destPath = path.join(process.cwd(), 'projects', projectId, dest, name);
+            const sourcePath = path.join(process.cwd(), "projects", projectId, src, name);
+            const destPath = path.join(process.cwd(), "projects", projectId, dest, name);
 
             fse.copy(sourcePath, destPath, (err) => {
                 if (err) {
@@ -94,8 +94,8 @@
         }
 
         function moveFile(projectId, src, name, dest, callback) {
-            const sourcePath = path.join(process.cwd(), 'projects', projectId, src, name);
-            const destPath = path.join(process.cwd(), 'projects', projectId, dest, name);
+            const sourcePath = path.join(process.cwd(), "projects", projectId, src, name);
+            const destPath = path.join(process.cwd(), "projects", projectId, dest, name);
 
             fse.move(sourcePath, destPath, (err) => {
                 if (err) {

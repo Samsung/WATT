@@ -4,7 +4,7 @@ define(function (require, exports, module) {
 
     const PreferencesManager = brackets.getModule("preferences/PreferencesManager");
     // Return extension when project type is not equal to web
-    if (PreferencesManager.getViewState("projectType") !== 'web') {
+    if (PreferencesManager.getViewState("projectType") !== "web") {
         return;
     }
 

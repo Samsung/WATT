@@ -1,39 +1,39 @@
 define(function (require) {
-    'use strict';
+    "use strict";
 
-    var PREFIX = 'hirse.beautify';
-    var COMMAND_ID = PREFIX + '.beautify';
+    var PREFIX = "hirse.beautify";
+    var COMMAND_ID = PREFIX + ".beautify";
 
     /* beautify preserve:start */
-    var CommandManager     = brackets.getModule('command/CommandManager');
-    var Menus              = brackets.getModule('command/Menus');
-    var DocumentManager    = brackets.getModule('document/DocumentManager');
-    var Editor             = brackets.getModule('editor/Editor').Editor;
-    var EditorManager      = brackets.getModule('editor/EditorManager');
-    var DefaultDialogs     = brackets.getModule('widgets/DefaultDialogs');
-    var Dialogs            = brackets.getModule('widgets/Dialogs');
+    var CommandManager     = brackets.getModule("command/CommandManager");
+    var Menus              = brackets.getModule("command/Menus");
+    var DocumentManager    = brackets.getModule("document/DocumentManager");
+    var Editor             = brackets.getModule("editor/Editor").Editor;
+    var EditorManager      = brackets.getModule("editor/EditorManager");
+    var DefaultDialogs     = brackets.getModule("widgets/DefaultDialogs");
+    var Dialogs            = brackets.getModule("widgets/Dialogs");
     /* beautify preserve:end */
 
-    var Strings = require('strings');
+    var Strings = require("strings");
     var beautifiers = {
-        js: require('thirdparty/beautify').js_beautify,
-        css: require('thirdparty/beautify-css').css_beautify,
-        html: require('thirdparty/beautify-html').html_beautify
+        js: require("thirdparty/beautify").js_beautify,
+        css: require("thirdparty/beautify-css").css_beautify,
+        html: require("thirdparty/beautify-html").html_beautify
     };
 
-    var settings = JSON.parse(require('text!default.jsbeautifyrc'));
+    var settings = JSON.parse(require("text!default.jsbeautifyrc"));
     var keyBindings = [
         {
-            key: 'Ctrl-Shift-L',
-            platform: 'win'
+            key: "Ctrl-Shift-L",
+            platform: "win"
         }, {
-            key: 'Ctrl-Alt-B',
-            platform: 'win'
+            key: "Ctrl-Alt-B",
+            platform: "win"
         }, {
-            key: 'Cmd-Shift-L',
-            platform: 'mac'
+            key: "Cmd-Shift-L",
+            platform: "mac"
         }, {
-            key: 'Ctrl-Alt-B'
+            key: "Ctrl-Alt-B"
         }
     ];
 
@@ -58,22 +58,22 @@ define(function (require) {
         var beautifierType;
         var document = DocumentManager.getCurrentDocument();
         switch (document.getLanguage().getId()) {
-        case 'javascript':
-        case 'json':
-            beautifierType = 'js';
+        case "javascript":
+        case "json":
+            beautifierType = "js";
             break;
-        case 'html':
-        case 'xml':
-        case 'svg':
-        case 'php':
-        case 'ejs':
-        case 'handlebars':
-            beautifierType = 'html';
+        case "html":
+        case "xml":
+        case "svg":
+        case "php":
+        case "ejs":
+        case "handlebars":
+            beautifierType = "html";
             break;
-        case 'css':
-        case 'scss':
-        case 'less':
-            beautifierType = 'css';
+        case "css":
+        case "scss":
+        case "less":
+            beautifierType = "css";
             break;
         default:
             Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, Strings.UNSUPPORTED_TITLE, Strings.UNSUPPORTED_MESSAGE);
@@ -85,7 +85,7 @@ define(function (require) {
             options.indent_with_tabs = true;
         } else {
             options.indent_size = Editor.getSpaceUnits();
-            options.indent_char = ' ';
+            options.indent_char = " ";
         }
 
         var unformattedText;
