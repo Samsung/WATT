@@ -57,7 +57,7 @@ define(function (require, exports, module) {
         for (let category in bgCategories[platform]) {
             if (category.search(filter) !== -1 && bgCategories[platform][category]["used"] === false && bgCategories[platform][category]["since"] <= version) {
                 text += '<input class="bgCategoryCheck" id="' + category + '" type="checkbox" value="' + category + '" />' +
-                        '<label style="display: inline-block;" for="' + category + '">' + category + '</label></br>';
+                        '<label style="display: inline-block;" for="' + category + '">' + category + "</label></br>";
             }
         }
         text += "</br>";
@@ -108,7 +108,7 @@ define(function (require, exports, module) {
         for (let category in categories[platform]) {
             if (category.search(filter) !== -1 && categories[platform][category]["used"] === false && categories[platform][category]["since"] <= version) {
                 text += '<input class="categoryCheck" id="' + category + '" type="checkbox" value="' + category + '" />' +
-                        '<label style="display: inline-block;" for="' + category + '">' + category + '</label></br>';
+                        '<label style="display: inline-block;" for="' + category + '">' + category + "</label></br>";
             }
         }
         text += "</br>";

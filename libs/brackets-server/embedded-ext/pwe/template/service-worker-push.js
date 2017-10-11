@@ -1,18 +1,18 @@
-self.addEventListener('push', (event) => {
+self.addEventListener("push", (event) => {
     event.waitUntil(
         self.registration.pushManager.getSubscription()
             .then(function(subscription) {
-                const endPoint = subscription.endpoint.split('/');
+                const endPoint = subscription.endpoint.split("/");
                 const regTokens =  endPoint[endPoint.length - 1];
 
-                const HostserverUrl = 'https://pwe.now.im/';
-                fetch(new Request(`${HostserverUrl}pushData/get/${regTokens}`, { method: 'GET' }))
+                const HostserverUrl = "https://pwe.now.im/";
+                fetch(new Request(`${HostserverUrl}pushData/get/${regTokens}`, { method: "GET" }))
                     .then(function(res) {
                         res.text().then(function(data) {
                             const message = JSON.parse(data);
                             self.registration.showNotification(message.title, {
                                 body: message.url,
-                                tag: 'shub-push-information',
+                                tag: "shub-push-information",
                             });
                         });
                     });
@@ -21,7 +21,7 @@ self.addEventListener('push', (event) => {
     );
 });
 
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener("notificationclick", (event) => {
     var body = event.notification.body;
     event.notification.close();
     event.waitUntil(
@@ -30,7 +30,7 @@ self.addEventListener('notificationclick', (event) => {
             .then(function(clientList) {
                 for (var i = 0; i < clientList.length; i++) {
                     var client = clientList[i];
-                    if (client.url === '/' && 'focus' in client) {
+                    if (client.url === "/" && "focus" in client) {
                         return client.focus();
                     }
                 }

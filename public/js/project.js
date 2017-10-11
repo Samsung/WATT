@@ -87,7 +87,7 @@ $('#new-project').on('show.bs.modal', function() {
     webBtn.addClass('btn-primary');
   });
 
-  $("#empty-checkbox").on('change', function() {
+  $('#empty-checkbox').on('change', function() {
     emptyProject = this.checked;
     if (emptyProject) {
       templateBtn.attr('disabled', 'disabled');
@@ -326,8 +326,8 @@ $('#new-project').on('show.bs.modal', function() {
         $('#new-project').modal('hide');
       });
     }).fail(function(err) {
-      if (err.responseText !== "") {
-        alert("Error:" + err.responseText);
+      if (err.responseText !== '') {
+        alert('Error:' + err.responseText);
       }
       console.error(err);
     });
@@ -338,7 +338,7 @@ $('#new-project').on('show.bs.modal', function() {
 $('#new-project').on('hide.bs.modal', function() {
   $('#back-button').off();
   $('#cancel-button').off();
-  $("#empty-checkbox").off();
+  $('#empty-checkbox').off();
   $('#finish-button').off();
   $('#mobile-button').off();
   $('#mobile-version-dropdown>li').off();

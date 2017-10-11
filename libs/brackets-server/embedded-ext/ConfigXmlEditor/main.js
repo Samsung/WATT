@@ -149,11 +149,11 @@ define(function (require, exports, module) {
             let $okButton = $(".okBtn", $dlg)[0];
             let $customError = $("#customError", $dlg)[0];
 
-            $dlg.on('change', '.privilegeCheck', function(e) {
+            $dlg.on("change", ".privilegeCheck", function(e) {
                 $("#description", $dlg).val(PrivilegeList.GetPrivilegeDescriptionText(e.currentTarget.value));
             });
 
-            $customPrivilege.on('input', function(e) {
+            $customPrivilege.on("input", function(e) {
                 if ($customPrivilege.val() !== "") {
                     let correctUri = true;
 
@@ -439,7 +439,7 @@ define(function (require, exports, module) {
         configPage.find("#addCategory").click(function (e) {
             let dialogText = '<table class="generalTable"><tr><td style="width: 15%;">Category</td><td>' +
                              '<form><input class="filterSearch" list="category"/><datalist id="category">' +
-                             CategoriesManager.GetCategoryListText(true) + '</datalist></form></td></tr></table>' +
+                             CategoriesManager.GetCategoryListText(true) + "</datalist></form></td></tr></table>" +
                              '<br/><div id="error" style="font-weight: bold;"></div>';
 
             let dialog = Dialogs.showModalDialog(
@@ -864,8 +864,8 @@ define(function (require, exports, module) {
 
         this.relPath = ProjectManager.makeProjectRelativeIfPossible(this.file.fullPath);
 
-        var projectProfile = PrefrenceManger.getViewState('projectProfile');
-        var projectVersion = PrefrenceManger.getViewState('projectVersion');
+        var projectProfile = PrefrenceManger.getViewState("projectProfile");
+        var projectVersion = PrefrenceManger.getViewState("projectVersion");
 
         if (projectProfile) {
             CategoriesManager.SetPlatformType(projectProfile);

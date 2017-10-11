@@ -57,7 +57,7 @@
         fs.readdir(templatePath, function(err, files) {
             files.map(function(file) {
                 if (file) {
-                    var data = fs.readFileSync(`${templatePath}${file}`, 'utf-8');
+                    var data = fs.readFileSync(`${templatePath}${file}`, "utf-8");
                     var result = fs.writeFileSync(`${projectPath}${file}`, data);
                     callback(null, result);
                 }

@@ -51,7 +51,8 @@
         "valid-typeof": 2,
 
         "no-trailing-spaces": 0,
-        "eol-last": 0
+        "eol-last": 0,
+        "quotes": ["error", "single", { "avoidEscape": true }]
     },
     "parserOptions": {
       "ecmaVersion": 6

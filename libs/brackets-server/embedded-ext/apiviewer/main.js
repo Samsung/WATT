@@ -79,17 +79,17 @@ define(function (require, exports, module) {
                             for (const method of interf.members) {
                                 apiText += "<li id=\"method\">";
                                 apiText += method.name;
-                                if (method.hasOwnProperty('arguments')) {
+                                if (method.hasOwnProperty("arguments")) {
                                     if (method.arguments.length > 0) {
                                         apiText +=  "(";
                                         let counter = 0;
                                         for (const param of method.arguments) {
-                                            if (param.hasOwnProperty('idlType')
-                                                && param.idlType.hasOwnProperty('idlType')
+                                            if (param.hasOwnProperty("idlType")
+                                                && param.idlType.hasOwnProperty("idlType")
                                                 && param.idlType.idlType.length > 0) {
                                                 apiText += param.idlType.idlType + " ";
                                             }
-                                            if (param.hasOwnProperty('name')
+                                            if (param.hasOwnProperty("name")
                                                 && param.name.length > 0) {
                                                 apiText += param.name;
                                             }

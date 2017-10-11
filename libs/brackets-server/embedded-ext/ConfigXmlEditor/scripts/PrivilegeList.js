@@ -126,8 +126,8 @@ define(function (require, exports, module) {
         };
 
     function compareVersions(v1, v2) {
-        let v1split = v1.split('.');
-        let v2split = v2.split('.');
+        let v1split = v1.split(".");
+        let v2split = v2.split(".");
 
         v1split = v1split.map(Number);
         v2split = v2split.map(Number);
@@ -173,7 +173,7 @@ define(function (require, exports, module) {
         for (let privilege in privileges[platform]) {
             if (privilege.search(filter) !== -1 && privileges[platform][privilege]["used"] === false && compareVersions(privileges[platform][privilege]["since"], version) <= 0) {
                 text += '<input class="privilegeCheck" id="' + privilege + '" type="checkbox" value="' + privilege + '" />' +
-                        '<label style="display: inline-block;" for="' + privilege + '">' + privilege + '</label></br>';
+                        '<label style="display: inline-block;" for="' + privilege + '">' + privilege + "</label></br>";
             }
         }
         text += "</br>";
