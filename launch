@@ -195,6 +195,7 @@ def prepare_nodejs(mode):
     'libs/brackets-server/brackets-src',
     'libs/brackets-server/brackets-src/src/LiveDevelopment/MultiBrowserImpl/transports/node',
     'libs/brackets-server',
+    'libs/brackets-server/embedded-ext/brackets-minify/node',
     'libs/brackets-server/embedded-ext/project/node',
     'libs/brackets-server/embedded-ext/pwe/node',
     'libs/brackets-server/embedded-ext/file-extension/node',

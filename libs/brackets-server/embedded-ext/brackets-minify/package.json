@@ -1,0 +1,15 @@
+{
+    "name": "brackets-minify",
+    "title": "JS CSS Minifier",
+    "description": "Easily minify single files or all files in a project. Also includes concatenation features as well as auto-minification on save.",
+    "homepage": "https://github.com/abagshaw/brackets-minifier",
+    "version": "2.0.0",
+    "author": "Andrew Bagshaw",
+    "license": "https://github.com/abagshaw/brackets-minifier#license",
+    "engines": {
+        "brackets": ">=0.24.0"
+    },
+	"i18n": [
+        "en"
+    ]
+}
