@@ -24,9 +24,9 @@
 (function () {
     "use strict";
 
-    var util                = require("util"),
+    var ConnectionManager   = require("./ConnectionManager"),
         domain              = require("domain"),
-        ConnectionManager   = require("./ConnectionManager");
+        util                = require("util");
 
     /**
      * @constructor
@@ -164,14 +164,14 @@
             _domains[domainName].commands[commandName]) {
             var command = _domains[domainName].commands[commandName];
             if (command.isAsync) {
-                var execDom     = domain.create(),
-                    callback    = function (err, result) {
-                        if (err) {
-                            connection.sendCommandError(id, err);
-                        } else {
-                            connection.sendCommandResponse(id, result);
-                        }
-                    };
+                var execDom     = domain.create();
+                var callback    = function (err, result) {
+                    if (err) {
+                        connection.sendCommandError(id, err);
+                    } else {
+                        connection.sendCommandResponse(id, result);
+                    }
+                };
 
                 parameters.push(callback);
 

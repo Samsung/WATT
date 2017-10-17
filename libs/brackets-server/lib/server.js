@@ -8,14 +8,16 @@ var http        = require("http"),
     https       = require("https"),
     path        = require("path"),
     send        = require("send"),
-    util        = require("util"),
-    urlUtil     = require("url"),
-    files       = require("./files"),
-    domains     = require("./domains/socket"),
     socket      = require("socket.io"),
-    brckDist    = {root: path.join(__dirname, "..", "brackets-dist")},
-    zipped      = { ".js": "application/javascript", ".css": "text/css"},
-    defaultPort = 6800;
+    urlUtil     = require("url"),
+    util        = require("util");
+
+var domains     = require("./domains/socket"),
+    files       = require("./files");
+
+var brckDist    = {root: path.join(__dirname, "..", "brackets-dist")},
+    defaultPort = 6800,
+    zipped      = { ".js": "application/javascript", ".css": "text/css"};
 
 require("./shim");
 
@@ -39,9 +41,10 @@ function createHttpServer(inst, port) {
 }
 
 function attachStatic(inst) {
-    var srv     = inst.httpServer,
-        root    = inst.httpRoot,
-        evs     = srv.listeners("request").slice(0),
+    var root    = inst.httpRoot,
+        srv     = inst.httpServer;
+
+    var evs     = srv.listeners("request").slice(0),
         extDir  = { root: path.join(inst.supportDir, "extensions")} ;
 
     srv.removeAllListeners("request");
@@ -60,9 +63,9 @@ function attachStatic(inst) {
             }
 
             if (url.startsWith("/proxy/")) {
-                var reqUrl      = decodeURIComponent(url.substr("/proxy/".length)),
-                    options     = urlUtil.parse(reqUrl),
-                    httpClient  = options.protocol === "http" ? http : https;
+                var reqUrl      = decodeURIComponent(url.substr("/proxy/".length));
+                var options     = urlUtil.parse(reqUrl);
+                var httpClient  = options.protocol === "http" ? http : https;
 
                 delete options.protocol;
                 options.method = "GET";

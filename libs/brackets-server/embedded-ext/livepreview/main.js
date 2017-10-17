@@ -5,18 +5,18 @@ define(function (require, exports, module) {
     "use strict";
 
     // Brackets modules
-    var AppInit             = brackets.getModule("utils/AppInit"),
-        NativeApp           = brackets.getModule("utils/NativeApp"),
+    var _                   = brackets.getModule("thirdparty/lodash"),
+        AppInit             = brackets.getModule("utils/AppInit"),
+        CommandManager      = brackets.getModule("command/CommandManager"),
         DocumentManager     = brackets.getModule("document/DocumentManager"),
         EditorManager       = brackets.getModule("editor/EditorManager"),
         ExtensionUtils      = brackets.getModule("utils/ExtensionUtils"),
         FileUtils           = brackets.getModule("file/FileUtils"),
         MainViewManager     = brackets.getModule("view/MainViewManager"),
-        PreferencesManager  = brackets.getModule("preferences/PreferencesManager"),
-        WorkspaceManager    = brackets.getModule("view/WorkspaceManager"),
-        CommandManager      = brackets.getModule("command/CommandManager"),
         Menus               = brackets.getModule("command/Menus"),
-        _                   = brackets.getModule("thirdparty/lodash");
+        NativeApp           = brackets.getModule("utils/NativeApp"),
+        PreferencesManager  = brackets.getModule("preferences/PreferencesManager"),
+        WorkspaceManager    = brackets.getModule("view/WorkspaceManager");
 
     // Templates
     var panelHTML       = require("text!templates/panel.html");
@@ -30,10 +30,10 @@ define(function (require, exports, module) {
     var currentDoc,
         currentEditor,
         panel,
-        viewMenu,
+        panelVisibility = false,
         toggleCmd,
-        visible = false,
-        panelVisibility = false;
+        viewMenu,
+        visible = false;
 
     // Prefs
     var _prefs = PreferencesManager.getExtensionPrefs("live-preview");
@@ -115,7 +115,7 @@ define(function (require, exports, module) {
 
                 var pfx = ["webkit", "moz", "ms", ""];
                 function _runPrefixMethod(obj, method) {
-                  	var p = 0, m, t;
+                    var m, p = 0, t;
                   	while (p < pfx.length && !obj[m]) {
                         m = method;
                         if (pfx[p] === "") {

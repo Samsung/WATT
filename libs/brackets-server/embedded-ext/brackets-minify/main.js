@@ -2,15 +2,15 @@ define(function(require, exports, module) {
     "use strict";
 
     var CommandManager  = brackets.getModule("command/CommandManager"),
-        Menus           = brackets.getModule("command/Menus"),
-        EditorManager   = brackets.getModule("editor/EditorManager"),
         DocumentManager = brackets.getModule("document/DocumentManager"),
-        FileUtils       = brackets.getModule("file/FileUtils"),
-        FileSystem      = brackets.getModule("filesystem/FileSystem"),
-        ProjectManager  = brackets.getModule("project/ProjectManager"),
+        EditorManager   = brackets.getModule("editor/EditorManager"),
         ExtensionUtils  = brackets.getModule("utils/ExtensionUtils"),
-        NodeDomain      = brackets.getModule("utils/NodeDomain"),
+        FileSystem      = brackets.getModule("filesystem/FileSystem"),
+        FileUtils       = brackets.getModule("file/FileUtils"),
         LanguageManager = brackets.getModule("language/LanguageManager"),
+        Menus           = brackets.getModule("command/Menus"),
+        NodeDomain      = brackets.getModule("utils/NodeDomain"),
+        ProjectManager  = brackets.getModule("project/ProjectManager"),
         Strings         = require("strings");
 
     var cssAction     = new NodeDomain("minifycss", ExtensionUtils.getModulePath(module, "node/minifycss")),
@@ -19,8 +19,8 @@ define(function(require, exports, module) {
     $("#status-indicators").prepend('<div id="min-status" style="text-align: right;"></div>');
     var tunnel = $("#min-status");
 
-    var mainProjectPath,
-        excludedFolders;
+    var excludedFolders,
+        mainProjectPath;
 
     function stripSlashes(str, leaveBack) {
         if (leaveBack) {
@@ -116,7 +116,7 @@ define(function(require, exports, module) {
             return;
         }
 
-        var fileLanguage = editor.document.file.name.split('.').pop();
+        var fileLanguage = editor.document.file.name.split(".").pop();
         if (editor.document.file.name.match(new RegExp("\\.min\\." + fileLanguage))) {
             statusUpdate(Strings.ALREADY_MINIFIED, 0, 1750);
             return;
@@ -129,9 +129,9 @@ define(function(require, exports, module) {
         processAfterSave(fileLanguage, editor.document);
     }
 
-    var menu               = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU),
+    var cmd_min_id         = "minifier.min",
         contextMenu        = Menus.getContextMenu(Menus.ContextMenuIds.EDITOR_MENU),
-        cmd_min_id         = "minifier.min";
+        menu               = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
 
     CommandManager.register(Strings.MINIFY, cmd_min_id, compileCurrent);
     menu.addMenuDivider();

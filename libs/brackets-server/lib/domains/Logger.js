@@ -24,9 +24,9 @@
 (function () {
     "use strict";
 
-    var fs           = require("fs"),
-        util         = require("util"),
-        EventEmitter = require("events").EventEmitter;
+    var EventEmitter = require("events").EventEmitter,
+        fs           = require("fs"),
+        util         = require("util");
 
     /**
      * @constructor

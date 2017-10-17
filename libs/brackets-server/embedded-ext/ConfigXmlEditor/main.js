@@ -4,7 +4,8 @@
 define(function (require, exports, module) {
     "use strict";
 
-    var DefaultDialogs          = brackets.getModule("widgets/DefaultDialogs"),
+    var _                       = brackets.getModule("thirdparty/lodash"),
+        DefaultDialogs          = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs                 = brackets.getModule("widgets/Dialogs"),
         DocumentManager         = brackets.getModule("document/DocumentManager"),
         ExtensionUtils          = brackets.getModule("utils/ExtensionUtils"),
@@ -13,8 +14,7 @@ define(function (require, exports, module) {
         MainViewFactory         = brackets.getModule("view/MainViewFactory"),
         PrefrenceManger         = brackets.getModule("preferences/PreferencesManager"),
         ProjectManager          = brackets.getModule("project/ProjectManager"),
-        Strings                 = brackets.getModule("strings"),
-        _                       = brackets.getModule("thirdparty/lodash");
+        Strings                 = brackets.getModule("strings");
 
     var _viewers = {},
         editor, // editor for Source tab
@@ -36,8 +36,8 @@ define(function (require, exports, module) {
         XMLReadManager          = require("scripts/XMLReadManager");
 
     var accountsStructure = [],
-        webWidgetStructure = [],
-        servicesStructure = [];
+        servicesStructure = [],
+        webWidgetStructure = [];
 
     // Note: Setting callbacks can not be placed in separate module because they need direct access to
     //       above data structures... When placed in another module, only single copy is accessible there
@@ -1010,11 +1010,11 @@ define(function (require, exports, module) {
 
         var $container = this.$el.parent();
 
-        var pos = $container.position(),
+        var iHeight = $container.innerHeight(),
             iWidth = $container.innerWidth(),
-            iHeight = $container.innerHeight(),
+            oHeight = $container.outerHeight(),
             oWidth = $container.outerWidth(),
-            oHeight = $container.outerHeight();
+            pos = $container.position();
 
         // $view is "position:absolute" so
         //  we have to update the height, width and position

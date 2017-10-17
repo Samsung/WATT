@@ -130,7 +130,7 @@ module.exports = function(express) {
     const projectId = req.params.projectId;
     const user = req.user;
 
-    let projectPath, filePath;
+    let filePath, projectPath;
 
     async.waterfall([
       (callback) => {

@@ -2,8 +2,8 @@
 'use strict';
 
 // Element for the project list
-var projectList = $('#project-list'),
-  projectBox = $('#project-box');
+var projectBox = $('#project-box'),
+  projectList = $('#project-list');
 
 // Hide projectBox if there is no project
 if ($('#project-list>li').length === 0) {
@@ -30,12 +30,12 @@ $('#new-project').on('show.bs.modal', function() {
   // Variable for the project
   var currentProcess = 'project-type',
     emptyProject = false,
-    projectFormat = 'template',
-    projectProfile = 'mobile',
-    projectVersion = '4.0',
-    projectType = 'wasm',
-    projectName = '',
     projectDescription = '',
+    projectFormat = 'template',
+    projectName = '',
+    projectProfile = 'mobile',
+    projectType = 'wasm',
+    projectVersion = '4.0',
     templateName = '';
 
   // Button for the dialog
@@ -50,8 +50,8 @@ $('#new-project').on('show.bs.modal', function() {
     webBtn = $('#web-button');
 
   // Input element on the dialog
-  var projectNameInput = $('#project-name'),
-    projectDescriptionInput = $('#project-description');
+  var projectDescriptionInput = $('#project-description'),
+    projectNameInput = $('#project-name');
 
   var mobileVersion = $('#mobile-version'),
     wearableVersion = $('#wearable-version');
@@ -388,17 +388,17 @@ $('#import-project').on('show.bs.modal', function() {
   var currentTab = 'file',
     file;
 
-  var nextBtn = $('#import-next-button'),
-    backBtn = $('#import-back-button'),
-    finishBtn = $('#import-button'),
+  var backBtn = $('#import-back-button'),
     fileTab = $('#import-file-tab'),
-    urlTab = $('#import-url-tab'),
-    selectPanel = $('#select-file-url'),
-    propertyPanel = $('#import-project-property'),
-    importFileInput = $('#import-file-input'),
+    finishBtn = $('#import-button'),
     importFile = $('#import-file'),
+    importFileInput = $('#import-file-input'),
+    nextBtn = $('#import-next-button'),
+    projectDescriptionInput = $('#import-project-description'),
     projectNameInput = $('#import-project-name'),
-    projectDescriptionInput = $('#import-project-description');
+    propertyPanel = $('#import-project-property'),
+    selectPanel = $('#select-file-url'),
+    urlTab = $('#import-url-tab');
 
   $('#import-tabs>li').click(function(evt) {
     $('#import-tabs>li').removeClass('active');

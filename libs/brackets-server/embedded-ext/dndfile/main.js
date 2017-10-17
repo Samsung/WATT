@@ -5,8 +5,8 @@ define(function (require, exports, module) {
     "use strict";
 
     var AppInit           = brackets.getModule("utils/AppInit"),
-        Commands          = brackets.getModule("command/Commands"),
         CommandManager    = brackets.getModule("command/CommandManager"),
+        Commands          = brackets.getModule("command/Commands"),
         Dialogs           = brackets.getModule("widgets/Dialogs"),
         DragnDropTemplate = require("text!htmlContent/dragndrop.html"),
         ExtensionStrings  = require("strings"),

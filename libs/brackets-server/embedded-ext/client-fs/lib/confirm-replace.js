@@ -2,9 +2,10 @@ define(function (require, exports) {
     "use strict";
 
     var Dialogs             = brackets.getModule("widgets/Dialogs"),
-        StringUtils         = brackets.getModule("utils/StringUtils"),
-        Strings             = require("../strings"),
-        dialogTemplate      = require("text!../templates/confirm-replace.html");
+        StringUtils         = brackets.getModule("utils/StringUtils");
+
+    var dialogTemplate      = require("text!../templates/confirm-replace.html"),
+        Strings             = require("../strings");
 
     exports.show = function (folderName, fileName, callback) {
         var context = {

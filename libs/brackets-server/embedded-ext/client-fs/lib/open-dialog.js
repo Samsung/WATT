@@ -1,10 +1,11 @@
 define(function (require, exports) {
     "use strict";
 
-    var Dialogs             = brackets.getModule("widgets/Dialogs"),
-        Strings             = require("../strings"),
-        contents            = require("./contents"),
-        dialogTemplate      = require("text!../templates/open-dialog.html");
+    var Dialogs             = brackets.getModule("widgets/Dialogs");
+
+    var contents            = require("./contents"),
+        dialogTemplate      = require("text!../templates/open-dialog.html"),
+        Strings             = require("../strings");
 
     exports.show = function (allowMultipleSelection, chooseDirectories, title, initialPath, fileTypes, callback) {
         if (initialPath.indexOf("/samples/") === 0) {
@@ -16,9 +17,10 @@ define(function (require, exports) {
                 BUTTON_CANCEL: Strings.BUTTON_CANCEL,
                 BUTTON_OPEN: Strings.BUTTON_OPEN
             },
-            path        = initialPath || brackets.app.getUserDocumentsDirectory(),
             dialog      = Dialogs.showModalDialogUsingTemplate(Mustache.render(dialogTemplate, context)),
-            $dialog     = dialog.getElement(),
+            path        = initialPath || brackets.app.getUserDocumentsDirectory();
+
+        var $dialog     = dialog.getElement(),
             cnts        = contents($dialog, allowMultipleSelection, chooseDirectories, title, path, fileTypes, null, callback, null);
 
         dialog.done(function (buttonId) {

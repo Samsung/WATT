@@ -1,11 +1,12 @@
 define(function (require, exports) {
     "use strict";
 
-    var FileSystemStats     = brackets.getModule("filesystem/FileSystemStats"),
-        FileSystemError     = brackets.getModule("filesystem/FileSystemError"),
+    var FileSystemError     = brackets.getModule("filesystem/FileSystemError"),
+        FileSystemStats     = brackets.getModule("filesystem/FileSystemStats");
+
+    var io                  = require("../thirdparty/socket.io"),
         OpenDialog          = require("./open-dialog"),
-        SaveDialog          = require("./save-dialog"),
-        io                  = require("../thirdparty/socket.io");
+        SaveDialog          = require("./save-dialog");
 
     /**
      * Callback to notify FileSystem of watcher changes
@@ -226,7 +227,7 @@ define(function (require, exports) {
         // Execute the read and stat calls in parallel. Callback early if the
         // read call completes first with an error; otherwise wait for both
         // to finish.
-        var done = false, data, fileStat, err;
+        var data, done = false, err, fileStat;
 
         if (options.stat) {
             done = true;

@@ -1,9 +1,9 @@
 (function() {
     "use strict";
 
-    var path     = require('path'),
-        fs       = require('fs'),
-        mkpath   = require('mkpath'),
+    var fs       = require("fs"),
+        mkpath   = require("mkpath"),
+        path     = require("path"),
         UglifyJS = require("uglify-js");
 
     var domainManager;
@@ -33,7 +33,7 @@
             filepath = path.resolve(filepath, customPath);
         }
         var err = mkpath.sync(path.dirname(filepath));
-        if (err && err.code !== 'EEXIST') {
+        if (err && err.code !== "EEXIST") {
             domainManager.emitEvent("minifyjs", "statusUpdate", "0");
             return;
         }

@@ -16,8 +16,8 @@ define(function (require, exports, module) {
     function updateOverviewFields(configPage) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
-        let widgetElement, authorElement, contentElement, iconElement,
-            nameElement, descriptionElement, licenseElement;
+        let authorElement, contentElement, descriptionElement, iconElement,
+            licenseElement, nameElement, widgetElement;
 
         if (XMLUtils.CheckForXMLParseErrors(editor) !== "") {
             return;
@@ -115,7 +115,7 @@ define(function (require, exports, module) {
     function updateFeaturesFields(configPage) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
-        let widgetElement, featureElement;
+        let featureElement, widgetElement;
 
         if (XMLUtils.CheckForXMLParseErrors(editor) !== "") {
             return;
@@ -143,7 +143,7 @@ define(function (require, exports, module) {
     function updatePrivilegesFields(configPage) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
-        let widgetElement, privilegeElement;
+        let privilegeElement, widgetElement;
 
         if (XMLUtils.CheckForXMLParseErrors(editor) !== "") {
             return;
@@ -172,7 +172,7 @@ define(function (require, exports, module) {
     function updateTizenFields(configPage, accountsStructure, webWidgetStructure, servicesStructure) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
-        let widgetElement, applicationElement, contentElement, settingElement;
+        let applicationElement, contentElement, settingElement, widgetElement;
 
         if (XMLUtils.CheckForXMLParseErrors(editor) !== "") {
             return;
@@ -602,7 +602,7 @@ define(function (require, exports, module) {
     function updateTizenProfile(profileType) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
-        let widgetElement, profileElement;
+        let profileElement, widgetElement;
 
         if (XMLUtils.CheckForXMLParseErrors(editor) !== "") {
             return;
