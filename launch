@@ -351,6 +351,46 @@ def get_emscripten_path(version):
     return ''
   return emscripten_path
 
+def build_wabt():
+  Log.info('Build wabt if necessary.')
+  try:
+    subprocess.check_call('cd tools/wabt; make gcc-release-no-tests', shell=True)
+  except:
+    Log.err('Fail to build wabt. Please try rerun after fix build break.')
+    return False
+  return True
+
+def ensure_wabt(wabt_path):
+  wabt_bin_path = os.path.join(wabt_path, 'bin')
+  if os.path.isdir(wabt_bin_path): return True
+
+  Log.warn('Download wabt tool')
+  url = 'https://github.com/WebAssembly/wabt/archive/'
+  file_name = '1.0.0.tar.gz'
+  dest_path = os.path.join(tool_path, file_name)
+  if not download_file(url + file_name, dest_path): return False
+
+  tar = tarfile.open(dest_path)
+  tar.extractall(tool_path)
+  tar.close()
+  os.remove(dest_path)
+  portable_path = os.path.join(tool_path, 'wabt-1.0.0')
+  os.rename(portable_path, wabt_path)
+
+  return build_wabt()
+
+def get_wabt_path():
+  Log.info('Check wabt')
+  wabt_path = os.path.join(tool_path, 'wabt')
+  wabt_bin_path = os.path.join(wabt_path, 'bin')
+  if os.path.isdir(wabt_bin_path): return wabt_bin_path
+
+  if not ensure_wabt(wabt_path):
+    Log.err('Fail to install wabt. Please install wabt manually.(https://github.com/WebAssembly/wabt)')
+    return ''
+
+  return wabt_bin_path
+
 def ensure_nacl(nacl_path):
   bin_path = os.path.join(nacl_path, 'naclsdk')
   if os.path.isfile(bin_path): return True
@@ -546,7 +586,10 @@ def main():
     if emscripten_path == '': return 1
 
   Log.info('Use emscripten at %s' % emscripten_path)
-  pathlist = [grunt_path, emscripten_path, os.path.join(tool_path, 'WebIDLBinder'), '']
+
+  wabt_bin_path = get_wabt_path()
+
+  pathlist = [grunt_path, emscripten_path, os.path.join(tool_path, 'WebIDLBinder'), wabt_bin_path, '']
   tizen_path = get_tizen_path()
   if tizen_path != '':
     pathlist.insert(-1, tizen_path)

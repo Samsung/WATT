@@ -330,7 +330,8 @@ module.exports = function (grunt) {
                           "project/node/**",
                           "file-extension/node/**",
                           "tizen-profile/node/**",
-                          "pwe/node/**"
+                          "pwe/node/**",
+                          "wasm-debug/node/**"
                         ]
                     },
                     /* styles, fonts and images */
