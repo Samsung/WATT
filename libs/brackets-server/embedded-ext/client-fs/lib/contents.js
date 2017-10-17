@@ -1,10 +1,11 @@
 define(function (require, exports, module) {
     "use strict";
 
-    var FileUtils           = brackets.getModule("file/FileUtils"),
-        FileSystem          = brackets.getModule("filesystem/FileSystem"),
-        Strings             = require("../strings"),
-        contentsTemplate    = require("text!../templates/contents.html");
+    var FileSystem          = brackets.getModule("filesystem/FileSystem"),
+        FileUtils           = brackets.getModule("file/FileUtils");
+
+    var contentsTemplate    = require("text!../templates/contents.html"),
+        Strings             = require("../strings");
 
     function Contents($dialog, allowMultipleSelection, chooseDirectories, title, initialPath, fileTypes, proposedNewFilename, onError, onSelected) {
         if (!(this instanceof Contents)) {
@@ -79,10 +80,10 @@ define(function (require, exports, module) {
     };
 
     Contents.prototype.selectRow = function (event) {
-        var pel     = event.target.parentElement,
-            $tr     = $(pel.tagName === "TR" ? pel : pel.parentElement),
-            path    = $tr.attr("data-path"),
-            isDir   = $tr.find(".dir");
+        var pel     = event.target.parentElement;
+        var $tr     = $(pel.tagName === "TR" ? pel : pel.parentElement);
+        var isDir   = $tr.find(".dir"),
+            path    = $tr.attr("data-path");
 
         event.stopImmediatePropagation();
         if (path) {
@@ -108,8 +109,8 @@ define(function (require, exports, module) {
     };
 
     Contents.prototype.resetTrail = function (path) {
-        var parts   = path.split("/"),
-            lPath   = "",
+        var lPath   = "",
+            parts   = path.split("/"),
             that    = this;
 
         this.trail = [];
@@ -126,11 +127,11 @@ define(function (require, exports, module) {
     };
 
     Contents.prototype.openFolder = function (event) {
-        var pel     = event.target.parentElement,
-            el      = pel.tagName === "TR" ? pel : pel.parentElement,
-            $tr     = $(el),
-            path    = $tr.attr("data-path"),
-            isDir   = $tr.find(".dir");
+        var pel     = event.target.parentElement;
+        var el      = pel.tagName === "TR" ? pel : pel.parentElement;
+        var $tr     = $(el);
+        var isDir   = $tr.find(".dir"),
+            path    = $tr.attr("data-path");
 
         event.stopImmediatePropagation();
         if (path && isDir.length) {
@@ -158,12 +159,12 @@ define(function (require, exports, module) {
         // $contents.empty();
 
         dir.getContents(function (err, files) {
-            var list    = [],
-                context = {
+            var context = {
                     OPEN_FOLDER: Strings.BUTTON_OPEN_FOLDER,
                     multiSelect: that.allowMultipleSelection,
                     chooseDir: that.chooseDirectories
-                };
+                },
+                list = [];
 
             if (err) {
                 that.onError(err);

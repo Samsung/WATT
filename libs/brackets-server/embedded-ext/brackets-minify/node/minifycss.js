@@ -1,10 +1,10 @@
 (function() {
     "use strict";
 
-    var path     = require('path'),
-        fs       = require('fs'),
-        mkpath   = require('mkpath'),
-        CleanCSS = require("clean-css");
+    var CleanCSS = require("clean-css"),
+        fs       = require("fs"),
+        mkpath   = require("mkpath"),
+        path     = require("path");
 
     var domainManager;
 
@@ -29,7 +29,7 @@
             filepath = path.resolve(filepath, customPath);
         }
         var err = mkpath.sync(path.dirname(filepath));
-        if (err && err.code !== 'EEXIST') {
+        if (err && err.code !== "EEXIST") {
             domainManager.emitEvent("minifycss", "statusUpdate", "0");
             return;
         }

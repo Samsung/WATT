@@ -216,12 +216,12 @@ define(function (require, exports, module) {
     }
 
     function handleCompileFile() {
-        var $dlg,
-            $OkBtn,
-            $changeFileBtn,
+        var $changeFileBtn,
             $compileFileInput,
-            $compileTypeSelect,
             $compileOptionInput,
+            $compileTypeSelect,
+            $dlg,
+            $OkBtn,
             projectFolder = _documentsDir;
 
         var context = {
@@ -230,9 +230,9 @@ define(function (require, exports, module) {
         };
 
         var getSelectedCompileType = function () {
-            var index = $compileTypeSelect[0].selectedIndex,
-                $el = $compileTypeSelect.children("option").eq(index),
-                compileType = ($el && $el.length === 1) ? $el[0].innerText || "" : "";
+            var index = $compileTypeSelect[0].selectedIndex;
+            var $el = $compileTypeSelect.children("option").eq(index);
+            var compileType = ($el && $el.length === 1) ? $el[0].innerText || "" : "";
             return compileType;
         };
 
@@ -241,8 +241,8 @@ define(function (require, exports, module) {
         dialog.done(function (buttonId) {
             if (buttonId === "ok") {
                 var compileFile = convertWindowsPathToUnixPath($compileFileInput.val()),
-                    compileType = getSelectedCompileType(),
-                    compileOption = $compileOptionInput.val();
+                    compileOption = $compileOptionInput.val(),
+                    compileType = getSelectedCompileType();
 
                 var projectId = PreferencesManager.getViewState("projectId");
 

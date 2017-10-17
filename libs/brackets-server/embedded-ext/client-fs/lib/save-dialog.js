@@ -3,12 +3,13 @@ define(function (require, exports) {
 
     var Dialogs             = brackets.getModule("widgets/Dialogs"),
         FileSystem          = brackets.getModule("filesystem/FileSystem"),
-        FileUtils           = brackets.getModule("file/FileUtils"),
-        Strings             = require("../strings"),
-        CreateFolder        = require("./create-folder"),
-        ConfirmReplace      = require("./confirm-replace"),
+        FileUtils           = brackets.getModule("file/FileUtils");
+
+    var ConfirmReplace      = require("./confirm-replace"),
         contents            = require("./contents"),
-        dialogTemplate      = require("text!../templates/save-dialog.html");
+        CreateFolder        = require("./create-folder"),
+        dialogTemplate      = require("text!../templates/save-dialog.html"),
+        Strings             = require("../strings");
 
     exports.show = function (title, initialPath, proposedNewFilename, callback) {
         if (initialPath.indexOf("/samples/") === 0) {
@@ -24,13 +25,14 @@ define(function (require, exports) {
                 BUTTON_CREATE_FOLDER: Strings.BUTTON_CREATE_FOLDER,
                 proposed: proposedNewFilename
             },
-            path        = initialPath || brackets.app.getUserDocumentsDirectory(),
             dialog      = Dialogs.showModalDialogUsingTemplate(Mustache.render(dialogTemplate, context)),
-            $dialog     = dialog.getElement(),
-            btnOk       = $dialog.find("button[data-button-id='ok']")[0],
+            path        = initialPath || brackets.app.getUserDocumentsDirectory();
+
+        var $dialog     = dialog.getElement(),
             $input      = $dialog.find("#rfs-file-name"),
-            $saveName   = $dialog.find("#rfs-save-name"),
             $newFolder  = $dialog.find("#rfs-create-folder"),
+            $saveName   = $dialog.find("#rfs-save-name"),
+            btnOk       = $dialog.find("button[data-button-id='ok']")[0],
             cnts;
 
         function getFullName() {
@@ -67,8 +69,8 @@ define(function (require, exports) {
                 names.push(el.name);
             });
             CreateFolder.show(names, function (name) {
-                var fullName    = FileUtils.stripTrailingSlash(path) + "/" + name,
-                    dir         = FileSystem.getDirectoryForPath(fullName);
+                var fullName    = FileUtils.stripTrailingSlash(path) + "/" + name;
+                var dir         = FileSystem.getDirectoryForPath(fullName);
 
                 dir.create(function (err) {
                     if (err) {
@@ -85,8 +87,8 @@ define(function (require, exports) {
 
         dialog.done(function (buttonId) {
             if (buttonId === "ok") {
-                var fullName = getFullName(),
-                    file = FileSystem.getFileForPath(fullName);
+                var fullName = getFullName();
+                var file = FileSystem.getFileForPath(fullName);
 
                 file.exists(function (err, exists) {
                     if (err) {

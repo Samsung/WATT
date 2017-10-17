@@ -4,8 +4,8 @@ define(function (require, exports, module) {
     "use strict";
 
     // Brackets modules
-    const Commands               = brackets.getModule("command/Commands"),
-        CommandManager           = brackets.getModule("command/CommandManager"),
+    const CommandManager         = brackets.getModule("command/CommandManager"),
+        Commands                 = brackets.getModule("command/Commands"),
         DefaultDialogs           = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs                  = brackets.getModule("widgets/Dialogs"),
         ExtensionUtils           = brackets.getModule("utils/ExtensionUtils"),
@@ -32,7 +32,7 @@ define(function (require, exports, module) {
     const FILE_IMPORT_FILE = "file.import.file";
     const FILE_IMPORT_SHARED_FILE = "file.import.shared.file";
     const FILE_PASTE_FILE = "file.paste.file";
-    let operation, selected, selectedFile, $fileListOutput;
+    let $fileListOutput, operation, selected, selectedFile;
 
     function showErrorDialog(message) {
         Dialogs.showModalDialog(
@@ -74,11 +74,11 @@ define(function (require, exports, module) {
 
     function handleImportFile() {
         if (window.File && window.FileReader && window.FileList && window.Blob) {
-            var $dlg,
-                $OkBtn,
+            var $changeFolderBtn,
+                $dlg,
                 $importFileInput,
                 $intoFolderInput,
-                $changeFolderBtn,
+                $OkBtn,
                 baseDirEntry;
 
             var selected = ProjectManager.getSelectedItem();
@@ -169,11 +169,11 @@ define(function (require, exports, module) {
 
     function handleImportSharedFile() {
         var $dlg,
+            $fileListOutput,
             $OkBtn,
             $projectSelect,
-            $fileListOutput,
-            selectedProject,
-            fileList;
+            fileList,
+            selectedProject;
 
         _nodeDomain.exec("getSharedProject").done(function(data) {
             var context = {

@@ -1,8 +1,8 @@
 define(function (require, exports) {
     "use strict";
 
-    var fs              = require("fileSystemImpl"),
-        FileSystemError = require("filesystem/FileSystemError");
+    var FileSystemError = require("filesystem/FileSystemError"),
+        fs              = require("fileSystemImpl");
 
     function StatMap(stats) {
         this._stats = stats;

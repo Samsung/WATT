@@ -35,7 +35,8 @@ module.exports = function (grunt) {
           '!libs/brackets-server/embedded-ext/client-fs/thirdparty/**',
           '!libs/brackets-server/embedded-ext/ConfigXmlEditor/node/pretty-data/**',
           '!libs/brackets-server/embedded-ext/hirse.beautify/thirdparty/**',
-          '!libs/brackets-server/embedded-ext/**/node_modules/**'
+          '!libs/brackets-server/embedded-ext/**/node_modules/**',
+          '!libs/brackets-server/hacks/src/search/node/FindInFilesDomain.js'
         ]
       }
     },

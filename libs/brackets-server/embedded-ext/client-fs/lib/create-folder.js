@@ -1,9 +1,10 @@
 define(function (require, exports) {
     "use strict";
 
-    var Dialogs             = brackets.getModule("widgets/Dialogs"),
-        Strings             = require("../strings"),
-        dialogTemplate      = require("text!../templates/create-folder.html");
+    var Dialogs             = brackets.getModule("widgets/Dialogs");
+
+    var dialogTemplate      = require("text!../templates/create-folder.html"),
+        Strings             = require("../strings");
 
     exports.show = function (contents, callback) {
         var context = {
@@ -11,17 +12,18 @@ define(function (require, exports) {
                 BUTTON_CANCEL: Strings.BUTTON_CANCEL,
                 BUTTON_OK: Strings.BUTTON_OK
             },
-            dialog      = Dialogs.showModalDialogUsingTemplate(Mustache.render(dialogTemplate, context)),
-            $dialog     = dialog.getElement(),
-            btnOk       = $dialog.find("button[data-button-id='ok']")[0],
+            dialog      = Dialogs.showModalDialogUsingTemplate(Mustache.render(dialogTemplate, context));
+
+        var $dialog     = dialog.getElement(),
             $input      = $dialog.find("#rfs-folder-name"),
-            $msg        = $dialog.find("#rfs-msg");
+            $msg        = $dialog.find("#rfs-msg"),
+            btnOk       = $dialog.find("button[data-button-id='ok']")[0];
 
         btnOk.disabled = true;
         $input.focus();
         $input.keyup(function () {
-            var val = $input.val().trim(),
-                exists  = $.inArray(val, contents) !== -1;
+            var val = $input.val().trim();
+            var exists  = $.inArray(val, contents) !== -1;
 
             if (!val || exists) {
                 btnOk.disabled = true;

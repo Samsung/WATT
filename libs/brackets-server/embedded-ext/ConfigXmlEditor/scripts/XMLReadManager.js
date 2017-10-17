@@ -28,8 +28,8 @@ define(function (require, exports, module) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
 
-        let id, name, version, content, icon, author, email, website,
-            license, licenseURL, description, width, height, viewModes;
+        let author, content, description, email, height, icon, id,
+            license, licenseURL, name, version, viewModes, website, width;
 
         // get fields from XML file (use default value if specific field is not set)
         id = tryGetField(() => { return xmlDoc.getElementsByTagNameNS("http://www.w3.org/ns/widgets", "widget")[0].attributes["id"].nodeValue; }, "");

@@ -3,11 +3,13 @@ define(function (require, exports, module) {
 
     var CommandManager      = brackets.getModule("command/CommandManager"),
         Commands            = brackets.getModule("command/Commands"),
-        Menus               = brackets.getModule("command/Menus"),
         ExtensionUtils      = brackets.getModule("utils/ExtensionUtils"),
         fsImpl              = brackets.getModule("fileSystemImpl"),
-        Strings             = require("./strings"),
-        OPEN_CMD_ID         = "remoteFS.open",
+        Menus               = brackets.getModule("command/Menus");
+
+    var Strings             = require("./strings");
+
+    var OPEN_CMD_ID         = "remoteFS.open",
         OPEN_FLDR_CMD_ID    = "remoteFS.openFolder",
         SAVE_AS_CMD_ID      = "remoteFS.saveAs";
 
@@ -20,9 +22,9 @@ define(function (require, exports, module) {
     } else {
         // We are running on native OS shell.
         var FileSystem  = brackets.getModule("filesystem/FileSystem"),
-            wrapper     = require("./lib/fs-wrapper"),
+            handler     = function () {},
             menu        = Menus.getMenu(Menus.AppMenuBar.FILE_MENU),
-            handler     = function () {};
+            wrapper     = require("./lib/fs-wrapper");
 
         FileSystem.init(wrapper);
 

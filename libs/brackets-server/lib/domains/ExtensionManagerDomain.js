@@ -29,12 +29,12 @@ indent: 4, maxerr: 50 */
 
 var supportDir;
 
-var semver   = require("semver"),
-    path     = require("path"),
+var fs       = require("fs-extra"),
     http     = require("http"),
-    request  = require("request"),
     os       = require("os"),
-    fs       = require("fs-extra"),
+    path     = require("path"),
+    request  = require("request"),
+    semver   = require("semver"),
     temp     = require("temp"),
     validate = require("./package-validator").validate;
 

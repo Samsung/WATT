@@ -1,9 +1,10 @@
 define(function (require, exports) {
     "use strict";
 
-    var nativeFs    = brackets.getModule("fileSystemImpl"),
-        remoteFs    = require("./file-system"),
-        fs          = nativeFs;
+    var nativeFs    = brackets.getModule("fileSystemImpl");
+
+    var fs          = nativeFs,
+        remoteFs    = require("./file-system");
 
     function showOpenDialog(allowMultipleSelection, chooseDirectories, title, initialPath, fileTypes, callback) {
         nativeFs.showOpenDialog(allowMultipleSelection, chooseDirectories, title, initialPath, fileTypes, callback);

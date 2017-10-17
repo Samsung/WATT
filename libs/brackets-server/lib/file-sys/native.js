@@ -1,20 +1,20 @@
 "use strict";
 
 var fs          = require("fs"),
-    ncp         = require("ncp"),
     mkdirp      = require("mkdirp"),
-    rimraf      = require("rimraf"),
+    ncp         = require("ncp"),
     pathUtil    = require("path"),
-    suppRoot    = "/support/",
+    rimraf      = require("rimraf");
+
+var projRoot    = "/projects/",
     sampRoot    = "/samples/",
-    projRoot    = "/projects/";
+    suppRoot    = "/support/";
 
 function resolvePath(reqPath, context, callback) {
     var extRoot = "/brackets/extensions/",
-        userExt = "/brackets/extensions/user",
-        root,
-        err,
-        res;
+        userExt = "/brackets/extensions/user";
+
+    var err, res, root;
 
     if (reqPath.startsWith(projRoot)) {
         root = context.projectsDir;

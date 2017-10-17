@@ -1,11 +1,12 @@
 "use strict";
 
 var fs      = require("fs"),
-    path    = require("path"),
     glob    = require("glob"),
-    opts    = {
-        cwd: path.join(__dirname, "..", "brackets-srv")
-    };
+    path    = require("path");
+
+var opts = {
+    cwd: path.join(__dirname, "..", "brackets-srv")
+};
 
 glob("**/node_modules_", opts, function (err, files) {
     if (err) {

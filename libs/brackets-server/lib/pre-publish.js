@@ -1,14 +1,16 @@
 "use strict";
 
 var fs      = require("fs"),
-    path    = require("path"),
     glob    = require("glob"),
-    opts    = {
-        cwd: path.join(__dirname, "..", "brackets-srv")
-    },
-    logFile = "./install.log",
-    exists  = fs.existsSync(logFile),
-    conts;
+    path    = require("path");
+
+var conts;
+var logFile = "./install.log";
+var exists  = fs.existsSync(logFile);
+
+var opts = {
+    cwd: path.join(__dirname, "..", "brackets-srv")
+};
 
 if (exists) {
     conts = fs.readFileSync(logFile, { encoding: "utf8" });

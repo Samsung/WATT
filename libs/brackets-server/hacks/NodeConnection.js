@@ -459,8 +459,8 @@ define(function (require, exports, module) {
                 return;
             }
 
-            var header = data.slice(0, 4),
-                body = data.slice(4),
+            var body = data.slice(4),
+                header = data.slice(0, 4),
                 headerView = new Uint32Array(header),
                 id = headerView[0];
 

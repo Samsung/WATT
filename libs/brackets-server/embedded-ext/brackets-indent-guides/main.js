@@ -29,14 +29,14 @@ define(function (require, exports, module) {
     "use strict";
     
     // Brackets modules
-    var PreferencesManager  = brackets.getModule("preferences/PreferencesManager"),
-        Menus               = brackets.getModule("command/Menus"),
+    var AppInit             = brackets.getModule("utils/AppInit"),
+        CommandManager      = brackets.getModule("command/CommandManager"),
         Editor              = brackets.getModule("editor/Editor").Editor,
         EditorManager       = brackets.getModule("editor/EditorManager"),
-        AppInit             = brackets.getModule("utils/AppInit"),
-        CommandManager      = brackets.getModule("command/CommandManager"),
-        MainViewManager     = brackets.getModule("view/MainViewManager");
-    
+        MainViewManager     = brackets.getModule("view/MainViewManager"),
+        Menus               = brackets.getModule("command/Menus"),
+        PreferencesManager  = brackets.getModule("preferences/PreferencesManager");
+
     // Local modules
     var Strings = require("strings");
     
@@ -44,18 +44,18 @@ define(function (require, exports, module) {
     var Snap = require("snap.svg-min");
     
     // Constants
-    var COMMAND_NAME    = Strings.COMMAND_NAME,
-        COMMAND_ID      = "lkcampbell.toggleIndentGuides",
+    var COMMAND_ID      = "lkcampbell.toggleIndentGuides",
+        COMMAND_NAME    = Strings.COMMAND_NAME,
         GUIDE_CLASS     = "lkcampbell-indent-guides";
-    
-    var guideSVG    = null,
-        guideRect   = null;
+
+    var guideRect   = null,
+        guideSVG    = null;
     
     // Define extension preferences
     var enabled     = true,
-        hideFirst   = false,
         guideColor  = "rgba(128, 128, 128, 0.5)",
         guideStyle  = "solid",
+        hideFirst   = false,
         prefs       = PreferencesManager.getExtensionPrefs("brackets-indent-guides");
     
     prefs.definePreference("enabled", "boolean", enabled, {
@@ -76,10 +76,10 @@ define(function (require, exports, module) {
     });
     
     function updateStyleRules() {
-        var svgStr  = "",
+        var cssStr  = "",
             imgStr  = "",
-            cssStr  = "";
-        
+            svgStr  = "";
+
         if ($("#lkcampbell-indent-guides-css").length) {
             $("#lkcampbell-indent-guides-css").remove();
         }
@@ -101,9 +101,9 @@ define(function (require, exports, module) {
         token: function (stream, state) {
             var char        = "",
                 colNum      = 0,
-                spaceUnits  = 0,
-                isTabStart  = false;
-            
+                isTabStart  = false,
+                spaceUnits  = 0;
+
             char    = stream.next();
             colNum  = stream.column();
             
@@ -157,8 +157,8 @@ define(function (require, exports, module) {
     }
     
     function updateUI() {
-        var editor  = EditorManager.getCurrentFullEditor(),
-            cm      = editor ? editor._codeMirror : null;
+        var editor  = EditorManager.getCurrentFullEditor();
+        var cm      = editor ? editor._codeMirror : null;
         
         // Update CodeMirror overlay if editor is available
         if (cm) {
