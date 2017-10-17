@@ -4,9 +4,10 @@ define(function (require, exports) {
     var FileSystemError     = brackets.getModule("filesystem/FileSystemError"),
         FileSystemStats     = brackets.getModule("filesystem/FileSystemStats");
 
-    var io                  = require("../thirdparty/socket.io"),
-        OpenDialog          = require("./open-dialog"),
+    var OpenDialog          = require("./open-dialog"),
         SaveDialog          = require("./save-dialog");
+
+    var io                  = require("../thirdparty/socket.io");
 
     /**
      * Callback to notify FileSystem of watcher changes
