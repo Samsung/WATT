@@ -21,9 +21,8 @@ define(function (require, exports, module) {
             if (event.target.readyState === window.FileReader.DONE) {
                 var filePath = directoryPath + file.name;
                 var generatedFile = FileSystem.getFileForPath(filePath);
-                generatedFile.write(event.target.result,function(){
-                    // Not implemented yet.
-                });
+                generatedFile.write(event.target.result);
+                ProjectManager.refreshFileTree();
             }
         };
     }
@@ -32,8 +31,7 @@ define(function (require, exports, module) {
         return function(file) {
             var reader = new window.FileReader();
             reader.onloadend = fileOnLoaded(file, directoryPath);
-            reader.readAsText(file);
-            // reader.readAsBinaryString(file);
+            reader.readAsArrayBuffer(file);
         };
     }
 

@@ -118,6 +118,7 @@ define(function (require, exports, module) {
                                 var filePath = baseDirEntry + file.name;
                                 var newFile = FileSystem.getFileForPath(filePath);
                                 newFile.write(event.target.result);
+                                ProjectManager.refreshFileTree();
                             }
                         };
                     };
@@ -129,7 +130,7 @@ define(function (require, exports, module) {
 
                         // Closure to capture the file information
                         reader.onloadend = loaded(file);
-                        reader.readAsBinaryString(file);
+                        reader.readAsArrayBuffer(file);
                     }
                 }
             });
