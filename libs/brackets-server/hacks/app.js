@@ -84,4 +84,17 @@ define(function (require, exports) {
 
         return serverPath.join("/");
     };
+
+    /**
+     *
+     * Remove unnecessary path data from file path
+     *
+     * @param {string} filePath
+     * @return {string} Converted file path
+     */
+    exports.convertRelativePath = function (path) {
+        var newPath = path.split("/");
+        newPath.splice(0, 2);
+        return newPath.join("/");
+    };
 });

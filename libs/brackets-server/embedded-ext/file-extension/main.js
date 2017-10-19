@@ -249,13 +249,6 @@ define(function (require, exports, module) {
         operation = "CUT";
     }
 
-    // Remove unnecessary prefix path
-    function convertRelativePath(path) {
-        var newPath = path.split("/");
-        newPath.splice(0, 2);
-        return newPath.join("/");
-    }
-
     function handlePasteFile() {
         selected = ProjectManager.getSelectedItem();
         if (selected) {
@@ -277,8 +270,9 @@ define(function (require, exports, module) {
                 }
 
                 const projectId = PreferencesManager.getViewState("projectId");
-                const sourcePath = convertRelativePath(entry.parentPath);
-                const destPath = convertRelativePath(selectedPath);
+
+                const sourcePath = brackets.app.convertRelativePath(entry.parentPath);
+                const destPath = brackets.app.convertRelativePath(selectedPath);
 
                 _nodeDomain.exec(operation, projectId, sourcePath, entry.name, destPath)
                     .done(() => {
