@@ -98,7 +98,7 @@ define(function (require, exports, module) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(editor.getValue(),"text/xml");
 
-        let features = xmlDoc.getElementsByTagName("feature");
+        let features = xmlDoc.getElementsByTagNameNS("http://www.w3.org/ns/widgets", "feature");
         for (let i = 0; i < features.length; i++) {
             let feature;
             try {
