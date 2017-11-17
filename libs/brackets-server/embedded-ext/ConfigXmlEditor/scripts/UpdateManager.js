@@ -4,8 +4,8 @@
 define(function (require, exports, module) {
     "use strict";
 
-    var PrettyData            = require("node/pretty-data/pretty-data"),
-        XMLUtils              = require("scripts/XMLUtils");
+    var html            = require("node/html/html"),
+        XMLUtils        = require("scripts/XMLUtils");
 
     var editor;
 
@@ -109,7 +109,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
     function updateFeaturesFields(configPage) {
@@ -137,7 +137,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
     function updatePrivilegesFields(configPage) {
@@ -165,7 +165,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
 
@@ -424,7 +424,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
     function updateLocalizationFields(configPage) {
@@ -502,7 +502,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
 
@@ -562,7 +562,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
     function updatePreferencesFields(configPage) {
@@ -596,7 +596,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
     function updateTizenProfile(profileType) {
@@ -624,7 +624,7 @@ define(function (require, exports, module) {
         let serializer = new XMLSerializer();
         let text = serializer.serializeToString(xmlDoc);
 
-        editor.setValue(PrettyData.pd.xml(text));
+        editor.setValue(html.prettyPrint(text));
     }
 
     function updateFields(configPage, profileType, accountsStructure, webWidgetStructure, servicesStructure) {
