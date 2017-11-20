@@ -129,7 +129,7 @@ define(function (require, exports, module) {
 
         let selectedFeatures = configPage.find("#featureSelector")[0].options;
         for (let i = 0; i < selectedFeatures.length; i++) {
-            featureElement = xmlDoc.createElement("feature");
+            featureElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", "feature");
             featureElement.setAttribute("name", selectedFeatures[i].value);
             widgetElement.appendChild(featureElement);
         }
@@ -157,7 +157,7 @@ define(function (require, exports, module) {
 
         let selectedPrivileges = configPage.find("#privilegeSelector")[0].options;
         for (let i = 0; i < selectedPrivileges.length; i++) {
-            privilegeElement = xmlDoc.createElement("tizen:privilege");
+            privilegeElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:privilege");
             privilegeElement.setAttribute("name", selectedPrivileges[i].value);
             widgetElement.appendChild(privilegeElement);
         }
@@ -254,7 +254,7 @@ define(function (require, exports, module) {
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "background-category");
         let selectedBgCategories = configPage.find("#bgCategorySelector")[0].options;
         for (let i = 0; i < selectedBgCategories.length; i++) {
-            let bgCategoryElement = xmlDoc.createElement("tizen:background-category");
+            let bgCategoryElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:background-category");
             bgCategoryElement.setAttribute("value", selectedBgCategories[i].value);
             widgetElement.appendChild(bgCategoryElement);
         }
@@ -263,18 +263,18 @@ define(function (require, exports, module) {
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "app-control");
         let applicationControlTable = configPage.find(".appControlTable")[0];
         for (let i = 1; i < applicationControlTable.rows.length; i++) {
-            let appControlElement = xmlDoc.createElement("tizen:app-control");
-            let appControlSrcElement = xmlDoc.createElement("tizen:src");
+            let appControlElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:app-control");
+            let appControlSrcElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:src");
             appControlSrcElement.setAttribute("name", applicationControlTable.rows[i].cells[1].firstChild.value);
             appControlSrcElement.setAttribute("reload", applicationControlTable.rows[i].cells[5].firstChild.value);
 
-            let appControlOperationElement = xmlDoc.createElement("tizen:operation");
+            let appControlOperationElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:operation");
             appControlOperationElement.setAttribute("name", applicationControlTable.rows[i].cells[2].firstChild.value);
 
-            let appControlUriElement = xmlDoc.createElement("tizen:uri");
+            let appControlUriElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:uri");
             appControlUriElement.setAttribute("name", applicationControlTable.rows[i].cells[3].firstChild.value);
 
-            let appControlMimeElement = xmlDoc.createElement("tizen:mime");
+            let appControlMimeElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:mime");
             appControlMimeElement.setAttribute("name", applicationControlTable.rows[i].cells[4].firstChild.value);
 
             appControlElement.appendChild(appControlSrcElement);
@@ -289,7 +289,7 @@ define(function (require, exports, module) {
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "metadata");
         let metaDataTable = configPage.find(".metaDataTable")[0];
         for (let i = 1; i < metaDataTable.rows.length; i++) {
-            let metaDataElement = xmlDoc.createElement("tizen:metadata");
+            let metaDataElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:metadata");
             metaDataElement.setAttribute("key", metaDataTable.rows[i].cells[1].innerHTML);
             metaDataElement.setAttribute("value", metaDataTable.rows[i].cells[2].innerHTML);
             widgetElement.appendChild(metaDataElement);
@@ -298,21 +298,21 @@ define(function (require, exports, module) {
         // "Account" section
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "account");
         for (let i = 0; i < accountsStructure.length; i++) {
-            let accountElement = xmlDoc.createElement("tizen:account");
+            let accountElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:account");
             accountElement.setAttribute("multiple-account-support", accountsStructure[i].multipleAccounts);
 
-            let iconElement = xmlDoc.createElement("tizen:icon");
+            let iconElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:icon");
             iconElement.setAttribute("section", "Account");
             iconElement.innerHTML = accountsStructure[i].icon;
             accountElement.appendChild(iconElement);
 
-            let smallIconElement = xmlDoc.createElement("tizen:icon");
+            let smallIconElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:icon");
             smallIconElement.setAttribute("section", "AccountSmall");
             smallIconElement.innerHTML = accountsStructure[i].iconSmall;
             accountElement.appendChild(smallIconElement);
 
             for (let j = 0; j < accountsStructure[i].names.length; j++) {
-                let displayNameElement = xmlDoc.createElement("tizen:display-name");
+                let displayNameElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:display-name");
                 displayNameElement.setAttribute("xml:lang", accountsStructure[i].names[j].language);
                 displayNameElement.innerHTML = accountsStructure[i].names[j].name;
 
@@ -320,7 +320,7 @@ define(function (require, exports, module) {
             }
 
             for (let j = 0; j < accountsStructure[i].capabilities.length; j++) {
-                let capabilityElement = xmlDoc.createElement("tizen:capability");
+                let capabilityElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:capability");
                 capabilityElement.innerHTML = accountsStructure[i].capabilities[j].capability;
 
                 accountElement.appendChild(capabilityElement);
@@ -333,7 +333,7 @@ define(function (require, exports, module) {
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "category");
         let selectedCategories = configPage.find("#categorySelector")[0].options;
         for (let i = 0; i < selectedCategories.length; i++) {
-            let categoryElement = xmlDoc.createElement("tizen:category");
+            let categoryElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:category");
             categoryElement.setAttribute("name", selectedCategories[i].value);
             widgetElement.appendChild(categoryElement);
         }
@@ -341,21 +341,21 @@ define(function (require, exports, module) {
         // "Service" section
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "service");
         for (let i = 0; i < servicesStructure.length; i++) {
-            let serviceElement = xmlDoc.createElement("tizen:service");
+            let serviceElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:service");
             serviceElement.setAttribute("id", servicesStructure[i].id);
             serviceElement.setAttribute("on-boot", servicesStructure[i].onBoot);
             serviceElement.setAttribute("auto-restart", servicesStructure[i].autoRestart);
 
-            let contentElement = xmlDoc.createElement("tizen:content");
+            let contentElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:content");
             contentElement.setAttribute("src", servicesStructure[i].content);
             serviceElement.appendChild(contentElement);
 
-            let iconElement = xmlDoc.createElement("tizen:icon");
+            let iconElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:icon");
             iconElement.setAttribute("src", servicesStructure[i].icon);
             serviceElement.appendChild(iconElement);
 
             for (let j = 0; j < servicesStructure[i].serviceNames.length; j++) {
-                let nameElement = xmlDoc.createElement("tizen:name");
+                let nameElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:name");
                 nameElement.setAttribute("xml:lang", servicesStructure[i].serviceNames[j].language);
                 nameElement.innerHTML = servicesStructure[i].serviceNames[j].name;
 
@@ -363,7 +363,7 @@ define(function (require, exports, module) {
             }
 
             for (let j = 0; j < servicesStructure[i].serviceDescriptions.length; j++) {
-                let descriptionElement = xmlDoc.createElement("tizen:description");
+                let descriptionElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:description");
                 descriptionElement.setAttribute("xml:lang", servicesStructure[i].serviceDescriptions[j].language);
                 descriptionElement.innerHTML = servicesStructure[i].serviceDescriptions[j].description;
 
@@ -371,7 +371,7 @@ define(function (require, exports, module) {
             }
 
             for (let j = 0; j < servicesStructure[i].metaDatas.length; j++) {
-                let metaDataElement = xmlDoc.createElement("tizen:metadata");
+                let metaDataElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:metadata");
                 metaDataElement.setAttribute("key", servicesStructure[i].metaDatas[j].key);
                 metaDataElement.setAttribute("value", servicesStructure[i].metaDatas[j].value);
 
@@ -379,7 +379,7 @@ define(function (require, exports, module) {
             }
 
             for (let j = 0; j < servicesStructure[i].categoryNames.length; j++) {
-                let categoryElement = xmlDoc.createElement("tizen:category");
+                let categoryElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:category");
                 categoryElement.setAttribute("name", servicesStructure[i].categoryNames[j].category);
 
                 serviceElement.appendChild(categoryElement);
@@ -391,25 +391,25 @@ define(function (require, exports, module) {
         // "Web Widget" section
         XMLUtils.RemoveAllChildren(xmlDoc, widgetElement, "http://tizen.org/ns/widgets", "app-widget");
         for (let i = 0; i < webWidgetStructure.length; i++) {
-            let webWidgetElement = xmlDoc.createElement("tizen:app-widget");
+            let webWidgetElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:app-widget");
             webWidgetElement.setAttribute("id", webWidgetStructure[i].id);
             webWidgetElement.setAttribute("primary", webWidgetStructure[i].primary);
             webWidgetElement.setAttribute("max-instance", webWidgetStructure[i].maxInstance);
 
-            let webWidgetLabelElement = xmlDoc.createElement("tizen:widget-label");
+            let webWidgetLabelElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:widget-label");
             webWidgetLabelElement.innerHTML = webWidgetStructure[i].label;
 
-            let webWidgetContentElement = xmlDoc.createElement("tizen:widget-content");
+            let webWidgetContentElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:widget-content");
             webWidgetContentElement.setAttribute("src", webWidgetStructure[i].content);
 
-            let webWidgetSizeElement = xmlDoc.createElement("tizen:widget-size");
+            let webWidgetSizeElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:widget-size");
             webWidgetSizeElement.setAttribute("preview", webWidgetStructure[i].preview);
             // TODO: is 2x2 a valid data for all apps?
             webWidgetSizeElement.innerHTML = "2x2";
             webWidgetContentElement.appendChild(webWidgetSizeElement);
 
             for (let j = 0; j < webWidgetStructure[i].metaData.length; j++) {
-                let metaDataElement = xmlDoc.createElement("tizen:widget-metadata");
+                let metaDataElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:widget-metadata");
                 metaDataElement.setAttribute("key", webWidgetStructure[i].metaData[j].key);
                 metaDataElement.setAttribute("value", webWidgetStructure[i].metaData[j].value);
 
@@ -475,7 +475,7 @@ define(function (require, exports, module) {
         let nameTable = configPage.find(".nameTable")[0];
 
         for (let i = 1; i < nameTable.rows.length; i++) {
-            let nameElement = xmlDoc.createElement("name");
+            let nameElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", "name");
             nameElement.setAttribute("xml:lang", nameTable.rows[i].cells[1].innerHTML);
             nameElement.innerHTML = nameTable.rows[i].cells[2].innerHTML;
 
@@ -483,7 +483,7 @@ define(function (require, exports, module) {
         }
 
         for (let i = 1; i < descriptionTable.rows.length; i++) {
-            let descriptionElement = xmlDoc.createElement("description");
+            let descriptionElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", "description");
             descriptionElement.setAttribute("xml:lang", descriptionTable.rows[i].cells[1].innerHTML);
             descriptionElement.innerHTML = descriptionTable.rows[i].cells[2].innerHTML;
 
@@ -491,7 +491,7 @@ define(function (require, exports, module) {
         }
 
         for (let i = 1; i < licenseTable.rows.length; i++) {
-            let licenseElement = xmlDoc.createElement("license");
+            let licenseElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", "license");
             licenseElement.setAttribute("xml:lang", licenseTable.rows[i].cells[1].innerHTML);
             licenseElement.innerHTML = licenseTable.rows[i].cells[2].innerHTML;
             licenseElement.setAttribute("href", licenseTable.rows[i].cells[3].innerHTML);
@@ -551,7 +551,7 @@ define(function (require, exports, module) {
             let networkURL = accessTable.rows[i].cells[1].firstChild.value;
 
             if (networkURL !== "") {
-                let accessElement = xmlDoc.createElement("access");
+                let accessElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", "access");
 
                 accessElement.setAttribute("origin", networkURL);
                 accessElement.setAttribute("subdomains", accessTable.rows[i].cells[2].firstChild.value);
@@ -584,7 +584,7 @@ define(function (require, exports, module) {
             let value = preferencesTable.rows[i].cells[2].firstChild.value;
 
             if (name !== "" || value !== "") {
-                let metaDataElement = xmlDoc.createElement("preference");
+                let metaDataElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", "preference");
 
                 metaDataElement.setAttribute("name", preferencesTable.rows[i].cells[1].firstChild.value);
                 metaDataElement.setAttribute("value", preferencesTable.rows[i].cells[2].firstChild.value);
@@ -613,7 +613,7 @@ define(function (require, exports, module) {
         widgetElement = functionOutput.widgetElement;
 
         if (xmlDoc.getElementsByTagNameNS("http://tizen.org/ns/widgets", "profile").length === 0) {
-            profileElement = xmlDoc.createElement("tizen:profile");
+            profileElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:profile");
             widgetElement.appendChild(profileElement);
         } else {
             profileElement = xmlDoc.getElementsByTagNameNS("http://tizen.org/ns/widgets", "profile")[0];

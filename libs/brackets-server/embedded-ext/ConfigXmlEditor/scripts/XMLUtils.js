@@ -44,7 +44,7 @@ define(function (require, exports, module) {
         }
 
         if (elementsToReturn.length === 0) {
-            toReturnElement = xmlDoc.createElement(name);
+            toReturnElement = xmlDoc.createElementNS("http://www.w3.org/ns/widgets", name);
             widgetElement.appendChild(toReturnElement);
         } else {
             toReturnElement = elementsToReturn[0];
@@ -64,7 +64,7 @@ define(function (require, exports, module) {
         }
 
         if (elementsToReturn.length === 0) {
-            toReturnElement = xmlDoc.createElement("tizen:"+name);
+            toReturnElement = xmlDoc.createElementNS("http://tizen.org/ns/widgets", "tizen:"+name);
             widgetElement.appendChild(toReturnElement);
         } else {
             toReturnElement = elementsToReturn[0];
