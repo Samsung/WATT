@@ -270,8 +270,7 @@ module.exports = function (grunt) {
                             "nls/{,*/}*.js",
                             "xorigin.js",
                             "dependencies.js",
-                            "thirdparty/requirejs/require.js",
-                            "LiveDevelopment/launch.html"
+                            "thirdparty/requirejs/require.js"
                         ]
                     },
                     /* extensions and CodeMirror modes */
@@ -283,25 +282,13 @@ module.exports = function (grunt) {
                             "extensions/default/JavaScriptCodeHints/**",
                             "extensions/default/*/**/*.{css,less,json,svg,png}",
                             "!extensions/default/HealthData/**",
+                            "!extensions/default/StaticServer/**",                            
                             "!extensions/default/*/unittest-files/**",
                             "extensions/dev/*",
                             "thirdparty/CodeMirror/lib/{,*/}*.css",
                             "thirdparty/CodeMirror/addon/fold/**",
                             "thirdparty/i18n/*.js",
                             "thirdparty/text/*.js"
-                        ]
-                    },
-                    /* Node domains */
-                    {
-                        expand: true,
-                        dest: "brackets-srv/",
-                        cwd: "brackets-src/src/",
-                        src: [
-                            "extensions/default/StaticServer/node/**",
-                            "LiveDevelopment/MultiBrowserImpl/transports/node/**",
-                            "LiveDevelopment/MultiBrowserImpl/launchers/node/**",
-                            "extensibility/node/**",
-                            "!extensibility/node/ExtensionManagerDomain.js",
                         ]
                     },
                     /* search domain */
@@ -312,13 +299,6 @@ module.exports = function (grunt) {
                         src: [
                              "search/node/**"
                         ]
-                    },
-                    /* Node domains */
-                    {
-                        expand: true,
-                        dest: "brackets-srv/extensibility/node/",
-                        cwd: "lib/domains/",
-                        src: ["ExtensionManagerDomain.js"]
                     },
                     /* Node domains */
                     {
