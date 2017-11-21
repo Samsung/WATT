@@ -86,7 +86,7 @@ define(function (require, exports, module) {
             });
 
             // first of all, let's get list of files already included into makefile
-            _nodeDomain.exec("getCompiledFiles", projectId, makefileInProject, "/projects/")
+            _nodeDomain.exec("getCompiledFiles", projectId, makefileInProject)
                 .done(function(data) {
                     var commandOutout = JSON.parse(data);
                     currentlyCompiledFiles = commandOutout.stdout.substr("SOURCES=".length);
@@ -120,7 +120,7 @@ define(function (require, exports, module) {
                     dialog.done(function (/*buttonId*/) {
                         var readyText = $select.val() ? $select.val().join(" ") : "";
 
-                        _nodeDomain.exec("updateCompiledFiles", projectId, makefileInProject, readyText, "/projects/")
+                        _nodeDomain.exec("updateCompiledFiles", projectId, makefileInProject, readyText)
                             .done(function(/*data*/) {
                                 Dialogs.showModalDialog(
                                     DefaultDialogs.DIALOG_ID_INFO,
@@ -148,7 +148,7 @@ define(function (require, exports, module) {
             var projectId = PreferencesManager.getViewState("projectId");
             var infoDialog = showLoadingDialog();
 
-            _nodeDomain.exec("cleanWithMakefile", projectId, makefileInProject, "/projects/")
+            _nodeDomain.exec("cleanWithMakefile", projectId, makefileInProject)
                 .done(function(data) {
                     infoDialog.close();
                     var compileOutput = JSON.parse(data);
@@ -186,7 +186,7 @@ define(function (require, exports, module) {
             var projectId = PreferencesManager.getViewState("projectId");
             var infoDialog = showLoadingDialog();
 
-            _nodeDomain.exec("compileWithMakefile", projectId, makefileInProject, "/projects/")
+            _nodeDomain.exec("compileWithMakefile", projectId, makefileInProject)
                 .done(function(data) {
                     infoDialog.close();
                     var compileOutput = JSON.parse(data);
@@ -302,7 +302,7 @@ define(function (require, exports, module) {
     function handleBuildWGT() {
         const projectId = PreferencesManager.getViewState("projectId");
         const loadingDialog = showLoadingDialog();
-        _nodeDomain.exec("buildWGT", projectId, "/projects/").done(function() {
+        _nodeDomain.exec("buildWGT", projectId).done(function() {
             loadingDialog.close();
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_OK,
@@ -1033,7 +1033,7 @@ define(function (require, exports, module) {
                 }
             });
             if (cppFiles.length) {
-                _nodeDomain.exec("grepAPI", projectId, cppFiles, "/projects/", "WASM.api.json")
+                _nodeDomain.exec("grepAPI", projectId, cppFiles, "WASM.api.json")
                     .done(function(data) {
                         try {
                             var output = JSON.parse(data);
@@ -1046,7 +1046,7 @@ define(function (require, exports, module) {
 
                         projectManager.refreshFileTree();
 
-                        _nodeDomain.exec("catGreppedAPI", projectId, "WASM.api.json", "/projects/")
+                        _nodeDomain.exec("catGreppedAPI", projectId, "WASM.api.json")
                             .done(function(data) {
                                 try {
                                     var output = JSON.parse(data);

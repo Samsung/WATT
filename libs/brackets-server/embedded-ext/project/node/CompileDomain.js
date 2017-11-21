@@ -69,16 +69,18 @@
     }
 
 
-    function updateBuiltFiles(id, makefileInProject, files, path, callback) {
+    function updateBuiltFiles(id, makefileInProject, files, callback) {
         if (files === "") {
             return;
         }
 
+        const projectPath = nodePath.join(process.cwd(), "projects", id);
+
         if (!makefileInProject) {
-            addDefaultMakefile(path);
+            addDefaultMakefile(projectPath);
         }
 
-        var command = "cd " + path + "; sed -i '/^SOURCES/c\SOURCES="+ files + "' makefile";
+        var command = "cd " + projectPath + "; sed -i '/^SOURCES/c\SOURCES="+ files + "' makefile";
 
         exec(command, {}, function(error, stdout, stderr) {
             var resultObj = {
@@ -92,12 +94,14 @@
         });
     }
 
-    function getBuiltFiles(id, makefileInProject, path, callback) {
+    function getBuiltFiles(id, makefileInProject, callback) {
+        const projectPath = nodePath.join(process.cwd(), "projects", id);
+
         if (!makefileInProject) {
-            addDefaultMakefile(path);
+            addDefaultMakefile(projectPath);
         }
 
-        var command = "cd " + path + "; grep 'SOURCES=' makefile";
+        var command = "cd " + projectPath + "; grep 'SOURCES=' makefile";
 
         exec(command, {}, function(error, stdout, stderr) {
             var resultObj = {
@@ -117,7 +121,9 @@
         });
     }
 
-    function buildWGT(projectId, path, callback) {
+    function buildWGT(projectId, callback) {
+        const projectPath = nodePath.join(process.cwd(), "projects", projectId);
+
         // Tizen studio distributor's certificate password is not really a
         // secret. Distributor's certificate file is shared among all users.
         const certDir = process.cwd() + "/sample-certs";
@@ -177,7 +183,7 @@
                             return;
                         }
                         const addProfileCommand = `tizen security-profiles add --name "${user._id}" -a ${certFile} --password ${password} --ca ${authorCAPath} --dist ${distributorCertPath} --dist-password ${distributorCertPassword} --dist-ca ${distributorCAPath}`;
-                        const buildPackageCommand = `tizen package --type wgt --sign ${user._id} -- ${path}`;
+                        const buildPackageCommand = `tizen package --type wgt --sign ${user._id} -- ${projectPath}`;
                         const removeProfileCommand = `tizen security-profiles remove --name ${user._id}`;
                         // removeProfileCommand is of fire and forget kind, no need to
                         // check the result
@@ -228,7 +234,7 @@
                                             }
                                         };
                                         for (const filepath of generatedFiles) {
-                                            fs.unlink(nodePath.join(path, filepath), unlinkCallback);
+                                            fs.unlink(nodePath.join(projectPath, filepath), unlinkCallback);
                                         }
                                         removeProfileCallback();
                                         cleanupCallback();
@@ -244,13 +250,15 @@
         });
     }
 
-    function cmdCompileProject(id, makefileInProject, path, callback) {
+    function cmdCompileProject(id, makefileInProject, callback) {
+        const projectPath = nodePath.join(process.cwd(), "projects", id);
+
         if (!makefileInProject) {
-            addDefaultMakefile(path);
+            addDefaultMakefile(projectPath);
         }
 
         var idlName = "WASM.idl";
-        var idlPath = path + idlName;
+        var idlPath = projectPath + idlName;
         var hasIDL = true;
         try {
             execSync("ls " + idlPath);
@@ -258,7 +266,7 @@
 
         if (hasIDL) {
             execSync("GenerateWebIDLBinding -d " + idlPath);
-            const apiInfo = JSON.parse(execSync("cat " + path + "WASM.json").toString());
+            const apiInfo = JSON.parse(execSync("cat " + projectPath + "WASM.json").toString());
             let headers = new Set();
             for (const i of apiInfo.interfaces) {
                 headers.add(i.path);
@@ -267,11 +275,11 @@
             for (const h of headers) {
                 headerStr += "#include \"" + h + "\"\\\n";
             }
-            execSync("sed -i \'1s/^/" + headerStr + "/\' " + path + "glue.cpp");
-            execSync("sed -i \'/^CCFLAGS=/c\CCFLAGS=-s WASM=1 --post-js glue.js \' " + path + "makefile");
+            execSync("sed -i \'1s/^/" + headerStr + "/\' " + projectPath + "glue.cpp");
+            execSync("sed -i \'/^CCFLAGS=/c\CCFLAGS=-s WASM=1 --post-js glue.js \' " + projectPath + "makefile");
         }
 
-        var command = "cd " + path + "; make";
+        var command = "cd " + projectPath + "; make";
 
         exec(command, {}, function(error, stdout, stderr) {
             var resultObj = {
@@ -285,12 +293,14 @@
         });
     }
 
-    function cmdCleanProject(id, makefileInProject, path, callback) {
+    function cmdCleanProject(id, makefileInProject, callback) {
+        const projectPath = nodePath.join(process.cwd(), "projects", id);
+
         if (!makefileInProject) {
-            addDefaultMakefile(path);
+            addDefaultMakefile(projectPath);
         }
 
-        var command = "cd " + path + "; make clean";
+        var command = "cd " + projectPath + "; make clean";
 
         exec(command, {}, function(error, stdout, stderr) {
             var resultObj = {
@@ -304,7 +314,8 @@
         });
     }
 
-    function cmdGrepAPI(id, cppFiles, projectPath, jsonFile, callback) {
+    function cmdGrepAPI(id, cppFiles, jsonFile, callback) {
+        const projectPath = nodePath.join(process.cwd(), "projects", id);
         var grepper = "API-Grepper";
 
         for (var i = 0; i < cppFiles.length; i++) {
@@ -325,7 +336,8 @@
         });
     }
 
-    function cmdCatGreppedAPI(id, jsonFile, projectPath, callback) {
+    function cmdCatGreppedAPI(id, jsonFile, callback) {
+        const projectPath = nodePath.join(process.cwd(), "projects", id);
         var cmd = "cat " + projectPath + jsonFile;
 
         exec(cmd, {}, function(error, stdout, stderr) {
@@ -371,8 +383,7 @@
             "Compile the native code with makefile",
             [
                 {name: "id", type: "string"},
-                {name: "makefileInProject", type: "number"},
-                {name: "path", type: "string"},
+                {name: "makefileInProject", type: "number"}
             ],
             [
                 {name: "data", type: "string"},
@@ -387,8 +398,7 @@
             "Clean with makefile",
             [
                 {name: "id", type: "string"},
-                {name: "makefileInProject", type: "number"},
-                {name: "path", type: "string"},
+                {name: "makefileInProject", type: "number"}
             ],
             [
                 {name: "data", type: "string"},
@@ -404,8 +414,7 @@
             [
                 {name: "id", type: "string"},
                 {name: "makefileInProject", type: "number"},
-                {name: "files", type: "string"},
-                {name: "path", type: "string"},
+                {name: "files", type: "string"}
             ],
             [
                 {name: "data", type: "string"},
@@ -420,8 +429,7 @@
             "Get list of compiled files",
             [
                 {name: "id", type: "string"},
-                {name: "makefileInProject", type: "number"},
-                {name: "path", type: "string"},
+                {name: "makefileInProject", type: "number"}
             ],
             [
                 {name: "data", type: "string"},
@@ -437,8 +445,7 @@
             [
                 {name: "id", type: "string"},
                 {name: "cppFiles", type: "array"},
-                {name: "jsonFileName", type: "string"},
-                {name: "projectPath", type: "string"}
+                {name: "jsonFileName", type: "string"}
             ],
             [
                 {name: "data", type: "string"}
@@ -453,8 +460,7 @@
             "Cat JSON Data",
             [
                 {name: "id", type: "string"},
-                {name: "jsonFileName", type: "string"},
-                {name: "projectPath", type: "string"}
+                {name: "jsonFileName", type: "string"}
             ],
             [
                 {name: "data", type: "string"}
@@ -480,8 +486,7 @@
             true,
             "Build WGT package from project",
             [
-                {name: "projectId", type: "string"},
-                {name: "path", type: "string"},
+                {name: "projectId", type: "string"}
             ],
             [
                 {name: "data", type: "string"},
