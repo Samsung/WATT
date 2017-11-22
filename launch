@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import argparse, os, platform, select, stat, subprocess, sys, tarfile, zipfile
+import argparse, os, platform, re, select, stat, subprocess, sys, tarfile, zipfile
 
 class Log:
   level = 0
@@ -82,7 +82,7 @@ def import_additional():
     Log.err('Fail to install pip')
     sys.exit(1)
 
-  additional_packages = ['pkg_resources', 'psutil', 'requests']
+  additional_packages = ['psutil', 'requests']
   for package in additional_packages:
     try:
       module = __import__(package)
@@ -117,7 +117,8 @@ def install_nodejs():
   return True
 
 def get_version(s):
-  v = pkg_resources.parse_version(s).base_version.split('!')[-1].split('.')
+  # Remove unnecessary character and split the string by dot
+  v = re.sub('[v\n]', '', s).split('.')
   return map(int, v)
 
 def ensure_nodejs():
