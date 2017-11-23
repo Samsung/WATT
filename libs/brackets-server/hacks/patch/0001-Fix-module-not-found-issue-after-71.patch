@@ -1,0 +1,154 @@
+From c646c85bc13f732512d42302faa369e460158323 Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Thu, 23 Nov 2017 11:17:14 +0900
+Subject: [PATCH] Fix module not found issue after #71
+
+Signed-off-by: Hunseop Jeong <hs85.jeong@samsung.com>
+---
+ src/brackets.js              |  7 -------
+ src/command/DefaultMenus.js  |  2 --
+ src/extensibility/Package.js | 21 ---------------------
+ src/file/FileUtils.js        | 19 ++++++++-----------
+ 4 files changed, 8 insertions(+), 41 deletions(-)
+
+diff --git a/src/brackets.js b/src/brackets.js
+index 78906da..7b1b59b 100644
+--- a/src/brackets.js
++++ b/src/brackets.js
+@@ -94,7 +94,6 @@ define(function (require, exports, module) {
+     require("file/FileUtils");
+     require("project/SidebarView");
+     require("utils/Resizer");
+-    require("LiveDevelopment/main");
+     require("utils/NodeConnection");
+     require("utils/NodeDomain");
+     require("utils/ColorUtils");
+@@ -161,7 +160,6 @@ define(function (require, exports, module) {
+             DocumentCommandHandlers : require("document/DocumentCommandHandlers"),
+             DocumentManager         : require("document/DocumentManager"),
+             DocumentModule          : require("document/Document"),
+-            DOMAgent                : require("LiveDevelopment/Agents/DOMAgent"),
+             DragAndDrop             : require("utils/DragAndDrop"),
+             EditorManager           : require("editor/EditorManager"),
+             ExtensionLoader         : require("utils/ExtensionLoader"),
+@@ -175,14 +173,10 @@ define(function (require, exports, module) {
+             FindInFiles             : require("search/FindInFiles"),
+             FindInFilesUI           : require("search/FindInFilesUI"),
+             HTMLInstrumentation     : require("language/HTMLInstrumentation"),
+-            Inspector               : require("LiveDevelopment/Inspector/Inspector"),
+             InstallExtensionDialog  : require("extensibility/InstallExtensionDialog"),
+             JSUtils                 : require("language/JSUtils"),
+             KeyBindingManager       : require("command/KeyBindingManager"),
+             LanguageManager         : require("language/LanguageManager"),
+-            LiveDevelopment         : require("LiveDevelopment/LiveDevelopment"),
+-            LiveDevMultiBrowser     : require("LiveDevelopment/LiveDevMultiBrowser"),
+-            LiveDevServerManager    : require("LiveDevelopment/LiveDevServerManager"),
+             MainViewFactory         : require("view/MainViewFactory"),
+             MainViewManager         : require("view/MainViewManager"),
+             Menus                   : require("command/Menus"),
+@@ -191,7 +185,6 @@ define(function (require, exports, module) {
+             PerfUtils               : require("utils/PerfUtils"),
+             PreferencesManager      : require("preferences/PreferencesManager"),
+             ProjectManager          : require("project/ProjectManager"),
+-            RemoteAgent             : require("LiveDevelopment/Agents/RemoteAgent"),
+             ScrollTrackMarkers      : require("search/ScrollTrackMarkers"),
+             UpdateNotification      : require("utils/UpdateNotification"),
+             WorkingSetView          : require("project/WorkingSetView"),
+diff --git a/src/command/DefaultMenus.js b/src/command/DefaultMenus.js
+index 624cc3f..dca712e 100644
+--- a/src/command/DefaultMenus.js
++++ b/src/command/DefaultMenus.js
+@@ -128,8 +128,6 @@ define(function (require, exports, module) {
+         menu.addMenuItem(Commands.TOGGLE_LINE_NUMBERS);
+         menu.addMenuItem(Commands.TOGGLE_WORD_WRAP);
+         menu.addMenuDivider();
+-        menu.addMenuItem(Commands.FILE_LIVE_HIGHLIGHT);
+-        menu.addMenuDivider();
+         menu.addMenuItem(Commands.VIEW_TOGGLE_INSPECTION);
+ 
+         /*
+diff --git a/src/extensibility/Package.js b/src/extensibility/Package.js
+index 5a36bf2..8111ea3 100644
+--- a/src/extensibility/Package.js
++++ b/src/extensibility/Package.js
+@@ -518,27 +518,6 @@ define(function (require, exports, module) {
+         return _nodeConnectionDeferred;
+     }
+ 
+-    // Initializes node connection
+-    // TODO: duplicates code from StaticServer
+-    // TODO: can this be done lazily?
+-    AppInit.appReady(function () {
+-        _nodeConnection = new NodeConnection();
+-        _nodeConnection.connect(true).then(function () {
+-            var domainPath = FileUtils.getNativeBracketsDirectoryPath() + "/" + FileUtils.getNativeModuleDirectoryPath(module) + "/node/ExtensionManagerDomain";
+-
+-            _nodeConnection.loadDomains(domainPath, true)
+-                .then(
+-                    function () {
+-                        _nodeConnectionDeferred.resolve();
+-                    },
+-                    function () { // Failed to connect
+-                        console.error("[Extensions] Failed to connect to node", arguments);
+-                        _nodeConnectionDeferred.reject();
+-                    }
+-                );
+-        });
+-    });
+-
+     // For unit tests only
+     exports._getNodeConnectionDeferred = _getNodeConnectionDeferred;
+ 
+diff --git a/src/file/FileUtils.js b/src/file/FileUtils.js
+index e50fa0b..cfc1a25 100644
+--- a/src/file/FileUtils.js
++++ b/src/file/FileUtils.js
+@@ -41,7 +41,7 @@ define(function (require, exports, module) {
+         StringUtils         = require("utils/StringUtils");
+ 
+     // These will be loaded asynchronously
+-    var DocumentCommandHandlers, LiveDevelopmentUtils;
++    var DocumentCommandHandlers;
+ 
+     /**
+      * @const {Number} Maximium file size (in megabytes)
+@@ -380,15 +380,19 @@ define(function (require, exports, module) {
+         return filename.substr(basePath.length);
+     }
+ 
++    var _staticHtmlFileExts = ["htm", "html", "xhtml"];
++
+     /**
+      * Determine if file extension is a static html file extension.
+      * @param {string} filePath could be a path, a file name or just a file extension
+      * @return {boolean} Returns true if fileExt is in the list
+      */
+     function isStaticHtmlFileExt(filePath) {
+-        DeprecationWarning.deprecationWarning("FileUtils.isStaticHtmlFileExt() has been deprecated. " +
+-                                              "Please use LiveDevelopmentUtils.isStaticHtmlFileExt() instead.");
+-        return LiveDevelopmentUtils.isStaticHtmlFileExt(filePath);
++        if (!filePath) {
++            return false;
++        }
++
++        return (_staticHtmlFileExts.indexOf(LanguageManager.getLanguageForPath(filePath).getId()) !== -1);
+     }
+ 
+     /**
+@@ -528,13 +532,6 @@ define(function (require, exports, module) {
+         DocumentCommandHandlers = dchModule;
+     });
+ 
+-    // Asynchronously load LiveDevelopmentUtils
+-    // This avoids a temporary circular dependency created
+-    // by relocating isStaticHtmlFileExt() until deprecation is over
+-    require(["LiveDevelopment/LiveDevelopmentUtils"], function (lduModule) {
+-        LiveDevelopmentUtils = lduModule;
+-    });
+-
+     // Define public API
+     exports.LINE_ENDINGS_CRLF              = LINE_ENDINGS_CRLF;
+     exports.LINE_ENDINGS_LF                = LINE_ENDINGS_LF;
+-- 
+2.3.5
+
