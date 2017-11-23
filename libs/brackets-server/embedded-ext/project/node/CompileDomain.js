@@ -69,18 +69,16 @@
     }
 
 
-    function updateBuiltFiles(id, makefileInProject, files, callback) {
+    function updateBuiltFiles(id, makefileInProject, files, path, callback) {
         if (files === "") {
             return;
         }
 
-        const projectPath = nodePath.join(process.cwd(), "projects", id);
-
         if (!makefileInProject) {
-            addDefaultMakefile(projectPath);
+            addDefaultMakefile(path);
         }
 
-        var command = "cd " + projectPath + "; sed -i '/^SOURCES/c\SOURCES="+ files + "' makefile";
+        var command = "cd " + path + "; sed -i '/^SOURCES/c\SOURCES="+ files + "' makefile";
 
         exec(command, {}, function(error, stdout, stderr) {
             var resultObj = {
@@ -94,14 +92,12 @@
         });
     }
 
-    function getBuiltFiles(id, makefileInProject, callback) {
-        const projectPath = nodePath.join(process.cwd(), "projects", id);
-
+    function getBuiltFiles(id, makefileInProject, path, callback) {
         if (!makefileInProject) {
-            addDefaultMakefile(projectPath);
+            addDefaultMakefile(path);
         }
 
-        var command = "cd " + projectPath + "; grep 'SOURCES=' makefile";
+        var command = "cd " + path + "; grep 'SOURCES=' makefile";
 
         exec(command, {}, function(error, stdout, stderr) {
             var resultObj = {
@@ -414,7 +410,8 @@
             [
                 {name: "id", type: "string"},
                 {name: "makefileInProject", type: "number"},
-                {name: "files", type: "string"}
+                {name: "files", type: "string"},
+                {name: "path", type: "string"}                
             ],
             [
                 {name: "data", type: "string"},
@@ -429,7 +426,8 @@
             "Get list of compiled files",
             [
                 {name: "id", type: "string"},
-                {name: "makefileInProject", type: "number"}
+                {name: "makefileInProject", type: "number"},
+                {name: "path", type: "string"}
             ],
             [
                 {name: "data", type: "string"},
