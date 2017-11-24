@@ -34,7 +34,7 @@ define(function (require, exports, module) {
     var PROJECT_SELECT_OPTIONS = "project.selectOptions";
     var PROJECT_COMPILE_PROJECT = "project.compileProject";
     var PROJECT_CLEAN_PROJECT = "project.cleanProject";
-    var PROJECT_BUILD_WGT = "project.buildWGT";
+    var PROJECT_PACK_WGT = "project.packWGT";
 
     var _documentsDir = brackets.app.getUserDocumentsDirectory();
 
@@ -49,10 +49,10 @@ define(function (require, exports, module) {
         return FileUtils.convertWindowsPathToUnixPath(path);
     }
 
-    function showLoadingDialog() {
+    function showProgressDialog(title) {
         return Dialogs.showModalDialog(
             DefaultDialogs.DIALOG_ID_INFO,
-            ExtensionStrings.COMPILING_DIALOG_TITLE,
+            title,
             require("text!htmlContent/Loading-Dialog.html"),
             []
         );
@@ -146,7 +146,7 @@ define(function (require, exports, module) {
             makefileInProject = makefileFile.length;
 
             var projectId = PreferencesManager.getViewState("projectId");
-            var infoDialog = showLoadingDialog();
+            var infoDialog = showProgressDialog(ExtensionStrings.COMPILING_DIALOG_TITLE);
 
             _nodeDomain.exec("cleanWithMakefile", projectId, makefileInProject)
                 .done(function(data) {
@@ -184,7 +184,7 @@ define(function (require, exports, module) {
             makefileInProject = makefileFile.length;
 
             var projectId = PreferencesManager.getViewState("projectId");
-            var infoDialog = showLoadingDialog();
+            var infoDialog = showProgressDialog(ExtensionStrings.COMPILING_DIALOG_TITLE);
 
             _nodeDomain.exec("compileWithMakefile", projectId, makefileInProject)
                 .done(function(data) {
@@ -246,7 +246,7 @@ define(function (require, exports, module) {
 
                 var projectId = PreferencesManager.getViewState("projectId");
 
-                var infoDialog = showLoadingDialog();
+                var infoDialog = showProgressDialog(ExtensionStrings.COMPILING_DIALOG_TITLE);
 
                 _nodeDomain.exec("compile", projectId, compileFile, compileType, compileOption)
                     .done(function(data) {
@@ -299,14 +299,14 @@ define(function (require, exports, module) {
 
     }
 
-    function handleBuildWGT() {
+    function handlePackWGT() {
         const projectId = PreferencesManager.getViewState("projectId");
-        const loadingDialog = showLoadingDialog();
-        _nodeDomain.exec("buildWGT", projectId).done(function() {
+        const loadingDialog = showProgressDialog(ExtensionStrings.PACKING_DIALOG_TITLE);
+        _nodeDomain.exec("packWGT", projectId).done(function() {
             loadingDialog.close();
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_OK,
-                ExtensionStrings.MENU_TITLE_OPTIONS_SELECT,
+                ExtensionStrings.PACKING_SUCCESS,
                 "Package has been successfully built"
             ).done(() => {
                 ProjectManager.refreshFileTree();  // show .wgt file
@@ -316,7 +316,7 @@ define(function (require, exports, module) {
             const result = JSON.parse(error);
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_ERROR,
-                ExtensionStrings.MENU_TITLE_OPTIONS_SELECT,
+                ExtensionStrings.PACKING_FAILURE,
                 `Couldn't build WGT package: "${result.message}", details: "${result.details}"`
             );
         });
@@ -1072,8 +1072,8 @@ define(function (require, exports, module) {
     CommandManager.register(ExtensionStrings.MENU_TITLE_PROJECT_CLEAN, PROJECT_CLEAN_PROJECT, handleCleanProject);
     CommandManager.register(ExtensionStrings.MENU_TITLE_FILE_SELECT, PROJECT_SELECT_FILES, handleSelectFiles);
     CommandManager.register(ExtensionStrings.MENU_TITLE_OPTIONS_SELECT, PROJECT_SELECT_OPTIONS, handleSelectOptions);
-    var buildWGTCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_BUILD_WGT, PROJECT_BUILD_WGT, handleBuildWGT);
-    _nodeDomain.exec("checkBuildWGT").done(function(canBuild) { buildWGTCommand.setEnabled(canBuild); });
+    var packWGTCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_WGT, PROJECT_PACK_WGT, handlePackWGT);
+    _nodeDomain.exec("checkPackWGT").done(function(canBuild) { packWGTCommand.setEnabled(canBuild); });
 
     var menu = Menus.addMenu(ExtensionStrings.PROJECT_MENU, PROJECT_MENU, Menus.AFTER, Menus.AppMenuBar.NAVIGATE_MENU);
 
@@ -1088,6 +1088,6 @@ define(function (require, exports, module) {
         menu.addMenuItem(PROJECT_COMPILE_PROJECT);
         menu.addMenuItem(PROJECT_CLEAN_PROJECT);
     } else if (type === "web") {
-        menu.addMenuItem(PROJECT_BUILD_WGT);
+        menu.addMenuItem(PROJECT_PACK_WGT);
     }
 });

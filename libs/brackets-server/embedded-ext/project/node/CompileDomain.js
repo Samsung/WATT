@@ -117,9 +117,8 @@
         });
     }
 
-    function buildWGT(projectId, callback) {
+    function packWGT(projectId, callback) {
         const projectPath = nodePath.join(process.cwd(), "projects", projectId);
-
         // Tizen studio distributor's certificate password is not really a
         // secret. Distributor's certificate file is shared among all users.
         const certDir = process.cwd() + "/sample-certs";
@@ -479,8 +478,8 @@
 
         _domainManager.registerCommand(
             "compileEmscripten",
-            "buildWGT",
-            buildWGT,
+            "packWGT",
+            packWGT,
             true,
             "Build WGT package from project",
             [
