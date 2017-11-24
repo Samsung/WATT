@@ -72,7 +72,9 @@ function addDefaultExtesions(config) {
                     baseUrl: "brackets-src/src/extensions/default/" + file + "/",
                     preserveLicenseComments: false,
                     optimize: "uglify2",
-                    uglify2: {},
+                    uglify2: {
+                        output: { "max_line_len": false }
+                    },
                     paths: {
                         "text" : "../../../thirdparty/text/text",
                         "i18n" : "../../../thirdparty/i18n/i18n",
@@ -126,7 +128,9 @@ function addEmbeddedExtesions(config) {
                     baseUrl: "embedded-ext/" + file + "/",
                     preserveLicenseComments: false,
                     optimize: "uglify2",
-                    uglify2: {},
+                    uglify2: {
+                        output: { "max_line_len": false }
+                    },
                     paths: {
                         "text" : "../../brackets-src/src/thirdparty/text/text",
                         "i18n" : "../../brackets-src/src/thirdparty/i18n/i18n",
@@ -367,7 +371,9 @@ module.exports = function (grunt) {
                     mainConfigFile: "brackets-src/src/main.js",
                     baseUrl: "brackets-src/src",
                     optimize: "uglify2",
-                    uglify2: {}, // https://github.com/mishoo/UglifyJS2
+                    uglify2: {
+                        output: { "max_line_len": false }
+                    },
                     include: ["utils/Compatibility", "brackets"],
                     preserveLicenseComments: false,
                     exclude: ["text!config.json"],
