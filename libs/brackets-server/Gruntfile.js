@@ -64,7 +64,7 @@ function addDefaultExtesions(config) {
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // TODO: JavaScriptCodeHints cannot be optimized for multiple problems. Needs more investigation.
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if (stat.isDirectory() && fs.existsSync(root + "/" + file + "/main.js") && file !== "JavaScriptCodeHints" && file !== "HealthData") {
+        if (stat.isDirectory() && fs.existsSync(root + "/" + file + "/main.js") && file !== "JavaScriptCodeHints" && file !== "HealthData" && file !== "StaticServer") {
             var mod = {
                 options: {
                     name: "main",
@@ -514,7 +514,8 @@ module.exports = function (grunt) {
                         '../hacks/patch/0001-Drag-and-Drop-folder-implementation.patch',
                         '../hacks/patch/0001-Fix-find-in-files-feature-correctly.patch',
                         '../hacks/patch/0001-Fix-ImageViewer-to-show-the-image-correctly.patch',
-                        '../hacks/patch/0001-Remove-unused-menus-and-buttons.patch'
+                        '../hacks/patch/0001-Remove-unused-menus-and-buttons.patch',
+                        '../hacks/patch/0001-Fix-module-not-found-issue-after-71.patch'
                     ],
                     simple: {
                         cwd: './brackets-src/'
