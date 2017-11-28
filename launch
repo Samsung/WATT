@@ -570,9 +570,6 @@ def main():
   if not ret:
     return 1
 
-  if not build_brackets():
-    return 1
-
   if not check_mongodb():
     return 1
 
@@ -601,6 +598,9 @@ def main():
   if args.nacl_sdk:
     # Path for NACL_SDK_ROOT
     os.putenv('NACL_SDK_ROOT', get_nacl_path())
+
+  if not build_brackets():
+    return 1
 
   if args.dry:
     Log.warn('Skip run service')
