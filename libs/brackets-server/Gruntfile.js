@@ -533,6 +533,16 @@ module.exports = function (grunt) {
     var common  = require("./brackets-src/tasks/lib/common")(grunt),
         build   = require("./brackets-src/tasks/build")(grunt);
 
+    Object.keys(grunt.config.get("git")).forEach(key => {
+        grunt.config.set("git." + key + ".options.simple.onComplete", function(err, stdout, callback) {
+            if (err) {
+                grunt.fail.fatal(err.message, err.code);
+            } else {
+                callback();
+            }
+        });
+    });
+
     grunt.registerTask("build-config", "Update config.json with the build timestamp, branch and SHA being built", function () {
         var done = this.async(),
             distConfig = grunt.file.readJSON("brackets-src/src/config.json");

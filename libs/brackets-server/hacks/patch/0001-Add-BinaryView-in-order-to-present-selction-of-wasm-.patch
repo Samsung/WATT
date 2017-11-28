@@ -61,9 +61,9 @@ index 0000000..ad10d41
 +    var _viewers = {};
 +
 +    /**
-+     * BinarView objects are constructed when an binary file is opened 
++     * BinarView objects are constructed when an binary file is opened
 +     * @see {@link Pane} for more information about where BinaryViews are rendered
-+     * 
++     *
 +     * @constructor
 +     * @param {!File} file - The binary file object to render
 +     * @param {!jQuery} container - The container to render the binary view in
@@ -93,7 +93,7 @@ index 0000000..ad10d41
 +    /**
 +     * DocumentManger.fileNameChange handler - when an binary is renamed, we must
 +     * update the view
-+     * 
++     *
 +     * @param {jQuery.Event} e - event
 +     * @param {!string} oldPath - the name of the file that's changing changing
 +     * @param {!string} newPath - the name of the file that's changing changing
@@ -238,7 +238,7 @@ index 0000000..074cd4c
 +<div class="binary-view">
 +    <div class="binary-centering">
 +        <div class="binary-header">
-+            <div class="binary-path"></div>    
++            <div class="binary-path"></div>
 +            <br>
 +            <div class="binary-message"> binary file is not allowed to be opened. </div>
 +        </div>
