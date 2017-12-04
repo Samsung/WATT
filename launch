@@ -189,12 +189,7 @@ def prepare_nodejs(mode):
       return False, ''
 
   install_option = []
-  ver = get_version(subprocess.check_output('npm --version', shell=True))
-  if ver[0] >= 3:
-    install_option.append('--legacy-bundling')
   pathlist = ['.',
-    'libs/brackets-server/brackets-src',
-    'libs/brackets-server/brackets-src/src/LiveDevelopment/MultiBrowserImpl/transports/node',
     'libs/brackets-server',
     'libs/brackets-server/embedded-ext/brackets-minify/node',
     'libs/brackets-server/embedded-ext/project/node',
