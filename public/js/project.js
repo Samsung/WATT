@@ -10,6 +10,12 @@ if ($('#project-list>li').length === 0) {
   projectBox.hide();
 }
 
+$('.project-title').hover(function() {
+  $(this.parentNode.parentNode).find('.project-image-overlay').show();
+}, function() {
+  $(this.parentNode.parentNode).find('.project-image-overlay').hide();
+});
+
 // Code for new project
 $('#new-project').on('show.bs.modal', function() {
   // Dialog for the project type

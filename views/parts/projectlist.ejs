@@ -1,6 +1,7 @@
 <% projects.forEach(function (project) { %>
   <li class="item">
     <div class="product-img">
+      <div class="project-image-overlay"><i class="fa fa-3x fa-eye"></i></div>
       <img class="project-image" alt="No Image" src="/projects/<%= project._id %>/icon.png"  onerror="this.src='';"/>
     </div>
     <div class="product-info">
