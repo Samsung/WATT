@@ -64,6 +64,9 @@ module.exports = function(express, server, wsServer) {
         // Try to connect index.html if the basename of the url is project Id
         Project.findOne({'_id': path.basename(url) }, (err, project) => {
           if (project) {
+            // Save project to notify project updates
+            project.save();
+
             const projectId = path.basename(url);
 
             const bracketsOpts = {

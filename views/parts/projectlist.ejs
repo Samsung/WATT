@@ -26,7 +26,8 @@
           <% } else { %>
           <div class="col-md-2"></div>
           <% } %>
-          <div class="col-md-4"> Created: <%= project.created %> </div>
+          <div class="col-md-3"> Created: <%= new Date(project.created).toLocaleString() %> </div>
+          <div class="col-md-3"> Updated: <%= new Date(project.updated).toLocaleString() %> </div>
         </div>
       </span>
     </div>
