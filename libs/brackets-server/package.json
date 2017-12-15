@@ -24,8 +24,8 @@
     "open": "^0.0.5",
     "rimraf": "^2.2.8",
     "send": "^0.9.3",
-    "socket.io": "1.1.0",
-    "socket.io-client": "1.4.0",
+    "socket.io": "2.0.3",
+    "socket.io-client": "2.0.3",
     "web-app-manifest-validator": "^1.0.0",
     "webidl2": "^2.4.0"
   },
