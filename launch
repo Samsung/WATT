@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 import argparse, os, platform, re, select, stat, subprocess, sys, tarfile, zipfile
 
@@ -88,7 +88,7 @@ def import_additional():
       module = __import__(package)
     except ImportError:
       Log.info('Install %s packages. (sudo privileges required)' % package)
-      status = subprocess.call(['sudo', 'pip', 'install', package])
+      status = subprocess.call(['sudo', 'pip2', 'install', package])
       if status != 0:
         Log.err('Fail to install %s' % package)
       module = __import__(package)

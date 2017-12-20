@@ -3,18 +3,12 @@ language: node_js
 node_js:
   - "6"
 
-before_install:
-  - pip install psutil --user travis
-  - pip install requests --user travis
-
 matrix:
   include:
     - os: linux
       dist: trusty
       sudo: enabled
     - os: osx
-      # FIXME: Use xcode7.3 until fix the "pip not found" issue
-      osx_image: xcode7.3
 
 install:
   - ./launch -d
