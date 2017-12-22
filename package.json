@@ -45,7 +45,7 @@
     "passport-local": "^1.0.0",
     "scrollreveal": "^3.3.6",
     "serve-favicon": "~2.3.2",
-    "socket.io": "^2.0.3",
+    "socket.io": "2.0.3",
     "web-app-manifest-validator": "^1.0.0",
     "xml2js": "^0.4.17"
   },
