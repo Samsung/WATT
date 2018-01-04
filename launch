@@ -77,7 +77,11 @@ def install_pip():
   return True
 
 def import_additional():
-  status = subprocess.call('which pip > /dev/null', shell=True)
+  if os_name == OS_DARWIN:
+    status = subprocess.call('which pip2 > /dev/null', shell=True)
+  else:
+    status = subprocess.call('which pip > /dev/null', shell=True)
+    
   if status != 0 and not install_pip():
     Log.err('Fail to install pip')
     sys.exit(1)
