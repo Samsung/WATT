@@ -17,7 +17,7 @@
     "node": ">6.9.5"
   },
   "dependencies": {
-    "admin-lte": "^2.3.11",
+    "admin-lte": "^2.4.2",
     "async": "^2.3.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.16.0",
