@@ -83,9 +83,10 @@ EXPOSE 3000
 ENV NODE_ENV=docker
 
 # Prepare WATT (download node modules, emsdk, build DE ).
-RUN ./launch --dry && \
-     npm cache clean --force && \
-     rm -rf tools/wabt/out/
+# This affects docker image size, can be used to speed up container start.
+# RUN ./launch --dry
+#     npm cache clean --force && \
+#     rm -rf tools/wabt/out/
 
 # Launch WATT by CMD command so you can replace it by any command to test image.
 # Features behind flags like pwe, smart things are not added.
