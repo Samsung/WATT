@@ -14,7 +14,7 @@
     ]
   },
   "engines": {
-    "node": ">6.9.5"
+    "node": ">=10.15.1"
   },
   "dependencies": {
     "admin-lte": "^2.4.2",
@@ -24,6 +24,7 @@
     "bootstrap": "^3.3.7",
     "config": "^1.25.1",
     "connect-flash": "^0.1.1",
+    "connect-timeout": "^1.9.0",
     "cookie-parser": "~1.4.3",
     "creative": "https://github.com/BlackrockDigital/startbootstrap-creative/archive/v3.3.7+1.tar.gz",
     "debug": "~2.6.0",
@@ -36,6 +37,7 @@
     "fs-extra": "^2.0.0",
     "grunt": "^1.0.1",
     "image-to-uri": "^1.0.0",
+    "isvalid": "^2.0.2",
     "jquery": "^3.2.1",
     "jquery.easing": "^1.4.1",
     "magnific-popup": "^1.1.0",

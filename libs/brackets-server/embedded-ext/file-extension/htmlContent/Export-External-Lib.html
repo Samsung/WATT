@@ -1,0 +1,19 @@
+<div class="export-file-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{ExtensionStrings.EXPORT_EXTERNAL_LIB_MENU_TITLE}}</h1>
+    </div>
+    <div class="modal-body">
+        <label class="npd-label" for="from-folder">{{ExtensionStrings.PACKAGE_FOLDER_LABEL}}</label>
+        <input type="text" id="from-folder" readonly/>
+
+        <div class="field-container input-field">
+          <label class="npd-label" for="wpm-address">Web Package Manager address</label>
+          <input type="text" id="wpm-address" value="http://18.218.204.115:4873/">
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">{{Strings.CANCEL}}</button>
+        <button class="dialog-button btn primary" data-button-id="ok">{{Strings.OK}}</button>
+    </div>
+</div>

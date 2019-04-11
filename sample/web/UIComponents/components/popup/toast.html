@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../../lib/tau/mobile/theme/default/tau.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script type="text/javascript" src="../../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+</head>
+<body>
+<div class="ui-page" id="toast-demo-page">
+    <div class="ui-header" data-position="fixed">
+        <h1>Toast Popup</h1>
+    </div>
+    <div data-role="content">
+        <ul class="ui-listview ui-colored-list">
+            <li class="ui-li-anchor"><a href="#popup_toast" data-inline="true" data-rel="popup" data-position-to="window">Toast Popup</a></li>
+            <li class="ui-li-anchor"><a href="#popup_btn_toast" data-inline="true" data-rel="popup" data-position-to="window">Toast Popup with button</a></li>
+        </ul>
+        <div id="popup_toast" data-role="popup" class="ui-popup ui-popup-toast">
+            <div class="ui-popup-content">
+                Toast popup text Toast popup text Toast p
+                Toast popup text Toast popup text Toast p
+            </div>
+        </div>
+        <div id="popup_btn_toast" data-role="popup"
+             class="ui-popup ui-popup-toast">
+            <div class="ui-popup-content ui-popup-toast-has-button">
+                3 deleted <button class="ui-btn">UNDO</button>
+            </div>
+        </div>
+    </div>
+</div>

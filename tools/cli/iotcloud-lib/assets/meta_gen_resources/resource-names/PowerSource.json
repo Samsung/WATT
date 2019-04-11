@@ -1,0 +1,127 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Power Source",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_POWERSOURCE_BATTERY",
+                    "key": "battery"
+                },
+                {
+                    "value": "___PO_CODE_POWERSOURCE_DC",
+                    "key": "dc"
+                },
+                {
+                    "value": "___PO_CODE_POWERSOURCE_MAINS",
+                    "key": "mains"
+                },
+                {
+                    "value": "___PO_CODE_POWERSOURCE_UNKNOWN",
+                    "key": "unknown"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_POWERSOURCE",
+                "arguments": null,
+                "n": "ST Power Source"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_source"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.powersource",
+                "href": "/capability/powerSource/0",
+                "if": "oic.if.baseline"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "powerSource",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.2",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_POWERSOURCE_BATTERY",
+                    "label": "Battery"
+                },
+                {
+                    "po": "___PO_CODE_POWERSOURCE_DC",
+                    "label": "Dc"
+                },
+                {
+                    "po": "___PO_CODE_POWERSOURCE_MAINS",
+                    "label": "Mains"
+                },
+                {
+                    "po": "___PO_CODE_POWERSOURCE_UNKNOWN",
+                    "label": "Unknown"
+                },
+                {
+                    "po": "___PO_CODE_POWERSOURCE",
+                    "label": "Power source"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Power Source",
+    "ms": [
+        {
+            "group": null,
+            "name": "Power Source",
+            "visible": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "property": "powerSource",
+                        "valueType": null,
+                        "href": "/capability/powerSource/0",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_POWERSOURCE_BATTERY",
+                                "key": "battery"
+                            },
+                            {
+                                "value": "___PO_CODE_POWERSOURCE_DC",
+                                "key": "dc"
+                            },
+                            {
+                                "value": "___PO_CODE_POWERSOURCE_MAINS",
+                                "key": "mains"
+                            },
+                            {
+                                "value": "___PO_CODE_POWERSOURCE_UNKNOWN",
+                                "key": "unknown"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": null
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.1"
+}

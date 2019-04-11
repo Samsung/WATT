@@ -1,0 +1,56 @@
+#%RAML 0.8
+title: ST Power Source
+version: v1.1.0-20180707
+schemas:
+- PowerSource: |
+    {
+      "id": "http://samsung.com/schemas/x.com.st.powersource.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016 Samsung Electronics, Inc. All rights reserved.",
+      "title": "ST Power Source",
+      "definitions": {
+        "x.com.st.powersource": {
+          "type": "object",
+          "properties": {
+            "powerSource": {
+              "type": "string",
+              "enum": ["battery", "dc", "mains", "unknown"],
+              "description":"The current power source for the device"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.powersource"}
+      ],
+      "required": ["powerSource"]
+    }
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTPowerSourceResURI:
+  description: |
+        Power Source
+  displayName: WWST power source
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current power source for the device
+    responses:
+      200:
+        body:
+          application/json:
+            schema: PowerSource
+            example: |
+              {
+                "rt": ["x.com.st.powersource"],
+                "id": "unique_example_id",
+                "powerSource" : "dc"
+              }

@@ -1,0 +1,47 @@
+--- {Target}.js_org
++++ {Target}.js
+@@ -8657,15 +8657,42 @@
+     }
+   }
+ 
++  function promiseXHR(url){
++    return new Promise(function (resolve, reject) {
++        var xhr = new XMLHttpRequest();
++        xhr.responseType = 'arraybuffer';
++        xhr.open("GET", url);
++
++        xhr.onload = function () {
++          if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 0) {
++            var res = {'ok': true, 'arrayBuffer': xhr.response};
++            resolve(res);
++          } else {
++            reject({
++              status: xhr.status,
++              statusText: xhr.statusText
++            });
++          }
++        };
++        xhr.onerror = function () {
++          reject({
++            status: this.status,
++            statusText: xhr.statusText
++          });
++        };
++        xhr.send();
++    });
++}
++
+   function getBinaryPromise() {
+     // if we don't have the binary yet, and have the Fetch api, use that
+     // in some environments, like Electron's render process, Fetch api may be present, but have a different context than expected, let's only use it on the Web
+     if (!Module['wasmBinary'] && (ENVIRONMENT_IS_WEB || ENVIRONMENT_IS_WORKER) && typeof fetch === 'function') {
+-      return fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function(response) {
++      return promiseXHR(wasmBinaryFile, { credentials: 'same-origin' }).then(function(response) {
+         if (!response['ok']) {
+           throw "failed to load wasm binary file at '" + wasmBinaryFile + "'";
+         }
+-        return response['arrayBuffer']();
++        return response['arrayBuffer'];
+       }).catch(function () {
+         return getBinary();
+       });

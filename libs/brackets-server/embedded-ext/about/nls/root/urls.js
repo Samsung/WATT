@@ -5,7 +5,6 @@ define({
     // Relative to the samples folder
     "SAMSUNG_THIRD_PARTY"       : "will be defined later",
     "WATT_URL1"                 : "https://github.com/samsung/WATT/",
-    "WATT_URL2"                 : "https://github.sec.samsung.net/RS7-HighPerformanceWeb/WATT/",
     "WEB_PLATFORM_DOCS_LICENSE" : "http://creativecommons.org/licenses/by/3.0/"
 });
 

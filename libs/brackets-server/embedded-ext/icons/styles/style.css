@@ -1,19 +1,19 @@
 @font-face {
 	font-family: 'icomoon';
-	font-weight: normal;
 	font-style: normal;
+	font-weight: normal;
 	src: url(../fonts/icomoon.woff) format('woff');
 }
 .file-icon:before {
+	border-left: 2px solid transparent;
 	content: attr(data-icon);
+	display: inline-block;
 	font-family: "icomoon";
 	text-align: center;
-	width: 20px;
-	text-shadow: none;
 	text-decoration: none;
+	text-shadow: none;
 	vertical-align: middle;
-	display: inline-block;
-	border-left: 2px solid transparent;
+	width: 20px;
 }
 .jstree-open > a .file-icon:before {
 	content: '\e001';
@@ -28,33 +28,33 @@
 	position: relative;
 }
 .jstree-icons ul li:before {
+	border-bottom: 1px dashed rgba(144, 144, 144, 0.65);
 	content: '';
-	width: 6px;
 	height: 1px;
+	left: -6px;
 	position: absolute;
 	top: 12px;
-	left: -6px;
-	border-bottom: 1px dashed rgba(144, 144, 144, 0.65);
+	width: 6px;
 }
 .jstree ins.file-icon {
-	position: relative;
+	background: none;
 	margin-left: -20px !important;
 	margin-right: 5px;
-	background: none;
+	position: relative;
 }
 ul li.jstree-open> ul {
 	margin-left: 10px;
-	position: relative;
 	padding-left: 10px;
+	position: relative;
 }
 li.jstree-open> ul:before {
+	border-left: 1px dashed rgba(144, 144, 144, 0.65);
+	bottom: 11px;
 	content: '';
-	width: 1px;
+	left: 0;
 	position: absolute;
 	top:0;
-	bottom: 11px;
-	left: 0;
-	border-left: 1px dashed rgba(144, 144, 144, 0.65);
+	width: 1px;
 /*	background-color: #94a3a7;*/
 }
 .jstree-brackets li > a {
@@ -71,13 +71,13 @@ li.jstree-leaf > div
 }
 #project-files-container .jstree-brackets .jstree-rename-input {
 	height: 20px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 #working-set-list-container .file-icon {
 	padding-right: 2px;
 }
 #project-files-container a {
-	padding-left: 0px !important;
+	padding-left: 0 !important;
 }
 /* brackets git extension correlation */
 .git-modified a, .git-new a {

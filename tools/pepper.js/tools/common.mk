@@ -407,4 +407,10 @@ DEBUG: CHECK_FOR_CHROME all
 	    --enable-nacl-debug \
 	    --register-pepper-plugins="$(PPAPI_DEBUG),$(PPAPI_RELEASE)"
 
-.PHONY: CHECK_FOR_CHROME RUN LAUNCH
+.PHONY: CHECK_FOR_CHROME RUN LAUNCH CLEAN_EMSCRIPTEN CLEAN_DATA
+
+CLEAN_EMSCRIPTEN:
+	rm -rf data/
+
+CLEAN_DATA:
+	rm -rf emscripten/

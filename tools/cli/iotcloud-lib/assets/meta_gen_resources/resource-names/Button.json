@@ -1,0 +1,178 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Button",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_BUTTON_PRESSED",
+                    "key": "pushed"
+                },
+                {
+                    "value": "___PO_CODE_BUTTON_DOUBLE_PRESSED",
+                    "key": "double"
+                },
+                {
+                    "type": "active",
+                    "value": "___PO_CODE_BUTTON_HELD",
+                    "key": "held"
+                },
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_BUTTON_STANDBY",
+                    "key": "Ready"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_BUTTON_BUTTON",
+                "arguments": null,
+                "n": "ST Button"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_button"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.button",
+                "href": "/capability/button/0",
+                "if": "x.com.st.if.temporary"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "button",
+            "order": 1,
+            "emphasis": true
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Button",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_BUTTON_PRESSED",
+                    "key": "pushed"
+                },
+                {
+                    "value": "___PO_CODE_BUTTON_DOUBLE_PRESSED",
+                    "key": "double"
+                },
+                {
+                    "type": "active",
+                    "value": "___PO_CODE_BUTTON_HELD",
+                    "key": "held"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_BUTTON_BUTTON",
+                "arguments": null,
+                "n": "ST Button"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_button"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.button",
+                "href": "/capability/button/0",
+                "if": "x.com.st.if.temporary"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "button",
+            "order": 1,
+            "emphasis": true
+        }
+    ],
+    "uiVersion": "0.0.2",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_BUTTON_BUTTON",
+                    "label": "Button"
+                },
+                {
+                    "po": "___PO_CODE_BUTTON_PRESSED",
+                    "label": "Pressed"
+                },
+                {
+                    "po": "___PO_CODE_BUTTON_DOUBLE_PRESSED",
+                    "label": "Double pressed"
+                },
+                {
+                    "po": "___PO_CODE_BUTTON_HELD",
+                    "label": "Held"
+                },
+                {
+                    "po": "___PO_CODE_BUTTON_STANDBY",
+                    "label": "Standby"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Button",
+    "ms": [
+        {
+            "group": null,
+            "name": "Button",
+            "visible": null,
+            "label": {
+                "n": "ST Button Status",
+                "arguments": [
+                    {
+                        "property": "button",
+                        "href": "/capability/button/0",
+                        "alternatives": [
+                            {
+                                "type": "active",
+                                "key": "pushed",
+                                "value": "___PO_CODE_BUTTON_PRESSED"
+                            },
+                            {
+                                "type": "active",
+                                "key": "double",
+                                "value": "___PO_CODE_BUTTON_DOUBLE_PRESSED"
+                            },
+                            {
+                                "type": "active",
+                                "key": "held",
+                                "value": "___PO_CODE_BUTTON_HELD"
+                            },
+                            {
+                                "type": "inactive",
+                                "key": "Ready",
+                                "value": "___PO_CODE_BUTTON_STANDBY"
+                            }
+                        ],
+                        "n": "_TRANSIENT_value"
+                    }
+                ],
+                "label": "<_TRANSIENT_value>"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.1"
+}

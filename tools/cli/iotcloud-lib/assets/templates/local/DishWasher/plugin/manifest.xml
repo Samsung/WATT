@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <manifest xmlns="http://samsung.com/ns/plugin"
+      manifestVersionCode="0"
+      package="com.example.stdevice.plugin.dishwasher"
+      versionCode="1"
+      versionName="0.0.1"
+      minPluginSdkVersion="1.0.0">
+
+    <plugin label="default.plugin" icon="icon.png" >
+       <device type="none"
+         subType="none"
+         manufacturer="default.manufacturer"
+         manufacturerID="default.manufacturer.id" />
+    </plugin>
+    <privilegeLevel level="public"/>
+  </manifest>

@@ -38,10 +38,12 @@ public/libs
 
 # external tools directory
 tools/emsdk
+tools/wabt
 
 # Temporary folder for export project
 temp
 
 # Share folder for export project
 share
+
 

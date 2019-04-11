@@ -1,0 +1,20 @@
+{
+  "name": "light",
+  "components": [{
+    "id": "main",
+    "capabilities": [
+    {
+      "id": "switch"
+    },
+    {
+      "id": "colorTemperature"
+    },
+    {
+      "id": "switchLevel"
+    }]
+  }],
+  "metadata": {
+    "vid": "SAMPLE-LIGHT-001",
+    "deviceType": "Light"
+  }
+}

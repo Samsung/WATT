@@ -1,0 +1,122 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Formaldehyde Measurement",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_FORMALDEHYDEMEASUREMENT_FORMALDEHYDE_LEVEL",
+                "n": "ST Formaldehyde Measurement"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_formaldehyde"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.formaldehydeMeasurement",
+                "href": "/capability/formaldehydeMeasurement/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "value",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Formaldehyde Measurement",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": true,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_FORMALDEHYDEMEASUREMENT_FORMALDEHYDE_LEVEL",
+                "n": "ST Formaldehyde Measurement"
+            },
+             "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_formaldehyde"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.formaldehydeMeasurement",
+                "href": "/capability/formaldehydeMeasurement/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "value",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_FORMALDEHYDEMEASUREMENT_FORMALDEHYDE_LEVEL",
+                    "label": "Formaldehyde level"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Formaldehyde Measurement",
+        "voiceActions": [
+            {
+                "rt": "x.com.st.formaldehydeMeasurement",
+                "enumeration": null,
+                "href": "/capability/formaldehydeMeasurement/0",
+                "action": "formaldehydeMeasurement",
+                "property": "value",
+                "payload": null
+            }
+        ]
+    },
+    "capability": "Formaldehyde Measurement",
+    "ms": [
+        {
+            "group": null,
+            "name": "Formaldehyde Measurement",
+            "visible": null,
+            "label": {
+                "label": "<var1><val2>",
+                "arguments": [
+                    {
+                        "property": "value",
+                        "valueType": null,
+                        "href": "/capability/formaldehydeMeasurement/0",
+                        "n": "var1"
+                    },
+                    {
+                        "property": "unit",
+                        "valueType": null,
+                        "href": "/capability/formaldehydeMeasurement/0",
+                        "n": "var2"
+                    }
+                ],
+                "n": "ST Formaldehyde Measurement resource"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.1"
+}

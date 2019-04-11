@@ -15,7 +15,7 @@
             </div>
             <div class="row">
               <div class="col-md-3 text-center">
-                <h3><p><b>WebAssembly</b></p></h3>
+                <h3><p><b>Native Application</b></p></h3>
                 <button id="wasm-button" class="btn btn-default btn-primary">
                   <div class="col-md-3 text-center">
                     <h3><b>C / C++</b></h3>
@@ -31,6 +31,38 @@
                 </button>
               </div>
             </div>
+            <% if (isIOTJS || isSThings) { %>
+            <div class="row">
+              <% if (isIOTJS) { %>
+              <div class="col-md-3 text-center">
+                <h3><p><b>IoT.js</b></p></h3>
+                <button id="iot-button" class="btn btn-default">
+                  <div class="col-md-3 text-center">
+                    <h3><b>JS</b></h3>
+                  </div>
+                </button>
+              </div>
+              <% } %>
+              <% if (isSThings) { %>
+              <div class="col-md-3 text-center">
+                <h3><p><b>Companion App</b></p></h3>
+                <button id="sthings-button" class="btn btn-default">
+                  <div class="col-md-3 text-center">
+                    <h3><b>HTML / JS</b></h3>
+                  </div>
+                </button>
+              </div>
+              <% } %>
+              <div class="col-md-3 text-center">
+                <h3><p><b>Runtime AddOn</b></p></h3>
+                <button id="crx-button" class="btn btn-default">
+                  <div class="col-md-3 text-center">
+                    <h3><b>HTML / JS</b></h3>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <% } %>
             <br/>
             <br/>
             <br/>
@@ -105,22 +137,44 @@
                   </ul>
                 </div>
               </div>
-              <div class="col-md-3 text-center">
-                <h2><p><b>Wearable</b></p></h2>
-                <button id="wearable-button" class="btn btn-default">
-                  <img width="96" height="96" src="/image/wearable.png" alt="wearable">
-                </button>
-                <br/><br/>
-                <div class="btn-group">
-                  <button id="wearable-version" type="button" class="btn btn-default">Wearable v4.0</button>
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
+              <div class="row">
+                <div class="col-md-3 text-center">
+                  <h2><p><b>Wearable</b></p></h2>
+                  <button id="wearable-button" class="btn btn-default">
+                    <img width="96" height="96" src="/image/wearable.png" alt="wearable">
                   </button>
-                  <ul id="wearable-version-dropdown" class="dropdown-menu">
-                    <li>Wearable v4.0</li>
-                    <li>Wearable v3.0</li>
-                  </ul>
+                  <br/><br/>
+                  <div class="btn-group">
+                    <button id="wearable-version" type="button" class="btn btn-default">Wearable v4.0</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul id="wearable-version-dropdown" class="dropdown-menu">
+                      <li>Wearable v4.0</li>
+                      <li>Wearable v3.0</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 text-center">
+                  <h2><p><b>TV</b></p></h2>
+                  <button id="tv-button" class="btn btn-default">
+                    <img width="96" height="96" src="/image/tv.png" alt="tv">
+                  </button>
+                  <br/><br/>
+                  <div class="btn-group">
+                    <button id="tv-version" type="button" class="btn btn-default">TV v4.0</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul id="tv-version-dropdown" class="dropdown-menu">
+                      <li>TV v4.0</li>
+                      <li>TV v3.0</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -143,7 +197,10 @@
         <div class="modal-body">
           <div class="container">
             <div class="row">
-              <h4><p class="col-md-6 text-center">Define the project properties.</p></h4>
+              <h4><p class="col-md-6 text-center">
+                Define the project properties.<br>
+                Click Finish to close the Wizard.
+              </p></h4>
             </div>
             <br/><br/><br/>
             <div class="row">

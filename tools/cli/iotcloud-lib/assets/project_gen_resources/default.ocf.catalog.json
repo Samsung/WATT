@@ -1,0 +1,17 @@
+{
+  "items": [{
+    "name": "",
+    "appType": "setupApp",
+    "versions": [{
+      "appData": {
+        "setupAppData": {
+          "type": "ocf",
+          "ocf": {
+            "mnId": "",
+            "setupId": "001"
+          }
+        }
+      }
+    }]
+  }]
+}

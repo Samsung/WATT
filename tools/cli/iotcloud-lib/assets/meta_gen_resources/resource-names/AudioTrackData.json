@@ -1,0 +1,231 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "name": "Audio Track Title",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Title",
+                "label": "___PO_CODE_AUDIO_TRACK_DATA_TITLE"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "title",
+            "order": 2,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "name": "Audio Track Artist",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Artist",
+                "label": "___PO_CODE_AUDIO_TRACK_DATA_ARTIST"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "artist",
+            "order": 3,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "name": "Audio Track Album",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Album",
+                "label": "___PO_CODE_AUDIO_TRACK_DATA_Album"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "album",
+            "order": 4,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "name": "Audio Track Album Art Url",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Thumbnail",
+                "label": "___PO_CODE_AUDIO_TRACK_DATA_THUMBNAIL"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "albumArtUrl",
+            "order": 6,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "name": "Audio Track Total Time",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Elapsed Time",
+                "label": "Audio Track Total time"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "totalTime",
+            "order": 8,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "name": "Audio Track Elapsed Time",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Elapsed Time",
+                "label": "Audio Track Elapsed time"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "elapsedTime",
+            "order": 8,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "name": "Audio Track Media Source",
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "n": "Audio Track Station",
+                "label": "___PO_CODE_AUDIO_TRACK_DATA_STATION"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_audio_track_data"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.audiotrackdata",
+                "href": "/capability/audioTrackData/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "mediaSource",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "mnmn": null,
+            "version": "0.0.1",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_AUDIO_TRACK_DATA_STATION",
+                    "label": "Audio Track Data"
+                },
+                {
+                    "po": "___PO_CODE_AUDIO_TRACK_DATA_TITLE",
+                    "label": "Audio Track Data"
+                },
+                {
+                    "po": "___PO_CODE_AUDIO_TRACK_DATA_ARTIST",
+                    "label": "Audio Track Data"
+                },
+                {
+                    "po": "___PO_CODE_AUDIO_TRACK_DATA_Album",
+                    "label": "Audio Track Data"
+                },
+                {
+                    "po": "___PO_CODE_AUDIO_TRACK_DATA_TRACKDESCRIPTION",
+                    "label": "Audio Track Data"
+                },
+                {
+                    "po": "___PO_CODE_AUDIO_TRACK_DATA_THUMBNAIL",
+                    "label": "Audio Track Data"
+                }
+            ],
+            "vid": null
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Audio Track Data",
+    "ms": []
+}

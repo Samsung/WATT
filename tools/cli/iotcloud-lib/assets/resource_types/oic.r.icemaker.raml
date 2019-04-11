@@ -1,0 +1,180 @@
+#%RAML 0.8
+title: OCFIceMaker
+version: v1.1.0-20160519
+traits:
+ - interface :
+     queryParameters:
+       if:
+         enum: ["oic.if.a", "oic.if.baseline"]
+
+/IceMakerResURI:
+  description: |
+    This resource describes an Ice Maker.
+    The status is a string containing a value from the set of possible ice maker statuses.
+    The possible statuses are defined by the enumeration [on, off, full]
+    A status of 'on' means that the Ice Maker is operating.
+    A status of 'off' means that the Ice Maker is not operating.
+    A status of 'full' means that the ice collection bin is full (Ice Maker is operating).
+
+  displayName: Ice Maker
+  
+  is : ['interface']
+  get:
+    description: |
+      Retrieves the current Ice Maker status.
+
+    responses :
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.iceMaker.json#",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+                "title": "Ice Maker",
+                "definitions": {
+                  "oic.r.icemaker": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "enum": ["on","off","full"],
+                        "description": "Status of the Ice Maker"
+                      }
+                    }
+                  }
+                },
+                "type": "object",
+                "allOf": [
+                  {"$ref": "oic.core.json#/definitions/oic.core"},
+                  {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+                  {"$ref": "#/definitions/oic.r.icemaker"}
+                ],
+                "required": ["status"]
+              }
+
+            example: |
+              {
+                "rt":     ["oic.r.icemaker"],
+                "id":     "unique_example_id",
+                "status": "on"
+              }
+
+  post:
+    description: |
+      Sets the desired Ice Maker status.
+      Only valid settings for status in a Post shall be [on,off].
+
+    body:
+      application/json:
+        schema: |
+          {
+            "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.iceMaker-Update.json#",
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+            "title": "Ice Maker",
+            "definitions": {
+              "oic.r.icemaker": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": ["on","off"],
+                    "description": "Set the status of the Ice Maker"
+                  }
+                }
+              }
+            },
+            "type": "object",
+            "allOf": [
+              {"$ref": "oic.core.json#/definitions/oic.core"},
+              {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+              {"$ref": "#/definitions/oic.r.icemaker"}
+            ],
+            "required": ["status"]
+          }
+
+        example: |
+          {
+            "id":     "unique_example_id",
+            "status": "off"
+          }
+
+    responses :
+      200:
+        description: |
+          Indicates that the Ice Maker status was changed.
+          The new status  is provided in the response.
+
+        body:
+          application/json:
+            schema: |
+              {
+                "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.iceMaker-Update.json#",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+                "title": "Ice Maker",
+                "definitions": {
+                  "oic.r.icemaker": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "enum": ["on","off"],
+                        "description": "Set the status of the Ice Maker"
+                      }
+                    }
+                  }
+                },
+                "type": "object",
+                "allOf": [
+                  {"$ref": "oic.core.json#/definitions/oic.core"},
+                  {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+                  {"$ref": "#/definitions/oic.r.icemaker"}
+                ],
+                "required": ["status"]
+              }
+
+            example: |
+              {
+                "id":     "unique_example_id",
+                "status": "off"
+              }
+
+      403:
+        description: |
+          This response is generated by the OCF Server when the client sends:
+            An update with an invalid property value for status.
+          The server responds with the current resource representation.
+
+        body:
+          application/json:
+            schema: |
+              {
+                "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.iceMaker-Update.json#",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+                "title": "Ice Maker",
+                "definitions": {
+                  "oic.r.icemaker": {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "enum": ["on","off"],
+                        "description": "Set the status of the Ice Maker"
+                      }
+                    }
+                  }
+                },
+                "type": "object",
+                "allOf": [
+                  {"$ref": "oic.core.json#/definitions/oic.core"},
+                  {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+                  {"$ref": "#/definitions/oic.r.icemaker"}
+                ],
+                "required": ["status"]
+              }
+
+            example: |
+              {
+                "id":     "unique_example_id",
+                "status": "off"
+              }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../lib/tau/mobile/theme/default/tau.css">
+		<link rel="stylesheet" href="../../css/style.css">
+		<script type="text/javascript" src="../../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+	</head>
+	<body>
+		<div class="ui-page" id="slider-demo">
+			<div class="ui-header" data-position="fixed">
+				<h1>Slider</h1>
+			</div>
+			<div class="ui-content">
+				<ul class="ui-listview ui-colored-list">
+					<li class="ui-group-index">Normal slider</li>
+					<li class="ui-li-static"><input id="normal" name="mySlider1" type="range" value="5" min="0" max="10" /></li>
+					<li class="ui-group-index">Warning slider</li>
+					<li class="ui-li-static"><input id="warning" name="mySlider2" type="range" value="5" min="0" max="10" data-warning="true" data-warning-level="7"/></li>
+					<li class="ui-group-index">Center slider</li>
+					<li class="ui-li-static"><input id="center_normal" name="mySlider3" type="range" data-type="center" value="5" min="0" max="10"></li>
+					<li class="ui-li-static">
+						<input id="center_normal-2" name="mySlider3" type="range" data-type="center" value="5" min="0" max="10">
+					</li>
+					<li class="ui-group-index">Expanding slider</li>
+					<li class="ui-li-static active" style="padding:14px 0px;">
+						<input type="range" value="9" min="0" max="20" data-expand="true"/>
+					</li>
+					<li class="ui-group-index">Vertical slider</li>
+					<li class="ui-li-static vertical-list" style="height: 300px">
+						<input id="vertical_normal" name="mySlider5" type="range" data-orientation="vertical" value="50" min="0" max="99" data-expand="true"/>
+					</li>
+					<li class="ui-group-index">Vertical warning slider</li>
+					<li class="ui-li-static vertical-list" style="height: 300px">
+						<input id="vertical_warning" name="mySlider6" type="range" data-orientation="vertical" value="50" min="0" max="99" data-warning="true" data-warning-level="30" data-expand="true"/>
+					</li>
+					<li class="ui-group-index">Vertical center slider</li>
+					<li class="ui-li-static vertical-list" style="height: 300px">
+						<input id="vertical_center_normal" name="mySlider7" type="range" data-type="center" data-orientation="vertical" value="5" min="0" max="10"/>
+					</li>
+				</ul>
+			</div><!-- /content -->
+		</div> <!-- /page -->
+	</body>
+</html>

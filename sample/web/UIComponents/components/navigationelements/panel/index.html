@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../../../lib/tau/mobile/theme/default/tau.css">
+	<link rel="stylesheet" href="../../../css/style.css">
+	<script type="text/javascript" src="../../../lib/tau/mobile/js/tau.js"
+			data-build-remove="false"></script>
+</head>
+<body>
+<div id="panelPage" class="ui-page">
+	<div class="ui-header ui-header-navigation" data-position="fixed">
+		<h1>Navigation Bar</h1>
+		<nav id="navigation" class="ui-navigation">
+		</nav>
+	</div>
+	<div class="ui-content" data-scroll="none">
+		<div id="panelChanger" class="ui-panel-changer">
+			<div id="mainpanel" class="ui-panel">
+				<div class="ui-content">
+					<div class="ui-content">
+						<ul class="ui-listview">
+							<li class="ui-li-anchor">
+								<a href="./panel.html#panel2" data-ignore>Go Panel 2</a>
+							</li>
+							<li class="ui-li-anchor"><a href="#1btn_popup" data-inline="true"
+														data-rel="popup" data-position-to="window">Open
+								Popup</a></li>
+						</ul>
+						<div id="1btn_popup" class="ui-popup">
+							<div class="ui-popup-header">Popup Header</div>
+							<div class="ui-popup-content popup-content-padding">
+								Lorem ipsum dolor sit amet,
+								consectetur adiptiscing elit, sed
+								doei usmod tempore sit ipsum
+							</div>
+							<div class="ui-popup-footer">
+								<a class="ui-btn" data-rel="back" data-inline="true">Cancel</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./panel.js"></script>
+	</div>
+</body>
+</html>

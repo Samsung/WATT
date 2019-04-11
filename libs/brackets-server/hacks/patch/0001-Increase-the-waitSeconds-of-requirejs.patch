@@ -1,0 +1,30 @@
+From db24fce38ef0d5838f27b23f1098041089a554bb Mon Sep 17 00:00:00 2001
+From: ByungJun KiM <bj1987.kim@samsung.com>
+Date: Mon, 6 Nov 2017 14:11:17 +0900
+Subject: [PATCH] Increase the waitSeconds of requirejs
+
+In a time-consuming environment, the extension module
+can not be imported properly(ex:https://[S-HUB-URL]).
+We need to increase the waitseconds.
+
+Signed-off-by: ByungJun KiM <bj1987.kim@samsung.com>
+---
+ require.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/require.js b/require.js
+index 77a5bb1..c819dc5 100644
+--- a/require.js
++++ b/require.js
+@@ -201,7 +201,7 @@ var requirejs, require, define;
+                 //Defaults. Do not set a default for map
+                 //config to speed up normalize(), which
+                 //will run faster if there is no default.
+-                waitSeconds: 7,
++                waitSeconds: 30,
+                 baseUrl: './',
+                 paths: {},
+                 bundles: {},
+--
+2.1.4
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright (c) 2018 Samsung. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <title>Host Resolver example</title>
+  <script type="text/javascript" src="../loadnacl.js"></script>
+  <script type="text/javascript" src="../common.js"></script>
+  <script type="text/javascript">
+    function moduleDidLoad() {
+      common.hideModule();
+    }
+
+    function handleMessage(messageEvent) {
+      if (typeof messageEvent.data === 'string') {
+        const resolvedDomains = document.getElementById("resolvedDomains");
+        const domainPair = document.createTextNode(messageEvent.data);
+        resolvedDomains.appendChild(domainPair);
+        resolvedDomains.appendChild(document.createElement("br"));
+      }
+    }
+
+    function resolve() {
+      const domain = document.getElementById("domain").value;
+      common.naclModule.postMessage(domain);
+    }
+  </script>
+</head>
+<body data-width="100" data-height="100" data-name="hostresolver" data-tools="emscripten" data-configs="Debug" data-path="{tc}/{config}" bgcolor="white">
+  <h1>Host Resolver example</h1>
+  <h2>Status: <code id="statusField">NO-STATUS</code></h2>
+  <p>Host Resolver example demonstrates the domain name resolution with a NaCl plugin</p>
+  <input type="text" id="domain"></input>
+  <button onclick="resolve()">Resolve</button>
+  <div id="resolvedDomains"></div>
+  <div id="listener"></div>
+</body>
+</html>

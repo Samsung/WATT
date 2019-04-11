@@ -124,7 +124,7 @@
     // Note requires power-of-two buffer size.
     var processor = createScriptNode(context, config_js.sample_frame_count, 2);
     processor.onaudioprocess = function (e) {
-      Runtime.dynCall('viii', audio_callback, [buffer, buffer_bytes, user_data]);
+      dynCall('viii', audio_callback, [buffer, buffer_bytes, user_data]);
       var l = e.outputBuffer.getChannelData(0);
       var r = e.outputBuffer.getChannelData(1);
       var base = buffer>>1;
@@ -147,7 +147,8 @@
       audio_callback: audio_callback,
       user_data: user_data,
       // Assumes 16-bit stereo.
-      buffer: buffer
+      buffer: buffer,
+      config: config
     });
   };
 
@@ -156,7 +157,12 @@
   };
 
   var Audio_GetCurrentConfig = function(audio) {
-    throw "Audio_GetCurrentConfig not implemented";
+    // ok, but who is config owner? is everything ref-counted?
+    var res = resources.resolve(audio, AUDIO_RESOURCE);
+    if (res === undefined) {
+      return 0;
+    }
+    return res.config;
   };
 
   var Audio_StartPlayback = function(audio) {

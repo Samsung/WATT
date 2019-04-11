@@ -1,0 +1,27 @@
+<div class="import-file-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{ExtensionStrings.IMPORT_EXTERNAL_LIB_MENU_TITLE}}</h1>
+    </div>
+    <div class="modal-body">
+        <div class="field-container input-field">
+          <datalist id="packages-list">
+          </datalist>
+          <input type="text" id="package-name" list="packages-list" value="sample-wpm-pkg-1" onfocus="clearThis(this)">
+        </div>
+        <div class="field-container input-field">
+          <label class="npd-label" for="wpm-address">Web Package Manager address</label>
+          <input type="text" id="wpm-address" value="http://18.218.204.115:4873/">
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">{{Strings.CANCEL}}</button>
+        <button class="dialog-button btn primary" data-button-id="ok">{{Strings.OK}}</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function clearThis(target) {
+        target.value= "";
+    }
+</script>

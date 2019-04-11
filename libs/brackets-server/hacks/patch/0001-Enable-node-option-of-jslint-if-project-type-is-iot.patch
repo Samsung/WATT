@@ -1,0 +1,28 @@
+From a0bdc76c405911565d7fbf7ed999135612a2dea9 Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Tue, 26 Sep 2017 17:09:37 +0900
+Subject: [PATCH] Enable node option of jslint if project type is iot.js
+
+Signed-off-by: Hunseop Jeong <hs85.jeong@samsung.com>
+---
+ src/extensions/default/JSLint/main.js | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/extensions/default/JSLint/main.js b/src/extensions/default/JSLint/main.js
+index baee212..e81d15d 100644
+--- a/src/extensions/default/JSLint/main.js
++++ b/src/extensions/default/JSLint/main.js
+@@ -230,6 +230,10 @@ define(function (require, exports, module) {
+             options = _.clone(options);
+         }
+ 
++        if (PreferencesManager.getViewState("projectType") === "iotjs") {
++            options.node = true;
++        }
++
+         if (!options.indent) {
+             // default to using the same indentation value that the editor is using
+             options.indent = _getIndentSize(fullPath);
+-- 
+2.7.4
+

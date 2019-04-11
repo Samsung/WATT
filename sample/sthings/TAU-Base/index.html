@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>IoT Plugin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/main.js"></script>
+    <script data-tau-comm-config="true">
+        var TAUCOMM_HOSTS = ["106.120.57.92:9581"];
+    </script>
+    <script type="text/javascript" data-tau-comm="true" src="libs/tau-comm.js"></script>
+    <script type="text/javascript" src="js/tau-comm-sthings.js"></script>
+    <style data-style="animation"></style>
+</head>
+<body>
+    <div id="one" class="ui-page ui-page-iot">
+        <header>
+            <a class="ui-btn ui-btn-left ui-btn-icon btn-icon-back" data-rel="back"></a>
+            <h1 class="ui-title-text-main">Device</h1>
+            <input type="checkbox" class="ui-toggleswitch ui-toggleswitch-iot" data-st-device="switch" data-st-property="power">
+        </header>
+        <div class="ui-content">
+            <ul class="ui-listview">
+                <li>
+                    <span>List Item</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="libs/tau-sthings.js" type="text/javascript" data-closet-tau-sthings="true"></script>
+    <script src="libs/sthings.min.js" type="text/javascript" data-closet-sthings="true"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+{
+    "dpResources": [
+        {
+            "controllable": false, 
+            "group": null, 
+            "name": "Equivalent Carbon Dioxide Measurement", 
+            "visible": null, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "step": 0, 
+            "label": {
+                "label": "___PO_CODE_EQUIVALENTCARBONDIOXIDEMEASUREMENT_EQUIVALENT_CARBON_DIOXIDE", 
+                "n": "equivalentCarbonDioxideMeasurement"
+            }, 
+            "iconUrl": null, 
+            "range": null, 
+            "link": {
+                "rt": "x.com.st.equivalentCarbonDioxideMeasurement", 
+                "href": "/capability/equivalentCarbonDioxideMeasurement/0", 
+                "if": "oic.if.s"
+            }, 
+            "ruleAction": false, 
+            "controlType": "List", 
+            "property": "value", 
+            "order": 1, 
+            "emphasis": false
+        }, 
+        {
+            "controllable": false, 
+            "group": null, 
+            "name": "Equivalent Carbon Dioxide Measurement", 
+            "visible": null, 
+            "valueType": null, 
+            "ruleEvent": true, 
+            "step": 0, 
+            "label": {
+                "label": "___PO_CODE_EQUIVALENTCARBONDIOXIDEMEASUREMENT_EQUIVALENT_CARBON_DIOXIDE", 
+                "n": "equivalentCarbonDioxideMeasurement"
+            }, 
+            "iconUrl": null, 
+            "range": null, 
+            "link": {
+                "rt": "x.com.st.equivalentCarbonDioxideMeasurement", 
+                "href": "/capability/equivalentCarbonDioxideMeasurement/0", 
+                "if": "oic.if.s"
+            }, 
+            "ruleAction": false, 
+            "controlType": "List", 
+            "property": "value", 
+            "order": 1, 
+            "emphasis": false
+        }
+    ], 
+    "uiVersion": "0.0.1", 
+    "ma": [], 
+    "language": [
+        {
+            "locale": "en_US", 
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_EQUIVALENTCARBONDIOXIDEMEASUREMENT_EQUIVALENT_CARBON_DIOXIDE", 
+                    "label": "Equivalent carbon dioxide"
+                }
+            ], 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": {
+        "capability": "Equivalent Carbon Dioxide Measurement", 
+        "voiceActions": [
+            {
+                "rt": "x.com.st.equivalentCarbonDioxideMeasurement", 
+                "enumeration": null, 
+                "href": "/capability/equivalentCarbonDioxideMeasurement/0", 
+                "action": "equivalentCarbonDioxideMeasurement", 
+                "property": "value", 
+                "payload": null
+            }
+        ]
+    }, 
+    "capability": "Equivalent Carbon Dioxide Measurement", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Equivalent Carbon Dioxide Measurement", 
+            "visible": null, 
+            "label": {
+                "label": "<var1><val2>", 
+                "arguments": [
+                    {
+                        "property": "value", 
+                        "valueType": null, 
+                        "href": "/capability/equivalentCarbonDioxideMeasurement/0", 
+                        "n": "var1"
+                    }, 
+                    {
+                        "property": "unit", 
+                        "valueType": null, 
+                        "href": "/capability/equivalentCarbonDioxideMeasurement/0", 
+                        "n": "var2"
+                    }
+                ], 
+                "n": "ST Equivalent Carbon Dioxide Measurement resource"
+            }, 
+            "iconUrl": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ], 
+    "voiceVersion": "0.0.1"
+}

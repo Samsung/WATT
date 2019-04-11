@@ -1,0 +1,114 @@
+{
+    "dpResources": [
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_energy_battery"
+            },
+            "controllable": false,
+            "group": null,
+            "name": "Battery",
+            "ruleEvent": false,
+            "valueType": null,
+            "step": 0,
+            "label": {
+                "n": "batteryStatus",
+                "label": "___PO_CODE_BATTERY"
+            },
+            "visible": null,
+            "range": null,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "oic.r.energy.battery",
+                "href": "/capability/battery/0",
+                "if": "oic.if.r"
+            },
+            "property": "charge",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_energy_battery"
+            },
+            "controllable": false,
+            "group": null,
+            "name": "Battery",
+            "ruleEvent": true,
+            "valueType": null,
+            "step": 0,
+            "label": {
+                "n": "batteryStatus",
+                "label": "___PO_CODE_BATTERY"
+            },
+            "visible": null,
+            "range": null,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "oic.r.energy.battery",
+                "href": "/capability/battery/0",
+                "if": "oic.if.r"
+            },
+            "property": "charge",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_BATTERY",
+                    "label": "Battery"
+                }
+            ],
+            "locale": "en_US",
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Battery",
+        "voiceActions": [
+            {
+                "rt": "oic.r.energy.battery",
+                "action": "battery",
+                "property": "charge",
+                "href": "/capability/battery/0"
+            }
+        ]
+    },
+    "capability": "Battery",
+    "ms": [
+        {
+            "group": null,
+            "name": "Battery",
+            "visible": null,
+            "label": {
+                "n": "ST Batteryresource",
+                "arguments": [
+                    {
+                        "property": "charge",
+                        "valueType": null,
+                        "href": "/capability/battery/0",
+                        "n": "var1"
+                    }
+                ],
+                "label": "<var1>%"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.2"
+}

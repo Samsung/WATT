@@ -1,0 +1,65 @@
+#%RAML 0.8
+title: WWST Filter State
+version: v1.0.0-20170911
+schemas:
+- Operation: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.filter.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Filter State",
+      "definitions": {
+    "x.com.st.filter": {
+      "type": "object",
+      "properties": {
+    "machineStates":        {
+      "type": "array",
+      "readOnly": true,
+      "description": "array of the possible operational states.",
+      "items": {
+    "type": "string"
+      }
+    },
+    "currentMachineState":  {
+      "type": "string",
+      "enum": ["normal", "replace"],
+      "description": "Current state of operation of the device."
+    }
+      }
+    }
+      },
+      "type": "object",
+      "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "#/definitions/x.com.st.filter"}
+      ],
+      "required": ["machineStates", "currentMachineState"]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTFilterStateResURI:
+  description: |
+        Filter State
+  displayName: WWST Filter State
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current Filter State
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Operation
+            example: |
+              {
+                "rt":             ["x.com.st.filter"],
+                "id":             "unique_example_id",
+                "currentMachineState" : "normal",
+                 "machineStates" : ["normal", "replace" ]
+              }

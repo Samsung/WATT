@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+Sample html container for embedded NaCl module.  This file was auto-generated
+by the create_html tool which is part of the NaCl SDK.
+
+The embed tag is setup with PS_STDOUT, PS_STDERR and PS_TTY_PREFIX attributes
+which, for applications linked with ppapi_simple, will cause stdout and stderr
+to be sent to javascript via postMessage.  Also, the postMessage listener
+assumes that all messages sent via postMessage are strings to be displayed in
+the output textarea.
+-->
+<html>
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <title>index</title>
+  <script type='text/javascript' src='../loadnacl.js'></script>
+  <script type='text/javascript' src='../common.js'></script>
+</head>
+<body bgcolor="white" data-width="640" data-height="480" data-name="triangle" data-tc="emscripten" data-configs="Debug" data-path="{tc}/{config}">
+  <h2>Native Client Module: index</h2>
+  <!--<p>Status: <code id="status>Loading</code></p>-->
+  <p>Status: <code id="statusField">Loading</code></p>
+
+  <div id="listener">
+    <!--
+      <embed id="nacl_module" name="index" src="triangle_gles.nmf"
+           type="application/x-nacl" width=640 height=480
+           PS_TTY_PREFIX="tty:"
+           PS_STDOUT="/dev/tty"
+           PS_STDERR="/dev/tty" />
+    -->
+  </div>
+
+  <p>Standard output/error:</p>
+  <textarea id="stdout" rows="25" cols="80">
+</textarea>
+
+  <script>
+//listenerDiv = document.getElementById("listener")
+
+stdout = document.getElementById("stdout")
+
+//nacl_module = document.getElementById("nacl_module")
+
+// Already implemented in common.js, can't be overridden, have to use "statusField" id
+//function updateStatus(message) {
+  //document.getElementById("status").innerHTML = message
+//}
+
+function addToStdout(message) {
+  stdout.value += message;
+  stdout.scrollTop = stdout.scrollHeight;
+}
+
+// common.js check for window.handleMessage, no need to attach it to an event.
+function handleMessage(message) {
+  var payload = message.data;
+  // NaCl plugins using 'ppapi_simple' library can read message data sent with
+  // pp::Instance::HandleMessage from /dev/tty and can write to /dev/tty which
+  // sends it with pp::Instance::PostMessage. It can be handy to redirect
+  // plugin's stdin/stdout to /dev/tty. This can be done by setting
+  // PS_STDIN/PS_STDOUT env vars to /dev/tty. PS_TTY_PREFIX needs to be set to
+  // distinguish tty related messages. The vars could be set as attributes on
+  // <embed> but with pepper.js this appears to not be yet possible.
+  //
+  // TODO: find a way to support passing env vars to pepper.js plugin
+
+  //var prefix = "tty:";
+  //if (typeof(payload) == 'string' && payload.indexOf(prefix) == 0) {
+    //addToStdout(payload.slice(prefix.length));
+  //}
+
+  if (typeof(payload) == 'string') {
+    addToStdout(payload);
+  }
+}
+
+//function handleCrash(event) {
+  //updateStatus("Crashed/exited with status: " + nacl_module.exitStatus);
+//}
+
+//function handleLoad(event) {
+  //platformOnLoad();
+  //updateStatus("Loaded");
+//}
+
+//function handleError(event) {
+  //updateStatus("Error. NaCl module status: " + nacl_module.exitStatus);
+//}
+
+//listenerDiv.addEventListener("load", handleLoad, true);
+//listenerDiv.addEventListener("error", handleError, true);
+//listenerDiv.addEventListener("message", handleMessage, true);
+//listenerDiv.addEventListener("crash", handleCrash, true);
+  </script>
+</body>
+</html>

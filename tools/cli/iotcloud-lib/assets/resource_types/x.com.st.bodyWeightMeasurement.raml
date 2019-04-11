@@ -1,0 +1,70 @@
+#%RAML 0.8
+title: WWST Body Weight Measurement
+version: v1.0.0-20180807
+schemas:
+- Weight: |
+    {
+        "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.bodyWeightMeasurement.json#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description" : "Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+        "definitions": {
+            "x.com.st.bodyWeightMeasurement": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number",
+                        "description": "The weight of an individual expressed in kg, lbs, or 斤",
+                        "readOnly": true
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": ["kg", "斤", "lbs"],
+                        "description": "The unit of body weight measurement measured",
+                        "default": "kg",
+                        "readOnly": true
+                    }
+                }
+            }
+        },
+        "type": "object",
+        "allOf": [
+            {
+                "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+            },
+            {
+                "$ref": "#/definitions/x.com.st.bodyWeightMeasurement"
+            }
+        ],
+        "required": [
+            "value",
+            "unit"
+        ]
+    }
+
+traits:
+    - interface:
+        queryParameters:
+            if:
+                enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTWeightResURI:
+    description: |
+        The weight of an individual expressed in kg, lbs, or 斤
+    displayName: WWST Weight
+    is: [ interface ]
+
+    get:
+        description: |
+            Retrieves the weight of an individual expressed in kg, lbs, or 斤
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Weight
+                        example: |
+                            {
+                                "rt": ["x.com.st.bodyWeightMeasurement"],
+                                "id": "unique_example_id",
+                                "value": 50,
+                                "unit": "Kg"
+                            }

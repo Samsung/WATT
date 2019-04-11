@@ -1,0 +1,13 @@
+{
+  "name": "brackets-iotjs",
+  "title": "IoT.js bindings",
+  "description": "Execute iot.js scripts",
+  "version": "1.0.0",
+  "i18n": [
+      "en",
+      "ko"
+  ],
+  "engines": {
+      "brackets": ">=0.44.0"
+  }
+}

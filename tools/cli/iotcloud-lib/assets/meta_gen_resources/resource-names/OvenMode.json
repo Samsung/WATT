@@ -1,0 +1,204 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Oven Mode",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_OVENMODE_HEATING",
+                    "key": "heating"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_GRILL",
+                    "key": "grill"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_WARMING",
+                    "key": "warming"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_DEFROSTING",
+                    "key": "defrosting"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_OVENMODE_MODE",
+                "n": "ST Oven Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mode_oven"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.mode.oven",
+                "href": "/capability/ovenMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Oven Mode",
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_OVENMODE_HEATING",
+                    "key": "heating"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_GRILL",
+                    "key": "grill"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_WARMING",
+                    "key": "warming"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_DEFROSTING",
+                    "key": "defrosting"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_OVENMODE_MODE",
+                "n": "ST Oven Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mode_oven"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/ovenMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Oven Mode",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_OVENMODE_HEATING",
+                    "key": "heating"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_GRILL",
+                    "key": "grill"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_WARMING",
+                    "key": "warming"
+                },
+                {
+                    "value": "___PO_CODE_OVENMODE_DEFROSTING",
+                    "key": "defrosting"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_OVENMODE_MODE",
+                "n": "ST Oven Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mode_oven"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/ovenMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_OVENMODE_HEATING",
+                    "label": "Heating"
+                },
+                {
+                    "po": "___PO_CODE_OVENMODE_GRILL",
+                    "label": "Grill"
+                },
+                {
+                    "po": "___PO_CODE_OVENMODE_WARMING",
+                    "label": "Warming"
+                },
+                {
+                    "po": "___PO_CODE_OVENMODE_DEFROSTING",
+                    "label": "Defrosting"
+                },
+                {
+                    "po": "___PO_CODE_OVENMODE_MODE",
+                    "label": "Oven Mode"
+                }
+            ]
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Oven Mode",
+    "ms": [
+        {
+            "group": null,
+            "name": "Oven Mode",
+            "iconUrl": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "href": "/capability/ovenMode/0",
+                        "valueType": null,
+                        "property": "modes",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_OVENMODE_HEATING",
+                                "key": "heating"
+                            },
+                            {
+                                "value": "___PO_CODE_OVENMODE_GRILL",
+                                "key": "grill"
+                            },
+                            {
+                                "value": "___PO_CODE_OVENMODE_WARMING",
+                                "key": "warming"
+                            },
+                            {
+                                "value": "___PO_CODE_OVENMODE_DEFROSTING",
+                                "key": "defrosting"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Oven Mode Resource"
+            },
+            "visible": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ]
+}

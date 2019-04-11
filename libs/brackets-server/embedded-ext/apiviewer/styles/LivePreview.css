@@ -1,30 +1,29 @@
 /* Toolbar icon */
 #panel-apis-viewer {
+    border-top: 1px white solid;
+    display: none;
+    height: auto;
+    overflow: hidden;
     padding-left: 10px;
     padding-top: 10px;
     position: relative;
-    border-top: 1px white solid;
-    height: auto;
-    display: none;
-    overflow: hidden;
 }
 
 #panel-apis-viewer h4 {
     color: white;
     display: inline;
-    display: inline;
 }
 
 #apiList {
+    height: 400px;
     overflow-x: auto;
     overflow-y: auto;
-    height: 400px;
 }
 
 #wasmFileSelect {
-    display: inline;
     background-color: inherit;
     color: white;
+    display: inline;
     width: 77%;
 }
 
@@ -33,8 +32,9 @@
 }
 
 #interface {
-   margin-top: 10px;
    color: white;
+   margin-top: 10px;
+   list-style-type: circle;
 }
 
 #method {

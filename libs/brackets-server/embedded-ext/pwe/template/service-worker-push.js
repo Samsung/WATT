@@ -5,7 +5,7 @@ self.addEventListener("push", (event) => {
                 const endPoint = subscription.endpoint.split("/");
                 const regTokens =  endPoint[endPoint.length - 1];
 
-                const HostserverUrl = "https://pwe.now.im/";
+                const HostserverUrl = "https://[S-HUB-URL]";
                 fetch(new Request(`${HostserverUrl}pushData/get/${regTokens}`, { method: "GET" }))
                     .then(function(res) {
                         res.text().then(function(data) {

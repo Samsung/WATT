@@ -1,0 +1,232 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Activity Lighting Mode",
+            "ruleEvent": false,
+	    "iconUrl": null,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "reading",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_READING"
+                },
+                {
+                    "type": "active",
+                    "key": "writing",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_WRITING"
+                },
+                {
+                    "type": "active",
+                    "key": "night",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_NIGHT"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": "Light mode",
+                "label": "___PO_CODE_ACTIVITYLIGHTINGMODE_LAMP_MODE"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.activityLightingMode",
+                "href": "/capability/activityLightingMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "List",
+            "property": "lightingMode",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Activity Lighting Mode",
+            "ruleEvent": true,
+	    "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_activity_sensor"
+            },
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "reading",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_READING"
+                },
+                {
+                    "type": "active",
+                    "key": "writing",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_WRITING"
+                },
+                {
+                    "type": "active",
+                    "key": "night",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_NIGHT"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": "Light mode",
+                "label": "___PO_CODE_ACTIVITYLIGHTINGMODE_LAMP_MODE"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.activityLightingMode",
+                "href": "/capability/activityLightingMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "List",
+            "property": "lightingMode",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Activity Lighting Mode",
+            "ruleEvent": false,
+	    "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_activity_sensor"
+            },
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "reading",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_READING"
+                },
+                {
+                    "type": "active",
+                    "key": "writing",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_WRITING"
+                },
+                {
+                    "type": "active",
+                    "key": "night",
+                    "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_NIGHT"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": "Light mode",
+                "label": "___PO_CODE_ACTIVITYLIGHTINGMODE_LAMP_MODE"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.activityLightingMode",
+                "href": "/capability/activityLightingMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "step": 0,
+            "controlType": "List",
+            "property": "lightingMode",
+            "order": 1
+        }
+    ],
+    "ma": [
+        {
+            "group": null,
+            "name": "Activity Lighting Mode",
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "property": "lightingMode",
+                        "href": "/capability/activityLightingMode/0",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_READING",
+                                "key": "reading"
+                            },
+                            {
+                                "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_WRITING",
+                                "key": "writing"
+                            },
+                            {
+                                "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_NIGHT",
+                                "key": "night"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "Activity Lighting Mode status"
+            },
+            "link": {
+                "rt": "x.com.st.activityLightingMode",
+                "href": "/capability/activityLightingMode/0",
+                "if": "oic.if.a"
+            },
+            "controlType": "List",
+            "property": "lightingMode",
+            "type": "content",
+            "order": 1
+        }
+    ],
+    "language": [
+        {
+            "locale": "en_US",
+            "mnmn": null,
+            "version": "0.0.1",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_ACTIVITYLIGHTINGMODE_LAMP_MODE",
+                    "label": "Light mode"
+                },
+                {
+                    "po": "___PO_CODE_ACTIVITYLIGHTINGMODE_READING",
+                    "label": "Reading"
+                },
+                {
+                    "po": "___PO_CODE_ACTIVITYLIGHTINGMODE_WRITING",
+                    "label": "Writing"
+                },
+                {
+                    "po": "___PO_CODE_ACTIVITYLIGHTINGMODE_NIGHT",
+                    "label": "Night"
+                }
+            ],
+            "vid": null
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Activity Lighting Mode",
+    "ms": [
+        {
+            "group": "default",
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "property": "lightingMode",
+                        "href": "/capability/activityLightingMode/0",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_READING",
+                                "key": "reading"
+                            },
+                            {
+                                "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_WRITING",
+                                "key": "writing"
+                            },
+                            {
+                                "value": "___PO_CODE_ACTIVITYLIGHTINGMODE_NIGHT",
+                                "key": "night"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "Activity Lighting Mode Status"
+            },
+            "type": "content",
+            "name": "Activity Lighting Mode",
+            "order": 1
+        }
+    ]
+}

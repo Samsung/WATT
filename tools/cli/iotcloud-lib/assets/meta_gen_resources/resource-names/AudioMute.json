@@ -1,0 +1,256 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "group": null,
+            "name": "Audio Mute",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mute"
+            },
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "true",
+                    "value": "___PO_CODE_AUDIOVOLUME_MUTE"
+                },
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_AUDIOVOLUME_UNMUTE"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": null,
+                "arguments": null,
+                "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION"
+            },
+            "visible": null,
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.audiomute",
+                "href": "/capability/audioMute/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "step": 0,
+            "controlType": "ToggleSwitch",
+            "property": "mute",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "group": null,
+            "name": "Audio Mute",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mute"
+            },
+            "valueType": null,
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "true",
+                    "value": "___PO_CODE_AUDIOVOLUME_MUTE"
+                },
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_AUDIOVOLUME_UNMUTE"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": null,
+                "arguments": null,
+                "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION"
+            },
+            "visible": null,
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.audiomute",
+                "href": "/capability/audioMute/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "ToggleSwitch",
+            "property": "mute",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "group": null,
+            "name": "Audio Mute",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mute"
+            },
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "true",
+                    "value": "___PO_CODE_AUDIOVOLUME_MUTE"
+                },
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_AUDIOVOLUME_UNMUTE"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": null,
+                "arguments": null,
+                "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION"
+            },
+            "visible": null,
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.audiomute",
+                "href": "/capability/audioMute/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "ToggleSwitch",
+            "property": "mute",
+            "order": 1
+        }
+    ],
+    "uiVersion": "0.0.2",
+    "ma": [
+        {
+            "group": null,
+            "name": "Audio Mute",
+            "iconUrl": null,
+            "valueType": null,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "key": "true",
+                    "value": "___PO_CODE_AUDIOVOLUME_MUTE"
+                },
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_AUDIOVOLUME_UNMUTE"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": null,
+                "arguments": null,
+                "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION"
+            },
+            "visible": null,
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.audiomute",
+                "href": "/capability/audioMute/0",
+                "if": "oic.if.a"
+            },
+            "step": 0,
+            "controlType": "ToggleSwitch",
+            "property": "mute",
+            "type": "main",
+            "order": 1
+        }
+    ],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION",
+                    "label": "Mute"
+                },
+                {
+                    "po": "___PO_CODE_AUDIOVOLUME_MUTE",
+                    "label": "On"
+                },
+                {
+                    "po": "___PO_CODE_AUDIOVOLUME_UNMUTE",
+                    "label": "Off"
+                }
+            ],
+            "locale": "en_US",
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Audio Mute",
+        "voiceActions": [
+            {
+                "rt": "x.com.st.audiomute",
+                "action": "status",
+                "property": "mute",
+                "href": "/capability/audioMute/0"
+            },
+            {
+                "rt": "x.com.st.audiomute",
+                "action": "unmute",
+                "href": "/capability/audioMute/0",
+                "payload": {
+                    "audiomute": false
+                }
+            },
+            {
+                "rt": "x.com.st.audiomute",
+                "action": "mute",
+                "href": "/capability/audioMute/0",
+                "payload": {
+                    "audiomute": true
+                }
+            }
+        ]
+    },
+    "capability": "Audio Mute",
+    "ms": [
+        {
+            "group": null,
+            "name": "Audio Mute",
+            "visible": null,
+            "label": {
+                "n": "ST Valveresource",
+                "arguments": [
+                    {
+                        "property": "mute",
+                        "valueType": null,
+                        "href": "/capability/audioMute/0",
+                        "alternatives": [
+                            {
+                                "type": "active",
+                                "key": "true",
+                                "value": "___PO_CODE_AUDIOVOLUME_MUTE"
+                            },
+                            {
+                                "type": "inactive",
+                                "key": "false",
+                                "value": "___PO_CODE_AUDIOVOLUME_UNMUTE"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "label": "<var1>"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.2"
+}

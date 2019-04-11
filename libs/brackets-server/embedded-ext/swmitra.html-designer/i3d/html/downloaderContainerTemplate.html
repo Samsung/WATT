@@ -1,0 +1,23 @@
+<div class="downloaderContainer" style="margin-left: 0px; margin-top: 0px; width: auto;">
+    <span class="attr-key" style="float: left; text-align: left; margin-top: 10px; margin-left: 4px; width: 40px;text-align:center;padding-right:4px;">name</span>
+    <input id="search-value" class="topcoat-text-input" type="text" style="width: 50%; float: left; height: 26px; margin-top: 5px;">
+    <button id="search-btn" style="width:20%; float:left; margin: 7px;">Search</button>
+    <div id="downloader-model-container" class="quiet-scrollbars vert-resizable bottom-resizer" style="display: block; color: rgb(211, 211, 211); background-color: rgb(74, 77, 78); position: absolute; height:calc(100% - 42px); overflow:auto;width:100%; left:0px; top: 42px;">
+    </div>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <div id="download-progress" style="border: 10px solid #f3f3f3;
+        border-top: 10px solid #3498db;
+        border-radius: 50%;
+        display: none;
+        position: absolute;
+        left: 40%;
+        top: 45%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;"></div>
+</div>

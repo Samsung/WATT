@@ -1,0 +1,13 @@
+{
+  "name": "simple switch",
+  "components": [{
+    "id": "main",
+    "capabilities": [{
+      "id": "switch"
+    }]
+  }],
+  "metadata": {
+    "vid": "SAMPLE-SWITCH-001",
+    "deviceType": "Switch"
+  }
+}

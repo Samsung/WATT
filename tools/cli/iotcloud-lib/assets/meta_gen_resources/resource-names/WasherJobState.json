@@ -1,0 +1,214 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Washer Job State",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_AIRWASH",
+                    "key": "airWash"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_COOLING",
+                    "key": "cooling"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_DELAYWASH",
+                    "key": "delayWash"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_DRYING",
+                    "key": "drying"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_FINISH",
+                    "key": "finish"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_NONE",
+                    "key": "none"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_PREWASH",
+                    "key": "preWash"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_RINSE",
+                    "key": "rinse"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_SPIN",
+                    "key": "spin"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_WASH",
+                    "key": "wash"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_WEIGHTSENSING",
+                    "key": "weightSensing"
+                },
+                {
+                    "value": "___PO_CODE_WASHERJOBSTATE_WRINKLEPREVENT",
+                    "key": "wrinklePrevent"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_WASHERJOBSTATE_STATE",
+                "n": "ST Washer Job State Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_operational_state_washer"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.operationalstate.washer",
+                "href": "/capability/washerOperatingState/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "washerJobState",
+            "order": 1
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_AIRWASH",
+                    "label": "Air Wash"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_COOLING",
+                    "label": "Cooling"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_DELAYWASH",
+                    "label": "Delay Wash"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_DRYING",
+                    "label": "Drying"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_FINISH",
+                    "label": "Finish"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_NONE",
+                    "label": "None"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_PREWASH",
+                    "label": "Pre Wash"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_RINSE",
+                    "label": "Rinse"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_SPIN",
+                    "label": "Spin"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_WASH",
+                    "label": "Wash"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_WEIGHTSENSING",
+                    "label": "Weight Sensing"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_WRINKLEPREVENT",
+                    "label": "Wrinkle Prevent"
+                },
+                {
+                    "po": "___PO_CODE_WASHERJOBSTATE_STATE",
+                    "label": "Washer Job State"
+                }
+            ]
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Washer Job State",
+    "ms": [
+        {
+            "group": null,
+            "name": "Washer Job State",
+            "iconUrl": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "href": "/capability/washerOperatingState/0",
+                        "valueType": null,
+                        "property": "washerJobState",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_AIRWASH",
+                                "key": "airWash"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_COOLING",
+                                "key": "cooling"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_DELAYWASH",
+                                "key": "delayWash"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_DRYING",
+                                "key": "drying"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_FINISH",
+                                "key": "finish"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_NONE",
+                                "key": "none"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_PREWASH",
+                                "key": "preWash"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_RINSE",
+                                "key": "rinse"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_SPIN",
+                                "key": "spin"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_WASH",
+                                "key": "wash"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_WEIGHTSENSING",
+                                "key": "weightSensing"
+                            },
+                            {
+                                "value": "___PO_CODE_WASHERJOBSTATE_WRINKLEPREVENT",
+                                "key": "wrinklePrevent"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Washer Job State Resource"
+            },
+            "visible": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ]
+}

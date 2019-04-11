@@ -1,0 +1,51 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Odor Sensor",
+            "ruleEvent": false,
+            "alternatives": [],
+            "valueType": null,
+            "visible": null,
+            "emphasis": false,
+            "label": {
+                "label": "___PO_CODE_ODORSENSOR_STATE",
+                "n": "ST Odor Sensor Level Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_gas_level"
+            },
+            "step": 0,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.gaslevel",
+                "href": "/capability/odorSensor/0",
+                "if": "oic.if.s"
+            },
+            "range": null,
+            "property": "odorLevel",
+            "order": 1
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_ODORSENSOR_STATE",
+                    "label": "Odor Sensor Level"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Odor Sensor",
+    "ms": []
+}

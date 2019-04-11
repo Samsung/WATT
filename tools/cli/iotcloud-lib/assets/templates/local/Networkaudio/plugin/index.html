@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Stylesheet Template Bulma IO-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Network Audio</title>
+		<link rel="stylesheet" href="css/bulma.min.css">
+		<link rel="stylesheet" href="css/bulma-slider.min.css">
+		<link rel="stylesheet" href="css/bulma-switch.min.css">
+		<link rel="stylesheet" href="css/helper.css">
+		<link rel="stylesheet" href="css/all.css">
+	</head>
+
+	<body>
+		<!-- Action bar-->
+		<div class="columns is-marginless is-mobile" style="background-color:#fafafa;">
+			<div class="column is-narrow">
+				<figure class="image is-32x32 margin-left-s" onclick="backAction()">
+					<img src="res/board_ic_arrow_left.png">
+				</figure>
+			</div>
+			<div class="column is-narrow is-paddingless margin-top-s">
+				<div class="has-text-weight-bold">Network Audio</div>
+				<div class="has-text-weight-bold has-text-grey-light is-size-7">Home - Living room</div>
+			</div>
+			<div class="column">
+				<div class="dropdown is-right is-pulled-right">
+					<div class="dropdown-trigger">
+						<span class="icon is-small is-pulled-right margin-top-s">
+							<img width="50" height="50" src="res/option_ic_more.svg">
+						</span>
+					</div>
+					<div class="dropdown-menu">
+						<div class="dropdown-content">
+							<div class="dropdown-item">
+								<a href="information.html">Information</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr/>
+
+		<!-- Left -->
+		<div class="dividecolumn leftSide padding-top-s padding-bottom-s border-right" style="background-color:#fafafa;">
+
+			<!-- Header-->
+			<span id="power_icon_back_circle" class="icon is-large is-pulled-right margin-right-s round-border" onclick="onPowerBtnClicked()">
+				<img width="50" height="50" src="res/ic_power.svg">
+			</span>
+
+			<div class="modal" style="align-items: flex-end;" id="bottomSheetBody">
+				<div class="modal-background"></div>
+				<div class="modal-content" style="width: 100%; margin: 0 0;" id="bottomSheetContent"></div>
+			</div>
+
+			<!-- fan speed combo area-->
+			<div class="columns is-mobile is-centered margin-top-xxl is-marginless">
+				<div class="column is-narrow">
+					<div class="dropdown is-active">
+						<div class="dropdown-trigger">
+							<button class="button is-rounded" id="buttonMode">
+								<span id="valueMode">AM</span>
+								<span class="icon"><i class="fas fa-angle-down fa-xs has-text-info" aria-hidden="true"></i></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- thumbnail circle area-->
+			<div class="columns is-mobile is-centered is-marginless">
+				<div class="column is-narrow">
+					<figure class="image is-128x128">
+						<img src="res/music.svg" />
+					</figure>
+				</div>
+			</div>
+
+			<center id="title">Title</center>
+			<center id="artist">CP name</center>
+
+			<div class="columns is-mobile is-centered" align="center">
+				<div class="column is-narrow">
+					<div class="play_controller">
+						<span onclick="onPrevClicked()">
+							<img width="58" height="58" src="res/controller_ic_prev.svg">
+						</span>
+
+						<span id="playbutton" class="play_button play-button" onclick="onPlayClicked()">
+						</span>
+
+						<span onclick="onNextClicked()">
+							<img width="58" height="58" src="res/controller_ic_next.svg">
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="columns is-mobile is-centered" align="center">
+				<div class="column is-8">
+					<input class="slider is-fullwidth is-info is-small is-circle" step="1" type="range" id="volume_value" onchange="InputVolume(this.id, this.value)" style="--min: 0; --max: 100; --val: 50">
+				</div>
+			</div>
+		</div>
+
+		<!-- Right -->
+		<div class="dividecolumn rightSide">
+			<hr class="is-hidden-tablet" />
+
+			<!-- Repeat Option -->
+			<div class="columns is-mobile is-marginless margin-left-s">
+				<div class="column is-narrow">
+					<figure class="image is-32x32">
+						<img src="res/function_ic_media_repeat.svg">
+					</figure>
+				</div>
+				<div class="column is-narrow">
+					<p>Repeat</p>
+					<p class="is-size-7 has-text-info" id="repeat">All</p>
+				</div>
+				<div class="column">
+					<button id="buttonRepeat" class="button is-white is-pulled-right" >
+						<span class="icon is-small">
+							<img width="50" height="50" src="res/list_ic_arrow.svg">
+						</span>
+					</button>
+				</div>
+			</div>
+
+			<hr/>
+
+			<!-- Shuffle Option -->
+			<div class="columns is-mobile is-marginless margin-left-s">
+				<div class="column is-narrow">
+					<figure class="image is-32x32">
+						<img src="res/function_ic_media_shuffle.svg">
+					</figure>
+				</div>
+				<div class="column">
+					<p>Shuffle</p>
+					<p class="is-size-7 has-text-info" id="shuffle">Enable</p>
+				</div>
+				<div class="field column margin-top-s">
+					<input type="checkbox" id="shuffle_check" name="shuffle_check" class="switch is-rounded is-info" checked="checked" onclick="onClickShuffle(this)">
+					<label class="is-pulled-right" for="shuffle_check"></label>
+				</div>
+			</div>
+
+			<hr/>
+			
+		</div>
+	</body>
+
+	<!-- SAMSUNG CONNECT API -->
+	<script type="text/javascript" src="lib/SCPluginApi.js"></script>
+	<script type="text/javascript" src="js/capability_switch.js"></script>
+	<script type="text/javascript" src="js/capability_audioTrackData.js"></script>
+	<script type="text/javascript" src="js/capability_audioVolume.js"></script>
+	<script type="text/javascript" src="js/capability_mediaInputSource.js"></script>
+	<script type="text/javascript" src="js/capability_mediaPlayback.js"></script>
+	<script type="text/javascript" src="js/capability_mediaPlaybackRepeat.js"></script>
+	<script type="text/javascript" src="js/capability_mediaPlaybackShuffle.js"></script>
+	<script type="text/javascript" src="js/capability_mediaTrackControl.js"></script>
+	<script type="text/javascript" src="js/bulma-slider.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</html>

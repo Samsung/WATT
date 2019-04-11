@@ -32,14 +32,17 @@ module.exports = function(express) {
     // Check the type of project data whether it is correct
     if (typeof data !== 'object' ||
         typeof data.format !== 'string' ||
-        typeof data.type !== 'string') {
+        typeof data.type !== 'string' ||
+        (data.profile && typeof data.profile !== 'string')) {
       return res.status(400).send('Project data is wrong');
     }
 
     var projectFormat = data.format;
     var projectType = data.type;
+    var projectProfile = data.profile;
     var templateDir = path.join(process.cwd(), projectFormat);
     var templates = [];
+    var categories;
 
     async.waterfall([
       function(callback) {
@@ -49,6 +52,8 @@ module.exports = function(express) {
           }
 
           var items = require(path.join(templateDir, 'list.json'));
+          categories = require(path.join(templateDir, 'category.json'))[projectType];
+
           callback(null, items);
         });
       },
@@ -58,10 +63,16 @@ module.exports = function(express) {
             return;
           }
 
+          if (item.profile &&
+            item.profile.split(',').indexOf(projectProfile) === -1) {
+            return;
+          }
+
           let template = {
             name: item.name,
             description: item.description,
-            src: item.src
+            src: item.src,
+            category: item.category
           };
 
           if (item.icon) {
@@ -73,6 +84,10 @@ module.exports = function(express) {
 
           if (item.language) {
             template.language = item.language;
+          }
+
+          if (item.extension) {
+            template.extension = item.extension;
           }
 
           templates.push(template);
@@ -87,7 +102,8 @@ module.exports = function(express) {
 
       res.render('parts/templatelist', {
         projectFormat: projectFormat,
-        templates: templates
+        templates: templates,
+        categories: categories
       });
     });
   });

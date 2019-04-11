@@ -1,0 +1,10 @@
+[
+    "click",
+    "dblclick",
+    "mousedown",
+    "mousemove",
+    "mouseout",
+    "mouseover",
+    "mouseup",
+    "mousewheel"
+]

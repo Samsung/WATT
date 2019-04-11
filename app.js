@@ -1,5 +1,6 @@
 var bodyParser = require('body-parser');
 var config = require('config');
+var connectTimeout = require('connect-timeout');
 var cookieParser = require('cookie-parser');
 var debug = require('debug')('app');
 var express = require('express');
@@ -12,12 +13,21 @@ var passport = require('passport');
 var path = require('path');
 var session = require('express-session');
 var Socket = require('socket.io');
-
 var util = require('./libs/util');
+
+var REQUEST_TIMEOUT = '5m';
+var STATUS_CODES = {
+  BAD_REQUEST: 400,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+  UNAUTHORIZED: 401
+};
 
 var options = {
   useMongoClient: true
 };
+
+const sthingsEnabled = process.env.SUPPORT_STHINGS === 'true';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DBHost, options);
@@ -77,6 +87,40 @@ app.use('/project', require('./routes/project')(express));
 app.use('/update', require('./routes/update')(express));
 app.use('/brackets', require('./routes/brackets')(express, server, wsServer));
 app.use('/brackets-ext', require('./routes/brackets-ext')(express));
+// Iotivty api is rest one, so need to implement different response (json) and its timeout handling
+// TODO: In future add keep alive mechanism
+if (sthingsEnabled) {
+  app.use('/iotivity',
+    connectTimeout(REQUEST_TIMEOUT),
+    (req, res, next) => {
+      if (req.isAuthenticated()) {
+        return next();
+      }
+      return res.status(STATUS_CODES.UNAUTHORIZED).json({error: 'unauthorized'});
+    },
+    require('./routes/iotivity')(express),
+    (req, res, next) => {
+      if (!req.timedout) {
+        next();
+      } else {
+        console.log('timedout');
+      }
+    },
+    (req, res) => {
+      res.status(STATUS_CODES.NOT_FOUND).json({ error: 'not-found' });
+    },
+    (err, req, res, next_ignoreUnused) => {
+      if (err.constructor.name === 'ValidationError') {
+        return res.status(STATUS_CODES.BAD_REQUEST).json({error: 'validation-error', keyPath: err.keyPath.join('.'), message: err.message});
+      }
+      res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({error: 'internal-server-error'});
+    });
+} else {
+  app.use('/iotivity',
+    (req, res) => {
+      return res.status(STATUS_CODES.NOT_FOUND).json({ error: 'sthings-disabled' });
+    });
+}
 if (config.PWE) {
   app.use('/pwe', require('./routes/pwe')(express, passport));
 }

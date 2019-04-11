@@ -1,6 +1,7 @@
 {
     "env": {
-        "node": true
+        "node": true,
+        "es6": true
     },
     "rules": {
         "no-bitwise": 0,
@@ -21,6 +22,7 @@
         "no-caller": 2,
         "no-empty": 0,
         "no-new": 2,
+        "no-tabs": 2,
         "no-invalid-regexp": 2,
         "no-control-regex": 2,
         "no-regex-spaces": 2,
@@ -43,7 +45,7 @@
         "new-parens": 2,
         "no-new-object": 2,
         "no-invalid-this": 0,
-        "indent": [1, 4],
+        "indent": [2, 4],
 
         "valid-jsdoc": 0,
         "valid-typeof": 2,
@@ -51,7 +53,7 @@
         "no-trailing-spaces": 0,
         "eol-last": 0,
         "quotes": ["error", "double", { "avoidEscape": true }],
-        "sort-vars": [1, { "ignoreCase": true }]
+        "sort-vars": [2, { "ignoreCase": true }]
     },
     "parserOptions": {
       "ecmaVersion": 6

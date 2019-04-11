@@ -28,6 +28,12 @@ PROJECTS:= \
   tests/ppapi_vars \
   stress \
   probe_interfaces \
+  network_monitor \
+  graphics_2d \
+  triangle \
+  socket \
+  websocket \
+  hostresolver \
 
 HTTPD:=../tools/httpd.py
 

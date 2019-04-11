@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<!-- Stylesheet Template Bulma IO-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Light</title>
+		<link rel="stylesheet" href="css/bulma-slider.min.css">
+		<link rel="stylesheet" href="css/bulma.min.css">
+		<link rel="stylesheet" href="css/helper.css">
+	</head>
+
+	<body>
+		<!-- Action bar-->
+		<div class="columns is-marginless is-mobile " style="background-color:#fafafa;">
+			<div class="column is-narrow">
+				<figure class="image is-32x32 margin-left-s" onclick="backAction()">
+					<img src="res/board_ic_arrow_left.png">
+				</figure>
+			</div>
+			<div class="column is-narrow is-paddingless margin-top-s">
+				<div class="has-text-weight-bold">Light</div>
+				<div class="has-text-weight-bold has-text-grey-light is-size-7">Home - Living room</div>
+			</div>
+			<div class="column">
+				<div class="dropdown is-right is-pulled-right">
+					<div class="dropdown-trigger">
+						<span class="icon is-small is-pulled-right margin-top-s">
+							<img width="50" height="50" src="res/option_ic_more.svg">
+						</span>
+					</div>
+					<div class="dropdown-menu">
+						<div class="dropdown-content">
+							<div class="dropdown-item">
+								<a href="information.html">Information</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr/>
+
+		<!-- Left -->
+		<div class="dividecolumn leftSide padding-top-s padding-bottom-m border-right" style="background-color:#fafafa;">
+
+			<!-- Header-->
+			<span id="power_icon_back_circle" class="icon is-large is-pulled-right margin-right-s round-border" onclick="onPowerBtnClicked()">
+				<img width="50" height="50" src="res/ic_power.svg">
+			</span>
+
+			<!-- dimmer area-->
+			<div class="columns is-mobile is-centered margin-top-xxl">
+				<div class="column is-narrow">
+					<div id="dimmer_area">
+						<div class="has-text-weight-bold is-size-4 has-text-centered">Dimmer</div>
+						<div id="dimmer_area_bg1">
+							<div id="dimmer_area_bg2"></div>
+						</div>
+						<div id="switch_level_area_text">60%</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- functional table -->
+			<div class="columns is-mobile is-gapless">
+				<div class="column is-1"></div>
+				<div class="column is-10">
+					Dimmer
+					<input class="slider is-fullwidth is-info is-small is-circle" type="range" min="0" max="100" step="5" id="dimmer_range" onchange="InputDimmer(this.id, this.value)">
+				</div>
+				<div class="column is-1"></div>
+			</div>
+
+		</div>
+
+		<!-- Right -->
+		<div class="dividecolumn rightSide">
+			<hr class="is-hidden-tablet" />
+
+			<div class="columns is-mobile is-marginless margin-left-s">
+				<div class="column is-narrow">
+					<figure class="image is-32x32">
+						<img src="res/function_ic_color_temperature.svg">
+					</figure>
+				</div>
+
+				<div class="column">
+					<p>Color temperature</p>
+					<p class="is-size-7 has-text-info" id="color_temperature">200k</p>
+				</div>
+			</div>
+
+			<hr/>
+
+		</div>
+	</body>
+
+	<!-- SAMSUNG CONNECT API -->
+	<script type="text/javascript" src="lib/SCPluginApi.js"></script>
+	<script type="text/javascript" src="js/capability_switch.js"></script>
+	<script type="text/javascript" src="js/capability_switchLevel.js"></script>
+	<script type="text/javascript" src="js/capability_colorTemperature.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/bulma-slider.min.js"></script>
+</html>

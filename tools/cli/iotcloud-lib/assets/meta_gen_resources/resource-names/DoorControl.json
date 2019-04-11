@@ -1,0 +1,322 @@
+{
+    "dpResources": [
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Door Control", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_door_control"
+            }, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "key": "closing", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSING"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "opening", 
+                    "value": "___PO_CODE_DOORCONTROL_OPENING"
+                }, 
+                {
+                    "type": "inactive", 
+                    "key": "closed", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSED"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "open", 
+                    "value": "___PO_CODE_DOORCONTROL_OPEN"
+                }, 
+                {
+                    "type": "inactive", 
+                    "key": "unknown", 
+                    "value": "___PO_CODE_DOORCONTROL_UNKNOWN"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_DOORCONTROL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.doorcontrol", 
+                "href": "/capability/doorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "doorState", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Door Control", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_door_control"
+            }, 
+            "valueType": null, 
+            "ruleEvent": true, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "key": "closing", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSING"
+                }, 
+                {
+                    "type": "inactive", 
+                    "key": "closed", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSED"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "opening", 
+                    "value": "___PO_CODE_DOORCONTROL_OPENING"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "open", 
+                    "value": "___PO_CODE_DOORCONTROL_OPEN"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_DOORCONTROL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.doorcontrol", 
+                "href": "/capability/doorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "doorState", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Door Control", 
+            "visible": null, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSE", 
+                    "key": "closing"
+                }
+            ], 
+            "step": 0, 
+            "label": {
+                "label": "___PO_CODE_DOORCONTROL", 
+                "arguments": null, 
+                "n": null
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_door_control"
+            }, 
+            "range": null, 
+            "link": {
+                "rt": "x.com.st.doorcontrol", 
+                "href": "/capability/doorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": true, 
+            "controlType": "List", 
+            "property": "doorState", 
+            "order": 3, 
+            "emphasis": false
+        }
+    ], 
+    "uiVersion": "0.0.1", 
+    "ma": [
+        {
+            "group": null, 
+            "name": "Door Control", 
+            "visible": null, 
+            "valueType": null, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "key": "closing", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSING"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "opening", 
+                    "value": "___PO_CODE_DOORCONTROL_OPENING"
+                }, 
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_DOORCONTROL_UNKNOWN", 
+                    "key": "unknown"
+                }, 
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_DOORCONTROL_CLOSED", 
+                    "key": "closed"
+                }, 
+                {
+                    "type": "active", 
+                    "value": "___PO_CODE_DOORCONTROL_OPEN", 
+                    "key": "open"
+                }
+            ], 
+            "step": 0, 
+            "label": {
+                "label": "___PO_CODE_DOORCONTROL", 
+                "arguments": null, 
+                "n": null
+            }, 
+            "iconUrl": null, 
+            "range": null, 
+            "link": {
+                "rt": "x.com.st.doorcontrol", 
+                "href": "/capability/doorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "controlType": "ToggleSwitch", 
+            "property": "doorState", 
+            "type": "main", 
+            "order": 1, 
+            "emphasis": false
+        }
+    ], 
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_DOORCONTROL_CLOSE", 
+                    "label": "Close"
+                }, 
+                {
+                    "po": "___PO_CODE_DOORCONTROL_OPEN", 
+                    "label": "Open"
+                }, 
+                {
+                    "po": "___PO_CODE_DOORCONTROL_UNKNOWN", 
+                    "label": "Unknown"
+                }, 
+                {
+                    "po": "___PO_CODE_DOORCONTROL_OPENING", 
+                    "label": "Opening"
+                }, 
+                {
+                    "po": "___PO_CODE_DOORCONTROL_CLOSING", 
+                    "label": "Closing"
+                }, 
+                {
+                    "po": "___PO_CODE_DOORCONTROL", 
+                    "label": "Door control"
+                }, 
+                {
+                    "po": "___PO_CODE_DOORCONTROL_CLOSED", 
+                    "label": "Closed"
+                }
+            ], 
+            "locale": "en_US", 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": {
+        "capability": "Door Control", 
+        "voiceActions": [
+            {
+                "rt": "x.com.st.doorcontrol", 
+                "action": "door", 
+                "property": "doorState", 
+                "href": "/capability/doorControl/0"
+            }, 
+            {
+                "rt": "x.com.st.doorcontrol", 
+                "action": "close", 
+                "href": "/capability/doorControl/0", 
+                "payload": {
+                    "doorState": "closed"
+                }
+            }, 
+            {
+                "rt": "x.com.st.doorcontrol", 
+                "action": "open", 
+                "href": "/capability/doorControl/0", 
+                "payload": {
+                    "doorState": "open"
+                }
+            }
+        ]
+    }, 
+    "capability": "Door Control", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Door Control", 
+            "visible": null, 
+            "label": {
+                "n": "ST Door Controlresource", 
+                "arguments": [
+                    {
+                        "property": "doorState", 
+                        "valueType": null, 
+                        "href": "/capability/doorControl/0", 
+                        "alternatives": [
+                            {
+                                "type": "inactive", 
+                                "value": "___PO_CODE_DOORCONTROL_CLOSED", 
+                                "key": "closed"
+                            }, 
+                            {
+                                "type": "active", 
+                                "value": "___PO_CODE_DOORCONTROL_OPEN", 
+                                "key": "open"
+                            }, 
+                            {
+                                "type": "inactive", 
+                                "key": "unknown", 
+                                "value": "___PO_CODE_DOORCONTROL_UNKNOWN"
+                            }, 
+                            {
+                                "type": "active", 
+                                "key": "opening", 
+                                "value": "___PO_CODE_DOORCONTROL_OPENING"
+                            }, 
+                            {
+                                "type": "inactive", 
+                                "key": "closing", 
+                                "value": "___PO_CODE_DOORCONTROL_CLOSING"
+                            }
+                        ], 
+                        "n": "var1"
+                    }
+                ], 
+                "label": "<var1>"
+            }, 
+            "iconUrl": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ], 
+    "voiceVersion": "0.0.2"
+}

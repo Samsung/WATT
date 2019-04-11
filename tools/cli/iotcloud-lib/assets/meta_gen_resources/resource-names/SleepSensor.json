@@ -1,0 +1,175 @@
+{
+    "capability": "Sleep Sensor",
+    "dpResources": [
+        {
+            "alternatives": [
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_SLEEPSENSOR_NOT_SLEEPING"
+                },
+                {
+                    "key": "true",
+                    "value": "___PO_CODE_SLEEPSENSOR_SLEEPING"
+                }
+            ],
+            "controlType": "List",
+            "controllable": false,
+            "emphasis": false,
+            "group": null,
+            "iconUrl": {
+                "large": "",
+                "mid": "icon://ic_function_sleep",
+                "small": "",
+                "vector": ""
+            },
+            "label": {
+                "arguments": null,
+                "label": "___PO_CODE_SLEEPSENSOR_SLEEP_SENSOR",
+                "n": "ST Sleep Sensor resource"
+            },
+            "link": {
+                "rt": "oic.r.sensor.sleep",
+                "href": "/capability/sleepSensor/0",
+                "if": "oic.if.s"
+            },
+            "name": "Sleep Sensor",
+            "order": 1,
+            "property": "sleeping",
+            "range": null,
+            "ruleAction": false,
+            "ruleEvent": true,
+            "step": 0,
+            "controlType": "List",
+            "property": "value",
+            "order": 1
+        },
+        {
+            "alternatives": [
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_SLEEPSENSOR_NOT_SLEEPING"
+                },
+                {
+                    "key": "true",
+                    "value": "___PO_CODE_SLEEPSENSOR_SLEEPING"
+                }
+            ],
+            "controlType": "List",
+            "controllable": false,
+            "emphasis": false,
+            "group": null,
+            "iconUrl": {
+                "large": "",
+                "mid": "icon://ic_function_sleep",
+                "small": "",
+                "vector": ""
+            },
+            "label": {
+                "arguments": null,
+                "label": "___PO_CODE_SLEEPSENSOR_SLEEP_SENSOR",
+                "n": "ST Sleep Sensor resource"
+            },
+            "link": {
+                "rt": "oic.r.sensor.sleep",
+                "href": "/capability/sleepSensor/0",
+                "if": "oic.if.s"
+            },
+            "name": "Sleep Sensor",
+            "order": 1,
+            "property": "sleeping",
+            "range": null,
+            "ruleAction": false,
+            "ruleEvent": false,
+            "step": 0,
+            "controlType": "List",
+            "property": "value",
+            "order": 1
+        }
+    ],
+    "language": [
+        {
+            "locale": "en_US",
+            "mnmn": null,
+            "poCodes": [
+                {
+                    "label": "Sleep sensor",
+                    "po": "___PO_CODE_SLEEPSENSOR_SLEEP_SENSOR"
+                },
+                {
+                    "label": "Not sleeping",
+                    "po": "___PO_CODE_SLEEPSENSOR_NOT_SLEEPING"
+                },
+                {
+                    "label": "Sleeping",
+                    "po": "___PO_CODE_SLEEPSENSOR_SLEEPING"
+                }
+            ],
+            "version": "0.0.1",
+            "vid": null
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Sleep Sensor",
+        "voiceActions": [
+            {
+                "rt": "oic.r.sensor.sleep",
+                "action": "sleeping",
+                "property": "value",
+                "href": "/capability/sleepSensor/0"
+            }
+        ]
+    },
+    "capability": "Sleep Sensor",
+    "ms": [
+        {
+            "emphasis": false,
+            "group": null,
+            "iconUrl": null,
+            "label": {
+                "arguments": [
+                    {
+                        "property": "value",
+                        "valueType": null,
+                        "href": "/capability/sleepSensor/0",
+                        "alternatives": [
+                            {
+                                "key": "true",
+                                "value": "___PO_CODE_SLEEPSENSOR_SLEEPING"
+                            },
+                            {
+                                "type": "inactive",
+                                "key": "false",
+                                "value": "___PO_CODE_SLEEPSENSOR_NOT_SLEEPING"
+                            }
+                        ],
+                        "href": "/capability/sleepSensor/0",
+                        "n": "var1",
+                        "property": "sleeping",
+                        "valueType": null
+                    }
+                ],
+                "label": "<var1>",
+                "n": "ST Sleep Sensorresource"
+            },
+            "name": "Sleep Sensor",
+            "order": 1,
+            "type": "device",
+            "visible": null
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "voiceCapability": {
+        "capability": "Sleep Sensor",
+        "voiceActions": [
+            {
+                "action": "sleeping",
+                "href": "/capability/sleepSensor/0",
+                "property": "sleeping",
+                "rt": "oic.r.sensor.sleep"
+            }
+        ]
+    },
+    "voiceVersion": "0.0.1"
+}

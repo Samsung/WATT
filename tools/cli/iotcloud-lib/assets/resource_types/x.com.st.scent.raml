@@ -1,0 +1,117 @@
+#%RAML 0.8
+title:  STScent
+version: v1.1.1-20180731
+schemas:
+- Scent: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.scent.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Scent",
+      "definitions": {
+        "x.com.st.scent": {
+          "type": "object",
+          "properties": {
+            "scentName": {
+              "type": "string",
+              "description": "A string that represents the name of the scent",
+              "readOnly": true
+            },
+            "scentIntensity": {
+              "type": "number",
+              "description": "A number that represents the current scent intensity, usually in percent",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.scent"}
+      ],
+      "required": ["scentName", "scentIntensity"]
+    }
+
+- ScentUpdate: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.scent.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Scent",
+      "definitions": {
+        "x.com.st.scent": {
+          "type": "object",
+          "properties": {
+            "scentName": {
+              "type": "string",
+              "description": "A string that represents the name of the scent",
+              "readOnly": true
+            },
+            "scentIntensity": {
+              "type": "number",
+              "description": "A number that represents the current scent intensity, usually in percent",
+              "minimum": 0,
+              "maximum": 100
+          }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.scent"}
+      ],
+      "required": ["scentIntensity"]
+    }
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.a", "oic.if.s", "oic.if.baseline"]
+/STScentResURI:
+  description: |
+    Resource describing a scent.
+  displayName: Scent
+  is: [ interface ] # valid for all methods
+
+  get:
+    description: |
+      Retrieves the state of the scent.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Scent
+            example: |
+              {
+                "rt":         ["x.com.st.scent"],
+                "id":         "unique_example_id",
+                "scentName": "Lavender",
+                "scentIntensity": 50
+              }
+  post:
+    description: |
+      Sets the desired scent intensity
+    body:
+      application/json:
+        schema: ScentUpdate
+        example: |
+          {
+            "id":           "unique_example_id",
+            "scentIntensity":  50
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Scent
+            example: |
+              {
+                "id":        "unique_example_id",
+                "scentName": "Lavender",
+                "scentIntensity": 50
+              }

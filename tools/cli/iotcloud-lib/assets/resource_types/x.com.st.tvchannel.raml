@@ -1,0 +1,129 @@
+#%RAML 0.8
+title: WWST TV Channel control
+version: v1.0.0-20170911
+schemas:
+- TVChannel: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.tvchannel.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "TV Channel control",
+      "definitions": {
+        "x.com.st.tvchannel": {
+          "type": "object",
+          "properties": {
+            "channel": {
+              "type": "string",
+              "description": "Specifies a channel"
+            },
+            "command": {
+              "type": "string",
+              "enum": [
+                "increase",
+                "decrease"
+              ],
+              "description": "Command of the channel control."
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.tvchannel"
+        }
+      ],
+      "required": [
+        "channel",
+        "command"
+      ]
+    }
+
+- TVChannelUpdate: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.tvchannel.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "TV Channel control",
+      "definitions": {
+        "x.com.st.tvchannel": {
+          "type": "object",
+          "properties": {
+            "channel": {
+              "type": "string",
+              "description": "Specifies a channel"
+            },
+            "command": {
+              "type": "string",
+              "enum": [
+                "increase",
+                "decrease"
+              ],
+              "description": "Command of the channel control."
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.tvchannel"
+        }
+      ]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.a","oic.if.baseline"]
+
+/WWSTTVChannelcontrolResURI:
+  description: |
+        TV Channel control
+  displayName: WWST TV Channel control
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the state of the TV Channel control.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: TVChannel
+            example: |
+              {
+                "rt":         ["x.com.st.tvchannel"],
+                "id":         "unique_example_id",
+                "channel": "7",
+                "command" : "increase"
+              }
+
+  post:
+    description: |
+      Sets the current TV Channel control. (at least one property should exist)
+    body:
+      application/json:
+        schema: TVChannelUpdate
+        example: |
+          {
+            "id":         "unique_example_id",
+            "channel":  "7"
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: TVChannelUpdate
+            example: |
+              {
+                "id":         "unique_example_id",
+                "channel":  "7"
+              }

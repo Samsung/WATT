@@ -1100,6 +1100,10 @@
     if (_context === undefined) {
       return;
     }
+    if (!program) {
+      _context.ctx.useProgram(null);
+      return;
+    }
     var _program = resources.resolve(program, PROGRAM_RESOURCE);
     if (_program === undefined) {
       return;

@@ -17,10 +17,12 @@ define(function (require, exports, module) {
         ProjectManager           = brackets.getModule("project/ProjectManager"),
         Strings                  = brackets.getModule("strings");
 
-    const ExtensionStrings             = require("strings"),
-        ImportFileDialogTemplate       = require("text!htmlContent/Import-File.html"),
-        ImportSharedFileDialogTemplate = require("text!htmlContent/Import-Shared-File.html"),
-        KeyboardPrefs                  = JSON.parse(require("text!keyboard.json"));
+    const ExportExternalLibDialogTemplate = require("text!htmlContent/Export-External-Lib.html"),
+        ExtensionStrings                  = require("strings"),
+        ImportExternalLibDialogTemplate   = require("text!htmlContent/Import-External-Lib.html"),
+        ImportFileDialogTemplate          = require("text!htmlContent/Import-File.html"),
+        ImportSharedFileDialogTemplate    = require("text!htmlContent/Import-Shared-File.html"),
+        KeyboardPrefs                     = JSON.parse(require("text!keyboard.json"));
 
     const _domainPath = ExtensionUtils.getModulePath(module, "node/ImportDomain"),
         _nodeDomain = new NodeDomain("importNode", _domainPath);
@@ -29,12 +31,18 @@ define(function (require, exports, module) {
     const FILE_COPY_FILE = "file.copy.file";
     const FILE_CUT_FILE = "file.cut.file";
     const FILE_DOWNLOAD = "file.download";
+    const FILE_INIT_PACKAGE = "file.init.package";
     const FILE_IMPORT_FILE = "file.import.file";
     const FILE_IMPORT_SHARED_FILE = "file.import.shared.file";
+    const FILE_EXPORT_LIB = "file.export.lib";
+    const FILE_IMPORT_EXTERNAL_LIB = "file.import.exernal.lib";
     const FILE_PASTE_FILE = "file.paste.file";
     let $fileListOutput, operation, selected, selectedFile;
+    let packageMenuDivider = null;
+    let packageMenuItemCommand = null;
 
-    function showErrorDialog(message) {
+    function showErrorMessage(message) {
+        console.error(message);
         Dialogs.showModalDialog(
             DefaultDialogs.DIALOG_ID_ERROR,
             ExtensionStrings.ERROR_DIALOG_TITLE,
@@ -108,7 +116,7 @@ define(function (require, exports, module) {
                     var files = $importFileInput[0].files;
 
                     if (!files.length) {
-                        showErrorDialog(ExtensionStrings.ERROR_MSG_SELECT_FILE);
+                        showErrorMessage(ExtensionStrings.ERROR_MSG_SELECT_FILE);
                         return;
                     }
 
@@ -149,14 +157,11 @@ define(function (require, exports, module) {
             $changeFolderBtn.click(function (e) {
                 FileSystem.showOpenDialog(false, true, Strings.CHOOSE_FOLDER, baseDirEntry, null,
                     function (error, files) {
-                        if (error) {
-                            showErrorDialog(ExtensionStrings.ERROR_MSG_FOLDER_CHANGE);
-                            return;
-                        }
-
                         if (!error && files && files.length > 0 && files[0].length > 0) {
                             baseDirEntry = cannonicalizeDirectoryPath(files[0]);
                             $intoFolderInput.val(convertUnixPathToWindowsPath(baseDirEntry));
+                        } else {
+                            showErrorMessage(ExtensionStrings.ERROR_MSG_FOLDER_CHANGE);
                         }
                     });
 
@@ -164,7 +169,7 @@ define(function (require, exports, module) {
                 e.stopPropagation();
             });
         } else {
-            showErrorDialog(ExtensionStrings.ERROR_MSG_FILE_API);
+            showErrorMessage(ExtensionStrings.ERROR_MSG_FILE_API);
         }
     }
 
@@ -239,6 +244,117 @@ define(function (require, exports, module) {
         });
     }
 
+    function handleInitPackage() {
+        const entry = ProjectManager.getSelectedItem();
+        if (entry.isDirectory) {
+            // creates new item so file is added to project
+            // additional params: skipRename = true, isFolder = false
+            ProjectManager.createNewItem(entry.fullPath, "package.json", true, false)
+                .done(() => {
+                    ProjectManager.refreshFileTree();
+                    _nodeDomain.exec("initPackage", entry.fullPath)
+                        .done(() => {
+                            Dialogs.showModalDialog(
+                                DefaultDialogs.DIALOG_ID_OK,
+                                "Init succeeded",
+                                "Package was successfully initialised in " + entry.fullPath);
+                        }).fail(error => showErrorMessage("initPackage failed: " + error));
+                })
+                .fail(error => showErrorMessage("createNewItem failed", error));
+        }
+    }
+
+    function handleExportLib() {
+        const dialog = Dialogs.showModalDialogUsingTemplate(
+            Mustache.render(ExportExternalLibDialogTemplate, { Strings: Strings, ExtensionStrings: ExtensionStrings })
+        );
+        const $dlg = dialog.getElement();
+        const $OkBtn = $dlg.find(".dialog-button[data-button-id='ok']");
+        let folderPath = "";
+        let $fromFolderInput = $("#from-folder");
+
+        const entry = ProjectManager.getSelectedItem();
+        if (entry.isDirectory) {
+            folderPath = entry.fullPath;
+            $fromFolderInput.val(folderPath);
+        }
+
+        dialog.done(function (buttonId) {
+            if (buttonId === "ok" && !$OkBtn[0].disabled) {
+                const $wpmAddress = $("#wpm-address", $dlg).val();
+                _nodeDomain.exec("publishPackage", folderPath, $wpmAddress)
+                    .done(() => {
+                        ProjectManager.refreshFileTree();
+                        Dialogs.showModalDialog(
+                            DefaultDialogs.DIALOG_ID_OK,
+                            "Publish succeeded",
+                            "Package was successfully published on: "+ $wpmAddress);
+                    })
+                    .fail(error => showErrorMessage("publishPackage failed: " + error));
+            }
+        });
+    }
+    
+    function updatePackageList() {
+        let url = $("#wpm-address").val();
+        if (url !== null && !url.endsWith("/")) {
+            url += "/";
+        }
+        url +=  "-/verdaccio/packages";
+        $("#packages-list").empty();
+        fetch(url)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(packagesJson) {
+                $.each(packagesJson, function (key, entry) {
+                    // Adds the <option> element to the packages list
+                    $("#packages-list").append($("<option></option>")
+                        .attr("value", entry.name)
+                        .text("ver : " + entry.version));
+                });
+            })
+            .catch(error => {
+                console.error("updatePackageList: " + error);
+            });
+    }
+
+    function handleImportExternalLib() {
+        const dialog = Dialogs.showModalDialogUsingTemplate(
+            Mustache.render(ImportExternalLibDialogTemplate, { Strings: Strings, ExtensionStrings: ExtensionStrings })
+        );
+        const $dlg = dialog.getElement();
+        const $OkBtn = $dlg.find(".dialog-button[data-button-id='ok']");
+
+        /* Update package list when:
+         *  - DOM is loaded
+         *  - server address changed
+         */
+        $(()=> {
+            updatePackageList();
+        });
+        $("#wpm-address").change(()=> {
+            updatePackageList();
+        });
+
+        dialog.done(function (buttonId) {
+            if (buttonId === "ok" && !$OkBtn[0].disabled) {
+                const $packageName = $("#package-name", $dlg).val();
+                const $wpmAddress = $("#wpm-address", $dlg).val();
+                _nodeDomain.exec("installPackage", $packageName, $wpmAddress, PreferencesManager.getViewState("projectId"))
+                    .done(() => {
+                        ProjectManager.refreshFileTree();
+                        Dialogs.showModalDialog(
+                            DefaultDialogs.DIALOG_ID_OK,
+                            "Installation successed",
+                            "Package " + $packageName + " has been successfully installed in libs/."
+                        );
+                    })
+                    .fail(error => showErrorMessage("installPackage failed: " + error));
+            }
+        });
+    }
+
     function handleCopyFile() {
         selectedFile = selected;
         operation = "COPY";
@@ -261,12 +377,12 @@ define(function (require, exports, module) {
 
             // Check incorrect copy
             if (selectedPath.startsWith(selectedFile.fullPath)) {
-                return showErrorDialog(ExtensionStrings.ERROR_MSG_INCORRECT_COPY);
+                return showErrorMessage(ExtensionStrings.ERROR_MSG_INCORRECT_COPY);
             }
 
             FileSystem.resolve(selectedFile.fullPath, (resolveError, entry) => {
                 if (resolveError) {
-                    return showErrorDialog(resolveError);
+                    return showErrorMessage(resolveError);
                 }
 
                 const projectId = PreferencesManager.getViewState("projectId");
@@ -303,11 +419,14 @@ define(function (require, exports, module) {
 
     CommandManager.register(ExtensionStrings.IMPORT_FILE_MENU_TITLE, FILE_IMPORT_FILE, handleImportFile);
     CommandManager.register(ExtensionStrings.IMPORT_SHARED_FILE_MENU_TITLE, FILE_IMPORT_SHARED_FILE, handleImportSharedFile);
+    CommandManager.register(ExtensionStrings.IMPORT_EXTERNAL_LIB_MENU_TITLE, FILE_IMPORT_EXTERNAL_LIB, handleImportExternalLib);
 
     const copyCmd = CommandManager.register(ExtensionStrings.COPY_FILE, FILE_COPY_FILE, handleCopyFile);
     const cutCmd = CommandManager.register(ExtensionStrings.CUT_FILE, FILE_CUT_FILE, handleCutFile);
     const downloadCmd = CommandManager.register(ExtensionStrings.DOWNLOAD_FILE, FILE_DOWNLOAD, handleDownloadFile);
+    const initCmd = CommandManager.register(ExtensionStrings.INIT_PACKAGE_MENU_TITLE, FILE_INIT_PACKAGE, handleInitPackage);
     const pasteCmd = CommandManager.register(ExtensionStrings.PASTE_FILE, FILE_PASTE_FILE, handlePasteFile);
+    const uploadCmd = CommandManager.register(ExtensionStrings.EXPORT_LIB_MENU_TITLE,FILE_EXPORT_LIB, handleExportLib);
 
     KeyBindingManager.addBinding(FILE_IMPORT_FILE, KeyboardPrefs.importfile);
 
@@ -322,19 +441,52 @@ define(function (require, exports, module) {
     contextMenu.addMenuItem(FILE_DOWNLOAD, undefined, Menus.AFTER, Commands.FILE_RENAME);
     contextMenu.addMenuDivider(Menus.AFTER, Commands.FILE_RENAME);
 
-    function updateEnabledState() {
+    function removePackageMenuItems() {
+        if (packageMenuDivider !== null && packageMenuDivider.id) {
+            contextMenu.removeMenuDivider(packageMenuDivider.id);
+            packageMenuDivider = null;
+        }
+        if (packageMenuItemCommand !== null) {
+            contextMenu.removeMenuItem(packageMenuItemCommand);
+            packageMenuItemCommand = null;
+        }
+    }
+
+    function updateContextMenu() {
         selected = ProjectManager.getSelectedItem();
 
         copyCmd.setEnabled(selected);
         cutCmd.setEnabled(selected);
         downloadCmd.setEnabled(selected && selected.isFile);
         pasteCmd.setEnabled(selected && selectedFile);
+
+        // menu item for package
+        removePackageMenuItems();
+        var entry = ProjectManager.getSelectedItem();
+        if (entry.isDirectory) {
+            var file = FileSystem.getFileForPath(entry.fullPath + "package.json");
+            file.exists(function (err, doesExist) {
+                if (!err) {
+                    if (doesExist) {
+                        packageMenuItemCommand = FILE_EXPORT_LIB;
+                        uploadCmd.setEnabled(true);
+                    }
+                    else {
+                        packageMenuItemCommand = FILE_INIT_PACKAGE;
+                        initCmd.setEnabled(true);
+                    }
+                    contextMenu.addMenuItem(packageMenuItemCommand, undefined, Menus.AFTER, Commands.FILE_DELETE);
+                    packageMenuDivider = contextMenu.addMenuDivider(Menus.AFTER, Commands.FILE_DELETE);
+                }
+            });
+        }
     }
 
-    contextMenu.on("beforeContextMenuOpen", updateEnabledState);
+    contextMenu.on("beforeContextMenuOpen", updateContextMenu);
 
     const fileMenu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     fileMenu.addMenuItem(FILE_IMPORT_FILE, undefined, Menus.AFTER, Commands.FILE_OPEN);
+    fileMenu.addMenuItem(FILE_IMPORT_EXTERNAL_LIB, undefined, Menus.AFTER, FILE_IMPORT_FILE);
 
     const projectType = PreferencesManager.getViewState("projectType");
     if (projectType === "web") {

@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "SwitchAlarmAutomation",
+      "appType": "automationApp",
+      "versions": [
+        {
+          "appData": {
+            "automationAppData": {
+              "endpointApp": {
+                "endpointAppId": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

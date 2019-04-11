@@ -1,0 +1,84 @@
+#%RAML 0.8
+title: WWST Infrared Level
+version: v1.0.0-20180803
+schemas:
+- InfraredLevel: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.infraredLevel.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+      "definitions": {
+        "x.com.st.infraredLevel": {
+          "type": "object",
+          "properties": {
+            "infraredLevel": {
+              "type": "integer",
+              "description": "The infrared level value in percent",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.infraredLevel"
+        }
+      ],
+      "required": [
+        "infraredLevel"
+      ]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.a","oic.if.s","oic.if.baseline"]
+
+/WWSTInfraredLevelResURI:
+  description: |
+        Set,Get the infrared level to the given value
+  displayName: WWST Infrared Level
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current Infrared Level
+    responses:
+      200:
+        body:
+          application/json:
+            schema: InfraredLevel
+            example: |
+              {
+                "rt": ["x.com.st.infraredLevel"],
+                "id": "unique_example_id",
+                "infraredLevel": 20
+              }
+
+  post:
+    body:
+      application/json:
+        schema: InfraredLevel
+        example: |
+          {
+            "rt": ["x.com.st.infraredLevel"],
+            "id": "unique_example_id",
+            "infraredLevel": 50
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: InfraredLevel
+            example: |
+              {
+                "rt": ["x.com.st.infraredLevel"],
+                "id": "unique_example_id",
+                "infraredLevel": 50
+              }

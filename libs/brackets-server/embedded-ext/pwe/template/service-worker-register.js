@@ -12,7 +12,7 @@ if ("serviceWorker" in navigator) {
                                     const endPoint = subscription.endpoint.split("/");
                                     const regTokens = endPoint[endPoint.length - 1];
 
-                                    const HostserverUrl = "https://pwe.now.im/";
+                                    const HostserverUrl = "https://[S-HUB-URL]";
                                     const decoder = new TextDecoder("utf-8");
                                     /* eslint-disable no-undef */
                                     const senderId = decoder.decode(new Uint8Array(subscription.options.applicationServerKey));
