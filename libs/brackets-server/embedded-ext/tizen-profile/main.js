@@ -3,8 +3,11 @@ define(function (require, exports, module) {
     "use strict";
 
     const PreferencesManager = brackets.getModule("preferences/PreferencesManager");
-    // Return extension when project type is not equal to web
-    if (PreferencesManager.getViewState("projectType") !== "web") {
+    const projectType = PreferencesManager.getViewState("projectType");
+
+    const allowProjectType = ["sthings", "web", "wasm"];
+    // Return extension when project type is not equal to web or sthings
+    if (allowProjectType.indexOf(projectType) === -1) {
         return;
     }
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta charset="UTF-8">
+  <title>VideoDecoder Demo</title>
+  <script type="text/javascript" src="loadnacl.js"></script>
+  <script type="text/javascript" src="common.js"></script>
+  <script type="text/javascript" src="example.js"></script>
+</head>
+<body data-name="video_decode_performance" data-width="720" data-height="480" data-tools="emscripten newlib pnacl" data-configs="Debug Release" data-path="../{tc}/{config}">
+  <h2 id=header>VideoDecoder Demo</h2>
+  <p><b>Status:</b> <span id="statusField">no status</span></p>
+  <!-- The NaCl plugin will be embedded inside the element with id "listener".
+      See common.js.-->
+  <div id="listener"></div>
+  <div style="margin-top: 20px">
+    This demo play video using the VideoDecoder interface. (Mouse button can be changed video resolution.)
+  </div>
+  <div id=res></div>
+</body>
+</html>

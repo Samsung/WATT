@@ -1,0 +1,58 @@
+#%RAML 0.8
+title: WWST Thermostat Operational State
+version: v1.0.0-20170918
+schemas:
+- Operation: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.operationalstate.thermostat.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Thermostat Operational State",
+      "definitions": {
+    "x.com.st.operationalstate.thermostat": {
+      "type": "object",
+      "properties": {
+        "thermostatOperatingState": {
+          "type": "string",
+          "enum": ["cooling","fan only","heating","idle","pending cool","pending heat","vent economizer"],
+          "description": "Currently active jobState"
+        }
+      }
+    }
+      },
+      "type": "object",
+      "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "#/definitions/x.com.st.operationalstate.thermostat"}
+      ],
+      "required": [
+        "thermostatOperatingState"
+      ]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.s","oic.if.a","oic.if.baseline"]
+
+/WWSTThermostatOperationalStateResURI:
+  description: |
+        Check and manipulate the operational and job states of a device
+  displayName: WWST Thermostat Operational State
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current thermostat operational state
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Operation
+            example: |
+              {
+                "rt":             ["x.com.st.operationalstate.thermostat"],
+                "id":             "unique_example_id",
+                "thermostatOperatingState": "cooling"
+              }

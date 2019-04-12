@@ -1,0 +1,403 @@
+{
+    "dpResources": [
+        {
+            "controllable": true, 
+            "name": "Media Input Source", 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_AM", 
+                    "key": "AM"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_CD", 
+                    "key": "CD"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_FM", 
+                    "key": "FM"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI", 
+                    "key": "HDMI"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI2", 
+                    "key": "HDMI2"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_USB", 
+                    "key": "USB"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_YOUTUBE", 
+                    "key": "YouTube"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_AUX", 
+                    "key": "aux"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_BLUETOOTH", 
+                    "key": "bluetooth"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_DIGITAL", 
+                    "key": "digital"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_MELON", 
+                    "key": "melon"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_WIFI", 
+                    "key": "wifi"
+                }
+            ], 
+            "label": {
+                "label": "___PO_CODE_MEDIAINPUTSOURCE_MODE", 
+                "n": "ST Media Input Source Resource"
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_media_input_source"
+            }, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.mediainputsource", 
+                "href": "/capability/mediaInputSource/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "controlType": "List", 
+            "property": "modes", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "name": "Media Input Source", 
+            "ruleEvent": true, 
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_AM", 
+                    "key": "AM"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_CD", 
+                    "key": "CD"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_FM", 
+                    "key": "FM"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI", 
+                    "key": "HDMI"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI2", 
+                    "key": "HDMI2"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_USB", 
+                    "key": "USB"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_YOUTUBE", 
+                    "key": "YouTube"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_AUX", 
+                    "key": "aux"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_BLUETOOTH", 
+                    "key": "bluetooth"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_DIGITAL", 
+                    "key": "digital"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_MELON", 
+                    "key": "melon"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_WIFI", 
+                    "key": "wifi"
+                }
+            ], 
+            "label": {
+                "label": "___PO_CODE_MEDIAINPUTSOURCE_MODE", 
+                "n": "ST Media Input Source Resource"
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_media_input_source"
+            }, 
+            "emphasis": false, 
+            "link": {
+                "rt": "oic.r.mode", 
+                "href": "/capability/mediaInputSource/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "controlType": "List", 
+            "property": "modes", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "name": "Media Input Source", 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_AM", 
+                    "key": "AM"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_CD", 
+                    "key": "CD"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_FM", 
+                    "key": "FM"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI", 
+                    "key": "HDMI"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI2", 
+                    "key": "HDMI2"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_USB", 
+                    "key": "USB"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_YOUTUBE", 
+                    "key": "YouTube"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_AUX", 
+                    "key": "aux"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_BLUETOOTH", 
+                    "key": "bluetooth"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_DIGITAL", 
+                    "key": "digital"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_MELON", 
+                    "key": "melon"
+                }, 
+                {
+                    "value": "___PO_CODE_MEDIAINPUTSOURCE_WIFI", 
+                    "key": "wifi"
+                }
+            ], 
+            "label": {
+                "label": "___PO_CODE_MEDIAINPUTSOURCE_MODE", 
+                "n": "ST Media Input Source Resource"
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_media_input_source"
+            }, 
+            "emphasis": false, 
+            "link": {
+                "rt": "oic.r.mode", 
+                "href": "/capability/mediaInputSource/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": true, 
+            "controlType": "List", 
+            "property": "modes", 
+            "order": 1
+        }
+    ], 
+    "uiVersion": "0.0.1", 
+    "ma": [], 
+    "language": [
+        {
+            "locale": "en_US", 
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_AM", 
+                    "label": "AM"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_CD", 
+                    "label": "CD"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_FM", 
+                    "label": "FM"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_HDMI", 
+                    "label": "HDMI"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_HDMI2", 
+                    "label": "HDMI2"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_USB", 
+                    "label": "USB"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_YOUTUBE", 
+                    "label": "YouTube"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_AUX", 
+                    "label": "Aux"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_BLUETOOTH", 
+                    "label": "Bluetooth"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_DIGITAL", 
+                    "label": "Digital"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_MELON", 
+                    "label": "Melon"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_WIFI", 
+                    "label": "Wifi"
+                }, 
+                {
+                    "po": "___PO_CODE_MEDIAINPUTSOURCE_MODE", 
+                    "label": "Media Input Source"
+                }
+            ]
+        }
+    ], 
+    "voiceCapability": {
+        "capability": "MediaInputSource", 
+        "voiceActions": [
+            {
+                "rt": "x.com.st.mediainputsource", 
+                "action": "HDMI", 
+                "href": "/capability/mediaInputSource/0", 
+                "payload": {
+                    "modes": [
+                        "HDMI"
+                    ]
+                }, 
+                "enumeration": "1"
+            }, 
+            {
+                "rt": "x.com.st.mediainputsource", 
+                "action": "HDMI", 
+                "href": "/capability/mediaInputSource/0", 
+                "payload": {
+                    "modes": [
+                        "HDMI2"
+                    ]
+                }, 
+                "enumeration": "2"
+            }, 
+            {
+                "rt": "x.com.st.mediainputsource", 
+                "action": "HDMI", 
+                "href": "/capability/mediaInputSource/0", 
+                "payload": {
+                    "modes": [
+                        "HDMI3"
+                    ]
+                }, 
+                "enumeration": "3"
+            }
+        ]
+    }, 
+    "capability": "Media Input Source", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Media Input Source", 
+            "iconUrl": null, 
+            "label": {
+                "label": "<var1>", 
+                "arguments": [
+                    {
+                        "href": "/capability/mediaInputSource/0", 
+                        "valueType": null, 
+                        "property": "modes", 
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_AM", 
+                                "key": "AM"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_CD", 
+                                "key": "CD"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_FM", 
+                                "key": "FM"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI", 
+                                "key": "HDMI"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_HDMI2", 
+                                "key": "HDMI2"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_USB", 
+                                "key": "USB"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_YOUTUBE", 
+                                "key": "YouTube"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_AUX", 
+                                "key": "aux"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_BLUETOOTH", 
+                                "key": "bluetooth"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_DIGITAL", 
+                                "key": "digital"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_MELON", 
+                                "key": "melon"
+                            }, 
+                            {
+                                "value": "___PO_CODE_MEDIAINPUTSOURCE_WIFI", 
+                                "key": "wifi"
+                            }
+                        ], 
+                        "n": "var1"
+                    }
+                ], 
+                "n": "ST Media Input Source Resource"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ], 
+    "voiceVersion": "0.0.2"
+}

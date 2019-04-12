@@ -1,0 +1,209 @@
+#%RAML 0.8
+title: OCFDRLC
+version: v1.1.0-20160519
+traits:
+ - interface :
+     queryParameters:
+       if:
+         enum: ["oic.if.b", "oic.if.baseline"]
+
+/DRLCResURI:
+  description: |
+    This resource describes any to be applied or currently being applied DRLC signal.
+    The DRType is the ApplianceLoadReductionType defined in Zigbee/HA Smart Energy Profile 2.0.
+    Start is a string containing an ISO8601 encoded start time.
+    The duration value is in minutes.
+    Override indicates whether the consumer has overridden the request (true) or not (false).
+
+  displayName: DRLC
+
+  is : ['interface']
+  get:
+    description: |
+      Provides the current DRLC action that is being applied.
+
+    responses :
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.energy.drlc.json#",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+                "definitions": {
+                  "oic.r.energy.drlc": {
+                    "type": "object",
+                    "properties": {
+                      "DRType":   {
+                        "type": "integer",
+                        "description": "The to be applied demand-response type"
+                      },
+                      "start":    {
+                        "type": "string",
+                        "description": "The start time for the application of DR"
+                      },
+                      "duration": {
+                        "type": "integer",
+                        "description": "The duration of the to be applied DR type"
+                      },
+                      "override": {
+                        "type": "boolean",
+                        "description": "Whether the consumer has overriden the application of DR"
+                      }
+                    }
+                  }
+                },
+                "type": "object",
+                "allOf": [
+                  {"$ref": "oic.core.json#/definitions/oic.core"},
+                  {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+                  {"$ref": "#/definitions/oic.r.energy.drlc"}
+                ],
+                "required": ["DRType"]
+              }
+
+            example: |
+              {
+                "rt":       ["oic.r.energy.drlc"],
+                "id":       "unique_example_id",
+                "DRType":   1,
+                "start":    "2015-01-09T16:45Z",
+                "duration": 10,
+                "override": false
+              }
+
+  put:
+    description: |
+      Provides the DRLC action to be applied to the device or updates an existing action.
+
+    body:
+      application/json:
+        schema: |
+          {
+            "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.energy.drlc.json#",
+            "$schema": "http://json-schema.org/draft-04/schema#",
+            "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+            "definitions": {
+              "oic.r.energy.drlc": {
+                "type": "object",
+                "properties": {
+                  "DRType":   {
+                    "type": "integer",
+                    "description": "The to be applied demand-response type"
+                  },
+                  "start":    {
+                    "type": "string",
+                    "description": "The start time for the application of DR"
+                  },
+                  "duration": {
+                    "type": "integer",
+                    "description": "The duration of the to be applied DR type"
+                  },
+                  "override": {
+                    "type": "boolean",
+                    "description": "Whether the consumer has overriden the application of DR"
+                  }
+                }
+              }
+            },
+            "type": "object",
+            "allOf": [
+              {"$ref": "oic.core.json#/definitions/oic.core"},
+              {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+              {"$ref": "#/definitions/oic.r.energy.drlc"}
+            ],
+            "required": ["DRType"]
+          }
+
+        example: |
+          {
+            "rt":       ["oic.r.energy.drlc"],
+            "id":       "unique_example_id",
+            "DRType":   1,
+            "start":    "2015-01-09T16:45Z",
+            "duration": 10
+          }
+
+    responses :
+      200:
+        description: |
+          Indicates that the target DRLC resource was changed.
+          The new resource attributes are provided in the response.
+
+        body:
+          application/json:
+            schema: |
+              {
+                "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.energy.drlc.json#",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+                "definitions": {
+                  "oic.r.energy.drlc": {
+                    "type": "object",
+                    "properties": {
+                      "DRType":   {
+                        "type": "integer",
+                        "description": "The to be applied demand-response type"
+                      },
+                      "start":    {
+                        "type": "string",
+                        "description": "The start time for the application of DR"
+                      },
+                      "duration": {
+                        "type": "integer",
+                        "description": "The duration of the to be applied DR type"
+                      },
+                      "override": {
+                        "type": "boolean",
+                        "description": "Whether the consumer has overriden the application of DR"
+                      }
+                    }
+                  }
+                },
+                "type": "object",
+                "allOf": [
+                  {"$ref": "oic.core.json#/definitions/oic.core"},
+                  {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+                  {"$ref": "#/definitions/oic.r.energy.drlc"}
+                ],
+                "required": ["DRType"]
+              }
+
+            example: |
+              {
+                "DRType":   1,
+                "id":       "unique_example_id",
+                "start":    "2015-01-09T17:00Z",
+                "duration": 15,
+                "override": false
+              }
+
+      201:
+        description: |
+          Indicates successful creation of the DRLC resource with the attributes provided.
+          The response includes the URI of the created resource.
+
+        body:
+          application/json:
+            schema: |
+              {
+                "id": "http://openinterconnect.org/iotdatamodels/chemas/oic.create.json#",
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description" : "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+                "definitions": {
+                  "oic.create": {
+                    "type": "object",
+                    "properties": {
+                      "ResURI": { "type": "string"}
+                    }
+                  }
+                },
+                "type": "object",
+                "$ref": "#/definitions/oic.create"
+              }
+
+            example: |
+              {
+                "ResURI":   "/MyDevice/MyDRLCURI"
+              }

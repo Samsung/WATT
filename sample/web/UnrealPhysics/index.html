@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Unreal API example</title>
+  <meta charset="utf-8">
+  <style type="text/css" media="screen">
+    body {
+      margin: 0;
+    }
+    canvas {
+      width: 100%;
+    }
+  </style>
+  <script type="text/javascript" src="js/cube.js"></script>
+  <script type="text/javascript" src="js/camera.js"></script>
+  <script type="text/javascript" src="js/gun.js"></script>
+  <script type="text/javascript" src="js/lights.js"></script>
+  <script type="text/javascript" src="js/wall.js"></script>
+  <script type="text/javascript" src="js/fake-progressbar.js"></script>
+  <script type="text/javascript">
+    /*global FVector FTransform FQuat */
+
+    var Module = {};
+    var progressBar = {};
+
+    function make_scene() {
+      progressBar.remove();
+
+      var world_iter = new Module.TObjectIteratorUWorld();
+      var world = world_iter.Current();
+
+      // setup ground
+      var ground = world.SpawnActorStaticMeshActor();
+      ground.SetMobility(Module.Movable);
+      ground.SetActorLocation(new FVector(0, 0, -20));
+      ground.SetMobility(Module.Stationary);
+
+      let ground_mesh = UE4.LoadObjectStaticMesh(
+        "/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube");
+      let grass_material = UE4.LoadObjectMaterial(
+        "/Game/StarterContent/Materials/M_Ground_Grass.M_Ground_Grass");
+
+      let component = ground.GetStaticMeshComponent();
+      component.SetStaticMesh(ground_mesh);
+      component.SetMaterial(0, grass_material);
+
+      ground.SetActorScale3D(new FVector(10, 10, 0.2));
+      ground.SetMobility(Module.Stationary);
+
+      /*global Cube Camera Gun Lights Wall*/
+      var cube = new Cube(world);
+      var camera = new Camera(Module);
+      var gun = new Gun(camera, world);
+      var lights = new Lights(world);
+      var wall = new Wall(world);
+
+      document.addEventListener("keyup", camera.onkeyup.bind(camera), false);
+      document.addEventListener("keydown", camera.onkeydown.bind(camera), false);
+      document.addEventListener("keyup", gun.onkeyup.bind(gun), false);
+      document.addEventListener("keydown", gun.onkeydown.bind(gun), false);
+      document.addEventListener("keydown", wall.onkeydown.bind(wall), false);
+      document.addEventListener("mousemove", camera.onmousemove.bind(camera), false);
+      document.addEventListener("mousedown", camera.onmousedown.bind(camera), false);
+      document.addEventListener("mousedown", gun.onmousedown.bind(gun), false);
+
+      var start_timestamp = performance.now();
+
+      function animate(timestamp) {
+        let passed_time = (timestamp - start_timestamp) * 0.001;
+        requestAnimationFrame(animate);
+        cube.animate(passed_time);
+        camera.animate(passed_time);
+        lights.animate(passed_time);
+      }
+
+      requestAnimationFrame(animate);
+
+      setTimeout(() => {
+        const button = document.getElementById('fullscreen_request');
+        button.click();
+      }, 0);
+    }
+
+    window.onload = function() {
+      /*global ProgressBar*/
+      progressBar = new ProgressBar();
+      setTimeout(() => { progressBar.begin(90); }, 0);
+
+      if(!webgl_detect()) {
+        console.error('WebGL Not Detected!');
+        return;
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', './wasm/unreal.wasm', true);
+      xhr.responseType = 'arraybuffer';
+
+      xhr.onload = function() {
+        Module = {
+          postRun: [make_scene],
+          canvas: document.getElementsByTagName('canvas')[0],
+          wasmBinary: xhr.response,
+
+          TOTAL_MEMORY: 256*1024*1024,
+          arguments: ['../../../StarterResources/StarterResources.uproject', '', '']
+        };
+
+        // download rest of scripts
+        [
+          './resources/StarterResources.data.js',
+          './js/unreal.js'
+        ].map(function (url) {
+          let script = document.createElement('script');
+          script.src = url;
+
+          document.body.appendChild(script);
+        });
+      };
+
+      xhr.send();
+    };
+
+    var UE4 = {
+      on_fatal: function() {
+        try {
+          UE4.on_fatal = Module.cwrap('on_fatal', null, ['string', 'string']);
+        } catch(e) {
+          UE4.on_fatal = function() {};
+        }
+      },
+      LoadObjectStaticMesh: function(Name) {
+        try {
+          const _LoadObjectStaticMesh = Module.cwrap('_Z20LoadObjectStaticMeshPKc', 'UStaticMesh', ['string']);
+          UE4.LoadObjectStaticMesh = Name => ({ ptr: _LoadObjectStaticMesh(Name) });
+          return UE4.LoadObjectStaticMesh(Name);
+        } catch(e) {
+          UE4.LoadObjectStaticMesh = function() {};
+        }
+      },
+      LoadObjectMaterial: function(Name) {
+        try {
+          const _LoadObjectMaterial = Module.cwrap('_Z18LoadObjectMaterialPKc', 'UMaterial', ['string']);
+          UE4.LoadObjectMaterial = Name => ({ ptr: _LoadObjectMaterial(Name) });
+          return UE4.LoadObjectMaterial(Name);
+        } catch(e) {
+          UE4.LoadObjectMaterial = function() {};
+        }
+      }
+    };
+
+    function webgl_detect()
+    {
+      if (!!window.WebGLRenderingContext) {
+        var canvas = document.createElement("canvas");
+        var names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"];
+        var context = false;
+
+        for (var i=0;i<4;i++) {
+          try {
+            context = canvas.getContext(names[i]);
+            if (context && typeof context.getParameter === "function") {
+              return true;
+            }
+          } catch(e) {}
+        }
+      }
+
+      console.error("Webgl is not supported");
+      return false;
+    }
+</script>
+</head>
+<body>
+  <canvas id="canvas" directcanvas></canvas>
+  <button type="button" id="fullscreen_request" style="float: left">FullScreen</button>
+  <div style="float: left; margin-left: 1em">
+    Controls: <b>WSACD/Spacebar/Arrows</b> to move/look around,
+    <b>Mouse</b> to look around,
+    <b>hold-Shift</b> to run,
+    <b>Ctrl/Mouse click</b> to throw,
+    <b>ESC</b> camera auto-fly,
+    <b>R</b> reset<br />
+    Remote controller: <b>284679/ Arrows</b> to move/look around,
+    <b>1</b> to throw,
+    <b>0</b> camera auto-fly,
+    <b>red button A</b> reset<br />
+  </div>
+</body>
+</html>

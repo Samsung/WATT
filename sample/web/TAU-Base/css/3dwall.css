@@ -1,0 +1,75 @@
+.wrapper {
+  perspective: 1200px;
+  white-space: nowrap;
+}
+
+.outer {
+  transition: 0.8s; 
+  transform: rotateY(40deg);
+  width: auto;
+  height: auto;
+  overflow-x:scroll;
+  margin-top: 10%;
+}
+
+.inner1 {
+  transition: 0.8s; 
+  transform: rotateY(40deg);
+  margin-left: -15%;
+  width: auto;
+  height: auto;
+}
+
+.inner1 figure {
+  box-shadow: -7px 7px 2px -3px rgba(100,100,100,0.5);
+  display: inline-block;
+}
+
+.inner1 img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+}
+
+.inner2 {
+  transition: 0.8s; 
+  transform: rotateY(40deg);
+  margin-left: -15%;
+  width: auto;
+  height: auto;
+}
+
+.inner2 figure {
+  box-shadow: -7px 7px 2px -3px rgba(100,100,100,0.5);
+  display: inline-block;
+}
+
+.inner2 img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+}
+
+.inner3 {
+  transition: 0.8s; 
+  transform: rotateY(40deg);
+  margin-left: -15%;
+  width: auto;
+  height: auto;
+}
+
+.inner3 figure {
+  box-shadow: -7px 7px 2px -3px rgba(100,100,100,0.5);
+  display: inline-block;
+}
+
+.inner3 img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+  box-reflect: below 0 -webkit-gradient(linear, left bottom, left top, color-stop(0.05, rgba(255, 255, 255, 0.12)), color-stop(0.35, transparent));
+  -webkit-box-reflect: below 0 -webkit-gradient(linear, left bottom, left top, color-stop(0.05, rgba(255, 255, 255, 0.12)), color-stop(0.35, transparent));
+}

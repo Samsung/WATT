@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../../lib/tau/mobile/theme/default/tau.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script type="text/javascript" src="../../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+</head>
+<body>
+<div data-role="page" class="ui-page" id="ctxpopup-demo-page">
+    <div class="ui-header" data-position="fixed">
+        <h1>Contextual Popup</h1>
+    </div>
+    <div class="ui-content">
+        <ul class="ui-listview ui-colored-list">
+            <li class="ui-group-index">Horizontal Style</li>
+            <li class="ui-li-anchor"><a href="#ctxpopup_horizontal_basic" data-inline="true" data-rel="popup">Horizontal Basic</a></li>
+            <li class="ui-li-anchor"><a href="#ctxpopup_horizontal_scroll" data-inline="true" data-rel="popup">Horizontal Scroll</a></li>
+            <li class="ui-li-anchor"><a href="#ctxpopup_horizontal_icons" data-inline="true" data-rel="popup">Horizontal Icons</a></li>
+            <li class="ui-li-anchor"><a href="#ctxpopup_horizontal_iconstext" data-inline="true" data-rel="popup">Horizontal Icons + Text</a></li>
+            <li class="ui-group-index">Vertical Style</li>
+            <li class="ui-li-anchor"><a href="#ctxpopup_vertical_basic" data-inline="true" data-rel="popup">Vertical Basic</a></li>
+            <li class="ui-li-anchor"><a href="#ctxpopup_vertical_icons" data-inline="true" data-rel="popup">Vertical with Icons</a></li>
+        </ul>
+
+        <div id="ctxpopup_horizontal_basic" class="ui-popup ui-ctxpopup-basic" data-overlay="false">
+            <ul class="ui-listview">
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Copy</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Cut</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Paste</a></li>
+            </ul>
+        </div>
+
+        <div id="ctxpopup_horizontal_scroll" class="ui-popup ui-ctxpopup-basic" data-overlay="false">
+            <ul class="ui-listview">
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Copy</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Cut</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Paste</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Clipboard</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Refresh</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Close</a></li>
+            </ul>
+        </div>
+
+        <div id="ctxpopup_horizontal_icons" class="ui-popup ui-ctxpopup-icons" data-overlay="false">
+            <ul class="ui-listview">
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-copy"></span></a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-cut"></span></a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-paste"></span></a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-close"></span></a></li>
+            </ul>
+        </div>
+
+        <div id="ctxpopup_horizontal_iconstext" class="ui-popup ui-ctxpopup-icons-text" data-overlay="false">
+            <ul class="ui-listview">
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-copy"></span> Copy</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-cut"></span> Cut</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-paste"></span> Paste</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-clipboard"></span> Clipboard</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-close"></span> Close</a></li>
+            </ul>
+        </div>
+
+        <div id="ctxpopup_vertical_basic" class="ui-popup ui-ctxpopup-vertical" data-overlay="false">
+            <ul class="ui-listview">
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Copy</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Cut</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Paste</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back">Clipboard</a></li>
+            </ul>
+        </div>
+
+        <div id="ctxpopup_vertical_icons" class="ui-popup ui-ctxpopup-vertical" data-overlay="false">
+            <ul class="ui-listview">
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-copy"></span> Copy</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-cut"></span> Cut</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-paste"></span> Paste</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-clipboard"></span> Clipboard</a></li>
+                <li class="ui-li-anchor"><a href="#" data-rel="back"><span class="ui-icon ui-icon-close"></span> Close</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

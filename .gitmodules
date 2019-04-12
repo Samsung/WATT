@@ -2,3 +2,14 @@
 	path = libs/brackets-server/brackets-src
 	url = https://github.com/adobe/brackets.git
 	ignore = dirty
+[submodule "tools/crx"]
+	path = tools/crx
+	url = https://github.com/oncletom/crx.git
+	ignore = dirty
+[submodule "tools/pepper.js/tools/video.js/mux-js"]
+	path = tools/pepper.js/tools/video.js/mux-js
+	url = https://github.com/videojs/mux.js.git
+[submodule "libs/tau-wysiwig"]
+	path = libs/tau-wysiwig
+	url = https://github.com/Samsung/TAU-Design-Editor
+	ignore = dirty

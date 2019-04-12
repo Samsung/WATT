@@ -1,0 +1,23 @@
+{
+  "name": "dish washer",
+  "components": [{
+    "id": "main",
+    "capabilities": [
+    {
+      "id": "switch"
+    },
+    {
+      "id": "dishwasherMode"
+    },
+    {
+      "id": "dishwasherOperatingState"
+    },
+    {
+      "id": "energyMeter"
+    }]
+  }],
+  "metadata": {
+    "vid": "SAMPLE-DISHWASHER-001",
+    "deviceType": "Dishwasher"
+  }
+}

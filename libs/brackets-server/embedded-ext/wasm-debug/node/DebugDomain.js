@@ -55,6 +55,17 @@
                 callback(err);
             });
         }
+        
+        function handleInstall(projectId, callback) {
+            const sourcePath = path.join(process.cwd(), "projects", projectId);
+            var command = sourcePath + "/install.sh";
+            let child = exec(command, { cwd: sourcePath });
+
+            child.on("error", (err) => {
+                console.error("Error");
+                callback(err);
+            });
+        }
 
         _domainManager.registerCommand(
             DEBUG_DOMAIN,
@@ -75,6 +86,19 @@
             handleWast2Wasm,
             true,
             "Translate wast to wasm",
+            [
+                {name: "projectId", type: "string"},
+                {name: "src", type: "string"}
+            ],
+            []
+        );
+        
+        _domainManager.registerCommand(
+            DEBUG_DOMAIN,
+            "install",
+            handleInstall,
+            true,
+            "Test for install",
             [
                 {name: "projectId", type: "string"},
                 {name: "src", type: "string"}

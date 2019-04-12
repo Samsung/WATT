@@ -1,0 +1,3 @@
+[submodule "tools/video.js/mux-js"]
+	path = tools/video.js/mux-js
+	url = https://github.com/videojs/mux.js.git

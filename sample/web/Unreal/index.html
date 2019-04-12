@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Unreal API example</title>
+  <meta charset="utf-8">
+  <style type="text/css" media="screen">
+    body {
+      margin: 0;
+    }
+    canvas {
+      width: 100%;
+    }
+  </style>
+  <script type="text/javascript" src="js/camera.js"></script>
+  <script type="text/javascript">
+    var Module = {};
+
+    function make_scene() {
+      var world_iter = new Module.TObjectIteratorUWorld();
+      var world = world_iter.Current();
+
+      // setup ground
+      var ground = world.SpawnActorStaticMeshActor();
+      ground.SetMobility(Module.Stationary);
+
+      var ground_mesh = UE4.LoadObjectStaticMesh(
+          "/Game/StarterContent/Shapes/Shape_Plane.Shape_Plane");
+      var grass_material = UE4.LoadObjectMaterial(
+          "/Game/StarterContent/Materials/M_Ground_Grass.M_Ground_Grass");
+
+      var component = ground.GetStaticMeshComponent();
+      component.SetStaticMesh(ground_mesh);
+      component.SetMaterial(0, grass_material);
+
+      ground.SetActorScale3D(new FVector(10, 10, 0));
+      ground.SetMobility(Module.Stationary);
+
+      // setup cube
+      var cube = world.SpawnActorStaticMeshActor();
+      cube.SetMobility(Module.Movable);
+
+      var cube_mesh = UE4.LoadObjectStaticMesh(
+          "/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube");
+      var wood_material = UE4.LoadObjectMaterial(
+          "/Game/StarterContent/Materials/M_Wood_Oak.M_Wood_Oak");
+
+      component = cube.GetStaticMeshComponent();
+      component.SetStaticMesh(cube_mesh);
+      component.SetMaterial(0, wood_material);
+
+      cube.transform = cube.GetActorTransform();
+
+      var location = cube.GetActorLocation();
+      location.set_Z(-50);
+      cube.transform.SetLocation(location);
+
+      cube.animation = function(passed_time) {
+        var transform = new FTransform();
+        var sin = Math.sin(passed_time);
+        var alpha = 0.125 * Math.PI * Math.sin(passed_time / 7);
+
+        var transform_rot = new FTransform();
+        transform_rot.SetRotation(new FQuat(0, sin*Math.sin(alpha),
+            sin*Math.cos(alpha), Math.cos(passed_time)));
+        transform_rot.SetLocation(new FVector(0, 0, 100));
+
+        FTransform.prototype.Multiply(transform, cube.transform, transform_rot);
+
+        cube.SetActorTransform(transform);
+      }
+
+      // setup camera
+      var camera = new Camera(Module);
+
+      document.addEventListener("keyup", function(e){camera.onkeyup(e);}, false);
+      document.addEventListener("keydown", function(e){camera.onkeydown(e);}, false);
+
+      var last_time = performance.now();
+      var current_time = last_time;
+      var passed_time = 0;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        current_time = performance.now();
+        passed_time += (current_time - last_time)*0.001;
+        last_time = current_time;
+
+        cube.animation(passed_time);
+        camera.animate(passed_time);
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.onload = function() {
+      if(!webgl_detect()) {
+      	console.error('WebGL Not Detected!');
+      	return;
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', './wasm/unreal.wasm', true);
+      xhr.responseType = 'arraybuffer';
+
+      xhr.onload = function() {
+        Module = {
+          postRun: [make_scene],
+          canvas: document.getElementsByTagName('canvas')[0],
+          wasmBinary: xhr.response,
+
+          TOTAL_MEMORY: 536870912,
+          arguments: ['../../../StarterResources/StarterResources.uproject', '', '']
+        };
+
+        // download rest of scripts
+        [
+            './resources/StarterResources.data.js',
+            './js/unreal.js'
+        ].map(function (url) {
+          script = document.createElement('script');
+          script.src = url;
+
+          document.body.appendChild(script);
+        });
+      }
+
+      xhr.send();
+    };
+
+    var UE4 = {
+      on_fatal: function() {
+        try {
+          UE4.on_fatal = Module.cwrap('on_fatal', null, ['string', 'string']);
+        } catch(e) {
+          UE4.on_fatal = function() {};
+        }
+      },
+      LoadObjectStaticMesh: function(Name) {
+        try {
+          const _LoadObjectStaticMesh = Module.cwrap('_Z20LoadObjectStaticMeshPKc', 'UStaticMesh', ['string']);
+          UE4.LoadObjectStaticMesh = Name => ({ ptr: _LoadObjectStaticMesh(Name) });
+          return UE4.LoadObjectStaticMesh(Name);
+        } catch(e) {
+          UE4.LoadObjectStaticMesh = function() {};
+        }
+      },
+      LoadObjectMaterial: function(Name) {
+        try {
+          const _LoadObjectMaterial = Module.cwrap('_Z18LoadObjectMaterialPKc', 'UMaterial', ['string']);
+          UE4.LoadObjectMaterial = Name => ({ ptr: _LoadObjectMaterial(Name) });
+          return UE4.LoadObjectMaterial(Name);
+        } catch(e) {
+          UE4.LoadObjectMaterial = function() {};
+        }
+      }
+    };
+
+    function webgl_detect()
+    {
+      if (!!window.WebGLRenderingContext) {
+        var canvas = document.createElement("canvas");
+        var names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"];
+        var context = false;
+
+        for (var i=0;i<4;i++) {
+          try {
+            context = canvas.getContext(names[i]);
+            if (context && typeof context.getParameter == "function")
+              return true;
+          } catch(e) {}
+        }
+      }
+
+      console.error("Webgl is not supported");
+      return false;
+    }
+</script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <button type="button" id="fullscreen_request">FullScreen</button>
+</body>
+</html>

@@ -22,22 +22,21 @@
 }
 
 #compile-type-option {
-    width: 280px;
     border: 1px solid rgb(156, 158, 158);
-    box-shadow: rgba(0,0,0,0.117647) 0px 1px 0px 0px inset;
     outline: none;
+    width: 280px;
 }
 
 #compile-type-option:focus {
-    box-shadow: 0 0 0 2px #6fb5f1;
     border: 1px solid #0055ad;
+    box-shadow: 0 0 0 2px #6fb5f1;
 }
 
 #compile-option {
-    width: 550px;
     border: 1px solid rgb(156, 158, 158);
-    box-shadow: rgba(0,0,0,0.117647) 0px 1px 0px 0px inset;
+    box-shadow: rgba(0,0,0,0.117647) 0 1px 0 0 inset;
     outline: none;
+    width: 550px;
 }
 
 .compile-err-msg {
@@ -48,10 +47,10 @@
 /* API Picking */
 .select, .select-tree {
     border: 1px solid black;
-    width: 550px;
-    overflow: hidden;
     list-style-type: none;
     margin: 10px;
+    overflow: hidden;
+    width: 550px;
 }
 
 .select .group-label {

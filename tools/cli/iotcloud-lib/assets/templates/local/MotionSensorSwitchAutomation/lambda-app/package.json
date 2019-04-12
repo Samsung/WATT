@@ -1,0 +1,12 @@
+{
+  "name": "motionsensorswitch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "request": "2.79.0"
+  },
+  "devDependencies": {},
+  "author": "S-Core",
+  "license": "ISC"
+}

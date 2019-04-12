@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mongo_container:
+    image: "mongo:3.4.19"
+    restart: always
+
+  watt_container:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo_container
+    links:
+      - mongo_container
+    environment:
+      NODE_ENV: docker
+    stdin_open: true
+    tty: true

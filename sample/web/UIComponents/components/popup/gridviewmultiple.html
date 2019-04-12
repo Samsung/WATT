@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../../lib/tau/mobile/theme/default/tau.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script type="text/javascript" src="../../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+</head>
+<body>
+<div data-role="page" class="ui-page" id="popup_grid_page">
+	<div class="ui-header" data-position="fixed">
+		<h1>Popup with one multiple line grid</h1>
+	</div>
+	<div class="ui-content">
+		<ul class="ui-listview ui-colored-list">
+			<li class="ui-li-static">List Item 01</li>
+			<li class="ui-li-static">List Item 02</li>
+			<li class="ui-li-static">List Item 03</li>
+			<li class="ui-li-static">List Item 04</li>
+			<li class="ui-li-static">List Item 05</li>
+			<li class="ui-li-static">List Item 06</li>
+			<li class="ui-li-static">List Item 07</li>
+			<li class="ui-li-static">List Item 08</li>
+			<li class="ui-li-static">List Item 09</li>
+			<li class="ui-li-static">List Item 10</li>
+		</ul>
+
+		<div id="2btn_popup" class="ui-popup ui-popup-gridview">
+			<div class="ui-popup-header">Title</div>
+			<div class="ui-popup-content ui-popup-content-gridview-multiple">
+				<ul id="gridview" class="ui-gridview" data-label="out" style="width: 360px;">
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-call.png">
+						<p class="ui-gridview-label">Phone</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-gallery.png">
+						<p class="ui-gridview-label">Gallery</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-contacts.png">
+						<p class="ui-gridview-label">Contacts</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-browser.png">
+						<p class="ui-gridview-label">Internet</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-call.png">
+						<p class="ui-gridview-label">Phone</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-gallery.png">
+						<p class="ui-gridview-label">Gallery</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-contacts.png">
+						<p class="ui-gridview-label">Contacts</p>
+					</li>
+					<li class="ui-gridview-item">
+						<img class="ui-gridview-image" width="54" height="54"
+							 src="../../images/icon-browser.png">
+						<p class="ui-gridview-label">Internet</p>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-popup-footer ui-grid-col-2">
+				<a class="ui-btn" data-rel="back" data-inline="true">Always</a>
+				<a class="ui-btn" data-rel="back" data-inline="true">Just
+					once</a>
+			</div>
+		</div>
+		<script>
+					(function (tau) {
+						/**
+						 * page - Panel page element
+						 * panelChanger - Panel changer element
+						 * panelChangerComponent - TAU panel changer instance
+						 * navigation - navigation element
+						 * navigationComponent - TAU navigation instance
+						 */
+						var page = document.querySelector("#popup_grid_page");
+
+						/**
+						 * pagebeforeshow event handler
+						 * Do preparatory works and adds event listeners
+						 */
+						page.addEventListener("pageshow", function () {
+							tau.openPopup("2btn_popup");
+						});
+
+					}(window.tau));
+		</script>
+	</div>
+</div>
+</body>
+</html>

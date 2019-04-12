@@ -21,3 +21,6 @@ emscripten/
 
 # OSX
 .DS_Store
+
+# build output
+examples/**/data/

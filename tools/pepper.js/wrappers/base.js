@@ -108,11 +108,45 @@
   };
 
   var Messaging_RegisterMessageHandler = function(instance, user_data, handler, message_loop) {
-    // TODO
+    // We should return PP_ERROR_WRONG_THREAD here, because Pepper API
+    // docs [1] disallow calling RegisterMessageHandler on main thread's
+    // MessageLoop. pepper.js can only run on a single thread due to
+    // Emscripten/WebAssembly limitations, so every call to
+    // RegisterMessageHandler is on the main thread's MessageLoop.
+    //
+    // Our PPB_Messaging::RegisterMessageHandler implementation is the closest
+    // behavior we can get in single-threaded environment. It will replace
+    // handler from PPP_Messaging struct, but will be called on the main
+    // thread.
+    //
+    // `message_loop` argument is ignored.
+    //
+    // [1] https://developer.chrome.com/native-client/pepper_dev/c/struct_p_p_b___messaging__1__2#ae5abee73dc21a290514f7f3554a7e895
+    var inst = resources.resolve(instance, INSTANCE_RESOURCE);
+    if (inst == undefined) {
+      return ppapi.PP_ERROR_BADRESOURCE;
+    }
+
+    var PPP_MessageHandler_HandleMessage = getValue(handler, 'i32');
+    // TODO: investigate HandleBlockingMessage
+    var PPP_MessageHandler_HandleBlockingMessage = getValue(handler + 4, 'i32');
+    // TODO: call Destroy somewhere
+    var PPP_MessageHandler_Destroy = getValue(handler + 8, 'i32');
+
+    inst._registeredMessageHandler = function(instance, var_message) {
+      Runtime.dynCall('viii', PPP_MessageHandler_HandleMessage, [instance, user_data, var_message]);
+    };
+
+    return ppapi.PP_OK;
   }
 
   var Messaging_UnregisterMessageHandler = function(instance) {
-    // TODO
+    var inst = resources.resolve(instance, INSTANCE_RESOURCE);
+    if (inst == undefined) {
+      return;
+    }
+
+    inst._registeredMessageHandler = null;
   }
 
   registerInterface("PPB_Messaging;1.0", [

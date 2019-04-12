@@ -13,7 +13,7 @@
 # Macros for TOOLS
 #
 ifeq ($(EMSCRIPTEN),)
-EM_PATH:=$(shell $(WHICH) emcc))
+EM_PATH:=$(dir $(shell $(WHICH) emcc))
 ifeq (,$(findstring emcc,$(shell $(WHICH) emcc)))
 $(error Unable to find Emscripten.  Please install the Emscripten SDK and make sure the directory containing emcc is either in your path or pointed to by the EMSCRIPTEN environment variable)
 endif
@@ -21,11 +21,13 @@ EM_CC?=emcc
 EM_CXX?=em++
 EM_LINK?=em++
 EM_LIB?=emar
+EM_FILE?=python $(EM_PATH)tools/file_packager.py
 else
 EM_CC?="$(EMSCRIPTEN)/emcc"
 EM_CXX?="$(EMSCRIPTEN)/em++"
 EM_LINK?="$(EMSCRIPTEN)/em++"
 EM_LIB?="$(EMSCRIPTEN)/emar"
+EM_FILE?=python $(EMSCRIPTEN)/tools/file_packager.py
 endif
 
 # Architecture-specific flags
@@ -52,7 +54,8 @@ NACL_LDFLAGS+=-O0 -s RESERVED_FUNCTION_POINTERS=400 --minify 0
 endif
 
 # Set WASM option
-NACL_LDFLAGS+=-s WASM=1 -s "BINARYEN_METHOD='native-wasm'"
+NACL_LDFLAGS+=-s WASM=1 -s "BINARYEN_METHOD='native-wasm'" \
+	-s "EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']" \
 
 NACL_LDFLAGS+=-s TOTAL_MEMORY=33554432
 
@@ -133,6 +136,9 @@ WRAPPERS= \
     mouse_lock.js \
     testing.js \
     file.js \
+    video.js \
+    video_decoder.js \
+    network.js
 
 # Resolve the paths.
 WRAPPERS:=$(foreach wrapper,$(WRAPPERS),$(PEPPERJS_SRC_ROOT)/wrappers/$(wrapper))
@@ -151,6 +157,7 @@ define LINKER_RULE
 all: $(OUTDIR)/$(1).js
 $(OUTDIR)/$(1).js : $(foreach src,$(2),$(call SRC_TO_OBJ,$(src),_emscripten)) $(foreach dep,$(4),$(STAMPDIR)/$(dep).stamp) $(JS_LIBRARIES) $(JS_PRE) $(WRAPPERS)
 	$(call LOG,LINK,$$@,$(EM_LINK) -o $$@ $$(filter %.o,$$^) $(NACL_LDFLAGS) $(foreach path,$(6),-L$(path)/emscripten/$(CONFIG)) $(foreach lib,$(3),-l$(lib)) $(foreach file,$(JS_LIBRARIES),--js-library $(file)) $(foreach file,$(JS_PRE),--pre-js $(file)) $(foreach wrapper,$(WRAPPERS),--pre-js $(wrapper)) $(5))
+	$(POST_STEP)
 endef
 
 #
@@ -191,3 +198,51 @@ $(OUTDIR)/$(1).js : $(OUTDIR)/$(2).js
 	cp $(OUTDIR)/$(2).js $(OUTDIR)/$(1).js
 all: $(OUTDIR)/$(1).js
 endef
+
+#
+# Top-level Patch Macro
+#
+# $1 = Target Basename
+# $2 = Patch filename
+define PATCH_RULE
+$(OUTDIR)/$(1).patch : $(OUTDIR)/$(2)
+	cd $(OUTDIR) && patch < $(2)
+all: $(OUTDIR)/$(1).patch
+endef
+
+#
+# Top-level Sed Macro
+#
+# $1 = Target Basename
+# $2 = Patch Template Filename
+# $3 = Patch Basename
+define PATCH_TEMPLATE_RULE
+$(OUTDIR)/$(3) : $(2)
+	sed 's/{Target}/$(1)/g' $(2) > $(OUTDIR)/$(3)
+all: $(OUTDIR)/$(3)
+endef
+
+#
+# Top-level Copy Macro
+#
+# $1 = Source filename
+# $2 = Target directory
+define COPY_RULE
+$(1).copy : $(2)
+	cp $(1) $(2)
+all: $(1).copy
+endef
+
+VIDEO_TOOL_DIR:=$(PEPPERJS_SRC_ROOT)/tools/video.js
+$(VIDEO_TOOL_DIR)/mux.js:
+	cd $(VIDEO_TOOL_DIR) && $(MAKE)
+$(OUTBASE)/data/mux.js: $(VIDEO_TOOL_DIR)/mux.js
+	mkdir -p $(OUTBASE)/data/
+	cp $(VIDEO_TOOL_DIR)/video_worker.js $(OUTBASE)/data/
+	cp $(VIDEO_TOOL_DIR)/mux.js $(OUTBASE)/data/
+all: $(OUTBASE)/data/mux.js
+
+clean_video_worker:
+	$(RM) -f $(OUTBASE)/data/video_worker.js
+	$(RM) -f $(OUTBASE)/data/mux.js
+clean: clean_video_worker

@@ -33,15 +33,11 @@ TARGET=ppapi_cpp
 #
 SOURCES = array_output.cc \
   audio.cc \
-  audio_buffer.cc \
   audio_config.cc \
-  audio_encoder.cc \
   compositor.cc \
   compositor_layer.cc \
   core.cc \
-  cursor_control_dev.cc \
   directory_entry.cc \
-  file_chooser_dev.cc \
   file_io.cc \
   file_ref.cc \
   file_system.cc \
@@ -55,9 +51,6 @@ SOURCES = array_output.cc \
   instance.cc \
   instance_handle.cc \
   lock.cc \
-  media_stream_audio_track.cc \
-  media_stream_video_track.cc \
-  memory_dev.cc \
   message_loop.cc \
   module.cc \
   mouse_cursor.cc \
@@ -69,14 +62,12 @@ SOURCES = array_output.cc \
   paint_aggregator.cc \
   paint_manager.cc \
   ppp_entrypoints.cc \
-  printing_dev.cc \
   rect.cc \
   resource.cc \
   scriptable_object_deprecated.cc \
   simple_thread.cc \
   tcp_socket.cc \
   text_input_controller.cc \
-  truetype_font_dev.cc \
   udp_socket.cc \
   url_loader.cc \
   url_request_info.cc \
@@ -86,10 +77,7 @@ SOURCES = array_output.cc \
   var_array_buffer.cc \
   var_dictionary.cc \
   video_decoder.cc \
-  video_encoder.cc \
-  video_frame.cc \
   view.cc \
-  view_dev.cc \
   websocket.cc \
   websocket_api.cc
 

@@ -7,33 +7,47 @@
       <h4><p id="" class="col-md-6 text-center">Select the <%= projectFormat %>.</p></h4>
     </div>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-2">
+        <div class="list-group" style="overflow:hidden;">
+          <% if (categories && categories.length) { %>
+          <% categories.forEach(function(category) { %>
+          <a class="list-group-item category" style="min-height:unset;">
+              <%= category %>
+          </a>
+          <% })}; %>
+        </div>
+      </div>
+      <div class="col-md-4">
         <div class="list-group">
           <% if (templates && templates.length) { %>
           <% templates.forEach(function(template) { %>
-          <a class="list-group-item">
-            <div class="media col-md-2">
-              <figure class="pull-left">
-                <img class="media-object img-rounded img-responsive" src="<%= template.icon %>" alt="No Image" >
-              </figure>
-            </div>
-            <div class="col-md-7">
-              <h4 class="list-group-item-name">
-                <%= template.name %>
-              </h4>
-              <p class="list-group-item-description">
-                <%= template.description %>
-              </p>
-              <p class="list-group-item-src hidden">
-                <%= template.src %>
-              </p>
-            </div>
-            <div class="col-md-3">
-              <% if (template.language) { %>
-              <p class="list-group-item-language">
-                Language: <span><%= template.language %></span>
-              </p>
-              <% } %>
+          <a class="list-group-item template">
+            <div class="info-box" style="margin-bottom: unset;">
+              <span class="info-box-icon">
+                <img class="media-object img-rounded img-responsive" style="width:100%; height:100%;" src="<%= template.icon %>" alt="No Image">
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">
+                  <%= template.name %>
+                </span>
+                <div class="progress">
+                  <div class="progres-bar" style="width:100%"></div>
+                </div>
+                <span>
+                  <%= template.description %>
+                </span>
+                <p class="list-group-item-src hidden">
+                  <%= template.src %>
+                </p>
+                <p class="list-group-item-category hidden">
+                  <%= template.category %>
+                </p>
+                <p class="list-group-item-extension hidden">
+                  <% if (template.extension) { %>
+                    <%= template.extension %>
+                  <% } %>
+                </p>
+              </div>
             </div>
           </a>
           <% })}; %>

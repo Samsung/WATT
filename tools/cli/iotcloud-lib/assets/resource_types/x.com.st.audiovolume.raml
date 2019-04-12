@@ -1,0 +1,121 @@
+#%RAML 0.8
+title: WWST Audio volume
+version: v1.0.0-20170911
+schemas:
+- Audio: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.audiovolume.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "definitions": {
+        "x.com.st.audiovolume": {
+          "type": "object",
+          "properties": {
+            "volume": {
+              "type": "integer",
+              "description": "Volume setting of an audio rendering device.",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "command": {
+              "type": "string",
+              "enum": [
+                "increase",
+                "decrease",
+                "max",
+                "min"
+              ],
+              "description": "Comand for controlling"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.audiovolume"
+        }
+      ],
+      "required": [
+        "volume"
+      ]
+    }
+
+- AudioUpdate: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.audiovolume.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "definitions": {
+        "x.com.st.audiovolume": {
+          "type": "object",
+          "properties": {
+            "volume": {
+              "type": "integer",
+              "description": "Volume setting of an audio rendering device.",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "command": {
+              "type": "string",
+              "enum": ["increase", "decrease", "max", "min"],
+              "description": "Comand for controlling"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.audiovolume"}
+      ]
+    }
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.a","oic.if.baseline"]
+
+/WWSTAudiovolumeResURI:
+  description: |
+        Volume control for TV, Networ speakers, etc
+  displayName: WWST Audio volume
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current Audio volume
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Audio
+            example: |
+              {
+                "rt": ["x.com.st.audiovolume"],
+                "id": "unique_example_id",
+                "volume": 20
+              }
+
+  post:
+    body:
+      application/json:
+        schema: AudioUpdate
+        example: |
+          {
+            "id": "unique_example_id",
+            "volume": 75
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: AudioUpdate
+            example: |
+              {
+                "id": "unique_example_id",
+                "volume": 75
+              }

@@ -1,0 +1,108 @@
+{
+    "dpResources": [
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_light_dimming"
+            },
+            "controllable": true,
+            "group": null,
+            "name": "Switch Level",
+            "ruleEvent": false,
+            "valueType": null,
+            "step": 0,
+            "label": {
+                "n": "st dimming level resource",
+                "arguments": null,
+                "label": "___PO_CODE_SWITCHLEVEL_DIMMING"
+            },
+            "visible": null,
+            "range": [
+                1,
+                100
+            ],
+            "controlType": "List",
+            "ruleAction": true,
+            "link": {
+                "rt": "oic.r.light.dimming",
+                "href": "/capability/switchLevel/0",
+                "if": "oic.if.a"
+            },
+            "property": "dimmingSetting",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_light_dimming"
+            },
+            "controllable": true,
+            "group": null,
+            "name": "Switch Level",
+            "ruleEvent": false,
+            "valueType": null,
+            "step": 0,
+            "label": {
+                "n": "st dimming level resource",
+                "arguments": null,
+                "label": "___PO_CODE_SWITCHLEVEL_DIMMING"
+            },
+            "visible": null,
+            "range": [
+                1,
+                100
+            ],
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "oic.r.light.dimming",
+                "href": "/capability/switchLevel/0",
+                "if": "oic.if.a"
+            },
+            "property": "dimmingSetting",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_SWITCHLEVEL_DIMMING",
+                    "label": "Dimmer"
+                }
+            ],
+            "locale": "en_US",
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Brightness",
+        "voiceActions": [
+            {
+                "rt": "oic.r.light.dimming",
+                "action": "Set",
+                "href": "/capability/switchLevel/0",
+                "payload": {
+                    "dimmingSetting": "<integer>"
+                }
+            },
+            {
+                "rt": "oic.r.light.dimming",
+                "action": "Status",
+                "property": "dimmingSetting",
+                "href": "/capability/switchLevel/0"
+            }
+        ]
+    },
+    "capability": "Switch Level",
+    "ms": [],
+    "voiceVersion": "0.0.2"
+}

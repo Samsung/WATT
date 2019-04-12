@@ -1,0 +1,66 @@
+#%RAML 0.8
+title: WWST Voltage Measurement
+version: v1.0.0-20180803
+schemas:
+- Voltage: |
+    {
+        "id": "http://www.samsung.com/schemas/x.com.st.voltageMeasurement.json#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description" : "Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+        "definitions": {
+            "x.com.st.voltageMeasurement": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number",
+                        "description": "A number representing the current voltage measured"
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": ["V"],
+                        "description": "The unit of voltage detected"
+                    }
+                }
+            }
+        },
+        "type": "object",
+        "allOf": [
+            {
+                "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+            },
+            {
+                "$ref": "#/definitions/x.com.st.voltageMeasurement"
+            }
+        ],
+        "required": [
+            "value"
+        ]
+    }
+
+traits:
+    - interface:
+        queryParameters:
+            if:
+                enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTVoltageMeasurementResURI:
+    description: |
+        A number representing the current voltage measured
+    displayName: WWST Voltage Measurement
+    is: [ interface ]
+
+    get:
+        description: |
+            Get the value of voltage measured from devices that support it
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: Voltage
+                        example: |
+                            {
+                                "rt": ["x.com.st.voltageMeasurement"],
+                                "id": "unique_example_id",
+                                "value": 110,
+                                "unit": "V"
+                            }

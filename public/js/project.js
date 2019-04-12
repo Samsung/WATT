@@ -1,4 +1,5 @@
 /* global isPWE */
+
 'use strict';
 
 // Element for the project list
@@ -37,6 +38,7 @@ $('#new-project').on('show.bs.modal', function() {
   var currentProcess = 'project-type',
     emptyProject = false,
     projectDescription = '',
+    projectExtension = '',
     projectFormat = 'template',
     projectName = '',
     projectProfile = 'mobile',
@@ -46,11 +48,15 @@ $('#new-project').on('show.bs.modal', function() {
 
   // Button for the dialog
   var backBtn = $('#back-button'),
+    crxBtn = $('#crx-button'),
     finishBtn = $('#finish-button'),
+    iotBtn = $('#iot-button'),
     mobileBtn = $('#mobile-button'),
     nextBtn = $('#next-button'),
     sampleBtn = $('#sample-button'),
+    sthingsBtn = $('#sthings-button'),
     templateBtn = $('#template-button'),
+    tvBtn = $('#tv-button'),
     wasmBtn = $('#wasm-button'),
     wearableBtn = $('#wearable-button'),
     webBtn = $('#web-button');
@@ -60,37 +66,34 @@ $('#new-project').on('show.bs.modal', function() {
     projectNameInput = $('#project-name');
 
   var mobileVersion = $('#mobile-version'),
+    tvVersion = $('#tv-version'),
     wearableVersion = $('#wearable-version');
 
   // Handle buttons click event
-  mobileBtn.click(function() {
-    wearableBtn.removeClass('btn-primary');
-    mobileBtn.addClass('btn-primary');
+  $('#project-format .btn').click(function ($event) {
+    if ($('#project-format .btn.btn-primary') &&
+      $('#project-format .btn.btn-primary').get(0) !== $event.currentTarget) {
+      $('#project-format .btn.btn-primary').removeClass('btn-primary');
+    }
+    $($event.currentTarget).addClass('btn-primary');
   });
 
-  wearableBtn.click(function() {
-    mobileBtn.removeClass('btn-primary');
-    wearableBtn.addClass('btn-primary');
-  });
-
-  templateBtn.click(function() {
+  templateBtn.click(function () {
     sampleBtn.removeClass('btn-primary');
     templateBtn.addClass('btn-primary');
   });
 
-  sampleBtn.click(function() {
+  sampleBtn.click(function () {
     templateBtn.removeClass('btn-primary');
     sampleBtn.addClass('btn-primary');
   });
 
-  wasmBtn.click(function() {
-    webBtn.removeClass('btn-primary');
-    wasmBtn.addClass('btn-primary');
-  });
-
-  webBtn.click(function() {
-    wasmBtn.removeClass('btn-primary');
-    webBtn.addClass('btn-primary');
+  $('#project-type .btn').click(function ($event) {
+    if ($('#project-type .btn.btn-primary') &&
+      $('#project-type .btn.btn-primary').get(0) !== $event.currentTarget) {
+      $('#project-type .btn.btn-primary').removeClass('btn-primary');
+    }
+    $($event.currentTarget).addClass('btn-primary');
   });
 
   $('#empty-checkbox').on('change', function() {
@@ -107,6 +110,32 @@ $('#new-project').on('show.bs.modal', function() {
     }
   });
 
+  $('#profile-version .btn').click(function ($event) {
+    if ($('#profile-version .btn.btn-primary') &&
+        $('#profile-version .btn.btn-primary').get(0) !== $event.currentTarget) {
+      $('#profile-version .btn.btn-primary').removeClass('btn-primary');
+    }
+    $($event.currentTarget).addClass('btn-primary');
+  });
+
+  mobileBtn.click(function () {
+    wearableBtn.removeClass('btn-primary');
+    tvBtn.removeClass('btn-primary');
+    mobileBtn.addClass('btn-primary');
+  });
+
+  wearableBtn.click(function () {
+    mobileBtn.removeClass('btn-primary');
+    tvBtn.removeClass('btn-primary');
+    wearableBtn.addClass('btn-primary');
+  });
+
+  tvBtn.click(function () {
+    mobileBtn.removeClass('btn-primary');
+    wearableBtn.removeClass('btn-primary');
+    tvBtn.addClass('btn-primary');
+  });
+
   $('#mobile-version-dropdown>li').click(function() {
     var version = $(this).text();
     mobileVersion.text(version);
@@ -119,14 +148,21 @@ $('#new-project').on('show.bs.modal', function() {
     projectVersion = version.split('v')[1];
   });
 
+  $('#tv-version-dropdown>li').click(function() {
+    var version = $(this).text();
+    tvVersion.text(version);
+    projectVersion = version.split('v')[1];
+  });
+
   // Init button state and value
   nextBtn.removeAttr('disabled');
   backBtn.attr('disabled', 'disabled');
   finishBtn.attr('disabled', 'disabled');
   projectNameInput.val('');
   projectDescriptionInput.val('');
-  mobileVersion.text('Mobile v4.0');
-  wearableVersion.text('Wearable v4.0');
+  mobileVersion.text('Mobile');
+  wearableVersion.text('Wearable');
+  tvVersion.text('Tv');
   projectTypeDlg.show();
   projectFormatDlg.hide();
   profileVersionDlg.hide();
@@ -145,23 +181,57 @@ $('#new-project').on('show.bs.modal', function() {
   }
 
   // Update the list of template or sample
-  function updateTemplateSample(projectFormat, projectType) {
+  function updateTemplateSample(projectFormat, projectType, projectProfile) {
     $.post('/update/template', {
       format: projectFormat,
-      type: projectType
+      type: projectType,
+      profile: projectProfile
     }).done(function(data) {
       templateSampleDlg.html(data);
 
-      $('a.list-group-item').click(function() {
-        $('a.list-group-item').removeClass('active');
+      $('a.list-group-item.category').click(function() {
+        $('a.list-group-item.category').removeClass('active');
         $(this).addClass('active');
-        templateName = $(this).find('.list-group-item-src').text();
+
+        var category = $(this).text().trim();
+
+        $('a.list-group-item.template').each(function(index) {
+          $(this).addClass('hidden');
+
+          var value = $(this).find('.list-group-item-category').text().trim();
+          if (value === category) {
+            $(this).removeClass('hidden');
+          }
+        });
       });
 
-      if ($('a.list-group-item').length > 0) {
-        $($('a.list-group-item')[0]).addClass('active');
-        templateName = $($('a.list-group-item')[0]).find('.list-group-item-src').text();
-      } else {
+      if ($('a.list-group-item.category').length > 0) {
+        $($('a.list-group-item.category')[0]).addClass('active');
+
+        var category = $($('a.list-group-item.category')[0]).text().trim();
+        
+        $('a.list-group-item.template').each(function(index, template){
+          $(this).addClass('hidden');
+
+          var value = $(this).find('.list-group-item-category').text().trim();
+          if (value === category) {
+            $(this).removeClass('hidden');
+          }
+        });
+      }
+
+      $('a.list-group-item.template').click(function() {
+        $('a.list-group-item.template').removeClass('active');
+        $(this).addClass('active');
+        $(this).css('color', 'black');
+        templateName = $(this).find('.list-group-item-src').text();
+        var extension = $(this).find('.list-group-item-extension').text().trim();
+        if (extension.length !== 0) {
+          projectExtension = extension;
+        }
+      });
+
+      if ($('a.list-group-item.template').length === 0) {
         // Disable next button when there is no template or sample
         nextBtn.attr('disabled', 'disabled');
       }
@@ -176,6 +246,12 @@ $('#new-project').on('show.bs.modal', function() {
         projectType = 'wasm';
       } else if (webBtn.hasClass('btn-primary')) {
         projectType = 'web';
+      } else if (iotBtn.hasClass('btn-primary')) {
+        projectType = 'iotjs';
+      } else if (sthingsBtn.hasClass('btn-primary')) {
+        projectType = 'sthings';
+      } else if (crxBtn.hasClass('btn-primary')) {
+        projectType = 'crx';
       }
 
       projectTypeDlg.hide();
@@ -195,7 +271,7 @@ $('#new-project').on('show.bs.modal', function() {
         projectFormat = 'sample';
       }
 
-      if (projectType === 'web') {
+      if (projectType === 'web' || projectType === 'sthings') {
         profileVersionDlg.show();
         currentProcess = 'profile-version';
       } else {
@@ -223,6 +299,8 @@ $('#new-project').on('show.bs.modal', function() {
         projectProfile = 'mobile';
       } else if (wearableBtn.hasClass('btn-primary')) {
         projectProfile = 'wearable';
+      } else if (tvBtn.hasClass('btn-primary')) {
+        projectProfile = 'tv';
       }
 
       if (emptyProject) {
@@ -230,7 +308,7 @@ $('#new-project').on('show.bs.modal', function() {
         nextBtn.attr('disabled', 'disabled');
         currentProcess = 'project-property';
       } else {
-        updateTemplateSample(projectFormat, projectType);
+        updateTemplateSample(projectFormat, projectType, projectProfile);
         templateSampleDlg.show();
         currentProcess = 'template-sample';
       }
@@ -260,7 +338,7 @@ $('#new-project').on('show.bs.modal', function() {
       break;
     case 'template-sample':
       nextBtn.removeAttr('disabled');
-      if (projectType === 'web') {
+      if (projectType === 'web' || projectType === 'sthings') {
         templateSampleDlg.hide();
         profileVersionDlg.show();
         currentProcess = 'profile-version';
@@ -278,6 +356,8 @@ $('#new-project').on('show.bs.modal', function() {
       propertyDlg.hide();
       nextBtn.removeAttr('disabled');
       finishBtn.attr('disabled', 'disabled');
+      projectNameInput.val('');
+      projectDescriptionInput.val('');
 
       if (emptyProject) {
         if (projectType === 'web') {
@@ -324,6 +404,7 @@ $('#new-project').on('show.bs.modal', function() {
         version: projectVersion,
         type: projectType,
         templateName: templateName.trim(),
+        extension : projectExtension
       }
     }).done(function() {
       $.get('/update').done(function(data) {
@@ -346,17 +427,22 @@ $('#new-project').on('hide.bs.modal', function() {
   $('#cancel-button').off();
   $('#empty-checkbox').off();
   $('#finish-button').off();
+  $('#iot-button').off();
   $('#mobile-button').off();
   $('#mobile-version-dropdown>li').off();
   $('#next-button').off();
   $('#project-name').off();
   $('#sample-button').off();
+  $('#sthings-button').off();
   $('#template-button').off();
   $('#template-list>li').off();
+  $('#tv-button').off();
+  $('#tv-version-dropdown>li').off();
   $('#wasm-button').off();
   $('#wearable-button').off();
   $('#wearable-version-dropdown>li').off();
   $('#web-button').off();
+  $('#crx-button').off();
 });
 
 // Code for delete project
@@ -581,12 +667,24 @@ $('#edit-project').on('show.bs.modal', function(event) {
   $.get('/project/'+projectId).done(function(data) {
     $('#edit-project-name').val(data.name);
     $('#edit-project-description').val(data.description);
-    $('#edit-project-type').val(data.type);
+    $('#edit-project-type').text(data.type);
     if (data.type === 'web') {
       $('#edit-profile').text(data.profile);
       $('#edit-version').text(data.version);
       $('#edit-project-profile').show();
       $('#edit-project-version').show();
+    }
+  });
+
+  $('#edit-project-type-dropdown>li').click(function() {
+    $('#edit-project-type').text($(this).text());
+
+    if ($(this).text() === 'web') {
+      $('#edit-project-profile').show();
+      $('#edit-project-version').show();
+    } else {
+      $('#edit-project-profile').hide();
+      $('#edit-project-version').hide();
     }
   });
 
@@ -599,7 +697,7 @@ $('#edit-project').on('show.bs.modal', function(event) {
   });
 
   $('#edit-save-button').click(function() {
-    var projectType = $('#edit-project-type').val();
+    var projectType = $('#edit-project-type').text();
     var projectProfile = '';
     var projectVersion = '';
     
@@ -611,6 +709,7 @@ $('#edit-project').on('show.bs.modal', function(event) {
     $.post('/project/'+projectId, {
       name: $('#edit-project-name').val(),
       description: $('#edit-project-description').val(),
+      type: projectType,
       profile: projectProfile,
       version: projectVersion,
     }).done(function() {

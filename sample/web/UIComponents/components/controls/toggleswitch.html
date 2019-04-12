@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../../lib/tau/mobile/theme/default/tau.min.css">
+	<link rel="stylesheet" href="../../css/style.css">
+	<script type="text/javascript" src="../../lib/tau/mobile/js/tau.min.js" data-build-remove="false"></script>
+</head>
+<body>
+<div class="ui-page" id="switch-demo">
+	<div class="ui-header">
+		<h1>Toggle switch</h1>
+	</div>
+
+	<div class="ui-content">
+		<ul class="ui-listview ui-colored-list">
+			<li class="ui-group-index">
+				1-1. Proper way of definding toggleswitch with &lt;input&gt; tag
+			</li>
+			<li>
+				<input type="checkbox" name="toggle-1" id="toggle-1" class="ui-toggleswitch"/>
+			</li>
+			<li class="ui-group-index">
+				1-2.Proper way of definding disabled toggleswitch with &lt;input&gt; tag
+			</li>
+			<li>
+				<input type="checkbox" name="toggle-2" id="toggle-2" class="ui-toggleswitch" disabled/>
+			</li>
+			<li class="ui-group-index">
+				2. Define toggleswitch based on &lt;select&gt; tag and class="ui-toggleswitch"
+			</li>
+			<li>
+				<select name="flip-1" id="flip-1" class="ui-toggleswitch">
+					<option value="off"></option>
+					<option value="on"></option>
+				</select>
+			</li>
+		</ul>
+	</div>
+	<link rel="stylesheet" href="toggleswitch.css" />
+</div>
+</body>
+</html>

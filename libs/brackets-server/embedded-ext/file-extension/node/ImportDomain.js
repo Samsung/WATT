@@ -4,7 +4,8 @@
     var fs = require("fs"),
         fse = require("fs-extra"),
         path = require("path"),
-        readline = require("readline");
+        readline = require("readline"),
+        { exec } = require("child_process");
 
     var _domainManager;
 
@@ -80,6 +81,56 @@
             callback(null);
         }
 
+        function initPackage(packagePath, callback) {
+            const npmInitCommand = "npm init -y";
+
+            exec(npmInitCommand, { "cwd": packagePath }, (err, stdout, stderr) => {
+                console.log(stdout);
+                console.log(stderr);
+                if (err) {
+                    return callback("Could not init in " + packagePath + ": " + err);
+                } else {
+                    return callback(null);
+                }
+            });
+
+        }
+
+        function installPackage(packageName, wpmAddress, projectId, callback) {
+            const libsPath = path.join(process.cwd(), "projects", projectId, "libs");
+            const npmInstallCommand = "npm install --prefix " + libsPath + " " + packageName + " --registry " + wpmAddress;
+
+            exec(npmInstallCommand, (err, stdout, stderr) => {
+                console.log(stdout);
+                console.log(stderr);
+
+                if (err) {
+                    return callback("Could not install " + packageName + " from " + wpmAddress + ", error: " + err);
+                }
+
+                // Get rid of node_modules folder.
+                const nodeModulesPath = path.join(libsPath, "node_modules");
+                fse.copy(nodeModulesPath, libsPath).then(() => {
+                    fse.remove(nodeModulesPath).then(() => {
+                        callback();
+                    }).catch(err => callback(err));
+                }).catch(err => callback(err));
+            });
+        }
+
+        function publishPackage(packagePath, wpmAddress, callback) {
+            const npmPublishCommand = "npm publish " + packagePath + " --registry " + wpmAddress;
+            exec(npmPublishCommand, (error, stdout, stderr) => {
+                console.log(stdout);
+                console.log(stderr);
+                if (error) {
+                    return callback(error.toString());
+                } else {
+                    return callback(null);
+                }
+            });
+        }
+
         function copyFile(projectId, src, name, dest, callback) {
             const sourcePath = path.join(process.cwd(), "projects", projectId, src, name);
             const destPath = path.join(process.cwd(), "projects", projectId, dest, name);
@@ -142,6 +193,46 @@
                 {name: "projectName", type: "string"},
                 {name: "fileList", type: "array"},
                 {name: "targetId", type: "string"}
+            ],
+            []
+        );
+
+
+        _domainManager.registerCommand(
+            "importNode",
+            "initPackage",
+            initPackage,
+            true,
+            "init Package",
+            [
+                {name: "packagePath", type: "string"}
+            ],
+            []
+        );
+
+        _domainManager.registerCommand(
+            "importNode",
+            "installPackage",
+            installPackage,
+            true,
+            "install Package",
+            [
+                {name: "packageName", type: "string"},
+                {name: "wpmAddress", type: "string"},
+                {name: "projectId", type: "string"}
+            ],
+            []
+        );
+
+        _domainManager.registerCommand(
+            "importNode",
+            "publishPackage",
+            publishPackage,
+            true,
+            "publish Package",
+            [
+                {name: "packagePath", type: "string"},
+                {name: "wpmAddress", type: "string"}
             ],
             []
         );

@@ -4,7 +4,9 @@
 process.env.NODE_ENV = "test";
 
 const assert = require("chai").assert;
+const cwd = require("cwd");
 const expect = require("chai").expect;
+const fc = require("file-compare");
 const fs = require("fs");
 const pathNode = require("path");
 const project = require("../node/CompileDomain");
@@ -27,22 +29,22 @@ TARGET=main.html
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) -o $@ $^ $(CCFLAGS) $(CCFLAGS_OPT)
+    $(CC) -o $@ $^ $(CCFLAGS) $(CCFLAGS_OPT)
 
 %.o: %.cc %.h
-	$(CC) -c $< -o $@
+    $(CC) -c $< -o $@
 
 %.o: %.c %.h
-	$(CC) -c $< -o $@
+    $(CC) -c $< -o $@
 
 %.o: %.cc
-	$(CC) -c $< -o $@
+    $(CC) -c $< -o $@
 
 %.o: %.c
-	$(CC) -c $< -o $@
+    $(CC) -c $< -o $@
 
 clean:
-	rm -f $(shell find . -name "*.o") *.wasm *.wast *.js $(TARGET)
+    rm -f $(shell find . -name "*.o") *.wasm *.wast *.js $(TARGET)
 `;
 
 function prepareMakefile(makefileContents) {
@@ -70,6 +72,48 @@ describe("'project' extension", () => {
             project.checkBuildWGT((result) => {
                 expect(result).to.equal(true);
                 done();
+            });
+        });
+
+        //getTempDir test
+        //TODO: change to async - await approach after node upgrade to 7.6 or later
+        it("should be able to check geting temporary directory", () => {
+            const tempPromise = project.getTempDir();
+            expect(tempPromise).to.be.a("promise");
+            return tempPromise.then ( (result) => {
+                expect(result.tmpDirPath).to.be.a("string").that.is.not.empty;
+                expect(fs.existsSync(result.tmpDirPath)).to.be.true;
+                expect(result.tmpDirCleanup).to.be.a("function");
+                //cleanup
+                result.tmpDirCleanup();
+                expect(fs.existsSync(result.tmpDirPath)).to.be.false;
+            });
+        });
+
+        //patchIndexFile test
+        //TODO: change to async - await approach after node upgrade to 7.6 or later
+        it("should be able to replace local values to provided ones", () => {
+            const sampleFile = pathNode.join(cwd(), "libs/brackets-server/embedded-ext/project/test/sample/replace.html");
+            const sampleFileTmp = sampleFile + ".tmp";
+            const sampleFileRef = sampleFile + ".ok";
+
+            fs.writeFileSync(sampleFileTmp, fs.readFileSync(sampleFile));
+            const replacementList = [];
+            replacementList.push({
+                originalPath: "./wasm/unreal.wasm",
+                devicePath: "file:///home/owner/share/tizen-unrealjs/latest/unreal.wasm"
+            });
+            replacementList.push({
+                originalPath: "./js/unreal.js",
+                devicePath: "file:///home/owner/share/tizen-unrealjs/latest/unreal.js"
+            });
+            const patchPromise = project.patchIndexFile(sampleFileTmp, replacementList);
+            expect (patchPromise).to.be.a("promise");
+            return patchPromise.then ( (result) => {
+                fc.compare(sampleFileRef, sampleFileTmp, (copied, err) => {
+                    expect(copied).to.be.true;
+                });
+                fs.unlinkSync(sampleFileTmp);
             });
         });
     });

@@ -1,0 +1,74 @@
+<script i3d-target="{{TARGET}}" i3d-model="{{MODEL}}" i3d-format="{{FORMAT}}">
+    var camera, controls, scene, renderer;
+    var container, animator;
+    var isAnimating = false;
+
+    function init() {
+        container = document.querySelector("{{CONTAINER_ID}}");
+        container.style.background = "none";
+
+        camera = new THREE.PerspectiveCamera(60, container.offsetWidth / container.offsetHeight, 1, 1000);
+        camera.position.z = 50;
+
+        controls = new THREE.OrbitControls(camera);
+
+        scene = new THREE.Scene();
+        group = new THREE.Group();            
+        scene.add(group);
+
+        var hemisphereLight = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);
+        group.add(hemisphereLight);
+
+        var objLoader = new THREE.OBJLoader2();
+        var callbackOnLoad = function(event) {
+            event.detail.loaderRootNode.scale.x = 100;
+            event.detail.loaderRootNode.scale.y = 100;
+            event.detail.loaderRootNode.scale.z = 100;
+            group.add(event.detail.loaderRootNode);
+        };
+        var onLoadMtl = function(materials) {
+            objLoader.setModelName('model');
+            objLoader.setMaterials(materials);
+            objLoader.setUseIndices(true);
+            objLoader.setDisregardNormals(false);
+            objLoader.getLogger().setDebug(true);
+            objLoader.load('{{OBJ_PATH}}', callbackOnLoad, null, null, null, false);
+        };
+        objLoader.loadMtl('{{MTL_PATH}}', '{{MTL_FILE}}', null, onLoadMtl);
+
+        renderer = new THREE.WebGLRenderer({alpha:true});
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( container.offsetWidth, container.offsetHeight );
+        container.appendChild( renderer.domElement );
+    }
+
+    function animate() {
+        animator = requestAnimationFrame( animate );
+        render();
+    }
+
+    function render() {
+        camera.lookAt( scene.position );
+        renderer.render( scene, camera );
+    }
+
+    function show() {
+        if (isAnimating) {
+            return;
+        }
+
+        init();
+        animate();
+        isAnimating = true;
+    }
+
+    function hide() {
+        if (!isAnimating) {
+            return;
+        }
+        
+        isAnimating = false;
+        cancelAnimationFrame(animator);
+        container.removeChild(renderer.domElement);
+    }
+</script>

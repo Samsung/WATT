@@ -1,0 +1,61 @@
+#%RAML 0.8
+title: OCFColourTemperature
+version: v1.1.0-20160519
+schemas:
+  - Temperature: !include oic.r.colour.colourtemperature.json
+traits:
+ - interface :
+     queryParameters:
+       if:
+         enum: ["oic.if.a", "oic.if.baseline"]
+
+/ColourTemperatureResURI:
+  description: |
+    The temperature resource of colour
+
+  displayName: Colour Temperature
+
+  is : ['interface']
+  get:
+    description: |
+      Retrieves the current temperature of color.
+
+    responses :
+      200:
+        body:
+          application/json:
+            schema: Temperature
+            example: |
+              {
+                "rt":         ["oic.r.colour.colourtemperature"],
+                "id":         "unique_example_id",
+                "ct":  0,
+                "step":      1,
+                "range":      [1,7]
+              }
+
+  post:
+    description: |
+      Sets the current temperature values of colour.
+
+    body:
+      application/json:
+        schema: Temperature
+        example: |
+          {
+            "id":         "unique_example_id",
+            "ct":  0,
+            "step":      3
+          }
+
+    responses :
+      200:
+        body:
+          application/json:
+            schema: Temperature
+            example: |
+              {
+                "id":         "unique_example_id",
+                "ct":  0,
+                "step":      3
+              }

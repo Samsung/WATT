@@ -1,0 +1,21 @@
+{
+  "items": [
+    {
+      "name": "light",
+      "appType": "setupApp",
+      "versions": [
+        {
+          "appData": {
+            "setupAppData": {
+              "type": "ocf",
+              "ocf": {
+                "mnId": "",
+                "setupId": "001"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

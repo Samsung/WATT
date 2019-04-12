@@ -1,0 +1,142 @@
+{
+    "dpResources": [
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Infrared Level", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_infrared_level"
+            }, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": null, 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_INFRAREDLEVEL_INFRARED_LEVEL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.infraredLevel", 
+                "href": "/capability/infraredLevel/0", 
+                "if": "oic.if.r"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "infraredLevel", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Infrared Level", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_infrared_level"
+            }, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": null, 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_INFRAREDLEVEL_INFRARED_LEVEL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.infraredLevel", 
+                "href": "/capability/infraredLevel/0", 
+                "if": "oic.if.r"
+            }, 
+            "ruleAction": true, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "infraredLevel", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Infrared Level", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_infrared_level"
+            }, 
+            "valueType": null, 
+            "ruleEvent": true, 
+            "alternatives": null, 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_INFRAREDLEVEL_INFRARED_LEVEL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.infraredLevel", 
+                "href": "/capability/infraredLevel/0", 
+                "if": "oic.if.r"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "infraredLevel", 
+            "order": 1
+        }
+    ], 
+    "ma": [], 
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_INFRAREDLEVEL_INFRARED_LEVEL", 
+                    "label": "Infrared Level"
+                }, 
+                {
+                    "po": "___PO_CODE_INFRAREDLEVEL_SET_INFRARED_LEVEL", 
+                    "label": "Set infrared level"
+                }
+            ], 
+            "locale": "en_US", 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": [], 
+    "capability": "Infrared Level", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Infrared Level", 
+            "visible": null, 
+            "label": {
+                "n": "ST Infrared Level resource", 
+                "arguments": [
+                    {
+                        "property": "infraredLevel", 
+                        "valueType": null, 
+                        "href": "/capability/infraredLevel/0", 
+                        "n": "var1"
+                    }
+                ], 
+                "label": "<var1>%"
+            }, 
+            "iconUrl": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ]
+}

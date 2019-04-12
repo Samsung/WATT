@@ -1,0 +1,10 @@
+{
+  "name": "brackets-iotjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "processDomain.js",
+  "dependencies": {
+    "treekill": "^1.0.0"
+  },
+  "author": "Hunseop Jeong"
+}

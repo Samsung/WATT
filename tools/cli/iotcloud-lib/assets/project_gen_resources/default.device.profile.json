@@ -1,0 +1,15 @@
+{
+  "name": "NO_DEVICE_NAME",
+  "components": [{
+    "id": "main",
+    "capabilities": [
+      {
+        "id": "switch"
+      }
+    ]
+  }],
+  "metadata": {
+    "deviceType": "Others",
+    "vid": "NOVID"
+  }
+}

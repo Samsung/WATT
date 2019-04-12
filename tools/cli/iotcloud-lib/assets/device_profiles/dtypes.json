@@ -1,0 +1,144 @@
+{
+    "dtypes": [
+        {
+            "id": "AirConditioner",
+            "ocfDeviceType": "oic.d.airconditioner"
+        },
+        {
+            "id": "AirPurifier",
+            "ocfDeviceType": "oic.d.airpurifier"
+        },
+        {
+            "id": "Camera",
+            "ocfDeviceType": "oic.d.camera"
+        },
+        {
+            "id": "Dishwasher",
+            "ocfDeviceType": "oic.d.dishwasher"
+        },
+        {
+            "id": "Dryer",
+            "ocfDeviceType": "oic.d.dryer"
+        },
+        {
+            "id": "GarageDoor",
+            "ocfDeviceType": "oic.d.garagedoor"
+        },
+        {
+            "id": "Light",
+            "ocfDeviceType": "oic.d.light"
+        },
+        {
+            "id": "Oven",
+            "ocfDeviceType": "oic.d.oven"
+        },
+        {
+            "id": "Refrigerator",
+            "ocfDeviceType": "oic.d.refrigerator"
+        },
+        {
+            "id": "RobotCleaner",
+            "ocfDeviceType": "oic.d.robotcleaner"
+        },
+        {
+            "id": "SmartLock",
+            "ocfDeviceType": "oic.d.smartlock"
+        },
+        {
+            "id": "SmartPlug",
+            "ocfDeviceType": "oic.d.smartplug"
+        },
+        {
+            "id": "Switch",
+            "ocfDeviceType": "oic.d.switch"
+        },
+        {
+            "id": "Television",
+            "ocfDeviceType": "oic.d.tv"
+        },
+        {
+            "id": "Thermostat",
+            "ocfDeviceType": "oic.d.thermostat"
+        },
+        {
+            "id": "Washer",
+            "ocfDeviceType": "oic.d.washer"
+        },
+        {
+            "id": "WaterValve",
+            "ocfDeviceType": "oic.d.watervalve"
+        },
+        {
+            "id": "LeakSensor",
+            "ocfDeviceType": "x.com.st.d.sensor.moisture"
+        },
+        {
+            "id": "MotionSensor",
+            "ocfDeviceType": "x.com.st.d.sensor.motion"
+        },
+        {
+            "id": "ContactSensor",
+            "ocfDeviceType": "x.com.st.d.sensor.contact"
+        },
+        {
+            "id": "PresenceSensor",
+            "ocfDeviceType": "x.com.st.d.sensor.presence"
+        },
+        {
+            "id": "SmokeDetector",
+            "ocfDeviceType": "x.com.st.d.sensor.smoke"
+        },
+        {
+            "id": "NetworkAudio",
+            "ocfDeviceType": "oic.d.networkaudio"
+        },
+        {
+            "id": "RemoteController",
+            "ocfDeviceType": "x.com.st.d.remotecontroller"
+        },
+        {
+            "id": "DoorBell",
+            "ocfDeviceType": "x.com.st.d.doorbell"
+        },
+        {
+            "id": "HealthTracker",
+            "ocfDeviceType": "x.com.st.d.healthtracker"
+        },
+        {
+            "id": "Irrigation",
+            "ocfDeviceType": "x.com.st.d.irrigation"
+        },
+        {
+            "id": "Vent",
+            "ocfDeviceType": "x.com.st.d.vent"
+        },
+        {
+            "id": "VoiceAssistance",
+            "ocfDeviceType": "x.com.st.d.voiceassistance"
+        },
+        {
+            "id": "MultiFunctionalSensor",
+            "ocfDeviceType": "x.com.st.d.sensor.multifunction"
+        },
+        {
+            "id": "Hub",
+            "ocfDeviceType": "x.com.st.d.hub"
+        },
+        {
+            "id": "WiFiRouter",
+            "ocfDeviceType": "oic.d.wirelessrouter"
+        },
+        {
+            "id": "Clothing care machine",
+            "ocfDeviceType": "x.com.st.d.steamcloset"
+        },
+        {
+            "id": "Siren",
+            "ocfDeviceType": "x.com.st.d.siren"
+        },
+        {
+            "id": "Others",
+            "ocfDeviceType": "oic.wk.d"
+        }
+    ]
+}

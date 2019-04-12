@@ -1,0 +1,14 @@
+{
+  "id": "com.samsung.android.plugin.generic",
+  "name": "generic",
+  "version": "160420100",
+  "versionName": "1.0.0",
+  "type": "NATIVE",
+  "url": "apks/generic.apk",
+  "modelID": "generic",
+  "firmwareVer": "000000001",
+  "deviceType": "generic",
+  "deviceSubType": "generic",
+  "deviceManufacturer": "N/A",
+  "platformVersion": "160420"
+}

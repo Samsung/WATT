@@ -71,49 +71,65 @@ define(function (require, exports, module) {
             try {
                 let tree = WebIDL2.parse(text);
                 let apiText = "<ul>";
+                let countInterfaces = 0;
+                let countMethods = 0;
                 for (const interf of tree) {
-                    if (interf.name) {
-                        apiText += "<li id=\"interface\"> " + interf.name;
-                        if (interf.members) {
-                            apiText += "<ul>";
-                            for (const method of interf.members) {
-                                apiText += "<li id=\"method\">";
-                                apiText += method.name;
-                                if (method.hasOwnProperty("arguments")) {
-                                    if (method.arguments.length > 0) {
-                                        apiText +=  "(";
-                                        let counter = 0;
-                                        for (const param of method.arguments) {
-                                            if (param.hasOwnProperty("idlType")
+                    if (interf.name && interf.members && interf.members.length > 0) {
+                        apiText += "<li id=\"interface\"> " + "<div class=\"nav-item\">" + interf.name;
+                        countInterfaces++;
+                        apiText += "<ul>";
+                        for (const method of interf.members) {
+                            apiText += "<li id=\"method\" class=\"method\">";
+                            // types of class members
+                            if ("idlType" in method && method.idlType.idlType) {
+                                apiText += method.idlType.idlType + " ";
+                            }
+                            apiText += method.name;
+                            if (method.hasOwnProperty("arguments")) {
+                                countMethods++;
+                                if (method.arguments.length > 0) {
+                                    apiText +=  "(";
+                                    let counter = 0;
+                                    for (const param of method.arguments) {
+                                        if (param.hasOwnProperty("idlType")
                                                 && param.idlType.hasOwnProperty("idlType")
                                                 && param.idlType.idlType.length > 0) {
-                                                apiText += param.idlType.idlType + " ";
-                                            }
-                                            if (param.hasOwnProperty("name")
-                                                && param.name.length > 0) {
-                                                apiText += param.name;
-                                            }
-                                            counter++;
-                                            // don't add ", " for last parameter
-                                            if (counter < method.arguments.length) {
-                                                apiText += ", ";
-                                            }
+                                            apiText += param.idlType.idlType + " ";
                                         }
-                                        apiText +=  ")";
+                                        if (param.hasOwnProperty("name")
+                                                && param.name.length > 0) {
+                                            apiText += param.name;
+                                        }
+                                        counter++;
+                                        // don't add ", " for last parameter
+                                        if (counter < method.arguments.length) {
+                                            apiText += ", ";
+                                        }
                                     }
-                                    else { // no parameters in method
-                                        apiText +=  "()";
-                                    }
+                                    apiText +=  ")";
                                 }
-                                apiText += "</li>";
+                                else { // no parameters in method
+                                    apiText +=  "()";
+                                }
                             }
-                            apiText += "</ul>";
+                            apiText += "</li>";
                         }
-                        apiText += "</li>";
+                        apiText += "</ul>";
+                        apiText += "</div></li>";
                     }
                 }
-                apiText + "</ul>";
-                apiList.innerHTML = apiText;
+                apiText += "</ul>";
+                apiList.innerHTML = apiText + "Interfaces: " + countInterfaces + " with " + countMethods + " methods";
+
+                // hide all fields in interfaces
+                $(".method").hide();
+                // toggle field in interface on click
+                $(".nav-item").click(function () {
+                    $(this).parent().find("ul li").slideToggle(100);
+                });
+                $(".nav-item").children().children(".method").click((event) => {
+                    event.stopPropagation();
+                });
             }
             catch (e) {
                 console.log("Exception during processing WebIDL file: " + e);
@@ -123,7 +139,7 @@ define(function (require, exports, module) {
     }
 
     function filterWasmJson(file) {
-        return file.name === "WASM.json";
+        return file.name === "WASM.api.json";
     }
 
     function filterWasmIDL(file) {
@@ -164,7 +180,7 @@ define(function (require, exports, module) {
             return;
         }
         else if (entry.isFile) {
-            if (entry._name === "WASM.json") {
+            if (entry._name === "WASM.api.json") {
                 fillApisFromPickAPI(entry);
             } else if (entry._name === "WASM.idl") {
                 fillApisFromWebIDL(entry);

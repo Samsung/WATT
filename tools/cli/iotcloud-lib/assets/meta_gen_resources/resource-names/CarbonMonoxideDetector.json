@@ -1,0 +1,167 @@
+{
+    "dpResources": [
+        {
+            "controllable": false, 
+            "group": null, 
+            "name": "Carbon Monoxide Detector", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_carbon_monoxide_detector"
+            }, 
+            "valueType": null, 
+            "ruleEvent": true, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "key": "clear", 
+                    "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_CLEAR"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "detected", 
+                    "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_DETECTED"
+                }, 
+                {
+                    "type": "inactive", 
+                    "key": "tested", 
+                    "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_TESTED"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": "ST Carbon Monoxide Detector", 
+                "arguments": null, 
+                "label": "___PO_CODE_CARBONMONOXIDEDETECTOR"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.carbonmonoxidedetector", 
+                "href": "/capability/carbonMonoxideDetector/0", 
+                "if": "oic.if.r"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "carbonMonoxide", 
+            "order": 1
+        }, 
+        {
+            "controllable": false, 
+            "group": null, 
+            "name": "Carbon Monoxide Detector", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_carbon_monoxide_detector"
+            }, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "key": "clear", 
+                    "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_CLEAR"
+                }, 
+                {
+                    "type": "active", 
+                    "key": "detected", 
+                    "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_DETECTED"
+                }, 
+                {
+                    "type": "inactive", 
+                    "key": "tested", 
+                    "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_TESTED"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": "ST Carbon Monoxide Detector", 
+                "arguments": null, 
+                "label": "___PO_CODE_CARBONMONOXIDEDETECTOR"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.carbonmonoxidedetector", 
+                "href": "/capability/carbonMonoxideDetector/0", 
+                "if": "oic.if.r"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "carbonMonoxide", 
+            "order": 1
+        }
+    ], 
+    "ma": [], 
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_CARBONMONOXIDEDETECTOR_CLEAR", 
+                    "label": "Clear"
+                }, 
+                {
+                    "po": "___PO_CODE_CARBONMONOXIDEDETECTOR_DETECTED", 
+                    "label": "Detected"
+                }, 
+                {
+                    "po": "___PO_CODE_CARBONMONOXIDEDETECTOR_TESTED", 
+                    "label": "Tested"
+                }, 
+                {
+                    "po": "___PO_CODE_CARBONMONOXIDEDETECTOR", 
+                    "label": "Carbon monoxide detector"
+                }
+            ], 
+            "locale": "en_US", 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": [], 
+    "capability": "Carbon Monoxide Detector", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Carbon Monoxide Detector", 
+            "visible": null, 
+            "label": {
+                "n": "ST Carbon Monoxide Detectorresource", 
+                "arguments": [
+                    {
+                        "property": "carbonMonoxide", 
+                        "valueType": null, 
+                        "href": "/capability/carbonMonoxideDetector/0", 
+                        "alternatives": [
+                            {
+                                "type": "inactive", 
+                                "key": "clear", 
+                                "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_CLEAR"
+                            }, 
+                            {
+                                "type": "active", 
+                                "key": "detected", 
+                                "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_DETECTED"
+                            }, 
+                            {
+                                "type": "inactive", 
+                                "key": "tested", 
+                                "value": "___PO_CODE_CARBONMONOXIDEDETECTOR_TESTED"
+                            }
+                        ], 
+                        "n": "var1"
+                    }
+                ], 
+                "label": "<var1>"
+            }, 
+            "iconUrl": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ]
+}

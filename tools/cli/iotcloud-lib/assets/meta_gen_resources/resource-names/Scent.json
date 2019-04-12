@@ -1,0 +1,142 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "group": null,
+            "name": "Scent",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_SCENT_SENT",
+                "n": "ST Scent resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_scent"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.scent",
+                "href": "/capability/scent/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "scentName",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Scent",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_SCENT_SENT",
+                "n": "ST Scent resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_scent"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.scent",
+                "href": "/capability/scent/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": true,
+            "controlType": "List",
+            "property": "scentName",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Scent",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_SCENT_SENT",
+                "n": "ST Scent resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_scent"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.scent",
+                "href": "/capability/scent/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "number",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Scent",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_SCENT_SENT",
+                "n": "ST Scent resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_scent"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.scent",
+                "href": "/capability/scent/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": true,
+            "controlType": "List",
+            "property": "number",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_SCENT_SENT",
+                    "label": "Scents"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Scent",
+    "ms": [],
+    "voiceVersion": "0.0.1"
+}

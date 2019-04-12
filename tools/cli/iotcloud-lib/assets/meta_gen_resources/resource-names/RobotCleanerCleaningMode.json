@@ -1,0 +1,240 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Robot Cleaner Cleaning Mode",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_AUTO",
+                    "key": "auto"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_PART",
+                    "key": "part"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_REPEAT",
+                    "key": "repeat"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_MANUAL",
+                    "key": "manual"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_MODE",
+                "n": "ST Robot Cleaner Cleaning Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_robot_cleaner_cleaning"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.robot.cleaner.cleaning",
+                "href": "/capability/robotCleanerCleaningMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Robot Cleaner Cleaning Mode",
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_AUTO",
+                    "key": "auto"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_PART",
+                    "key": "part"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_REPEAT",
+                    "key": "repeat"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_MANUAL",
+                    "key": "manual"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_MODE",
+                "n": "ST Robot Cleaner Cleaning Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_robot_cleaner_cleaning"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/robotCleanerCleaningMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Robot Cleaner Cleaning Mode",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_AUTO",
+                    "key": "auto"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_PART",
+                    "key": "part"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_REPEAT",
+                    "key": "repeat"
+                },
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_MANUAL",
+                    "key": "manual"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_MODE",
+                "n": "ST Robot Cleaner Cleaning Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_robot_cleaner_cleaning"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/robotCleanerCleaningMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERMOVEMENT_AUTO",
+                    "label": "Auto"
+                },
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERMOVEMENT_PART",
+                    "label": "Part"
+                },
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERMOVEMENT_REPEAT",
+                    "label": "Repeat"
+                },
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERMOVEMENT_MANUAL",
+                    "label": "Manual"
+                },
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_MODE",
+                    "label": "Robot Cleaner Cleaning Mode"
+                }
+            ]
+        }
+    ],
+    "voiceCapability": {
+        "capability": "CleaningMode",
+        "voiceActions": [
+            {
+                "rt": "x.com.st.robot.cleaner.cleaning",
+                "action": "Manual",
+                "href": "/capability/robotCleanerCleaningMode/0",
+                "payload": {
+                    "modes": [
+                        "manual"
+                    ]
+                }
+            },
+            {
+                "rt": "x.com.st.robot.cleaner.cleaning",
+                "action": "Auto",
+                "href": "/capability/robotCleanerCleaningMode/0",
+                "payload": {
+                    "modes": [
+                        "auto"
+                    ]
+                }
+            },
+            {
+                "rt": "x.com.st.robot.cleaner.cleaning",
+                "action": "Spot",
+                "href": "/capability/robotCleanerCleaningMode/0",
+                "payload": {
+                    "modes": [
+                        "part"
+                    ]
+                }
+            }
+        ]
+    },
+    "capability": "Robot Cleaner Cleaning Mode",
+    "ms": [
+        {
+            "group": null,
+            "name": "Robot Cleaner Cleaning Mode",
+            "iconUrl": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "href": "/capability/robotCleanerCleaningMode/0",
+                        "valueType": null,
+                        "property": "modes",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_AUTO",
+                                "key": "auto"
+                            },
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_PART",
+                                "key": "part"
+                            },
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_REPEAT",
+                                "key": "repeat"
+                            },
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERMOVEMENT_MANUAL",
+                                "key": "manual"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Robot Cleaner Cleaning Mode Resource"
+            },
+            "visible": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.2"
+}

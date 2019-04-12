@@ -1,0 +1,35 @@
+{
+  "name": "network audio",
+  "components": [{
+    "id": "main",
+    "capabilities": [
+    {
+      "id": "switch"
+    },
+    {
+      "id": "audioTrackData"
+    },
+    {
+      "id": "audioVolume"
+    },
+    {
+      "id": "mediaPlayback"
+    },
+    {
+      "id": "mediaPlaybackRepeat"
+    },
+    {
+      "id": "mediaPlaybackShuffle"
+    },
+    {
+      "id": "mediaTrackControl"
+    },
+    {
+      "id": "mediaInputSource"
+    }]
+  }],
+  "metadata": {
+    "vid": "SAMPLE-NETWORKAUDIO-001",
+    "deviceType": "NetworkAudio"
+  }
+}

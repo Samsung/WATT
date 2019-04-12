@@ -1,0 +1,107 @@
+{
+    "dpResources": [
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "TVChannelControl", 
+            "visible": null, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "step": 0, 
+            "label": {
+                "label": "___PO_CODE_TVCHANNELCONTROL", 
+                "arguments": null, 
+                "n": null
+            }, 
+            "iconUrl": {
+                "small": "", 
+                "large": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_tv_channel_control"
+            }, 
+            "range": null, 
+            "link": {
+                "rt": "x.com.st.tvchannel", 
+                "href": "/capability/tvChannel/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "property": "channel", 
+            "order": 1, 
+            "emphasis": false
+        }
+    ], 
+    "uiVersion": "0.0.1", 
+    "ma": [], 
+    "language": [
+        {
+            "locale": "en_US", 
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_TVCHANNELCONTROL", 
+                    "label": "Channel"
+                }
+            ], 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": {
+        "capability": "Channel", 
+        "voiceActions": [
+            {
+                "rt": "x.com.st.tvchannel", 
+                "action": "Down", 
+                "href": "/capability/tvChannel/0", 
+                "payload": {
+                    "command": "decrease"
+                }
+            }, 
+            {
+                "rt": "x.com.st.tvchannel", 
+                "action": "Up", 
+                "href": "/capability/tvChannel/0", 
+                "payload": {
+                    "command": "increase"
+                }
+            }, 
+            {
+                "rt": "x.com.st.tvchannel", 
+                "action": "Status", 
+                "property": "channel", 
+                "href": "/capability/tvChannel/0"
+            }, 
+            {
+                "rt": "x.com.st.tvchannel", 
+                "action": "Set", 
+                "href": "/capability/tvChannel/0", 
+                "payload": {
+                    "channel": "<string>"
+                }
+            }
+        ]
+    }, 
+    "capability": "TVChannelControl", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "TVChannelControl", 
+            "visible": null, 
+            "label": {
+                "label": "<var1>", 
+                "arguments": [
+                    {
+                        "property": "channel", 
+                        "href": "/capability/tvChannel/0", 
+                        "n": "var1"
+                    }
+                ], 
+                "n": null
+            }, 
+            "iconUrl": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ], 
+    "voiceVersion": "0.0.2"
+}

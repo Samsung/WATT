@@ -1,0 +1,116 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Body Mass Index Measurement",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_BODYMASSINDEXMEASUREMENT_BMI",
+                "n": "bodyMassIndexMeasurement"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_BMI"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.bodyMassIndexMeasurement",
+                "href": "/capability/bodyMassIndexMeasurement/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "value",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Body Mass Index Measurement",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": true,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_BODYMASSINDEXMEASUREMENT_BMI",
+                "n": "bodyMassIndexMeasurement"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_BMI"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.bodyMassIndexMeasurement",
+                "href": "/capability/bodyMassIndexMeasurement/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "value",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_BODYMASSINDEXMEASUREMENT_BMI",
+                    "label": "BMI"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Body Mass Index Measurement",
+        "voiceActions": [
+            {
+                "rt": "x.com.st.bodyMassIndexMeasurement",
+                "enumeration": null,
+                "href": "/capability/bodyMassIndexMeasurement/0",
+                "action": "bodyMassIndexMeasurement",
+                "property": "value",
+                "payload": null
+            }
+        ]
+    },
+    "capability": "Body Mass Index Measurement",
+    "ms": [
+        {
+            "group": null,
+            "name": "Body Mass Index Measurement",
+            "visible": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "property": "value",
+                        "valueType": null,
+                        "href": "/capability/bodyMassIndexMeasurement/0",
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Body Mass Index Measurement resource"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.1"
+}

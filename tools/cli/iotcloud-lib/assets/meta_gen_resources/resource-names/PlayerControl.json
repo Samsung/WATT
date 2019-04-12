@@ -1,0 +1,260 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Media Playback",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_PLAY",
+                    "key": "play"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_STOP",
+                    "key": "stop"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_PAUSE",
+                    "key": "pause"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_FAST_FORWARD",
+                    "key": "fast forward"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_REWIND",
+                    "key": "rewind"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_MEDIAPLAYBACK_MODE",
+                "n": "ST Player Control Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_media_player"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.mediaplayer",
+                "href": "/capability/mediaPlayback/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Media Playback",
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_PLAY",
+                    "key": "play"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_STOP",
+                    "key": "stop"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_PAUSE",
+                    "key": "pause"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_FAST_FORWARD",
+                    "key": "fast forward"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_REWIND",
+                    "key": "rewind"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_MEDIAPLAYBACK_MODE",
+                "n": "ST Player Control Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_media_player"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/mediaPlayback/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Media Playback",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_PLAY",
+                    "key": "play"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_STOP",
+                    "key": "stop"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_PAUSE",
+                    "key": "pause"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_FAST_FORWARD",
+                    "key": "fast forward"
+                },
+                {
+                    "value": "___PO_CODE_MEDIAPLAYBACK_REWIND",
+                    "key": "rewind"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_MEDIAPLAYBACK_MODE",
+                "n": "ST Player Control Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_media_player"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/mediaPlayback/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_MEDIAPLAYBACK_PLAY",
+                    "label": "Play"
+                },
+                {
+                    "po": "___PO_CODE_MEDIAPLAYBACK_STOP",
+                    "label": "Stop"
+                },
+                {
+                    "po": "___PO_CODE_MEDIAPLAYBACK_PAUSE",
+                    "label": "Pause"
+                },
+                {
+                    "po": "___PO_CODE_MEDIAPLAYBACK_FAST_FORWARD",
+                    "label": "Fast forward"
+                },
+                {
+                    "po": "___PO_CODE_MEDIAPLAYBACK_REWIND",
+                    "label": "Rewind"
+                },
+                {
+                    "po": "___PO_CODE_MEDIAPLAYBACK_MODE",
+                    "label": "Player Control"
+                }
+            ]
+        }
+    ],
+    "voiceCapability": {
+        "capability": "MediaPlayer",
+        "voiceActions": [
+            {
+                "rt": "x.com.st.mediaplayer",
+                "action": "Play",
+                "href": "/capability/mediaPlayback/0",
+                "payload": {
+                    "modes": [
+                        "play"
+                    ]
+                }
+            },
+            {
+                "rt": "x.com.st.mediaplayer",
+                "action": "Stop",
+                "href": "/capability/mediaPlayback/0",
+                "payload": {
+                    "modes": [
+                        "stop"
+                    ]
+                }
+            },
+            {
+                "rt": "x.com.st.mediaplayer",
+                "action": "Pause",
+                "href": "/capability/mediaPlayback/0",
+                "payload": {
+                    "modes": [
+                        "pause"
+                    ]
+                }
+            }
+        ]
+    },
+    "capability": "Media Playback",
+    "ms": [
+        {
+            "group": null,
+            "name": "Player Control",
+            "iconUrl": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "href": "/capability/mediaPlayback/0",
+                        "valueType": null,
+                        "property": "modes",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_MEDIAPLAYBACK_PLAY",
+                                "key": "play"
+                            },
+                            {
+                                "value": "___PO_CODE_MEDIAPLAYBACK_STOP",
+                                "key": "stop"
+                            },
+                            {
+                                "value": "___PO_CODE_MEDIAPLAYBACK_PAUSE",
+                                "key": "pause"
+                            },
+                            {
+                                "value": "___PO_CODE_MEDIAPLAYBACK_FAST_FORWARD",
+                                "key": "fast forward"
+                            },
+                            {
+                                "value": "___PO_CODE_MEDIAPLAYBACK_REWIND",
+                                "key": "rewind"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Player Control Resource"
+            },
+            "visible": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.2"
+}

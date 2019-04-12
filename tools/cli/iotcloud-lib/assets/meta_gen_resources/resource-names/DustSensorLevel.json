@@ -1,0 +1,164 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Dust Sensor Level",
+            "ruleEvent": false,
+            "alternatives": null,
+            "valueType": null,
+            "visible": null,
+            "emphasis": false,
+            "label": {
+                "label": "PM 2.5",
+                "n": "ST Dust Sensor Level Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_dust_level"
+            },
+            "step": 0,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.dustlevel",
+                "href": "/capability/dustSensor/0",
+                "if": "oic.if.s"
+            },
+            "range": null,
+            "property": "fineDustLevel",
+            "order": 1
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Dust Sensor Level",
+            "ruleEvent": true,
+            "alternatives": null,
+            "valueType": null,
+            "visible": null,
+            "emphasis": false,
+            "label": {
+                "label": "PM 2.5",
+                "n": "ST Dust Sensor Level Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_dust_level"
+            },
+            "step": 0,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.dustlevel",
+                "href": "/capability/dustSensor/0",
+                "if": "oic.if.s"
+            },
+            "range": null,
+            "property": "fineDustLevel",
+            "order": 1
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Dust Sensor Level",
+            "ruleEvent": false,
+            "alternatives": null,
+            "valueType": null,
+            "visible": null,
+            "emphasis": false,
+            "label": {
+                "label": "PM 10",
+                "n": "ST Dust Sensor Level Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_dust_level"
+            },
+            "step": 0,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.dustlevel",
+                "href": "/capability/dustSensor/0",
+                "if": "oic.if.s"
+            },
+            "range": null,
+            "property": "dustLevel",
+            "order": 1
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Dust Sensor Level",
+            "ruleEvent": true,
+            "alternatives": null,
+            "valueType": null,
+            "visible": null,
+            "emphasis": false,
+            "label": {
+                "label": "PM 10",
+                "n": "ST Dust Sensor Level Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_dust_level"
+            },
+            "step": 0,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.dustlevel",
+                "href": "/capability/dustSensor/0",
+                "if": "oic.if.s"
+            },
+            "range": null,
+            "property": "dustLevel",
+            "order": 1
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_DUSTSENSOR_STATE",
+                    "label": "Dust Sensor Level"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "capability": "Dust Sensor Level",
+    "ms": [],
+    "voiceCapability": {
+        "capability": "Dust Sensor Level",
+        "voiceActions": [
+            {
+                "rt": "x.com.st.dustlevel",
+                "action": "dustLevel",
+                "property": "dustLevel",
+                "href": "/capability/dustSensor/0",
+                "payload" : null
+            },
+            {
+                "rt": "x.com.st.dustlevel",
+                "action": "findDustLevel",
+                "property": "findDustLevel",
+                "href": "/capability/dustSensor/0",
+                "payload" : null
+            }
+        ]
+    },
+    "voiceVersion": "0.0.3",
+    "uiVersion": "0.0.6"
+}

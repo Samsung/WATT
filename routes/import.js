@@ -159,7 +159,7 @@ module.exports = function(express) {
 
         form.on('file', (field, file) => {
           filePath = path.join(form.uploadDir, file.name);
-          fs.rename(file.path, filePath);
+          fs.renameSync(file.path, filePath);
         });
 
         form.on('error', (err) => {

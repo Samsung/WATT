@@ -1,0 +1,32 @@
+{
+  "name": "air purifier",
+  "components": [{
+    "id": "main",
+    "capabilities": [
+    {
+      "id": "switch"
+    },
+    {
+      "id": "airQualitySensor"
+    },
+    {
+      "id": "dustSensor"
+    },
+    {
+      "id": "energyMeter"
+    },
+    {
+      "id": "fanSpeed"
+    },
+    {
+      "id": "filterStatus"
+    },
+    {
+      "id": "odorSensor"
+    }]
+  }],
+  "metadata": {
+    "vid": "SAMPLE-AIRPURIFIER-001",
+    "deviceType": "AirPurifier"
+  }
+}

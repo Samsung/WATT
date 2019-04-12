@@ -178,7 +178,10 @@
         closed: false,
         entry: null,
         fs_type: 0,
-        flags: 0
+        flags: 0,
+        destroy: function() {
+          this.closed = true;
+        }
     });
   };
 
@@ -212,7 +215,11 @@
     };
 
     file_system.fs.root.getFile(ref.path, js_flags, function(entry) {
-      if (io.dead || file_system.dead) {
+      // Only need to check `io.closed`. `io.dead` is set when resource
+      // reference count reaches zero and the object is destroyed, which per
+      // pepper API docs implies that the FileIO is also closed. This doesn't
+      // work the other way - the object might be closed and not yet destroyed.
+      if (file_system.dead || io.closed) {
         return callback(ppapi.PP_ERROR_ABORTED);
       }
 
@@ -221,6 +228,9 @@
 
       if (flags & PP_FLAGS_TRUNCATE) {
         entry.createWriter(function(writer) {
+          if (file_system.dead || io.closed) {
+            return callback(ppapi.PP_ERROR_ABORTED);
+          }
           writer.onwrite = function(event) {
             callback(ppapi.PP_OK);
           }
@@ -271,7 +281,7 @@
     return AccessFile(file_io, callback_ptr, function(io, entry, callback) {
         entry.getMetadata(function(metadata) {
 
-          if (io.dead) {
+          if (io.closed) {
             return callback(ppapi.PP_ERROR_ABORTED);
           }
 
@@ -299,8 +309,15 @@
   var FileIO_Read = function(file_io, offset_low, offset_high, output_ptr, bytes_to_read, callback_ptr) {
     return AccessFile(file_io, callback_ptr, function(io, entry, callback) {
         entry.file(function(file) {
+          if (io.closed) {
+            return callback(ppapi.PP_ERROR_ABORTED);
+          }
+
           var reader = new FileReader();
           reader.onload = function(event) {
+            if (io.closed) {
+              return callback(ppapi.PP_ERROR_ABORTED);
+            }
 
             var offset = glue.ToI64(offset_low, offset_high);
             var buffer = reader.result.slice(offset, offset + bytes_to_read);
@@ -316,6 +333,9 @@
   var FileIO_Write = function(file_io, offset_low, offset_high, input_ptr, bytes_to_read, callback_ptr) {
     return AccessFile(file_io, callback_ptr, function(io, entry, callback) {
         entry.createWriter(function(writer) {
+          if (io.closed) {
+            return callback(ppapi.PP_ERROR_ABORTED);
+          }
           var buffer = HEAP8.subarray(input_ptr, input_ptr + bytes_to_read);
           var offset = glue.ToI64(offset_low, offset_high);
 
@@ -344,8 +364,12 @@
     callback(io.closed ? ppapi.PP_ERROR_ABORTED : ppapi.PP_OK);
   };
 
-  var FileIO_Close = function() {
-    throw "FileIO_Close not implemented";
+  var FileIO_Close = function(file_io) {
+    var io = resources.resolve(file_io, FILE_IO_RESOURCE);
+    if (io === undefined) {
+      return;
+    }
+    io.closed = true;
   };
 
   var FileIO_ReadToArray = function() {

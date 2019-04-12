@@ -1,0 +1,1845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="128px"
+	 height="128px" viewBox="-16 -16 128 128" enable-background="new -16 -16 128 128" xml:space="preserve">
+<g id="ic_x5F_function_x5F_Acceleration_x5F_Sensor" display="none">
+	<g id="Layer_1_1_">
+		<g display="inline">
+			<circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="83.376" cy="32.215" r="6.279"/>
+			<circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="21.98" cy="51.42" r="6.28"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="27.391,46.952 42.764,32.39 
+				62.346,52.604 78.996,36.708 			"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M90.514,88.035h-83c-0.55,0-1-0.449-1-1v-81"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Air_x5F_Quality_x5F_Sensor_x5F_Level">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M20,90
+			c-3.3,0-6-2.699-6-6V12c0-3.3,2.7-6,6-6h56c3.3,0,6,2.7,6,6v72c0,3.301-2.7,6-6,6H20z"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="22" y1="21.5" x2="36" y2="21.5"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="22" y1="32.794" x2="36" y2="32.794"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="41.002" y1="21.5" x2="55.002" y2="21.5"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="41.002" y1="32.794" x2="55.002" y2="32.794"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="60.003" y1="21.5" x2="74.003" y2="21.5"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="60.003" y1="32.794" x2="74.003" y2="32.794"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Player_x5F_Track_x5F_Control">
+		<circle display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="54" cy="74.751" r="12"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M86,55.91
+			c0-11.435-8.725-21.16-20-21.16v38"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="8" y1="13.75" x2="88" y2="13.75"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="8" y1="47.75" x2="32" y2="47.75"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="8" y1="81.75" x2="32" y2="81.75"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Airconditioner_x5F_Mode">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M75,92c0,0.551-0.45,1-1,1H22
+				c-0.55,0-1-0.449-1-1V4c0-0.55,0.45-1,1-1h52c0.55,0,1,0.45,1,1V92z"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="21" y1="22" x2="74.902" y2="22"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="21" y1="32" x2="74.902" y2="32"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="21.097" y1="42" x2="75" y2="42"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="40" y1="55" x2="56" y2="55"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Alarm">
+		<g display="inline">
+			<circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="48" cy="48.298" r="39"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="12.5" y1="83.834" x2="21.5" y2="74.762"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="83.5" y1="83.798" x2="74.5" y2="74.798"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="75" y1="3.298" x2="93" y2="21.298"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="3" y1="21.298" x2="21" y2="3.298"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="72,48.298 47,48.298 47,18.298 			"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Audio_x5F_volume">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M56.5,8c0-0.55-0.316-0.681-0.704-0.29
+				L30.759,32.987c-0.387,0.391-1.153,0.711-1.702,0.711H6.5c-0.55,0-1,0.45-1,1v26.604c0,0.55,0.45,1,1,1h22.555
+				c0.551,0,1.317,0.32,1.704,0.712L55.796,88.29C56.184,88.682,56.5,88.55,56.5,88V8z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M67.5,27c12.245,11.599,12.245,30.4,0,42"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M78.214,16c19.048,17.673,19.048,46.327,0,64"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Battery">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M38.077,15.25H24
+			c-0.55,0-1,0.45-1,1V89.5c0,0.55,0.45,1,1,1h48c0.55,0,1-0.45,1-1V16.25c0-0.55-0.45-1-1-1H57.921"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M57.922,17.75V6.5
+			c0-0.55-0.449-1-1-1H39.078c-0.55,0-1,0.45-1,1v11.25"/>
+		<rect x="30.999" y="66" display="inline" width="34" height="16"/>
+		<rect x="30.999" y="45" display="inline" width="34" height="16"/>
+		<rect x="30.999" y="24" display="inline" width="34" height="16"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Carbon_x5F_Monoxide_x5F_Detector">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" d="M39.383,42.139
+			c-2.926,2.859-4.111,6.101-4.111,9.475c0,2.698,0.537,5.215,2.746,9.459c0,0,2.732,6.754,2.732,9.456
+			c0,3.394-1.181,6.611-4.111,9.472"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" d="M59.25,42.139
+			c-2.936,2.859-4.113,6.101-4.113,9.475c0,2.698,0.531,5.215,2.729,9.459c2.215,4.247,2.733,6.754,2.733,9.456
+			c0,3.394-1.168,6.611-4.096,9.472"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" d="M92,16l-5.508,5.541
+			c-2.131,1.738-4.838,2.772-7.781,2.772H17.256h0.033c-2.951,0-5.658-1.034-7.789-2.772L4,16"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Color_x5F_Control">
+		<path display="inline" d="M24.501,39.001c-2.487,0-4.501-2.016-4.501-4.5c0-2.486,2.014-4.5,4.501-4.5
+			c2.485,0,4.499,2.014,4.499,4.5C29,36.985,26.986,39.001,24.501,39.001"/>
+		<path display="inline" d="M42.858,33.493c-2.761,0-4.998-2.238-4.998-4.998c0-2.762,2.237-5.002,4.998-5.002
+			c2.763,0,5.001,2.24,5.001,5.002C47.859,31.255,45.621,33.493,42.858,33.493"/>
+		<path display="inline" d="M57.001,35.001c0-3.313,2.688-6,6.002-6s5.999,2.687,5.999,6s-2.686,6-5.999,6
+			C59.688,41.001,57.001,38.314,57.001,35.001"/>
+		<path display="inline" d="M73.2,59.723c-3.591,0-6.503-2.91-6.503-6.502s2.912-6.499,6.503-6.499c3.59,0,6.497,2.907,6.497,6.499
+			S76.79,59.723,73.2,59.723"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M86.326,38.644
+			c-4.252-9.104-13.352-16.975-25.918-20.9c-6.148-1.928-12.176-2.338-17.418-2.227c-5.212,0.123-11.671,0.746-18.267,3.402
+			c-10.055,4.045-14.363,9.266-16.494,13c-4.01,7.02-0.444,15.053,10.908,16.968c3.481,0.592,13.013,1.748,15.321,6.826
+			c2.809,6.176-6.422,7.377-4.035,14.778C32.404,76.645,42.897,80.5,51.828,80.5c21.354,0,37.755-10.55,37.527-29.348
+			C89.264,46.851,88.365,42.543,86.326,38.644z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Contact_x5F_Sensor">
+		<g display="inline">
+			<circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="34.662" cy="38.589" r="15.834"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M61.188,23.161
+				c-5.349-9.03-15.226-15.09-26.522-15.09c-16.994,0-30.766,13.7-30.766,30.601c0,7.348,2.604,14.088,6.944,19.364l23.132,27.047
+				c0.358,0.422,1.014,0.422,1.375,0l23.128-27.047"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M94.102,27.7c-9.684,9.662-9.686,25.337,0,34.998
+				"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M82.156,15.786
+				c-16.287,16.247-16.289,42.578,0,58.825"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Door_x5F_Control">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M55,48.781c0,3.871-3.135,7-7,7
+			c-3.87,0-7-3.129-7-7c0-3.867,3.13-7,7-7C51.865,41.782,55,44.915,55,48.781z"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="48" y1="57.139" x2="48" y2="73.139"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M86,87.525
+			c0,0.69-0.564,1.256-1.256,1.256H11.256c-0.691,0-1.256-0.564-1.256-1.256V36.039c0-0.691,0.455-1.592,1.011-2.001L46.989,7.527
+			c0.556-0.41,1.466-0.41,2.021,0l35.979,26.511C85.545,34.447,86,35.347,86,36.039V87.525z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Audio_x5F_Notification">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M56.25,8c0-0.55-0.316-0.681-0.704-0.29
+				L30.509,32.987c-0.387,0.391-1.153,0.711-1.703,0.711H6.25c-0.55,0-1,0.45-1,1v26.604c0,0.55,0.45,1,1,1h22.555
+				c0.551,0,1.317,0.32,1.704,0.712L55.546,88.29c0.388,0.392,0.704,0.26,0.704-0.29V8z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M90.75,24.5L79.465,35.55
+				c-0.393,0.385-0.393,1.015,0,1.4L90.036,47.3c0.394,0.385,0.394,1.015,0,1.4L79.465,59.05c-0.393,0.386-0.393,1.015,0,1.4
+				L90.75,71.5"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="79.75" y1="81" x2="9.75" y2="11"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Button">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M52.5,25.007
+			c0-10.226,8.284-18.509,18.5-18.509c10.218,0,18.5,8.283,18.5,18.509c0,10.207-8.282,18.491-18.5,18.491
+			C60.784,43.499,52.5,35.214,52.5,25.007z"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M6.5,25.007
+			C6.5,14.782,14.784,6.499,25,6.499c10.218,0,18.5,8.283,18.5,18.509c0,10.207-8.282,18.491-18.5,18.491
+			C14.784,43.499,6.5,35.214,6.5,25.007z"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M43.5,70.992
+			c0,10.227-8.282,18.51-18.5,18.51c-10.217,0-18.5-8.283-18.5-18.51c0-10.209,8.283-18.49,18.5-18.49
+			C35.218,52.502,43.5,60.783,43.5,70.992z"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M89.5,70.992
+			c0,10.227-8.282,18.51-18.5,18.51c-10.217,0-18.5-8.283-18.5-18.51c0-10.209,8.283-18.49,18.5-18.49
+			C81.218,52.502,89.5,60.783,89.5,70.992z"/>
+	</g>
+	<g display="inline">
+		<path d="M45.761,46.319c-0.5,0-1,0.16-1.449,0.465l-32.281,22.01c-1.099,0.752-1.243,1.815-1.013,2.561
+			c0.229,0.746,0.95,1.541,2.281,1.541h32c1.543,0,2.8-1.256,2.8-2.799V48.786C48.1,47.379,47.094,46.319,45.761,46.319z
+			 M44.1,68.896H18.983L44.1,51.77V68.896z"/>
+		<path d="M82.562,21.229c-0.502,0-1.004,0.162-1.449,0.465L55.23,39.339c-0.901,0.617-1.53,1.811-1.53,2.901v27.854
+			c0,1.543,1.256,2.8,2.8,2.8h25.601c1.543,0,2.799-1.257,2.799-2.8V23.695C84.899,22.289,83.895,21.229,82.562,21.229z
+			 M80.899,68.895H57.7V42.498L80.899,26.68V68.895z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Color_x5F_Temperature">
+		<path display="inline" d="M56.501,71c0-4.693-3.808-8.5-8.5-8.5c-4.696,0-8.5,3.807-8.5,8.5s3.804,8.5,8.5,8.5
+			C52.693,79.5,56.501,75.693,56.501,71"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="48.001" y1="64" x2="48.001" y2="16"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M37.533,53.939
+			C31.531,57.506,27.5,63.93,27.5,71.441C27.5,82.797,36.698,92,48.022,92C59.341,92,68.5,82.952,68.5,71.598
+			c0-7.537-4.055-14.139-10.089-17.721V14.44C58.411,8.674,53.75,4,48,4S37.589,8.674,37.589,14.44v39.467L37.533,53.939z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Robot_x5F_Cleaner_x5F_Turbo_x5F_mode">
+		<path display="inline" d="M30.356,30.968L11.428,11.956c-0.221-0.22-0.597-0.066-0.597,0.244l0.003,19.013
+			c0,0.192,0.156,0.348,0.347,0.348H30.11C30.42,31.561,30.575,31.188,30.356,30.968"/>
+		<path display="inline" d="M84.627,65.928H65.699c-0.311,0-0.465,0.373-0.246,0.596l18.93,19.011
+			c0.219,0.219,0.594,0.065,0.594-0.246V66.277C84.977,66.082,84.82,65.928,84.627,65.928"/>
+		<path display="inline" d="M76.465,15.646l0.006-0.009C68.836,9.032,58.896,5.022,48.01,5.022
+			c-12.117,0-23.076,4.952-30.971,12.939l6.838,6.838C31.744,16.314,42.98,11,55.461,11c7.473,0,14.494,1.915,20.619,5.264
+			l0.004-0.007c0.055,0.029,0.111,0.052,0.176,0.052c0.203,0,0.369-0.166,0.369-0.368C76.629,15.815,76.559,15.711,76.465,15.646"/>
+		<path display="inline" d="M71.705,72.652c-7.842,8.193-18.877,13.307-31.117,13.307c-7.712,0-14.946-2.033-21.208-5.584
+			l-0.003,0.006c-0.06-0.045-0.133-0.074-0.214-0.074c-0.201,0-0.366,0.161-0.366,0.364c0,0.099,0.041,0.188,0.106,0.252
+			l-0.008,0.011c7.715,6.949,17.913,11.191,29.114,11.191c11.931,0,22.734-4.8,30.601-12.566L71.705,72.652z"/>
+		<g display="inline">
+			<path fill="#020202" d="M19.485,42.033h-4.757v17.131h-3.794V42.033H6.177v-3.37h13.308V42.033z"/>
+			<path fill="#020202" d="M23.592,57.636c-1.266-1.245-1.897-3.002-1.897-5.267V38.664h3.794v13.421
+				c0,2.72,1.142,4.078,3.426,4.078c2.322,0,3.483-1.358,3.483-4.078V38.664h3.794V52.37c0,2.265-0.637,4.021-1.911,5.267
+				c-1.274,1.246-3.063,1.869-5.366,1.869C26.63,59.505,24.856,58.882,23.592,57.636z"/>
+			<path fill="#020202" d="M46.018,52.029h-2.096v7.135h-3.794v-20.5h6.938c2.038,0,3.62,0.585,4.743,1.756s1.687,2.813,1.687,4.927
+				c0,1.567-0.308,2.879-0.923,3.936c-0.612,1.058-1.506,1.813-2.676,2.265l4.814,7.617h-4.559L46.018,52.029z M43.922,48.829h3.143
+				c1.701,0,2.548-1.142,2.548-3.426c0-2.303-0.887-3.454-2.661-3.454h-3.03V48.829z"/>
+			<path fill="#020202" d="M71.191,52.992c0,1.963-0.56,3.482-1.672,4.559c-1.113,1.075-2.681,1.613-4.699,1.613h-7.844v-20.5h6.965
+				c1.963,0,3.479,0.51,4.545,1.529s1.6,2.463,1.6,4.333c0,1.926-0.887,3.199-2.66,3.822C69.936,49.084,71.191,50.633,71.191,52.992
+				z M60.742,41.977v5.097h3.199c1.529,0,2.295-0.822,2.295-2.464c0-1.755-0.822-2.633-2.465-2.633H60.742z M67.311,53.076
+				c0-1.868-0.83-2.803-2.49-2.803h-4.077v5.578h4.274C66.547,55.852,67.311,54.928,67.311,53.076z"/>
+			<path fill="#020202" d="M75.453,56.843c-1.408-1.774-2.109-4.417-2.109-7.928c0-3.512,0.701-6.155,2.109-7.929
+				c1.404-1.774,3.449-2.662,6.129-2.662c2.682,0,4.725,0.888,6.131,2.662s2.109,4.417,2.109,7.929c0,3.511-0.703,6.153-2.109,7.928
+				c-1.406,1.775-3.449,2.662-6.131,2.662C78.902,59.505,76.857,58.618,75.453,56.843z M85.916,48.915
+				c0-4.833-1.445-7.25-4.334-7.25c-2.887,0-4.332,2.417-4.332,7.25c0,4.832,1.445,7.248,4.332,7.248
+				C84.471,56.163,85.916,53.747,85.916,48.915z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Fan_x5F_Speed">
+		<g display="inline">
+			<path fill="#020202" d="M12.798,58.938c-1.119-0.321-2.105-0.785-2.958-1.394l1.167-2.929c1.8,1.042,3.555,1.563,5.261,1.563
+				c2.162,0,3.243-0.873,3.243-2.615c0-0.722-0.195-1.293-0.583-1.723c-0.39-0.427-1.02-0.762-1.891-1.009l-2.333-0.656
+				c-1.612-0.452-2.783-1.126-3.512-2.018c-0.731-0.89-1.095-2.104-1.095-3.641c0-2.009,0.569-3.563,1.706-4.664
+				c1.138-1.1,2.74-1.649,4.807-1.649c0.986,0,2.006,0.123,3.058,0.37c1.053,0.247,2.053,0.597,3.001,1.052l-1.167,2.93
+				c-1.991-0.739-3.64-1.109-4.949-1.109c-1.877,0-2.815,0.796-2.815,2.39c0,0.72,0.194,1.292,0.583,1.72
+				c0.388,0.426,1.018,0.763,1.891,1.01l2.332,0.655c1.611,0.454,2.782,1.132,3.512,2.034c0.73,0.899,1.095,2.118,1.095,3.655
+				c0,2.064-0.597,3.669-1.792,4.806c-1.195,1.138-2.893,1.706-5.091,1.706C15.073,59.422,13.916,59.26,12.798,58.938z"/>
+			<path fill="#020202" d="M38.182,40.367c1.147,1.233,1.722,2.949,1.722,5.148c0,2.218-0.589,3.947-1.765,5.189
+				c-1.176,1.241-2.816,1.862-4.919,1.862h-3.243v6.541h-3.812V38.518h7.225C35.437,38.518,37.034,39.134,38.182,40.367z
+				 M35.323,48.301c0.436-0.606,0.655-1.497,0.655-2.674c0-1.232-0.233-2.166-0.698-2.802c-0.465-0.634-1.151-0.952-2.061-0.952
+				h-3.243v7.337h3.413C34.243,49.211,34.887,48.906,35.323,48.301z"/>
+			<path fill="#020202" d="M54.691,55.753v3.354H42.063V38.518h12.201v3.356h-8.39v5.005h6.144v3.385h-6.144v5.488L54.691,55.753
+				L54.691,55.753z"/>
+			<path fill="#020202" d="M70.051,55.753v3.354H57.423V38.518h12.2v3.356h-8.391v5.005h6.144v3.385h-6.144v5.488L70.051,55.753
+				L70.051,55.753z"/>
+			<path fill="#020202" d="M85.721,41.106c1.5,1.726,2.248,4.285,2.248,7.679c0,3.412-0.748,5.986-2.248,7.721
+				c-1.498,1.736-3.668,2.602-6.513,2.602h-6.429V38.518h6.429C82.053,38.518,84.223,39.381,85.721,41.106z M84.044,48.813
+				c0-4.625-1.631-6.938-4.894-6.938H76.59v13.879h2.532C82.402,55.753,84.044,53.439,84.044,48.813z"/>
+		</g>
+		<path display="inline" d="M30.356,30.968L11.428,11.956c-0.221-0.22-0.596-0.066-0.596,0.244l0.002,19.013
+			c0,0.192,0.156,0.348,0.348,0.348H30.11C30.42,31.561,30.574,31.188,30.356,30.968"/>
+		<path display="inline" d="M84.627,65.928H65.699c-0.311,0-0.465,0.373-0.246,0.596l18.93,19.011
+			c0.219,0.219,0.594,0.065,0.594-0.246V66.277C84.977,66.082,84.82,65.928,84.627,65.928"/>
+		<path display="inline" d="M76.465,15.646l0.006-0.009C68.836,9.032,58.896,5.022,48.01,5.022
+			c-12.117,0-23.076,4.952-30.971,12.939l6.838,6.838C31.744,16.314,42.98,11,55.461,11c7.473,0,14.494,1.915,20.619,5.264
+			l0.004-0.007c0.055,0.029,0.111,0.052,0.176,0.052c0.203,0,0.369-0.166,0.369-0.368C76.629,15.815,76.559,15.711,76.465,15.646"/>
+		<path display="inline" d="M71.705,72.652c-7.842,8.193-18.877,13.307-31.117,13.307c-7.711,0-14.945-2.033-21.207-5.584
+			l-0.004,0.006c-0.061-0.045-0.133-0.074-0.214-0.074c-0.201,0-0.366,0.161-0.366,0.364c0,0.099,0.041,0.188,0.107,0.252
+			l-0.009,0.011c7.715,6.949,17.913,11.191,29.114,11.191c11.931,0,22.734-4.8,30.601-12.566L71.705,72.652z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Humidity">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M73.254,59.596
+			c0,14.232-11.49,25.771-25.666,25.771c-14.175,0-25.667-11.538-25.667-25.771c0-4.242,1.02-8.242,2.83-11.775
+			c4.258-8.313,22.291-35.508,22.291-35.508c0.3-0.454,0.792-0.454,1.092,0c0,0,17.983,27.16,22.259,35.437
+			C72.221,51.296,73.254,55.323,73.254,59.596z"/>
+		<path display="inline" d="M65.301,17.998c-1.236,1.074-1.381,2.927-0.302,4.197c1.095,1.245,2.968,1.423,4.217,0.33
+			c1.252-1.079,1.349-2.968,0.255-4.227C68.389,17.032,66.563,16.898,65.301,17.998"/>
+		<path display="inline" d="M73.055,14.116c-1.022,0.893-1.139,2.412-0.248,3.459c0.897,1.028,2.442,1.173,3.469,0.27
+			c1.039-0.888,1.106-2.45,0.211-3.484C75.6,13.326,74.098,13.223,73.055,14.116"/>
+		<path display="inline" d="M79.532,11.302c-0.679,0.594-0.761,1.609-0.166,2.308c0.601,0.677,1.632,0.781,2.313,0.176
+			c0.693-0.595,0.735-1.628,0.141-2.321C81.232,10.774,80.223,10.7,79.532,11.302"/>
+		<path display="inline" d="M69.65,25.344c-1.244,1.08-1.387,2.931-0.307,4.198c1.098,1.249,2.967,1.418,4.219,0.327
+			c1.252-1.072,1.352-2.971,0.254-4.229C72.734,24.385,70.909,24.251,69.65,25.344"/>
+		<path display="inline" d="M77.4,21.468c-1.021,0.882-1.135,2.409-0.25,3.456c0.898,1.024,2.438,1.168,3.479,0.271
+			c1.032-0.885,1.103-2.457,0.207-3.481C79.941,20.672,78.438,20.567,77.4,21.468"/>
+		<path display="inline" d="M83.884,18.647c-0.68,0.596-0.761,1.613-0.163,2.314c0.594,0.668,1.629,0.782,2.309,0.169
+			c0.691-0.587,0.736-1.627,0.142-2.32C85.58,18.117,84.574,18.044,83.884,18.647"/>
+		<path display="inline" d="M73.994,32.688c-1.232,1.077-1.383,2.93-0.299,4.206c1.092,1.24,2.963,1.418,4.217,0.321
+			c1.253-1.074,1.352-2.971,0.254-4.23C77.088,31.728,75.26,31.595,73.994,32.688"/>
+		<path display="inline" d="M81.749,28.812c-1.022,0.894-1.136,2.411-0.249,3.46c0.898,1.024,2.439,1.183,3.473,0.269
+			c1.041-0.888,1.109-2.449,0.217-3.475C84.294,28.015,82.789,27.911,81.749,28.812"/>
+		<path display="inline" d="M88.234,25.992c-0.685,0.604-0.767,1.614-0.17,2.313c0.602,0.678,1.629,0.782,2.313,0.18
+			c0.69-0.597,0.74-1.639,0.134-2.324C89.928,25.471,88.918,25.388,88.234,25.992"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Cooler_x5F_Door_x5F_State">
+		
+			<polyline display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" points="
+			22.838,76.15 11.563,76.15 11.563,8.224 71.063,8.224 71.063,39.989 		"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="35.568" y1="48.457" x2="35.568" y2="60.189"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="80.914" y1="62.936" x2="80.914" y2="65.514"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="67.037" y1="79.227" x2="84.438" y2="79.227"/>
+		
+			<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M84.438,79.249c0,0-3.522-9.252-3.522-13.735"/>
+		
+			<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M80.914,62.936c0-7.668-6.213-13.885-13.877-13.885"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="53.123" y1="62.936" x2="53.123" y2="65.514"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="67.002" y1="79.227" x2="49.592" y2="79.227"/>
+		
+			<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M49.592,79.249c0,0,3.531-9.252,3.531-13.735"/>
+		
+			<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M67.002,49.051c-7.672,0-13.879,6.217-13.879,13.885"/>
+		
+			<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M73.467,81.323c0,3.563-2.889,6.452-6.455,6.452c-3.559,0-6.451-2.889-6.451-6.452"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M71.063,8.244l-47.26,13.033c-0.53,0.146-0.964,0.716-0.964,1.265v64.233c0,0.552,0.431,0.869,0.957,0.711L39.939,82.6"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Motion_x5F_Sensor">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="
+			M31.087,29.496h1.949h10.395c0.535,0,1.377,0.171,1.871,0.379c0,0,3.674,1.551,5.194,5.294l4.857,21.279
+			c0.119,0.521-0.203,1.077-0.717,1.233l-7.145,2.183c-0.513,0.155-1.038-0.142-1.167-0.662L41.778,40.84
+			c-0.129-0.521-0.156-0.515-0.063,0.014l8.66,48.862c0.092,0.527-0.264,1.027-0.793,1.111l-7.289,1.147
+			c-0.53,0.084-1.065-0.272-1.192-0.795l-6.463-26.736c-0.126-0.521-0.348-1.368-0.494-1.887l-0.348-1.225
+			c-0.146-0.516-0.275-0.957-0.29-0.979c-0.013-0.023-0.024-0.056-0.028-0.07c-0.002-0.016-0.322-0.027-0.709-0.027h-1.412
+			c-0.39,0-0.709,0.012-0.711,0.027c-0.004,0.016-0.017,0.047-0.029,0.07c-0.014,0.021-0.145,0.463-0.29,0.979l-0.347,1.225
+			c-0.147,0.519-0.369,1.365-0.496,1.887L23.023,91.18c-0.127,0.521-0.662,0.879-1.192,0.795l-7.288-1.147
+			c-0.53-0.084-0.887-0.584-0.793-1.111l8.658-48.862c0.094-0.528,0.064-0.534-0.064-0.014l-4.545,18.362
+			c-0.129,0.521-0.654,0.817-1.167,0.661l-7.146-2.182c-0.512-0.156-0.834-0.713-0.715-1.233l4.856-21.279
+			c1.519-3.743,5.194-5.294,5.194-5.294c0.494-0.208,1.336-0.379,1.871-0.379H31.087z"/>
+		
+			<circle display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="32.048" cy="14.999" r="7.731"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M88.797,29.944
+			c-10.021,9.996-10.021,26.216,0,36.212"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M76.438,17.617
+			c-16.854,16.811-16.854,44.055,0,60.867"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Illuminance_x5F_Measurement">
+		<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="86" y1="48" x2="96" y2="48"/>
+		<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="10" y1="48" x2="0" y2="48"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5.05" stroke-miterlimit="10" d="M60.66,18.291V4.676
+			c0-0.555-0.455-1.01-1.01-1.01H35.683c-0.557,0-1.01,0.455-1.01,1.01v13.615"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M60.697,18.286
+			c0,0,0.353,4.926,6.093,10.686c10.567,10.595,10.565,27.771,0,38.369c-10.563,10.595-27.685,10.595-38.248,0
+			c-10.565-10.598-10.565-27.774,0-38.369c5.737-5.76,6.094-10.686,6.094-10.686"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5.001" stroke-miterlimit="10" x1="60.665" y1="18.207" x2="34.667" y2="18.207"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="48.001" y1="86" x2="48.001" y2="96"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="21.13" y1="74.87" x2="14.06" y2="81.941"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="74.87" y1="74.87" x2="81.939" y2="81.941"/>
+	</g>
+	<g id="Layeic_x5F_function_x5F_Water_x5F_Sensorr">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M48.042,9.928L25.947,47.997c-7.017,12.151-2.836,27.674,9.346,34.685c4.009,2.307,8.386,3.396,12.715,3.391h-0.014
+			c4.328,0.007,8.706-1.084,12.715-3.391c12.18-7.011,16.361-22.533,9.346-34.685L48.042,9.928z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Washer_x5F_job_x5F_state">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="56" y1="18" x2="40" y2="18"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M83,88.743C83,89.436,82.436,90,81.744,90H14.257
+				C13.565,90,13,89.436,13,88.743V7.256C13,6.565,13.565,6,14.257,6h67.487C82.436,6,83,6.565,83,7.256V88.743z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M71,52c0-12.699-10.299-23-23-23
+				c-12.7,0-23,10.301-23,23c0,12.7,10.3,22.999,23,22.999C60.701,74.999,71,64.7,71,52z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Power_x5F_Switch">
+		<g display="inline">
+			<path d="M62.361,33.144c7.925,0,14.355,6.429,14.355,14.363c0,7.92-6.432,14.351-14.355,14.351
+				C54.428,61.857,48,55.427,48,47.506C48,39.572,54.428,33.144,62.361,33.144"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M32.625,73.543c-14.319,0-25.936-11.616-25.936-25.945c0-14.317,11.616-25.931,25.941-25.931h30.744
+				c14.321,0,25.937,11.614,25.937,25.931c0,14.329-11.615,25.945-25.937,25.945H32.625z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Dish_x5F_Washer_x5F_job_x5F_state">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="25.931" y1="29.823" x2="70.068" y2="29.823"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="25.931" y1="48" x2="70.068" y2="48"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="25.931" y1="66.176" x2="70.068" y2="66.176"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M89,88.989C89,88.995,88.55,89,88,89H8
+				c-0.55,0-1-0.449-1-1V8c0-0.55,0.45-1,1-1h80c0.55,0,1,0.45,1,1v79.979V88.989z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Garage_x5F_Door_x5F_Control">
+		
+			<polyline display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			74.391,88.826 74.391,48.826 21.608,48.826 21.608,88.826 		"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="21.608" y1="58.826" x2="74.389" y2="58.826"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="21.608" y1="68.826" x2="74.389" y2="68.826"/>
+		
+			<line display="inline" fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="21.608" y1="78.826" x2="74.389" y2="78.826"/>
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M86.001,87.826
+			c0,0.549-0.451,1-1,1H10.999c-0.55,0-1-0.451-1-1v-52c0-0.551,0.362-1.268,0.805-1.594l36.39-26.813
+			c0.443-0.327,1.167-0.327,1.609,0l36.393,26.813c0.441,0.326,0.806,1.043,0.806,1.594V87.826z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Oven_x5F_Temperature">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M3.886,79.157l5.523,5.522
+				c2.634,2.125,5.613,2.752,7.801,2.752"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M92.113,79.157l-4.401,4.989
+				c-2.134,1.722-5.962,3.285-8.921,3.285H17.177"/>
+			<path d="M52.346,59.484c0-3.508-2.845-6.354-6.352-6.354c-3.51,0-6.354,2.846-6.354,6.354c0,3.509,2.845,6.354,6.354,6.354
+				C49.501,65.838,52.346,62.993,52.346,59.484"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="45.994" y1="54.253" x2="45.994" y2="42.295"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M38.17,46.735
+				c-4.484,2.666-7.498,7.465-7.498,13.082c0,8.484,6.875,15.363,15.338,15.363c8.461,0,15.307-6.762,15.307-15.248
+				c0-5.633-3.032-10.567-7.541-13.245V17.214c0-4.309-3.483-7.802-7.781-7.802c-4.298,0-7.78,3.493-7.78,7.802v29.497L38.17,46.735
+				z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Valve">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M58.5,54.393v10.5c0,3.866,3.134,7,7,7H93"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M37.5,54.393v10.5c0,3.866-3.134,7-7,7H3"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="93,87.393 48,87.393 3,87.393 			"/>
+			
+				<rect x="32.889" y="39.817" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" width="30.222" height="14.167"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="48" y1="39.405" x2="48" y2="25.238"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="22.5" y1="25.238" x2="73.5" y2="25.238"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Player_x5F_Repeat_x5F_Mode">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M7.5,62.678V25.375
+				c0-5.498,4.499-9.997,9.997-9.997h69.778"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="74.159,2 87.498,15.399 74.159,28.796 
+							"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M88.5,33.322v37.303
+				c0,5.498-4.498,9.998-9.997,9.998H8.725"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="21.708,94 8.369,80.602 21.708,67.204 
+							"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Thermostat_x5F_mode">
+		<g display="inline">
+			<path d="M37.606,15.792c-1.924-1.106-3.683-1.595-5.768-1.595c-6.382,0-9.981,4.706-9.981,12.031
+				c0,7.369,3.6,12.074,9.981,12.074c2.085,0,3.967-0.49,5.847-1.554l1.065,2.741c-1.759,1.311-4.663,1.761-6.996,1.761
+				c-7.976,0-13.004-5.321-13.004-15.022c0-9.618,4.989-14.978,13.004-14.978c2.333,0,5.115,0.449,6.873,1.761L37.606,15.792z"/>
+			<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M37.606,15.792
+				c-1.924-1.106-3.683-1.595-5.768-1.595c-6.382,0-9.981,4.706-9.981,12.031c0,7.369,3.6,12.074,9.981,12.074
+				c2.085,0,3.967-0.49,5.847-1.554l1.065,2.741c-1.759,1.311-4.663,1.761-6.996,1.761c-7.976,0-13.004-5.321-13.004-15.022
+				c0-9.618,4.989-14.978,13.004-14.978c2.333,0,5.115,0.449,6.873,1.761L37.606,15.792z"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M14.25,10.252c0,2.484-2.015,4.498-4.5,4.498
+				c-2.488,0-4.5-2.014-4.5-4.498c0-2.487,2.012-4.502,4.5-4.502C12.235,5.75,14.25,7.765,14.25,10.252z"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M63.25,59.25c0,2.488-2.014,4.5-4.5,4.5
+				s-4.5-2.012-4.5-4.5c0-2.484,2.014-4.5,4.5-4.5S63.25,56.766,63.25,59.25z"/>
+			<polygon points="70.75,62.25 88.75,62.25 88.75,65.25 73.75,65.25 73.75,76.25 85.75,76.25 85.75,79.25 73.75,79.25 73.75,92.25 
+				70.75,92.25 			"/>
+			<polygon fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="70.75,62.25 88.75,62.25 88.75,65.25 
+				73.75,65.25 73.75,76.25 85.75,76.25 85.75,79.25 73.75,79.25 73.75,92.25 70.75,92.25 			"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="80.734" y1="14.766" x2="14.266" y2="81.234"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Filter_x5F_State">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M75,86.5c0,0.551-0.45,1-1,1H10
+				c-0.55,0-1-0.449-1-1v-64c0-0.55,0.45-1,1-1h64c0.55,0,1,0.45,1,1V86.5z"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="39.204" y1="22.224" x2="39.204" y2="74.841"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="56.809" y1="22.218" x2="56.809" y2="74.835"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="74.783" y1="39.299" x2="21.947" y2="39.299"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="74.783" y1="57.541" x2="21.947" y2="57.541"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M87,73.5c0,0.551-0.45,1-1,1H22
+				c-0.55,0-1-0.449-1-1v-64c0-0.55,0.45-1,1-1h64c0.55,0,1,0.45,1,1V73.5z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Dryer_x5F_mode">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="56" y1="18" x2="40" y2="18"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M83,89c0,0.551-0.449,1-1,1H14
+				c-0.549,0-1-0.449-1-1V7c0-0.549,0.451-1,1-1h68c0.551,0,1,0.451,1,1V89z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M67.234,64.502
+				c-4.103,6.291-11.197,10.449-19.261,10.449C35.29,74.951,25,64.662,25,51.973C25,39.29,35.29,29,47.973,29
+				c7.634,0,14.396,3.724,18.576,9.449"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M48,46.719C49.811,44.779,51.861,44,54.004,44
+				c1.711,0,3.422,0.221,5.99,1.811c2.576,1.591,4.291,1.814,6.004,1.814c2.141,0,4.191-0.786,6.002-2.722"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M48,56.088c1.811-1.936,3.861-2.721,6.004-2.721
+				c1.711,0,3.422,0.217,5.99,1.813c2.576,1.594,4.291,1.813,6.004,1.813c2.141,0,4.191-0.777,6.002-2.718"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Power_x5F_Meter">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M74.372,14H48H21.627
+				C11.815,22.07,5.556,34.305,5.556,48c0,13.695,6.26,25.932,16.071,34H48h26.372c9.813-8.068,16.071-20.305,16.071-34
+				C90.443,34.305,84.186,22.07,74.372,14z"/>
+			<rect x="60.5" y="32.5" width="4" height="16"/>
+			
+				<rect x="60.5" y="32.5" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="4" height="16"/>
+			<rect x="28.5" y="32.5" width="4" height="16"/>
+			
+				<rect x="28.5" y="32.5" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="4" height="16"/>
+			<path d="M40.83,69.287V63.33c0-3.962,3.212-7.173,7.171-7.173c3.961,0,7.174,3.211,7.174,7.173v5.957H40.83z"/>
+			<path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M40.83,69.287
+				V63.33c0-3.962,3.212-7.173,7.171-7.173c3.961,0,7.174,3.211,7.174,7.173v5.957H40.83z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Media_x5F_Track_x5F_Info">
+		<g display="inline">
+			<circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="48" cy="48.001" r="43"/>
+			<path d="M51,26c0,2.263-1.791,4.096-4.002,4.096C44.79,30.096,43,28.263,43,26s1.79-4.095,3.998-4.095
+				C49.209,21.905,51,23.737,51,26"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="48,75 48,41 40,41 			"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Player_x5F_Control">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M25.828,89.438
+			C25.373,89.747,25,89.55,25,89V7c0-0.55,0.373-0.748,0.828-0.44l60.344,40.879c0.455,0.308,0.455,0.813,0,1.122L25.828,89.438z"/>
+	</g>
+	<g id="ic_x5F_function_x5F_Tamper_x5F_Alert">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M15,81.861l7.67-68.867
+				C22.73,12.448,23.23,12,23.78,12h46.443c0.549,0,1.049,0.448,1.108,0.994L79,81.861"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="5" y1="84" x2="91" y2="84"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="47" y1="25" x2="47" y2="53"/>
+			<path d="M43,63.999C43,61.793,44.79,60,47,60c2.209,0,4,1.793,4,3.999C51,66.212,49.209,68,47,68C44.79,68,43,66.212,43,63.999"
+				/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Temperature_x5F_Setpoint">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M41.866,30.499
+				C34.948,33.085,30,39.918,30,47.946c0,10.246,8.058,18.553,17.998,18.553C57.939,66.499,66,58.191,66,47.946
+				c0-8.025-4.943-14.859-11.861-17.444"/>
+			<polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="65,29.999 54,29.999 54,40.999 			"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M79.754,46.165
+				c-0.008-0.55,0.305-1.316,0.695-1.702l8.838-8.717c0.393-0.387,0.488-1.094,0.213-1.569l-8.828-15.354
+				c-0.273-0.477-0.932-0.746-1.461-0.599L67.277,21.55c-0.529,0.148-1.342,0.026-1.805-0.272l-3.164-1.837
+				c-0.488-0.255-0.998-0.898-1.138-1.432L58.074,5.968C57.938,5.435,57.375,5,56.824,5h-17.65c-0.549,0-1.11,0.435-1.248,0.968
+				l-3.1,12.041c-0.137,0.533-0.647,1.177-1.136,1.432l-3.164,1.837c-0.462,0.299-1.274,0.421-1.804,0.272L16.79,18.225
+				c-0.531-0.147-1.188,0.122-1.463,0.599L6.499,34.177c-0.273,0.476-0.178,1.183,0.213,1.569l8.838,8.717
+				c0.393,0.386,0.705,1.152,0.695,1.702v3.67c0.01,0.549-0.303,1.313-0.695,1.702l-8.838,8.717
+				c-0.391,0.387-0.486,1.094-0.213,1.569l8.828,15.354c0.274,0.476,0.932,0.745,1.463,0.599l11.935-3.323
+				c0.528-0.149,1.342-0.027,1.804,0.271l3.163,1.836c0.488,0.256,0.999,0.9,1.136,1.434l3.1,12.04
+				C38.063,90.563,38.625,91,39.174,91h17.65c0.551,0,1.113-0.438,1.25-0.969l3.098-12.04c0.139-0.532,0.648-1.179,1.137-1.433
+				l3.164-1.836c0.463-0.3,1.273-0.422,1.803-0.271l11.937,3.322c0.529,0.147,1.188-0.121,1.461-0.598L89.5,61.823
+				c0.275-0.478,0.18-1.183-0.213-1.569l-8.838-8.717c-0.391-0.389-0.703-1.153-0.695-1.702V46.165z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Player_x5F_Shuffle_x5F_Mode">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M90.999,72h-11
+				c-4.399,0-10.546-2.546-13.656-5.657L53.656,53.657c-3.112-3.111-5.627-5.686-5.591-5.722c0.037-0.037,2.613-2.612,5.723-5.723
+				l12.555-12.555C69.453,26.546,75.6,24,79.999,24h11"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M3.999,74h10c4.4,0,10.546-2.546,13.657-5.657
+				l14.687-14.686c3.111-3.111,5.627-5.686,5.591-5.722c-0.037-0.037-2.612-2.612-5.724-5.723L27.656,27.657
+				C24.545,24.546,18.399,22,13.999,22h-10"/>
+			<polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="79.271,59.547 92,72.271 78.271,86 			
+				"/>
+			<polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="78.271,10 92,23.725 79.271,36.453 			
+				"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Media_x5F_Input_x5F_Source">
+		<path display="inline" fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M9.516,38.797l0.001-17.033
+			c0-0.512,0.419-0.931,0.931-0.931h80.048c0.512,0,0.932,0.419,0.932,0.931v51.472c0,0.513-0.42,0.931-0.932,0.931H10.281
+			c-0.512,0-0.931-0.418-0.931-0.931V56.167"/>
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="56.505" y1="47.805" x2="2.001" y2="47.805"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="44.106,60.893 56.505,48.107 
+				44.106,35.32 			"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Momentary">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="48" y1="80.258" x2="45.5" y2="80.258"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="5.635,5.635" x1="39.865" y1="80.258" x2="8.871" y2="80.258"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="6.055,80.258 3.555,80.258 
+				3.555,77.758 			"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="5.411,5.411" x1="3.555" y1="72.348" x2="3.555" y2="20.947"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="3.555,18.242 3.555,15.742 
+				6.055,15.742 			"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" stroke-dasharray="5.635,5.635" x1="11.689" y1="15.742" x2="42.683" y2="15.742"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="45.5" y1="15.742" x2="48" y2="15.742"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="48" y1="53.596" x2="48" y2="42.874"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="48,29.942 48,15.742 92.445,15.742 
+				92.445,80.258 48,80.258 48,66.527 			"/>
+			<polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="59.986,28.193 68.828,36.674 
+				59.986,45.154 			"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="26.232" y1="36.674" x2="68.828" y2="36.674"/>
+			<polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="35.07,68.273 26.231,59.795 
+				35.07,51.313 			"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="68.828" y1="59.795" x2="26.231" y2="59.795"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Order_x5F_sensor_x5F_level">
+		<g display="inline">
+			<circle fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" cx="48" cy="48" r="13.524"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M54.531,19.827
+				c-3.604,3.607-9.453,3.608-13.06-0.003c-3.609-3.607-3.609-9.457-0.003-13.063c3.608-3.604,9.458-3.604,13.062,0
+				C58.141,10.371,58.141,16.222,54.531,19.827z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M26.868,28.258
+				c1.32,4.926-1.602,9.989-6.531,11.31c-4.93,1.321-9.996-1.603-11.315-6.528c-1.317-4.93,1.606-9.995,6.53-11.312
+				C20.483,20.403,25.549,23.329,26.868,28.258z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M20.336,56.43
+				c4.926,1.32,7.851,6.383,6.528,11.313c-1.321,4.929-6.386,7.854-11.312,6.532c-4.928-1.321-7.852-6.389-6.531-11.311
+				C10.342,58.033,15.408,55.107,20.336,56.43z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M41.468,76.173
+				c3.604-3.606,9.453-3.608,13.062,0.003c3.609,3.607,3.609,9.457,0.002,13.063c-3.608,3.604-9.458,3.604-13.06,0
+				C37.86,85.629,37.86,79.777,41.468,76.173z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M69.132,67.742
+				c-1.319-4.926,1.601-9.989,6.532-11.311c4.93-1.32,9.996,1.604,11.314,6.528c1.317,4.931-1.607,9.995-6.529,11.313
+				C75.518,75.598,70.451,72.672,69.132,67.742z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M75.663,39.57
+				c-4.925-1.318-7.851-6.382-6.528-11.313c1.321-4.929,6.387-7.854,11.313-6.533c4.928,1.321,7.853,6.388,6.529,11.31
+				C85.657,37.968,80.591,40.893,75.663,39.57z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Oven_x5F_mode">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M88,87c0,0.551-0.45,1-1,1H9c-0.55,0-1-0.449-1-1
+				V9c0-0.549,0.45-1,1-1h78c0.55,0,1,0.451,1,1V87z"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="56" y1="18" x2="40" y2="18"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="88" y1="27" x2="8" y2="27"/>
+			<rect x="20.667" y="39" fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" width="55" height="37"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Dish_x5F_Washer_x5F_mode">
+		<g display="inline">
+			
+				<rect x="14" y="4" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" width="68" height="88"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" x1="14.778" y1="23" x2="81" y2="23"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" x1="41" y1="14" x2="55" y2="14"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Robot_x5F_Cleaner_x5F_Cleaning_x5F_mode">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M40.616,37.312
+				c0,10.071-8.137,18.229-18.175,18.229"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M58.784,55.541
+				c-10.039,0-18.172-8.159-18.172-18.23"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M40.505,73.652
+				c0.118-10.064,8.349-18.131,18.384-18.01"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-miterlimit="10" d="M22.44,55.532
+				c10.039,0,18.175,8.163,18.175,18.227"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M62.234,21.787
+				c0,6.216-5.024,11.252-11.221,11.252"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M73.447,33.041
+				c-6.197,0-11.217-5.038-11.217-11.254"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M62.165,44.221
+				c0.071-6.214,5.153-11.192,11.349-11.118"/>
+			<path fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M51.016,33.035
+				c6.194,0,11.219,5.039,11.219,11.251"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M84.875,84.662c0,0.005-0.404,0.009-0.898,0.009
+				H11.979c-0.495,0-0.901-0.403-0.901-0.899V11.774c0-0.494,0.406-0.899,0.901-0.899h71.998c0.494,0,0.898,0.405,0.898,0.899
+				v71.977V84.662z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Sound_x5F_Sensor">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M25.076,24.578
+				c5.866-5.542,13.979-8.97,22.942-8.97c8.945,0,17.044,3.417,22.906,8.937"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M70.918,71.146
+				c-5.875,5.543-13.996,8.971-22.966,8.971c-8.925,0-17.01-3.393-22.881-8.889"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M16.604,15.607
+				C24.638,7.604,35.746,2.65,48.018,2.65c12.255,0,23.348,4.939,31.378,12.923"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M79.396,80.393
+				C71.35,88.396,60.236,93.35,47.957,93.35c-12.233,0-23.314-4.918-31.353-12.873"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="43.016" y1="48" x2="52.984" y2="48"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M90.857,61.953c0,0.548-0.447,0.998-0.996,0.998
+				H6.139c-0.548,0-0.997-0.45-0.997-0.998V34.046c0-0.548,0.449-0.997,0.997-0.997h83.722c0.55,0,0.996,0.448,0.996,0.997V61.953
+				L90.857,61.953z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_TV_x5F_Channel_x5F_control">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M34.324,38.25c-0.545,0-0.991,0.446-0.991,0.991
+				v53.017c0,0.545,0.446,0.992,0.991,0.992h28.019c0.546,0,0.99-0.447,0.99-0.992V39.241c0-0.545-0.444-0.991-0.99-0.991H34.324z"
+				/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M28,28.536c11.045-10.667,28.955-10.667,40,0"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M17,18.036c17.121-17.333,44.879-17.333,62,0"/>
+			<path fill="#231F20" d="M46.333,51.25c0,1.656-1.344,3-3,3s-3-1.344-3-3s1.344-3,3-3S46.333,49.594,46.333,51.25"/>
+			<path fill="#231F20" d="M56.333,51.25c0,1.656-1.345,3-3,3s-3-1.344-3-3s1.345-3,3-3S56.333,49.594,56.333,51.25"/>
+			<path fill="#231F20" d="M46.333,63.25c0,1.656-1.344,3-3,3s-3-1.344-3-3s1.344-3,3-3S46.333,61.594,46.333,63.25"/>
+			<path fill="#231F20" d="M56.333,63.25c0,1.656-1.345,3-3,3s-3-1.344-3-3s1.345-3,3-3S56.333,61.594,56.333,63.25"/>
+			<path fill="#231F20" d="M46.333,75.25c0,1.656-1.344,3-3,3s-3-1.344-3-3s1.344-3,3-3S46.333,73.594,46.333,75.25"/>
+			<path fill="#231F20" d="M56.333,75.25c0,1.656-1.345,3-3,3s-3-1.344-3-3s1.345-3,3-3S56.333,73.594,56.333,75.25"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Video_x5F_Stream">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M88.543,87.555c0,0.545-0.443,0.988-0.988,0.988
+				H8.445c-0.543,0-0.989-0.443-0.989-0.988V8.445c0-0.544,0.445-0.989,0.989-0.989h79.11c0.545,0,0.987,0.444,0.987,0.989
+				L88.543,87.555L88.543,87.555z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M33.998,69.217
+				c-0.457,0.297-0.831,0.094-0.831-0.451V27.234c0-0.544,0.374-0.749,0.831-0.452l31.961,20.68c0.455,0.296,0.455,0.778,0,1.075
+				L33.998,69.217z"/>
+			<rect x="17.346" y="24.267" width="3.956" height="5.934"/>
+			<rect x="17.346" y="38.111" width="3.956" height="5.934"/>
+			<rect x="17.346" y="65.801" width="3.956" height="5.932"/>
+			<rect x="17.346" y="51.955" width="3.956" height="5.934"/>
+			<rect x="74.701" y="24.267" width="3.955" height="5.934"/>
+			<rect x="74.701" y="38.111" width="3.955" height="5.934"/>
+			<rect x="74.701" y="65.801" width="3.955" height="5.932"/>
+			<rect x="74.701" y="51.955" width="3.955" height="5.934"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Robot_x5F_Cleaner_x5F_Movement">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M48.001,55.656c7.104,0.006,14.308-1.805,20.901-5.621c6.361-3.677,11.392-8.777,14.924-14.674"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="71.77,34.58 84.839,34.58 
+				84.839,47.668 			"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M48.001,55.648c-7.104,0.008-14.309-1.801-20.904-5.614c-6.359-3.676-11.39-8.782-14.922-14.673"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="24.229,34.58 11.161,34.58 
+				11.161,47.668 			"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="48.001" y1="86.119" x2="48.001" y2="10.842"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="38.759,18.103 48.001,8.848 
+				57.241,18.103 			"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="57.245,77.898 48.005,87.152 
+				38.765,77.898 			"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Thermostat_x5F_Fan">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M69.512,26.488C57.633,26.488,48,36.119,48,48
+				h41.997c0.563,0,1.028-0.465,1.004-1.027C90.464,35.569,81.05,26.488,69.512,26.488z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M26.49,69.512
+				C14.953,69.512,5.537,60.43,5,49.027C4.974,48.464,5.441,48,6.003,48h41.998C48.001,59.881,38.371,69.512,26.49,69.512z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M69.514,69.512
+				c0,11.537-9.082,20.951-20.484,21.486c-0.563,0.027-1.027-0.439-1.027-1.002V48C59.882,48,69.514,57.633,69.514,69.512z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M26.488,26.488C26.488,38.371,36.118,48,48,48
+				V6.003c0-0.563-0.465-1.029-1.027-1.002C35.569,5.537,26.488,14.952,26.488,26.488z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Signal_x5F_Strength">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M28,68.32c-10.667-11.045-10.667-28.956,0-40"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M17.5,78.82c-17.333-16.846-17.333-44.155,0-61"
+				/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M68,68.32c10.667-11.045,10.667-28.956,0-40"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M78.5,78.82c17.333-16.846,17.333-44.155,0-61"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M55.5,48.319c0,4.146-3.357,7.501-7.499,7.501
+				c-4.145,0-7.501-3.355-7.501-7.501c0-4.142,3.356-7.499,7.501-7.499C52.143,40.82,55.5,44.177,55.5,48.319z"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="48.001" y1="55.82" x2="48.001" y2="90.82"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Rapid_x5F_Freezing_x5F_mode">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M48.112,16.458
+				l7.688-4.457c0.478-0.276,1.255-0.275,1.729,0.001l29.718,17.246c0.476,0.275,0.864,0.952,0.864,1.502v34.505
+				c0,0.55-0.389,1.226-0.864,1.502L57.529,83.999c-0.475,0.274-1.254,0.274-1.729,0l-7.688-4.461"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M70.79,65.255
+				c0,0.55-0.392,1.226-0.865,1.502L40.208,83.999c-0.477,0.274-1.256,0.274-1.731,0L8.753,66.757
+				c-0.477-0.276-0.865-0.952-0.865-1.502V30.75c0-0.55,0.389-1.226,0.865-1.502l29.724-17.246c0.476-0.276,1.254-0.276,1.731,0
+				l29.717,17.246C70.4,29.524,70.79,30.2,70.79,30.75V65.255z"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="39.337" y1="30" x2="39.33" y2="66"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="23.839" y1="39.007" x2="54.839" y2="57.003"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="54.833" y1="39.007" x2="23.839" y2="57.003"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Rapid_x5F_Cooling_x5F_mode">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="30.929" y1="45.285" x2="30.929" y2="69.467"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="20.184" y1="51.342" x2="41.678" y2="63.426"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="41.674" y1="51.342" x2="20.184" y2="63.426"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" d="M50.295,47.529
+				L30.619,13.5L10.871,47.529c-6.274,10.86-2.538,24.741,8.351,31.002c3.584,2.063,7.497,3.037,11.364,3.033h-0.007
+				c3.865,0.004,7.779-0.972,11.364-3.033c1.525-0.879,2.911-1.906,4.15-3.055"/>
+			<polygon fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" points="70.84,69.023 
+				55.432,82.5 55.432,55.547 			"/>
+			<polygon fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" points="88.173,69.023 
+				72.766,82.5 72.766,55.547 			"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Dust_x5F_sensor_x5F_level">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M89,5.25v80.949c0,0.578-0.475,1.051-1.053,1.051
+				H8.051C7.473,87.25,7,86.777,7,86.199V5.25"/>
+			<g>
+				<path d="M77.752,37.268c0,2.453-1.988,4.439-4.439,4.439s-4.438-1.987-4.438-4.439s1.987-4.439,4.438-4.439
+					C75.764,32.828,77.752,34.815,77.752,37.268"/>
+				<path d="M77.752,54.489c0,2.452-1.988,4.438-4.439,4.438s-4.438-1.986-4.438-4.438c0-2.451,1.987-4.438,4.438-4.438
+					S77.752,52.038,77.752,54.489"/>
+				<path d="M77.752,71.462c0,2.451-1.988,4.438-4.439,4.438s-4.438-1.987-4.438-4.438c0-2.452,1.987-4.438,4.438-4.438
+					C75.764,67.021,77.752,69.01,77.752,71.462"/>
+				<path d="M61.127,37.268c0,2.453-1.988,4.439-4.439,4.439s-4.438-1.987-4.438-4.439s1.987-4.439,4.438-4.439
+					C59.139,32.828,61.127,34.815,61.127,37.268"/>
+				<path d="M61.127,54.489c0,2.452-1.988,4.438-4.439,4.438s-4.438-1.986-4.438-4.438c0-2.451,1.987-4.438,4.438-4.438
+					S61.127,52.038,61.127,54.489"/>
+				<path d="M61.127,71.462c0,2.451-1.988,4.438-4.439,4.438s-4.438-1.987-4.438-4.438c0-2.452,1.987-4.438,4.438-4.438
+					C59.139,67.021,61.127,69.01,61.127,71.462"/>
+				<path d="M44.002,37.268c0,2.453-1.988,4.439-4.439,4.439c-2.452,0-4.439-1.987-4.439-4.439s1.987-4.439,4.439-4.439
+					C42.014,32.828,44.002,34.815,44.002,37.268"/>
+				<path d="M44.002,54.489c0,2.452-1.988,4.438-4.439,4.438c-2.452,0-4.439-1.986-4.439-4.438c0-2.451,1.987-4.438,4.439-4.438
+					C42.014,50.051,44.002,52.038,44.002,54.489"/>
+				<path d="M44.002,71.462c0,2.451-1.988,4.438-4.439,4.438c-2.452,0-4.439-1.987-4.439-4.438c0-2.452,1.987-4.438,4.439-4.438
+					C42.014,67.021,44.002,69.01,44.002,71.462"/>
+				<path d="M27.127,37.268c0,2.453-1.988,4.439-4.439,4.439c-2.452,0-4.439-1.987-4.439-4.439s1.987-4.439,4.439-4.439
+					C25.139,32.828,27.127,34.815,27.127,37.268"/>
+				<path d="M27.127,54.489c0,2.452-1.988,4.438-4.439,4.438c-2.452,0-4.439-1.986-4.439-4.438c0-2.451,1.987-4.438,4.439-4.438
+					C25.139,50.051,27.127,52.038,27.127,54.489"/>
+				<path d="M27.127,71.462c0,2.451-1.988,4.438-4.439,4.438c-2.452,0-4.439-1.987-4.439-4.438c0-2.452,1.987-4.438,4.439-4.438
+					C25.139,67.021,27.127,69.01,27.127,71.462"/>
+			</g>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Energy_x5F_Consumption">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="22.538" y1="19.975" x2="22.538" y2="2.867"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="47.47" y1="19.975" x2="47.47" y2="2.867"/>
+			<line fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" x1="35.003" y1="63.033" x2="35.003" y2="93.133"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M38.905,62.738
+				c-1.271,0.195-2.574,0.295-3.902,0.295c-13.764,0-24.922-10.789-24.922-24.085l-0.006-0.006V19.975h24.89h0.075h24.894v18.967
+				l-0.01,0.006c0,1.079-0.07,2.143-0.214,3.186"/>
+			<polyline fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" points="78.55,62.703 65.404,75.891 
+				57.898,68.355 			"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M85.925,85.916c0,0.551-0.45,1-1,1H49.591
+				c-0.55,0-1-0.449-1-1v-34c0-0.551,0.45-1,1-1h35.334c0.55,0,1,0.449,1,1V85.916z"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Freezer_x5F_Door_x5F_State">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="58" y1="20.504" x2="58" y2="41.778"/>
+			<rect x="28" y="21.954" fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" width="10" height="17.404"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="79" y1="57.953" x2="17" y2="57.953"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M78.916,90.047c0,0.551-0.449,1-1,1H18
+				c-0.551,0-1-0.449-1-1V6.013c0-0.55,0.449-1,1-1h59.916c0.551,0,1,0.45,1,1V90.047z"/>
+			
+				<line fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="10" x1="48" y1="4.954" x2="48" y2="56.953"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Image_x5F_Capture">
+		<g display="inline">
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="48" y1="82" x2="48" y2="62"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="48" y1="34" x2="48" y2="14"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="14" y1="48" x2="34" y2="48"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="62" y1="48" x2="82" y2="48"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="37.589" y1="57.5" x2="30.411" y2="64.5"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="64.5" y1="30.5" x2="57.5" y2="37.5"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="37.5" y1="37.5" x2="30.5" y2="30.5"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="64.5" y1="64.5" x2="57.5" y2="57.5"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M23,16.5H4.5c-0.55,0-1,0.45-1,1V36"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M73,16.5h18.5c0.55,0,1,0.45,1,1V36"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M23,79.5H4.5c-0.55,0-1-0.449-1-1V60"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M73,79.5h18.5c0.55,0,1-0.449,1-1V60"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Lock">
+		<g display="inline">
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M83,90c0,0.551-0.45,1-1,1H14
+				c-0.55,0-1-0.449-1-1V40c0-0.549,0.45-1,1-1h68c0.55,0,1,0.451,1,1V90z"/>
+			<path fill="none" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M24,39.001V28.998C24,15.746,34.744,5,47.998,5
+				C61.255,5,72,15.746,72,28.998v10.003"/>
+			<circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="48" cy="59" r="6"/>
+			<line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="48" y1="65" x2="48" y2="81"/>
+		</g>
+	</g>
+	<g id="ic_x5F_function_x5F_Light_x5F_Dimmer">
+		<g display="inline">
+			<path d="M88,4.5H8C6.07,4.5,4.5,6.07,4.5,8v80c0,1.93,1.57,3.5,3.5,3.5h80c1.93,0,3.5-1.57,3.5-3.5V8C91.5,6.07,89.93,4.5,88,4.5
+				z M86.5,86.5h-77v-77h77V86.5z"/>
+			<path d="M32.999,51.936H45.5V77h5V51.936h12.499c1.931,0,3.5-1.569,3.5-3.5v-16c0-1.93-1.569-3.5-3.5-3.5H50.5V17h-5v11.936
+				H32.999c-1.93,0-3.5,1.57-3.5,3.5v16C29.499,50.365,31.069,51.936,32.999,51.936z M34.499,46.936v-4h27v4H34.499z M61.499,33.936
+				v4h-27v-4H61.499z"/>
+		</g>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Air_x5F_Quality_x5F_Sensor_x5F_Level_1_" display="none">
+	<g display="inline">
+		<path d="M70.399,12.4H25.6c-3.75,0-6.8,3.051-6.8,6.8v57.6c0,3.75,3.05,6.801,6.8,6.801h44.799c3.75,0,6.801-3.051,6.801-6.801
+			V19.2C77.2,15.451,74.149,12.4,70.399,12.4z M73.2,76.8c0,1.544-1.256,2.801-2.801,2.801H25.6c-1.544,0-2.8-1.257-2.8-2.801V19.2
+			c0-1.543,1.256-2.8,2.8-2.8h44.799c1.545,0,2.801,1.256,2.801,2.8V76.8z"/>
+		<rect x="27.2" y="24.8" width="11.2" height="4"/>
+		<rect x="27.2" y="33.835" width="11.2" height="4"/>
+		<rect x="42.402" y="24.8" width="11.2" height="4"/>
+		<rect x="42.402" y="33.835" width="11.2" height="4"/>
+		<rect x="57.603" y="24.8" width="11.199" height="4"/>
+		<rect x="57.603" y="33.835" width="11.199" height="4"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Airconditioner_x5F_Mode_1_" display="none">
+	<g display="inline">
+		<path d="M68.8,10H27.2c-1.543,0-2.8,1.256-2.8,2.8v70.4c0,1.543,1.256,2.8,2.8,2.8h41.6c1.544,0,2.801-1.257,2.801-2.8V12.8
+			C71.601,11.256,70.344,10,68.8,10z M28.4,36.8h39.201v4.8H28.4V36.8z M67.601,33.6H28.4v-4.8h39.201V33.6z M67.601,14v11.6H28.4
+			V14H67.601z M28.4,82V44.8h39.201V82H28.4z"/>
+		<rect x="41.6" y="52" width="12.799" height="3.2"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Alarm_1_" display="none">
+	<g display="inline">
+		<path d="M48,83.308c-18.307,0-33.2-14.895-33.2-33.201c0-18.306,14.893-33.2,33.2-33.2c18.306,0,33.2,14.894,33.2,33.2
+			C81.2,68.413,66.306,83.308,48,83.308z M48,20.907c-16.101,0-29.2,13.1-29.2,29.2c0,16.102,13.099,29.201,29.2,29.201
+			c16.101,0,29.2-13.1,29.2-29.201C77.2,34.006,64.101,20.907,48,20.907z"/>
+		<rect x="21.2" y="69.796" transform="matrix(0.71 0.7042 -0.7042 0.71 59.4748 5.3839)" width="4" height="10.223"/>
+		<rect x="67.709" y="72.907" transform="matrix(0.7071 0.7071 -0.7071 0.7071 74.29 -29.5374)" width="10.181" height="4"/>
+		<rect x="66.618" y="19.307" transform="matrix(0.7071 0.7071 -0.7071 0.7071 37.563 -48.0666)" width="20.365" height="4"/>
+		<rect x="17.2" y="11.125" transform="matrix(0.7071 0.7071 -0.7071 0.7071 20.69 -7.3357)" width="4" height="20.365"/>
+		<polygon points="67.2,52.106 45.2,52.106 45.2,26.107 49.2,26.107 49.2,48.107 67.2,48.107 		"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Audio_x5F_Notification_1_" display="none">
+	<g display="inline">
+		<path d="M56.767,16c0-1.567-1.152-2.413-2.236-2.413c-0.447,0-1.113,0.134-1.748,0.773l-18.125,18.3L18.982,16.986l-2.828,2.828
+			l14.744,14.745h-16.13c-1.543,0-2.8,1.256-2.8,2.8v21.283c0,1.543,1.257,2.8,2.8,2.8h17.97c0.021,0.007,0.046,0.017,0.065,0.027
+			L52.782,81.64c0.633,0.639,1.299,0.773,1.746,0.773h0.002c0.777,0,1.484-0.404,1.889-1.08c0.23-0.387,0.348-0.834,0.348-1.333
+			V60.429l15.387,15.385l2.828-2.828L56.767,54.772V16z M52.767,20.061v30.712L37.485,35.49L52.767,20.061z M52.767,75.94
+			L35.598,58.605c-0.688-0.696-1.807-1.164-2.786-1.164H15.967V38.559h16.845c0.549,0,1.137-0.159,1.674-0.412l18.28,18.282V75.94z"
+			/>
+		<path d="M83.195,49.989c0.54-0.528,0.837-1.234,0.837-1.989c0-0.754-0.297-1.461-0.837-1.99l-7.569-7.41l8.141-7.971l-2.798-2.858
+			l-9.03,8.842c-0.539,0.528-0.834,1.233-0.834,1.987c0,0.753,0.295,1.459,0.836,1.989L79.509,48l-7.571,7.413
+			c-0.538,0.528-0.833,1.234-0.833,1.986c0,0.754,0.295,1.459,0.836,1.99l9.028,8.84l2.798-2.858l-8.141-7.972L83.195,49.989z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Audio_x5F_volume_1_" display="none">
+	<g display="inline">
+		<path d="M53.762,13.587c-0.446,0-1.112,0.134-1.746,0.773l-19.979,20.17c-0.02,0.01-0.045,0.021-0.065,0.028H14
+			c-1.543,0-2.8,1.256-2.8,2.8v21.283c0,1.543,1.257,2.8,2.8,2.8h17.97c0.021,0.007,0.046,0.017,0.065,0.027l19.98,20.171
+			c0.633,0.639,1.298,0.773,1.745,0.773h0.001c0.778,0,1.485-0.404,1.89-1.08C55.883,80.946,56,80.499,56,80V16
+			C56,14.433,54.847,13.587,53.762,13.587z M52,75.94L34.83,58.605c-0.688-0.696-1.807-1.164-2.786-1.164H15.2V38.559h16.846
+			c0.978,0,2.096-0.467,2.783-1.162L52,20.061V75.94z"/>
+		<path d="M64.176,29.748l-2.751,2.904c4.334,4.106,6.723,9.557,6.723,15.348s-2.389,11.242-6.723,15.348l2.751,2.905
+			c5.141-4.871,7.972-11.354,7.972-18.253C72.147,41.099,69.315,34.617,64.176,29.748z"/>
+		<path d="M72.731,20.934l-2.721,2.932C76.968,30.322,80.8,38.892,80.8,48c0,9.108-3.832,17.679-10.789,24.134l2.721,2.933
+			C80.515,67.845,84.8,58.233,84.8,48C84.8,37.767,80.515,28.155,72.731,20.934z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Battery_1_" display="none">
+	<g display="inline">
+		<path d="M67.2,19.8h-9.263v-5c0-1.544-1.257-2.8-2.8-2.8H40.863c-1.544,0-2.8,1.256-2.8,2.8v5H28.8c-1.544,0-2.8,1.256-2.8,2.8
+			v58.6c0,1.543,1.256,2.8,2.8,2.8h38.4c1.543,0,2.8-1.257,2.8-2.8V22.6C70,21.056,68.743,19.8,67.2,19.8z M66,80H30V23.8h8.063h2h2
+			V16h11.875v7.8h1.999h2.001H66V80z"/>
+		<rect x="34.399" y="62.399" width="27.2" height="12.801"/>
+		<rect x="34.399" y="45.6" width="27.2" height="12.799"/>
+		<rect x="34.399" y="28.8" width="27.2" height="12.8"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Button_1_" display="none">
+	<g display="inline">
+		<path d="M66.398,46.398C66.399,46.398,66.399,46.398,66.398,46.398c9.265,0,16.802-7.533,16.802-16.793
+			c0-9.268-7.537-16.807-16.801-16.807c-9.263,0-16.799,7.54-16.799,16.807c0,4.484,1.747,8.701,4.92,11.874
+			C57.694,44.651,61.913,46.398,66.398,46.398z M66.399,16.798c7.059,0,12.801,5.745,12.801,12.807
+			c0,7.054-5.742,12.793-12.801,12.793c0,0,0,0-0.001,0c-3.417,0-6.632-1.332-9.05-3.749s-3.748-5.629-3.748-9.044
+			C53.601,22.543,59.343,16.798,66.399,16.798z"/>
+		<path d="M29.6,12.799c-9.264,0-16.8,7.539-16.8,16.806c0,9.26,7.536,16.793,16.8,16.793s16.8-7.533,16.8-16.793
+			C46.4,20.338,38.864,12.799,29.6,12.799z M29.6,42.399c-7.058,0-12.8-5.739-12.8-12.793c0-7.061,5.742-12.806,12.8-12.806
+			s12.8,5.745,12.8,12.807C42.4,36.66,36.658,42.399,29.6,42.399z"/>
+		<path d="M29.6,49.602c-9.264,0-16.8,7.532-16.8,16.792c0,9.268,7.536,16.809,16.8,16.809s16.8-7.541,16.8-16.809
+			C46.4,57.134,38.864,49.602,29.6,49.602z M29.6,79.202c-7.058,0-12.8-5.746-12.8-12.809c0-7.054,5.742-12.792,12.8-12.792
+			s12.8,5.738,12.8,12.792C42.4,73.456,36.658,79.202,29.6,79.202z"/>
+		<path d="M66.399,49.602c-9.263,0-16.799,7.532-16.799,16.792c0,9.268,7.536,16.809,16.799,16.809
+			c9.264,0,16.801-7.541,16.801-16.809C83.2,57.134,75.663,49.602,66.399,49.602z M66.399,79.202
+			c-7.057,0-12.799-5.746-12.799-12.809c0-7.054,5.742-12.792,12.799-12.792c7.059,0,12.801,5.738,12.801,12.792
+			C79.2,73.456,73.458,79.202,66.399,79.202z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Carbon_x5F_Monoxide_x5F_Detector_1_" display="none">
+	<g display="inline">
+		<path d="M41.789,57.524c-1.641-3.153-1.971-4.88-1.971-6.645c0-2.371,0.879-4.383,2.687-6.149l-2.795-2.861
+			c-2.582,2.522-3.891,5.555-3.891,9.01c0,2.736,0.668,5.1,2.378,8.404c0.844,2.103,2.005,5.521,2.005,6.729
+			c0,2.371-0.879,4.382-2.687,6.146l2.795,2.861c2.582-2.521,3.892-5.552,3.892-9.008c0-2.428-1.942-7.353-2.332-8.314
+			C41.845,57.638,41.818,57.581,41.789,57.524z"/>
+		<path d="M55.71,50.88c0-2.376,0.879-4.387,2.686-6.147l-2.791-2.866c-2.584,2.517-3.895,5.55-3.895,9.013
+			c0,2.764,0.674,5.143,2.41,8.492c1.639,3.144,1.959,4.815,1.959,6.641c0,2.378-0.875,4.389-2.673,6.146l2.796,2.861
+			c2.572-2.516,3.877-5.545,3.877-9.008c0-2.318-0.408-4.649-2.41-8.484C56.038,54.378,55.71,52.648,55.71,50.88z"/>
+		<path d="M81.781,20.979l-4.328,4.354c-1.403,1.116-3.089,1.706-4.884,1.706H23.432c-1.798,0-3.487-0.589-4.89-1.705L14.22,20.98
+			l-2.839,2.817l4.4,4.433c0.049,0.05,0.102,0.097,0.155,0.141c2.098,1.71,4.742,2.657,7.45,2.667c0.006,0,0.013,0,0.019,0h49.165
+			c2.72,0,5.379-0.947,7.488-2.667c0.055-0.044,0.106-0.09,0.154-0.141l4.406-4.433L81.781,20.979z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Color_x5F_Control_2_" display="none">
+	<g id="ic_x5F_function_x5F_Color_x5F_Control_1_" display="inline">
+		<path d="M29.198,40.801c-1.989,0-3.601-1.613-3.601-3.6c0-1.989,1.611-3.6,3.601-3.6c1.988,0,3.599,1.61,3.599,3.6
+			C32.797,39.188,31.186,40.801,29.198,40.801"/>
+		<path d="M43.883,36.395c-2.209,0-3.999-1.791-3.999-3.999c0-2.21,1.79-4.001,3.999-4.001c2.21,0,4.001,1.792,4.001,4.001
+			C47.884,34.604,46.094,36.395,43.883,36.395"/>
+		<path d="M55.198,37.601c0-2.651,2.15-4.8,4.801-4.8s4.799,2.149,4.799,4.8c0,2.649-2.148,4.8-4.799,4.8
+			C57.347,42.401,55.198,40.25,55.198,37.601"/>
+		<path d="M68.157,57.378c-2.873,0-5.203-2.328-5.203-5.201s2.33-5.2,5.203-5.2c2.871,0,5.197,2.327,5.197,5.2
+			S71.028,57.378,68.157,57.378"/>
+		<path d="M51.06,76c-7.758,0-17.064-3.292-19.028-9.394c-1.309-4.061,0.79-6.586,2.178-8.258c1.392-1.674,1.664-2.185,1.133-3.35
+			c-1.265-2.783-7.649-3.813-10.053-4.201l-0.718-0.117c-5.225-0.881-9.041-3.345-10.742-6.938c-1.403-2.961-1.179-6.46,0.614-9.599
+			c2.731-4.786,7.504-8.576,14.186-11.264c5.921-2.384,11.575-2.777,15.313-2.865c0.427-0.01,0.855-0.014,1.29-0.014
+			c4.895,0,9.243,0.617,13.292,1.887c10.133,3.165,18.123,9.629,21.928,17.742c1.66,3.189,2.545,6.84,2.631,10.851
+			c0.078,6.466-2.155,12.176-6.459,16.532C70.896,72.808,61.817,76,51.06,76z M45.231,24c-0.405,0-0.806,0.004-1.2,0.013
+			c-3.421,0.081-8.591,0.436-13.908,2.577c-5.825,2.344-9.932,5.552-12.205,9.537c-1.153,2.018-1.321,4.114-0.474,5.903
+			c1.126,2.378,3.895,4.049,7.795,4.707l0.687,0.112c3.541,0.571,10.906,1.759,13.058,6.494c1.622,3.566-0.376,5.971-1.697,7.563
+			c-1.369,1.646-2.054,2.594-1.448,4.474C36.974,68.906,44.086,72,51.06,72c9.68,0,17.748-2.771,22.717-7.8
+			c3.586-3.629,5.371-8.224,5.305-13.654c-0.072-3.387-0.811-6.457-2.195-9.104l-0.041-0.08
+			c-3.321-7.114-10.436-12.821-19.518-15.658C53.671,24.557,49.714,24,45.231,24z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Color_x5F_Temperature_1_" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Contact_x5F_Sensor_1_" display="none">
+	<g display="inline">
+		<path d="M22.556,41.483c0,7.866,6.4,14.267,14.268,14.267c7.866,0,14.267-6.401,14.267-14.267c0-7.866-6.401-14.268-14.267-14.268
+			C28.957,27.215,22.556,33.617,22.556,41.483z M47.891,41.483c0,6.103-4.965,11.067-11.067,11.067
+			c-6.103,0-11.067-4.964-11.067-11.067s4.965-11.067,11.067-11.067C42.926,30.416,47.891,35.38,47.891,41.483z"/>
+		<path d="M56.323,30.16l3.441-2.039c-4.769-8.051-13.558-13.053-22.939-13.053c-14.674,0-26.613,11.879-26.613,26.48
+			c0,6.097,2.135,12.049,6.035,16.792l18.501,21.631c0.516,0.607,1.27,0.958,2.068,0.959c0.002,0,0.004,0,0.006,0
+			c0.798,0,1.552-0.346,2.071-0.953l18.503-21.637l-3.041-2.6L36.824,76.243L19.313,55.771c-3.289-3.998-5.1-9.048-5.1-14.221
+			c0-12.396,10.145-22.48,22.613-22.48C44.8,19.069,52.271,23.319,56.323,30.16z"/>
+		<path d="M85.788,34.188l-2.826-2.832c-4.126,4.117-6.398,9.593-6.398,15.417c0.002,5.824,2.273,11.298,6.398,15.413l2.826-2.832
+			c-3.369-3.359-5.223-7.828-5.225-12.581C80.563,42.019,82.419,37.549,85.788,34.188z"/>
+		<path d="M73.406,21.825c-6.681,6.665-10.36,15.525-10.36,24.948c0,9.421,3.68,18.281,10.36,24.945l2.825-2.834
+			c-5.924-5.906-9.186-13.76-9.186-22.111c0-8.353,3.262-16.207,9.186-22.116L73.406,21.825z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Cooler_x5F_Door_x5F_State_1_" display="none">
+	<g display="inline">
+		<rect x="36.054" y="48.366" width="4" height="9.385"/>
+		<path d="M79.146,73.021c0-0.014,0.004-0.025,0.004-0.039c0-0.057-0.012-0.111-0.017-0.168c-0.005-0.055-0.007-0.109-0.017-0.166
+			c-0.02-0.121-0.053-0.238-0.094-0.352c-0.002-0.003-0.002-0.006-0.003-0.008s-0.001-0.004-0.003-0.006
+			c-0.013-0.037-0.024-0.074-0.04-0.109c-0.774-2.056-2.645-7.572-2.645-10.162c0-0.002-0.001-0.006-0.001-0.008v-2.055
+			c0-7.227-5.877-13.108-13.102-13.108c-0.004,0-0.01,0.002-0.014,0.002c-0.005,0-0.01-0.002-0.014-0.002
+			c-7.226,0-13.104,5.881-13.104,13.108v2.063c0,2.59-1.875,8.105-2.651,10.16c-0.017,0.037-0.028,0.076-0.043,0.113
+			c0,0.001,0,0.002,0,0.002c-0.001,0-0.001,0.002-0.001,0.002c-0.043,0.115-0.076,0.234-0.097,0.359
+			c-0.01,0.055-0.012,0.109-0.017,0.164c-0.005,0.057-0.017,0.111-0.017,0.17c0,0.014,0.003,0.025,0.004,0.039
+			c0,0.1,0.014,0.197,0.03,0.295c0.005,0.027,0.005,0.055,0.011,0.082c0.133,0.648,0.579,1.217,1.244,1.471
+			C48.796,74.957,49.036,75,49.273,75c0.083,0,0.165-0.009,0.247-0.019h6.545c0.17,3.799,3.305,6.839,7.145,6.839
+			c3.841,0,6.977-3.04,7.146-6.839h6.546C76.984,74.991,77.066,75,77.149,75c0.237,0,0.479-0.043,0.711-0.132
+			c0.666-0.252,1.112-0.822,1.245-1.471c0.005-0.026,0.007-0.055,0.011-0.082C79.132,73.218,79.146,73.12,79.146,73.021z
+			 M63.202,50.841c0.004,0,0.009-0.002,0.014-0.002c0.004,0,0.01,0.002,0.014,0.002c5.02,0,9.102,4.086,9.102,9.107v2.063
+			c0,0.005,0.002,0.009,0.002,0.013c0.003,2.501,1.119,6.349,1.984,8.958H63.229c-0.004,0-0.01,0.002-0.014,0.002
+			c-0.005,0-0.01-0.002-0.014-0.002H52.108c0.868-2.613,1.99-6.469,1.99-8.971v-2.063C54.099,54.927,58.183,50.841,63.202,50.841z
+			 M63.21,77.82c-1.633,0-2.965-1.249-3.129-2.839h3.121c0.004,0,0.009-0.002,0.014-0.002c0.004,0,0.01,0.002,0.014,0.002h3.111
+			C66.177,76.571,64.844,77.82,63.21,77.82z"/>
+		<path d="M29.871,77.126V28.358l34.58-9.536v22.77h4V16.18c0-1.105-0.896-2-2-2h-47.6c-1.104,0-2,0.895-2,2v54.341
+			c0,1.104,0.896,2,2,2h7.021v6.5c0,0.848,0.375,1.615,1.031,2.102c0.442,0.33,0.971,0.5,1.52,0.5c0.262,0,0.529-0.039,0.793-0.119
+			l12.916-3.909l-1.158-3.828L29.871,77.126z M28.111,24.694c-1.298,0.357-2.24,1.594-2.24,2.939v40.887H20.85V18.18h30.881
+			L28.111,24.694z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Cooler_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Cooling_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_CV_x5F_Room_x5F_Door_x5F_State" display="none">
+	<g display="inline">
+		<rect x="36.054" y="48.366" width="4" height="9.385"/>
+		<path d="M79.146,73.021c0-0.014,0.004-0.025,0.004-0.039c0-0.057-0.012-0.111-0.017-0.168c-0.005-0.055-0.007-0.109-0.017-0.166
+			c-0.02-0.121-0.053-0.238-0.094-0.352c-0.002-0.003-0.002-0.006-0.003-0.008s-0.001-0.004-0.003-0.006
+			c-0.013-0.037-0.024-0.074-0.04-0.109c-0.774-2.056-2.645-7.572-2.645-10.162c0-0.002-0.001-0.006-0.001-0.008v-2.055
+			c0-7.227-5.877-13.108-13.102-13.108c-0.004,0-0.01,0.002-0.014,0.002c-0.005,0-0.01-0.002-0.014-0.002
+			c-7.226,0-13.104,5.881-13.104,13.108v2.063c0,2.59-1.875,8.105-2.651,10.16c-0.017,0.037-0.028,0.076-0.043,0.113
+			c0,0.001,0,0.002,0,0.002c-0.001,0-0.001,0.002-0.001,0.002c-0.043,0.115-0.076,0.234-0.097,0.359
+			c-0.01,0.055-0.012,0.109-0.017,0.164c-0.005,0.057-0.017,0.111-0.017,0.17c0,0.014,0.003,0.025,0.004,0.039
+			c0,0.1,0.014,0.197,0.03,0.295c0.005,0.027,0.005,0.055,0.011,0.082c0.133,0.648,0.579,1.217,1.244,1.471
+			C48.796,74.957,49.036,75,49.273,75c0.083,0,0.165-0.009,0.247-0.019h6.545c0.17,3.799,3.305,6.839,7.145,6.839
+			c3.841,0,6.977-3.04,7.146-6.839h6.546C76.984,74.991,77.066,75,77.149,75c0.237,0,0.479-0.043,0.711-0.132
+			c0.666-0.252,1.112-0.822,1.245-1.471c0.005-0.026,0.007-0.055,0.011-0.082C79.132,73.218,79.146,73.12,79.146,73.021z
+			 M63.202,50.841c0.004,0,0.009-0.002,0.014-0.002c0.004,0,0.01,0.002,0.014,0.002c5.02,0,9.102,4.086,9.102,9.107v2.063
+			c0,0.005,0.002,0.009,0.002,0.013c0.003,2.501,1.119,6.349,1.984,8.958H63.229c-0.004,0-0.01,0.002-0.014,0.002
+			c-0.005,0-0.01-0.002-0.014-0.002H52.108c0.868-2.613,1.99-6.469,1.99-8.971v-2.063C54.099,54.927,58.183,50.841,63.202,50.841z
+			 M63.21,77.82c-1.633,0-2.965-1.249-3.129-2.839h3.121c0.004,0,0.009-0.002,0.014-0.002c0.004,0,0.01,0.002,0.014,0.002h3.111
+			C66.177,76.571,64.844,77.82,63.21,77.82z"/>
+		<path d="M29.871,77.126V28.358l34.58-9.536v22.77h4V16.18c0-1.105-0.896-2-2-2h-47.6c-1.104,0-2,0.895-2,2v54.341
+			c0,1.104,0.896,2,2,2h7.021v6.5c0,0.848,0.375,1.615,1.031,2.102c0.442,0.33,0.971,0.5,1.52,0.5c0.262,0,0.529-0.039,0.793-0.119
+			l12.916-3.909l-1.158-3.828L29.871,77.126z M28.111,24.694c-1.298,0.357-2.24,1.594-2.24,2.939v40.887H20.85V18.18h30.881
+			L28.111,24.694z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_CVRoom_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Dish_x5F_Washer_x5F_job_x5F_state_1_" display="none">
+	<g display="inline">
+		<rect x="30.345" y="31.458" width="35.31" height="4"/>
+		<rect x="30.345" y="46" width="35.31" height="4"/>
+		<rect x="30.345" y="60.54" width="35.31" height="4"/>
+		<path d="M80,13.2H16c-1.543,0-2.8,1.257-2.8,2.8v64c0,1.544,1.257,2.8,2.8,2.8h64c0.766,0,2.8,0,2.8-2.008V16
+			C82.8,14.457,81.544,13.2,80,13.2z M78.8,78.8H17.2V17.2h61.6V78.8z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Dish_x5F_Washer_x5F_mode_1_" display="none">
+	<g display="inline">
+		<path d="M75.2,10.8H20.8c-1.105,0-2,0.895-2,2v70.4c0,1.104,0.895,2,2,2h54.4c1.104,0,2-0.896,2-2V12.8
+			C77.2,11.695,76.305,10.8,75.2,10.8z M73.2,14.8v11.6H22.8V14.8H73.2z M22.8,81.2V29.6h50.4v51.6H22.8z"/>
+		<rect x="42.4" y="19.2" width="11.201" height="3.2"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Door_x5F_Control_1_" display="none">
+	<g display="inline">
+		<path d="M48,41.414c-3.97,0-7.2,3.23-7.2,7.2c0,3.42,2.398,6.284,5.6,7.015v12.472h3.201V55.629c3.201-0.73,5.6-3.595,5.6-7.015
+			C55.2,44.645,51.97,41.416,48,41.414z M48,52.614c-2.206,0-4-1.795-4-4c0-2.206,1.794-4,4-4c2.207,0.001,4,1.795,4,4
+			C52,50.819,50.206,52.614,48,52.614z"/>
+		<path d="M78.777,35.209L49.996,14.001c-1.11-0.82-2.877-0.82-3.992-0.001l-28.78,21.207c-0.957,0.703-1.625,2.024-1.625,3.213
+			v41.189c0,1.657,1.348,3.005,3.005,3.005h58.791c1.656,0,3.004-1.348,3.004-3.005V38.42C80.399,37.231,79.731,35.91,78.777,35.209
+			z M76.399,78.614H19.6V38.488c0.011-0.031,0.031-0.071,0.05-0.099L48,17.5L76.351,38.39c0.018,0.027,0.037,0.067,0.049,0.098
+			V78.614z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Dryer_x5F_job_x5F_state" display="none">
+	<g display="inline">
+		<rect x="30.345" y="31.458" width="35.31" height="4"/>
+		<rect x="30.345" y="46" width="35.31" height="4"/>
+		<rect x="30.345" y="60.54" width="35.31" height="4"/>
+		<path d="M80,13.2H16c-1.543,0-2.8,1.257-2.8,2.8v64c0,1.544,1.257,2.8,2.8,2.8h64c0.766,0,2.8,0,2.8-2.008V16
+			C82.8,14.457,81.544,13.2,80,13.2z M78.8,78.8H17.2V17.2h61.6V78.8z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Dryer_x5F_mode_1_" display="none">
+	<g display="inline">
+		<rect x="41.6" y="22.4" width="12.799" height="3.2"/>
+		<path d="M75.2,12.4H20.8c-1.544,0-2.8,1.256-2.8,2.8v65.6c0,1.544,1.256,2.801,2.8,2.801h54.4c1.543,0,2.8-1.257,2.8-2.801V15.2
+			C78,13.656,76.743,12.4,75.2,12.4z M74,79.601H22V16.4h52V79.601z"/>
+		<path d="M47.979,71.562c6.913,0,13.3-3.465,17.084-9.268l-3.351-2.185c-3.043,4.665-8.177,7.452-13.733,7.452
+			c-9.031,0-16.378-7.35-16.378-16.383c0-9.032,7.347-16.378,16.378-16.378c5.213,0,10.165,2.519,13.245,6.738l3.23-2.358
+			c-3.83-5.247-9.99-8.38-16.476-8.38C36.742,30.8,27.6,39.941,27.6,51.179C27.6,62.417,36.742,71.562,47.979,71.562z"/>
+		<path d="M58.438,44.888c-2.265-1.401-3.89-1.688-5.634-1.688c-2.303,0-4.312,0.903-5.973,2.684l2.338,2.184
+			c1.047-1.122,2.236-1.667,3.635-1.667c1.052,0,2.146,0.093,3.951,1.21c2.271,1.403,3.898,1.69,5.644,1.69
+			c2.296,0,4.304-0.903,5.97-2.685l-2.337-2.186c-1.051,1.124-2.239,1.671-3.633,1.671C61.345,46.1,60.249,46.007,58.438,44.888z"/>
+		<path d="M62.398,53.595c-1.056,0-2.153-0.094-3.958-1.211c-2.26-1.402-3.887-1.689-5.637-1.689c-2.297,0-4.307,0.902-5.972,2.684
+			l2.337,2.186c1.051-1.123,2.24-1.67,3.635-1.67c1.055,0,2.15,0.092,3.95,1.211c2.267,1.402,3.896,1.689,5.645,1.689
+			c2.302,0,4.31-0.902,5.972-2.682l-2.34-2.184C64.984,53.05,63.796,53.595,62.398,53.595z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Dust_x5F_sensor_x5F_level_1_" display="none">
+	<g display="inline">
+		<path d="M79.958,81.8H16.041c-1.566,0-2.84-1.273-2.84-2.84V14.201h4V77.8H78.8V14.201h4V78.96
+			C82.8,80.526,81.524,81.8,79.958,81.8z"/>
+		<path d="M31.936,37.81c0,2.592-2.1,4.692-4.694,4.692c-2.591,0-4.691-2.1-4.691-4.692c0-2.591,2.1-4.693,4.691-4.693
+			C29.836,33.117,31.936,35.219,31.936,37.81"/>
+		<path d="M45.773,37.81c0,2.592-2.102,4.692-4.693,4.692c-2.591,0-4.692-2.1-4.692-4.692c0-2.591,2.102-4.693,4.692-4.693
+			C43.672,33.117,45.773,35.219,45.773,37.81"/>
+		<path d="M59.612,37.81c0,2.592-2.102,4.692-4.693,4.692s-4.693-2.1-4.693-4.692c0-2.591,2.102-4.693,4.693-4.693
+			S59.612,35.219,59.612,37.81"/>
+		<path d="M73.449,37.81c0,2.592-2.102,4.692-4.692,4.692c-2.593,0-4.693-2.1-4.693-4.692c0-2.591,2.101-4.693,4.693-4.693
+			C71.348,33.117,73.449,35.219,73.449,37.81"/>
+		<path d="M31.936,51.919c0,2.592-2.1,4.693-4.694,4.693c-2.591,0-4.691-2.102-4.691-4.693s2.1-4.692,4.691-4.692
+			C29.836,47.227,31.936,49.327,31.936,51.919"/>
+		<path d="M45.773,51.919c0,2.592-2.102,4.693-4.693,4.693c-2.591,0-4.692-2.102-4.692-4.693s2.102-4.692,4.692-4.692
+			C43.672,47.227,45.773,49.327,45.773,51.919"/>
+		<path d="M59.612,51.919c0,2.592-2.102,4.693-4.693,4.693s-4.693-2.102-4.693-4.693s2.102-4.692,4.693-4.692
+			S59.612,49.327,59.612,51.919"/>
+		<path d="M73.449,51.919c0,2.592-2.102,4.693-4.692,4.693c-2.593,0-4.693-2.102-4.693-4.693s2.101-4.692,4.693-4.692
+			C71.348,47.227,73.449,49.327,73.449,51.919"/>
+		<path d="M31.936,66.028c0,2.592-2.1,4.691-4.694,4.691c-2.591,0-4.691-2.1-4.691-4.691s2.1-4.693,4.691-4.693
+			C29.836,61.335,31.936,63.437,31.936,66.028"/>
+		<path d="M45.773,66.028c0,2.592-2.102,4.691-4.693,4.691c-2.591,0-4.692-2.1-4.692-4.691s2.102-4.693,4.692-4.693
+			C43.672,61.335,45.773,63.437,45.773,66.028"/>
+		<path d="M59.612,66.028c0,2.592-2.102,4.691-4.693,4.691s-4.693-2.1-4.693-4.691s2.102-4.693,4.693-4.693
+			S59.612,63.437,59.612,66.028"/>
+		<path d="M73.449,66.028c0,2.592-2.102,4.691-4.692,4.691c-2.593,0-4.693-2.1-4.693-4.691s2.101-4.693,4.693-4.693
+			C71.348,61.335,73.449,63.437,73.449,66.028"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Energy_x5F_Consumption_1_" display="none">
+	<g display="inline">
+		<path d="M40.42,57.813c-0.918,0.141-1.867,0.213-2.818,0.213c-9.891,0-17.938-7.746-17.938-17.268L19.66,27.58h35.887
+			l-0.008,13.178c0,0.775-0.052,1.541-0.152,2.276l3.962,0.545c0.078-0.562,0.132-1.136,0.162-1.717l0.036-18.283h-9.97V11.894
+			h-4.001V23.58H29.63V11.894h-4V23.58h-9.97v17.173l0.004,0.787l0.016,0.017c0.409,10.711,9.029,19.418,19.922,20.377v22.172h4
+			V61.93c0.479-0.042,0.957-0.091,1.426-0.163L40.42,57.813z"/>
+		<polygon points="73.856,61.175 71.023,58.351 61.925,67.479 57.336,62.872 54.501,65.696 61.923,73.146 		"/>
+		<path d="M77.54,48.333H49.272c-1.543,0-2.8,1.256-2.8,2.8v27.2c0,1.543,1.256,2.8,2.8,2.8H77.54c1.543,0,2.8-1.257,2.8-2.8v-27.2
+			C80.34,49.589,79.083,48.333,77.54,48.333z M76.34,77.133H50.473v-24.8H76.34V77.133z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Fan_x5F_Speed_1_" display="none">
+	<g display="inline">
+		<path d="M27.397,51.47c0-1.23-0.292-2.205-0.875-2.924c-0.584-0.722-1.521-1.265-2.81-1.628l-1.865-0.524
+			c-0.698-0.198-1.202-0.468-1.513-0.808c-0.312-0.342-0.467-0.8-0.467-1.375c0-1.275,0.75-1.913,2.252-1.913
+			c1.047,0,2.367,0.296,3.959,0.888l0.934-2.344c-0.758-0.364-1.558-0.645-2.401-0.841c-0.841-0.198-1.657-0.296-2.446-0.296
+			c-1.653,0-2.936,0.439-3.846,1.319c-0.909,0.881-1.364,2.124-1.364,3.731c0,1.23,0.291,2.201,0.875,2.914
+			c0.583,0.713,1.52,1.251,2.81,1.614l1.866,0.524c0.697,0.198,1.201,0.467,1.513,0.808c0.311,0.344,0.467,0.801,0.467,1.378
+			c0,1.395-0.865,2.092-2.595,2.092c-1.365,0-2.769-0.416-4.209-1.25l-0.934,2.344c0.683,0.486,1.472,0.857,2.366,1.115
+			s1.82,0.387,2.776,0.387c1.758,0,3.117-0.455,4.072-1.365C26.92,54.405,27.397,53.121,27.397,51.47z"/>
+		<path d="M29.809,39.956v16.471h3.049v-5.232h2.595c1.682,0,2.994-0.496,3.936-1.49c0.94-0.993,1.411-2.376,1.411-4.151
+			c0-1.76-0.459-3.132-1.377-4.118c-0.918-0.986-2.196-1.479-3.834-1.479H29.809z M37.1,43.402c0.373,0.508,0.559,1.255,0.559,2.241
+			c0,0.941-0.175,1.654-0.524,2.139c-0.348,0.484-0.864,0.729-1.547,0.727h-2.73V42.64h2.594C36.18,42.64,36.729,42.894,37.1,43.402
+			z"/>
+		<polygon points="52.288,42.641 52.288,39.956 42.527,39.956 42.527,56.427 52.63,56.427 52.63,53.743 52.63,53.743 45.576,53.743 
+			45.576,49.353 50.491,49.353 50.491,46.645 45.576,46.645 45.576,42.641 		"/>
+		<polygon points="64.575,42.641 64.575,39.956 54.815,39.956 54.815,56.427 64.917,56.427 64.917,53.743 64.917,53.743 
+			57.862,53.743 57.862,49.353 62.777,49.353 62.777,46.645 57.862,46.645 57.862,42.641 		"/>
+		<path d="M77.453,42.026c-1.198-1.38-2.935-2.07-5.21-2.07h-5.143v16.471h5.143c2.275,0,4.012-0.691,5.21-2.08
+			c1.2-1.389,1.798-3.447,1.798-6.177C79.251,45.454,78.653,43.407,77.453,42.026z M72.175,53.745h-2.026V42.641h2.048
+			c2.611,0,3.916,1.851,3.916,5.55C76.112,51.894,74.798,53.743,72.175,53.745z"/>
+		<path d="M17.822,34.39h15.142c0.248,0,0.372-0.299,0.197-0.475l-5.05-5.072c6.287-6.707,15.218-10.902,25.133-10.902
+			c5.979,0,11.596,1.532,16.496,4.211l0.002-0.005c0.045,0.023,0.09,0.041,0.141,0.041c0.163,0,0.296-0.133,0.296-0.294
+			c0-0.101-0.056-0.184-0.132-0.236l0.006-0.007c-6.108-5.284-14.061-8.492-22.769-8.492c-9.619,0-18.322,3.904-24.627,10.207
+			l-4.639-4.659c-0.177-0.177-0.477-0.054-0.477,0.195l0.001,15.21C17.543,34.265,17.668,34.39,17.822,34.39z"/>
+		<path d="M76.578,61.884H61.437c-0.249,0-0.373,0.299-0.197,0.477l4.941,4.963c-6.27,6.52-15.072,10.586-24.833,10.586
+			c-6.169,0-11.956-1.627-16.966-4.468l-0.003,0.005c-0.049-0.036-0.106-0.06-0.171-0.06c-0.161,0-0.293,0.129-0.293,0.292
+			c0,0.078,0.033,0.15,0.085,0.201l-0.007,0.008c6.172,5.561,14.33,8.953,23.291,8.953c9.508,0,18.12-3.813,24.408-9.984
+			l4.691,4.713c0.175,0.174,0.476,0.052,0.476-0.197V62.163C76.858,62.007,76.733,61.884,76.578,61.884z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Filter_x5F_State_1_" display="none">
+	<path display="inline" d="M78.399,14.4H27.2c-1.543,0-2.8,1.256-2.8,2.8V24.8h-6.8c-1.544,0-2.8,1.256-2.8,2.8v51.2
+		c0,1.544,1.256,2.801,2.8,2.801h51.2c1.544,0,2.801-1.257,2.801-2.801v-7.6h6.799c1.545,0,2.801-1.256,2.801-2.801V17.2
+		C81.2,15.656,79.944,14.4,78.399,14.4z M67.601,77.601H18.8V28.8h5.6v39.599c0,1.545,1.256,2.801,2.8,2.801h40.401V77.601z
+		 M28.4,43.039h10.563v10.594H28.4V43.039z M67.601,53.633H57.047V43.039h10.554V53.633z M53.047,53.633H42.963V43.039h10.083
+		V53.633z M28.4,57.633h10.563V67.2H28.4V57.633z M42.963,57.633h10.083V67.2H42.963V57.633z M57.047,57.633h10.554V67.2H57.047
+		V57.633z M67.601,39.039H57.047V28.8h10.554V39.039z M53.047,39.039H42.963V28.8h10.083V39.039z M38.963,39.039H28.4V28.8h10.563
+		V39.039z M77.2,67.2h-5.6V27.6c0-1.544-1.257-2.8-2.801-2.8H28.4v-6.4h48.8V67.2z"/>
+</g>
+<g id="ic_x5F_function_x5F_Freezer_x5F_Door_x5F_State_1_" display="none">
+	<g display="inline">
+		<rect x="54.434" y="25.979" width="3.2" height="17.02"/>
+		<path d="M41.633,25.539h-11.2v17.124h11.2V25.539z M38.434,39.462h-4.8V28.739h4.8V39.462z"/>
+		<path d="M71.966,11.586H24.034c-1.544,0-2.8,1.257-2.8,2.8v67.227c0,1.544,1.256,2.8,2.8,2.8h47.932
+			c1.545,0,2.801-1.256,2.801-2.8V14.387C74.767,12.843,73.511,11.586,71.966,11.586z M70.767,53.938H50.034V15.586h20.732V53.938z
+			 M46.034,15.586v38.352h-20.8V15.586H46.034z M25.234,80.413V57.938h45.533v22.475H25.234z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Freezer_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Garage_x5F_Door_x5F_Control_1_" display="none">
+	<path display="inline" d="M78.942,35.366l-29.11-21.447c-1.024-0.76-2.64-0.759-3.664-0.003l-29.11,21.45
+		c-0.873,0.642-1.459,1.802-1.459,2.886v41.6c0,1.544,1.256,2.8,2.8,2.8h59.202c1.544,0,2.801-1.256,2.801-2.8v-41.6
+		C80.401,37.17,79.815,36.011,78.942,35.366z M67.513,63.052H28.486v-4.801h39.026V63.052z M28.486,66.251h39.026v4.801H28.486
+		V66.251z M67.513,55.052H28.486v-4.801h39.026V55.052z M28.486,74.251h39.026v4.4H28.486V74.251z M76.401,78.651h-5.689v-30
+		c0-0.883-0.716-1.6-1.6-1.6H26.886c-0.884,0-1.6,0.717-1.6,1.6v30h-5.688v-40.19l28.399-20.926l28.403,20.926V78.651z"/>
+</g>
+<g id="ic_x5F_function_x5F_Heating_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Humidity_1_" display="none">
+	<g display="inline">
+		<path d="M44.034,17.813c-0.483-0.733-1.271-1.17-2.105-1.17c-0.834,0-1.622,0.438-2.104,1.167
+			c-0.592,0.893-14.528,21.927-17.946,28.6c-1.648,3.217-2.484,6.694-2.484,10.333c0,12.471,10.108,22.617,22.533,22.617
+			c12.424,0,22.533-10.146,22.533-22.617c0-3.613-0.868-7.207-2.513-10.395C58.519,39.706,44.623,18.702,44.034,17.813z
+			 M41.928,75.358c-10.219,0-18.533-8.352-18.533-18.617c0-2.999,0.688-5.861,2.044-8.508c2.737-5.345,12.932-20.941,16.489-26.348
+			c3.548,5.398,13.717,20.973,16.467,26.296c1.371,2.66,2.066,5.539,2.066,8.56C60.461,67.007,52.147,75.358,41.928,75.358z"/>
+		<path d="M59.23,27.084c1.001-0.863,1.079-2.374,0.204-3.382c-0.865-1.013-2.326-1.12-3.336-0.24
+			c-0.989,0.859-1.105,2.341-0.242,3.357C56.733,27.816,58.231,27.959,59.23,27.084z"/>
+		<path d="M64.878,23.34c0.832-0.71,0.885-1.96,0.169-2.787c-0.71-0.828-1.911-0.91-2.745-0.196
+			c-0.818,0.714-0.911,1.929-0.199,2.767C62.821,23.947,64.058,24.063,64.878,23.34z"/>
+		<path d="M69.202,20.093c0.555-0.476,0.588-1.302,0.111-1.857c-0.47-0.553-1.277-0.612-1.83-0.13
+			c-0.543,0.476-0.608,1.287-0.133,1.847C67.831,20.494,68.656,20.578,69.202,20.093z"/>
+		<path d="M59.333,32.698c0.878,1,2.373,1.135,3.375,0.262c1.002-0.857,1.081-2.377,0.203-3.383
+			c-0.865-1.004-2.326-1.111-3.333-0.237C58.583,30.204,58.469,31.684,59.333,32.698z"/>
+		<path d="M68.527,26.436c-0.716-0.833-1.919-0.917-2.749-0.197c-0.816,0.706-0.908,1.927-0.2,2.765
+			c0.719,0.819,1.95,0.935,2.784,0.217C69.188,28.512,69.243,27.254,68.527,26.436z"/>
+		<path d="M70.965,23.982c-0.544,0.477-0.608,1.29-0.13,1.852c0.475,0.534,1.303,0.625,1.846,0.135
+			c0.554-0.47,0.59-1.302,0.113-1.855C72.321,23.558,71.517,23.5,70.965,23.982z"/>
+		<path d="M63.054,35.215c-0.986,0.862-1.107,2.344-0.24,3.365c0.874,0.992,2.371,1.135,3.374,0.257
+			c1.003-0.859,1.081-2.377,0.203-3.384C65.528,34.447,64.065,34.34,63.054,35.215z"/>
+		<path d="M69.257,32.114c-0.818,0.716-0.908,1.929-0.199,2.769c0.719,0.819,1.951,0.946,2.778,0.215
+			c0.833-0.71,0.888-1.959,0.173-2.78C71.293,31.477,70.089,31.393,69.257,32.114z"/>
+		<path d="M76.267,29.994c-0.467-0.552-1.274-0.619-1.821-0.136c-0.548,0.483-0.613,1.291-0.136,1.851
+			c0.48,0.542,1.303,0.625,1.851,0.144C76.712,31.375,76.753,30.542,76.267,29.994z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Illuminance_x5F_Measurement_1_">
+	<g>
+		<rect x="78.399" y="45.543" width="8" height="4"/>
+		<rect x="9.6" y="45.543" width="8" height="4"/>
+		<path d="M64.448,30.91c-3.928-3.941-4.284-7.17-4.297-7.306l-0.003,0.001V12.884c0-1.56-1.269-2.828-2.828-2.828H38.146
+			c-1.559,0-2.828,1.269-2.828,2.828v10.718h-0.002c-0.014,0.136-0.374,3.366-4.299,7.308c-9.214,9.239-9.214,24.277,0,33.519
+			c4.465,4.479,10.401,6.945,16.715,6.945h0c6.313,0,12.25-2.467,16.715-6.945C73.663,55.185,73.663,40.148,64.448,30.91z
+			 M56.108,14.096v7.612h-16.75v-7.612H56.108z M61.616,61.604c-3.71,3.72-8.641,5.77-13.884,5.77c-5.244,0-10.173-2.05-13.882-5.77
+			c-7.661-7.686-7.661-20.188,0.001-27.872c3.231-3.245,4.546-6.209,5.083-8.023h17.597c0.536,1.814,1.852,4.779,5.085,8.024
+			C69.278,41.416,69.278,53.919,61.616,61.604z"/>
+		<rect x="46" y="77.944" width="4" height="8"/>
+		<rect x="21.676" y="67.869" transform="matrix(-0.7072 -0.707 0.707 -0.7072 -10.3951 139.431)" width="4" height="7.999"/>
+		<rect x="68.325" y="69.868" transform="matrix(-0.707 -0.7072 0.7072 -0.707 72.6371 173.8273)" width="7.998" height="4"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Image_x5F_Capture_1_" display="none">
+	<g display="inline">
+		<rect x="46.4" y="59.2" width="3.201" height="16"/>
+		<rect x="46.4" y="20.8" width="3.201" height="16"/>
+		<rect x="20.8" y="46.4" width="16" height="3.201"/>
+		<rect x="59.2" y="46.4" width="16" height="3.201"/>
+		<rect x="35.201" y="54.39" transform="matrix(-0.6984 -0.7158 0.7158 -0.6984 20.7001 125.5236)" width="3.199" height="8.02"/>
+		<rect x="56.8" y="32.84" transform="matrix(0.707 0.7073 -0.7073 0.707 43.141 -30.5198)" width="3.199" height="7.92"/>
+		<rect x="32.84" y="35.2" transform="matrix(0.7071 0.7071 -0.7071 0.7071 36.8022 -15.2429)" width="7.919" height="3.2"/>
+		<rect x="54.44" y="56.801" transform="matrix(-0.7072 -0.707 0.707 -0.7072 58.4068 140.9907)" width="7.92" height="3.199"/>
+		<path d="M14.4,24.8H28v-4H13.2c-1.543,0-2.8,1.256-2.8,2.8v14.8h4V24.8z"/>
+		<path d="M82.8,20.8H68v4h13.601v13.6h4V23.6C85.601,22.056,84.344,20.8,82.8,20.8z"/>
+		<path d="M14.4,57.601h-4v14.799c0,1.545,1.256,2.801,2.8,2.801H28v-4H14.4V57.601z"/>
+		<path d="M81.601,71.2H68v4h14.8c1.544,0,2.801-1.256,2.801-2.801V57.601h-4V71.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Light_x5F_Dimmer_1_" display="none">
+	<g display="inline">
+		<path d="M80,13.2H16c-1.544,0-2.8,1.256-2.8,2.8v64c0,1.544,1.256,2.8,2.8,2.8h64c1.544,0,2.8-1.256,2.8-2.8V16
+			C82.8,14.456,81.544,13.2,80,13.2z M78.8,78.8H17.2V17.2h61.6V78.8z"/>
+		<path d="M36,51.148h10V71.2h4V51.148h9.999c1.545,0,2.801-1.255,2.801-2.799v-12.8c0-1.544-1.256-2.8-2.801-2.8H50V23.2h-4v9.549
+			H36c-1.544,0-2.8,1.256-2.8,2.8v12.8C33.199,49.892,34.455,51.148,36,51.148z M37.199,36.749H58.8v3.2H37.199V36.749z
+			 M37.199,43.949H58.8v3.2H37.199V43.949z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Lock_1_" display="none">
+	<g display="inline">
+		<path d="M75.2,38.8h-6v-6.002C69.2,21.11,59.688,11.6,47.999,11.6C36.31,11.6,26.8,21.11,26.8,32.798V38.8h-6
+			c-1.544,0-2.8,1.256-2.8,2.8v40c0,1.543,1.256,2.799,2.8,2.799h54.4c1.543,0,2.8-1.256,2.8-2.799v-40
+			C78,40.056,76.743,38.8,75.2,38.8z M30.8,32.798c0-9.483,7.715-17.198,17.198-17.198c9.485,0,17.202,7.715,17.202,17.198V38.8
+			H30.8V32.798z M74,80.399H22V42.8h52V80.399z"/>
+		<path d="M46.4,62.989v11.41h3.201v-11.41c2.755-0.713,4.799-3.213,4.799-6.189c0-3.529-2.871-6.4-6.399-6.4
+			c-3.529,0-6.4,2.871-6.4,6.4C41.6,59.776,43.644,62.276,46.4,62.989z M48,53.601c1.765,0,3.2,1.435,3.2,3.199
+			c0,1.766-1.436,3.2-3.2,3.2c-1.764,0-3.2-1.435-3.2-3.2C44.8,55.035,46.236,53.601,48,53.601z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Measured_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Media_x5F_Input_x5F_Source_1_" display="none">
+	<g display="inline">
+		<path d="M82.024,24.667H17.987c-1.514,0-2.745,1.231-2.745,2.745l0,13.626h4l0-12.371h61.528v38.667H19.109V54.934h-4v13.655
+			c0,1.514,1.231,2.744,2.744,2.744h64.171c1.515,0,2.746-1.23,2.746-2.744V27.412C84.771,25.898,83.539,24.667,82.024,24.667z"/>
+		<polygon points="43.477,57.321 46.349,60.106 57.618,48.486 46.349,36.864 43.477,39.648 49.874,46.244 11.229,46.244 
+			11.229,50.243 50.343,50.243 		"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Media_x5F_Track_x5F_Info_1_" display="none">
+	<g display="inline">
+		<path d="M48,11.6c-20.071,0-36.4,16.329-36.4,36.4c0,20.071,16.329,36.399,36.4,36.399c20.071,0,36.399-16.328,36.399-36.399
+			C84.399,27.929,68.071,11.6,48,11.6z M48,80.399c-17.865,0-32.4-14.533-32.4-32.399c0-17.865,14.535-32.4,32.4-32.4
+			c17.866,0,32.399,14.535,32.399,32.4C80.399,65.866,65.866,80.399,48,80.399z"/>
+		<ellipse cx="47.199" cy="30.4" rx="3.199" ry="3.277"/>
+		<polygon points="41.6,44.399 46,44.399 46,69.599 50,69.599 50,40.399 41.6,40.399 		"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Momentary_1_" display="none">
+	<g display="inline">
+		<rect x="18.953" y="71.806" width="4.508" height="4"/>
+		<rect x="27.968" y="71.806" width="4.508" height="4"/>
+		<rect x="36.984" y="71.806" width="4.508" height="4"/>
+		<rect x="10.444" y="71.806" width="4" height="4"/>
+		<rect x="10.444" y="45.834" width="4" height="4.329"/>
+		<rect x="10.444" y="28.519" width="4" height="4.329"/>
+		<rect x="10.444" y="37.176" width="4" height="4.329"/>
+		<rect x="10.444" y="54.491" width="4" height="4.329"/>
+		<rect x="10.444" y="63.149" width="4" height="4.328"/>
+		<rect x="10.444" y="20.194" width="4" height="4"/>
+		<rect x="27.967" y="20.194" width="4.508" height="4"/>
+		<rect x="36.983" y="20.194" width="4.508" height="4"/>
+		<rect x="18.951" y="20.194" width="4.508" height="4"/>
+		<rect x="46" y="43.899" width="4" height="8.578"/>
+		<polygon points="48,20.194 46,20.194 46,24.194 46,33.553 50,33.553 50,24.194 81.556,24.194 81.556,71.806 50,71.806 50,62.821 
+			46,62.821 46,71.806 46,75.806 48,75.806 85.556,75.806 85.556,20.194 		"/>
+		<polygon points="30.585,40.539 60.683,40.539 56.481,44.568 58.696,46.877 66.974,38.939 58.696,31 56.481,33.309 60.683,37.339 
+			30.585,37.339 		"/>
+		<polygon points="34.563,59.036 64.663,59.036 64.663,55.836 34.563,55.836 38.763,51.805 36.547,49.495 28.273,57.437 
+			36.548,65.374 38.763,63.063 		"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Motion_x5F_Sensor_1_" display="none">
+	<g display="inline">
+		<path d="M51.624,35.988l-0.097-0.308c-1.511-3.719-5.08-5.262-5.233-5.325c-0.643-0.271-1.577-0.46-2.272-0.46H25.831
+			c-0.695,0-1.63,0.189-2.274,0.461c-0.151,0.063-3.722,1.605-5.23,5.326l-3.981,17.33c-0.331,1.443,0.521,2.912,1.938,3.345
+			L22,58.102c0.043,0.013,0.088,0.026,0.132,0.036l-3.824,21.581c-0.132,0.737,0.035,1.478,0.469,2.087
+			c0.434,0.611,1.081,1.012,1.823,1.129l5.828,0.918c1.458,0.233,2.87-0.738,3.211-2.142l5.168-21.386
+			c0.033-0.135,0.074-0.299,0.119-0.471c0.044,0.172,0.085,0.334,0.117,0.467l5.171,21.393c0.306,1.26,1.472,2.174,2.772,2.174
+			c0.146,0,0.292-0.012,0.436-0.035l5.834-0.918c0.736-0.117,1.383-0.516,1.816-1.123s0.603-1.348,0.474-2.09L47.721,58.14
+			c0.044-0.012,0.089-0.023,0.134-0.038l5.714-1.745c1.418-0.432,2.271-1.902,1.941-3.346L51.624,35.988z M47.958,53.888
+			l-3.318-13.399c-0.394-1.591-1.443-1.829-2.033-1.829l-0.934,0l-0.6,0.714c-0.61,0.727-0.477,1.494-0.395,1.956l6.708,37.849
+			l-3.537,0.556l-4.92-20.354c-0.105-0.437-0.291-1.146-0.415-1.586l-0.278-0.977c-0.116-0.41-0.189-0.671-0.254-0.859
+			c-0.255-0.968-1.091-1.457-2.492-1.457h-1.129c-1.394,0-2.229,0.482-2.488,1.438c-0.067,0.192-0.142,0.454-0.26,0.876l-0.278,0.98
+			c-0.123,0.434-0.309,1.145-0.417,1.585l-4.918,20.353l-3.535-0.556l6.706-37.849c0.076-0.428,0.218-1.224-0.395-1.953
+			l-0.601-0.717h-0.933c-0.591,0-1.642,0.238-2.033,1.828l-3.316,13.398l-3.41-1.04l3.605-15.797
+			c0.909-2.061,3.013-3.005,3.02-3.008c0.15-0.063,0.561-0.147,0.721-0.147h18.191c0.16,0,0.571,0.083,0.706,0.141
+			c0.021,0.009,2.125,0.954,3.035,3.014l3.607,15.797L47.958,53.888z"/>
+		<path d="M34.916,28.482c4.513,0,8.185-3.672,8.185-8.185s-3.672-8.184-8.185-8.184c-4.514,0-8.185,3.671-8.185,8.184
+			S30.402,28.482,34.916,28.482z M34.916,16.113c2.307,0,4.185,1.877,4.185,4.184c0,2.308-1.877,4.185-4.185,4.185
+			c-2.308,0-4.185-1.877-4.185-4.185C30.73,17.99,32.608,16.113,34.916,16.113z"/>
+		<path d="M81.728,33.668l-2.825-2.832c-4.257,4.246-6.601,9.894-6.601,15.902c0,6.008,2.344,11.655,6.601,15.899l2.825-2.83
+			c-3.498-3.49-5.426-8.132-5.426-13.069C76.302,41.8,78.229,37.159,81.728,33.668z"/>
+		<path d="M69.015,20.976c-6.9,6.882-10.699,16.032-10.699,25.762s3.799,18.88,10.699,25.763l2.825-2.832
+			c-6.142-6.127-9.524-14.271-9.524-22.931s3.383-16.804,9.524-22.93L69.015,20.976z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Order_x5F_sensor_x5F_level_1_" display="none">
+	<g display="inline">
+		<path d="M48,35.181c-7.068,0-12.819,5.751-12.819,12.819c0,7.067,5.75,12.819,12.819,12.819c7.069,0,12.819-5.752,12.819-12.819
+			C60.819,40.932,55.069,35.181,48,35.181z M48,56.819c-4.862,0-8.819-3.957-8.819-8.819c0-4.863,3.957-8.819,8.819-8.819
+			c4.863,0,8.819,3.956,8.819,8.819C56.819,52.862,52.863,56.819,48,56.819z"/>
+		<path d="M48.003,29.625c2.508,0,4.865-0.977,6.636-2.748c1.774-1.773,2.752-4.131,2.752-6.641
+			c-0.001-2.509-0.979-4.868-2.754-6.643c-1.771-1.772-4.129-2.748-6.636-2.748c-2.508,0-4.866,0.976-6.641,2.748
+			c-1.773,1.773-2.75,4.132-2.749,6.64c0,2.508,0.978,4.867,2.751,6.638C43.136,28.648,45.495,29.625,48.003,29.625z M44.188,16.423
+			c1.019-1.017,2.373-1.577,3.813-1.577c1.439,0,2.792,0.56,3.808,1.577c1.02,1.019,1.582,2.374,1.582,3.814
+			c0,1.438-0.561,2.792-1.58,3.811c-1.018,1.018-2.369,1.577-3.808,1.577c-1.439,0-2.793-0.561-3.812-1.58
+			c-1.018-1.018-1.58-2.372-1.58-3.812C42.611,18.793,43.172,17.441,44.188,16.423z"/>
+		<path d="M23.951,43.508c0.82,0,1.639-0.108,2.437-0.321c5-1.341,7.979-6.498,6.639-11.498c-1.097-4.099-4.824-6.962-9.062-6.962
+			c-0.821,0-1.643,0.109-2.439,0.324c-4.998,1.336-7.977,6.495-6.64,11.499C15.984,40.647,19.711,43.508,23.951,43.508z
+			 M22.562,28.914c0.46-0.124,0.933-0.187,1.403-0.187c2.431,0,4.568,1.644,5.198,3.997c0.769,2.87-0.941,5.83-3.811,6.599
+			c-0.46,0.123-0.932,0.186-1.402,0.186c-2.432,0-4.571-1.642-5.201-3.992C17.983,32.643,19.692,29.681,22.562,28.914z"/>
+		<path d="M26.388,52.812c-0.798-0.213-1.618-0.322-2.438-0.322c-4.239,0-7.967,2.865-9.064,6.964
+			c-0.65,2.421-0.317,4.95,0.938,7.124c1.254,2.172,3.278,3.725,5.7,4.375c0.798,0.213,1.617,0.322,2.437,0.322
+			c4.237,0,7.965-2.863,9.063-6.961c0.65-2.424,0.318-4.955-0.936-7.127C30.834,55.015,28.81,53.461,26.388,52.812z M29.16,63.276
+			c-0.63,2.354-2.769,3.998-5.199,3.998c-0.47,0-0.94-0.063-1.4-0.186c-1.391-0.373-2.553-1.266-3.273-2.512
+			c-0.72-1.248-0.911-2.698-0.538-4.088c0.631-2.355,2.77-4,5.201-4c0.47,0,0.941,0.063,1.401,0.187
+			c1.39,0.372,2.552,1.265,3.271,2.511S29.534,61.886,29.16,63.276z"/>
+		<path d="M47.998,66.374c-2.508,0-4.865,0.977-6.637,2.75c-1.774,1.771-2.751,4.13-2.75,6.639c0,2.51,0.978,4.869,2.752,6.643
+			c1.771,1.773,4.129,2.748,6.637,2.748c2.508,0,4.867-0.975,6.64-2.748c1.773-1.772,2.751-4.131,2.75-6.639
+			c0-2.509-0.977-4.867-2.75-6.639C52.866,67.352,50.507,66.374,47.998,66.374z M51.813,79.577
+			c-1.019,1.017-2.372,1.576-3.813,1.576c-1.439,0-2.791-0.559-3.808-1.576c-1.02-1.02-1.581-2.374-1.581-3.814
+			c-0.001-1.439,0.56-2.793,1.579-3.811c1.017-1.018,2.369-1.578,3.808-1.578c1.439,0,2.794,0.561,3.812,1.582
+			c1.02,1.018,1.58,2.371,1.58,3.811S52.829,78.56,51.813,79.577z"/>
+		<path d="M72.05,52.491c-0.818,0-1.639,0.109-2.436,0.322c-5,1.34-7.979,6.498-6.641,11.498c1.098,4.099,4.824,6.962,9.064,6.962
+			c0.82,0,1.642-0.108,2.439-0.323c4.996-1.338,7.975-6.496,6.639-11.5C80.019,55.353,76.29,52.491,72.05,52.491z M73.441,67.087
+			c-0.46,0.124-0.933,0.187-1.403,0.187c-2.432,0-4.57-1.644-5.199-3.997c-0.77-2.87,0.941-5.83,3.811-6.6
+			c0.46-0.123,0.932-0.186,1.4-0.186c2.434,0,4.572,1.643,5.201,3.993C78.019,63.356,76.31,66.319,73.441,67.087z"/>
+		<path d="M69.612,43.188c0.799,0.214,1.619,0.324,2.438,0.324c4.239,0,7.966-2.865,9.063-6.964
+			c0.651-2.421,0.319-4.951-0.937-7.124c-1.254-2.173-3.277-3.727-5.7-4.376c-0.797-0.213-1.616-0.321-2.435-0.321
+			c-4.238,0-7.967,2.862-9.065,6.961c-0.649,2.423-0.317,4.955,0.938,7.127C65.167,40.987,67.192,42.54,69.612,43.188z
+			 M66.841,32.723c0.631-2.354,2.77-3.997,5.201-3.997c0.469,0,0.939,0.063,1.398,0.185c1.391,0.374,2.553,1.265,3.273,2.512
+			c0.719,1.247,0.91,2.698,0.536,4.089c-0.63,2.354-2.769,4-5.199,4c-0.47,0-0.941-0.063-1.402-0.187
+			c-1.39-0.372-2.551-1.263-3.271-2.509C66.657,35.568,66.468,34.115,66.841,32.723z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Outdoor_x5F_Measured_x5F_Temperature" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Oven_x5F_job_x5F_state" display="none">
+	<g display="inline">
+		<rect x="30.345" y="31.458" width="35.31" height="4"/>
+		<rect x="30.345" y="46" width="35.31" height="4"/>
+		<rect x="30.345" y="60.54" width="35.31" height="4"/>
+		<path d="M80,13.2H16c-1.543,0-2.8,1.257-2.8,2.8v64c0,1.544,1.257,2.8,2.8,2.8h64c0.766,0,2.8,0,2.8-2.008V16
+			C82.8,14.457,81.544,13.2,80,13.2z M78.8,78.8H17.2V17.2h61.6V78.8z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Oven_x5F_mode_1_" display="none">
+	<g display="inline">
+		<path d="M79.2,14H16.8c-1.544,0-2.8,1.256-2.8,2.8v62.4c0,1.543,1.256,2.8,2.8,2.8h62.4c1.543,0,2.8-1.257,2.8-2.8V16.8
+			C82,15.256,80.743,14,79.2,14z M78,18v11.6H18V18H78z M18,78V32.8h60V78H18z"/>
+		<rect x="41.6" y="22.4" width="12.799" height="3.2"/>
+		<path d="M24.534,72h47.2V39.2h-47.2V72z M27.734,42.4h40.8v26.4h-40.8V42.4z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Oven_x5F_Temperature_1_" display="none">
+	<g display="inline">
+		<path d="M81.747,71.265l-3.4,3.855c-1.338,1.021-3.857,2.088-5.757,2.088H23.325c-1.032,0-3.032-0.223-4.905-1.695l-4.339-4.338
+			l-2.828,2.828l4.418,4.418l0.158,0.142c2.838,2.29,5.888,2.642,7.471,2.646l0,0H72.59c3.011,0,6.501-1.545,8.394-3.072
+			l3.764-4.225L81.747,71.265z"/>
+		<path d="M46.352,61.933c2.805,0,5.082-2.275,5.082-5.082c0-2.248-1.46-4.15-3.481-4.822v-8.93h-3.2v8.93
+			c-2.022,0.671-3.483,2.574-3.483,4.822C41.27,59.657,43.545,61.933,46.352,61.933z"/>
+		<path d="M46.365,71.406c7.855,0,14.246-6.37,14.246-14.198c0-4.638-2.285-9.012-6.033-11.678V23.034
+			c0-4.544-3.689-8.241-8.225-8.241c-4.534,0-8.224,3.697-8.224,8.241v22.507c-3.798,2.666-6.034,6.915-6.034,11.575
+			C32.094,64.995,38.496,71.406,46.365,71.406z M41.085,48.387l1.043-0.567V23.034c0-2.339,1.895-4.241,4.224-4.241
+			c2.331,0,4.225,1.902,4.225,4.241V47.75l0.979,0.582c3.117,1.851,5.055,5.251,5.055,8.876c0,5.623-4.596,10.198-10.246,10.198
+			c-5.662,0-10.271-4.616-10.271-10.29C36.094,53.508,37.972,50.238,41.085,48.387z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Player_x5F_Control_1_" display="none">
+	<path display="inline" d="M73.454,45.896L25.178,13.192c-0.444-0.301-0.943-0.46-1.442-0.46c-1.335,0-2.341,1.062-2.341,2.469v65.6
+		c0,1.406,1.006,2.468,2.34,2.468c0.501,0,1.001-0.16,1.445-0.463l48.275-32.701c0.721-0.488,1.151-1.275,1.151-2.105
+		C74.604,47.17,74.175,46.383,73.454,45.896z M25.395,77.829V18.17L69.429,48L25.395,77.829z"/>
+</g>
+<g id="ic_x5F_function_x5F_Player_x5F_Repeat_x5F_Mode_1_" display="none">
+	<g display="inline">
+		<path d="M17.653,29.9c0-3.307,2.691-5.998,5.998-5.998h51.204l-7.291,7.323l2.834,2.823l12.076-12.129L70.397,9.789l-2.834,2.822
+			l7.258,7.292h-51.17c-5.513,0-9.998,4.485-9.998,9.998v29.842h4V29.9z"/>
+		<path d="M78.453,66.101c0,3.307-2.69,5.998-5.997,5.998H21.145l7.292-7.324l-2.835-2.822L13.527,74.081l12.075,12.13l2.835-2.821
+			l-7.258-7.291h51.277c5.512,0,9.997-4.485,9.997-9.998V36.257h-4V66.101z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Player_x5F_Shuffle_x5F_Mode_1_" display="none">
+	<path display="inline" d="M70.755,58.368l6.832,6.832h-5.119c-2.968,0-7.412-1.842-9.511-3.939L52.808,51.112
+		c-1.322-1.323-2.365-2.377-3.097-3.125L62.957,34.74c2.099-2.099,6.543-3.939,9.511-3.939h5.118l-6.831,6.831l2.262,2.263
+		l11.315-11.313L72.218,16.469l-2.264,2.263l8.07,8.068h-5.557c-4.054,0-9.475,2.245-12.339,5.111l-13.26,13.26l-14.861-14.86
+		c-2.866-2.867-8.287-5.112-12.34-5.112h-8v4h8c2.968,0,7.413,1.842,9.511,3.94l14.846,14.846c-0.732,0.749-1.773,1.802-3.096,3.126
+		L29.179,62.86c-2.099,2.098-6.543,3.939-9.511,3.939h-8v4h8c4.053,0,9.474-2.245,12.339-5.111l11.75-11.748
+		c1.211-1.211,2.303-2.314,3.111-3.141c0.808,0.826,1.9,1.93,3.111,3.141l10.149,10.148c2.864,2.865,8.285,5.111,12.339,5.111h5.555
+		l-8.068,8.068l2.264,2.263l12.114-12.114L73.017,56.106L70.755,58.368z"/>
+</g>
+<g id="ic_x5F_function_x5F_Player_x5F_Track_x5F_Control_1_" display="none">
+	<g display="inline">
+		<path d="M62.2,33.6h-2v25.259C58.161,57.085,55.508,56,52.601,56C46.204,56,41,61.204,41,67.601s5.204,11.6,11.601,11.6
+			c6.396,0,11.6-5.203,11.6-11.6c0-0.545-0.051-1.076-0.123-1.601H64.2V37.751c6.775,1.038,12,7.269,12,14.777h4
+			C80.2,42.09,72.125,33.6,62.2,33.6z M52.601,75.2c-4.191,0-7.601-3.41-7.601-7.6C45,63.409,48.41,60,52.601,60
+			c4.189,0,7.6,3.409,7.6,7.601C60.2,71.79,56.79,75.2,52.601,75.2z"/>
+		<rect x="15.8" y="16.799" width="64" height="4"/>
+		<rect x="15.8" y="44" width="19.2" height="4"/>
+		<rect x="15.8" y="71.2" width="19.2" height="4"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Power_x5F_Meter_1_" display="none">
+	<g display="inline">
+		<path d="M70.368,19.255L69.813,18.8H26.185l-0.554,0.455C16.997,26.357,12.045,36.833,12.045,48
+			c0,11.167,4.951,21.644,13.586,28.745l0.554,0.455h43.628l0.555-0.455c8.635-7.1,13.586-17.576,13.586-28.745
+			C83.954,36.833,79.003,26.355,70.368,19.255z M68.37,73.2H27.63C20.258,66.874,16.045,57.73,16.045,48
+			c0-9.73,4.213-18.874,11.585-25.2h40.74C75.741,29.125,79.954,38.27,79.954,48C79.954,57.731,75.741,66.876,68.37,73.2z"/>
+		<path d="M61.2,35.2H58c-0.222,0-0.399,0.179-0.399,0.4v12.8c0,0.221,0.178,0.4,0.399,0.4h3.2c0.221,0,0.4-0.179,0.4-0.4V35.6
+			C61.601,35.379,61.421,35.2,61.2,35.2z"/>
+		<path d="M35.6,35.2h-3.2c-0.221,0-0.4,0.179-0.4,0.4v12.8c0,0.221,0.179,0.4,0.4,0.4h3.2c0.221,0,0.4-0.179,0.4-0.4V35.6
+			C36,35.379,35.821,35.2,35.6,35.2z"/>
+		<path d="M48,54.126c-3.383,0-6.137,2.754-6.137,6.139v4.766c0,0.221,0.179,0.399,0.4,0.399h11.475c0.222,0,0.4-0.179,0.4-0.399
+			v-4.766C54.14,56.88,51.386,54.126,48,54.126z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Power_x5F_Switch_1_" display="none">
+	<g display="inline">
+		<path d="M59.489,36.431C53.142,36.431,48,41.574,48,47.92c0,6.337,5.142,11.481,11.489,11.481c6.339,0,11.484-5.144,11.484-11.48
+			C70.974,41.575,65.829,36.431,59.489,36.431z"/>
+		<path d="M60.3,25.25H35.704c-12.545,0-22.752,10.204-22.752,22.745c0,12.547,10.205,22.755,22.748,22.755h24.6
+			c12.543,0,22.748-10.208,22.748-22.755C83.048,35.453,72.843,25.25,60.3,25.25z M60.3,66.75H35.7
+			c-10.338,0-18.748-8.414-18.748-18.755c0-10.336,8.412-18.745,18.752-18.745H60.3c10.338,0,18.748,8.409,18.748,18.745
+			C79.048,58.336,70.638,66.75,60.3,66.75z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Presence_x5F_Sensor" display="none">
+	<g display="inline">
+		<path d="M22.556,41.483c0,7.866,6.4,14.267,14.268,14.267c7.866,0,14.267-6.401,14.267-14.267c0-7.866-6.401-14.268-14.267-14.268
+			C28.957,27.215,22.556,33.617,22.556,41.483z M47.891,41.483c0,6.103-4.965,11.067-11.067,11.067
+			c-6.103,0-11.067-4.964-11.067-11.067s4.965-11.067,11.067-11.067C42.926,30.416,47.891,35.38,47.891,41.483z"/>
+		<path d="M56.323,30.16l3.441-2.039c-4.769-8.051-13.558-13.053-22.939-13.053c-14.674,0-26.613,11.879-26.613,26.48
+			c0,6.097,2.135,12.049,6.035,16.792l18.501,21.631c0.516,0.607,1.27,0.958,2.068,0.959c0.002,0,0.004,0,0.006,0
+			c0.798,0,1.552-0.346,2.071-0.953l18.503-21.637l-3.041-2.6L36.824,76.243L19.313,55.771c-3.289-3.998-5.1-9.048-5.1-14.221
+			c0-12.396,10.145-22.48,22.613-22.48C44.8,19.069,52.271,23.319,56.323,30.16z"/>
+		<path d="M85.788,34.188l-2.826-2.832c-4.126,4.117-6.398,9.593-6.398,15.417c0.002,5.824,2.273,11.298,6.398,15.413l2.826-2.832
+			c-3.369-3.359-5.223-7.828-5.225-12.581C80.563,42.019,82.419,37.549,85.788,34.188z"/>
+		<path d="M73.406,21.825c-6.681,6.665-10.36,15.525-10.36,24.948c0,9.421,3.68,18.281,10.36,24.945l2.825-2.834
+			c-5.924-5.906-9.186-13.76-9.186-22.111c0-8.353,3.262-16.207,9.186-22.116L73.406,21.825z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Rapid_x5F_Cooling_x5F_mode_1_" display="none">
+	<g display="inline">
+		<polygon points="36.346,65.173 36.346,58.925 41.965,62.085 43.925,58.597 38.428,55.507 43.922,52.417 41.961,48.931 
+			36.346,52.089 36.346,45.828 32.346,45.828 32.346,52.087 26.73,48.93 24.77,52.417 30.266,55.507 24.77,58.598 26.73,62.083 
+			32.346,58.926 32.346,65.173 		"/>
+		<path d="M34.1,18.4c0,0-0.001,0-0.001,0c-0.713,0-1.372,0.38-1.729,0.996L16.568,46.623c-2.693,4.663-3.408,10.092-2.011,15.291
+			c1.398,5.205,4.747,9.555,9.426,12.246c3.062,1.762,6.544,2.692,10.07,2.692c0.012,0,0.021,0,0.031,0
+			c3.524,0,7.006-0.931,10.071-2.694c1.329-0.766,2.567-1.678,3.681-2.709l-2.719-2.934c-0.893,0.828-1.889,1.561-2.957,2.177
+			c-2.458,1.413-5.25,2.16-8.076,2.16c-0.006,0-0.018-0.001-0.016,0c0,0,0,0-0.001,0c-0.001,0-0.001,0-0.002,0
+			c-0.004,0-0.009,0-0.013,0c-2.827,0-5.62-0.747-8.076-2.16c-3.752-2.157-6.436-5.644-7.557-9.816
+			c-1.119-4.165-0.547-8.516,1.609-12.249L34.095,24.39l14.012,24.234l3.463-2.002L35.83,19.399
+			C35.472,18.781,34.813,18.4,34.1,18.4z"/>
+		<path d="M81.458,63.313L69.132,52.532c-0.59-0.518-1.43-0.641-2.143-0.316c-0.715,0.324-1.174,1.037-1.174,1.822v7.723
+			l-10.551-9.229c-0.592-0.518-1.429-0.641-2.143-0.316c-0.715,0.324-1.174,1.037-1.174,1.822v21.563
+			c0,0.783,0.459,1.496,1.174,1.82c0.265,0.121,0.546,0.18,0.826,0.18c0.475,0,0.945-0.17,1.316-0.495l10.551-9.228v7.723
+			c0,0.783,0.459,1.496,1.174,1.82c0.265,0.121,0.546,0.18,0.826,0.18c0.475,0,0.945-0.17,1.316-0.495l12.326-10.781
+			c0.434-0.38,0.684-0.929,0.684-1.505C82.142,64.242,81.892,63.692,81.458,63.313z M55.948,71.194v-12.75l7.289,6.375
+			L55.948,71.194z M69.815,71.194v-12.75l7.289,6.375L69.815,71.194z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Rapid_x5F_Freezing_x5F_mode_1_" display="none">
+	<g display="inline">
+		<path d="M80.401,31.268L56.629,17.472c-0.997-0.58-2.391-0.581-3.392-0.002L48,20.506l-5.232-3.036
+			c-0.983-0.568-2.406-0.568-3.39,0.001L15.6,31.268c-0.995,0.576-1.689,1.782-1.689,2.932v27.604c0,1.149,0.695,2.355,1.688,2.931
+			L39.381,78.53c0.49,0.283,1.076,0.434,1.692,0.434c0.615,0,1.2-0.15,1.696-0.436l5.233-3.036l5.238,3.038
+			c0.497,0.287,1.094,0.432,1.689,0.432c0.598,0,1.197-0.145,1.697-0.434l23.774-13.795c0.993-0.576,1.687-1.781,1.687-2.93V34.2
+			C82.089,33.048,81.394,31.842,80.401,31.268z M41.074,74.888L17.911,61.452V34.551l23.164-13.439l23.157,13.439v26.901
+			L41.074,74.888z M78.089,61.452L54.933,74.888l-2.944-1.708l14.56-8.448c0.991-0.578,1.684-1.782,1.684-2.928V34.2
+			c0-1.149-0.693-2.354-1.688-2.932l-14.559-8.449l2.945-1.707l23.158,13.439V61.452z"/>
+		<polygon points="54.47,42.535 52.462,39.076 43.068,44.531 43.07,33.6 39.07,33.599 39.068,44.528 29.676,39.076 27.667,42.535 
+			37.086,48.003 27.667,53.472 29.676,56.931 39.066,51.479 39.064,62.399 43.064,62.399 43.066,51.474 52.468,56.931 
+			54.476,53.472 45.053,48.002 		"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Robot_x5F_Cleaner_x5F_Cleaning_x5F_mode_1_" display="none">
+	<g display="inline">
+		<path d="M27.572,56.214c0.022,0,0.045-0.003,0.068-0.003c6.596,0.036,11.989,5.21,12.428,11.726
+			c-0.014,0.248-0.042,0.493-0.045,0.743c-0.007,0.585,0.241,1.108,0.637,1.478c0.364,0.387,0.877,0.632,1.451,0.632
+			c1.104,0,2-0.896,2-2c0-0.28-0.028-0.552-0.042-0.827c0.219-3.07,1.519-5.922,3.732-8.09c2.396-2.348,5.565-3.609,8.905-3.576
+			c1.074-0.006,2.01-0.871,2.023-1.976c0.008-0.583-0.24-1.106-0.633-1.477c-0.365-0.386-0.878-0.63-1.451-0.63
+			c-6.9,0-12.516-5.626-12.536-12.548c0-0.012,0.002-0.022,0.002-0.034c0-0.967-0.687-1.773-1.599-1.959
+			c-0.131-0.027-0.267-0.042-0.405-0.042c-1.104,0-2,0.896-2,2c0,0.012,0.002,0.023,0.002,0.035
+			c-0.019,6.899-5.598,12.507-12.47,12.545c-0.023,0-0.046-0.003-0.069-0.003c-1.104,0-2,0.895-2,2c0,0.137,0.014,0.273,0.041,0.402
+			C25.795,55.524,26.603,56.214,27.572,56.214z M42.11,47.533c1.537,2.831,3.873,5.165,6.702,6.696
+			c-1.378,0.734-2.663,1.662-3.81,2.786c-1.169,1.146-2.146,2.437-2.917,3.831c-1.53-2.799-3.84-5.111-6.637-6.636
+			C38.258,52.679,40.58,50.352,42.11,47.533z"/>
+		<path d="M50.43,37.813c0.011,0,0.021-0.002,0.031-0.002c3.872,0.016,7.042,3.041,7.317,6.86c-0.008,0.156-0.025,0.311-0.027,0.469
+			c-0.006,0.465,0.191,0.882,0.504,1.178c0.291,0.303,0.698,0.493,1.151,0.493c0.884,0,1.601-0.716,1.601-1.6
+			c0-0.175-0.019-0.347-0.027-0.52c0.137-1.793,0.899-3.456,2.193-4.724c1.409-1.38,3.272-2.134,5.237-2.104
+			c0.888,0.02,1.608-0.696,1.62-1.581c0.005-0.464-0.191-0.881-0.504-1.178c-0.291-0.302-0.697-0.491-1.15-0.491
+			c-4.055,0-7.354-3.305-7.371-7.373c0-0.01,0.002-0.02,0.002-0.031c0-0.884-0.717-1.6-1.601-1.6c-0.001,0-0.001,0-0.001,0
+			c-0.002,0-0.002,0-0.002,0c-0.884,0-1.6,0.716-1.6,1.6c0,0.011,0.001,0.021,0.001,0.031c-0.017,4.056-3.302,7.352-7.344,7.369
+			c-0.011,0-0.02-0.001-0.03-0.001c-0.662,0-1.231,0.403-1.474,0.978c-0.082,0.192-0.128,0.403-0.128,0.625
+			C48.829,37.096,49.546,37.813,50.43,37.813z M59.403,32.794c0.863,1.388,2.033,2.56,3.42,3.422
+			c-0.674,0.414-1.311,0.898-1.89,1.465c-0.598,0.585-1.106,1.234-1.543,1.924c-0.859-1.376-2.022-2.538-3.397-3.395
+			C57.376,35.349,58.543,34.179,59.403,32.794z"/>
+		<path d="M76.8,16.482H19.202c-1.5,0-2.721,1.22-2.721,2.719v57.597c0,1.5,1.221,2.721,2.721,2.721H76.8
+			c0.673,0,2.719,0,2.719-2.008v-58.31C79.519,17.702,78.3,16.482,76.8,16.482z M75.519,75.519H20.481V20.482h55.038V75.519z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Robot_x5F_Cleaner_x5F_Movement_1_" display="none">
+	<path display="inline" d="M67.016,35.264v4h6.313c-2.561,3.49-5.832,6.45-9.609,8.633c-4.205,2.434-8.91,3.856-13.719,4.163V21.512
+		l3.977,3.983l2.831-2.827L48,13.848l-8.809,8.821l2.83,2.827L46,21.512v30.542c-4.808-0.305-9.516-1.726-13.722-4.159
+		c-3.772-2.18-7.042-5.139-9.606-8.631h6.311v-4H16.529v12.47h4v-4.703c2.71,3.328,6.011,6.167,9.748,8.327
+		C35.091,54.144,40.49,55.743,46,56.054v18.432l-3.973-3.98l-2.831,2.827l8.807,8.82l8.808-8.82l-2.831-2.827l-3.979,3.986V56.06
+		c5.511-0.313,10.909-1.914,15.722-4.7c3.739-2.161,7.04-5,9.749-8.325v4.7h4v-12.47H67.016z"/>
+</g>
+<g id="ic_x5F_function_x5F_Robot_x5F_Cleaner_x5F_Turbo_x5F_mode_1_" display="none">
+	<g display="inline">
+		<path d="M18.545,34.39h15.143c0.248,0,0.372-0.299,0.197-0.475l-5.05-5.072c6.287-6.707,15.218-10.902,25.133-10.902
+			c5.978,0,11.595,1.532,16.495,4.211l0.004-0.005c0.043,0.023,0.088,0.041,0.141,0.041c0.162,0,0.295-0.133,0.295-0.294
+			c0-0.101-0.057-0.184-0.131-0.236l0.004-0.007c-6.107-5.284-14.059-8.492-22.769-8.492c-9.618,0-18.322,3.904-24.626,10.207
+			l-4.639-4.659c-0.177-0.177-0.478-0.054-0.478,0.195l0.002,15.21C18.267,34.265,18.392,34.39,18.545,34.39z"/>
+		<path d="M77.302,61.884H62.159c-0.248,0-0.371,0.299-0.197,0.477l4.941,4.963c-6.27,6.52-15.071,10.586-24.833,10.586
+			c-6.169,0-11.957-1.627-16.966-4.468l-0.002,0.005c-0.047-0.036-0.106-0.06-0.171-0.06c-0.161,0-0.293,0.129-0.293,0.292
+			c0,0.078,0.033,0.15,0.085,0.201l-0.006,0.008c6.172,5.561,14.331,8.953,23.291,8.953c9.508,0,18.121-3.813,24.408-9.984
+			l4.691,4.713c0.175,0.174,0.475,0.052,0.475-0.197V62.163C77.581,62.007,77.456,61.884,77.302,61.884z"/>
+		<polygon points="25.188,40.072 14.542,40.072 14.542,42.768 18.348,42.768 18.348,56.473 21.383,56.473 21.383,42.768 
+			25.188,42.768 		"/>
+		<path d="M26.957,40.073v10.963c0,1.813,0.504,3.218,1.517,4.214c1.012,0.997,2.431,1.495,4.259,1.496
+			c1.842,0,3.273-0.499,4.293-1.495c1.02-0.997,1.529-2.402,1.529-4.213V40.073h-3.035V50.81c0,2.176-0.929,3.262-2.787,3.262
+			c-1.827,0-2.74-1.086-2.74-3.262V40.073H26.957z"/>
+		<path d="M51.657,48.567c0.492-0.845,0.738-1.895,0.738-3.149c0-1.691-0.45-3.004-1.349-3.941
+			c-0.898-0.937-2.164-1.404-3.793-1.404h-5.551v16.4h3.035v-5.708h1.677l3.307,5.709h3.646l-3.852-6.094
+			C50.453,50.019,51.168,49.414,51.657,48.567z M47.252,48.205h-2.515v-5.504h2.424c1.419,0,2.128,0.92,2.128,2.763
+			C49.29,47.291,48.612,48.205,47.252,48.205z"/>
+		<path d="M65.669,44.762c0-1.496-0.427-2.651-1.279-3.466c-0.854-0.815-2.066-1.223-3.637-1.223h-5.572v16.4h6.275
+			c1.615,0,2.869-0.431,3.76-1.29c0.89-0.861,1.338-2.077,1.338-3.647c0-1.888-1.006-3.126-3.014-3.715
+			C64.96,47.321,65.669,46.303,65.669,44.762z M58.194,42.723h2.423c1.313,0,1.972,0.703,1.972,2.106
+			c0,1.314-0.612,1.972-1.836,1.972h-2.559V42.723z M61.614,53.823h-3.42V49.36h3.262c1.328,0,1.992,0.748,1.992,2.242
+			C63.448,53.083,62.837,53.823,61.614,53.823z"/>
+		<path d="M79.771,41.93c-1.125-1.418-2.76-2.129-4.904-2.129s-3.78,0.71-4.904,2.129c-1.126,1.419-1.688,3.534-1.688,6.344
+			c0,2.809,0.562,4.923,1.688,6.343c1.124,1.42,2.76,2.129,4.904,2.129s3.779-0.709,4.904-2.129s1.688-3.534,1.688-6.343
+			C81.458,45.463,80.896,43.349,79.771,41.93z M74.866,54.071c-2.311,0-3.467-1.932-3.467-5.798c0-3.867,1.156-5.8,3.467-5.8
+			s3.467,1.934,3.467,5.8C78.333,52.14,77.177,54.071,74.866,54.071z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Signal_x5F_Strength_1_" display="none">
+	<g display="inline">
+		<path d="M30.561,26.527c-9.26,9.589-9.26,25.19,0,34.778l2.878-2.777c-7.781-8.057-7.781-21.166,0-29.222L30.561,26.527z"/>
+		<path d="M24.994,20.952l-2.787-2.869C15.109,24.98,11.201,34.155,11.2,43.917c0,9.762,3.909,18.938,11.007,25.834l2.787-2.868
+			C18.678,60.745,15.2,52.589,15.2,43.917C15.201,35.246,18.678,27.089,24.994,20.952z"/>
+		<path d="M65.438,26.527l-2.877,2.779c7.781,8.057,7.781,21.166,0,29.222l2.877,2.777C74.699,51.718,74.699,36.117,65.438,26.527z"
+			/>
+		<path d="M73.794,18.083l-2.787,2.869c6.314,6.138,9.793,14.294,9.793,22.966c0,8.671-3.479,16.828-9.793,22.965l2.787,2.868
+			C80.892,62.854,84.8,53.679,84.8,43.917C84.8,34.155,80.892,24.98,73.794,18.083z"/>
+		<path d="M48,35.917c-4.411,0-8,3.588-8,7.999c0,3.72,2.555,6.846,6,7.737v26.264h4V51.653C53.445,50.763,56,47.636,56,43.917
+			C56,39.505,52.411,35.917,48,35.917z M48,47.917c-2.206,0-4-1.795-4-4.001c0-2.206,1.795-3.999,4-3.999s4,1.793,4,3.999
+			C52,46.123,50.206,47.917,48,47.917z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Smoke_x5F_Detector" display="none">
+	<g display="inline">
+		<path d="M41.789,57.524c-1.641-3.153-1.971-4.88-1.971-6.645c0-2.371,0.879-4.383,2.687-6.149l-2.795-2.861
+			c-2.582,2.522-3.891,5.555-3.891,9.01c0,2.736,0.668,5.1,2.378,8.404c0.844,2.103,2.005,5.521,2.005,6.729
+			c0,2.371-0.879,4.382-2.687,6.146l2.795,2.861c2.582-2.521,3.892-5.552,3.892-9.008c0-2.428-1.942-7.353-2.332-8.314
+			C41.845,57.638,41.818,57.581,41.789,57.524z"/>
+		<path d="M55.71,50.88c0-2.376,0.879-4.387,2.686-6.147l-2.791-2.866c-2.584,2.517-3.895,5.55-3.895,9.013
+			c0,2.764,0.674,5.143,2.41,8.492c1.639,3.144,1.959,4.815,1.959,6.641c0,2.378-0.875,4.389-2.673,6.146l2.796,2.861
+			c2.572-2.516,3.877-5.545,3.877-9.008c0-2.318-0.408-4.649-2.41-8.484C56.038,54.378,55.71,52.648,55.71,50.88z"/>
+		<path d="M81.781,20.979l-4.328,4.354c-1.403,1.116-3.089,1.706-4.884,1.706H23.432c-1.798,0-3.487-0.589-4.89-1.705L14.22,20.98
+			l-2.839,2.817l4.4,4.433c0.049,0.05,0.102,0.097,0.155,0.141c2.098,1.71,4.742,2.657,7.45,2.667c0.006,0,0.013,0,0.019,0h49.165
+			c2.72,0,5.379-0.947,7.488-2.667c0.055-0.044,0.106-0.09,0.154-0.141l4.406-4.433L81.781,20.979z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Sound_x5F_Sensor_1_" display="none">
+	<g display="inline">
+		<path d="M28.288,27.809l2.747,2.908c4.525-4.275,10.555-6.63,16.98-6.63c6.41,0,12.429,2.347,16.953,6.605l2.742-2.911
+			c-5.268-4.962-12.262-7.694-19.695-7.694C40.564,20.086,33.559,22.829,28.288,27.809z"/>
+		<path d="M64.962,65.063c-4.532,4.276-10.57,6.632-17,6.632c-6.396,0-12.411-2.334-16.938-6.572l-2.734,2.921
+			c5.271,4.934,12.257,7.651,19.672,7.651c7.456,0,14.467-2.742,19.746-7.723L64.962,65.063z"/>
+		<path d="M48.015,13.72c8.95,0,17.364,3.465,23.692,9.757l2.82-2.836C67.444,13.598,58.028,9.72,48.015,9.72
+			c-10.029,0-19.455,3.889-26.543,10.948l2.822,2.834C30.628,17.195,39.051,13.72,48.015,13.72z"/>
+		<path d="M47.965,82.28c-8.933,0-17.341-3.453-23.676-9.721l-2.813,2.844c7.088,7.014,16.496,10.877,26.489,10.877
+			c10.032,0,19.464-3.889,26.562-10.948l-2.82-2.836C65.364,78.806,56.933,82.28,47.965,82.28z"/>
+		<rect x="44.013" y="46.4" width="7.974" height="3.201"/>
+		<path d="M81.489,34.039H14.512c-1.543,0-2.797,1.255-2.797,2.797v22.327c0,1.543,1.254,2.798,2.797,2.798h66.978
+			c1.542,0,2.797-1.255,2.797-2.798V36.836C84.286,35.294,83.031,34.039,81.489,34.039z M80.286,57.961H15.714V38.039h64.572V57.961
+			z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Tamper_x5F_Alert_1_" display="none">
+	<g display="inline">
+		<path d="M74.78,74.8l-6.127-55.021c-0.158-1.446-1.42-2.579-2.875-2.579H28.624c-1.453,0-2.717,1.132-2.875,2.574L19.62,74.8H13.6
+			v4h68.799v-4H74.78z M29.614,21.2h35.172l5.969,53.6h-47.11L29.614,21.2z"/>
+		<rect x="45.2" y="29.6" width="4" height="22.4"/>
+		<circle cx="47.2" cy="60.8" r="3.2"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Temperature_x5F_Setpoint_1_" display="none">
+	<g display="inline">
+		<path d="M58.071,35.199h3.527V32H51.199v10.399h3.2v-5.903c3.898,2.336,6.4,6.691,6.4,11.46c0,7.302-5.744,13.243-12.802,13.243
+			c-7.057,0-12.798-5.94-12.798-13.243c0-5.562,3.397-10.568,8.453-12.458L42.532,32.5C36.232,34.855,32,41.067,32,47.957
+			c0,9.067,7.177,16.443,15.998,16.443c8.824,0,16.001-7.376,16.001-16.443C63.999,42.928,61.738,38.268,58.071,35.199z"/>
+		<path d="M75.423,49.465c-0.008-0.016-0.016-0.034-0.021-0.051v-2.828c0.005-0.016,0.013-0.035,0.021-0.05l7.011-6.915
+			c0.97-0.957,1.179-2.505,0.499-3.676l-7.061-12.281c-0.657-1.146-2.15-1.77-3.441-1.412l-9.455,2.636
+			c-0.002-0.001-0.003-0.002-0.008-0.003l-2.518-1.461v-0.001c0.003,0,0.002-0.003-0.002-0.01l-2.452-9.535
+			c-0.339-1.32-1.574-2.277-2.938-2.277H40.938c-1.358,0-2.593,0.955-2.935,2.275l-2.458,9.546l0,0
+			c-0.002,0-0.006,0.002-0.011,0.009l-2.511,1.458l-9.459-2.636c-1.279-0.352-2.777,0.265-3.438,1.41l-7.064,12.284
+			c-0.674,1.176-0.464,2.721,0.501,3.674l7.013,6.918c0.006,0.014,0.013,0.029,0.018,0.043l0,2.833
+			c-0.005,0.016-0.012,0.033-0.02,0.049l-7.014,6.918c-0.963,0.951-1.173,2.497-0.498,3.674l7.063,12.284
+			c0.659,1.142,2.14,1.767,3.44,1.407l9.459-2.634c0,0.001,0.002,0.001,0.005,0.003l2.515,1.459v0.002
+			c-0.002,0-0.002,0.002,0.003,0.01l2.454,9.531c0.331,1.301,1.592,2.281,2.935,2.281h14.121c1.362,0,2.598-0.957,2.937-2.275
+			l2.455-9.545h0.002c0.002,0,0.006-0.002,0.013-0.012l2.508-1.455l9.46,2.633c0.251,0.07,0.514,0.105,0.781,0.105
+			c1.088,0,2.133-0.596,2.657-1.514l7.062-12.279c0.678-1.178,0.469-2.725-0.499-3.679L75.423,49.465z M72.78,69.69l-8.814-2.453
+			c-0.951-0.27-2.189-0.088-3.023,0.43l-2.471,1.434c-0.873,0.475-1.62,1.427-1.871,2.395l-2.292,8.904H41.691l-2.293-8.904
+			c-0.248-0.961-0.995-1.916-1.87-2.395l-2.473-1.436c-0.832-0.513-2.091-0.692-3.013-0.43l-8.824,2.457l-6.317-10.986l6.545-6.456
+			c0.704-0.698,1.166-1.831,1.148-2.782v-2.9c0.018-0.994-0.446-2.128-1.152-2.821l-6.541-6.452l6.317-10.986l8.814,2.457
+			c0.951,0.268,2.189,0.084,3.021-0.431l2.471-1.434c0.875-0.478,1.624-1.433,1.871-2.395l2.292-8.905h12.619l2.292,8.913
+			c0.251,0.959,0.998,1.91,1.871,2.386l2.473,1.436c0.83,0.513,2.074,0.695,3.014,0.432l8.82-2.458l6.316,10.987l-6.543,6.453
+			c-0.701,0.694-1.164,1.824-1.149,2.784v2.909c-0.015,0.982,0.446,2.111,1.151,2.813l6.541,6.452L72.78,69.69z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Thermostat_x5F_Fan_1_" display="none">
+	<path display="inline" d="M65.21,28.791c-6.186,0-11.694,2.942-15.21,7.496V14.403c0-1.545-1.249-2.803-2.785-2.803l-0.131,0.003
+		c-10.259,0.482-18.295,8.91-18.295,19.187c0,6.186,2.942,11.694,7.497,15.21H14.402c-0.764,0-1.505,0.316-2.033,0.869
+		c-0.522,0.547-0.802,1.292-0.767,2.045c0.483,10.26,8.912,18.295,19.189,18.295c6.186,0,11.694-2.943,15.21-7.498v21.885
+		c0,1.545,1.249,2.803,2.785,2.803l0.131-0.002c10.258-0.482,18.294-8.91,18.294-19.188c0-6.186-2.941-11.694-7.496-15.21h21.883
+		c0.763,0,1.503-0.315,2.03-0.867c0.523-0.546,0.803-1.289,0.771-2.048C83.915,36.827,75.487,28.791,65.21,28.791z M30.792,63.21
+		c-7.708,0-14.103-5.709-15.082-13.21h30.16C44.887,57.445,38.5,63.21,30.792,63.21z M46,45.87
+		c-7.445-0.982-13.21-7.37-13.21-15.079c0-7.723,5.732-14.128,13.21-15.084V45.87z M63.211,65.21c0,7.705-5.706,14.1-13.21,15.079
+		V50.132C57.446,51.114,63.211,57.501,63.211,65.21z M50.132,46c0.981-7.445,7.369-13.21,15.078-13.21S79.313,38.5,80.29,46H50.132z
+		"/>
+</g>
+<g id="ic_x5F_function_x5F_Thermostat_x5F_mode_1_" display="none">
+	<g display="inline">
+		<path d="M36.203,43c1.194,0,4.176-0.153,6.075-1.567l0.488-0.364l-1.407-3.622l-0.805,0.456c-1.373,0.777-2.734,1.139-4.284,1.139
+			c-4.565,0-7.185-3.229-7.185-8.859c0-5.525,2.686-8.825,7.185-8.825c1.529,0,2.79,0.35,4.216,1.17L41.309,23l1.35-3.675
+			l-0.478-0.356c-1.896-1.416-4.812-1.568-5.977-1.568C29.188,17.4,25,22.178,25,30.182C25,38.208,29.188,43,36.203,43z"/>
+		<path d="M23.8,17.402c0-2.868-2.333-5.202-5.2-5.202s-5.2,2.334-5.2,5.202c0,2.866,2.333,5.198,5.2,5.198S23.8,20.268,23.8,17.402
+			z M18.6,19.4c-1.103,0-2-0.896-2-1.998c0-1.104,0.897-2.002,2-2.002s2,0.898,2,2.002C20.6,18.503,19.703,19.4,18.6,19.4z"/>
+		<path d="M57.8,51.399c-2.867,0-5.199,2.334-5.199,5.201S54.933,61.8,57.8,61.8s5.2-2.332,5.2-5.199S60.667,51.399,57.8,51.399z
+			 M57.8,58.601c-1.104,0-2-0.897-2-2c0-1.104,0.896-2,2-2s2,0.896,2,2C59.8,57.703,58.903,58.601,57.8,58.601z"/>
+		<polygon points="82.601,62.2 82.601,58.2 66.601,58.2 66.601,83.8 70.601,83.8 70.601,73.399 80.2,73.399 80.2,69.399 
+			70.601,69.399 70.601,62.2 		"/>
+		<rect x="11.2" y="46" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -19.3652 48.4484)" width="75.201" height="3.201"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Thermostat_x5F_Operational_x5F_State" display="none">
+	<g display="inline">
+		<path d="M49.601,59.798V22.4c0-0.884-0.717-1.6-1.6-1.6s-1.6,0.716-1.6,1.6v37.397c-2.983,0.722-5.2,3.399-5.2,6.603
+			c0,3.756,3.043,6.801,6.8,6.801c3.754,0,6.8-3.045,6.8-6.801C54.801,63.198,52.582,60.519,49.601,59.798z"/>
+		<path d="M58.329,51.606V21.152C58.329,15.444,53.695,10.8,48,10.8s-10.329,4.644-10.329,10.352v30.472
+			c-5.074,3.424-8.071,9.002-8.071,15.129c0,10.172,8.262,18.447,18.417,18.447c10.136,0,18.382-8.22,18.382-18.322
+			C66.399,60.774,63.335,55.026,58.329,51.606z M48.018,81.2c-7.95,0-14.417-6.48-14.417-14.447c0-5.068,2.635-9.66,7.073-12.296
+			l0.998-0.578V21.152c0-3.502,2.839-6.352,6.329-6.352c3.489,0,6.329,2.85,6.329,6.352V53.84l0.979,0.581
+			c4.375,2.598,7.092,7.371,7.092,12.457C62.399,74.774,55.948,81.2,48.018,81.2z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Tone" display="none">
+	<g display="inline">
+		<path d="M53.762,13.587c-0.446,0-1.112,0.134-1.746,0.773l-19.979,20.17c-0.02,0.01-0.045,0.021-0.065,0.028H14
+			c-1.543,0-2.8,1.256-2.8,2.8v21.283c0,1.543,1.257,2.8,2.8,2.8h17.97c0.021,0.007,0.046,0.017,0.065,0.027l19.98,20.171
+			c0.633,0.639,1.298,0.773,1.745,0.773h0.001c0.778,0,1.485-0.404,1.89-1.08C55.883,80.946,56,80.499,56,80V16
+			C56,14.433,54.847,13.587,53.762,13.587z M52,75.94L34.83,58.605c-0.688-0.696-1.807-1.164-2.786-1.164H15.2V38.559h16.846
+			c0.978,0,2.096-0.467,2.783-1.162L52,20.061V75.94z"/>
+		<path d="M64.176,29.748l-2.751,2.904c4.334,4.106,6.723,9.557,6.723,15.348s-2.389,11.242-6.723,15.348l2.751,2.905
+			c5.141-4.871,7.972-11.354,7.972-18.253C72.147,41.099,69.315,34.617,64.176,29.748z"/>
+		<path d="M72.731,20.934l-2.721,2.932C76.968,30.322,80.8,38.892,80.8,48c0,9.108-3.832,17.679-10.789,24.134l2.721,2.933
+			C80.515,67.845,84.8,58.233,84.8,48C84.8,37.767,80.515,28.155,72.731,20.934z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_TV_x5F_Channel_x5F_control_1_" display="none">
+	<g display="inline">
+		<path d="M59.474,37.286H37.059c-1.54,0-2.793,1.253-2.793,2.793v42.414c0,1.54,1.253,2.794,2.793,2.794h22.415
+			c1.541,0,2.793-1.254,2.793-2.794V40.079C62.267,38.539,61.015,37.286,59.474,37.286z M58.267,81.286h-20v-40h20V81.286z"/>
+		<path d="M30.611,30.076l2.779,2.877c8.056-7.781,21.165-7.781,29.22,0l2.779-2.877C55.802,20.816,40.2,20.816,30.611,30.076z"/>
+		<path d="M48,10.714c-9.907,0-19.219,3.905-26.223,10.995l2.846,2.811c6.245-6.323,14.548-9.806,23.376-9.806
+			c8.829,0,17.132,3.482,23.378,9.806l2.845-2.811C67.22,14.619,57.907,10.714,48,10.714z"/>
+		<circle cx="44.266" cy="49.686" r="2.4"/>
+		<circle cx="52.267" cy="49.686" r="2.4"/>
+		<circle cx="44.266" cy="59.286" r="2.4"/>
+		<circle cx="52.267" cy="59.286" r="2.4"/>
+		<circle cx="44.266" cy="68.886" r="2.4"/>
+		<circle cx="52.267" cy="68.886" r="2.4"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Valve_1_" display="none">
+	<g display="inline">
+		<path d="M62,58.462c-1.985,0-3.601-1.615-3.601-3.6v-6.727h1.689c1.105,0,2-0.896,2-2V34.801c0-1.104-0.895-2-2-2H50v-7.663
+			h18.399v-4H27.6v4H46v7.663H35.912c-1.105,0-2,0.896-2,2v11.334c0,1.104,0.895,2,2,2H37.6v6.727c0,1.984-1.615,3.6-3.6,3.6H12v4
+			h22c4.191,0,7.6-3.41,7.6-7.6v-6.727h12.799v6.727c0,4.189,3.41,7.6,7.601,7.6h22v-4H62z M37.912,36.801h20.177v7.334H37.912
+			V36.801z"/>
+		<rect x="12" y="70.862" width="72" height="4"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Video_x5F_Stream_1_" display="none">
+	<g display="inline">
+		<path d="M79.645,13.565H16.357c-1.539,0-2.791,1.252-2.791,2.791v63.288c0,1.539,1.252,2.791,2.791,2.791h63.288
+			c0.746,0,1.448-0.291,1.974-0.818c0.527-0.529,0.818-1.23,0.816-1.973V16.356C82.435,14.817,81.183,13.565,79.645,13.565z
+			 M17.566,78.435v-60.87h60.869v60.87H17.566z"/>
+		<path d="M63.454,45.891L37.89,29.35c-0.436-0.283-0.922-0.433-1.406-0.433c-1.339,0-2.35,1.063-2.35,2.471v33.225
+			c0,1.41,1.01,2.471,2.349,2.471c0.484,0,0.971-0.148,1.402-0.43l25.576-16.549c0.739-0.482,1.181-1.27,1.18-2.106
+			C64.641,47.162,64.198,46.375,63.454,45.891z M38.134,61.728V34.272L59.352,48L38.134,61.728z"/>
+		<rect x="23.478" y="29.014" width="3.165" height="4.747"/>
+		<rect x="23.478" y="40.089" width="3.165" height="4.747"/>
+		<rect x="23.478" y="62.241" width="3.165" height="4.744"/>
+		<rect x="23.478" y="51.164" width="3.165" height="4.747"/>
+		<rect x="69.362" y="29.014" width="3.164" height="4.747"/>
+		<rect x="69.362" y="40.089" width="3.164" height="4.747"/>
+		<rect x="69.362" y="62.241" width="3.164" height="4.744"/>
+		<rect x="69.362" y="51.164" width="3.164" height="4.747"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Washer_x5F_job_x5F_state_1_" display="none">
+	<g display="inline">
+		<rect x="41.6" y="22.4" width="12.799" height="3.2"/>
+		<path d="M74.995,12.4h-53.99C19.348,12.4,18,13.748,18,15.405v65.19c0,1.656,1.348,3.006,3.005,3.006h53.99
+			c1.657,0,3.005-1.35,3.005-3.006v-65.19C78,13.748,76.652,12.4,74.995,12.4z M74,79.601H22V16.4h52V79.601z"/>
+		<path d="M48,71.599c11.249,0,20.399-9.15,20.399-20.398c0-11.249-9.15-20.4-20.399-20.4c-11.249,0-20.4,9.151-20.4,20.4
+			C27.6,62.448,36.751,71.599,48,71.599z M48,34.8c9.043,0,16.399,7.356,16.399,16.4c0,9.042-7.356,16.398-16.399,16.398
+			S31.6,60.242,31.6,51.2C31.6,42.157,38.957,34.8,48,34.8z"/>
+	</g>
+</g>
+<g id="ic_x5F_function_x5F_Washer_x5F_mode" display="none">
+	<g display="inline">
+		<rect x="41.6" y="22.4" width="12.799" height="3.2"/>
+		<path d="M74.995,12.4h-53.99C19.348,12.4,18,13.748,18,15.405v65.19c0,1.656,1.348,3.006,3.005,3.006h53.99
+			c1.657,0,3.005-1.35,3.005-3.006v-65.19C78,13.748,76.652,12.4,74.995,12.4z M74,79.601H22V16.4h52V79.601z"/>
+		<path d="M48,71.599c11.249,0,20.399-9.15,20.399-20.398c0-11.249-9.15-20.4-20.399-20.4c-11.249,0-20.4,9.151-20.4,20.4
+			C27.6,62.448,36.751,71.599,48,71.599z M48,34.8c9.043,0,16.399,7.356,16.399,16.4c0,9.042-7.356,16.398-16.399,16.398
+			S31.6,60.242,31.6,51.2C31.6,42.157,38.957,34.8,48,34.8z"/>
+	</g>
+</g>
+<g id="Layeic_x5F_function_x5F_Water_x5F_Sensorr_1_" display="none">
+	<path display="inline" d="M67.375,46.996l-17.61-30.455c-0.357-0.618-1.016-0.999-1.73-0.999h-0.001
+		c-0.713,0-1.372,0.379-1.73,0.996L28.625,46.998c-2.98,5.16-3.77,11.169-2.224,16.921c1.548,5.762,5.254,10.578,10.436,13.561
+		c3.386,1.947,7.236,2.978,11.16,2.979c0,0,0,0,0.001,0c0.001-0.001,0.028-0.001,0.03,0c3.899,0,7.751-1.031,11.138-2.979
+		c5.18-2.982,8.887-7.799,10.434-13.562C71.145,58.167,70.354,52.157,67.375,46.996z M65.737,62.88
+		c-1.271,4.73-4.314,8.684-8.568,11.132c-2.781,1.601-5.941,2.446-9.142,2.446c-0.008,0-0.016,0-0.025,0c-0.001,0-0.003,0-0.004,0
+		c-0.005,0.002-0.013,0-0.02,0c-3.202,0-6.365-0.846-9.146-2.446c-4.255-2.448-7.297-6.401-8.568-11.132
+		c-1.268-4.717-0.62-9.648,1.823-13.879L48.03,21.532l15.881,27.465C66.356,53.231,67.004,58.161,65.737,62.88z"/>
+</g>
+</svg>

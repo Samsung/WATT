@@ -20,6 +20,7 @@
             "code-folding.folds": {}
         }
     },
+    "deviceProfiles": {},
     "workingSetSortMethod": "cmd.sortWorkingSetByAdded",
     "auto-install-extensions": {},
     "lastNotifiedBuildNumber": 17108,

@@ -1,0 +1,134 @@
+    <style>
+        .widgetDragSource {
+            display: block;
+            margin: auto;
+            margin-top: 5px;
+            padding: 5px;
+            color: lightgrey;
+        }
+        
+        .widgetDragSourceSeperator {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .widgetDragSourceSelected {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-origin: border-box;
+            background-color: #288edf;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+        
+        .customTemplateShortcut.widgetDragSourceSelected {
+            background-color: transparent;
+            color: #288edf;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+        
+        .contextmenu-listner_create{
+            margin-top:10px;
+            display: block;
+            height:100%;
+            width:100%;
+        }
+        
+        #custom-element-container{
+            margin-top:10px;
+            display: block;
+            box-sizing: content-box;
+            width:100%;
+        }
+        
+        .customTemplateShortcut {
+            height: 25px;
+            width: 23px;
+            margin-left: 3px;
+        }
+
+        .customTemplateShortcut div{
+            transform-origin: left bottom 0px;
+            transform: rotate(-42deg);
+            color: black;
+            margin-left: 5px;
+            margin-top: -12px;
+            width: 42px;
+            height: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .customTemplateShortcut.widgetDragSourceSelected div{
+            color: white;
+        }
+
+        .customTemplateShortcut .glyphicon-tag {
+            zoom:2;
+        }
+        
+        #launch-toolbox {
+            height: 26px;
+            width: 37px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 2px;
+            padding: 0px;
+            border-radius: 0px;
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        #launch-toolbox span {
+            transition: all 100ms;
+            margin:0px -4px;
+        }
+        
+        #launch-toolbox.activated span {
+            transform: rotate(180deg);
+        }
+        
+        #interaction-mode span {
+            color:orangered!important;
+        }
+        
+        #interaction-mode.activated span {
+            color:lawngreen !important;
+        }
+        
+    </style>
+    <div class="property-toolbox" id="widget-toolbox">
+        <div id="html-elements-catalog" style="position: absolute; width: calc(100% - 3px); height: calc(100% - 3px); border:1px solid gray; left: 0px; top: 0px;">
+            <div id="interaction-mode" style="display: block;margin: auto;margin-top: 5px;padding: 5px;" title="User Interaction">
+                <span class="glyphicon glyphicon-hand-up" aria-hidden="true" style="zoom:1.5;margin-left:3px;"></span>
+            </div>
+            <img class="htmlwidget widgetDragSource widgetDrawSource" id="ad-element-pointer" src="{{module_path}}/controlhtml/widgetImages/Move_Widget.png" alt="Pointer">
+            <div class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-paragraph" style="height: 15px;width: 14px;">
+                <span class="glyphicon glyphicon-text-size" aria-hidden="true"></span>
+            </div>
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-textbox" src="{{module_path}}/controlhtml/widgetImages/Text_Widget.png" alt="Text">
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-div" src="{{module_path}}/controlhtml/widgetImages/DIV_Widget.png" alt="Div">
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-img" src="{{module_path}}/controlhtml/widgetImages/Image_Widget.png" alt="Image">
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-button" src="{{module_path}}/controlhtml/widgetImages/Button_Widget.png" alt="Button">
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-list" src="{{module_path}}/controlhtml/widgetImages/List_Widget.png" alt="List">
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-chkbox" src="{{module_path}}/controlhtml/widgetImages/CheckBox_Widget.png" alt="CheckBox">
+            <img class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-radio" src="{{module_path}}/controlhtml/widgetImages/Radio_Button_Widget.png" alt="Radio">
+            <div class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-table" style="height: 15px;width: 14px;">
+                <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+            </div>
+            <div class="htmlwidget widgetDragSource widgetDrawSource" data-profile="html" id="ad-element-iframe" style="height: 15px;width: 14px;">
+                <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+            </div>
+
+            <img class="htmlwidget widgetDragSourceSeperator" src="{{module_path}}/controlhtml/Widget_Seperator.png" alt="" />
+            <button id="launch-toolbox" class="btn primary">
+                <span class="glyphicon glyphicon-menu-right"></span>
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </button>
+            <img class="htmlwidget widgetDragSourceSeperator" src="{{module_path}}/controlhtml/Widget_Seperator.png" alt="" style="margin-top:0px;"/>
+            <div id="custom-element-container"></div>
+            
+            <div class="contextmenu-listner_create"></div>
+        </div>
+    </div>

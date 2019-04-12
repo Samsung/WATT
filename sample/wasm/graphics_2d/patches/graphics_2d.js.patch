@@ -1,0 +1,19 @@
+--- graphics_2d.js_org	2018-07-05 15:51:58.788877507 +0200
++++ graphics_2d.js	2018-07-05 16:07:56.883290101 +0200
+@@ -413,6 +413,7 @@
+ 
+   var last_update = "";
+   var updateView = function() {
++    if (!runtimeInitialized) return;
+     // NOTE: this will give the wrong value if the canvas has any margin,
+     // border, or padding.  Some browsers may also give non-integer values and
+     // rounding is prefered to truncation.
+@@ -9829,7 +9830,7 @@
+   var method = 'native-wasm';
+ 
+   var wasmTextFile = 'graphics_2d.wast';
+-  var wasmBinaryFile = 'graphics_2d.wasm';
++  var wasmBinaryFile = 'data/graphics_2d.wasm';
+   var asmjsCodeFile = 'graphics_2d.temp.asm.js';
+ 
+   if (typeof Module['locateFile'] === 'function') {

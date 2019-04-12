@@ -1,6 +1,12 @@
 define(function (require, exports, module) {
     "use strict";
 
+    const PreferencesManager = brackets.getModule("preferences/PreferencesManager");
+    const type = PreferencesManager.getViewState("projectType");
+    if (type === "iotjs") {
+        return;
+    }
+
     var CommandManager              = brackets.getModule("command/CommandManager"),
         DefaultDialogs              = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs                     = brackets.getModule("widgets/Dialogs"),
@@ -9,14 +15,14 @@ define(function (require, exports, module) {
         FileUtils                   = brackets.getModule("file/FileUtils"),
         Menus                       = brackets.getModule("command/Menus"),
         NodeDomain                  = brackets.getModule("utils/NodeDomain"),
-        PreferencesManager          = brackets.getModule("preferences/PreferencesManager"),
         ProjectManager              = brackets.getModule("project/ProjectManager"),
         Strings                     = brackets.getModule("strings");
 
     var APIPickingDialogTemplate    = require("text!htmlContent/API-Picking-Dialog.html"),
         CompileFileDialogTemplate   = require("text!htmlContent/Compile-Dialog.html"),
         CompileOptionsTemplate      = require("text!htmlContent/SelectCompileOptions-Dialog.html"),
-        ExtensionStrings            = require("strings");
+        ExtensionStrings            = require("strings"),
+        ReplaceResourcesTemplate    = require("text!htmlContent/resourceReplacementDialog.html");
 
     var _domainPath = ExtensionUtils.getModulePath(module, "node/CompileDomain"),
         _nodeDomain = new NodeDomain("compileEmscripten", _domainPath);
@@ -27,6 +33,23 @@ define(function (require, exports, module) {
             _typeTable = data;
         });
 
+    let _configuration;
+
+    function loadConfiguration() {
+        return new Promise((resolve, reject) => {
+            if (_configuration !== undefined) {
+                resolve(_configuration);
+            } else {
+                ExtensionUtils.loadFile(module, "configuration.json").done(
+                    configuration => {
+                        _configuration = configuration;
+                        resolve(configuration);
+                    }
+                ).fail(reject);
+            }
+        });
+    }
+
     var PROJECT_MENU = "project-menu";
     var PROJECT_API_PICKING = "project.API-Picking";
     var PROJECT_COMPILE_FILE = "project.compile";
@@ -35,6 +58,11 @@ define(function (require, exports, module) {
     var PROJECT_COMPILE_PROJECT = "project.compileProject";
     var PROJECT_CLEAN_PROJECT = "project.cleanProject";
     var PROJECT_PACK_WGT = "project.packWGT";
+    var PROJECT_PACK_PPK = "project.packPPK";
+    var PROJECT_PACK_CRX = "project.packCRX";
+    var PROJECT_INSTALL_WGT = "project.installWGT";
+    var PROJECT_BUILD_UNITY = "project.buildUnity";
+    var PROJECT_REPLACE_RESOURCES = "project.replaceResources";
 
     var _documentsDir = brackets.app.getUserDocumentsDirectory();
 
@@ -299,10 +327,124 @@ define(function (require, exports, module) {
 
     }
 
+    // These values are not saved to the DB, so they will be lost between runs.
+    const replacementValues = new Map();
+    replacementValues.set("replace_wasm_enabled", false);
+    replacementValues.set("replace_wasm_original_path", "./wasm/unreal.wasm");
+    replacementValues.set("replace_wasm_devices_path", "file:///home/owner/share/tizen-unrealjs/latest/unreal.wasm");
+    replacementValues.set("replace_js_enabled", false);
+    replacementValues.set("replace_js_original_path", "./js/unreal.js");
+    replacementValues.set("replace_js_devices_path", "file:///home/owner/share/tizen-unrealjs/latest/unreal.js");
+    replacementValues.set("replace_symbols_enabled", false);
+    replacementValues.set("replace_symbols_original_path", "./js/unreal.js.symbols");
+    replacementValues.set("replace_symbols_devices_path", "file:///home/owner/share/tizen-unrealjs/latest/unreal.js.symbols");
+
+    function handleReplaceResources() {
+        const fields = [
+            {
+                "id": "replace_wasm_enabled",
+                "description": ExtensionStrings.DIALOG_USE_DEVICES_WASM_LABEL,
+                "type": "checkbox"
+            },
+            {
+                "id": "replace_wasm_original_path",
+                "description": ExtensionStrings.DIALOG_WASM_ORIG_PATH_LABEL,
+                "type": "text"
+            },
+            {
+                "id": "replace_wasm_devices_path",
+                "description": ExtensionStrings.DIALOG_WASM_DEVICE_PATH_LABEL,
+                "type": "text"
+            },
+            {
+                "id": "replace_js_enabled",
+                "description": ExtensionStrings.DIALOG_USE_DEVICES_JS_LABEL,
+                "type": "checkbox"
+            },
+            {
+                "id": "replace_js_original_path",
+                "description": ExtensionStrings.DIALOG_JS_ORIG_PATH_LABEL,
+                "type": "text"
+            },
+            {
+                "id": "replace_js_devices_path",
+                "description": ExtensionStrings.DIALOG_JS_DEVICE_PATH_LABEL,
+                "type": "text"
+            },
+            {
+                "id": "replace_symbols_enabled",
+                "description": ExtensionStrings.DIALOG_USE_DEVICES_SYMBOLS_LABEL,
+                "type": "checkbox"
+            },
+            {
+                "id": "replace_symbols_original_path",
+                "description": ExtensionStrings.DIALOG_SYMBOLS_ORIG_PATH_LABEL,
+                "type": "text"
+            },
+            {
+                "id": "replace_symbols_devices_path",
+                "description": ExtensionStrings.DIALOG_SYMBOLS_DEVICE_PATH_LABEL,
+                "type": "text"
+            },
+        ];
+
+        // Write current values in a way which can be rendered by html template.
+        for (const field of fields) {
+            if (field["type"] === "checkbox") {
+                field["value"] = (replacementValues.get(field["id"]) ? "checked=\"checked\"" : "");
+            } else {
+                field["value"] = "value=\"" + replacementValues.get(field["id"]) + "\"";
+            }
+        }
+
+        const context = {
+            "fields": fields,
+            "Strings": Strings,
+            "ExtensionStrings": ExtensionStrings
+        };
+
+        const dialog = Dialogs.showModalDialogUsingTemplate(Mustache.render(ReplaceResourcesTemplate, context));
+        const $dlg = dialog.getElement();
+
+        // Read values from the popup.
+        dialog.done((buttonId) => {
+            if (buttonId === "ok") {
+                for (const field of fields) {
+                    const $element = $("#"+field.id, $dlg);
+                    if (field["type"] === "checkbox") {
+                        replacementValues.set(field.id, $element.is(":checked"));
+                    } else {
+                        replacementValues.set(field.id, $element.val());
+                    }
+                }
+            }
+        });
+    }
+
     function handlePackWGT() {
+        console.log("handlePackWGT");
         const projectId = PreferencesManager.getViewState("projectId");
-        const loadingDialog = showProgressDialog(ExtensionStrings.PACKING_DIALOG_TITLE);
-        _nodeDomain.exec("packWGT", projectId).done(function() {
+        const loadingDialog = showProgressDialog(ExtensionStrings.PACKAGING_DIALOG_TITLE);
+        const replacementList = [];
+        if (replacementValues.get("replace_wasm_enabled")) {
+            replacementList.push({
+                "originalPath": replacementValues.get("replace_wasm_original_path"),
+                "devicePath": replacementValues.get("replace_wasm_devices_path")
+            });
+        }
+        if (replacementValues.get("replace_js_enabled")) {
+            replacementList.push({
+                "originalPath": replacementValues.get("replace_js_original_path"),
+                "devicePath": replacementValues.get("replace_js_devices_path")
+            });
+        }
+        if (replacementValues.get("replace_symbols_enabled")) {
+            replacementList.push({
+                "originalPath": replacementValues.get("replace_symbols_original_path"),
+                "devicePath": replacementValues.get("replace_symbols_devices_path")
+            });
+        }
+        _nodeDomain.exec("packWGT", projectId, JSON.stringify(replacementList)).done(function() {
             loadingDialog.close();
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_OK,
@@ -317,7 +459,106 @@ define(function (require, exports, module) {
             Dialogs.showModalDialog(
                 DefaultDialogs.DIALOG_ID_ERROR,
                 ExtensionStrings.PACKING_FAILURE,
-                `Couldn't build WGT package: "${result.message}", details: "${result.details}"`
+                `Couldn't build WGT package: "${result.message}", details: "${JSON.stringify(result.details)}"`
+            );
+        });
+    }
+
+    function handlePackPPK() {
+        const projectId = PreferencesManager.getViewState("projectId");
+
+        const loadingDialog = showProgressDialog(ExtensionStrings.PACKAGING_DIALOG_TITLE);
+
+        _nodeDomain.exec("packPPK", projectId).done((value) => {
+            loadingDialog.close();
+
+            Dialogs.showModalDialog(
+                DefaultDialogs.DIALOG_ID_OK,
+                ExtensionStrings.INSTALLATION_SUCCESS,
+                "Install Success"
+            );
+        }).fail((stderr) => {
+            loadingDialog.close();
+
+            Dialogs.showModalDialog(
+                DefaultDialogs.DIALOG_ID_ERROR,
+                ExtensionStrings.INSTALLATION_FAILURE,
+                stderr.toString()
+            );
+        });
+    }
+
+    function handlePackCRX() {
+        const projectId = PreferencesManager.getViewState("projectId");
+        const projectName = PreferencesManager.getViewState("projectName");
+
+        const loadingDialog = showProgressDialog(ExtensionStrings.PACKAGING_DIALOG_TITLE);
+
+        _nodeDomain.exec("packCRX", projectId, projectName).done((value) => {
+            loadingDialog.close();
+
+            Dialogs.showModalDialog(
+                DefaultDialogs.DIALOG_ID_OK,
+                ExtensionStrings.INSTALLATION_SUCCESS,
+                "Install Success"
+            ).done(() => {
+                ProjectManager.refreshFileTree();  // show .crx file
+            });
+        }).fail((err) => {
+            loadingDialog.close();
+
+            Dialogs.showModalDialog(
+                DefaultDialogs.DIALOG_ID_ERROR,
+                ExtensionStrings.INSTALLATION_FAILURE,
+                "Install Fail"
+            );
+        });
+    }
+
+    function handleInstallWGT() {
+        const projectId = PreferencesManager.getViewState("projectId");
+        const projectName = PreferencesManager.getViewState("projectName");
+
+        FileSystem.resolve("/" + projectName + ".wgt", (Found) => {
+            if (Found) {
+                _nodeDomain.exec("installWGT", projectId).done(() => {
+                    Dialogs.showModalDialog(
+                        DefaultDialogs.DIALOG_ID_OK,
+                        ExtensionStrings.INSTALLATION_SUCCESS,
+                        "Install Success"
+                    );
+                }).fail((err) => {
+                    Dialogs.showModalDialog(
+                        DefaultDialogs.DIALOG_ID_ERROR,
+                        ExtensionStrings.INSTALLATION_FAILURE,
+                        "Install Fail"
+                    );
+                });
+            } else {
+                Dialogs.showModalDialog(
+                    DefaultDialogs.DIALOG_ID_ERROR,
+                    ExtensionStrings.INSTALLATION_FAILURE,
+                    "wgt file not exist. After Build WGT Package and try to install."
+                );
+            }
+        });
+    }
+
+    function handleBuildUnity() {
+        const projectId = PreferencesManager.getViewState("projectId");
+
+        const infoDialog = showProgressDialog(ExtensionStrings.COMPILING_DIALOG_TITLE);
+
+        _nodeDomain.exec("buildUnity", projectId).done(function() {
+            infoDialog.close();
+            ProjectManager.refreshFileTree();
+        }).fail(() => {
+            infoDialog.close();
+            ProjectManager.refreshFileTree();
+            Dialogs.showModalDialog(
+                DefaultDialogs.DIALOG_ID_ERROR,
+                ExtensionStrings.MENU_TITLE_BUILD_UNITY,
+                ExtensionStrings.COMPILATION_FAILED
             );
         });
     }
@@ -372,7 +613,7 @@ define(function (require, exports, module) {
     const emscriptenOptions = [
         {
             id: "opt", description: "Optimization level",
-            type: "select", values: ["O0", "O2", "O3", "Oz"], default: "O0",
+            type: "select", values: ["O0", "O2", "O3", "Os", "Oz"], default: "O0",
             toValue: toEmccOptionByValue
         },
         {
@@ -445,7 +686,7 @@ define(function (require, exports, module) {
     ];
 
     function mapOptions(option) {
-        const optimizationOptions = ["O0", "O2", "O3", "Oz"];
+        const optimizationOptions = ["O0", "O2", "O3", "Os", "Oz"];
         const doubleDashOptions = ["llvm-lto", "closure"];
         const sOptions = [
             "NO_EXIT_RUNTIME",
@@ -745,173 +986,139 @@ define(function (require, exports, module) {
         dialog.done(function (buttonId) {
             if (buttonId === "ok") {
                 var $group = $(divGroup);
-                var $classElement, $methodElement;
-                if (apiJSON.interfaces === undefined) {
+                if (apiJSON === undefined) {
+                    console.error("[ERROR] API-Grepper is not worked properly.");
                     return;
                 }
-                // gather check info
-                apiJSON.interfaces.forEach(function(classInfo) {
-                    $classElement = $("#I_" + classInfo.name, $group);
-                    classInfo.checked = $classElement.prop("checked");
-                    if (!classInfo.checked) {
-                        classInfo.checkedChild = false;
-                        if (classInfo.methods) {
-                            classInfo.methods.forEach(function(methodInfo) {
-                                $methodElement = $("#M_" + classInfo.name + "_" + methodInfo.name, $group);
-                                methodInfo.checked = $methodElement.prop("checked");
-                                if (methodInfo.checked) {
-                                    classInfo.checkedChild = true;
-                                }
-                            });
+
+                var recurContextsCheck = function myself (contextInfo, $contents, checked) {
+                    var $input = $("> input", $contents);
+                    contextInfo.checked = $input.prop("checked") || checked;
+
+                    switch (contextInfo.ContextType) {
+                    case "Namespace":
+                    case "Class":
+                        var $children = $("> ol > li", $contents);
+                        for (var i = 0; i < contextInfo.Contexts.length; i++) {
+                            myself(contextInfo.Contexts[i], $children.get(i), contextInfo.checked);
                         }
+                        break;
                     }
-                });
-
-                var convertToIDLType = function (cxxType) {
-                    var ret = "";
-                    if (cxxType.isConst === true && cxxType.isRef === true) {
-                        ret += "[Const, Ref] ";
-                    } else if (cxxType.isConst === true) {
-                        ret += "[Const] ";
-                    } else if (cxxType.isRef === true) {
-                        ret += "[Ref] ";
-                    }
-
-                    if(_typeTable.hasOwnProperty(cxxType.type)) {
-                        ret += _typeTable[cxxType.type];
-                    } else {
-                        ret += cxxType.type;
-                    }
-                    return ret;
                 };
 
-                var generateMethodIDL = function (methodInfo) {
-                    var ret = "  ";
-                    ret += convertToIDLType(methodInfo.type) + " ";
-                    ret += methodInfo.name + "(";
-                    if (methodInfo.params) {
-                        methodInfo.params.forEach(function(paramInfo, paramIndex, params) {
-                            ret += convertToIDLType(paramInfo.type);
-                            ret += " " + paramInfo.name;
-                            if (params.length !== 1 && paramIndex !== params.length - 1) {
-                                ret += ", ";
-                            }
+                if (apiJSON.Contexts) {
+                    var $global = $("> ol > li", $group);
+                    for (var i = 0; i < apiJSON.Contexts.length; i++) {
+                        recurContextsCheck(apiJSON.Contexts[i], $global.get(i), false);
+                    }
+                    console.log(apiJSON);
+
+                    // build IDL
+                    var idlData = "";
+                    var contextQueue = [];
+
+                    var processNamespace = function (context) {
+                        context.Contexts.forEach(function (child) {
+                            switch (child.ContextType) {
+                            case "Namespace":
+                            case "Class":
+                            case "Enumeration":
+                                contextQueue.push(child);
+                                break;
+                            case "Method":
+                            case "Attribute":
+                                console.error("[ERROR] Wrong context is inserted.");
+                                break;
+                            };
                         });
-                    }
-                    ret += ");\n";
-                    return ret;
-                };
+                    };
 
-                var generateTitle = function (title) {
-                    return "\"" + title + "\":";
-                };
-
-                var generateAttribute = function (title, value) {
-                    return generateTitle(title) + "\"" + value + "\"";
-                };
-
-                var generatePair = function (title, value) {
-                    return "\"" + title + "\":" + value;
-                };
-
-                var generateParamJSON = function (paramInfo) {
-                    var ret = "{";
-                    ret += generateAttribute("name", paramInfo.name);
-                    ret += ", ";
-                    ret += generatePair("type", JSON.stringify(paramInfo.type));
-                    ret += "}";
-                    return ret;
-                };
-
-                var generateMethodJSON = function (methodInfo) {
-                    var ret = "{";
-                    ret += generateAttribute("name", methodInfo.name);
-                    ret += ", ";
-                    ret += generatePair("type", JSON.stringify(methodInfo.type));
-                    if (methodInfo.params) {
-                        ret += ", ";
-                        ret += generateTitle("params");
-                        ret += "[";
-                        methodInfo.params.forEach(function(paramInfo, paramIndex, params) {
-                            ret += generateParamJSON(paramInfo);
-                            if (params.length !== 1 && paramIndex !== params.length - 1) {
-                                ret += ", ";
-                            }
+                    var processClass = function (context) {
+                        var memberIDL = "";
+                        context.Contexts.forEach(function (child) {
+                            switch (child.ContextType) {
+                            case "Namespace":
+                            case "Class":
+                            case "Enumeration":
+                                contextQueue.push(child);
+                                break;
+                            case "Method":
+                            case "Attribute":
+                                if (child.checked) {
+                                    memberIDL += "  " + child.IDL + "\n";
+                                }
+                                break;
+                            };
                         });
-                        ret += "]";
-                    }
-                    ret += "}";
-                    return ret;
-                };
 
-                var generateClassJSON = function (classInfo) {
-                    var ret = "{";
-                    ret += generateAttribute("name", classInfo.name);
-                    ret += ", ";
-                    ret += generateAttribute("path", classInfo.path);
-                    ret += ", ";
-                    ret += generatePair("nodelete", classInfo.nodelete ? "true" : "false");
-                    if (classInfo.methods) {
-                        ret += ", ";
-                        ret += generateTitle("methods");
-                        ret += "[";
-                        var isFirst = true;
-                        classInfo.methods.forEach(function(methodInfo) {
-                            if (classInfo.checked || methodInfo.checked) {
-                                if (isFirst) {
-                                    isFirst = false;
-                                }
-                                else {
-                                    ret += ", ";
-                                }
-                                ret += generateMethodJSON(methodInfo);
-                            }
-                        });
-                        ret += "]";
-                    }
-                    ret += "}";
-                    return ret;
-                };
+                        if (memberIDL === "") {
+                            return;
+                        }
+                        // print class prefix
+                        if (context.Prefix && context.Prefix !== "") {
+                            idlData += context.Prefix + "\n";
+                        }
 
-                // make picked things to json
-                var jsonData = "{" + generateAttribute("Path", apiJSON.Path);
-                jsonData += ", ";
-                jsonData += generateTitle("interfaces") + "[";
-                if (apiJSON.interfaces) {
-                    var isFirst = true;
-                    apiJSON.interfaces.forEach(function(classInfo) {
-                        if (classInfo.checked || classInfo.checkedChild) {
-                            if (isFirst === true) {
-                                isFirst = false;
-                            }
-                            else {
-                                jsonData += ", ";
-                            }
-                            jsonData += generateClassJSON(classInfo);
-                        }
-                    });
-                }
-                jsonData += "]";
-                jsonData += "}";
-
-                // make idl data
-                var idlData = "";
-                apiJSON.interfaces.forEach(function(classInfo) {
-                    if (classInfo.checked || classInfo.checkedChild) {
-                        if (classInfo.nodelete) {
-                            idlData += "[NoDelete]\n";
-                        }
-                        idlData += "interface " + classInfo.name + " {\n";
-                        if (classInfo.methods) {
-                            classInfo.methods.forEach(function(methodInfo) {
-                                if (classInfo.checked || methodInfo.checked) {
-                                    idlData += generateMethodIDL(methodInfo);
-                                }
-                            });
-                        }
+                        // print class info
+                        idlData += context.IDL + "{\n";
+                        idlData += memberIDL;
                         idlData += "};\n";
+                        // print class postfix
+                        if (context.Postfix && context.Postfix !== "") {
+                            idlData += context.Postfix + "\n";
+                        }
+                    };
+
+                    var processEnum = function (context) {
+                        if (context.checked === false) {
+                            return;
+                        }
+                        // print class prefix
+                        if (context.Prefix && context.Prefix !== "") {
+                            idlData += context.Prefix + "\n";
+                        }
+                        // print class info
+                        idlData += context.IDL + "{\n";
+
+                        context.Contexts.forEach(function (child, i) {
+                            if (child.ContextType !== "EnumerationConst") {
+                                console.error("[ERROR] Wrong context is inserted in Enum Context.");
+                                return;
+                            }
+                            idlData += "  \"" + child.IDL + "\"";
+                            if (i !== context.Contexts.length - 1) {
+                                idlData += ",";
+                            }
+                            idlData += "\n";
+                        });
+                        idlData += "};\n";
+                    };
+
+                    // global namespace
+                    processNamespace(apiJSON);
+
+                    while (contextQueue.length) {
+                        var current = contextQueue.shift();
+                        switch (current.ContextType) {
+                        case "Namespace":
+                            processNamespace(current);
+                            break;
+                        case "Class":
+                            processClass(current);
+                            break;
+                        case "Enumeration":
+                            processEnum(current);
+                            break;
+                        case "Method":
+                        case "Attribute":
+                            console.error("[ERROR] Wrong context is inserted in Context Queue.");
+                            break;
+                        }
                     }
-                });
+
+                    console.log("[Picked]");
+                    console.log(idlData);
+                }
 
                 var writeDataFile = function (filename, data) {
                     var createDataFile = function (filename, data) {
@@ -926,7 +1133,7 @@ define(function (require, exports, module) {
                     };
                     var fileExisted = false;
                     projectManager.getAllFiles(true).then(function(files) {
-                        files.every(function(file/*, index*/) {
+                        files.every(function(file) {
                             if (file._name.toLowerCase() === filename.toLowerCase()) {
                                 fileExisted = true;
                                 projectManager.deleteItem(file)
@@ -943,77 +1150,74 @@ define(function (require, exports, module) {
                     });
                 };
                 writeDataFile("WASM.idl", idlData);
-                writeDataFile("WASM.json", jsonData);
 
                 projectManager.refreshFileTree();
             }
         });
 
         var fillPickingDialog = function(apiJSON) {
-            var refineTypeElement = function (type) {
-                type.type = type.name;
-                if (type.isConst === true) {
-                    if (type.type.startsWith("const")) {
-                        type.type = type.type.substring("const".length).trim();
-                    }
-                }
-                if (type.isRef === true) {
-                    if (type.type.search("&") === type.type.length - 1) {
-                        type.type = type.type.substring(0, type.type.length - 1).trim();
-                    }
-                }
-            };
-
-            var startClassElement = function (classIndex, className, classPath) {
-                var ret = "";
-                ret += "<li>";
-                ret += "<input name='I_" + className + "' type='checkbox' id='I_" + className + "' class='hidden-checkbox' data-classIndex='" + classIndex + "' data-path='" + classPath +"'/>";
-                ret += "<label for='I_" + className + "' class='option-label group-label'>" + className + "</label>";
+            var startGroupElement = function (contextInfo, checkable = true) {
+                var ret = "<li>";
+                ret += "<input name='" + contextInfo.name + "' type='checkbox' id='" + contextInfo.CPP + "' class='hidden-checkbox'/>";
+                ret += "<label for='" + contextInfo.CPP + "' class='option-label group-label'>" + contextInfo.CPP + "</label>";
                 ret += "<ol class='group-children'>";
 
                 return ret;
             };
 
-            var endclassElement = function () {
+            var endGroupElement = function () {
                 return "</ol></li>";
             };
 
-            var startMethodElement = function (className, methodIndex, methodName, methodType) {
-                var ret = "";
-                ret += "<li>";
-                ret += "<input name='M_" + className + "_" + methodName + "' type='checkbox' id='M_" + className + "_" + methodName + "' class='hidden-checkbox' data-methodIndex='" + methodIndex + "'/>";
-                ret += "<label for='M_" + className + "_" + methodName + "' class='option-label'>" + methodType.name + " " + methodName + "(";
+            var methodElement = function (contextInfo) {
+                var ret = "<li>";
+                ret += "<input name='" + contextInfo.name + "' type='checkbox' id='" + contextInfo.name + "' class='hidden-checkbox'/>";
+                ret += "<label for='" + contextInfo.name + "' class='option-label'>" + contextInfo.CPP + "</label></li>";
                 return ret;
             };
 
-            var endMethodElement = function () {
-                return ")</label></li>";
+            var enumElement = function (contextInfo) {
+                var ret = "<li>";
+                ret += "<input name='" + contextInfo.name + "' type='checkbox' id='" + contextInfo.name + "' class='hidden-checkbox'/>";
+                ret += "<label for='" + contextInfo.name + "' class='option-label'>" + contextInfo.CPP;
+                if (contextInfo.Contexts) {
+                    ret += "<br>";
+                    contextInfo.Contexts.forEach(function(c, i) {
+                        if (i !== 0 && contextInfo.Contexts.length > 1) {
+                            ret += ", ";
+                        }
+                        ret += c.CPP;
+                    });
+                }
+                ret += "</label></li>";
+                ret += "</li>";
+                return ret;
             };
 
-            var addParamElement = function (paramName, paramType, paramIndex) {
-                return (paramIndex !== 0 ? ", " : "") + paramType.name + " " + paramName;
+            var recurContexts = function (contextInfo) {
+                switch (contextInfo.ContextType) {
+                case "Namespace":
+                case "Class":
+                    items += startGroupElement(contextInfo, contextInfo.ContextType === "Class");
+                    if (contextInfo.Contexts) {
+                        contextInfo.Contexts.forEach(recurContexts);
+                    }
+                    items += endGroupElement();
+                    break;
+                case "Method":
+                case "Attribute":
+                    items += methodElement(contextInfo);
+                    break;
+                case "Enumeration":
+                    items += enumElement(contextInfo);
+                    break;
+                }
             };
 
             divGroup = document.getElementById("group-list");
             var items = "<ol class='select select-tree select-one'>";
-            if (apiJSON.interfaces) {
-                apiJSON.interfaces.forEach(function(classInfo, classIndex) {
-                    items += startClassElement(classIndex, classInfo.name, classInfo.path);
-                    if (classInfo.methods) {
-                        classInfo.methods.forEach(function(methodInfo, methodIndex) {
-                            refineTypeElement(methodInfo.type);
-                            items += startMethodElement(classInfo.name, methodIndex, methodInfo.name, methodInfo.type);
-                            if (methodInfo.params) {
-                                methodInfo.params.forEach(function(paramInfo, paramIndex) {
-                                    refineTypeElement(paramInfo.type);
-                                    items += addParamElement(paramInfo.name, paramInfo.type, paramIndex);
-                                });
-                            }
-                            items += endMethodElement();
-                        });
-                    }
-                    items += endclassElement();
-                });
+            if (apiJSON.Contexts) {
+                apiJSON.Contexts.forEach(recurContexts);
             }
             divGroup.innerHTML = items + "</ol>";
         };
@@ -1041,7 +1245,8 @@ define(function (require, exports, module) {
                             console.log("stdout: " + output.stdout);
                             console.log("stderr: " + output.stderr);
                         } catch(e) {
-                            console.log("[ERR] " + e);
+                            console.error("[ERROR] grepAPI: " + e);
+                            return;
                         }
 
                         projectManager.refreshFileTree();
@@ -1051,16 +1256,30 @@ define(function (require, exports, module) {
                                 try {
                                     var output = JSON.parse(data);
                                     apiJSON = JSON.parse(output.stdout);
-
                                     fillPickingDialog(apiJSON);
                                 } catch(e) {
-                                    console.log("[ERR] " + e);
+                                    console.error("[ERROR] catGreppedAPI: " + e);
                                 }
                             });
-
                     });
 
             }
+        });
+    }
+
+
+    function checkReplaceResourcesEnabled() {
+        return loadConfiguration().then(configuration => {
+            const replaceResourcesEnabledFileList = configuration.replaceResourcesEnabledFileList || [];
+            return new Promise((resolve, reject) => {
+                const checkReplaceResourcesOnProjectManager = () => {
+                    ProjectManager.off("projectOpen", checkReplaceResourcesOnProjectManager);
+                    ProjectManager.getAllFiles().done(files => {
+                        resolve(files.some(file => replaceResourcesEnabledFileList.indexOf(file._name) !== -1));
+                    }).fail(reject);
+                };
+                ProjectManager.on("projectOpen", checkReplaceResourcesOnProjectManager);
+            });
         });
     }
 
@@ -1074,11 +1293,24 @@ define(function (require, exports, module) {
     CommandManager.register(ExtensionStrings.MENU_TITLE_OPTIONS_SELECT, PROJECT_SELECT_OPTIONS, handleSelectOptions);
     var packWGTCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_WGT, PROJECT_PACK_WGT, handlePackWGT);
     _nodeDomain.exec("checkPackWGT").done(function(canBuild) { packWGTCommand.setEnabled(canBuild); });
+    var packPPKCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_PPK, PROJECT_PACK_PPK, handlePackPPK);
+    _nodeDomain.exec("checkPackPPK").done(function (canBuild) {
+        packPPKCommand.setEnabled(canBuild);
+    });
+    var packCRXCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_CRX, PROJECT_PACK_CRX, handlePackCRX);
+    _nodeDomain.exec("checkPackCRX").done(function (canBuild) {
+        packCRXCommand.setEnabled(canBuild);
+    });
+    const buildUnityCmd = CommandManager.register(ExtensionStrings.MENU_TITLE_BUILD_UNITY, PROJECT_BUILD_UNITY, handleBuildUnity);
+    CommandManager.register(ExtensionStrings.MENU_TITLE_INSTALL_WGT, PROJECT_INSTALL_WGT, handleInstallWGT);
+    const replaceResourcesCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_REPLACE_RESOURCES, PROJECT_REPLACE_RESOURCES, handleReplaceResources);
 
-    var menu = Menus.addMenu(ExtensionStrings.PROJECT_MENU, PROJECT_MENU, Menus.AFTER, Menus.AppMenuBar.NAVIGATE_MENU);
+    var menu = Menus.getMenu(PROJECT_MENU);
+    if (!menu) {
+        menu = Menus.addMenu(ExtensionStrings.PROJECT_MENU, PROJECT_MENU, Menus.AFTER, Menus.AppMenuBar.NAVIGATE_MENU);
+    }
 
     // menu items
-    const type = PreferencesManager.getViewState("projectType");
     if (type === "wasm") {
         menu.addMenuItem(PROJECT_API_PICKING);
         menu.addMenuItem(PROJECT_COMPILE_FILE);
@@ -1087,7 +1319,28 @@ define(function (require, exports, module) {
         menu.addMenuItem(PROJECT_SELECT_OPTIONS);
         menu.addMenuItem(PROJECT_COMPILE_PROJECT);
         menu.addMenuItem(PROJECT_CLEAN_PROJECT);
-    } else if (type === "web") {
+        menu.addMenuItem(Menus.DIVIDER);
         menu.addMenuItem(PROJECT_PACK_WGT);
+    } else if (type === "crx") {
+        menu.addMenuItem(PROJECT_PACK_CRX);
+    } else if (type === "web" || type === "sthings") {
+        menu.addMenuItem(PROJECT_PACK_WGT);
+        menu.addMenuItem(PROJECT_PACK_PPK);
+
+        if (PreferencesManager.getViewState("projectExtension") === "unity") {
+            // Add unity build menu if the project state is unity extension.
+            menu.addMenuItem(PROJECT_BUILD_UNITY);
+            _nodeDomain.exec("checkUnity").done((exist) => {
+                // Enable unity build menu if the unity SDK is installed.
+                buildUnityCmd.setEnabled(exist);
+            });
+        }
+        checkReplaceResourcesEnabled().then(enabled => {
+            menu.addMenuItem(PROJECT_REPLACE_RESOURCES);
+            replaceResourcesCommand.setEnabled(enabled);
+        }).catch(error => {
+            console.error("Couldn't check if resource replacement should be added");
+            console.error(error);
+        });
     }
 });

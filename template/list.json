@@ -3,6 +3,7 @@
     "name": "Basic",
     "description": "Basic template",
     "src": "Basic",
-    "type": "pwe"
+    "type": "pwe",
+    "category": "General"
   }
 ]

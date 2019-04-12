@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Stylesheet Template Bulma IO-->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Air Purifier</title>
+		<link rel="stylesheet" href="css/bulma.min.css">
+		<link rel="stylesheet" href="css/helper.css">
+		<link rel="stylesheet" href="css/all.css">
+	</head>
+	<body>
+		<!-- Action bar-->
+		<div class="columns is-marginless is-mobile " style="background-color:#fafafa;">
+			<div class="column is-narrow">
+				<figure class="image is-32x32 margin-left-s" onclick="backAction()">
+					<img src="res/board_ic_arrow_left.png">
+				</figure>
+			</div>
+			<div class="column is-narrow is-paddingless margin-top-s">
+				<div class="has-text-weight-bold">Air Purifier</div>
+				<div class="has-text-weight-bold has-text-grey-light is-size-7">Home - Living room</div>
+			</div>
+			<div class="column">
+				<div class="dropdown is-right is-pulled-right">
+					<div class="dropdown-trigger">
+						<span class="icon is-small is-pulled-right margin-top-s">
+							<img width="50" height="50" src="res/option_ic_more.svg">
+						</span>
+					</div>
+					<div class="dropdown-menu">
+						<div class="dropdown-content">
+							<div class="dropdown-item">
+								<a href="information.html">Information</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<hr/>
+
+		<!--left-->
+		<div class="dividecolumn leftSide padding-top-s padding-bottom-xl border-right" style="background-color:#fafafa;">
+			<span id="power_icon_back_circle" class="icon is-large is-pulled-right margin-right-s round-border" onclick="onPowerBtnClicked()">
+				<img width="50" height="50" src="res/ic_power.svg">
+			</span>
+
+			<div class="modal" style="align-items: flex-end;" id="bottomSheetBody">
+				<div class="modal-background"></div>
+				<div class="modal-content" style="width: 100%; margin: 0 0;" id="bottomSheetContent"></div>
+			</div>
+
+			<!-- air quality circle area-->
+			<div class="columns is-mobile is-centered padding-left-xxl padding-top-xl margin-left-s margin-bottom-xl margin-top-xl">
+				<div class="column is-narrow main_container svg-status status-good" id="svg-status-id">
+					<br/>
+					<div class="has-text-white has-text-centered has-text-weight-semibold">INDOOR</div>
+					<div class="has-text-white has-text-centered has-text-weight-semibold is-size-1" style="line-height: 0.8;" id="air_quality_area_text">30</div>
+				</div>
+			</div>
+
+			<!-- status bar -->
+			<div class="columns is-mobile is-centered">
+				<div class="column is-narrow">
+					<div class="has-text-centered">PM 10</div>
+					<span class="is-size-5 has-text-weight-bold" id="dustLevel">Good</span>
+				</div>
+				<div class="column is-narrow">
+					<div class="has-text-centered">PM 2.5</div>
+					<span class="is-size-5 has-text-weight-bold" id="fineDustLevel">Bad</span>
+				</div>
+				<div class="column is-narrow">
+					<div class="has-text-centered">Odor</div>
+					<span class="is-size-5 has-text-weight-bold" id="odorLevel">Good</span>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Right -->
+		<div class="dividecolumn rightSide">
+			<hr class="is-hidden-tablet" />
+			<!-- Fan Speed -->
+			<div class="columns is-marginless is-mobile margin-left-s">
+				<div class="column is-narrow is-vertical-center">
+					<figure class="image is-32x32">
+						<img src="res/function_ic_fan_speed.svg">
+					</figure>
+				</div>
+				<div class="column is-narrow">
+					<p>Fan speed</p>
+					<p class="is-size-7 has-text-info" id="fanSpeed">Medium</p>
+				</div>
+				<div class="column">
+					<button id="buttonFanSpeed" class="button is-pulled-right margin-right-s is-white" style="margin-top: 5px !important;">
+						<span class="icon is-small">
+							<img width="50" height="50" src="res/list_ic_arrow.svg">
+						</span>
+					</button>
+				</div>
+			</div>
+			<hr/>
+
+			<!-- Filter State -->
+			<div class="columns is-mobile margin-left-s is-marginless">
+				<div class="column is-narrow">
+					<figure class="image is-32x32">
+						<img src="res/function_ic_filter.svg">
+					</figure>
+				</div>
+				<div class="column is-narrow">
+					<p>Filter state</p>
+					<p class="is-size-7 has-text-info" id="filter_state">Normal</p>
+				</div>
+			</div>
+
+			<hr/>
+
+			<!-- Energy Meter -->
+			<div class="columns is-mobile margin-left-s is-marginless">
+				<div class="column is-narrow">
+					<figure class="image is-32x32">
+						<img src="res/function_ic_energy_meter.svg">
+					</figure>
+				</div>
+				<div class="column is-narrow">
+					<p>Energy meter</p>
+					<p class="is-size-7 has-text-info" id="energyMeter">20kwh</p>
+				</div>
+			</div>
+			<hr/>
+		</div>
+	</body>
+
+	<!-- SAMSUNG CONNECT API -->
+	<script type="text/javascript" src="lib/SCPluginApi.js"></script>
+	<script type="text/javascript" src="js/capability_switch.js"></script>
+	<script type="text/javascript" src="js/capability_airQualitySensor.js"></script>
+	<script type="text/javascript" src="js/capability_dustSensor.js"></script>
+	<script type="text/javascript" src="js/capability_fanSpeed.js"></script>
+	<script type="text/javascript" src="js/capability_odorSensor.js"></script>
+	<script type="text/javascript" src="js/capability_energyMeter.js"></script>
+	<script type="text/javascript" src="js/capability_filterStatus.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</html>

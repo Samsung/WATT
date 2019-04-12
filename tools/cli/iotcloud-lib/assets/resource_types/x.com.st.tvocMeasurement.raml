@@ -1,0 +1,69 @@
+#%RAML 0.8
+title: WWST TVOC Measurement
+version: v1.0.0-20180726
+schemas:
+- TVOC: |
+    {
+        "id": "http://www.samsung.com/schemas/x.com.st.tvocMeasurement.json#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description" : "Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+        "definitions": {
+            "x.com.st.tvocMeasurement": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number",
+                        "description": "The level of total volatile organic compounds detected",
+                        "minimum": 0,
+                        "maximum": 1000000
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": ["ppm"],
+                        "description": "The unit of total volatile organic compounds detected"
+                    }
+                }
+            }
+        },
+        "type": "object",
+        "allOf": [
+            {
+                "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+            },
+            {
+                "$ref": "#/definitions/x.com.st.tvocMeasurement"
+            }
+        ],
+        "required": [
+            "value",
+            "unit"
+        ]
+    }
+
+traits:
+    - interface:
+        queryParameters:
+            if:
+                enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTTVOCMeasurementResURI:
+    description: |
+        The level of total volatile organic compounds detected
+    displayName: WWST TVOC Measurement
+    is: [ interface ]
+
+    get:
+        description: |
+            Retrieves the level of total volatile organic compounds detected
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: TVOC
+                        example: |
+                            {
+                                "rt": ["x.com.st.tvocMeasurement"],
+                                "id": "unique_example_id",
+                                "value": 50,
+                                "unit": "ppm"
+                            }

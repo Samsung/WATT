@@ -1,0 +1,8 @@
+{
+  "profile": "wearable",
+  "category": "TAU",
+  "thumbnail": "thumbnail.png",
+  "label": "TAUIoTDeviceSelector",
+  "libraries": [
+  ]
+}

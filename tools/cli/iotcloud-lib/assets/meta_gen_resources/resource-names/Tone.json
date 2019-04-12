@@ -1,0 +1,108 @@
+{
+    "dpResources": [
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_tone"
+            },
+            "controllable": true,
+            "group": null,
+            "name": "Tone",
+            "ruleEvent": false,
+            "valueType": null,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_TONE_TONE_PUSH",
+                    "key": "true"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "n": null,
+                "arguments": null,
+                "label": "___PO_CODE_TONE_TONE"
+            },
+            "visible": null,
+            "range": null,
+            "controlType": "PushButton",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.tone",
+                "href": "/capability/tone/0",
+                "if": "x.com.st.if.temporary"
+            },
+            "property": "toneValue",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "ma": [
+        {
+            "group": null,
+            "name": "Tone",
+            "iconUrl": null,
+            "valueType": null,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_TONE_TONE_PUSH",
+                    "key": "true"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "n": null,
+                "arguments": null,
+                "label": "___PO_CODE_TONE_TONE"
+            },
+            "visible": null,
+            "range": null,
+            "link": {
+                "rt": "x.com.st.tone",
+                "href": "/capability/tone/0",
+                "if": "x.com.st.if.temporary"
+            },
+            "controlType": "PushButton",
+            "property": "toneValue",
+            "type": "main",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_TONE_TONE",
+                    "label": "Tone"
+                },
+                {
+                    "po": "___PO_CODE_TONE_TONE_PUSH",
+                    "label": "Push Tone"
+                }
+            ],
+            "locale": "en_US",
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability":
+    {
+        "capability": "Tone",
+        "voiceActions": [
+            {
+                "action": "beep",
+                "href": "/capability/tone/0",
+                "property": null,
+                "payload":{
+                    "toneValue": true
+                },
+                "enumeration": null,
+                "rt": "x.com.st.tone"
+            }
+        ]
+    },
+    "voiceVersion": "0.0.2",
+    "capability": "Tone",
+    "ms": []
+}

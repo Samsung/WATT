@@ -37,9 +37,6 @@ We recommend to run "grunt check" before uploading a pull request.
 To merge your pull request, you have to get approved by reviewers.
 
 ##### Reviewers:
-KwangHyuk Kim (hyuki.kim@samsung.com),
-SangYong Park (sy302.park@samsung.com),
-Hyunduk Kim (hyunduk.kim@samsung.com),
-Grzegorz Wolny (g.wolny@samsung.com),
+HyeKyoung Hwang (cookie@samsung.com),
 Grzegorz Czajkowski (g.czajkowski@samsung.com),
 Lukasz Slachciak (l.slachciak@samsung.com),

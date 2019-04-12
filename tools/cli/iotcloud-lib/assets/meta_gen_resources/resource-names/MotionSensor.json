@@ -1,0 +1,159 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Motion Sensor",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_sensor_motion"
+            },
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_MOTIONSENSOR_NO_MOTION"
+                },
+                {
+                    "key": "true",
+                    "value": "___PO_CODE_MOTIONSENSOR_MOTION_DETECTED"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": "ST Motion Sensor resource",
+                "arguments": null,
+                "label": "___PO_CODE_MOTIONSENSOR"
+            },
+            "visible": null,
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.sensor.motion",
+                "href": "/capability/motionSensor/0",
+                "if": "oic.if.r"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "List",
+            "property": "value",
+            "order": 1
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Motion Sensor",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_sensor_motion"
+            },
+            "valueType": null,
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "type": "inactive",
+                    "key": "false",
+                    "value": "___PO_CODE_MOTIONSENSOR_NO_MOTION"
+                },
+                {
+                    "key": "true",
+                    "value": "___PO_CODE_MOTIONSENSOR_MOTION_DETECTED"
+                }
+            ],
+            "range": null,
+            "label": {
+                "n": "ST Motion Sensor resource",
+                "arguments": null,
+                "label": "___PO_CODE_MOTIONSENSOR"
+            },
+            "visible": null,
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.sensor.motion",
+                "href": "/capability/motionSensor/0",
+                "if": "oic.if.r"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "List",
+            "property": "value",
+            "order": 1
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_MOTIONSENSOR",
+                    "label": "Motion sensor"
+                },
+                {
+                    "po": "___PO_CODE_MOTIONSENSOR_NO_MOTION",
+                    "label": "No motion"
+                },
+                {
+                    "po": "___PO_CODE_MOTIONSENSOR_MOTION_DETECTED",
+                    "label": "Motion detected"
+                }
+            ],
+            "locale": "en_US",
+            "mnmn": null,
+            "version": "0.0.1",
+            "vid": null
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Motion Sensor",
+        "voiceActions": [
+            {
+                "rt": "oic.r.sensor.motion",
+                "action": "motion",
+                "property": "value",
+                "href": "/capability/motionSensor/0"
+            }
+        ]
+    },
+    "capability": "Motion Sensor",
+    "ms": [
+        {
+            "group": null,
+            "name": "Motion Sensor",
+            "visible": null,
+            "label": {
+                "n": "ST Motion Sensorresource",
+                "arguments": [
+                    {
+                        "property": "value",
+                        "valueType": null,
+                        "href": "/capability/motionSensor/0",
+                        "alternatives": [
+                            {
+                                "key": "true",
+                                "value": "___PO_CODE_MOTIONSENSOR_MOTION_DETECTED"
+                            },
+                            {
+                                "type": "inactive",
+                                "key": "false",
+                                "value": "___PO_CODE_MOTIONSENSOR_NO_MOTION"
+                            }
+                        ],
+                        "n": "val1"
+                    }
+                ],
+                "label": "<val1>"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.2"
+}

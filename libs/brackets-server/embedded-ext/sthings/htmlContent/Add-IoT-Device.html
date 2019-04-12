@@ -1,0 +1,57 @@
+<div class="import-file-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">Add IoT Device</h1>
+    </div>
+    <div class="modal-body">
+        <table class="generalTable">
+            <tr>
+                <td class="header">Device Name</td>
+                <td>
+                    <input class="input" type="text" id="input-device-name" value="" style="width: 100%;"/>
+                </td>
+            </tr>
+        </table>
+        <br/>
+
+        <table class="generalTable">
+            <tr>
+                <td class="header">Variable</td>
+                <td>
+                    <button class="button" id="removeVariable" style="width: 75px; margin-bottom: 5px;">Remove</button>
+                    <button class="button" id="addVariable" style="width: 75px; margin-right: 5px; margin-bottom: 5px;">Add</button>
+                </td>
+            </tr>
+        </table>
+        <table class="dataTable" id="IoTVariables">
+            <tr>
+                <th style="width: 70px;">Select</th>
+                <th>Name</th>
+                <th>Condition</th>
+                <th>Condition is true</th>
+                <th>Condition is false</th>
+            </tr>
+        </table>
+        <br/><br/>
+
+        <table class="generalTable">
+            <tr>
+                <td class="header">API</td>
+                <td>
+                    <button class="button" id="removeAPI" style="width: 75px; margin-bottom: 5px;">Remove</button>
+                    <button class="button" id="addAPI" style="width: 75px; margin-right: 5px; margin-bottom: 5px;">Add</button>
+                </td>
+            </tr>
+        </table>
+        <table class="dataTable" id="IoTAPIs">
+            <tr>
+                <th style="width: 70px;">Select</th>
+                <th>Name</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal-footer">
+        <button class="dialog-button btn" data-button-id="cancel">Cancel</button>
+        <button class="dialog-button btn primary" data-button-id="ok">Create Javascript File</button>
+    </div>
+</div>

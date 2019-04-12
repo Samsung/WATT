@@ -1,0 +1,11 @@
+{
+  "id": "com.samsung.android.plugin.generic",
+  "name": "generic",
+  "version": "1",
+  "versionName": "0.0.1",
+  "url": "ppks/com.samsung.android.plugin.generic_0.0.1.ppk",
+  "deviceType": "generic",
+  "deviceSubType": "generic",
+  "deviceManufacturer": "N/A",
+  "platformVersion": "1.0.0"
+}

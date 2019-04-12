@@ -1,0 +1,12 @@
+<script i3d-target="{{TARGET}}" i3d-event="{{EVENT}}" i3d-action="{{ACTION}}">
+    function add{{ACTION}}Action() {
+        var container = document.querySelector("{{CONTAINER_ID}}");
+        container.addEventListener('{{EVENT}}', function() {
+            {{ACTION}}();
+        });
+    }
+    
+    window.addEventListener('pageshow', function() {
+        add{{ACTION}}Action();
+    });
+</script>

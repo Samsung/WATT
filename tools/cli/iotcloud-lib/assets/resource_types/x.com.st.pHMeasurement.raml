@@ -1,0 +1,68 @@
+#%RAML 0.8
+title: WWST pH Measurement
+version: v1.0.0-20180803
+schemas:
+- pH: |
+    {
+        "id": "http://www.samsung.com/schemas/x.com.st.pHMeasurement.json#",
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description" : "Copyright (c) 2016, 2017, 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+        "definitions": {
+            "x.com.st.pHMeasurement": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number",
+                        "description": "A number representing the current pH level measured by the device",
+                        "minimum": 0,
+                        "maximum": 14
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": ["pH"],
+                        "description": "The unit of pH detected"
+                    }
+                }
+            }
+        },
+        "type": "object",
+        "allOf": [
+            {
+                "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+            },
+            {
+                "$ref": "#/definitions/x.com.st.pHMeasurement"
+            }
+        ],
+        "required": [
+            "value"
+        ]
+    }
+
+traits:
+    - interface:
+        queryParameters:
+            if:
+                enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTpHMeasurementResURI:
+    description: |
+        The level of pH detected
+    displayName: WWST pH Measurement
+    is: [ interface ]
+
+    get:
+        description: |
+            Retrieves the level of pH detected
+        responses:
+            200:
+                body:
+                    application/json:
+                        schema: pH
+                        example: |
+                            {
+                                "rt": ["x.com.st.pHMeasurement"],
+                                "id": "unique_example_id",
+                                "value": 10,
+                                "unit": "pH"
+                            }

@@ -11,7 +11,8 @@ define(function (require, exports, module) {
         ProjectManager     = brackets.getModule("project/ProjectManager"),
         Strings            = brackets.getModule("strings");
 
-    var ExtensionStrings               = require("strings"),
+    var Config                         = require("text!../../../../config/pwe.json"),
+        ExtensionStrings               = require("strings"),
         GenerateManifestDialogTemplate = require("text!htmlContent/Generate-Manifest-Dialog.html");
 
     const type = PreferencesManager.getViewState("projectType");
@@ -180,9 +181,10 @@ define(function (require, exports, module) {
     }
 
     function handlePublishProject() {
+        var setting = JSON.parse(Config);
         var projectId = PreferencesManager.getViewState("projectId");
         var userId = PreferencesManager.getViewState("projectUser");
-        window.location.href = "https://pwe.now.im/watt/" + userId + "/" + projectId;
+        window.location.href = setting.HUB_URL+ "/watt/" + userId + "/" + projectId;
         return;
     }
 

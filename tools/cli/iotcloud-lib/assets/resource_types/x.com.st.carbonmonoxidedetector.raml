@@ -1,0 +1,56 @@
+#%RAML 0.8
+title:  STCarbonMonoxideDetector
+version: v1.1.1-20161122
+schemas:
+- CarbonMonoxideDetector: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.carbonmonoxidedetector.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Carbon Monoxide Detector",
+      "definitions": {
+        "x.com.st.carbonmonoxidedetector": {
+          "type": "object",
+          "properties": {
+            "carbonMonoxide": {
+              "type": "string",
+              "enum": ["tested", "clear", "detected"],
+              "description": "State of CO level"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.carbonmonoxidedetector"}
+      ],
+      "required": ["carbonMonoxide"]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.baseline"]
+/STCarbonMonoxideDetectorResURI:
+  description: |
+    Resource describing a CO detector.
+  displayName: CarbonMonoxideDetector
+  is: [ interface ] # valid for all methods
+
+  get:
+    description: |
+      Retrieves the state of the CO detector.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: CarbonMonoxideDetector
+            example: |
+              {
+                "rt":         ["x.com.st.carbonmonoxidedetector"],
+                "id":         "unique_example_id",
+                "carbonMonoxide ": "clear"
+              }

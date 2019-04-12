@@ -1,0 +1,244 @@
+{
+    "dpResources": [
+        {
+            "controllable": true, 
+            "name": "Robot Cleaner Movement", 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_HOMING", 
+                    "key": "homing"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_IDLE", 
+                    "key": "idle"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CHARGING", 
+                    "key": "charging"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_RESERVE", 
+                    "key": "reserve"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CLEANING", 
+                    "key": "cleaning"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_POINT", 
+                    "key": "point"
+                }
+            ], 
+            "label": {
+                "label": "___PO_CODE_ROBOTCLEANERMOVEMENT_MODE", 
+                "n": "ST Robot Cleaner Movement Resource"
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_robot_cleaner_movement"
+            }, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.robot.cleaner.movement", 
+                "href": "/capability/robotCleanerMovement/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "controlType": "List", 
+            "property": "modes", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "name": "Robot Cleaner Movement", 
+            "ruleEvent": true, 
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_HOMING", 
+                    "key": "homing"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_IDLE", 
+                    "key": "idle"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CHARGING", 
+                    "key": "charging"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_RESERVE", 
+                    "key": "reserve"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CLEANING", 
+                    "key": "cleaning"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_POINT", 
+                    "key": "point"
+                }
+            ], 
+            "label": {
+                "label": "___PO_CODE_ROBOTCLEANERMOVEMENT_MODE", 
+                "n": "ST Robot Cleaner Movement Resource"
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_robot_cleaner_movement"
+            }, 
+            "emphasis": false, 
+            "link": {
+                "rt": "oic.r.mode", 
+                "href": "/capability/robotCleanerMovement/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "controlType": "List", 
+            "property": "modes", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "name": "Robot Cleaner Movement", 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_HOMING", 
+                    "key": "homing"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_IDLE", 
+                    "key": "idle"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CHARGING", 
+                    "key": "charging"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_RESERVE", 
+                    "key": "reserve"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CLEANING", 
+                    "key": "cleaning"
+                }, 
+                {
+                    "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_POINT", 
+                    "key": "point"
+                }
+            ], 
+            "label": {
+                "label": "___PO_CODE_ROBOTCLEANERMOVEMENT_MODE", 
+                "n": "ST Robot Cleaner Movement Resource"
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_robot_cleaner_movement"
+            }, 
+            "emphasis": false, 
+            "link": {
+                "rt": "oic.r.mode", 
+                "href": "/capability/robotCleanerMovement/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": true, 
+            "controlType": "List", 
+            "property": "modes", 
+            "order": 1
+        }
+    ], 
+    "ma": [], 
+    "language": [
+        {
+            "locale": "en_US", 
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_HOMING", 
+                    "label": "Homing"
+                }, 
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_IDLE", 
+                    "label": "Idle"
+                }, 
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CHARGING", 
+                    "label": "Charging"
+                }, 
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_RESERVE", 
+                    "label": "Reserve"
+                }, 
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CLEANING", 
+                    "label": "Cleaning"
+                }, 
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_POINT", 
+                    "label": "Point"
+                }, 
+                {
+                    "po": "___PO_CODE_ROBOTCLEANERMOVEMENT_MODE", 
+                    "label": "Robot Cleaner Movement"
+                }
+            ]
+        }
+    ], 
+    "voiceCapability": {}, 
+    "capability": "Robot Cleaner Movement", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Robot Cleaner Movement", 
+            "iconUrl": null, 
+            "label": {
+                "label": "<var1>", 
+                "arguments": [
+                    {
+                        "href": "/capability/robotCleanerMovement/0", 
+                        "valueType": null, 
+                        "property": "modes", 
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_HOMING", 
+                                "key": "homing"
+                            }, 
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_IDLE", 
+                                "key": "idle"
+                            }, 
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CHARGING", 
+                                "key": "charging"
+                            }, 
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_RESERVE", 
+                                "key": "reserve"
+                            }, 
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_CLEANING", 
+                                "key": "cleaning"
+                            }, 
+                            {
+                                "value": "___PO_CODE_ROBOTCLEANERCLEANINGMODE_POINT", 
+                                "key": "point"
+                            }
+                        ], 
+                        "n": "var1"
+                    }
+                ], 
+                "n": "ST Robot Cleaner Movement Resource"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ]
+}

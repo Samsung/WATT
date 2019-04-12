@@ -1,0 +1,309 @@
+{
+  "n": "light",
+  "version": "0.0.1",
+  "vid": "",
+  "mnmn": "",
+  "language": [
+    {
+      "locale": "en_US",
+      "version": "0.0.1",
+      "poCodes": [
+        {
+          "po": "__PO_CODE_POWERSWITCH_ON",
+          "label": "On"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH_OFF",
+          "label": "Off"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH",
+          "label": "Power"
+        },
+        {
+          "label": "Color temperature",
+          "po": "___PO_CODE_COLORTEMPERATURE"
+        },
+        {
+          "label": "Dimmer",
+          "po": "___PO_CODE_SWITCHLEVEL_DIMMING"
+        }
+      ],
+      "mnmn": "",
+      "vid": ""
+    }
+  ],
+  "ma": [
+    {
+      "name": "PowerSwitch",
+      "type": "main",
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": false
+    }
+  ],
+  "ms": [
+    {
+      "name": "PowerSwitch",
+      "type": "device",
+      "order": 1,
+      "label": {
+        "label": "<var1>",
+        "arguments": [
+          {
+            "n": "var1",
+            "href": "/capability/switch/main/0",
+            "property": "power",
+            "valueType": null,
+            "alternatives": [
+              {
+                "key": "on",
+                "value": "__PO_CODE_POWERSWITCH_ON"
+              },
+              {
+                "key": "off",
+                "value": "__PO_CODE_POWERSWITCH_OFF",
+                "type": "inactive"
+              }
+            ]
+          }
+        ]
+      },
+      "emphasis": false
+    }
+  ],
+  "dpInfo": [
+    {
+      "os": "android",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.light"
+    },
+    {
+      "os": "ios",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.light"
+    }
+  ],
+  "dpResources": [
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": true
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 2,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": false
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 3,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": true,
+      "ruleAction": false
+    },
+    {
+      "ruleAction": false,
+      "controllable": true,
+      "link": {
+        "rt": "x.com.st.color.temperature",
+        "href": "/capability/colorTemperature/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Color Temperature",
+      "label": {
+        "label": "___PO_CODE_COLORTEMPERATURE"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_color_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 4,
+      "property": "ct"
+    },
+    {
+      "ruleAction": true,
+      "controllable": true,
+      "range": [
+        1,
+        100
+      ],
+      "link": {
+        "rt": "oic.r.light.dimming",
+        "href": "/capability/switchLevel/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Switch Level",
+      "label": {
+        "label": "___PO_CODE_SWITCHLEVEL_DIMMING",
+        "n": "st dimming level resource"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_light_dimmer",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 5,
+      "property": "dimmingSetting"
+    },
+    {
+      "ruleAction": false,
+      "controllable": true,
+      "range": [
+        1,
+        100
+      ],
+      "link": {
+        "rt": "oic.r.light.dimming",
+        "href": "/capability/switchLevel/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Switch Level",
+      "label": {
+        "label": "___PO_CODE_SWITCHLEVEL_DIMMING",
+        "n": "st dimming level resource"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_light_dimmer",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 6,
+      "property": "dimmingSetting"
+    }
+  ]
+}

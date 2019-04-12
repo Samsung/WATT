@@ -1,0 +1,77 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "group": null,
+            "name": "Media Preset",
+            "ruleEvent": false,
+            "valueType": null,
+            "range": null,
+            "label": {
+                "label": "___PO_CODE_MEDIAPRESET_PLAY_A_FAVORITE",
+                "n": "Media Preset resource"
+            },
+            "visible": null,
+	    "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_media_presets"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.mediaPreset",
+                "href": "/capability/mediaPresets/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "step": 0,
+            "controlType": "List",
+            "property": "presetId",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "group": null,
+            "name": "Media Preset",
+            "ruleEvent": false,
+            "valueType": null,
+            "range": null,
+            "label": {
+                "label": "___PO_CODE_MEDIAPRESET_PLAY_A_FAVORITE",
+                "n": "Media Preset resource"
+            },
+            "visible": null,
+	    "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_media_presets"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.mediaPreset",
+                "href": "/capability/mediaPresets/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "step": 0,
+            "controlType": "List",
+            "property": "presetId",
+            "order": 1
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Media Preset",
+    "ms": [],
+    "voiceVersion": "0.0.1"
+}

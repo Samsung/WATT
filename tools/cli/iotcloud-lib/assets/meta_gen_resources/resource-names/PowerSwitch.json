@@ -1,0 +1,285 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "group": null,
+            "name": "PowerSwitch",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_SWITCH_ON",
+                    "key": "on"
+                },
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_SWITCH_OFF",
+                    "key": "off"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_POWERSWITCH",
+                "arguments": null,
+                "n": null
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_switch"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.powerswitch",
+                "href": "/capability/switch/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "controlType": "ToggleSwitch",
+            "property": "power",
+            "order": 1,
+            "emphasis": true
+        },
+        {
+            "controllable": true,
+            "group": null,
+            "name": "PowerSwitch",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_SWITCH_ON",
+                    "key": "on"
+                },
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_SWITCH_OFF",
+                    "key": "off"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_POWERSWITCH",
+                "arguments": null,
+                "n": null
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_switch"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.powerswitch",
+                "href": "/capability/switch/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "ToggleSwitch",
+            "property": "power",
+            "order": 1,
+            "emphasis": true
+        },
+        {
+            "controllable": true,
+            "group": null,
+            "name": "PowerSwitch",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_SWITCH_ON",
+                    "key": "on"
+                },
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_SWITCH_OFF",
+                    "key": "off"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_POWERSWITCH",
+                "arguments": null,
+                "n": null
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_switch"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.powerswitch",
+                "href": "/capability/switch/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "ToggleSwitch",
+            "property": "power",
+            "order": 1,
+            "emphasis": true
+        }
+    ],
+    "uiVersion": "0.0.1",
+    "ma": [
+        {
+            "group": null,
+            "name": "PowerSwitch",
+            "visible": null,
+            "valueType": null,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_SWITCH_ON",
+                    "key": "on"
+                },
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_SWITCH_OFF",
+                    "key": "off"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_POWERSWITCH",
+                "arguments": null,
+                "n": null
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_switch"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.powerswitch",
+                "href": "/capability/switch/0",
+                "if": "oic.if.a"
+            },
+            "controlType": "ToggleSwitch",
+            "property": "power",
+            "type": "main",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_SWITCH_ON",
+                    "label": "On"
+                },
+                {
+                    "po": "___PO_CODE_SWITCH_OFF",
+                    "label": "Off"
+                },
+                {
+                    "po": "___PO_CODE_POWERSWITCH",
+                    "label": "Power"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [
+        {
+            "capability": "Switch",
+            "voiceActions": [
+                {
+                    "rt": "x.com.st.powerswitch",
+                    "action": "switch",
+                    "property": "power",
+                    "href": "/capability/switch/0"
+                },
+                {
+                    "rt": "x.com.st.powerswitch",
+                    "action": "on",
+                    "href": "/capability/switch/0",
+                    "payload": {
+                        "power": "on"
+                    }
+                },
+                {
+                    "rt": "x.com.st.powerswitch",
+                    "action": "off",
+                    "href": "/capability/switch/0",
+                    "payload": {
+                        "power": "off"
+                    }
+                }
+            ]
+        },
+        {
+            "capability": "PowerSwitch",
+            "voiceActions": [
+                {
+                    "rt": "x.com.st.powerswitch",
+                    "action": "Status",
+                    "property": "power",
+                    "href": "/capability/switch/0"
+                },
+                {
+                    "rt": "x.com.st.powerswitch",
+                    "action": "On",
+                    "href": "/capability/switch/0",
+                    "payload": {
+                        "power": "on"
+                    }
+                },
+                {
+                    "rt": "x.com.st.powerswitch",
+                    "action": "Off",
+                    "href": "/capability/switch/0",
+                    "payload": {
+                        "power": "off"
+                    }
+                }
+            ]
+        }
+    ],
+    "capability": "PowerSwitch",
+    "ms": [
+        {
+            "group": null,
+            "name": "PowerSwitch",
+            "visible": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "property": "power",
+                        "valueType": null,
+                        "href": "/capability/switch/0",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_SWITCH_ON",
+                                "key": "on"
+                            },
+                            {
+                                "type": "inactive",
+                                "value": "___PO_CODE_SWITCH_OFF",
+                                "key": "off"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": null
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.2"
+}

@@ -1,0 +1,65 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Three Axis",
+            "visible": null,
+            "ruleEvent": false,
+            "alternatives": null,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_THREEAXIS_SENSOR",
+                "arguments": null,
+                "n": "threeAxis"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_threeaxis"
+            },
+            "range": null,
+            "link": {
+                "rt": "oic.r.sensor.threeaxis",
+                "href": "/capability/threeAxis/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "orientation",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "mnmn": null,
+            "version": "0.0.1",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_THREEAXIS_SENSOR",
+                    "label": "Three axis sensor"
+                }
+            ],
+            "vid": null
+        }
+    ],
+    "voiceCapability": {
+        "capability": "Three Axis",
+        "voiceActions": [
+            {
+                "rt": "oic.r.sensor.threeaxis",
+                "enumeration": null,
+                "href": "/capability/threeAxis/0",
+                "action": "threeAxis",
+                "property": "orientation",
+                "payload": null
+            }
+        ]
+    },
+    "capability": "Three Axis",
+    "ms": []
+}

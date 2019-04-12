@@ -1,0 +1,1096 @@
+{
+  "COMMON": {
+    "SUCCESS": "Done.",
+    "FAIL": "Failed. {{0}}",
+    "EMPTY": "empty"
+  },
+  "ADB_CONTROLLER": {
+    "NO_DEVICE": "Not found device.",
+    "NO_DEVICE_SERIAL": "Not found device. Please check the serial.",
+    "MANY_DEVICE": "More than one device. Please use --serial option."
+  },
+  "CERT": {
+    "NO_KEY": "Device certificate not found",
+    "NO_CERT": "Device certificate not found",
+    "NO_AUTHOR_KEY": "Author certificate not found",
+    "NO_AUTHOR_CERT": "Author certificate not found",
+    "NO_DISTRIBUTOR_KEY": "Distributor certificate not found",
+    "NO_DISTRIBUTOR_CERT": "Distributor certificate not found",
+    "NO_DEVICE_KEY": "Device certificate not found",
+    "NO_DEVICE_CERT": "Device certificate not found",
+    "NO_PASSWORD": "Password is required",
+    "INVALID_PASSWORD": "Invalid password. Passwords need to be between 8-128 characters long with least one letter and one number. Special characters are not supported.",
+    "NO_LOGIN": "Please log in first.",
+    "NO_DEVICE_NAME": "Device name is required",
+    "INVALID_CERTIFICATE": "Invalid certificate",
+    "INVALID_DISTRIBUTOR": "Invalid distributor type, input public or partner",
+    "EXPIRED_CERTIFICATE": "expired certificate"
+  },
+  "DEVICE": {
+    "TURNED_OFF": "The device is turned off.",
+    "NO_DEVICE_ID": "deviceId is required",
+    "NO_RESOURCE_HREF": "href is required",
+    "NO_DEVICE_COMMAND": "deviceCommand is required",
+    "CANNOT_FIND_RESOURCE": "Cannot find resource",
+    "TOO_MANY_RESOURCES": "URI has too many resources. Please enter a more specific URI",
+    "DEVICE_NOT_FOUND": "Device not found in IOT/ST cloud... {{0}}"
+  },
+  "IOT_CONSOLE": {
+    "DEVICE_CRT_API_FAILED": "Device certificate API failed...{{0}}",
+    "PPK_AUTH_CRT_API_FAILED": "PPK author certificate API failed...{{0}}",
+    "PPK_DIST_CRT_API_FAILED": "PPK distributor certificate API failed...{{0}}",
+    "PRJ_API_FAILED": "Web Console Project API failed... {{0}}",
+    "AUTH_API_FAILED": "IOT Console Authentication API failed... {{0}}",
+    "SDK_LOGIN_API_FAILED": "IOT Console SDK Authentication API failed... {{0}}",
+    "SDK_AUTHCODE_API_FAILED": "IOT Console SDK Authentication with authcode API failed... {{0}}",
+    "PLUGIN_API_FAILED": "IOT Console Plugin API failed... {{0}}",
+    "CANNOT_FIND_TEMPLATE": "Cannot find template"
+  },
+  "IOT_CLOUD": {
+    "CANNOT_PARSE_JSON": "Cannot parse JSON",
+    "DEVICE_NOT_FOUND": "Device not found in IOT cloud... {{0}}",
+    "CLIENT_DEVICE_NOT_FOUND": "Client device not found in IOT cloud.",
+    "INVALID_EVENT_TYPES": "eventTypes parameter should be an array."
+  },
+  "REQUEST_TOKEN": {
+    "DESC": "Request access token",
+    "OPT": {
+      "SHOW_UI": "Show UI to log in to your Samsung Account",
+      "AUTH_CODE": "Specify Auth code"
+    },
+    "SIGNING_IN_SAMSUNG_ACCOUNT": "Signing in Samsung Account...",
+    "REQUESTING_AUTH_CODE": "Requesting Auth Code from Samsung Account...",
+    "REQUESTING_ACCESS_TOKEN": "Requesting Access Token from IOT Cloud...",
+    "REQUESTING_AUTHENTICATION": "Requesting Authentication from IOT Console...",
+    "GETTING_MNID": "Getting Developer information...",
+    "REQUESTING_DEVICE_CERT": "Requesting Device Certificate from IOT Console...",
+    "SIGNING_UP_TO_IOT_CLOUD": "Signing up to IOT Cloud...",
+    "REQUESTING_AUTH_CODE_FAILED": "Requesting Auth Code from Samsung Account failed",
+    "REQUESTING_ACCESS_TOKEN_FAILED": "Requesting Access Token from Samsung Account failed",
+    "GETTING_MNID_FAILED": "Getting MNID from DevPortal failed",
+    "REQUESTING_DEVICE_CERT_FAILED": "Requesting Device Certificate from IOT Console failed",
+    "SIGNING_UP_TO_IOT_CLOUD_FAILED": "Signing up to IOT Cloud failed",
+    "REQUESTING_AUTHENTICATION_FAILED": "Requesting authentication from IOT Console failed"
+  },
+  "REFRESH_TOKEN": {
+    "DESC": "Refresh access token"
+  },
+  "TOKEN_DONE_SUCCESS": "Token created. See your configuration file.",
+  "CREATE_PROJECT": {
+    "DESC": "Create a project",
+    "OPT": {
+      "NAME": "Specify project name",
+      "TYPE": "Specify project type 'ocf' or 'service'. default is 'ocf'",
+      "ENDPOINT_TYPE": "Specify SmartApp type '{{0}}', or '{{1}}' default is '{{2}}'",
+      "TEMPLATE": "Specify template id",
+      "DEVICE_PROFILE": "Specify device profile id",
+      "MAIN_STATE": "Specify resource or capability for main state of UI Manifest",
+      "MAIN_ACTION": "Specify resource or capability for main action of UI Manifest",
+      "CREATE_LAMBDA": "Specify Lamdbda creation",
+      "VID": "Specify vendor ID",
+      "IMPORT_THINGS_SDK": "Specifiy device definition file path of Things SDK",
+      "APP_NAME": "Specify Smart-App name",
+      "APP_TYPE": "Specify Smart-App type. 'LAMBDA_SMART_APP' or 'WEBHOOK_SMART_APP'",
+      "LAMBDA_ARN": "Specify Lambda ARN list of Smart-App",
+      "TARGET_URL": "Specify Target URL of Smart-App",
+      "PLUGIN_ID": "Specify Device Plugin ID or Service Plugin ID",
+      "GENERATE_PLUGIN": "Specify default Device or Service Plugin source code generation",
+      "DASHBOARD_CARD": "Specify enable dashboard card whether or not"
+    },
+    "CREATING": "Creating project... {{0}}",
+    "PRJ_ALREADY_EXISTS": "Project already exists... {{0}}",
+    "PROJECT_NAME_EMPTY": "Project name cannot be empty",
+    "PROJECT_NAME_LENGTH_EXCEEDS_MAX_LENGTH": "The length of project name cannot exceed max length({{0}})",
+    "PROJECT_NAME_INVALID_CHAR": "Project name cannot contain the following characters: \\ \/ ? ! @ * : | \" ` ' < > ( ) &",
+    "PROJECT_NAME_START_WITH_INVALID_CHAR": "Project name cannot start with the following characters: . (space)",
+    "PROJECT_NAME_END_WITH_INVALID_CHAR": "Project name cannot end with the following characters: . (space)",
+    "INVAID_VID": "Vendor ID may only contain alpha-numeric characters and \"_\", \"-\"",
+    "INVALID_LAMBDA_ARN": "lambda-arn must contain arn:aws:",
+    "INVALID_WEBHOOK_URL": "target-url must be an https address.",
+    "VID_EXCEEDS_MAX_LENGTH": "The length of VID cannot exceed max length({{0}})",
+    "DEVICE_PLUGIN_OPTION_REQUIRED": "Requires '--plugin-id' option to generate custom device plugin",
+    "UNSUPPORTED_DEVICE_MODEL": "Unsupported device model used",
+    "APP_NAME_OPT_REQUIRED": "Requires '--app-name' option",
+    "APP_TYPE_OPT_REQUIRED": "Requires '--app-type' option",
+    "LAMBDA_ARN_OPT_REQUIRED": "Requires '--lambda-arn' option",
+    "TARGET_URL_OPT_REQUIRED": "Requires '--target-url' option",
+    "PLUGIN_ID_OPT_REQUIRED": "Requires '--plugin-id' option"
+  },
+  "LIST_PROJECT": {
+    "DESC": "Print project list"
+  },
+  "BUILD_PROJECT": {
+    "DESC": "Build project",
+    "OPT":{
+      "PROJECT_PATH": "Specify the path of the project to build",
+      "SIGN_PPK": "Specify to build project with sign ppk file",
+      "PASSWD": "Specify password for signing ppk file"
+    },
+    "BUILDING": "Building project... {{0}}"
+  },
+  "EXPORT_PROJECT": {
+    "DESC": "Export project",
+    "OPT":{
+      "PROJECT_PATH": "Specify the path of the project to export",
+      "OUT": "Specify output file path if output file is required",
+      "SHOW": "Specify to show Things SDK model as JSON format"
+    },
+    "THINGS_SDK_PROPERTY_TYPE_MAPPING_NOT_FOUND": "Property type mapping for Things SDK not found... {{0}}"
+  },
+  "LIST_TEMPLATE": {
+    "DESC": "Print template list",
+    "OPT":{
+      "DEVICE_PROFILE": "Show device profile templates"
+    }
+  },
+  "VERIFY_PPK": {
+    "DESC": "Verify ppk file",
+    "OPT":{
+      "IN": "Specify input ppk file",
+      "VERBOSE": "Show ppk detail, default false"
+    },
+    "NO_IN_OPTION": "Verify package needs \"in\" option",
+    "VERIFING": "verifying package... {{0}}",
+    "SUCCESS": "Success. {{0}} has been verified",
+    "FAIL": "Fail. {{0}} has not been verified",
+    "UNKNOWN_FAIL": "Verification failed for unknown reasons. {{0}}",
+    "VERIFY_FAIL": "Signature not found from package file. Please sign the PPK first",
+    "FILE_NOT_FOUND_FAIL": "The PPK file is not found",
+    "ZIP_FORMAT_FAIL": "Not a Central Directory record"
+  },
+  "SIGN_UP": {
+    "NO_LOGIN": "{{0}} is required before sign-up. Please log in first."
+  },
+  "SIGN_IN": {
+    "NO_LOGIN": "{{0}} is required before sign-in. Please log in first.",
+    "NO_SIGN_UP": "Sign-up client device is required. Please log in first",
+    "EXPIRED_TOKEN": "Expired login. Please log in again."
+  },
+  "SIGN_PPK": {
+    "DESC": "Sign ppk file",
+    "OPT": {
+      "PASSWD": "Specify private key access password",
+      "IN": "Specify the ppk file that will be signed",
+      "OUT": "Specify output path",
+      "TEST_MODE": "Specify test mode"
+    },
+    "NO_REQUIRED": "passwd or test-mode is required",
+    "SIGNING": "Signing package... {{0}}",
+    "SUCCESS": "Success. {{0}} has been signed",
+    "FAIL": "Failed. {{0}} has not been signed",
+    "NO_PASSWD": "Passwd is required",
+    "INVALID_KEY": "Invalid key or Password"
+  },
+  "EXTRACT_PPK": {
+    "DESC": "Extract ppk file",
+    "OPT":{
+      "IN": "Specify input ppk file",
+      "OUT": "Specify output path"
+    },
+    "NO_OUT": "Extracting package needs \"out\" option to specify output path",
+    "EXTRACTING": "Extracting package... {{0}}"
+  },
+  "INSTALL_APP": {
+    "DESC": "Install manifest, ppk, plugin, catalog file on the device or simulator",
+    "OPT":{
+      "TARGET": "Specify options(manifest, ppk, plugin, catalog) to be installed on device's app",
+      "SERIAL": "Specify the target devcie's serial number or qualifier",
+      "SIMULATOR": "Specify options(manifest, ppk) to be installed on the Simulator",
+      "SIMULATOR_PATH": "Specify installed simulator path",
+      "DEVICE_PLUGIN": "Specify ppk, plugin to be installed on the SmartThings app",
+      "MANIFEST": "Specify UI Manifest, Voice Manifest to be installed on the SmartThings app",
+      "CATALOG": "Specify catalog to be installed on the SmartThings app",
+      "TEST_MODE": "Sign the ppk with a test key before installing it on the SmartThings app"
+    },
+    "SUCCESS": "Successfully installed on device!",
+    "FAIL": "Failed to install project on device.",
+    "SUCCESS_ON_SIM": "Success. UI Manifest and ppk have been installed on the Simulator!",
+    "FAIL_ON_SIM": "Failed to install project on simulator.",
+    "NO_OPT": "Install app needs a option for --target or --simulator",
+    "FAIL_PUSH": "Failed to push {{0}}.",
+    "FAIL_CMD": "Failed to execute on device '{{0}}'."
+  },
+  "LAUNCH_ONEAPP_SIMULATOR": {
+    "DESC": "Launch Simulator",
+    "SUCCESS": "Success. Launched Simulator!",
+    "FAIL": "Failed. {{0}}",
+    "MEMORYFAIL": "Failed to run simulator. Device is out of memory. Please kill unnecessary processes and programs or add more physical memory"
+  },
+  "KILL_ONEAPP_SIMULATOR": {
+    "DESC": "Terminate Simulator",
+    "SUCCESS": "Success. Terminate Simulator!",
+    "FAIL": "Failed. {{0}}"
+  },
+  "LAUNCH_VIRTUAL_DEVICE": {
+    "DESC": "Launch virtual device",
+    "SUCCESS": "Success. Launched virtual device!",
+    "FAIL": "Failed. {{0}}",
+    "OPT": {
+      "PATH": "Specify a installed path of virtual device",
+      "CONFIG": "Specify config.json file location. 'ide' or 'cli'"
+    }
+  },
+  "LIST_MANIFEST": {
+    "DESC": "Print UI Manifest list",
+    "OPT":{
+      "ID": "Specify workflow ID",
+      "STATUS": "Specify workflow status, ALPHA/RC/DELETED/GOLD/PUBLISHED/ALL",
+      "OWNER_ID": "Specify owner-id",
+      "TYPE": "Specify Manifest(metadata) type. \"voice\" or \"ui\""
+    }
+  },
+  "REGISTER_PLUGIN": {
+    "DESC": "Register plugin (ppk) file",
+    "OPT":{
+      "IN": "Specify plugin(ppk) path to be registered",
+      "PLGNTYPE": "Specify service plugin type. {DEVICE|SERVICE}"
+    },
+    "SUCCESS": "SUCCESS. {{0}} has registered.",
+    "FAIL": "Failed to register plugin (ppk) file : {{0}} : {{1}}"
+  },
+  "UNREGISTER_PLUGIN": {
+    "DESC": "UnRegister plugin",
+    "OPT":{
+      "PKGNM": "Specify package name (app-id)"
+    },
+    "SUCCESS": "SUCCESS. {{0}} has unregistered."
+  },
+  "LIST_PLUGIN": {
+    "DESC": "Print plugin list",
+    "OPT":{
+      "PKGNM": "Specify package name (app-id)",
+      "PLGNTYPE": "Specify service plugin type. {DEVICE|SERVICE}",
+      "STATUS": "Specify service plugin dev-stat-cd. {ALPHA|RC|GOLD|PUBLISHED|DRAFT|DEVELOP}"
+    }
+  },
+  "DESCRIBE_PLUGIN": {
+    "DESC": "Print plugin info",
+    "OPT":{
+      "PKGNM": "Specify package name (app-id)"
+    }
+  },
+  "DESCRIBE_MANIFEST": {
+    "DESC": "Print UI Manifest: manufacturer, vendor ID, version, workflow ID",
+    "OPT":{
+      "TYPE": "Specify Manifest(metadata) type. \"voice\" or \"ui\"",
+      "MNMN": "Specify manufacturer",
+      "VID": "Specify vendor ID",
+      "VERSION": "Specify version",
+      "ID": "Specify workflow ID"
+    },
+    "FAIL": "Describe Manifest requires type, mnmn, vid, and version options"
+  },
+  "REGISTER_MANIFEST": {
+    "DESC": "Register UI Manifest",
+    "OPT":{
+      "IN": "Specify Manifest path to be registered",
+      "TYPE": "Specify Manifest(metadata) type. \"voice\" or \"ui\""
+    },
+    "SUCCESS": "{{0}} v{{1}} has registered.",
+    "FAIL": "Failed to register UI Manifest : {{0}} : {{1}}"
+  },
+  "DELETE_MANIFEST": {
+    "DESC": "Delete UI Manifest",
+    "OPT": {
+      "ID": "Specify Manifest ID"
+    },
+    "SUCCESS": "{{0}}, {{1}} {{2}} {{3}} has been deleted.",
+    "FAIL": "Failed to delete UI Manifest : {{0}}"
+  },
+  "UPDATE_MANIFEST": {
+    "DESC": "Update UI Manifest",
+    "OPT":{
+      "ID": "Specify Manifest ID",
+      "IN": "Specify Manifest path"
+    },
+    "SUCCESS": "{{0}}, {{1}}",
+    "FAIL": "Failed to update UI Manifest : {{0}}: {{1}}"
+  },
+  "LIST_DEVICE": {
+    "DESC": "Print device list",
+    "OPT":{
+      "RESOURCE_MODEL": "List devices on the IoT Cloud",
+      "MNID": "List devices with specified mnid. It only works with the resource-model option.",
+      "NAME": "List devices that contains specified characters in device name. It only works with the resource-model option.",
+      "TYPE": "List devices with specified device resource type. It only works with the resource-model option.",
+      "VID": "List devices with specified VID. It only works with the resource-model option.",
+      "CLIENT": "List client devices."
+    }
+  },
+  "DESCRIBE_DEVICE": {
+    "DESC": "Print device detail",
+    "OPT":{
+      "ID": "Specify device ID",
+      "RESOURCE_MODEL": "Show device detail as OCF resource model",
+      "DETAIL": "If this is an OCF resource model, show detailed OCF device"
+    }
+  },
+  "DELETE_DEVICE": {
+    "DESC": "Delete device",
+    "OPT":{
+      "ID": "Specify device ID",
+      "CLIENT": "Set to delete client device"
+    }
+  },
+  "DESCRIBE_DEVICE_STATUS": {
+    "DESC": "Print device status",
+    "OPT":{
+      "ID": "Specify device ID",
+      "COMPONENT": "Specify component ID, default ID: main",
+      "RESOURCE_MODEL": "Show device detail using OCF resource model",
+      "RESOURCE": "If this is an OCF resource model, specify the device's resources"
+    },
+    "NO_RESOURCE_OPTION": "resource-model option should be with resource option"
+  },
+  "COMMAND_DEVICE": {
+    "DESC": "Execute device command",
+    "OPT":{
+      "ID":"Specify device ID",
+      "CAPABILITY": "Specify capability ID",
+      "COMMAND": "Specify capability command",
+      "ARGS": "Specify arguments",
+      "COMPONENT": "Specify component ID, default: main",
+      "RESOURCE_MODEL": "Show device detail using OCF resource model",
+      "RESOURCE": "Specify OCF resource of device if OCF resource model",
+      "RESOURCE_TYPE": "Specify OCF resource type option of command if this is an OCF resource model",
+      "INTERFACE": "Specify OCF interface option of the command if this is an OCF resource model"
+    }
+  },
+  "PUBLISH_DEVICE": {
+    "DESC": "Publish device",
+    "OPT":{
+      "ID":"Specify device ID",
+      "DEVICE_PROFILE": "Specify device profile ID",
+      "AUTH_CODE": "Specify auth code",
+      "NAME": "Specify device name",
+      "RESOURCE_TYPE": "Specify OCF device resource type",
+      "SSO_TOKEN": "Specify sso token",
+      "DEVICE_PROFILE_PATH": "Specify device profile file path",
+      "DEVICE_KEY": "Specify device(client) key file path",
+      "DEVICE_CERT": "Specify device(client) cert file path"
+    },
+    "NO_TOKEN": "Cannot find token"
+  },
+  "LIST_LOCATION": {
+    "DESC": "Print location list"
+  },
+  "DESCRIBE_LOCATION": {
+    "DESC": "Print location",
+    "OPT": {
+      "ID": "Specify location ID"
+    }
+  },
+  "CREATE_LOCATION": {
+    "DESC": "Register location",
+    "OPT":{
+      "NAME": "Specify location name",
+      "COUNTRY_CODE": "Specify country code",
+      "LATITUDE": "Specify latitude",
+      "LONGITUDE": "Specify longitude",
+      "RADIUS": "Specify radius",
+      "TEMP_SCALE": "Specify temperature unit: C or F"
+    },
+    "NO_LATITUDE": "Invalid latitude value",
+    "NO_LONGITUDE": "Invalid longitude value",
+    "NO_RADIUS": "Invalid radius value",
+    "NO_RADIUS_FLOAT": "Invalid radius value, please input positive integer as radius"
+  },
+  "UPDATE_LOCATION": {
+    "DESC": "Update location",
+    "OPT":{
+      "ID": "Specify location ID",
+      "NAME": "Specify location name",
+      "LATITUDE": "Specify latitude",
+      "LONGITUDE": "Specify longitude",
+      "RADIUS": "Specify radius",
+      "TEMP_SCALE": "Specify temperature unit: C or F"
+    },
+    "NO_LATITUDE": "Invalid latitude value",
+    "NO_LONGITUDE": "Invalid longitude value",
+    "NO_RADIUS": "Invalid radius value",
+    "NO_RADIUS_FLOAT": "Invalid radius value, please input positive integer as radius"
+  },
+  "DELETE_LOCATION": {
+    "DESC": "Delete location",
+    "OPT": {
+      "ID": "Specify location ID"
+    },
+    "NO_ID": "\"--id\" is required"
+  },
+  "CREATE_GROUP": {
+    "DESC": "Register group",
+    "OPT":{
+      "NAME": "Specify group name",
+      "PARENT": "Specify parent group ID"
+    }
+  },
+  "DESCRIBE_GROUP": {
+    "DESC": "Print group",
+    "OPT": {
+      "ID": "Specify group ID"
+    }
+  },
+  "LIST_GROUP": {
+    "DESC": "Print group list"
+  },
+  "UPDATE_GROUP": {
+    "DESC": "Update group",
+    "OPT":{
+      "ID": "Specify group ID",
+      "OPERATION": "Specify operation type. 'add' or 'delete'",
+      "DEVICES": "Specify devices",
+      "MEMBERS": "Specify members"
+    }
+  },
+  "DELETE_GROUP": {
+    "DESC": "Delete group",
+    "OPT": {
+      "ID": "Specify group ID"
+    },
+    "NO_ID": "\"--id\" is required"
+  },
+  "REGISTER_ENDPOINT_APP": {
+    "DESC": "Register SmartApp",
+    "OPT":{
+      "NAME": "Specify app name",
+      "DISPLAY_NAME": "Specify display name",
+      "DESCRIPTION": "Specify description",
+      "APP_TYPE": "Specify SmartApp type. \"WEBHOOK\", \"LAMBDA\"",
+      "LAMBDA_ARN": "Specify AWS lambda ARN",
+      "TARGET_URL": "Specify Webhook URL",
+      "SINGLE_INSTANCE": "Single instance flag"
+    },
+    "NO_CONFIG": "SmartApp configuration not found",
+    "NO_LAMBDA": "Needs Lambda implementation",
+    "SUCCESS": "{{0}}}\nOauth client id: {{1}}\nOauth client secret: {{2}}"
+  },
+  "LIST_ENDPOINT_APP": {
+    "DESC": "Print SmartApp list",
+    "NO_APP": "empty"
+  },
+  "DESCRIBE_ENDPOINT_APP": {
+    "DESC": "Print SmartApp",
+    "OPT": {
+      "ID": "Specify app ID",
+      "NAME": "Specify app name"
+    }
+  },
+  "UPDATE_ENDPOINT_APP": {
+    "DESC": "Update SmartApp",
+    "OPT":{
+      "ID": "Specify app ID",
+      "NAME": "Specify app name",
+      "DISPLAY_NAME": "Specify display name",
+      "DESCRIPTION": "Specify description",
+      "LAMBDA_ARN": "Specify AWS Lambda ARN",
+      "UPDATE_LAMBDA": "Update AWS Lambda",
+      "SINGLE_INSTANCE": "Single instance flag"
+    },
+    "FAIL": "Needs \"lambda-arn\" or \"update-lambda\" options"
+  },
+  "UNREGISTER_ENDPOINT_APP": {
+    "DESC": "Unregister SmartApp",
+    "OPT":{
+      "ID": "Specify SmartApp ID",
+      "NAME": "Specify app name",
+      "FORCE_DELETE_LAMBDA": "Specify force delete Lambda Function"
+    }
+  },
+  "UPDATE_ENDPOINT_APP_OAUTH": {
+    "DESC": "Update SmartApp's OAuth",
+    "OPT":{
+      "ID": "Specify SmartApp ID",
+      "NAME": "Specify SmartApp name",
+      "SCOPE": "Specify OAuth scope",
+      "CLIENT_NAME": "Specify client name"
+    }
+  },
+  "DESCRIBE_ENDPOINT_APP_OAUTH": {
+    "DESC": "Print SmartApp's OAuth",
+    "OPT":{
+      "ID": "Specify SmartApp ID",
+      "NAME": "Specify SmartApp name"
+    }
+  },
+  "UPDATE_ENDPOINT_APP_SETTINGS": {
+    "DESC": "Update SmartApp's settings",
+    "OPT":{
+      "ID": "Specify SmartApp ID",
+      "NAME": "Specify SmartApp name",
+      "SETTINGS": "Specify SmartApp settings in {key}:{value} ..."
+    }
+  },
+  "DESCRIBE_ENDPOINT_APP_SETTING": {
+    "DESC": "Print SmartApp's settings",
+    "OPT": {
+      "ID": "Specify SmartApp ID",
+      "NAME": "Specify SmartApp name"
+    }
+  },
+  "INSTALL_ENDPOINT_APP": {
+    "DESC": "Open strongman web page to install the SmartApp"
+  },
+  "LIST_INSTALLED_ENDPOINT_APP": {
+    "DESC": "Print list of installed SmartApps",
+    "OPT":{
+      "LOCATION": "Specify location ID",
+      "STATUS": "Specify installed app status"
+    },
+    "EMPTY": "empty"
+  },
+  "DESCRIBE_INSTALLED_ENDPOINT_APP": {
+    "DESC": "Print installed SmartApp",
+    "OPT":{
+      "ID": "Specify installed SmartApp ID",
+      "LOCATION": "Specify location ID"
+    }
+  },
+  "DESCRIBE_INSTALLED_ENDPOINT_APP_CONFIG": {
+    "DESC": "Print installed SmartApp",
+    "OPT":{
+      "ID": "Specify installed SmartApp ID",
+      "CONFIGURATION": "Specify configuration ID",
+      "LOCATION": "Specify location ID"
+    }
+  },
+  "UPDATE_INSTALLED_ENDPOINT_APP": {
+    "DESC": "Update installed SmartApp",
+    "OPT":{
+      "ID": "Specify installed SmartApp ID",
+      "CONFIG": "Specify configuration file",
+      "DISPLAY": "Specify display name",
+      "LOCATION": "Specify location ID"
+    },
+    "SUCCESS": "Installed App\n{{0}}\nConfiguration Detal\n{{1}}"
+  },
+  "UPDATE_INSTALLED_ENDPOINT_APP_CONFIG_DONE": {
+    "DESC": "Update installed SmartApp's config as DONE",
+    "OPT":{
+      "ID":"Specify installed SmartApp ID",
+      "CONFIGURATION_ID": "Specify configuration ID",
+      "LOCATION": "Specify location ID"
+    }
+  },
+  "UNINSTALL_INSTALLED_ENDPOINT_APP": {
+    "DESC": "Uninstall SmartApp",
+    "OPT":{
+      "ID": "Specify SmartApp ID",
+      "LOCATION": "Specify location ID"
+    }
+  },
+  "CREATE_SUBSCRIPTION": {
+    "DESC": "Create subscription",
+    "OPT":{
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID",
+      "SOURCE_TYPE": "Specify event source type. \"DEVICE\" or \"CAPABILITY\"",
+      "NAME": "Specify subscription name",
+      "DEVICE": "Specify device ID",
+      "LOCATION": "Specify location ID",
+      "COMPONENT": "Specify component ID",
+      "CAPABILITY": "Specify capability default as *",
+      "ATTRIBUTE": "Specify attribute default as *",
+      "VALUE": "Specify value default as *",
+      "STATE_CHANGE_ONLY": "Subscribe state change only"
+    },
+    "NO_NAME": "Needs subscription name",
+    "NO_LOCATION": "Needs location ID",
+    "NO_DEVICE": "Needs device ID",
+    "NO_SOURCE": "Invalid source type: {{0}}"
+  },
+  "DELETE_SUBSCRIPTION": {
+    "DESC": "Delete subscription",
+    "OPT": {
+      "ID": "Specify subscription ID",
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID"
+    }
+  },
+  "LIST_SUBSCRIPTION": {
+    "DESC": "Print subscription list",
+    "OPT":{
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID"
+    }
+  },
+  "DESCRIBE_SUBSCRIPTION": {
+    "DESC": "Print subscription",
+    "OPT":{
+      "ID": "Specify subscription ID",
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID"
+    }
+  },
+  "CREATE_SCHEDULE": {
+    "DESC": "Create schedule",
+    "OPT":{
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID",
+      "NAME": "Specify schedule name",
+      "CRON_EXPR": "Specify cron expression",
+      "CRON_TIMEZONE": "Specify cron timezone",
+      "ONCE": "Specify epoch (Unix time)",
+      "ONCE_OVERWRITE": "Overwrite previous schedule"
+    }
+  },
+  "LIST_SCHEDULE": {
+    "DESC": "Print schedule list",
+    "OPT": {
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID"
+    }
+  },
+  "DESCRIBE_SCHEDULE": {
+    "DESC": "Print schedule",
+    "OPT":{
+      "NAME": "Specify schedule name",
+      "INSTALLED_ENDPOINT_APP": "Specify installed SmartApp ID"
+    }
+  },
+  "DELETE_SCHEDULE": {
+    "DESC": "Delete schedule",
+    "OPT":{
+      "NAME": "Specify schedule name",
+      "INSTALLED_ENDPOINT_APP": "Specify ID of installed SmartApp"
+    }
+  },
+  "CREATE_DEVICE_PROFILE": {
+    "DESC": "Create device profile",
+    "OPT":{
+      "TYPE": "Specify device profile model",
+      "IN": "Specify input device file",
+      "FORCE_UPDATE_MNID": "Specify force update MNID"
+    },
+    "NO_INPUT": "Input file not found!"
+  },
+  "LIST_DEVICE_PROFILE": {
+    "DESC": "List device profile",
+    "OPT":{
+      "BUILT_IN": "Specify whether to only show built-in device profiles",
+      "CATEGORY": "Specify device profile category to search. \"sample\" or \"custom\"",
+      "TYPE": "Specify device profile model to search"
+    }
+  },
+  "DESCRIBE_DEVICE_PROFILE": {
+    "DESC": "Print device profile",
+    "OPT":{
+      "ID": "Specify device profile ID",
+      "RESOURCE_MODEL": "Show device profile as resource model",
+      "IN": "Specify device profile file path"
+    },
+    "NO_BOTH_OPTION" : "Please specify either 'id' or 'in'"
+  },
+  "UPDATE_DEVICE_PROFILE": {
+    "DESC": "Update device profile",
+    "OPT":{
+      "ID": "Specify device profile ID",
+      "IN": "Specify input device file"
+    },
+    "NO_INPUT": "Input file not found!"
+  },
+  "DELETE_DEVICE_PROFILE": {
+    "DESC": "Delete device profile",
+    "OPT":{
+      "ID": "Specify device profile ID"
+    }
+  },
+  "REGISTER_C2C_DEVICE_PROFILE": {
+    "DESC": "Register C2C device profile",
+    "OPT":{
+      "DEVICE_PROFILE": "Specify device profile ID",
+      "IN": "Specify input device profile JSON file"
+    }
+  },
+  "LIST_C2C_DEVICE_PROFILE": {
+    "DESC": "List C2C device profiles"
+  },
+  "DESCRIBE_C2C_DEVICE_PROFILE": {
+    "DESC": "Print C2C device profile",
+    "OPT":{
+      "ID": "Specify C2C device profile ID"
+    }
+  },
+  "UPDATE_C2C_DEVICE_PROFILE": {
+    "DESC": "Register C2C device profile",
+    "OPT":{
+      "ID": "Specify C2C device profile ID",
+      "DEVICE_PROFILE": "Specify device profile ID",
+      "IN": "Specify input device profile JSON file"
+    }
+  },
+  "DELETE_C2C_DEVICE_PROFILE": {
+    "DESC": "Delete C2C device profile",
+    "OPT":{
+      "ID": "Specify C2C device profile ID"
+    }
+  },
+  "LIST_CAPABILITY": {
+    "DESC": "List capabilities",
+    "OPT":{
+      "MAIN_STATE": "Search capabilities with main state",
+      "MAIN_ACTION": "Search capabilities with main action",
+      "SDK_ONLY": "Search capabilities with only SDK supported or not "
+    }
+  },
+  "DESCRIBE_CAPABILITY": {
+    "DESC": "Describe specified capability",
+    "OPT":{
+      "ID": "The ID of the capability",
+      "VERSION": "The Version of the capability",
+      "COMPONENT": "The ID of the component",
+      "RESOURCE_MODEL": "Show capability as the resource model"
+    },
+    "NO_OPTION": "This command is not supported yet. Please input with --resource-model option."
+  },
+  "LIST_RESOURCE_TYPE": {
+    "DESC": "List resource types in local file system"
+  },
+  "DESCRIBE_RESOURCE_TYPE": {
+    "DESC": "Describe resource type by the specified ID",
+    "OPT":{
+      "ID": "The ID of the resource-type"
+    }
+  },
+  "LIST_CONFIG": {
+    "DESC": "List all configurations"
+  },
+  "SET_CONFIG": {
+    "DESC": "Set a configuration",
+    "OPT":{
+      "KEY": "The configuration key.",
+      "VALUE": "The configuration value. If this value is empty, this command removes the key.",
+      "MODE": "Change system connection settings in batch. \"develop\", \"stage\" or \"production\""
+    },
+    "NO_KEY": "'{{0}}' is an invalid configuration key."
+  },
+  "GET_CONFIG": {
+    "DESC": "Get a configuration",
+    "OPT":{
+      "KEY": "The configuration key."
+    },
+    "NO_KEY": "This key does not exist."
+  },
+  "GENERATE_MANIFEST": {
+    "DESC": "Generate Manifest file or show Manifest information",
+    "OPT":{
+      "CAPABILITY": "Specify target capability ID",
+      "COMPONENT": "Specify target component ID",
+      "IN": "Specify input device profile file path (Deprecated)",
+      "DEVICE_PROFILE_PATH": "Specify input device profile file path",
+      "OUT_DIR": "Specify destination directory",
+      "MAIN_STATE": "Specify capability for main state of UI Manifest",
+      "MAIN_ACTION": "Specify capability for main action of UI Manifest",
+      "DEVICE_PLUGIN": "Specify device plugin name",
+      "VID": "Specify device vendor ID",
+      "MNID": "Specify device manufacturer ID",
+      "UI_VERSION": "Specify UI Manifest version",
+      "VOICE_VERSION": "Specify Voice Manifest version",
+      "CAPABILITY_PROPERTY_MAP": "Specify Manifest properties of capabilities to be generated"
+    },
+    "CAPABILITY_OR_DEVICE_PROFILE_PATH_REQUIRED": "Either '--capability' or '--device-profile-path' is required.",
+    "ONLY_ONE_OF_CAPABILITY_AND_DEVICE_PROFILE_PATH_REQUIRED": "Only one of '--capability' or '--device-profile-path' is required.",
+    "NOT_IN_PROJECT_DIRECTORY": "Please generate manifest in OCF/C2C project directory."
+  },
+  "GET_LOG": {
+    "DESC": "Get device log",
+    "OPT":{
+      "DEVICE": "Specify device ID",
+      "LOCATION": "Specify location IDs",
+      "SMART_APP": "Specify smart app IDs",
+      "INSTALLED_SMART_APP": "Specify installed smart app IDs",
+      "ST_DEVICE": "Specify st device IDs",
+      "AUTH_CODE": "Specify AuthCode for sign-up new log client device"
+    },
+    "INVALID_LOGGER_TYPE": "Invalid type of logger... {{0}}",
+    "MUTUALLY_EXCLUSIVE_OPTIONS": "Mutually exclusive options have been set.",
+    "NO_OPTIONS": "At least one of the following options must be set: device, location, smart-app, installed-smart-app, st-device",
+    "NO_AUTHCODE": "AuthCode required for OCF device log",
+    "AUTHCODE_OR_SHOWUI_REQUIRED": "Either '--authcode' or '--show-ui' option is required for OCF device log"
+  },
+  "REGISTER_WEB_CONSOLE_PROJECT": {
+    "DESC": "Register Web Console Project",
+    "OPT":{
+      "NAME": "Specify Web Console Project name",
+      "DESCRIPTION": "Specify Web Console Project description"
+    },
+    "REGISTERING_PROJECT" : "Registering Cloud-Connected Project...",
+    "REGISTERING_DEVICE_PROFILE" : "Registering Cloud-Connected Device Profile...",
+    "REGISTERING_UI_MANIFEST" : "Registering Cloud-Connected UI Manifest...",
+    "REGISTERING_VOICE_MANIFEST" : "Registering Cloud-Connected Voice Manifest...",
+    "REGISTERING_DEVICE_PLUGIN" : "Registering Cloud-Connected Device Plugin...",
+    "REGISTERING_CATALOG" : "Registering Cloud-Connected Catalog...",
+    "READING_PROJECT" : "Reading Cloud-Connected Project...",
+    "UPDATING_CONFIG" : "Updating Web Console Project configuration...",
+    "CHECKING_MNID" : "Checking MNID...",
+    "MNNM_MISMATCH": "MNID mismatch... Change active MNID from '{{0}}' to '{{1}}' in Setting > MNID on Dev. Workspace"
+  },
+  "LIST_WEB_CONSOLE_PROJECT": {
+    "DESC": "List Web Console Projects",
+    "OPT":{
+      "TYPE": "Specify Web Console Project type to search"
+    }
+  },
+  "DESCRIBE_WEB_CONSOLE_PROJECT": {
+    "DESC": "Print a specified Web Console Project information",
+    "OPT":{
+      "ID": "Specify Web Console Project ID"
+    },
+    "NO_WEB_CONSOLE_PROJECT_CONFIG": "No Web Console Project configuration exists",
+    "WEB_CONSOLE_PROJECT_NOT_FOUND": "Web Console Project not found... {{0}}",
+    "WEB_CONSOLE_URI_NOT_MATCHED": "Web Console URI not matched... {{0}}",
+    "WEB_CONSOLE_PROJECT_CONFIG_NOT_FOUND": "Web Console Project configuration file not found... {{0}}"
+  },
+  "UPDATE_WEB_CONSOLE_PROJECT": {
+    "DESC": "Update Web Console Project",
+    "OPT":{
+      "ID": "Specify Web Console Project ID",
+      "NAME": "Specify Web Console Project name",
+      "DESCRIPTION": "Specify Web Console Project description"
+    },
+    "UPDATING_PROJECT" : "Updating Cloud-Connected Project...",
+    "UPDATING_DEVICE_PROFILE" : "Updating Cloud-Connected Device Profile...",
+    "UPDATING_UI_MANIFEST" : "Updating Cloud-Connected UI Manifest...",
+    "UPDATING_VOICE_MANIFEST" : "Updating Cloud-Connected Voice Manifest...",
+    "UPDATING_DEVICE_PLUGIN" : "Updating Cloud-Connected Device Plugin...",
+    "UPDATING_CATALOG" : "Updating Cloud-Connected Catalog...",
+    "READING_PROJECT" : "Reading Cloud-Connected Project... {{0}}",
+    "UPDATING_CONFIG" : "Updating Web Console Project configuration...",
+    "CHECKING_MNID" : "Checking MNID..."
+  },
+  "UNREGISTER_WEB_CONSOLE_PROJECT": {
+    "DESC": "Unregister a Web Console Project",
+    "OPT":{
+      "ID": "Specify Web Console Project ID",
+      "FORCE": "Force to remove Web Console Project configuration"
+    }
+  },
+  "PUBLISH_WEB_CONSOLE_PROJECT": {
+    "DESC": "Publish a Web Console Project(self-publish)",
+    "OPT":{
+      "ID": "Specify Web Console Project ID"
+    }
+  },
+  "UNPUBLISH_WEB_CONSOLE_PROJECT": {
+    "DESC": "Unpublish a Web Console Project",
+    "OPT":{
+      "ID": "Specify Web Console Project ID"
+    }
+  },
+  "SET_MNID": {
+    "DESC": "Set mnid type",
+    "OPT": {
+      "TYPE": "Specify mnid type. company or individual"
+    },
+    "UNSUPPORTED_MNID_TYPE": "Unsupported mnid type. Use company or individual",
+    "NO_COMPANY_INFORMATION": "Cannot find company information. Please log-in again.",
+    "NO_INDIVIDUAL_INFORMATION": "Cannot find individual information. Please log-in again.",
+    "CANNOT_CHANGE_COMPANY_MNID": "Please enroll as an organization member."
+  },
+  "UI": {
+    "CLOSED": "User closed the UI"
+  },
+  "AUTH": {
+    "CANNOT_REFRESH_ACCESS_TOKEN": "Cannot refresh access token cause by: {{0}}",
+    "CANNOT_GET_AUTH_CODE": "Cannot get auth code cause by: {{0}}",
+    "CANNOT_GET_ACCESS_TOKEN": "Cannot get access token cause by: {{0}}",
+    "REFRESH_TOKEN_EXPIRED": "The refresh token has expired",
+    "INVALID_SSO_TOKEN": "Invalid SSO token. Please log in again",
+    "LOGIN_ERROR": "An error has occured during log in... {{0}}",
+    "NO_LOGIN": "Please login first"
+  },
+  "AWS": {
+    "UNSUPPORTED_REGION": "AWS region '{{0}}' is not supported.\n Supported regions: {{1}}",
+    "NO_LAMBDA_NAME": "Name is required in AWS Lambda configuration",
+    "NO_LAMBDA_RUNTIME": "Runtime is required in AWS Lambda configuration",
+    "NO_LAMBDA_ROLE": "Role is required in AWS Lambda configuration",
+    "NO_LAMBDA_HANDLER": "Handler is required in AWS Lambda configuration"
+  },
+  "SMART_APP": {
+    "NO_APP_NAME": "appName is required in SmartApp configuration",
+    "NO_APP_TYPE": "appType is required in SmartApp configuration",
+    "NO_APP_IMPLEMENTATION": "lambdaSmartApp or webhookSmartApp is required in SmartApp configuration",
+    "NO_APP_DISPLAY_NAME": "Display name is required for the SmartApp configuration",
+    "NO_APP_DESCRIPTION": "Description is required for the SmartApp configuration",
+    "INVALID_APP_TYPE": "appType '{{0}}' is not valid",
+    "NO_APP_NAME_OR_NO_APP_ID": "Name or ID is required",
+    "NO_APP_TYPE_PARAM": "appType is required",
+    "INVALID_SCOPE": "Invalid scope. Scope should be an array",
+    "INVALID_SETTINGS": "Invalid settings. Settings should be an array",
+    "INVALID_INSTALLED_APP_TYPE": "Invalid installed app type: {{0}}",
+    "INVALID_SOURCE_TYPE": "Invalid source type: {{0}}",
+    "NO_SUBSCRIPTION_DETAIL": "Subscription detail is required",
+    "APP_NOT_FOUND": "Smart-App not found ... {{0}}"
+  },
+  "C2C": {
+    "NO_DEVICE_PROFILE_ID": "Device profile ID is required",
+    "NO_NAME": "Name is required in device profile",
+    "NO_COMPONENTS": "Components are required in the device profile",
+    "NO_META_DATA": "Metadata is required in device profile",
+    "TOO_MANY_COMPONENTS": "This device profile has too many components.",
+    "TOO_MANY_CAPABILITIES": "More than {{0}} capabilities are not available now in device profile",
+    "AT_LEAST_ONE_MAIN_COMPONENT_REQUIRED": "At least one 'main' component is required",
+    "CANNOT_FIND_INPUT_PATH": "Cannot find input path: {{0}}",
+    "NO_APP_ID": "appId is required",
+    "NO_LOCATION_ID": "locationId is required",
+    "NO_CONFIGURATION_STATUS": "Configuration status is required",
+    "NO_INSTALLED_APP_ID": "installedAppId is required",
+    "NO_APP_CONFIGURATION_ID": "configurationId is required",
+    "NO_SCHEDULE": "Schedule is required. 'onceTime' or 'cronExpr'",
+    "NO_SOURCE_TYPE": "sourceType is required",
+    "NO_SUBSCRIPTION_ID": "subscriptionId is required",
+    "NO_DEVICE_PROFILE_OR_IN": "Profile requires at least one option: device-profile or in",
+    "INVALID_CONFIGURATION_STATUS": "Invalid configuration status: {{0}}"
+  },
+  "CAPABILITY": {
+    "CANNOT_FIND_MAP_TO_RESOURCES": "Cannot find map to resources for {{0}}",
+    "CANNOT_FIND_COMPONENTS": "Cannot find components for {{0}}",
+    "CANNOT_FIND_CAPABILITY": "Cannot find capability for {{0}}"
+  },
+  "COAP": {
+    "UNSUPPORTED_PROTOCOL": "Unsupported protocol: {{0}}",
+    "API_FAILED": "COAP API failed. {{0}}",
+    "NOT_CONNECTED": "Not connected",
+    "UNSUPPORTED_CONTENT_FORMAT": "Unsupported content format: {{0}}",
+    "TOO_LARGE_TCP_BODY": "Error: TCP body size is greater than 4GB",
+    "INVALID_OPTION_DELTA": "Invalid option delta: {{0}}",
+    "INVALID_OPTION_LENGTH": "Invalid option length",
+    "INVALID_PAYLOAD": "Invalid payload",
+    "INVALID_OBSERVE_OPTION": "Invalid observe option",
+    "UNSUPPORTED_OPTION_NUMBER": "Unsupported option number",
+    "INVALID_URI_PATH": "Invalid URI path. It should be a string",
+    "INVALID_URI_QUERY": "Invalid URI query. It should be a string"
+  },
+  "COMMAND": {
+    "NO_COMMAND": "Commands are required",
+    "NO_COMMAND_OPTION": "Options are required",
+    "NO_COMMAND_DESCRIPTION": "Description is required",
+    "NO_COMMAND_RUNNER": "Runner is required",
+    "COMMAND_ALREADY_ADDED": "{{0}} is already added: {{1}}"
+  },
+  "CONFIGURATOR": {
+    "CANNOT_LOAD_CONFIGURATION_FILE": "Cannot load configuration file: {{0}}",
+    "UNSUPPORTED_MODE": "Unsupported mode '{{0}}'",
+    "CANNOT_CREATE_SECURITY": "Cannot create security in {{0}}. Cause: {{1}}",
+    "PATH_LENGTH_EXCEEDED": "Maximum path length is 255",
+    "PATH_IS_EMPTY": "Path is empty",
+    "PATH_INCLUDES_ILLEGAL_CHAR": "Path includes illegal characters",
+    "PATH_IS_NOT_AN_ABSOLUTE_PATH": "Path is not an absolute path",
+    "PATH_WITHOUT_VOLUME": "Path should start with volume. Ex). C:/my/path/to/set"
+  },
+  "DEVICE_PROFILE": {
+    "CANNOT_FIND_CUSTOM_DEVICE_PROFILE": "Custom device profile file not found!... {{0}}",
+    "UNSUPPORTED_CAPABILITY": "{{0}} is not a supported capability",
+    "INVALID_DEVICE_PROFILE": "Invalid device profile. {{0}} is required",
+    "INVALID_VID": "Invalid device profile. 'platform.vid' is not a string",
+    "INVALID_VID_REGEX": "Invalid device profile. Vendor ID may only contain alpha-numeric characters and \"_\", \"-\"",
+    "EXCEEDED_DEVICE_NAME": "Device name can have a maximum of 100 characters",
+    "EXCEEDED_VID": "Invalid device profile. 'platform.vid' can be up to 64 characters",
+    "INVALID_META_VID": "Invalid device profile. 'metadata.vid' is not a string",
+    "INVALID_META_VID_REGEX": "Invalid device profile. Vendor ID may only contain alpha-numeric characters and \"_\", \"-\"",
+    "EXCEEDED_META_VID": "Invalid device profile. 'metadata.vid' can be up to 64 characters",
+    "UNSUPPORTED_DEVICE_PROFILE_MODEL": "{{0}} is not supported device profile model.",
+    "CANNOT_FIND_DEVICE_PROFILE": "Cannot find device profile",
+    "NOT_CAPABILITY_MODEL": "The device profile is not capability model",
+    "CANNOT_MAP_CAPABILITY": "Cannot map capability. No mapping data",
+    "NO_RESOURCES_TO_MAP": "No mapping data for {{0}}",
+    "UNSUPPORTED_DEVICE_PROFILE_TYPE": "Unsupported device profile type",
+    "UNSUPPORTED_METADATA_DEVICE_TYPE": "Unsupported device type is used in 'metadata.deviceType'... {{0}}",
+    "NO_MNMN_OR_NO_MNID": "mnmn or mnid is required",
+    "INVALID_OCF_DEVICE_TYPE": "Invalid ocf device type",
+    "CAPABILITY_MAPPING_NOT_FOUND": "The capability mapping for resource not found... {{0}}",
+    "CAPABILITY_MAPPING_ALREADY_EXISTS": "The capability mapping already exists in device profile... {{0}}",
+    "DEVICE_TYPE_MAPPING_NOT_FOUND": "The device type mapping for resource type not found... {{0}}",
+    "EXCEEDED_CAPABILITIES": "Too many capabilities in component... {{0}}. Max 20 capabilities are allowed."
+  },
+  "DEV_PORTAL": {
+    "CANNOT_FIND_MNID": "Cannot find mnid. Please check your mnid on the SmartThings Developer Workspace.",
+    "NO_DEV_PORTAL": "devPortal is required",
+    "NO_PROGRAM_ID": "devPortal.programId is required"
+  },
+  "LOCATION": {
+    "NO_LOCATION_NAME": "name is required",
+    "NO_COUNTRY_CODE": "countryCode is required",
+    "INVALID_LATITUDE": "Latitude should be a number",
+    "INVALID_LATITUDE_NUMBER": "Latitude should have a length between -90 and 90",
+    "INVALID_LONGITUDE": "Longitude should be a number",
+    "INVALID_LONGITUDE_NUMBER": "Longitude should have a length between -180 and 180",
+    "INVALID_REGION_RADIUS": "regionRadius should be an integer",
+    "INVALID_TEMPERATURE_SCALE": "temperatureScale should be a 'C' or a 'F'",
+    "INVALID_LOCATION_ID": "Invalid location id",
+    "EMPTY_PARAMETER": "Nothing to update",
+    "CANNOT_DELETE_DEFAULT_LOCATION": "Cannot delete default location... {{0}}"
+  },
+  "MANIFEST": {
+    "INVALID_RESPONSE": "Invalid response from server",
+    "INVALID_STATUS": "The {{0}} is invalid status",
+    "FAILED_TO_RETRIEVE_MANIFEST": "Failed to retrieve manifest: {{0}}",
+    "FAILED_TO_RETRIEVE_MANIFEST_LIST": "Failed to retrieve manifest list: {{0}}",
+    "CANNOT_FIND_MANIFEST": "Cannot find manifest for {{0}}"
+  },
+  "METADATA": {
+    "NO_READABLE_PROPERTY": "No readable property for {{0}}",
+    "NO_WRITABLE_PROPERTY": "No writable property for {{0}}",
+    "CANNOT_FIND_RESOURCE_IN_DEVICE_PROFILE": "Cannot find resource in device profile: {{0}}",
+    "INVALID_COMPONENT_ID": "Invalid component ID: {{0}}",
+    "INVALID_CAPABILITY": "Invalid capability",
+    "INVALID_MAIN_STATE_CAPABILITY": "{{0}} cannot be used as main-state",
+    "INVALID_MAIN_ACTION_CAPABILITY": "{{0}} cannot be used as main-action",
+    "CANNOT_FIND_MAPPER_FILE": "Cannot find mapper file: {{0}}",
+    "CANNOT_FIND_CAPABILITY_MAPPER_FILE": "Cannot find capability mapper file for {{0}}"
+  },
+  "GROUP": {
+    "NO_GROUP_NAME": "Group name is required",
+    "NO_GROUP_ID": "Group ID is required",
+    "INVALID_MEMBERS_TYPE": "Members should be an array",
+    "INVALID_OPERATION": "Invalid operation. 'add', 'delete' or null can be an operation",
+    "CANNOT_DELETE_DEFAULT_GROUP": "Cannot delete default group... {{0}}",
+    "CANNOT_DELETE_DEVICE_FROM_GROUP": "Cannot delete device {{0}} from group... {{1}}"
+  },
+  "ONEAPP": {
+    "CANNOT_FIND_UI_MANIFEST_FILE": "Cannot find UI manifest file",
+    "CANNOT_FIND_UI_MANIFEST_FILE_BY_NAME": "Cannot find UI manifest file(by vid and mnmn)",
+    "CANNOT_FIND_UI_MANIFEST_FILE_BY_PATH": "Cannot find UI manifest file: {{0}}",
+    "CANNOT_FIND_SIMULATOR": "Cannot find simluator path: {{0}}",
+    "CANNOT_FIND_VIRTUAL_DEVICE": "Cannot find virtual device path: {{0}}",
+    "CANNOT_FIND_PLUGINFOLDER": "Cannot find plugin folder path: {{0}}",
+    "CANNOT_FIND_CONFIG_FILE": "Cannot find config file path: {{0}}",
+    "NO_USER_ID": "User ID is required",
+    "NO_SSO_TOKEN": "SSO Token is required",
+    "NO_AUTH_CODE": "Auth code is required",
+    "NO_DEVICE_ID": "Device ID is required",
+    "NO_AUTH_PROVIDER_URI": "authProvider.uri is required",
+    "NO_MNID": "mnid is required",
+    "NO_ADB_PATH": "adbPath is required",
+    "UNMATCHED_MNID": "mnid in manifest is not matched to current user",
+    "UNMATCHED_VID": "vid in manifest is not matched to current user",
+    "NO_VID_IN_MANIFEST": "vid in manifest is required",
+    "CANNOT_FIND_MANIFEST_XML": "Cannot find manifest.xml",
+    "INVALID_MANIFEST_XML": "Please check manifest file. {{0}} is not found in manifest.xml",
+    "CANNOT_FIND_PPK_FILE": "Cannot find ppk file: {{0}}",
+    "CANNOT_FIND_CATALOG_FILE": "Cannot find catalog file: {{0}}",
+    "CANNOT_FIND_ADB_FILE": "Cannot find adb file: {{0}}"
+  },
+  "RESOURCE_TYPE": {
+    "CANNOT_PARSE_SCHEMA": "Cannot parse the schema",
+    "CANNOT_PARSE_EXAMPLE": "Cannot parse the example",
+    "AVOID_TIME_OUT": "This command prevents the request timeout error",
+    "CANNOT_PARSE_RAML": "Cannot parse the RAML. Cause: {{0}}"
+  },
+  "OCF": {
+    "CANNOT_FIND_RESOURCE_IN_DEVICE": "Cannot find resource in device {{0}}",
+    "CANNOT_FIND_TYPE_OF_RESOURCE": "Cannot find type of resource",
+    "CANNOT_FIND_PROPERTY_DEFINITION": "Cannot find property definition",
+    "INVALID_PROPERTY": "Invalid property {{0}}"
+  },
+  "PROJECT": {
+    "INVALID_DEVICE_PLUGIN_ID_LONG": "Invalid device plugin ID. Maximum 64 characters",
+    "INVALID_DEVICE_PLUGIN_ID_URI": "Invalid device plugin ID. Please follow URI format",
+    "INVALID_CATALOG_SETUP_ID": "Invalid catalog's setupId, setupId must be a three-digit number {{0}}",
+    "UNDEFINED_PO_CODE": "The po code {{0}} in {{1}} is not defined in language locale {{2}}",
+    "DEVICE_PLUGIN_PACKAGE_NAME_NOT_MATCHED": "Plugin package name doesn't match 'dpInfo' in UI manifest... {{0}}",
+    "PLUGIN_PACKAGE_NAME_NOT_MATCHED_SMART_APP_PLUGIN_ID": "Plugin package name doesn't match 'pluginId' in smart-app.json... {{0}}",
+    "INVALID_PLUGIN_ID_REGEX": "Invalid plugin ID format... {{0}}"
+  },
+  "STCLOUD": {
+    "BAD_REQUEST": "Bad Request. {{0}}",
+    "NOT_AUTHENTICATED": "Not Authenticated. {{0}}",
+    "NOT_AUTHORIZED": "Not Authorized. {{0}}",
+    "NOT_FOUND": "Not Found. {{0}}",
+    "UNPROCESSABLE_ENTITY": "Unprocessable Entity. {{0}}",
+    "TOO_MANY_REQUESTS": "Too Many Requests. {{0}}"
+  }
+}

@@ -1,0 +1,64 @@
+#%RAML 0.8
+title: WWST Air Quality Sensor Level
+version: v1.0.0-20170918
+schemas:
+- AirQuality: |
+    {
+      "id": "http://openinterconnect.org/iotdatamodels/schemas/x.com.st.airqualitylevel.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Dimming",
+      "definitions": {
+    "x.com.st.airqualitylevel": {
+      "type": "object",
+      "properties": {
+        "airQuality": {
+          "type": "number",
+          "description": "Current airQuality"
+        },
+        "range": {
+          "type": "array",
+          "description": "Array defining min,max values for this airQuality on this device",
+          "items": {
+            "type": "number"
+          },
+          "readOnly": true
+        }
+      }
+    }
+      },
+      "type": "object",
+      "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "#/definitions/x.com.st.airqualitylevel"}
+      ],
+      "required": ["airQuality", "range"]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTAirQualitySensorLevelResURI:
+  description: |
+        Air Quality Sensor Level
+  displayName: WWST Air Quality Sensor Level
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current Air Quality Sensor Level
+    responses:
+      200:
+        body:
+          application/json:
+            schema: AirQuality
+            example: |
+              {
+                "rt":             ["x.com.st.airqualitylevel"],
+                "id":             "unique_example_id",
+                "airQuality":  20,
+                "range":        [0,100]
+              }
