@@ -4,6 +4,7 @@
         "mocha": true,
         "browser": true
     },
+    "parser": "babel-eslint",
     "rules": {
         "no-bitwise": 0,
         "curly": 2,
@@ -57,7 +58,7 @@
         "sort-vars": [2, { "ignoreCase": true }]
     },
     "parserOptions": {
-      "ecmaVersion": 6
+      "ecmaVersion": 2017
     },
     "globals": {
         "brackets": false,
