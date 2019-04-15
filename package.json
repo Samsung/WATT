@@ -52,12 +52,13 @@
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "grunt-contrib-csslint": "^2.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-eslint": "^20.0.0",
+    "grunt-eslint": "^21.0.0",
     "grunt-gitnewer": "^1.0.5",
     "grunt-html": "^8.4.0",
     "load-grunt-tasks": "^3.5.2",

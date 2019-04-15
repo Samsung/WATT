@@ -66,6 +66,15 @@ function prepareMakefile(makefileContents) {
     });
 }
 
+const cleanupDirFunc = function(cleanupFun, path) {
+    return new Promise(resolve => {
+        cleanupFun(function() {
+            resolve("deleted");
+        });
+    });
+};
+
+
 describe("'project' extension", () => {
     describe(".wgt packaging", () => {
         it("should be able to check packaging availability", (done) => {
@@ -76,18 +85,15 @@ describe("'project' extension", () => {
         });
 
         //getTempDir test
-        //TODO: change to async - await approach after node upgrade to 7.6 or later
-        it("should be able to check geting temporary directory", () => {
-            const tempPromise = project.getTempDir();
-            expect(tempPromise).to.be.a("promise");
-            return tempPromise.then ( (result) => {
-                expect(result.tmpDirPath).to.be.a("string").that.is.not.empty;
-                expect(fs.existsSync(result.tmpDirPath)).to.be.true;
-                expect(result.tmpDirCleanup).to.be.a("function");
-                //cleanup
-                result.tmpDirCleanup();
-                expect(fs.existsSync(result.tmpDirPath)).to.be.false;
-            });
+        it("should be able to check geting temporary directory", async () => {
+            const result = await project.getTempDir();
+            expect(result.tmpDirPath).to.be.a("string").that.is.not.empty;
+            expect(fs.existsSync(result.tmpDirPath)).to.be.true;
+            expect(result.tmpDirCleanup).to.be.a("function");
+            const resultCleanup = await cleanupDirFunc(result.tmpDirCleanup);
+            expect(resultCleanup).to.be.a("string");
+            expect(resultCleanup).to.equal("deleted");
+            expect(fs.existsSync(result.tmpDirPath)).to.be.false;
         });
 
         //patchIndexFile test
