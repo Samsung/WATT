@@ -1,0 +1,10 @@
+version: 1
+task_definition:
+  services:
+    mongo_container:
+      cpu_shares: 100
+      mem_limit: 2147483648
+
+    watt_container:
+      cpu_shares: 100
+      mem_limit: 4294967296

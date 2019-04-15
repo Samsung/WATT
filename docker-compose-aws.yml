@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mongo_container:
+    image: 894081267860.dkr.ecr.us-east-2.amazonaws.com/mongo_docker_repository
+    restart: always
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: us-east-2
+        awslogs-group: watt-awslogs-group
+        awslogs-stream-prefix: mongo
+
+  watt_container:
+    image: 894081267860.dkr.ecr.us-east-2.amazonaws.com/watt_docker_repository
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: us-east-2
+        awslogs-group: watt-awslogs-group
+        awslogs-stream-prefix: watt
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo_container
+    links:
+      - mongo_container
+    environment:
+      NODE_ENV: docker
