@@ -1,0 +1,1395 @@
+  <!DOCTYPE html><html lang="ko" data-cast-api-enabled="true"><head><style name="www-roboto" >@font-face{font-family:'Roboto';font-style:italic;font-weight:400;src:local('Roboto Italic'),local('Roboto-Italic'),url(//fonts.gstatic.com/s/roboto/v18/KFOkCnqEu92Fr1Mu51xIIzc.ttf)format('truetype');}@font-face{font-family:'Roboto';font-style:italic;font-weight:500;src:local('Roboto Medium Italic'),local('Roboto-MediumItalic'),url(//fonts.gstatic.com/s/roboto/v18/KFOjCnqEu92Fr1Mu51S7ACc6CsE.ttf)format('truetype');}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto Regular'),local('Roboto-Regular'),url(//fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf)format('truetype');}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local('Roboto-Medium'),url(//fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf)format('truetype');}</style><script name="www-roboto" >if (document.fonts && document.fonts.load) {document.fonts.load("400 10pt Roboto", "한");document.fonts.load("500 10pt Roboto", "한");}</script><script >var ytcsi = {gt: function(n) {n = (n || '') + 'data_';return ytcsi[n] || (ytcsi[n] = {tick: {},info: {}});},now: window.performance && window.performance.timing &&window.performance.now ? function() {return window.performance.timing.navigationStart + window.performance.now();} : function() {return (new Date()).getTime();},tick: function(l, t, n) {ticks = ytcsi.gt(n).tick;var v = t || ytcsi.now();if (ticks[l]) {ticks['_' + l] = (ticks['_' + l] || [ticks[l]]);ticks['_' + l].push(v);}ticks[l] = v;},info: function(k, v, n) {ytcsi.gt(n).info[k] = v;},setStart: function(s, t, n) {ytcsi.info('yt_sts', s, n);ytcsi.tick('_start', t, n);}};(function(w, d) {ytcsi.setStart('dhs', w.performance ? w.performance.timing.responseStart : null);var isPrerender = (d.visibilityState || d.webkitVisibilityState) == 'prerender';var vName = (!d.visibilityState && d.webkitVisibilityState)? 'webkitvisibilitychange' : 'visibilitychange';if (isPrerender) {ytcsi.info('prerender', 1);var startTick = function() {ytcsi.setStart('dhs');d.removeEventListener(vName, startTick);};d.addEventListener(vName, startTick, false);}if (d.addEventListener) {d.addEventListener(vName, function() {ytcsi.tick('vc');}, false);}var slt = function(el, t) {setTimeout(function() {var n = ytcsi.now();el.loadTime = n;if (el.slt) {el.slt();}}, t);};w.__ytRIL = function(el) {if (!el.getAttribute('data-thumb')) {if (w.requestAnimationFrame) {w.requestAnimationFrame(function() {slt(el, 0);});} else {slt(el, 16);}}};})(window, document);</script><script >var ytcfg = {d: function() {return (window.yt && yt.config_) || ytcfg.data_ || (ytcfg.data_ = {});},get: function(k, o) {return (k in ytcfg.d()) ? ytcfg.d()[k] : o;},set: function() {var a = arguments;if (a.length > 1) {ytcfg.d()[a[0]] = a[1];} else {for (var k in a[0]) {ytcfg.d()[k] = a[0][k];}}}};</script>  <script>ytcfg.set("ROOT_VE_TYPE", 4724);ytcfg.set("EVENT_ID", "44yDW-bbG9G5gQOuypGYBA");</script>
+  
+  
+
+
+
+
+  <script>
+        (function(){var b={a:"content-snap-width-1",b:"content-snap-width-2",c:"content-snap-width-3"};function f(){var a=[],c;for(c in b)a.push(b[c]);return a}
+function h(a){var c=f().concat(["guide-pinned","show-guide"]),e=c.length,g=[];a.replace(/\S+/g,function(a){for(var d=0;d<e;d++)if(a==c[d])return;g.push(a)});
+return g}
+;function k(a,c,e){var g=document.getElementsByTagName("html")[0],d=h(g.className);a&&1251<=(window.innerWidth||document.documentElement.clientWidth)&&(d.push("guide-pinned"),c&&d.push("show-guide"));e&&(e=(window.innerWidth||document.documentElement.clientWidth)-21-50,1251<=(window.innerWidth||document.documentElement.clientWidth)&&a&&c&&(e-=230),d.push(1262<=e?"content-snap-width-3":1056<=e?"content-snap-width-2":"content-snap-width-1"));g.className=d.join(" ")}
+var l=["yt","www","masthead","sizing","runBeforeBodyIsReady"],m=this;l[0]in m||"undefined"==typeof m.execScript||m.execScript("var "+l[0]);for(var n;l.length&&(n=l.shift());)l.length||void 0===k?m[n]&&m[n]!==Object.prototype[n]?m=m[n]:m=m[n]={}:m[n]=k;}).call(this);
+
+      try {window.ytbuffer = {};ytbuffer.handleClick = function(e) {var element = e.target || e.srcElement;while (element.parentElement) {if (/(^| )yt-can-buffer( |$)/.test(element.className)) {window.ytbuffer = {bufferedClick: e};element.className += ' yt-is-buffered';break;}element = element.parentElement;}};if (document.addEventListener) {document.addEventListener('click', ytbuffer.handleClick);} else {document.attachEvent('onclick', ytbuffer.handleClick);}} catch(e) {}
+
+    yt.www.masthead.sizing.runBeforeBodyIsReady(true,true,false);
+  </script>
+
+      <script src="/yts/jsbin/scheduler-vfleaCFId/scheduler.js" type="text/javascript" name="scheduler/scheduler" ></script>
+
+
+  
+  <link rel="stylesheet" href="/yts/cssbin/www-core-vfly_6Bdv.css" name="www-core">
+      <link rel="stylesheet" href="/yts/cssbin/player-vflxzMXPC/www-player.css" name="player/www-player">
+
+  <link rel="stylesheet" href="/yts/cssbin/www-pageframe-vfl2QekqP.css" name="www-pageframe">
+  <link rel="stylesheet" href="/yts/cssbin/www-guide-vflNDDMf7.css" name="www-guide">
+
+    
+<title>dog - YouTube</title><link rel="alternate" media="handheld" href="https://m.youtube.com/results?search_query=dog"><link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.youtube.com/results?search_query=dog"><meta name="description" content="YouTube에서 마음에 드는 동영상과 음악을 감상하고, 직접 만든 콘텐츠를 업로드하여 친구, 가족뿐 아니라 전 세계 사람들과 콘텐츠를 공유할 수 있습니다."><meta name="keywords" content="동영상, 공유, 카메라폰, 동영상폰, 무료, 올리기"><link rel="manifest" href="/manifest.json"><link rel="search" type="application/opensearchdescription+xml" href="https://www.youtube.com/opensearch?locale=ko_KR" title="YouTube 동영상 검색"><link rel="shortcut icon" href="https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico" type="image/x-icon">     <link rel="icon" href="/yts/img/favicon_32-vflOogEID.png" sizes="32x32"><link rel="icon" href="/yts/img/favicon_48-vflVjB_Qk.png" sizes="48x48"><link rel="icon" href="/yts/img/favicon_96-vflW9Ec0w.png" sizes="96x96"><link rel="icon" href="/yts/img/favicon_144-vfliLAfaB.png" sizes="144x144"><meta name="theme-color" content="#ff0000">    <link rel="stylesheet" href="/yts/cssbin/www-results-vflTZsxb-.css" name="www-results">
+
+    <link rel="stylesheet" href="/yts/cssbin/www-home-c4-vflopQeuE.css" name="www-home-c4">
+
+<style>.exp-invert-logo .hats-logo {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_mini_gray-vflfanGkh.png);width: 65px;height: 15px;}.exp-invert-logo #header:before,.exp-invert-logo .ypc-join-family-header .logo,.exp-invert-logo #footer-logo .footer-logo-icon,.exp-invert-logo #yt-masthead #logo-container .logo,.exp-invert-logo #masthead #logo-container,.exp-invert-logo .admin-masthead-logo a,.exp-invert-logo #yt-sidebar-styleguide-logo #logo {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_small-vflHpzGZm.png);width: 100px;height: 30px;}.exp-invert-logo.inverted-hdpi #header:before,.exp-invert-logo.inverted-hdpi .ypc-join-family-header .logo,.exp-invert-logo.inverted-hdpi #footer-logo .footer-logo-icon,.exp-invert-logo.inverted-hdpi #yt-masthead #logo-container .logo,.exp-invert-logo.inverted-hdpi #masthead #logo-container,.exp-invert-logo.inverted-hdpi .admin-masthead-logo a,.exp-invert-logo.inverted-hdpi #yt-sidebar-styleguide-logo #logo {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_small_2x-vfl4_cFqn.png);background-size: 100px 30px;width: 100px;height: 30px;}.exp-invert-logo.exp-fusion-nav-redesign .masthead-logo-renderer-logo {background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo-vflLfk4yD.png);width: 40px;height: 28px;}.exp-invert-logo.inverted-hdpi.exp-fusion-nav-redesign .masthead-logo-renderer-logo {background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo_2x-vflXx5Pg3.png);width: 40px;height: 28px;}@media screen and (max-width: 656px) {.exp-invert-logo #yt-masthead #logo-container .logo {background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo-vflLfk4yD.png);width: 40px;height: 28px;}.exp-invert-logo.inverted-hdpi #yt-masthead #logo-container .logo {background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo_2x-vflXx5Pg3.png);background-size: 40px 28px;width: 40px;height: 28px;}}@media only screen and (min-width: 0px) and (max-width: 498px),only screen and (min-width: 499px) and (max-width: 704px) {.exp-invert-logo.exp-responsive #yt-masthead #logo-container {background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo-vflLfk4yD.png);width: 40px;height: 28px;}.exp-invert-logo.inverted-hdpi.exp-responsive #yt-masthead #logo-container {background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo_2x-vflXx5Pg3.png);background-size: 40px 28px;width: 40px;height: 28px;}}.exp-invert-logo #yt-masthead #logo-container .logo-red {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_youtube_red-vflZxcSR1.png);width: 132px;height: 30px;}.exp-invert-logo.inverted-hdpi #yt-masthead #logo-container .logo-red {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_youtube_red_2x-vflOSHA_n.png);background-size: 132px 30px;width: 132px;height: 30px;}.exp-invert-logo #yt-masthead #logo-container .logo-premium {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_youtube_premium-vfltrvziB.png);width: 108px;height: 30px;}.exp-invert-logo.inverted-hdpi #yt-masthead #logo-container .logo-premium {background: no-repeat url(/yts/img/ringo/hitchhiker/logo_youtube_premium_2x-vflxcbz_g.png);background-size: 108px 30px;width: 108px;height: 30px;}.exp-invert-logo .guide-item .guide-video-youtube-red-icon {background: no-repeat url(/yts/img/ringo/hitchhiker/video_youtube_red-vflovGTdz.png);width: 20px;height: 20px;}.exp-invert-logo.inverted-hdpi .guide-item .guide-video-youtube-red-icon {background: no-repeat url(/yts/img/ringo/hitchhiker/video_youtube_red_2x-vflqMdgEM.png);background-size: 20px 20px;width: 20px;height: 20px;}.exp-invert-logo .guide-item:hover .guide-video-youtube-red-icon,.exp-invert-logo .guide-item.guide-item-selected .guide-video-youtube-red-icon {background: no-repeat url(/yts/img/ringo/hitchhiker/video_youtube_red_hover-vflgV4Gv0.png);width: 20px;height: 20px;}.exp-invert-logo.inverted-hdpi .guide-item:hover .guide-video-youtube-red-icon,.exp-invert-logo.inverted-hdpi .guide-item.guide-item-selected .guide-video-youtube-red-icon {background: no-repeat url(/yts/img/ringo/hitchhiker/video_youtube_red_hover_2x-vflYjZHvf.png);background-size: 20px 20px;width: 20px;height: 20px;}.exp-invert-logo li.guide-section h3,.exp-invert-logo li.guide-section h3 a {color: #f00;}.exp-invert-logo a.yt-uix-button-epic-nav-item:hover,.exp-invert-logo a.yt-uix-button-epic-nav-item.selected,.exp-invert-logo a.yt-uix-button-epic-nav-item.yt-uix-button-toggled,.exp-invert-logo a.yt-uix-button-epic-nav-item.partially-selected,.exp-invert-logo a.yt-uix-button-epic-nav-item.partially-selected:hover,.exp-invert-logo button.yt-uix-button-epic-nav-item:hover,.exp-invert-logo button.yt-uix-button-epic-nav-item.selected,.exp-invert-logo button.yt-uix-button-epic-nav-item.yt-uix-button-toggled,.exp-invert-logo .epic-nav-item:hover,.exp-invert-logo .epic-nav-item.selected,.exp-invert-logo .epic-nav-item.yt-uix-button-toggled,.exp-invert-logo .epic-nav-item-heading,.exp-invert-logo .yt-gb-shelf-item-thumbtab.yt-gb-selected-shelf-tab::before {border-color: #f00;}.exp-invert-logo .resume-playback-progress-bar,.exp-invert-logo .yt-uix-button-subscribe-branded,.exp-invert-logo .yt-uix-button-subscribe-branded[disabled],.exp-invert-logo .yt-uix-button-subscribe-branded[disabled]:hover,.exp-invert-logo .yt-uix-button-subscribe-branded[disabled]:active,.exp-invert-logo .yt-uix-button-subscribe-branded[disabled]:focus,.exp-invert-logo .sb-notif-on .yt-uix-button-content,.exp-invert-logo .guide-item.guide-item-selected,.exp-invert-logo .guide-item.guide-item-selected:hover,.exp-invert-logo .guide-item.guide-item-selected .yt-deemphasized-text,.exp-invert-logo .guide-item.guide-item-selected:hover .yt-deemphasized-text {background-color: #f00;}.exp-invert-logo .yt-uix-button-subscribe-branded:hover {background-color: #d90a17;}.exp-invert-logo .yt-uix-button-subscribe-branded.yt-is-buffered,.exp-invert-logo .yt-uix-button-subscribe-branded:active,.exp-invert-logo .yt-uix-button-subscribe-branded.yt-uix-button-toggled,.exp-invert-logo .yt-uix-button-subscribe-branded.yt-uix-button-active,.exp-invert-logo .yt-uix-button-subscribed-branded.external,.exp-invert-logo .yt-uix-button-subscribed-branded.external[disabled],.exp-invert-logo .yt-uix-button-subscribed-branded.external:active,.exp-invert-logo .yt-uix-button-subscribed-branded.external.yt-uix-button-toggled,.exp-invert-logo .yt-uix-button-subscribed-branded.external.yt-uix-button-active {background-color: #a60812;}</style><style>.exp-invert-logo #header:before, .exp-invert-logo .ypc-join-family-header .logo, .exp-invert-logo #footer-logo .footer-logo-icon, .exp-invert-logo #yt-masthead #logo-container .logo, .exp-invert-logo #masthead #logo-container, .exp-invert-logo .admin-masthead-logo a, .exp-invert-logo #yt-sidebar-styleguide-logo #logo { background: no-repeat url(/yts/img/ringo/hitchhiker/logo_small_2x-vfl4_cFqn.png); background-size: 100px 30px; } .exp-invert-logo #yt-masthead #logo-container .logo-red { background: no-repeat url(/yts/img/ringo/hitchhiker/logo_youtube_red_2x-vflOSHA_n.png); background-size: 132px 30px; } @media only screen and (min-width: 0px) and (max-width: 498px), only screen and (min-width: 499px) and (max-width: 704px) { .exp-invert-logo.exp-responsive #yt-masthead #logo-container { background: no-repeat url(/yts/img/ringo/hitchhiker/yt_play_logo_2x-vflXx5Pg3.png); background-size: 40px 28px; } } .guide-sort-container {display: none}</style></head>
+    <body dir="ltr" id="body" class="  visibility-logging-enabled  ltr    exp-invert-logo exp-kevlar-settings exp-mouseover-img exp-responsive exp-search-big-thumbs   site-center-aligned site-as-giant-card guide-pinning-enabled appbar-hidden   not-nirvana-dogfood    delayed-frame-styles-not-in  " data-spf-name="other">
+
+  <div id="early-body"></div>
+  <div id="body-container"><div id="a11y-announcements-container" role="alert"><div id="a11y-announcements-message"></div></div><form name="logoutForm" method="POST" action="/logout"><input type="hidden" name="action_logout" value="1"></form><div id="masthead-positioner">  <div id="ticker-content">
+        
+
+  </div>
+  <div id="yt-masthead-container" class="clearfix yt-base-gutter">  <button id="a11y-skip-nav" class="skip-nav" data-target-id="main" tabindex="3">
+탐색 건너뛰기
+  </button>
+<div id="yt-masthead"><div class="yt-masthead-logo-container ">  <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-text yt-uix-button-empty yt-uix-button-has-icon appbar-guide-toggle appbar-guide-clickable-ancestor" type="button" onclick=";return false;" aria-controls="appbar-guide-menu" aria-label="가이드" id="appbar-guide-button"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-appbar-guide yt-sprite"></span></span></button>
+  <div id="appbar-main-guide-notification-container"></div>
+<span id="yt-masthead-logo-fragment"><a href="/" class="masthead-logo-renderer yt-uix-sessionlink      spf-link " data-sessionlink="itct=CAUQsV4iEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ"  id="logo-container" title="YouTube 홈">  <span title="YouTube 홈" class="logo masthead-logo-renderer-logo yt-sprite"></span>
+<span class="content-region">KR</span></a></span></div><div id="yt-masthead-signin">    <a  href="//www.youtube.com/upload" class="yt-uix-button   yt-uix-sessionlink yt-uix-button-opacity yt-uix-button-size-default yt-uix-button-has-icon yt-uix-tooltip yt-uix-button-empty" data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=mhsb" id="upload-btn" title="업로드"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-material-upload yt-sprite"></span></span></a>
+<div class="signin-container "><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-primary" type="button" onclick=";window.location.href=this.getAttribute(&#39;href&#39;);return false;" role="link" href="https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26next%3D%252Fresults%253Fsearch_query%253Ddog%26app%3Ddesktop%26feature%3Dsign_in_button%26hl%3Dko&amp;passive=true&amp;uilel=3&amp;service=youtube&amp;hl=ko"><span class="yt-uix-button-content">로그인</span></button>  <iframe id="signin-passive" src="https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26next%3D%252Fsignin_passive%26app%3Ddesktop%26feature%3Dpassive%26hl%3Dko&amp;passive=true&amp;uilel=3&amp;service=youtube&amp;hl=ko"></iframe>
+</div></div><div id="yt-masthead-content"><form id="masthead-search" class="  search-form consolidated-form  vve-check" action="/results" onsubmit="if (document.getElementById(&#39;masthead-search-term&#39;).value == &#39;&#39;) return false;" data-clicktracking="CAIQ7VAiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAIQ7VAiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default search-btn-component search-button" type="submit" onclick="if (document.getElementById(&#39;masthead-search-term&#39;).value == &#39;&#39;) return false; document.getElementById(&#39;masthead-search&#39;).submit(); return false;;return true;" tabindex="2" id="search-btn" dir="ltr"><span class="yt-uix-button-content">검색</span></button><div id="masthead-search-terms" class="masthead-search-terms-border" dir="ltr"><input id="masthead-search-term" autocomplete="off"  onkeydown="if (!this.value &amp;&amp; (event.keyCode == 40 || event.keyCode == 32 || event.keyCode == 34)) {this.onkeydown = null; this.blur();}" class="search-term masthead-search-renderer-input yt-uix-form-input-bidi" name="search_query" value="dog" type="text" tabindex="1" placeholder="검색" title="검색" aria-label="검색"></div></form></div></div></div>
+    <div id="masthead-appbar-container" class="clearfix"><div id="masthead-appbar"><div id="appbar-content" class=""></div></div></div>
+
+</div><div id="masthead-positioner-height-offset"></div><div id="page-container"><div id="page" class="  search  branded-page-v2-secondary-column-wide  no-flex clearfix"><div id="guide" class="yt-scrollbar">      <div id="appbar-guide-menu" class="appbar-menu appbar-guide-menu-layout appbar-guide-clickable-ancestor yt-uix-scroller yt-uix-tdl" role="navigation">
+    <div id="guide-container">
+        <div class="guide-module-content yt-scrollbar">
+    <ul class="guide-toplevel">
+            <li class="guide-section vve-check"
+    data-visibility-tracking="">
+    <div class="guide-item-container personal-item">
+      
+      <ul class="guide-user-links yt-uix-tdl yt-box" role="menu">
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="what_to_watch-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/"
+    title="홈"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-system&amp;ved=CGIQtSwYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEREg9GRXdoYXRfdG9fd2F0Y2g%3D" data-external-id="what_to_watch" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-what-to-watch-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            홈
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="trending-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/feed/trending"
+    title="인기"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-trending&amp;ved=CGMQtSwYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEMEgpGRXRyZW5kaW5n" data-external-id="trending" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-trending-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            인기
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="history-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/feed/history"
+    title="최근 본 동영상"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-personal&amp;ved=CGQQtSwYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQELEglGRWhpc3Rvcnk%3D" data-external-id="history" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-history-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            최근 본 동영상
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="unlimited-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/premium"
+    title="YouTube Premium 가입"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;ved=CGUQmbcBGAMiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-serialized-endpoint="0qDduQENEgtTUHVubGltaXRlZA%3D%3D" data-external-id="unlimited" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-video-youtube-red-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            YouTube Premium 가입
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+      </ul>
+    </div>
+      <hr class="guide-section-separator">
+  </li>
+
+            <li class="guide-section vve-check"
+    data-visibility-tracking="">
+    <div class="guide-item-container personal-item">
+          <h3>
+      인기 YouTube
+    </h3>
+
+      <ul class="guide-user-links yt-uix-tdl yt-box" role="menu">
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UC-9-kyTW8ZkZNDHQJ6FgpwQ-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"
+    title="음악"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CGcQtSwYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQy05LWt5VFc4WmtaTkRIUUo2Rmdwd1E%3D" data-external-id="UC-9-kyTW8ZkZNDHQJ6FgpwQ" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/OgVV66t5vou1LkAbPh7yHbJA73Z2kKHs6-mFaeVFjnlU-pWESAPXFi-5pMASF7Mp1YLfoMdeI38v68U=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            음악
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UCEgdi0XIXXZ-qJOFPf4JSKw-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UCEgdi0XIXXZ-qJOFPf4JSKw"
+    title="스포츠"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CGgQtSwYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQ0VnZGkwWElYWFotcUpPRlBmNEpTS3c%3D" data-external-id="UCEgdi0XIXXZ-qJOFPf4JSKw" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/DfD01WuYfXhQY2aD_ivWhlTwKX1hIijx8lpghhPc3W_bKxqxYA1lAza8xrLqoLST8Niz_9-0ReSXdl9WRg=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            스포츠
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UCOpNcN46UbXVtpKMrmU4Abg-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UCOpNcN46UbXVtpKMrmU4Abg"
+    title="게임"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CGkQtSwYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQ09wTmNONDZVYlhWdHBLTXJtVTRBYmc%3D" data-external-id="UCOpNcN46UbXVtpKMrmU4Abg" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/9jcfdgLv9nQmmN0kKPmZ6qY8GwVANS8CDHdE6-r8q38s889suLyyuuObsRd2fQmzKOE73dbpXhsZy2CJpA=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            게임
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UClgRkhTL3_hImCAmdLfDE4g-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UClgRkhTL3_hImCAmdLfDE4g"
+    title="영화"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CGoQtSwYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQ2xnUmtoVEwzX2hJbUNBbWRMZkRFNGc%3D" data-external-id="UClgRkhTL3_hImCAmdLfDE4g" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/ClSG0jA-IrVWgiVS-M39K-lWxq7rOW7s_FVYYUaP1MkmLsdWlUudDV-287hLi2jeL_bNsJ3ZIxZPlxvfmg=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            영화
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UCPtNLUGRiiwt5GeAZOnSuWw-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UCPtNLUGRiiwt5GeAZOnSuWw"
+    title="TV 프로그램"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CGsQtSwYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQ1B0TkxVR1JpaXd0NUdlQVpPblN1V3c%3D" data-external-id="UCPtNLUGRiiwt5GeAZOnSuWw" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="https://yt3.ggpht.com/a-/ACSszfFR3QNogaX58FXBDtbNtC4kSYeZqWZ4lUTBwQ=s88-mo-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            TV 프로그램
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UCYfdidRxbB8Qhf0Nx7ioOYw-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UCYfdidRxbB8Qhf0Nx7ioOYw"
+    title="뉴스"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CGwQtSwYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQ1lmZGlkUnhiQjhRaGYwTng3aW9PWXc%3D" data-external-id="UCYfdidRxbB8Qhf0Nx7ioOYw" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/CTzucynXau0hYZBpNjx_vC2ehVNfbFvNXhMm1B75gSEgMzqMCfbKgyjKCOHfFzyzW-Nl_UJwWfqkN42k5w=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            뉴스
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UC4R8DWoMoI7CAwX8_LjQHig-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UC4R8DWoMoI7CAwX8_LjQHig"
+    title="실시간"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CG0QtSwYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQzRSOERXb01vSTdDQXdYOF9MalFIaWc%3D" data-external-id="UC4R8DWoMoI7CAwX8_LjQHig" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/BQSIiLDxZiZpzR4C6pK-NKkKOv3fsPsWuKVJxpmYCnEASI8W5pglXP1vF30D98doHzsP_JwPLycrfd-FFnw=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            실시간
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="UCzuqhhs6NWbgTzMuM09WKDQ-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/channel/UCzuqhhs6NWbgTzMuM09WKDQ"
+    title="360° 동영상"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel&amp;ved=CG4QtSwYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEaEhhVQ3p1cWhoczZOV2JnVHpNdU0wOVdLRFE%3D" data-external-id="UCzuqhhs6NWbgTzMuM09WKDQ" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-thumb="//yt3.ggpht.com/V_Q8JDodGZk8mtZ1TmZSbm00Aj_4cAdMOyGU2T3D13GCgg-LbsH-7GTZKvbCdo1ZMUOgu-IJ-AFP5GgR=s88-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="/yts/img/pixel-vfl3z5WfW.gif" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            360° 동영상
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+      </ul>
+    </div>
+      <hr class="guide-section-separator">
+  </li>
+
+            <li class="guide-section vve-check"
+    data-visibility-tracking="">
+    <div class="guide-item-container personal-item">
+      
+      <ul class="guide-user-links yt-uix-tdl yt-box" role="menu">
+            
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item " id="guide_builder-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-link    "
+    href="/feed/guide_builder"
+    title="채널 탐색"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-manage&amp;ved=CHAQtSwYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" data-serialized-endpoint="0qDduQEREg9GRWd1aWRlX2J1aWxkZXI%3D" data-external-id="guide_builder" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-builder-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            채널 탐색
+          </span>
+        </span>
+    </span>
+  </a>
+
+  </li>
+
+      </ul>
+    </div>
+      <hr class="guide-section-separator">
+  </li>
+
+            <li class="guide-section guide-header signup-promo">
+    <p>
+      지금 로그인하여 채널과 추천 동영상을 확인하세요!
+    </p>
+    <div id="guide-builder-promo-buttons" class="signed-out clearfix">
+      <a  href="https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26next%3D%252Fresults%253Fsearch_query%253Ddog%26app%3Ddesktop%26feature%3Dsign_in_promo%26hl%3Dko&amp;passive=true&amp;uilel=3&amp;service=youtube&amp;hl=ko" class="yt-uix-button   yt-uix-sessionlink yt-uix-button-primary yt-uix-button-size-default" data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA"><span class="yt-uix-button-content">로그인</span></a>
+    </div>
+  </li>
+
+    </ul>
+  </div>
+
+    </div>
+  </div>
+  <div id="appbar-guide-notifications" class="hid">
+        <div id="appbar-guide-notification-watch-later-video-added">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >나중에 볼 동영상에 추가됨</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-watch-later-video-removed">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >나중에 볼 동영상에서 삭제되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-subscription">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >구독이 추가되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-unsubscription">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >구독정보가 삭제되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-playlist-like">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >재생목록에 저장되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-playlist-unlike">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >재생목록에서 삭제되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-playlist-video-added">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >재생목록에 추가됨</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-playlist-video-removed">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >재생목록에서 삭제됨</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-video-like">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >관심 동영상에 추가되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-video-unlike">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >관심 동영상에서 삭제됨</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-event-reminder-set">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >이 이벤트에 대한 알림이 설정되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+    <div id="appbar-guide-notification-event-reminder-removed">
+    <!--
+    <div class="appbar-guide-notification " role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" >이벤트 알림이 삭제되었습니다.</span></span></div>
+    -->
+  </div>
+
+
+  </div>
+  <div id="appbar-guide-item-templates" class="hid">
+        <div id="appbar-guide-item-template-playlist">
+      <!--
+        
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item show-insertion-notification " id="__ID__-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-nolink    "
+    href="__URL__"
+    title="__TITLE__"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-playlists" data-serialized-endpoint="" data-external-id="__ID__" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-playlists-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            __TITLE__
+          </span>
+        </span>
+    </span>
+  </a>
+
+      <div class="appbar-guide-notification guide-item-insertion-notification" role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" aria-label="재생목록에 저장되었습니다.">__NOTIFICATION_OVERLAY_MESSAGE__</span></span></div>
+  </li>
+
+      -->
+    </div>
+    <div id="appbar-guide-item-template-mix">
+      <!--
+        
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item show-insertion-notification " id="__ID__-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-nolink    "
+    href="__URL__"
+    title="__TITLE__"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-playlists" data-serialized-endpoint="" data-external-id="__ID__" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb guide-mix-icon yt-sprite"></span>
+        <span class="display-name  no-count">
+          <span>
+            __TITLE__
+          </span>
+        </span>
+    </span>
+  </a>
+
+      <div class="appbar-guide-notification guide-item-insertion-notification" role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" aria-label="재생목록에 저장되었습니다.">__NOTIFICATION_OVERLAY_MESSAGE__</span></span></div>
+  </li>
+
+      -->
+    </div>
+    <div id="appbar-guide-item-template-channel">
+      <!--
+        
+  <li class="vve-check guide-channel guide-notification-item overflowable-list-item show-insertion-notification " id="__ID__-guide-item" 
+ data-visibility-tracking="" role="menuitem">
+      
+  <a class="guide-item yt-uix-sessionlink yt-valign spf-nolink    "
+    href="__URL__"
+    title="__TITLE__"
+    data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;feature=g-channel" data-serialized-endpoint="" data-external-id="__ID__" data-visibility-tracking=""
+  >
+    <span class="yt-valign-container">
+        <span class="thumb">  <span class="video-thumb  yt-thumb yt-thumb-20"
+    >
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img aria-hidden="true" alt="" data-ytimg="1" width="20" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="20" src="__THUMBNAIL_URL__" >
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+</span>
+        <span class="display-name  no-count">
+          <span>
+            __TITLE__
+          </span>
+        </span>
+    </span>
+  </a>
+
+      <div class="appbar-guide-notification guide-item-insertion-notification" role="alert"><span class="appbar-guide-notification-content-wrapper yt-valign"><span class="appbar-guide-notification-icon yt-sprite"></span><span class="appbar-guide-notification-text-content" aria-label="구독이 추가되었습니다.">__NOTIFICATION_OVERLAY_MESSAGE__</span></span></div>
+  </li>
+
+      -->
+    </div>
+
+  </div>
+
+</div><div class="alerts-wrapper"><div id="alerts" class="content-alignment">    <div class="yt-alert yt-alert-default yt-alert-info  " id="yt-lang-alert-container">  <div class="yt-alert-icon">
+    <span class="icon master-sprite yt-sprite"></span>
+  </div>
+<div class="yt-alert-content" role="alert">    <div class="yt-alert-message" tabindex="0">
+            언어를 선택하세요.
+
+    </div>
+</div><div class="yt-alert-buttons"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-close close yt-uix-close" type="button" onclick=";return false;" aria-label="닫기" data-close-parent-class="yt-alert"><span class="yt-uix-button-content">닫기</span></button></div><div class="yt-alert-panel ">  <div id="yt-lang-alert-content" class="clearfix">
+    <div id="default-language-message">
+      <div class="yt-lang-alert-controls">
+        <a href="//support.google.com/youtube/answer/1738660?hl=ko">자세히 알아보기</a><br>
+          <a href="javascript:void(0)" onclick="yt.style.toggle('default-language-message', 'default-language-message-english'); return false;">View this message in English</a>
+      </div>
+<strong>한국어</strong>로 YouTube를 사용하고 있습니다.
+<a href="javascript:void(0)" onclick="yt.www.picker.displayLang();">아래에서 환경설정을 변경</a>할 수 있습니다.
+    </div>
+    <div id="default-language-message-english" class="hid">
+      <div class="yt-lang-alert-controls">
+        <a href="//support.google.com/youtube/answer/1738660?hl=en">Learn more</a><br>
+      </div>
+      You're viewing YouTube in <strong>Korean</strong>.
+        You can <a href="javascript:void(0)" onclick="yt.www.picker.displayLang();">change this preference below</a>.
+    </div>
+  </div>
+</div></div>
+
+</div></div><div id="header">  
+</div><div id="player" class="  off-screen  " role="complementary"><div id="theater-background" class="player-height"></div>  <div id="player-mole-container">
+    <div id="player-unavailable" class="  hid  ">
+      
+    </div>
+
+    <div id="player-api" class="player-width player-height off-screen-target player-api" tabIndex="-1"></div>
+        <script >if (window.ytcsi) {window.ytcsi.tick("cfg", null, '');}</script>
+    <script >var ytplayer = ytplayer || {};ytplayer.config = {"sts":17765,"html5":true,"assets":{"js":"\/yts\/jsbin\/player-vflvPJ1R-\/ko_KR\/base.js","css":"\/yts\/cssbin\/player-vflxzMXPC\/www-player.css"},"args":{"fflags":"html5_reason_reporting_migration=true\u0026midroll_notify_time_seconds=5\u0026html5_live_disable_dg_pacing=true\u0026html5_dynamic_readahead_growth_rate=0.0\u0026desktop_image_companion_wta_support=true\u0026html5_probe_secondary_during_timeout_miss_count=2\u0026legacy_autoplay_flag=true\u0026use_refreshed_overlay_buttons=true\u0026mweb_muted_autoplay_animation=shrink\u0026html5_subsegment_readahead_require_whitelist=true\u0026html5_waiting_before_ended=true\u0026flex_theater_mode=true\u0026html5_fallbacks_delay_primary_probes=true\u0026html5_streaming_xhr_progress_includes_latest=true\u0026allow_live_autoplay=true\u0026mweb_muted_autoplay=true\u0026lasr_captions_holdback_counterfactual_id=0\u0026max_resolution_for_white_noise=360\u0026html5_exile_broken_instances=true\u0026html5_tight_max_buffer_allowed_bandwidth_stddevs=0.0\u0026bulleit_mimic_ima_player_api_calls=true\u0026use_new_style=true\u0026html5_manifestless_captions=true\u0026html5_hls_min_video_height=0\u0026dynamic_ad_break_pause_threshold_sec=0\u0026safari_enable_spherical=true\u0026forced_brand_precap_duration_ms=2000\u0026html5_min_upgrade_health=0\u0026html5_manifestless_request_prediction=true\u0026disable_client_side_midroll_freq_capping=true\u0026html5_max_buffer_duration=120\u0026web_player_music_visualizer_treatment=fake\u0026html5_remove_pause=false\u0026use_fast_fade_in_0s=true\u0026html5_stale_dash_manifest_retry_factor=1.0\u0026show_thumbnail_on_standard=true\u0026lightweight_watch_video_swf=true\u0026variable_load_timeout_ms=0\u0026html5_serverside_call_server_on_biscotti_error=true\u0026html5_get_video_info_timeout_ms=30000\u0026enable_overlays_wta=true\u0026html5_creativeless_vast_on_ima=true\u0026king_crimson_player_redux=true\u0026html5_pipeline_ultra_low_latency=true\u0026desktop_videowall_companion_wta_support=true\u0026html5_live_pin_to_tail=true\u0026mweb_enable_instream_ui_refresh=true\u0026html5_subsegment_readahead_target_buffer_health_secs=0.5\u0026html5_request_sizing_multiplier=0.8\u0026html5_manifestless_synchronized=true\u0026use_touch_events_for_bulleit_mweb=true\u0026kevlar_allow_multistep_video_init=true\u0026html5_no_placeholder_rollbacks=true\u0026ad_duration_threshold_for_showing_endcap_seconds=15\u0026call_release_video_in_bulleit=true\u0026hide_preskip=true\u0026process_extensions_in_vast_wrappers_for_survey_ads=true\u0026html5_prefer_server_bwe3=true\u0026html5_hfr_quality_cap=0\u0026desktop_action_companion_wta_support=true\u0026enable_live_premiere_web_player_indicator=true\u0026html5_default_ad_gain=0.5\u0026html5_disable_audio_slicing=true\u0026bulleit_use_cue_video_to_reset_on_stop_ad=true\u0026enable_static_font_size_on_text_only_preview=true\u0026desktop_cleanup_companion_on_instream_begin=true\u0026html5_enable_non_diegetic=true\u0026html5_live_no_streaming_impedance_mismatch=true\u0026website_actions_throttle_percentage=1.0\u0026html5_subsegment_readahead_load_speed_check_interval=0.5\u0026html5_sticky_reduces_discount_by=0.0\u0026bulleit_use_http_get_by_default_for_get_midroll_info=true\u0026html5_progressive_fallback=true\u0026html5_qoe_bearer=true\u0026html5_spherical_bicubic_mode=1\u0026html5_elbow_tracking_tweaks=true\u0026html5_adaptive_readahead_loading_ratio_samples_average_amount=10\u0026unplugged_tvhtml5_video_preload_on_focus_delay_ms=0\u0026live_fresca_v2=true\u0026set_interstitial_start_button=true\u0026html5_streaming_xhr_buffer_mdat=true\u0026html5_default_quality_cap=0\u0026html5_new_seeking=true\u0026dynamic_ad_break_seek_threshold_sec=0\u0026html5_min_secs_between_format_selections=8.0\u0026html5_serverside_call_server_on_biscotti_timeout=true\u0026bulleit_remove_client_side_midroll_reactivation=true\u0026interaction_screen_on_gel_web=true\u0026html5_allowable_liveness_drift_chunks=2\u0026show_thumbnail_behind_ypc_offer_module=true\u0026html5_adaptation_fix=true\u0026use_survey_skip_in_0s=true\u0026html5_disable_preserve_reference=true\u0026html5_enable_embedded_player_visibility_signals=true\u0026html5_spherical_use_fps_perf=true\u0026bulleit_block_player_pause_until_ad_start=true\u0026html5_deadzone_multiplier=1.0\u0026html5_preload_media=true\u0026fast_autonav_in_background=true\u0026html5_ultra_low_latency_streaming_responses=true\u0026html5_delay_initial_loading=true\u0026fix_bulleit_cue_range_seek=true\u0026youtubei_for_web=true\u0026ima_disable_reset_active_media_load_timeout=true\u0026html5_post_interrupt_readahead=20\u0026allow_midrolls_on_watch_resume_in_bulleit=true\u0026html5_background_quality_cap=360\u0026web_player_no_filmstrip=true\u0026provide_default_wta_reasons=true\u0026html5_pipeline_manifestless=true\u0026html5_connect_timeout_secs=7.0\u0026html5_background_cap_idle_secs=60\u0026enable_window_safe_url=true\u0026doubleclick_gpt_retagging=true\u0026mweb_bulleit_show_ad_top_bar_for_phones=true\u0026uniplayer_dbp=true\u0026html5_max_headm_for_streaming_xhr=0\u0026html5_adaptive_readahead_loading_ratio_samples_minimum_amount=50\u0026html5_repredict_interval_secs=0.0\u0026mweb_ios_handle_player_click_by_touch_event=true\u0026android_attestation_flow=yt_player\u0026desktop_shopping_companion_wta_support=true\u0026set_interstitial_advertisers_question_text=true\u0026html5_live_abr_head_miss_fraction=0.0\u0026html5_pause_video_fix=true\u0026show_interstitial_white=true\u0026html5_incremental_parser_buffer_duration_secs=1.5\u0026enable_bulleit_for_mweb=true\u0026mweb_undim_skip_button_on_ad_pause=true\u0026html5_get_video_info_promiseajax=true\u0026mweb_cougar_big_controls=true\u0026html5_jumbo_ull_nonstreaming_mffa_ms=4000\u0026html5_live_normal_latency_bandwidth_window=0.0\u0026html5_playback_data_migration=true\u0026mweb_add_ad_info_button_on_fullscreen_only_devices=true\u0026html5_ad_stats_bearer=true\u0026html5_jumbo_ull_subsegment_readahead_target=1.3\u0026persist_text_on_preview_button=true\u0026playready_first_play_expiration=-1\u0026html5_min_buffer_to_resume=6\u0026add_border_to_bulleit_mweb_skip=true\u0026html5_video_tbd_min_kb=0\u0026dash_manifest_version=5\u0026html5_tight_max_buffer_allowed_impaired_time=0.0\u0026bulleit_register_placements_in_order=true\u0026interaction_click_on_gel_web=true\u0026html5_log_hls_video_height_change_as_format_change=true\u0026html5_request_size_max_secs=31\u0026spacecast_uniplayer_decorate_manifest=true\u0026html5_adaptive_readahead_size_extend_delta=4\u0026bulleit_update_tsla_cookie=true\u0026html5_ignore_public_setPlaybackQuality=true\u0026html5_quality_cap_min_age_secs=0\u0026fix_gpt_pos_params=true\u0026html5_probe_primary_delay_base_ms=0\u0026html5_manifestless_no_redundant_seek_to_head=true\u0026enable_prefetch_for_postrolls=true\u0026enable_survey_ad_info_dialog=true\u0026html5_minimum_readahead_seconds=0.0\u0026bulleit_terminate_ad_when_ending_with_commands=true\u0026html5_max_av_sync_drift=50\u0026html5_aspect_from_adaptive_format=true\u0026html5_adaptive_readahead_loading_ratio_sample_timespan_duration=30000\u0026autoplay_time=8000\u0026enable_afv_div_reset_in_kevlar=true\u0026html5_subsegment_readahead_seek_latency_fudge=0.5\u0026html5_min_readbehind_secs=0\u0026html5_reattach_resource_after_timeout_limit=0\u0026html5_new_vis_fullscreen_and_airplay=true\u0026html5_frame_accurate_seek_limit=3\u0026html5_fludd_suspend=true\u0026use_new_skip_icon=true\u0026player_unified_fullscreen_transitions=true\u0026html5_request_size_padding_secs=3.0\u0026html5_restrict_streaming_xhr_on_sqless_requests=true\u0026html5_min_readbehind_cap_secs=60\u0026html5_manifestless_accurate_sliceinfo=true\u0026send_html5_api_stats_ads_abandon=true\u0026html5_incremental_parser_buffer_extra_bytes=16384\u0026html5_variability_full_discount_thresh=3.0\u0026html5_live_low_latency_bandwidth_window=0.0\u0026html5_vp9_live_whitelist=true\u0026html5_use_adaptive_live_readahead=true\u0026html5_variability_discount=0.5\u0026html5_disable_subscribe_new_vis=true\u0026html5_subsegment_readahead_min_buffer_health_secs_on_timeout=0.1\u0026delay_bulleit_media_load_timer=true\u0026web_player_edge_autohide_killswitch2=true\u0026stop_using_ima_sdk_gpt_request_activity=true\u0026variable_buffer_timeout_ms=0\u0026html5_ad_no_buffer_abort_after_skippable=true\u0026ad_video_end_renderer_duration_milliseconds=7000\u0026web_player_tabindex_killswitch=true\u0026html5_view_offset=0.0\u0026html5_probe_media_capabilities=true\u0026html5_serverside_biscotti_id_wait_ms=1000\u0026mweb_cougar=true\u0026html5_player_autonav_logging=true\u0026mpu_visible_threshold_count=2\u0026html5_msi_error_fallback=true\u0026html5_live_ultra_low_latency_bandwidth_window=0.0\u0026skip_restore_on_abandon_in_bulleit=true\u0026vmap_enabled_living_room=true\u0026enable_bulleit_lidar_integration=true\u0026html5_parse_inline_fallback_host=true\u0026deprecate_vss_dallas_cache=true\u0026mweb_playsinline_webview=true\u0026bulleit_round_up_tsla=true\u0026html5_suspend_loader=true\u0026show_countdown_on_bumper=true\u0026web_player_api_logging_fraction=0.01\u0026html5_cut_vss_on_visibility=true\u0026html5_disable_non_contiguous=true\u0026use_always_dimmed_skip_in_bulleit_web=true\u0026bulleit_get_midroll_info_timeout_ms=8000\u0026html5_vp9_live_blacklist_edge=true\u0026disable_new_pause_state3=true\u0026html5_media_fullscreen=true\u0026html5_seeking_buffering_only_playing=true\u0026html5_subsegment_readahead_timeout_secs=2.0\u0026html5_license_constraint_delay=5000\u0026html5_readahead_ratelimit=3000\u0026bulleit_use_touch_events_for_skip=true\u0026html5_optimality_migration=true\u0026player_external_control_on_classic_desktop=true\u0026desktop_companion_wta_support=true\u0026tvhtml5_min_readbehind_secs=20\u0026html5_ignore_bad_bitrates=true\u0026html5_manifestless_always_redux=true\u0026html5_hls_initial_bitrate=0\u0026html5_adaptive_readahead_size_shorten_delta=2\u0026sdk_wrapper_levels_allowed=0\u0026html5_adjust_effective_request_size=true\u0026html5_qoe_intercept=\u0026bulleit_disable_preroll_release_on_dispose=true\u0026html5_manifestless_shrink_timestamps=true\u0026html5_vis_upgrades_are_resizes=true\u0026html5_streaming_xhr_optimize_lengthless_mp4=true\u0026player_destroy_old_version=true\u0026html5_platform_minimum_readahead_seconds=0.0\u0026low_engagement_player_quality_cap=360\u0026use_full_timing_library=true\u0026enable_dni_autonav=true\u0026segment_volume_reporting=true\u0026html5_maximum_readahead_seconds=0.0\u0026html5_shrink_live_timestamps=true\u0026html5_live_abr_repredict_fraction=0.0\u0026www_for_videostats=true\u0026use_forced_linebreak_preskip_text=true\u0026html5_dont_predict_end_time_in_past=true\u0026html5_manifestless_interpolate=true\u0026html5_subsegment_readahead_min_load_speed=1.5\u0026enable_dni_lozenge_play_button=true\u0026postroll_notify_time_seconds=5\u0026html5_suspend_manifest_on_pause=true\u0026html5_variability_no_discount_thresh=1.0\u0026bulleit_register_cue_range_events_before_ad_init=true\u0026html5_incremental_parser_coalesce_slice_buffers=true\u0026mweb_autonav=true\u0026html5_tv_bearer=true\u0026html5_adaptive_readahead_loading_ratio_adjust_factor=0.9\u0026sdk_ad_prefetch_time_seconds=-1\u0026playready_on_borg=true\u0026html5_bandwidth_window_size=0\u0026html5_request_size_min_secs=0.0\u0026html5_widevine_robustness_strings=true\u0026set_default_wta_if_missing_for_externs=true\u0026enable_dni_channel_on_related=true\u0026html5_expire_preloaded_players=true\u0026html5_live_4k_more_buffer=true\u0026vss_dni_delayping=0\u0026html5_log_rebuffer_events=0\u0026html5_max_readahead_bandwidth_cap=0\u0026html5_jumbo_mobile_subsegment_readahead_target=3.3\u0026html5_probe_live_using_range=true\u0026mweb_playsinline=true\u0026html5_stop_video_in_cancel_playback=true\u0026html5_disable_move_pssh_to_moov=true\u0026html5_start_date_from_element=true\u0026html5_no_shadow_env_data_redux=true\u0026live_chunk_readahead=3\u0026show_interstitial_for_3s=true\u0026html5_subsegment_readahead_min_buffer_health_secs=0.25\u0026html5_use_media_capabilities=true\u0026use_html5_player_event_timeout=true\u0026live_readahead_seconds_multiplier=0.8\u0026fixed_padding_skip_button=true","cver":"1.20180823","cr":"KR","autoplay":"0","hl":"ko_KR","enablejsapi":"1","is_html5_mobile_device":false,"apiary_host":"","external_play_video":"1","host_language":"ko","innertube_api_version":"v1","c":"WEB","ssl":"1","innertube_context_client_version":"1.20180823","innertube_api_key":"AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8","player_error_log_fraction":"1.0","apiary_host_firstparty":"","xhr_apiary_host":"youtubei.youtube.com","gapi_hint_params":"m;\/_\/scs\/abc-static\/_\/js\/k=gapi.gapi.en.yK0z3MKtgaU.O\/m=__features__\/rt=j\/d=1\/rs=AHpOoo-SafOYj4n3budMysbWxppU-lxJeg","fexp":"23700246,23710476,23721699,23721753,23721898,23722180,23723588,23726564,23729689,23733015,23733751,23738491,23740493,23740620,23744176,23745105,23748845,23749835,23751767,23752869,23753284,23753344,23753344,23754444,23754977,23755226,23755671,23755781,23755886,23756106,23758259,23758383,23759694,9449243,9471239,9472185,9477414,9481058,9485000"},"url":"","params":{"allowscriptaccess":"always","allowfullscreen":"true","bgcolor":"#000000"},"attrs":{"id":"movie_player"}};ytplayer.load = function() {yt.player.Application.create("player-api", ytplayer.config);ytplayer.config.loaded = true;};</script>
+
+
+    <div id="watch-queue-mole" class="video-mole mole-collapsed hid"><div id="watch-queue" class="watch-playlist player-height"><div class="main-content"><div class="watch-queue-header"><div class="watch-queue-info"><div class="watch-queue-info-icon"><span class="tv-queue-list-icon yt-sprite"></span></div><h3 class="watch-queue-title">동영상 대기열</h3><h3 class="tv-queue-title">대기열</h3><span class="tv-queue-details"></span></div><div class="watch-queue-control-bar control-bar-button"><div class="watch-queue-mole-info"><div class="watch-queue-control-bar-icon"><span class="watch-queue-icon yt-sprite"></span></div><div class="watch-queue-title-container"><span class="watch-queue-count"></span><span class="watch-queue-title">동영상 대기열</span><span class="tv-queue-title">대기열</span></div></div>  <span class="dark-overflow-action-menu">
+    
+    
+    <button aria-haspopup="true" onclick=";return false;" class="flip control-bar-button yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" type="button" aria-label="대기열에 해당하는 작업" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid" role="menu" aria-haspopup="true"><li role="menuitem"><span onclick=";return false;" data-action="remove-all" class="watch-queue-menu-choice overflow-menu-choice yt-uix-button-menu-item" >전체 삭제</span></li><li role="menuitem"><span onclick=";return false;" data-action="disconnect" class="watch-queue-menu-choice overflow-menu-choice yt-uix-button-menu-item" >연결 해제</span></li></ul></button>
+  </span>
+  <div class="watch-queue-controls">
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button prev-watch-queue-button yt-uix-button-opacity yt-uix-tooltip yt-uix-tooltip" type="button" onclick=";return false;" title="이전 동영상"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-prev yt-sprite"></span></span></button>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button play-watch-queue-button yt-uix-button-opacity yt-uix-tooltip yt-uix-tooltip" type="button" onclick=";return false;" title="재생"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-play yt-sprite"></span></span></button>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button pause-watch-queue-button yt-uix-button-opacity yt-uix-tooltip hid yt-uix-tooltip" type="button" onclick=";return false;" title="일시중지"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-pause yt-sprite"></span></span></button>
+
+    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-empty yt-uix-button-has-icon control-bar-button next-watch-queue-button yt-uix-button-opacity yt-uix-tooltip yt-uix-tooltip" type="button" onclick=";return false;" title="다음 동영상"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-watch-queue-next yt-sprite"></span></span></button>
+  </div>
+</div><div class="autoplay-dismiss-bar fade-out"><span class="autoplay-dismiss-title-label">다음 동영상 시작하는 중</span><span><button class="yt-uix-button yt-uix-button-size-default autoplay-dismiss-button yt-uix-tooltip" type="button" onclick=";return false;" title="중지"><span class="yt-uix-button-content">중지</span></button></span></div></div><div class="watch-queue-items-container yt-scrollbar-dark yt-scrollbar"><div class="yt-uix-scroller playlist-videos-list"><ol class="watch-queue-items-list" data-scroll-action="yt.www.watchqueue.loadThumbnails">  <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+</ol><div class="autoplay-control-container yt-uix-scroller-scroll-unit hid">  <div class="autoplay-control-bar">
+    <label class="autoplay-label" for=autoplay-toggle-id></label>
+    <label class="yt-uix-form-input-checkbox-container yt-uix-form-input-container yt-uix-form-input-paper-toggle-container  "><input class="yt-uix-form-input-checkbox" type="checkbox" id="autoplay-toggle-id"/><div class="yt-uix-form-input-paper-toggle-bg yt-uix-form-input-paper-toggle-bar"></div><div class="yt-uix-form-input-paper-toggle-bg yt-uix-form-input-paper-toggle-button"></div></label>
+  </div>
+</div><div class="up-next-item-container hid"></div></div></div></div>  <div class="hid">
+    <div id="watch-queue-title-msg">
+동영상 대기열
+    </div>
+
+    <div id="tv-queue-title-msg">대기열</div>
+
+    <div id="watch-queue-count-msg">
+전체 __total__개 중 __count__개
+    </div>
+
+    <div id="watch-queue-loading-template">
+      <!--
+          <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+
+      -->
+    </div>
+  </div>
+</div></div>
+
+    <div id="player-playlist" class="  hid  ">
+      
+    </div>
+
+  </div>
+
+  <div class="clear"></div>
+</div><div id="content" class="  content-alignment" role="main">
+
+
+  <div class="branded-page-v2-container branded-page-base-bold-titles branded-page-v2-container-flex-width" >
+
+    <div class="branded-page-v2-col-container">
+      <div class="branded-page-v2-col-container-inner">
+        <div class="branded-page-v2-primary-col">
+          <div class="   yt-card  clearfix">
+                <div class="branded-page-v2-primary-col-header-container branded-page-v2-primary-column-content">
+      
+    </div>
+  <div class="branded-page-v2-body branded-page-v2-primary-column-content" id="">
+        
+        <noscript>
+      <div class="yt-alert yt-alert-default yt-alert-error  ">  <div class="yt-alert-icon">
+    <span class="icon master-sprite yt-sprite"></span>
+  </div>
+<div class="yt-alert-content" role="alert">    <div class="yt-alert-message" tabindex="0">
+            자바스크립트가 사용 중지된 것 같습니다. 검색결과를 제대로 보려면 자바스크립트를 사용하도록 설정하세요.
+    </div>
+</div><div class="yt-alert-buttons"><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-close close yt-uix-close" type="button" onclick=";return false;" aria-label="닫기" data-close-parent-class="yt-alert"><span class="yt-uix-button-content">닫기</span></button></div></div>
+
+  </noscript>
+
+
+  <div id="results">
+    
+
+      
+<ol id="section-list-152488" class="section-list">
+<li class="branded-page-v2-subnav-container branded-page-gutter-padding"><div class="search-header yt-uix-expander yt-uix-expander-collapsed"><div class="filter-top"><div class="filter-bar-container"><div class="filter-button-container"><button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default filter-button yt-uix-expander-head" type="button" onclick=";return false;" aria-label="검색 필터" data-button-action="" data-button-menu-id="some-nonexistent-menu" data-button-toggle="true"><span class="yt-uix-button-content">필터</span><span class="yt-uix-button-arrow yt-sprite"></span></button></div><div class="filter-crumb-spacer"></div></div></div><div id="filter-dropdown" class="yt-uix-expander-body"><div class="filter-col"><h4 class="filter-col-title">업로드 날짜</h4><ul><li><a href="/results?search_query=dog&amp;sp=EgIIAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDAQk3UYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="지난 1시간 검색" aria-label="지난 1시간 검색"><span class="filter-text filter-ghost">지난 1시간</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIIAg%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CC8Qk3UYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="오늘 검색" aria-label="오늘 검색"><span class="filter-text filter-ghost">오늘</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIIAw%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CC4Qk3UYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="이번 주 검색" aria-label="이번 주 검색"><span class="filter-text filter-ghost">이번 주</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIIBA%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CC0Qk3UYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="이번 달 검색" aria-label="이번 달 검색"><span class="filter-text filter-ghost">이번 달</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIIBQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCwQk3UYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="올해 검색" aria-label="올해 검색"><span class="filter-text filter-ghost">올해</span></a></li></ul></div><div class="filter-col"><h4 class="filter-col-title">구분</h4><ul><li><a href="/results?search_query=dog&amp;sp=EgIQAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCoQk3UYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="동영상 검색" aria-label="동영상 검색"><span class="filter-text filter-ghost">동영상</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIQAg%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCkQk3UYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="채널 검색" aria-label="채널 검색"><span class="filter-text filter-ghost">채널</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIQAw%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCgQk3UYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="재생목록 검색" aria-label="재생목록 검색"><span class="filter-text filter-ghost">재생목록</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIQBA%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCcQk3UYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="영화 검색" aria-label="영화 검색"><span class="filter-text filter-ghost">영화</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIQBQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCYQk3UYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="프로그램 검색" aria-label="프로그램 검색"><span class="filter-text filter-ghost">프로그램</span></a></li></ul></div><div class="filter-col"><h4 class="filter-col-title">길이</h4><ul><li><a href="/results?search_query=dog&amp;sp=EgIYAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCQQk3UYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="단편(4분 이하) 검색" aria-label="단편(4분 이하) 검색"><span class="filter-text filter-ghost">단편(4분 이하)</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIYAg%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCMQk3UYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="장편(20분 이상) 검색" aria-label="장편(20분 이상) 검색"><span class="filter-text filter-ghost">장편(20분 이상)</span></a></li></ul></div><div class="filter-col"><h4 class="filter-col-title">기능별</h4><ul><li><a href="/results?search_query=dog&amp;sp=EgJAAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCEQk3UYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="실시간 검색" aria-label="실시간 검색"><span class="filter-text filter-ghost">실시간</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgJwAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CCAQk3UYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="4K 검색" aria-label="4K 검색"><span class="filter-text filter-ghost">4K</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIgAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB8Qk3UYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="HD 검색" aria-label="HD 검색"><span class="filter-text filter-ghost">HD</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIoAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB4Qk3UYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="자막 검색" aria-label="자막 검색"><span class="filter-text filter-ghost">자막</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgIwAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CB0Qk3UYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="크리에이티브 커먼즈 검색" aria-label="크리에이티브 커먼즈 검색"><span class="filter-text filter-ghost">크리에이티브 커먼즈</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgJ4AQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBwQk3UYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="360° 검색" aria-label="360° 검색"><span class="filter-text filter-ghost">360°</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgPQAQE%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBsQk3UYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="VR180 검색" aria-label="VR180 검색"><span class="filter-text filter-ghost">VR180</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgI4AQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBoQk3UYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="3D 검색" aria-label="3D 검색"><span class="filter-text filter-ghost">3D</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgPIAQE%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBkQk3UYCCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="HDR 검색" aria-label="HDR 검색"><span class="filter-text filter-ghost">HDR</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgO4AQE%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBgQk3UYCSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="위치 검색" aria-label="위치 검색"><span class="filter-text filter-ghost">위치</span></a></li><li><a href="/results?search_query=dog&amp;sp=EgJIAQ%253D%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBcQk3UYCiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="구입한 항목 검색" aria-label="구입한 항목 검색"><span class="filter-text filter-ghost">구입한 항목</span></a></li></ul></div><div class="filter-col"><h4 class="filter-col-title">정렬기준</h4><ul><li><span class="filter filter-selected filter-sort"  title="관련순 정렬"><span class="filter-text"  aria-label="관련순 정렬">관련성</span></span></li><li><a href="/results?search_query=dog&amp;sp=CAI%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBQQk3UYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="업로드 날짜순 정렬" aria-label="업로드 날짜순 정렬"><span class="filter-text filter-ghost">업로드 날짜</span></a></li><li><a href="/results?search_query=dog&amp;sp=CAM%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBMQk3UYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="조회수순 정렬" aria-label="조회수순 정렬"><span class="filter-text filter-ghost">조회수</span></a></li><li><a href="/results?search_query=dog&amp;sp=CAE%253D" class="filter yt-uix-sessionlink      spf-link " data-sessionlink="itct=CBIQk3UYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="평점순 정렬" aria-label="평점순 정렬"><span class="filter-text filter-ghost">평점</span></a></li></ul></div></div></div></li>
+<li>
+<ol id="item-section-384283" class="item-section">
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="iPW75ZO4pIA" data-visibility-tracking="CF8Q3DAYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECAyeKd2fzu-ogB"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=iPW75ZO4pIA" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CF8Q3DAYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="https://i.ytimg.com/vi/iPW75ZO4pIA/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLCore4cVRKK0IqRKhPu4e0pcSP3Fg" >
+<span class="video-time" aria-hidden="true">11:22</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="iPW75ZO4pIA"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="iPW75ZO4pIA"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="iPW75ZO4pIA" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="iPW75ZO4pIA"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=iPW75ZO4pIA" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CF8Q3DAYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Adorable Babies Playing With Dogs and Cats - Funny Babies Compilation 2018" rel="spf-prefetch" aria-describedby="description-id-623266" dir="ltr">Adorable Babies Playing With Dogs and Cats - Funny Babies Compilation 2018</a><span class="accessible-description" id="description-id-623266"> - 길이: 11:22</span></h3><div class="yt-lockup-byline "><a href="/channel/UCzVw9odnihM5PgKSv5UnDPA" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CF8Q3DAYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >BabiezTV</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>7개월 전</li><li>조회수 22,552,186회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">In this video compilation you can meet funnie4st and adorable babies which love <b>dogs</b> and cats. This cute babies playing with ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="I4Fo23aJ7ko" data-visibility-tracking="CF4Q3DAYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEDK3Ke0t5vawCM="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=I4Fo23aJ7ko" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CF4Q3DAYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="https://i.ytimg.com/vi/I4Fo23aJ7ko/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLDW4X9IkdtNrzxTNlzuUrIJdfMv0w" >
+<span class="video-time" aria-hidden="true">5:56</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="I4Fo23aJ7ko"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="I4Fo23aJ7ko"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="I4Fo23aJ7ko" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="I4Fo23aJ7ko"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=I4Fo23aJ7ko" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CF4Q3DAYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="New Funny Dogs on Street - Lovely Dogs Meeting at Village - Dogs seize each other - CD Daily" rel="spf-prefetch" aria-describedby="description-id-983763" dir="ltr">New Funny Dogs on Street - Lovely Dogs Meeting at Village - Dogs seize each other - CD Daily</a><span class="accessible-description" id="description-id-983763"> - 길이: 5:56</span></h3><div class="yt-lockup-byline "><a href="/channel/UC2q4Jn5HK1Ph8i7XG1jiI8g" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CF4Q3DAYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >CD Daily</a></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>6개월 전</li><li>조회수 32,799,822회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">New Funny <b>Dogs</b> on Street - <b>Dogs</b> seize each other - CD Daily ------------- Hello Every Body!I am from Cambodia.I would like to ...</div><div class="yt-lockup-badges"><ul class="yt-badge-list "><li class="yt-badge-item"><span class="yt-badge " >자막</span></li></ul> </div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="VAZ5te90vlc" data-visibility-tracking="CF0Q3DAYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEDX_NL73raeg1Q="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=VAZ5te90vlc" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CF0Q3DAYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="https://i.ytimg.com/vi/VAZ5te90vlc/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLAnhiFPowM6TCp5u1nssGF-NWxAsQ" >
+<span class="video-time" aria-hidden="true">5:49</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="VAZ5te90vlc"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="VAZ5te90vlc"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="VAZ5te90vlc" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="VAZ5te90vlc"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=VAZ5te90vlc" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CF0Q3DAYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Funny Dogs Video Compilation 2015" rel="spf-prefetch" aria-describedby="description-id-89761" dir="ltr">Funny Dogs Video Compilation 2015</a><span class="accessible-description" id="description-id-89761"> - 길이: 5:49</span></h3><div class="yt-lockup-byline "><a href="/user/ChannelTVSmash" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CF0Q3DAYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Smash TV</a></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>3년 전</li><li>조회수 45,561,009회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">Awesome <b>Dogs</b> Compilation - The Best of funny moments with cuttest <b>dogs</b>. Become our Patreon and support us to grow: ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="Fbef5dt1uRw" data-visibility-tracking="CFwQ3DAYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECc8tbb3fzn2xU="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=Fbef5dt1uRw" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFwQ3DAYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="https://i.ytimg.com/vi/Fbef5dt1uRw/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLDmBd4-yy8g1ELgtBXu_WfmWyuC6w" >
+<span class="video-time" aria-hidden="true">15:00:10</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="Fbef5dt1uRw"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="Fbef5dt1uRw"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="Fbef5dt1uRw" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="Fbef5dt1uRw"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=Fbef5dt1uRw" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFwQ3DAYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="깊은 수면은 내 개 음악을 편안하게합니다! 개를 진정시키고 잠자는 데 도움이됩니다!" rel="spf-prefetch" aria-describedby="description-id-707844" dir="ltr">깊은 수면은 내 개 음악을 편안하게합니다! 개를 진정시키고 잠자는 데 도움이됩니다!</a><span class="accessible-description" id="description-id-707844"> - 길이: 15:00:10</span></h3><div class="yt-lockup-byline "><a href="/user/relaxmydog" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFwQ3DAYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Relax My Dog - Relaxing Music for Dogs</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>1주 전</li><li>조회수 21,941회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">깊은 수면은 내 개 음악을 편안하게합니다! 개를 진정시키고 잠자는 데 도움이됩니다! - 개를위한 가장 최신의 가장 효과적인 음악 재 ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="8qruCSXRrKg" data-visibility-tracking="CFsQ3DAYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECo2cauksG71fIB"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=8qruCSXRrKg" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFsQ3DAYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="https://i.ytimg.com/vi/8qruCSXRrKg/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBuhMpwKCSh2qORak9alC-ZUDoLXQ" >
+<span class="video-time" aria-hidden="true">13:31</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="8qruCSXRrKg"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="8qruCSXRrKg"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="8qruCSXRrKg" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="8qruCSXRrKg"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=8qruCSXRrKg" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFsQ3DAYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Dogs React To Magic Trick With Blanket 🔴 Perros Reaccionan Truco De Magia Con Manta" rel="spf-prefetch" aria-describedby="description-id-98773" dir="ltr">Dogs React To Magic Trick With Blanket 🔴 Perros Reaccionan Truco De Magia Con Manta</a><span class="accessible-description" id="description-id-98773"> - 길이: 13:31</span></h3><div class="yt-lockup-byline "><a href="/user/SerchInDaHouse" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFsQ3DAYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Animal Planet Videos</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>1개월 전</li><li>조회수 5,702,777회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr"><b>Dogs</b> React To Magic Trick With Blanket #whatthefluffchallenge Perros Reaccionan Truco De Magia Con Manta 🦄 Subscribe ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="NwlwJjelgzs" data-visibility-tracking="CFoQ3DAYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEC7hpa944TchDc="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=NwlwJjelgzs" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFoQ3DAYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="https://i.ytimg.com/vi/NwlwJjelgzs/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBy9U_y_yCDOmf7o38wZKQG6zcLVg" >
+<span class="video-time" aria-hidden="true">10:19</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="NwlwJjelgzs"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="NwlwJjelgzs"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="NwlwJjelgzs" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="NwlwJjelgzs"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=NwlwJjelgzs" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFoQ3DAYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Get ready for LAUGHING SUPER HARD - Best FUNNY DOG videos" rel="spf-prefetch" aria-describedby="description-id-457290" dir="ltr">Get ready for LAUGHING SUPER HARD - Best FUNNY DOG videos</a><span class="accessible-description" id="description-id-457290"> - 길이: 10:19</span></h3><div class="yt-lockup-byline "><a href="/user/wloltigerlolw2" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFoQ3DAYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Tiger Productions</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>4개월 전</li><li>조회수 2,646,525회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr"><b>Dogs</b> and puppies are super funny and hilarious, they make us laugh all the time! The hardest TRY NOT TO LAUGH challenge in ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="gl49rNFkE5Y" data-visibility-tracking="CFkQ3DAYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECWp5CLzbWPr4IB"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=gl49rNFkE5Y" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFkQ3DAYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/gl49rNFkE5Y/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLAVLbm4VpKjvPiCa2LBoOgIHZXmNA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">9:08</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="gl49rNFkE5Y"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="gl49rNFkE5Y"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="gl49rNFkE5Y" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="gl49rNFkE5Y"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=gl49rNFkE5Y" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFkQ3DAYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Smarty Dogs | Funny Dog Video Compilation 2017" rel="spf-prefetch" aria-describedby="description-id-210707" dir="ltr">Smarty Dogs | Funny Dog Video Compilation 2017</a><span class="accessible-description" id="description-id-210707"> - 길이: 9:08</span></h3><div class="yt-lockup-byline "><a href="/user/ThePetCollective" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFkQ3DAYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >The Pet Collective</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>1년 전</li><li>조회수 6,397,720회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">From <b>dogs</b> learning how to play fetch by themselves, <b>dogs</b> opening gates, crates, and doors, to <b>dogs</b> picking up their toys on ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="aiy8GJHlozA" data-visibility-tracking="CFgQ3DAYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECwxpaPiYOvlmo="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=aiy8GJHlozA" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFgQ3DAYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/aiy8GJHlozA/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLB3FHYytncrct3y4uiKHSGRuBOk-A" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">11:30</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="aiy8GJHlozA"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="aiy8GJHlozA"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="aiy8GJHlozA" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="aiy8GJHlozA"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=aiy8GJHlozA" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFgQ3DAYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Mangoworm - Horror" rel="spf-prefetch" aria-describedby="description-id-392136" dir="ltr">Mangoworm - Horror</a><span class="accessible-description" id="description-id-392136"> - 길이: 11:30</span></h3><div class="yt-lockup-byline "><a href="/user/Mangoworms" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFgQ3DAYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Cordylobia Anthropophaga</a></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>2개월 전</li><li>조회수 5,470,909회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">There is no hope left. Things will never change over here. :-( <a href="http://www.vetclinicgambia.com/" target="_blank" title="http://www.vetclinicgambia.com/" rel="nofollow" dir="ltr" class="yt-uix-redirect-link">http://www.vetclinicgambia.com/</a></div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="RKBcs9tNWg8" data-visibility-tracking="CFcQ3DAYCCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECPtLXavZaX0EQ="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=RKBcs9tNWg8" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFcQ3DAYCCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/RKBcs9tNWg8/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLA50vCPB4hwpf8v602cTo-9Gm-7Nw" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">4:40</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="RKBcs9tNWg8"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="RKBcs9tNWg8"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="RKBcs9tNWg8" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="RKBcs9tNWg8"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=RKBcs9tNWg8" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFcQ3DAYCCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Dogs Welcoming Soldiers Home Compilation" rel="spf-prefetch" aria-describedby="description-id-473472" dir="ltr">Dogs Welcoming Soldiers Home Compilation</a><span class="accessible-description" id="description-id-473472"> - 길이: 4:40</span></h3><div class="yt-lockup-byline "><a href="/user/funnyplox" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFcQ3DAYCCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >funnyplox</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>5년 전</li><li>조회수 54,499,749회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">Soldiers coming home to their lovable pups! Man&#39;s best friend! Puppies &amp; Babies &amp; Kitties OH MY! New videos all the time!</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-channel vve-check clearfix yt-uix-tile" data-visibility-tracking="CFQQ2jAYCSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA=="><div class="yt-lockup-thumbnail"><a aria-hidden="true"  href="/channel/UCcqLkZqBfBOKmi4vrgkQ6yw" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFQQ2jAYCSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="//yt3.ggpht.com/fL_t0sCIizeOxZ2dZMOSXVKjk-fTaGzJyFSP1W7tDiYjH7RMII54OBTqJZW6v_3v1mi6mzOpz-fdhhJK=s176-nd-c-c0xffffffff-rj-k-no" data-ytimg="1" width="138" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+</span></div></a></div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/channel/UCcqLkZqBfBOKmi4vrgkQ6yw" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFQQ2jAYCSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"  title="개 - 주제" aria-describedby="description-id-7245" dir="ltr">개 - 주제<span title="YouTube에 의해 자동 생성" class="yt-uix-tooltip qualified-channel-title-badge yt-channel-title-autogenerated yt-sprite"></span></a><span class="accessible-description" id="description-id-7245"> - 채널</span></h3><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">개는 식육목 개과 개속에 속하는 동물로, 회색늑대의 아종으로, 현대에서 가장 널리 분포하며 개체 수가 가장 많은 지상 육식 동물이다 ...</div><div class="yt-lockup-badges"><ul class="yt-badge-list "><li class="yt-badge-item"><span class="yt-badge " >채널</span></li></ul> <span class=" yt-uix-button-subscription-container"><span class="unsubscribe-confirmation-overlay-container">  
+  <div class="yt-uix-overlay "  data-overlay-style="primary" data-overlay-shape="tiny">
+    
+        <div class="yt-dialog hid ">
+    <div class="yt-dialog-base">
+      <span class="yt-dialog-align"></span>
+      <div class="yt-dialog-fg" role="dialog">
+        <div class="yt-dialog-fg-content">
+          <div class="yt-dialog-loading">
+              <div class="yt-dialog-waiting-content">
+      <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+
+  </div>
+
+          </div>
+          <div class="yt-dialog-content">
+              <div class="unsubscribe-confirmation-overlay-content-container">
+    <div class="unsubscribe-confirmation-overlay-content">
+      <div class="unsubscribe-confirmation-message">
+        개 - 주제을(를) 구독 취소할까요?
+      </div>
+    </div>
+
+    <div class="yt-uix-overlay-actions">
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-overlay-close" type="button" onclick=";return false;"><span class="yt-uix-button-content">취소</span></button>
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-primary overlay-confirmation-unsubscribe-button yt-uix-overlay-close" type="button" onclick=";return false;"><span class="yt-uix-button-content">구독 취소</span></button>
+    </div>
+  </div>
+
+          </div>
+          <div class="yt-dialog-working">
+              <div class="yt-dialog-working-overlay"></div>
+  <div class="yt-dialog-working-bubble">
+    <div class="yt-dialog-waiting-content">
+        <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+        진행 중...
+    </span>
+  </p>
+
+      </div>
+  </div>
+
+          </div>
+        </div>
+        <div class="yt-dialog-focus-trap" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+</span><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-subscribe-unbranded yt-uix-button-has-icon no-icon-markup yt-uix-subscription-button yt-can-buffer yt-uix-servicelink vve-check" type="button" onclick=";return false;" aria-live="polite" aria-busy="false" data-subscribed-timestamp="0" data-channel-external-id="UCcqLkZqBfBOKmi4vrgkQ6yw" data-visibility-tracking="CFUQmysiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQyBnNlYXJjaA" data-href="https://accounts.google.com/ServiceLogin?continue=http%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26next%3D%252Fchannel%252FUCcqLkZqBfBOKmi4vrgkQ6yw%26feature%3Dsubscribe%26hl%3Dko%26continue_action%3DQUFFLUhqbXFSaENfTWZKdnRDMDR6bFd3aVR0clNhRVgyZ3xBQ3Jtc0tueGpYY0NaOHVVTHA5QmlCWnN0ay1HSm93MmgtOG1iLUF2QldOWnlIdUszUFZCVlo3alNqSUlybWNvejBoZzNQTGQtWVp2UV9Vc3RyNmhVLXdZQ3ZpOXVTa1g4RXpGcXoxVGZtdjlJWUllb0N5S0tGdkdmSXdYU2dlcjNyVjRJOFdBOHpGYVBMd211cC1pWlYwcm1Kcm1nTmd2R0VQUFkxeXJnOGFBdktGeHUyUVhUUE80eUNEVXVkYk1PbWR1d2xxbzFXQXM%253D%26app%3Ddesktop&amp;passive=true&amp;uilel=3&amp;service=youtube&amp;hl=ko" data-style-type="unbranded" data-show-unsub-confirm-dialog="true" data-servicelink="CFUQmysiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQyBnNlYXJjaA" data-show-unsub-confirm-time-frame="always" data-clicktracking="itct=CFUQmysiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQyBnNlYXJjaA"><span class="yt-uix-button-content"><span class="subscribe-label" aria-label="구독">구독</span><span class="subscribed-label" aria-label="구독 취소">구독중</span><span class="unsubscribe-label" aria-label="구독 취소">구독 취소</span></span></button><span class="yt-subscription-button-subscriber-count-unbranded-horizontal yt-subscriber-count" title="2,921,498" aria-label="2,921,498" tabindex="0">2,921,498</span></span> </div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="aEzZLXBH3rU" data-visibility-tracking="CFMQ3DAYCiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEC1vZ-C16W2pmg="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=aEzZLXBH3rU" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFMQ3DAYCiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/aEzZLXBH3rU/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLC_ka4hemQO9T2LGhNSwhJaCR2YNA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">15:48</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="aEzZLXBH3rU"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="aEzZLXBH3rU"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="aEzZLXBH3rU" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="aEzZLXBH3rU"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=aEzZLXBH3rU" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFMQ3DAYCiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="*Try Not To Laugh Challenge* Funny Dogs Compilation - Funniest Dog Videos 2017" rel="spf-prefetch" aria-describedby="description-id-261641" dir="ltr">*Try Not To Laugh Challenge* Funny Dogs Compilation - Funniest Dog Videos 2017</a><span class="accessible-description" id="description-id-261641"> - 길이: 15:48</span></h3><div class="yt-lockup-byline "><a href="/channel/UCrBYTP-sa4dtOjMWEBfR_Ng" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFMQ3DAYCiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >All Of Vines</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>1년 전</li><li>조회수 5,420,494회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">&quot;IMPOSSIBLE CHALLENGE&quot; Try not to laugh while watching Funny <b>Dog</b> Videos Compilation 2017, The best and funniest <b>dogs</b> ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="qiaF4kuxJco" data-visibility-tracking="CFIQ3DAYCyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEDKy8TdpLyhk6oB"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=qiaF4kuxJco" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFIQ3DAYCyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/qiaF4kuxJco/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLACejUTWfwjJLyBtVHpcp_Kviw7Yg" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">17:06</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="qiaF4kuxJco"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="qiaF4kuxJco"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="qiaF4kuxJco" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="qiaF4kuxJco"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=qiaF4kuxJco" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFIQ3DAYCyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Pink Floyd - Dogs - w/lyrics" rel="spf-prefetch" aria-describedby="description-id-656915" dir="ltr">Pink Floyd - Dogs - w/lyrics</a><span class="accessible-description" id="description-id-656915"> - 길이: 17:06</span></h3><div class="yt-lockup-byline "><a href="/user/bearzilla333" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFIQ3DAYCyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >bearzilla333</a></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>5년 전</li><li>조회수 6,264,609회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">Pink Floyd - <b>Dogs</b> Animals (1977) *No copyright infringement intended.</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="RKU6x1n9Hak" data-visibility-tracking="CFAQ3DAYDCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECpu_TP9djO0kQ="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=RKU6x1n9Hak" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFAQ3DAYDCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/RKU6x1n9Hak/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBEW3NXZbmQ5eCWQBcpdT8ckmUDfA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">10:21</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="RKU6x1n9Hak"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="RKU6x1n9Hak"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="RKU6x1n9Hak" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="RKU6x1n9Hak"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=RKU6x1n9Hak" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CFAQ3DAYDCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="FORGET CATS! Funny KIDS vs ZOO ANIMALS are WAY FUNNIER! - TRY NOT TO LAUGH" rel="spf-prefetch" aria-describedby="description-id-507281" dir="ltr">FORGET CATS! Funny KIDS vs ZOO ANIMALS are WAY FUNNIER! - TRY NOT TO LAUGH</a><span class="accessible-description" id="description-id-507281"> - 길이: 10:21</span></h3><div class="yt-lockup-byline "><a href="/user/wloltigerlolw2" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CFAQ3DAYDCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Tiger Productions</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>9개월 전</li><li>조회수 105,021,816회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">These videos are the best! What happened to these kids at zoo is soooo hilarious! Watch this and try not to laugh, impossible!</div>    <span class="yt-badge standalone-collection-badge-renderer-icon" >관련 자료</span>
+  <span class="standalone-collection-badge-renderer-text"></span>
+</div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="R4rrRUVWWdU" data-visibility-tracking="CE4Q3DAYDSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEDVs9mq1Oi6xUc="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=R4rrRUVWWdU" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CE4Q3DAYDSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/R4rrRUVWWdU/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLCUQ3WDHa5LKVKQ3_KqqItwGU0_LA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">44:34</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="R4rrRUVWWdU"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="R4rrRUVWWdU"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="R4rrRUVWWdU" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="R4rrRUVWWdU"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=R4rrRUVWWdU" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CE4Q3DAYDSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Funny Dogs and Babies Playing Together - Cute dog &amp; baby compilation" rel="spf-prefetch" aria-describedby="description-id-314764" dir="ltr">Funny Dogs and Babies Playing Together - Cute dog &amp; baby compilation</a><span class="accessible-description" id="description-id-314764"> - 길이: 44:34</span></h3><div class="yt-lockup-byline "><a href="/channel/UC_8QFHM0VrGgqadfb6de4jw" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CE4Q3DAYDSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Funny √</a></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>1년 전</li><li>조회수 4,019,263회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">Funny <b>Dogs</b> and Babies Playing Together - Cute <b>dog</b> &amp; baby compilation. ▻Link video: ...</div>    <span class="yt-badge standalone-collection-badge-renderer-icon" >관련 자료</span>
+  <span class="standalone-collection-badge-renderer-text"></span>
+</div></div></div></li>
+
+<li><div class="search-refinements"><h3><b>dog</b> 관련 검색어</h3><div class="search-refinement"><a href="/results?search_query=dog+love" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CE0QsDoYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog love</a></div><div class="search-refinement"><a href="/results?search_query=funny+dog+videos" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEMQsDoYCiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >funny dog videos</a></div><div class="search-refinement"><a href="/results?search_query=dog+funny" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEwQsDoYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog funny</a></div><div class="search-refinement"><a href="/results?search_query=dog+sound" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEIQsDoYCyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog sound</a></div><div class="search-refinement"><a href="/results?search_query=dog+play" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEsQsDoYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog play</a></div><div class="search-refinement"><a href="/results?search_query=dog+meat" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEEQsDoYDCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog meat</a></div><div class="search-refinement"><a href="/results?search_query=dog+baby" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEoQsDoYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog baby</a></div><div class="search-refinement"><a href="/results?search_query=golden+retriever" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEAQsDoYDSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >golden retriever</a></div><div class="search-refinement"><a href="/results?search_query=cute+dog" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEkQsDoYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >cute dog</a></div><div class="search-refinement"><a href="/results?search_query=%EA%B0%9C" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CD8QsDoYDiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >개</a></div><div class="search-refinement"><a href="/results?search_query=dog+cat" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEgQsDoYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog cat</a></div><div class="search-refinement"><a href="/results?search_query=%ED%95%AB%EB%8F%84%EA%B7%B8" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CD4QsDoYDyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >핫도그</a></div><div class="search-refinement"><a href="/results?search_query=dog+se" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEcQsDoYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog se</a></div><div class="search-refinement"><a href="/results?search_query=%EA%B0%95%EC%95%84%EC%A7%80" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CD0QsDoYECITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >강아지</a></div><div class="search-refinement"><a href="/results?search_query=dog+tv" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEYQsDoYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog tv</a></div><div class="search-refinement"><a href="/results?search_query=god" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDwQsDoYESITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >god</a></div><div class="search-refinement"><a href="/results?search_query=dog+song" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEUQsDoYCCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog song</a></div><div class="search-refinement"><a href="/results?search_query=%EB%98%90%EB%B4%87" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDsQsDoYEiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >또봇</a></div><div class="search-refinement"><a href="/results?search_query=dog+movie" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CEQQsDoYCSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >dog movie</a></div><div class="search-refinement"><a href="/results?search_query=%EC%8B%9C%EB%B0%94%EA%B2%AC" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDoQsDoYEyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >시바견</a></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="np7lbSD37Rg" data-visibility-tracking="CDcQ3DAYDyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECY2t-H0q25z54B"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=np7lbSD37Rg" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDcQ3DAYDyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/np7lbSD37Rg/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBI71_TJaI44dBuecFF0Y3HkW7qqQ" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">16:19</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="np7lbSD37Rg"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="np7lbSD37Rg"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="np7lbSD37Rg" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="np7lbSD37Rg"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=np7lbSD37Rg" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDcQ3DAYDyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Baby Kitten Checkup Doc Mcstuffins Vet Clinic Center Real Life Cute Baby Kittens W/ Play Doh Girl" rel="spf-prefetch" aria-describedby="description-id-897652" dir="ltr">Baby Kitten Checkup Doc Mcstuffins Vet Clinic Center Real Life Cute Baby Kittens W/ Play Doh Girl</a><span class="accessible-description" id="description-id-897652"> - 길이: 16:19</span></h3><div class="yt-lockup-byline "><a href="/channel/UC40Q0IQcy9AAz2rctU2CaXw" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CDcQ3DAYDyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Fun Factory</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>2년 전</li><li>조회수 53,564,047회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">You can purchase the toys featured in this video bly clicking the links below. Doc Mcstuffins Vet Checkup Center ...</div>    <span class="yt-badge standalone-collection-badge-renderer-icon" >관련 자료</span>
+  <span class="standalone-collection-badge-renderer-text"></span>
+</div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="AcL0MeVZIxM" data-visibility-tracking="CDYQ3DAYECITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECTxuSqnoa94QE="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=AcL0MeVZIxM" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDYQ3DAYECITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/AcL0MeVZIxM/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBEJCj2bkHcCEbb_2mGr9cc4uPWPA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">20:20</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="AcL0MeVZIxM"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="AcL0MeVZIxM"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="AcL0MeVZIxM" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="AcL0MeVZIxM"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=AcL0MeVZIxM" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDYQ3DAYECITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Try Not To Laugh At This Ultimate Funny Dog Video Compilation | Funny Pet Videos" rel="spf-prefetch" aria-describedby="description-id-270254" dir="ltr">Try Not To Laugh At This Ultimate Funny Dog Video Compilation | Funny Pet Videos</a><span class="accessible-description" id="description-id-270254"> - 길이: 20:20</span></h3><div class="yt-lockup-byline "><a href="/user/tailsnfails" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CDYQ3DAYECITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Funny Pet Videos</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>5개월 전</li><li>조회수 7,985,539회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">Brand new weekly theme compilation where we challenge you to Try Not To Laugh at these Funny <b>Dogs</b>. Funny Pet Videos brings ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="1Vrjf2mzfng" data-visibility-tracking="CDUQ3DAYESITCKbZpuTAjN0CFdFcYAodLmUEQyj0JED4_M3N9u-4rdUB"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=1Vrjf2mzfng" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDUQ3DAYESITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/1Vrjf2mzfng/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLDlVj8ewmnsod146ZRaOzqqCKSoTQ" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">15:12:07</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="1Vrjf2mzfng"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="1Vrjf2mzfng"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="1Vrjf2mzfng" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="1Vrjf2mzfng"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=1Vrjf2mzfng" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDUQ3DAYESITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="내 강아지를 진정시키는 진정 음악! 개들을위한 음악 듣고 차게, 수면!" rel="spf-prefetch" aria-describedby="description-id-267262" dir="ltr">내 강아지를 진정시키는 진정 음악! 개들을위한 음악 듣고 차게, 수면!</a><span class="accessible-description" id="description-id-267262"> - 길이: 15:12:07</span></h3><div class="yt-lockup-byline "><a href="/user/relaxmydog" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CDUQ3DAYESITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >Relax My Dog - Relaxing Music for Dogs</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>2일 전</li><li>조회수 18,797회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">내 강아지를 진정시키는 진정 음악! 개들을위한 음악 듣고 차게, 수면! - 개와 강아지를위한 우리의 새로운 편안한 음악을 연주하여 개 ...</div><div class="yt-lockup-badges"><ul class="yt-badge-list "><li class="yt-badge-item"><span class="yt-badge " >새 동영상</span></li></ul> </div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="KUIHF_eYvZo" data-visibility-tracking="CDQQ3DAYEiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECa--K8_-KBoSk="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=KUIHF_eYvZo" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDQQ3DAYEiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/KUIHF_eYvZo/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLAZ88OSKN8AndyL8yMDqvfoDAdV7A" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">10:08</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="KUIHF_eYvZo"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="KUIHF_eYvZo"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="KUIHF_eYvZo" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="KUIHF_eYvZo"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=KUIHF_eYvZo" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDQQ3DAYEiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="XQC is SODAPOPPIN&#39;s DOG ? | NANI CONFESSES | TWITCH LIVESTREAM CLIPS" rel="spf-prefetch" aria-describedby="description-id-823568" dir="ltr">XQC is SODAPOPPIN&#39;s DOG ? | NANI CONFESSES | TWITCH LIVESTREAM CLIPS</a><span class="accessible-description" id="description-id-823568"> - 길이: 10:08</span></h3><div class="yt-lockup-byline "><a href="/channel/UCh5wEXrl-XWaF8ZffqDHZzw" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CDQQ3DAYEiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >GGX GANG</a></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>6시간 전</li><li>조회수 8,572회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">XQC is SODAPOPPIN&#39;s <b>DOG</b> ? NANI CONFESSES TWITCH LIVESTREAM CLIPS ———————————— Credits: ...</div><div class="yt-lockup-badges"><ul class="yt-badge-list "><li class="yt-badge-item"><span class="yt-badge " >새 동영상</span></li></ul> </div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="YEfEzfcKLq4" data-visibility-tracking="CDMQ3DAYEyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JECu3ai435nxo2A="><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=YEfEzfcKLq4" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDMQ3DAYEyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/YEfEzfcKLq4/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLBYoves8CvfsFfVWx_iO0hl3yUpwA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">3:27</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="YEfEzfcKLq4"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="YEfEzfcKLq4"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="YEfEzfcKLq4" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="YEfEzfcKLq4"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=YEfEzfcKLq4" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDMQ3DAYEyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="Top 10 Dog Breeds With SUPERPOWER" rel="spf-prefetch" aria-describedby="description-id-841019" dir="ltr">Top 10 Dog Breeds With SUPERPOWER</a><span class="accessible-description" id="description-id-841019"> - 길이: 3:27</span></h3><div class="yt-lockup-byline "><a href="/user/CopyMafia" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CDMQ3DAYEyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >ViralBe</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>8개월 전</li><li>조회수 17,685,031회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">Top 10 <b>Dog</b> Breeds With SUPERPOWER #10. Rottweiler #9. Dogo Argentino #8. Boerboel #7. English Mastiff #6. Caucasian ...</div></div></div></div></li>
+
+<li><div class="yt-lockup yt-lockup-tile yt-lockup-video vve-check clearfix" data-context-item-id="ltQdKRAik9c" data-visibility-tracking="CDIQ3DAYFCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JEDXp4qBkaWH6pYB"><div class="yt-lockup-dismissable yt-uix-tile"><div class="yt-lockup-thumbnail contains-addto"><a aria-hidden="true"  href="/watch?v=ltQdKRAik9c" class=" yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDIQ3DAYFCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n" ><div class="yt-thumb video-thumb"><span class="yt-thumb-simple">
+  <img alt="" data-thumb="https://i.ytimg.com/vi/ltQdKRAik9c/hqdefault.jpg?sqp=-oaymwEXCPYBEIoBSFryq4qpAwkIARUAAIhCGAE=&amp;rs=AOn4CLCyU1qZl53Rnaoxx94cuEIef7VqtA" data-ytimg="1" width="246" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" height="138" src="/yts/img/pixel-vfl3z5WfW.gif" >
+<span class="video-time" aria-hidden="true">1:40</span></span></div></a>  <span class="thumb-menu dark-overflow-action-menu video-actions">
+    <button onclick=";return false;" aria-haspopup="true" type="button" class="yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty" aria-expanded="false" ><span class="yt-uix-button-arrow yt-sprite"></span><ul class="watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid"><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item" data-action="play-next" onclick=";return false;"  data-video-ids="ltQdKRAik9c"><span class="addto-watch-queue-menu-text">다음 동영상 재생</span></li><li role="menuitem" class="overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item" data-action="play-now" onclick=";return false;"  data-video-ids="ltQdKRAik9c"><span class="addto-watch-queue-menu-text">지금 재생</span></li></ul></button>
+  </span>
+
+
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip" type="button" onclick=";return false;" title="나중에 볼 동영상" role="button" data-video-ids="ltQdKRAik9c" data-button-menu-id="shared-addto-watch-later-login"><span class="yt-uix-button-arrow yt-sprite"></span></button>
+  <button class="yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip" type="button" onclick=";return false;" title="대기열" data-style="tv-queue" data-video-ids="ltQdKRAik9c"></button>
+</div><div class="yt-lockup-content"><h3 class="yt-lockup-title "><a href="/watch?v=ltQdKRAik9c" class="yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link " data-sessionlink="itct=CDIQ3DAYFCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JFIDZG9n"  title="아는 것이 힘이다  -돈을 아는 견공편-" rel="spf-prefetch" aria-describedby="description-id-487154" dir="ltr">아는 것이 힘이다  -돈을 아는 견공편-</a><span class="accessible-description" id="description-id-487154"> - 길이: 1:40</span></h3><div class="yt-lockup-byline "><a href="/channel/UC22go5LdQEw-iDuxFb4C0hw" class="yt-uix-sessionlink       spf-link " data-sessionlink="itct=CDIQ3DAYFCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA" >SBS TV동물농장x애니멀봐</a>&nbsp;<span title="인증됨" class="yt-uix-tooltip yt-channel-title-icon-verified yt-sprite"></span></div><div class="yt-lockup-meta "><ul class="yt-lockup-meta-info"><li>3시간 전</li><li>조회수 3,370회</li></ul></div><div class="yt-lockup-description yt-ui-ellipsis yt-ui-ellipsis-2" dir="ltr">돈도..... 얘처럼 아는 것이 힘인듯ㅋㅋㅋㅋ</div><div class="yt-lockup-badges"><ul class="yt-badge-list "><li class="yt-badge-item"><span class="yt-badge " >새 동영상</span></li></ul> </div></div></div></div></li>
+</ol>
+</li>
+</ol>
+
+  </div>
+
+
+    <div class="branded-page-box search-pager  spf-link ">
+
+
+
+
+
+
+
+
+
+
+
+
+      <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default  vve-check" type="button" onclick=";return false;" disabled="True" aria-label="1 페이지로 이동" data-sessionlink="itct=CA4QnKQBGAAiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-redirect-url="/results?search_query=dog&amp;amp;sp=SADqAwA%253D" data-visibility-tracking="CA4QnKQBGAAiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ"><span class="yt-uix-button-content">1</span></button>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SBTqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CA0QnKQBGAEiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CA0QnKQBGAEiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="2 페이지로 이동"><span class="yt-uix-button-content">2</span></a>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SCjqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CAwQnKQBGAIiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAwQnKQBGAIiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="3 페이지로 이동"><span class="yt-uix-button-content">3</span></a>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SDzqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CAsQnKQBGAMiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAsQnKQBGAMiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="4 페이지로 이동"><span class="yt-uix-button-content">4</span></a>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SFDqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CAoQnKQBGAQiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAoQnKQBGAQiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="5 페이지로 이동"><span class="yt-uix-button-content">5</span></a>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SGTqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CAkQnKQBGAUiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAkQnKQBGAUiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="6 페이지로 이동"><span class="yt-uix-button-content">6</span></a>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SHjqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CAgQnKQBGAYiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAgQnKQBGAYiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="7 페이지로 이동"><span class="yt-uix-button-content">7</span></a>
+ 
+
+
+
+
+
+
+
+
+
+
+
+      <a  href="/results?search_query=dog&amp;sp=SBTqAwA%253D" class="yt-uix-button   vve-check yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="itct=CAcQnKQBGAciEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" data-visibility-tracking="CAcQnKQBGAciEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" aria-label="2 페이지로 이동"><span class="yt-uix-button-content">다음 »</span></a>
+ </div>
+
+
+  </div>
+
+          </div>
+        </div>
+          <div class="branded-page-v2-secondary-col">
+                <div id="search-secondary-col-contents">
+      
+    </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div></div></div></div>  <div id="footer-container" class="yt-base-gutter force-layer"><div id="footer"><div id="footer-main"><div id="footer-logo"><a href="/" id="footer-logo-link" title="YouTube 홈" data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA&amp;ved=CAEQpmEiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ" class="yt-uix-sessionlink"><span class="footer-logo-icon yt-sprite"></span></a></div>  <ul class="pickers yt-uix-button-group" data-button-toggle-group="optional">
+      <li>
+            <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-button-has-icon" type="button" onclick=";return false;" id="yt-picker-language-button" data-button-action="yt.www.picker.load" data-picker-position="footer" data-picker-key="language" data-button-menu-id="arrow-display" data-button-toggle="true"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-footer-language yt-sprite"></span></span><span class="yt-uix-button-content">  <span class="yt-picker-button-label">
+언어:
+  </span>
+  한국어
+</span><span class="yt-uix-button-arrow yt-sprite"></span></button>
+
+
+      </li>
+      <li>
+            <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default" type="button" onclick=";return false;" id="yt-picker-country-button" data-button-action="yt.www.picker.load" data-picker-position="footer" data-picker-key="country" data-button-menu-id="arrow-display" data-button-toggle="true"><span class="yt-uix-button-content">  <span class="yt-picker-button-label">
+장소:
+  </span>
+  한국
+</span><span class="yt-uix-button-arrow yt-sprite"></span></button>
+
+
+      </li>
+      <li>
+            <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default" type="button" onclick=";return false;" id="yt-picker-safetymode-button" data-button-action="yt.www.picker.load" data-picker-position="footer" data-picker-key="safetymode" data-button-menu-id="arrow-display" data-button-toggle="true"><span class="yt-uix-button-content">  <span class="yt-picker-button-label">
+제한 모드:
+  </span>
+사용 안함
+</span><span class="yt-uix-button-arrow yt-sprite"></span></button>
+
+
+      </li>
+  </ul>
+<a  href="/feed/history" class="yt-uix-button  footer-history yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default yt-uix-button-has-icon" data-sessionlink="ei=44yDW-bbG9G5gQOuypGYBA"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-footer-history yt-sprite"></span></span><span class="yt-uix-button-content">최근 본 동영상</span></a>    <button class="yt-uix-button yt-uix-button-size-default yt-uix-button-default yt-uix-button-has-icon yt-uix-button-reverse yt-google-help-link inq-no-click " type="button" onclick=";return false;" data-ghelp-anchor="google-help" id="google-help" data-ghelp-tracking-param="" data-feedback-product-id="59" data-load-chat-support="true"><span class="yt-uix-button-icon-wrapper"><span class="yt-uix-button-icon yt-uix-button-icon-questionmark yt-sprite"></span></span><span class="yt-uix-button-content">도움말
+</span></button>
+      <div id="yt-picker-language-footer" class="yt-picker" style="display: none">
+      <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+
+  </div>
+
+      <div id="yt-picker-country-footer" class="yt-picker" style="display: none">
+      <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+
+  </div>
+
+      <div id="yt-picker-safetymode-footer" class="yt-picker" style="display: none">
+      <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+
+  </div>
+
+</div><div id="footer-links"><ul id="footer-links-primary">  <li><a href="//www.youtube.com/yt/about/ko/">정보</a></li>
+  <li><a href="//www.youtube.com/yt/press/ko/">프레스</a></li>
+  <li><a href="//www.youtube.com/yt/copyright/ko/">저작권</a></li>
+  <li><a href="//www.youtube.com/yt/creators/ko/">크리에이터</a></li>
+  <li><a href="//www.youtube.com/yt/advertise/ko/">광고</a></li>
+  <li><a href="//www.youtube.com/yt/dev/ko/">개발자</a></li>
+  <li><a href="https://plus.google.com/+youtube" dir="ltr">+YouTube</a></li>
+</ul><ul id="footer-links-secondary">  <li><a href="/t/terms">이용약관</a></li>
+  <li><a href="https://www.google.co.kr/intl/ko/policies/privacy/">개인정보 보호</a></li>
+  <li><a href="//www.youtube.com/yt/policyandsafety/ko/">
+정책 및 안전
+  </a></li>
+  <li><a href="//support.google.com/youtube/?hl=ko" onclick="return yt.www.feedback.start(59);" class="reportbug">의견 보내기</a></li>
+  <li>
+    <a href="/testtube">새로운 기능 테스트하기</a>
+  </li>
+  <li></li>
+</ul></div></div></div>
+
+      <div class="yt-dialog hid " id="feed-privacy-lb">
+    <div class="yt-dialog-base">
+      <span class="yt-dialog-align"></span>
+      <div class="yt-dialog-fg" role="dialog">
+        <div class="yt-dialog-fg-content">
+          <div class="yt-dialog-loading">
+              <div class="yt-dialog-waiting-content">
+      <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+로드 중...
+    </span>
+  </p>
+
+  </div>
+
+          </div>
+          <div class="yt-dialog-content">
+              <div id="feed-privacy-dialog">
+  </div>
+
+          </div>
+          <div class="yt-dialog-working">
+              <div class="yt-dialog-working-overlay"></div>
+  <div class="yt-dialog-working-bubble">
+    <div class="yt-dialog-waiting-content">
+        <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+        진행 중...
+    </span>
+  </p>
+
+      </div>
+  </div>
+
+          </div>
+        </div>
+        <div class="yt-dialog-focus-trap" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
+
+<div id="hidden-component-template-wrapper" class="hid">    <div id="shared-addto-watch-later-login" class="hid">
+      나중에 볼 동영상에 추가하려면 <a href="https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26next%3D%252Fresults%253Fsearch_query%253Ddog%26app%3Ddesktop%26feature%3Dplaylist%26hl%3Dko&amp;passive=true&amp;uilel=3&amp;service=youtube&amp;hl=ko" class="sign-in-link">로그인</a>하세요.
+
+    </div>
+<div id="yt-uix-videoactionmenu-menu" class="yt-ui-menu-content">  <div class="hide-on-create-pl-panel">
+    <h3>
+추가
+    </h3>
+  </div>
+  <div class="add-to-widget">
+      <p class="yt-spinner ">
+        <span title="로드 중 아이콘" class="yt-spinner-img  yt-sprite"></span>
+
+    <span class="yt-spinner-message">
+        재생목록 로드 중...
+    </span>
+  </p>
+
+  </div>
+</div></div>    <script>var ytspf = ytspf || {};ytspf.enabled = true;ytspf.config = {'reload-identifier': 'spfreload'};ytspf.config['request-headers'] = {'X-YouTube-Identity-Token': null};ytspf.config['experimental-request-headers'] = ytspf.config['request-headers'];ytspf.config['cache-max'] = 50;ytspf.config['navigate-limit'] = 50;ytspf.config['navigate-lifetime'] = 64800000;</script>
+  <script src="/yts/jsbin/spf-vflhSOzLf/spf.js" type="text/javascript" name="spf/spf" ></script>
+  <script src="/yts/jsbin/www-en_US-vflNdEUNd/base.js"  name="www/base" ></script>
+<script>spf.script.path({'www/': '/yts/jsbin/www-en_US-vflNdEUNd/'});var ytdepmap = {"www/base": null, "www/common": "www/base", "www/angular_base": "www/common", "www/channels_accountupload": "www/common", "www/channels": "www/common", "www/dashboard": "www/common", "www/downloadreports": "www/common", "www/experiments": "www/common", "www/feed": "www/common", "www/legomap": "www/common", "www/promo_join_network": "www/common", "www/results_harlemshake": "www/common", "www/results": "www/common", "www/results_starwars": "www/common", "www/subscriptionmanager": "www/common", "www/unlimited": "www/common", "www/watch": "www/common", "www/ypc_bootstrap": "www/common", "www/ypc_core": "www/common", "www/channels_edit": "www/channels", "www/live_dashboard": "www/angular_base", "www/videomanager": "www/angular_base", "www/watch_autoplayrenderer": "www/watch", "www/watch_edit": "www/watch", "www/watch_editor": "www/watch", "www/watch_promos": "www/watch", "www/watch_speedyg": "www/watch", "www/watch_transcript": "www/watch", "www/watch_videoshelf": "www/watch", "www/ct_advancedsearch": "www/videomanager", "www/my_videos": "www/videomanager"};spf.script.declare(ytdepmap);</script><script >if (window.ytcsi) {window.ytcsi.tick("je", null, '');}</script>  
+
+  <script>
+        yt.setConfig({
+      'JS_PAGE_MODULES': [
+        'www/results',
+        'www/ypc_bootstrap',
+        'www/feed',
+        ''
+      ],
+
+      'TIMING_REPORT_ON_UNLOAD': true
+    });
+
+
+
+
+      yt.setConfig({
+    'GUIDED_HELP_LOCALE': "ko_KR",
+    'GUIDED_HELP_ENVIRONMENT': "prod"
+  });
+
+  </script>
+  
+<script>yt.setConfig({INNERTUBE_API_VERSION: "v1",APIARY_HOST: "",INNERTUBE_CONTEXT_CLIENT_NAME: 1,INNERTUBE_CONTEXT_CLIENT_VERSION: "1.20180823",INNERTUBE_API_KEY: "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8",APIARY_HOST_FIRSTPARTY: "",XHR_APIARY_HOST: "youtubei.youtube.com",GAPI_HINT_PARAMS: "m;\/_\/scs\/abc-static\/_\/js\/k=gapi.gapi.en.yK0z3MKtgaU.O\/m=__features__\/rt=j\/d=1\/rs=AHpOoo-SafOYj4n3budMysbWxppU-lxJeg",'VISITOR_DATA': "CgtHcTZxVm9vMXNnYw%3D%3D",'DELEGATED_SESSION_ID': null,'GAPI_HOST': "https:\/\/apis.google.com",'GAPI_LOCALE': "ko_KR",'INNERTUBE_CONTEXT_HL': "ko",'INNERTUBE_CONTEXT_GL': "KR",'XHR_APIARY_HOST': "youtubei.youtube.com"});yt.setConfig({'ROOT_VE_CHILDREN': ["CAEQpmEiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ","CAIQ7VAiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ","CGAQ_h4iEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ","CGEQ5isYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGIQtSwYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGMQtSwYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGQQtSwYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGUQmbcBGAMiEwim2abkwIzdAhXRXGAKHS5lBEMo9CQ","CGYQ5isYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGcQtSwYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGgQtSwYASITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGkQtSwYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGoQtSwYAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGsQtSwYBCITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CGwQtSwYBSITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CG0QtSwYBiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CG4QtSwYByITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CG8Q5isYAiITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CHAQtSwYACITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA","CHEQ2C4YAyITCKbZpuTAjN0CFdFcYAodLmUEQyj0JA"],});yt.setConfig({'PAGE_NAME': "results",'LOGGED_IN': false,'SESSION_INDEX': null,'VALID_SESSION_TEMPDATA_DOMAINS': ["www.youtube.com","gaming.youtube.com"],'PARENT_TRACKING_PARAMS': "",'FORMATS_FILE_SIZE_JS': ["%sB","%sKB","%sMB","%sGB","%sTB"],'ONE_PICK_URL': "",'GOOGLEPLUS_HOST': "https:\/\/plus.google.com",'PAGEFRAME_JS': "\/yts\/jsbin\/www-pageframe-vflqekhvI\/www-pageframe.js",'GAPI_LOADER_URL': "\/yts\/jsbin\/www-gapi-loader-vflQANhvE\/www-gapi-loader.js",'JS_COMMON_MODULE': "\/yts\/jsbin\/www-en_US-vflNdEUNd\/common.js",'PAGE_FRAME_DELAYLOADED_CSS': "\/yts\/cssbin\/www-pageframedelayloaded-vflkvMhoL.css",'EXPERIMENT_FLAGS': {"service_worker_push_logged_out_prompt_watches":-1,"autoplay_pause_by_lact_sec":0,"desktop_classic_video_masthead_wta_support":true,"player_swfcfg_cleanup":true,"log_vis_on_tab_change":true,"enable_webcam_dvr":true,"app_settings_snapshot_min_time_between_snapshots_hours":24,"live_chat_top_chat_split":0.5,"warm_load_nav_start_web":true,"desktop_polymer":true,"use_watch_fragments2":true,"desktop_notification_high_priority_ignore_push":true,"autoplay_pause_sampling_fraction":0.0,"desktop_polymer_video_masthead_mute_ad_support":true,"retry_web_logging_batches":true,"enable_docked_chat_messages":true,"sponsors_whitelist_creator":true,"service_worker_push_enabled":true,"service_worker_enabled":true,"web_system_health_fraction":0.01,"desktop_action_companion_wta_support":true,"live_chat_inline_moderation":true,"live_chat_use_new_default_filter_mode":true,"log_web_meta_interval_ms":0,"desktop_pyv_on_watch_missing_params":true,"service_worker_push_home_page_prompt":true,"enable_webcam_scheduling_hint":true,"app_settings_snapshot_is_logging_enabled":true,"cold_load_nav_start_web":true,"interaction_screen_on_gel_web":true,"live_chat_increased_min_height":true,"service_worker_push_prompt_delay_ms":3888000000,"optimistically_create_transport_client":true,"youtubei_for_web":true,"enable_watch_next_pause_autoplay_lact":true,"very_optimistically_create_gel_client":true,"service_worker_push_watch_page_prompt":true,"enable_window_safe_url":true,"enable_gel_web_client_event_id":true,"desktop_shopping_companion_wta_support":true,"service_worker_scope":"\/","autoescape_tempdata_url":true,"lact_local_listeners":true,"web_logging_max_batch":100,"service_worker_push_force_notification_prompt_tag":"1","interaction_click_on_gel_web":true,"desktop_polymer_video_masthead_session_tempdata_ttl":30,"live_chat_replay_milliqps_threshold":5000,"enable_classic_creation_menu":true,"desktop_polymer_video_masthead_wta_support":true,"chat_replay_use_merged_get_stream_queries":true,"service_worker_push_prompt_delay_microseconds":3888000000000,"enable_afv_div_reset_in_kevlar":true,"desktop_image_companion_wta_support":true,"botguard_periodic_refresh":true,"web_gel_lact":true,"desktop_pyv_on_watch_via_valor":true,"player_unified_fullscreen_transitions":true,"live_chat_top_chat_window_length_sec":4,"enable_desktop_polymer_video_masthead":true,"desktop_polymer_video_masthead_always_use_responsive_iframe":true,"enable_server_side_search_pyv":true,"debug_forced_promo_id":"","enable_playlist_visibility":true,"enable_more_related_ve_logging":true,"interaction_logging_on_gel_web":true,"desktop_notification_set_title_bar":true,"live_chat_flagging_reasons":true,"watch_next_pause_autoplay_lact_sec":4500,"enable_webcam_scheduling":true,"remove_search_result_count":true,"enable_creator_highlights":true,"html5_serverside_pagead_id_sets_cookie":true,"desktop_pyv_on_watch_override_lact":true,"enable_youtubei_innertube":true,"service_worker_push_prompt_cap":-1,"consent_url_override":"","same_domain_static_resources_desktop":true,"clear_web_implicit_clicktracking":true,"player_external_control_on_classic_desktop":true,"desktop_companion_wta_support":true,"log_window_onerror_fraction":0.1,"web_always_load_chat_support":true,"gfeedback_for_signed_out_users_enabled":true,"remove_web_visibility_batching":true,"autoplay_pause_by_lact_sampling_fraction":0.0,"enable_logging_directives_desktop":true,"use_push_for_desktop_live_chat":true,"cancel_pending_navs":true,"enable_wta_classic_search_pyv":true,"live_chat_message_sampling_rate":4.0,"live_chat_replay_viewer_disclosure":true,"desktop_videowall_companion_wta_support":true,"live_chat_replay":true,"log_web_screen_end":true,"enable_webcam_dynamic_poll_period":true,"service_worker_push_home_only":true,"enable_desktop_polymer_video_masthead_upgrade":true,"enable_gaming_new_logo":true},'HIGH_CONTRAST_MODE_CSS': "\/yts\/cssbin\/www-highcontrastmode-vflqMJCvF.css",'PREFETCH_CSS_RESOURCES' : ["\/yts\/cssbin\/player-vflxzMXPC\/www-player.css"],'PREFETCH_JS_RESOURCES': ["\/yts\/jsbin\/www-pagead-id-vflKFnNPC\/www-pagead-id.js","\/yts\/jsbin\/player-vflvPJ1R-\/ko_KR\/base.js"],'PREFETCH_LINKS': false,'PREFETCH_LINKS_MAX': 1,'PREFETCH_AUTOPLAY': false,'PREFETCH_AUTOPLAY_TIME': 0,'PREFETCH_AUTONAV': false,'PREBUFFER_MAX': 1,'PREBUFFER_LINKS': false,'PREBUFFER_AUTOPLAY': false,'PREBUFFER_AUTONAV': false,'WATCH_LATER_BUTTON': "\n\n  \u003cbutton class=\"yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button video-actions spf-nolink hide-until-delayloaded addto-watch-later-button-sign-in yt-uix-tooltip\" type=\"button\" onclick=\";return false;\" title=\"나중에 볼 동영상\" role=\"button\" data-video-ids=\"__VIDEO_ID__\" data-button-menu-id=\"shared-addto-watch-later-login\"\u003e\u003cspan class=\"yt-uix-button-arrow yt-sprite\"\u003e\u003c\/span\u003e\u003c\/button\u003e\n",'WATCH_QUEUE_BUTTON': "  \u003cbutton class=\"yt-uix-button yt-uix-button-size-small yt-uix-button-default yt-uix-button-empty yt-uix-button-has-icon no-icon-markup addto-button addto-queue-button video-actions spf-nolink hide-until-delayloaded addto-tv-queue-button yt-uix-tooltip\" type=\"button\" onclick=\";return false;\" title=\"대기열\" data-style=\"tv-queue\" data-video-ids=\"__VIDEO_ID__\"\u003e\u003c\/button\u003e\n",'WATCH_QUEUE_MENU': "  \u003cspan class=\"thumb-menu dark-overflow-action-menu video-actions\"\u003e\n    \u003cbutton onclick=\";return false;\" aria-haspopup=\"true\" type=\"button\" class=\"yt-uix-button-reverse flip addto-watch-queue-menu spf-nolink hide-until-delayloaded yt-uix-button yt-uix-button-dark-overflow-action-menu yt-uix-button-size-default yt-uix-button-has-icon no-icon-markup yt-uix-button-empty\" aria-expanded=\"false\" \u003e\u003cspan class=\"yt-uix-button-arrow yt-sprite\"\u003e\u003c\/span\u003e\u003cul class=\"watch-queue-thumb-menu yt-uix-button-menu yt-uix-button-menu-dark-overflow-action-menu hid\"\u003e\u003cli role=\"menuitem\" class=\"overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-next yt-uix-button-menu-item\" data-action=\"play-next\" onclick=\";return false;\"  data-video-ids=\"__VIDEO_ID__\"\u003e\u003cspan class=\"addto-watch-queue-menu-text\"\u003e다음 동영상 재생\u003c\/span\u003e\u003c\/li\u003e\u003cli role=\"menuitem\" class=\"overflow-menu-choice addto-watch-queue-menu-choice addto-watch-queue-play-now yt-uix-button-menu-item\" data-action=\"play-now\" onclick=\";return false;\"  data-video-ids=\"__VIDEO_ID__\"\u003e\u003cspan class=\"addto-watch-queue-menu-text\"\u003e지금 재생\u003c\/span\u003e\u003c\/li\u003e\u003c\/ul\u003e\u003c\/button\u003e\n  \u003c\/span\u003e\n",'SAFETY_MODE_PENDING': false,'I18N_PLURAL_RULES': function(n) { return (n == 1) ? 'one' : 'other'; },'ZWIEBACK_PING_URLS': ["https:\/\/www.google.co.kr\/pagead\/lvz?req_ts=1535347939\u0026pg=results\u0026evtid=AFEwIvdQ2i1eNa6DI58E6b53iOhquw9Bk0XbK_5kitARcLXrBj40BZEaEIc5_Ae0u-s49yP3JNgtdiFynCkgcZnN17CKHz7rIg\u0026sigh=AMHgYbNNDXc4DFzXFCx7ZKsMX-eq_kMvFw"],'LOCAL_DATE_TIME_CONFIG': {"dateFormats":["y년 M월 d일 H:mm","y년 M월 d일","y. M. d.","y. M. d."],"firstDayOfWeek":0,"months":["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],"firstWeekCutoffDay":3,"formatLongDate":"y년 M월 d일 H:mm","shortMonths":["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],"amPms":null,"shortWeekdays":["일","월","화","수","목","금","토"],"weekdays":["일요일","월요일","화요일","수요일","목요일","금요일","토요일"],"formatShortTime":"H:mm","weekendRange":[6,5],"formatLongDateOnly":"y년 M월 d일","formatWeekdayShortTime":"EE H:mm","formatShortDate":"y. M. d."},'PAGE_CL': 209826498,'PAGE_BUILD_LABEL': "youtube.ytfe.desktop_20180822_6_RC0",'VARIANTS_CHECKSUM': "a890112ca2352a9fa260846cd3dcd2da",'CLIENT_PROTOCOL': "HTTP\/1.1",'CLIENT_TRANSPORT': "tcp",'MDX_ENABLE_CASTV2': true,'MDX_ENABLE_QUEUE': true,'FEEDBACK_BUCKET_ID': "Search",'FEEDBACK_LOCALE_LANGUAGE': "ko",'FEEDBACK_LOCALE_EXTRAS': {"accept_language":null,"experiments":"23700246,23700266,23700732,23700785,23701297,23701882,23703975,23704268,23706844,23706846,23709359,23709427,23709532,23709788,23710313,23710476,23710536,23710729,23710863,23711857,23712746,23714427,23714553,23714865,23715837,23715854,23717597,23718221,23718617,23720115,23720358,23720902,23721136,23721223,23721699,23721753,23721771,23721898,23722151,23722180,23722284,23722367,23722755,23722905,23723166,23723437,23723506,23723555,23723588,23724616,23725261,23725678,23726564,23727366,23728416,23728468,23728908,23728980,23729373,23729484,23729689,23730614,23730676,23732173,23732509,23732895,23733015,23733270,23733598,23733751,23733978,23734497,23734676,23734985,23735850,23736849,23736982,23736986,23737288,23737474,23737696,23737894,23738145,23738306,23738491,23739004,23739035,23739509,23739951,23740143,23740493,23740620,23741060,23741376,23741381,23741386,23741680,23741692,23742898,23742989,23743196,23743292,23743361,23743375,23743628,23744137,23744176,23744424,23744685,23744752,23744919,23744935,23745001,23745105,23745145,23745163,23745648,23745798,23746322,23746324,23746390,23746505,23746819,23747079,23747120,23747249,23747704,23748035,23748318,23748845,23749068,23749197,23749705,23749760,23749835,23750010,23750045,23750291,23750481,23750562,23750902,23751155,23751188,23751726,23751767,23751836,23751995,23752637,23752641,23752806,23752865,23752869,23753284,23753344,23753592,23753709,23753821,23753874,23753893,23754073,23754122,23754298,23754372,23754405,23754444,23754535,23754615,23754854,23754977,23755083,23755084,23755226,23755671,23755781,23755886,23755964,23755966,23756001,23756106,23756151,23756285,23756490,23756714,23756854,23756957,23757062,23757119,23757209,23757401,23757512,23757523,23757568,23757576,23757585,23757645,23757688,23757806,23757982,23758093,23758259,23758340,23758383,23758508,23759078,23759098,23759123,23759349,23759694,23759756,23759765,23759847,23759856,23759880,23760227,23760384,23760422,23760452,23760464,23760544,23760546,23760569,23760647,23760691,23760912,23761049,23761059,23761187,23761464,23761589,23761591,24600157,24600208,24600438,24600713,24600770,24600820,24600913,24600935,24601046,24601059,24601103,9415398,9449243,9451814,9453167,9453409,9456707,9459794,9460554,9460829,9460959,9463460,9463594,9463936,9466835,9467471,9467508,9467510,9467512,9467700,9467806,9467820,9467822,9469934,9471103,9471239,9471955,9472185,9473373,9473387,9473390,9474396,9476077,9477414,9478787,9479456,9481058,9483190,9483245,9485000,9486390,9487037,9487329,9489266,9489452,9489831,9489833","logged_in":false}});   yt.setConfig({
+    'GUIDED_HELP_LOCALE': "ko_KR",
+    'GUIDED_HELP_ENVIRONMENT': "prod"
+  });
+yt.setConfig('SPF_SEARCH_BOX', true);yt.setMsg({'ADDTO_CREATE_NEW_PLAYLIST': "새 재생목록 만들기\n",'ADDTO_CREATE_PLAYLIST_DYNAMIC_TITLE': "  $dynamic_title_placeholder(새로 만들기)\n",'ADDTO_WATCH_LATER': "Watch later",'ADDTO_WATCH_LATER_ADDED': "추가됨",'ADDTO_WATCH_LATER_ERROR': "오류",'ADDTO_WATCH_QUEUE': "Watch Queue",'ADDTO_WATCH_QUEUE_ADDED': "추가됨",'ADDTO_WATCH_QUEUE_ERROR': "오류",'ADDTO_TV_QUEUE': "Queue",'ADS_INSTREAM_FIRST_PLAY': "동영상 광고 재생 중입니다.",'ADS_INSTREAM_SKIPPABLE': "동영상 광고를 건너뛸 수 있습니다.",'ADS_OVERLAY_IMPRESSION': "광고가 표시되었습니다.",'MASTHEAD_NOTIFICATIONS_LABEL': {"case0": "\uc77d\uc9c0 \uc54a\uc740 \uc54c\ub9bc \uc5c6\uc74c", "case1": "\uc77d\uc9c0 \uc54a\uc740 \uc54c\ub9bc 1\uac1c", "other": "\uc77d\uc9c0 \uc54a\uc740 \uc54c\ub9bc #\uac1c"},'MASTHEAD_NOTIFICATIONS_COUNT_99PLUS': "99+",'MDX_AUTOPLAY_OFF': '자동재생 해제됨','MDX_AUTOPLAY_ON': '자동재생 사용 중'});  yt.setConfig('FEED_PRIVACY_CSS_URL', "\/yts\/cssbin\/www-feedprivacydialog-vflLtZObB.css");
+  yt.setConfig('FEED_PRIVACY_LIGHTBOX_ENABLED', true);
+yt.setConfig({'SBOX_JS_URL': "\/yts\/jsbin\/www-searchbox-vflZKO1tg\/www-searchbox.js",'SBOX_SETTINGS': {"HAS_ON_SCREEN_KEYBOARD":true,"REQUEST_DOMAIN":"kr","PSUGGEST_TOKEN":null,"PQ":"dog","IS_FUSION":false,"REQUEST_LANGUAGE":"ko","SUGG_EXP_ID":"fic,bto.uytrf=1,dytlf=1,bto.fytfi=1,cfro=1,bto.uytrf=1,dytlf=1","SESSION_INDEX":null},'SBOX_LABELS': {"SUGGESTION_DISMISSED_LABEL":"추천 검색어 삭제됨","SUGGESTION_DISMISS_LABEL":"삭제"}});  yt.setConfig({
+    'YPC_LOADER_JS': "\/yts\/jsbin\/www-ypc-vfliErhVl\/www-ypc.js",
+    'YPC_LOADER_CSS': "\/yts\/cssbin\/www-ypc-vflbH3pUh.css",
+    'YPC_SIGNIN_URL': "https:\/\/accounts.google.com\/ServiceLogin?continue=http%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26next%3D%252F%26app%3Ddesktop%26hl%3Dko\u0026passive=true\u0026uilel=3\u0026service=youtube\u0026hl=ko",
+    'DBLCLK_ADVERTISER_ID': "2542116",
+    'DBLCLK_YPC_ACTIVITY_GROUP': "youtu444",
+    'SUBSCRIPTION_URL': "\/subscription_ajax",
+    'YPC_SWITCH_URL': "\/signin?action_handle_signin=true\u0026skip_identity_prompt=True\u0026next=%2F\u0026feature=purchases",
+    'YPC_GB_LANGUAGE': "ko_KR",
+    'YPC_MB_URL': "https:\/\/payments.youtube.com\/payments\/v4\/js\/integrator.js?ss=md",
+    'YPC_TRANSACTION_URL': "\/transaction_handler",
+    'YPC_SUBSCRIPTION_URL': "\/ypc_subscription_ajax",
+    'YPC_POST_PURCHASE_URL': "\/ypc_post_purchase_ajax",
+    'YTR_FAMILY_CREATION_URL': "https:\/\/families.google.com\/webcreation?usegapi=1",
+    'YTO_GTM_DATA': {'event': 'purchased', 'purchaseStatus': 'success'},
+    'YTO_GTM_1_BUTTON_CLICK_DATA': {'event': 'landingButtonClick', 'buttonPosition': '1'},
+    'YTO_GTM_2_BUTTON_CLICK_DATA': {'event': 'landingButtonClick', 'buttonPosition': '2'}
+  });
+  yt.setMsg({
+    'YPC_OFFER_OVERLAY': "  \n",
+    'YPC_UNSUBSCRIBE_OVERLAY': "  \n"
+  });
+  yt.setConfig('GOOGLE_HELP_CONTEXT', "search_results");
+ytcsi.info('st', 470);ytcfg.set({"TIMING_INFO":{"GetSearch_rid":"0x4e7c893618805aeb","yt_lt":"cold","c":"WEB","yt_ad":"1","yt_li":"0","cver":"1.20180823"},"CSI_SERVICE_NAME":"youtube"});;ytcfg.set({"CSI_VIEWPORT":true,"TIMING_AFT_KEYS":["ol"],"TIMING_ACTION":"results","TIMING_WAIT":["ol","cpt"]});;  yt.setConfig({
+      'XSRF_TOKEN': "QUFFLUhqa3ZMTUN1alRxaUh0b0owblNEbjRRdWJkN0Jud3xBQ3Jtc0ttVlBHRHJBSWxzNzA3T1Zsb1BXWmtqb0lheUZ6OXpaNFc4bkFkQjRuQjBxbUtkbmttcFJDdzYyZ3NmMFlkNFNod1FXeXBlVkJTc2NHTFNhUHZZYnlId25oSFEzUGxlbGY4Tnd3cDY4MmZLVDdrZHV1M3AxaWxmcVlmYXlwSVhmdnNRRkdkaDdzbUllR0hpUzVNVzVhejM3NUNKZlE=",
+      'XSRF_FIELD_NAME': "session_token",
+
+      'XSRF_REDIRECT_TOKEN': "OTZJl6EieofOwvRxbQpLIoXTq9J8MTUzNTQzNDMzOUAxNTM1MzQ3OTM5"  });
+yt.setConfig('ID_TOKEN', null);window.ytcfg.set('SERVICE_WORKER_KILLSWITCH', false);  yt.setConfig('THUMB_DELAY_LOAD_BUFFER', 0);
+if (window.ytcsi) {window.ytcsi.tick("jl", null, '');}</script>
+</body></html>
+

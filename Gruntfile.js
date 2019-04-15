@@ -16,11 +16,13 @@ module.exports = function (grunt) {
           '!template/**/*.js',
           '!coverage/**',
           '!libs/brackets-server/**',
+          '!libs/i3d/**',
           '!**/node_modules/**',
           '!projects/**',
           '!tools/**/**',
           '!temp/**',
-          '!share/**'
+          '!share/**',
+          '!public/design-editor/**' // FIX_ME : this should be eliminated after cleaning up code for design-editor
         ]
       },
       bracketsServer: {
@@ -31,11 +33,14 @@ module.exports = function (grunt) {
           'libs/brackets-server/embedded-ext/**/*.js',
           'libs/brackets-server/hacks/**/*.js',
           'libs/brackets-server/lib/**/*.js',
+          '!libs/brackets-server/embedded-ext/swmitra.html-designer/**',
           '!libs/brackets-server/embedded-ext/brackets-indent-guides/snap.svg-min.js',
           '!libs/brackets-server/embedded-ext/client-fs/thirdparty/**',
           '!libs/brackets-server/embedded-ext/ConfigXmlEditor/node/html/**',
           '!libs/brackets-server/embedded-ext/hirse.beautify/thirdparty/**',
           '!libs/brackets-server/embedded-ext/**/node_modules/**',
+          '!libs/brackets-server/embedded-ext/tau/**', // FIX_ME : this should be eliminated after cleaning up code for tau embedded-ext
+          '!libs/brackets-server/embedded-ext/tau-document/tau-doc/**',
           '!libs/brackets-server/hacks/src/search/node/FindInFilesDomain.js'
         ]
       }
@@ -56,7 +61,10 @@ module.exports = function (grunt) {
             'Element “head” is missing a required instance of child element “title”.',
             'Consider adding a “lang” attribute to the “html” start tag to declare the language of this document.',
             'The “for” attribute of the “label” element must refer to a non-hidden form control.',
-            /This document appears to be written in .*[가-힣]+.* Consider adding “lang=".*"” \(or variant\) to the “html” start tag./
+            /This document appears to be written in .*[가-힣]+.* Consider adding “lang=".*"” \(or variant\) to the “html” start tag./,
+            'Element “style” not allowed as child of element “div” in this context. (Suppressing further errors from this subtree.)',
+            'Element “img” is missing required attribute “src”.',
+            'An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.'
           ]
         },
         src: [
@@ -74,9 +82,12 @@ module.exports = function (grunt) {
       },
       bracketsServer: {
         options: {
-          csslintrc: 'libs/brackets-server/.csslintrc'
+          csslintrc: 'libs/brackets-server/embedded-ext/.csslintrc'
         },
-        src: [ 'libs/brackets-server/embedded-ext/**/*.css' ]
+        src: [
+          'libs/brackets-server/embedded-ext/**/*.css',
+          '!libs/brackets-server/embedded-ext/**/node_modules/**'
+        ]
       }
     },
     watch: {

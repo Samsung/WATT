@@ -1,0 +1,8 @@
+{
+  "name": "switchc2c",
+  "description": "switchc2c",
+  "memory": 128,
+  "timeout": 5,
+  "role": "",
+  "environment": {}
+}

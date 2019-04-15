@@ -1,0 +1,834 @@
+{
+  "n": "air conditioner",
+  "version": "0.0.1",
+  "vid": "",
+  "mnmn": "",
+  "language": [
+    {
+      "locale": "en_US",
+      "version": "0.0.1",
+      "poCodes": [
+        {
+          "po": "__PO_CODE_POWERSWITCH_ON",
+          "label": "On"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH_OFF",
+          "label": "Off"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH",
+          "label": "Power"
+        },
+        {
+          "label": "Auto",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_AUTO"
+        },
+        {
+          "label": "Cool",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_COOL"
+        },
+        {
+          "label": "Cool Clean",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_COOLCLEAN"
+        },
+        {
+          "label": "Dry Clean",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_DRYCLEAN"
+        },
+        {
+          "label": "Wind",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_FANONLY"
+        },
+        {
+          "label": "Heat",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_HEAT"
+        },
+        {
+          "label": "Heat Clean",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_HEATCLEAN"
+        },
+        {
+          "label": "Not Supported",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_NOTSUPPORTED"
+        },
+        {
+          "label": "Air Conditioner Mode",
+          "po": "__PO_CODE_AIRCONDITIONERMODE_MODE"
+        },
+        {
+          "label": "Air Quality Sensor Level",
+          "po": "__PO_CODE_AIRQUALITYSENSOR_LEVEL"
+        },
+        {
+          "label": "Energy Consumption",
+          "po": "___PO_CODE_ENERGYMETER_ENERGY_CONSUMPTION"
+        },
+        {
+          "label": "Fan Speed",
+          "po": "___PO_CODE_FANSPEED_FANSPEED"
+        },
+        {
+          "label": "Normal",
+          "po": "__PO_CODE_FILTERSTATUS_NORMAL"
+        },
+        {
+          "label": "Replace",
+          "po": "__PO_CODE_FILTERSTATUS_REPLACE"
+        },
+        {
+          "label": "Filter Status",
+          "po": "__PO_CODE_FILTERSTATUS_STATE"
+        },
+        {
+          "label": "Relative humidity measurement",
+          "po": "___PO_CODE_RELATIVEHUMIDITYMEASUREMENT"
+        },
+        {
+          "label": "Measured Temperature",
+          "po": "___PO_CODE_TEMPERATUREMEASUREMENT_MEASURED_TEMPERATURE"
+        },
+        {
+          "label": "Cooling Temperature",
+          "po": "___PO_CODE_THERMOSTATHEATINGSETPOINT_COOLING_TEMPERATURE"
+        },
+        {
+          "label": "OutDoor Temperature",
+          "po": "___PO_CODE_TEMPERATUREMEASUREMENT_OUT_DOOR_TEMPERATURE"
+        }
+      ],
+      "mnmn": "",
+      "vid": ""
+    }
+  ],
+  "ma": [
+    {
+      "name": "PowerSwitch",
+      "type": "main",
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": false
+    }
+  ],
+  "ms": [
+    {
+      "name": "PowerSwitch",
+      "type": "device",
+      "order": 1,
+      "label": {
+        "label": "<var1>",
+        "arguments": [
+          {
+            "n": "var1",
+            "href": "/capability/switch/main/0",
+            "property": "power",
+            "valueType": null,
+            "alternatives": [
+              {
+                "key": "on",
+                "value": "__PO_CODE_POWERSWITCH_ON"
+              },
+              {
+                "key": "off",
+                "value": "__PO_CODE_POWERSWITCH_OFF",
+                "type": "inactive"
+              }
+            ]
+          }
+        ]
+      },
+      "emphasis": false
+    }
+  ],
+  "dpInfo": [
+    {
+      "os": "android",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.airconditioner"
+    },
+    {
+      "os": "ios",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.airconditioner"
+    }
+  ],
+  "dpResources": [
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": true
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 2,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": false
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 3,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": true,
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 4,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_airconditioner_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Air Conditioner Mode",
+      "controllable": true,
+      "link": {
+        "href": "/capability/airConditionerMode/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mode.airconditioner"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Air Conditioner Mode Resource",
+        "label": "__PO_CODE_AIRCONDITIONERMODE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "cool",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_COOL"
+        },
+        {
+          "key": "fanOnly",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_FANONLY"
+        },
+        {
+          "key": "heat",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_HEAT"
+        },
+        {
+          "key": "coolClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_COOLCLEAN"
+        },
+        {
+          "key": "dryClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_DRYCLEAN"
+        },
+        {
+          "key": "heatClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_HEATCLEAN"
+        },
+        {
+          "key": "auto",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_AUTO"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 5,
+      "ruleEvent": true,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_airconditioner_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Air Conditioner Mode",
+      "controllable": true,
+      "link": {
+        "href": "/capability/airConditionerMode/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Air Conditioner Mode Resource",
+        "label": "__PO_CODE_AIRCONDITIONERMODE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "cool",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_COOL"
+        },
+        {
+          "key": "fanOnly",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_FANONLY"
+        },
+        {
+          "key": "heat",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_HEAT"
+        },
+        {
+          "key": "coolClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_COOLCLEAN"
+        },
+        {
+          "key": "dryClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_DRYCLEAN"
+        },
+        {
+          "key": "heatClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_HEATCLEAN"
+        },
+        {
+          "key": "auto",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_AUTO"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 6,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_airconditioner_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Air Conditioner Mode",
+      "controllable": true,
+      "link": {
+        "href": "/capability/airConditionerMode/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Air Conditioner Mode Resource",
+        "label": "__PO_CODE_AIRCONDITIONERMODE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "cool",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_COOL"
+        },
+        {
+          "key": "fanOnly",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_FANONLY"
+        },
+        {
+          "key": "heat",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_HEAT"
+        },
+        {
+          "key": "coolClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_COOLCLEAN"
+        },
+        {
+          "key": "dryClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_DRYCLEAN"
+        },
+        {
+          "key": "heatClean",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_HEATCLEAN"
+        },
+        {
+          "key": "auto",
+          "value": "__PO_CODE_AIRCONDITIONERMODE_AUTO"
+        }
+      ],
+      "ruleAction": true
+    },
+    {
+      "emphasis": false,
+      "ruleEvent": false,
+      "order": 7,
+      "step": 0,
+      "property": "airQuality",
+      "controlType": "List",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_air_quality_sensor_level",
+        "large": "",
+        "small": ""
+      },
+      "name": "Air Quality Sensor",
+      "controllable": false,
+      "link": {
+        "href": "/capability/airQualitySensor/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.airqualitylevel"
+      },
+      "label": {
+        "n": "ST Air Quality Sensor Level Resource",
+        "label": "__PO_CODE_AIRQUALITYSENSOR_LEVEL"
+      },
+      "alternatives": [],
+      "ruleAction": false
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "step": 0,
+      "link": {
+        "rt": "x.com.st.energymeter",
+        "href": "/capability/energyMeter/main/0",
+        "if": "oic.if.r"
+      },
+      "controlType": "List",
+      "name": "Energy Consumption",
+      "label": {
+        "label": "___PO_CODE_ENERGYMETER_ENERGY_CONSUMPTION"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_energy_consumption",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "order": 8,
+      "property": "energy"
+    },
+    {
+      "ruleAction": true,
+      "controllable": true,
+      "range": [
+        1,
+        100
+      ],
+      "link": {
+        "rt": "oic.r.light.dimming",
+        "href": "/capability/fanSpeed/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Fan Speed",
+      "label": {
+        "label": "___PO_CODE_FANSPEED_FANSPEED",
+        "n": "st dimming level resource"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_fan_speed",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 9,
+      "property": "fanSpeed"
+    },
+    {
+      "ruleAction": false,
+      "controllable": true,
+      "range": [
+        1,
+        100
+      ],
+      "link": {
+        "rt": "x.com.st.fanspeed",
+        "href": "/capability/fanSpeed/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Fan Speed",
+      "label": {
+        "label": "___PO_CODE_FANSPEED_FANSPEED",
+        "n": "st dimming level resource"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_fan_speed",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 10,
+      "property": "fanSpeed"
+    },
+    {
+      "emphasis": false,
+      "order": 11,
+      "ruleEvent": false,
+      "property": "currentMachineState",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_filter_state",
+        "large": "",
+        "small": ""
+      },
+      "name": "Filter Status",
+      "controllable": false,
+      "link": {
+        "href": "/capability/filterStatus/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.filter"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Filter Status Resource",
+        "label": "__PO_CODE_FILTERSTATUS_STATE"
+      },
+      "alternatives": [
+        {
+          "key": "normal",
+          "value": "__PO_CODE_FILTERSTATUS_NORMAL"
+        },
+        {
+          "key": "replace",
+          "value": "__PO_CODE_FILTERSTATUS_REPLACE"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "ruleAction": false,
+      "controllable": false,
+      "link": {
+        "rt": "oic.r.humidity",
+        "href": "/capability/relativeHumidityMeasurement/main/0",
+        "if": "oic.if.r"
+      },
+      "step": 0,
+      "name": "Relative Humidity Measurement",
+      "label": {
+        "label": "___PO_CODE_RELATIVEHUMIDITYMEASUREMENT",
+        "n": "ST Relative Humidity Measurement"
+      },
+      "emphasis": false,
+      "ruleEvent": true,
+      "iconUrl": {
+        "mid": "icon://ic_function_humidity",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 12,
+      "property": "humidity"
+    },
+    {
+      "ruleAction": false,
+      "controllable": false,
+      "link": {
+        "rt": "oic.r.humidity",
+        "href": "/capability/relativeHumidityMeasurement/main/0",
+        "if": "oic.if.r"
+      },
+      "step": 0,
+      "name": "Relative Humidity Measurement",
+      "label": {
+        "label": "___PO_CODE_RELATIVEHUMIDITYMEASUREMENT",
+        "n": "ST Relative Humidity Measurement"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_humidity",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 13,
+      "property": "humidity"
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "range": [
+        -20,
+        50
+      ],
+      "link": {
+        "rt": "oic.r.temperature",
+        "href": "/capability/temperatureMeasurement/main/0",
+        "if": "oic.if.r"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Temperature Measurement",
+      "label": {
+        "label": "___PO_CODE_TEMPERATUREMEASUREMENT_MEASURED_TEMPERATURE",
+        "n": "temperature"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_measured_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": true,
+      "order": 14,
+      "property": "temperature"
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "range": [
+        -20,
+        50
+      ],
+      "link": {
+        "rt": "x.com.st.temperature.measured",
+        "href": "/capability/temperatureMeasurement/main/0",
+        "if": "oic.if.r"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Temperature Measurement",
+      "label": {
+        "label": "___PO_CODE_TEMPERATUREMEASUREMENT_MEASURED_TEMPERATURE",
+        "n": "temperature"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_measured_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "order": 15,
+      "property": "temperature"
+    },
+    {
+      "ruleAction": false,
+      "controllable": true,
+      "step": 0,
+      "link": {
+        "rt": "x.com.st.temperature.cooling",
+        "href": "/capability/thermostatCoolingSetpoint/main/0",
+        "if": "oic.if.a"
+      },
+      "range": [
+        0,
+        40
+      ],
+      "controlType": "List",
+      "name": "Thermostat Cooling Setpoint",
+      "label": {
+        "label": "___PO_CODE_THERMOSTATHEATINGSETPOINT_COOLING_TEMPERATURE",
+        "n": "Thermostat Cooling Setpoint resource"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_cooling_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "emphasis": false,
+      "order": 16,
+      "property": "temperature"
+    },
+    {
+      "ruleAction": true,
+      "controllable": true,
+      "step": 0,
+      "link": {
+        "rt": "oic.r.temperature",
+        "href": "/capability/thermostatCoolingSetpoint/main/0",
+        "if": "oic.if.a"
+      },
+      "range": [
+        0,
+        40
+      ],
+      "controlType": "List",
+      "name": "Thermostat Cooling Setpoint",
+      "label": {
+        "label": "___PO_CODE_THERMOSTATHEATINGSETPOINT_COOLING_TEMPERATURE",
+        "n": "Thermostat Cooling Setpoint resource"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_cooling_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "emphasis": false,
+      "order": 17,
+      "property": "temperature"
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "range": [
+        -20,
+        50
+      ],
+      "link": {
+        "rt": "oic.r.temperature",
+        "href": "/capability/temperatureMeasurement/outdoor/0",
+        "if": "oic.if.r"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Temperature Measurement",
+      "label": {
+        "label": "___PO_CODE_TEMPERATUREMEASUREMENT_OUT_DOOR_TEMPERATURE",
+        "n": "temperature"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_outdoor_measured_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": true,
+      "order": 18,
+      "property": "temperature"
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "range": [
+        -20,
+        50
+      ],
+      "link": {
+        "rt": "x.com.st.temperature.measured",
+        "href": "/capability/temperatureMeasurement/outdoor/0",
+        "if": "oic.if.r"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Temperature Measurement",
+      "label": {
+        "label": "___PO_CODE_TEMPERATUREMEASUREMENT_OUT_DOOR_TEMPERATURE",
+        "n": "temperature"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_outdoor_measured_temperature",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "order": 19,
+      "property": "temperature"
+    }
+  ]
+}

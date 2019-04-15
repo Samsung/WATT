@@ -1,0 +1,293 @@
+{
+    "dpResources": [
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Garage Door Control", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_garage_door_control"
+            }, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSING", 
+                    "key": "closing"
+                }, 
+                {
+                    "type": "active", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_OPENING", 
+                    "key": "opening"
+                }, 
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSED", 
+                    "key": "closed"
+                }, 
+                {
+                    "type": "active", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_OPEN", 
+                    "key": "open"
+                }, 
+                {
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_UNKNOWN", 
+                    "key": "unknown"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_GARAGEDOORCONTROL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.garagedoorcontrol", 
+                "href": "/capability/garageDoorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "doorState", 
+            "order": 1
+        }, 
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Garage Door Control", 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_garage_door_control"
+            }, 
+            "valueType": null, 
+            "ruleEvent": true, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSING", 
+                    "key": "closing"
+                }, 
+                {
+                    "type": "active", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_OPENING", 
+                    "key": "opening"
+                }, 
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSED", 
+                    "key": "closed"
+                }, 
+                {
+                    "type": "active", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_OPEN", 
+                    "key": "open"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_GARAGEDOORCONTROL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.garagedoorcontrol", 
+                "href": "/capability/garageDoorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": false, 
+            "step": 0, 
+            "controlType": "List", 
+            "property": "doorState", 
+            "order": 2
+        }, 
+        {
+            "controllable": true, 
+            "group": null, 
+            "name": "Garage Door Control", 
+            "visible": null, 
+            "valueType": null, 
+            "ruleEvent": false, 
+            "alternatives": [
+                {
+                    "type": "inactive", 
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSE", 
+                    "key": "closing"
+                }
+            ], 
+            "step": 0, 
+            "label": {
+                "label": "___PO_CODE_GARAGEDOORCONTROL", 
+                "arguments": null, 
+                "n": null
+            }, 
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_garage_door_control"
+            }, 
+            "range": null, 
+            "link": {
+                "rt": "x.com.st.garagedoorcontrol", 
+                "href": "/capability/garageDoorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "ruleAction": true, 
+            "controlType": "List", 
+            "property": "doorState", 
+            "order": 3, 
+            "emphasis": false
+        }
+    ], 
+    "ma": [
+        {
+            "group": null, 
+            "name": "Garage Door Control", 
+            "iconUrl": null, 
+            "valueType": null, 
+            "alternatives": [
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSED",
+                    "key": "closed"
+                }, 
+                {
+                    "type": "active",
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_OPEN",
+                    "key": "open"
+                }, 
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_UNKNOWN",
+                    "key": "unknown"
+                }, 
+                {
+                    "type": "active",
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_OPENING",
+                    "key": "opening"
+                }, 
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSING",
+                    "key": "closing"
+                }
+            ], 
+            "range": null, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_GARAGEDOORCONTROL"
+            }, 
+            "visible": null, 
+            "emphasis": false, 
+            "link": {
+                "rt": "x.com.st.garagedoorcontrol", 
+                "href": "/capability/garageDoorControl/0", 
+                "if": "oic.if.a"
+            }, 
+            "step": 0, 
+            "controlType": "ToggleSwitch", 
+            "property": "doorState", 
+            "type": "main", 
+            "order": 1
+        }
+    ], 
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL_CLOSE", 
+                    "label": "Close"
+                }, 
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL_OPEN", 
+                    "label": "Open"
+                }, 
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL_UNKNOWN", 
+                    "label": "Unknown"
+                }, 
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL_OPENING", 
+                    "label": "Opening"
+                }, 
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL_CLOSING", 
+                    "label": "Closing"
+                }, 
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL", 
+                    "label": "Garage Door Control"
+                }, 
+                {
+                    "po": "___PO_CODE_GARAGEDOORCONTROL_CLOSED", 
+                    "label": "Closed"
+                }
+            ], 
+            "locale": "en_US", 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": [], 
+    "capability": "Garage Door Control", 
+    "ms": [
+        {
+            "group": null, 
+            "name": "Garage Door Control", 
+            "visible": null, 
+            "label": {
+                "n": "ST Garage Door Controlresource", 
+                "arguments": [
+                    {
+                        "property": "doorState", 
+                        "valueType": null, 
+                        "href": "/capability/garageDoorControl/0", 
+                        "alternatives": [
+                            {
+                                "type": "inactive", 
+                                "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSED", 
+                                "key": "closed"
+                            }, 
+                            {
+                                "type": "active", 
+                                "value": "___PO_CODE_GARAGEDOORCONTROL_OPEN", 
+                                "key": "open"
+                            }, 
+                            {
+                                "type": "inactive", 
+                                "value": "___PO_CODE_GARAGEDOORCONTROL_UNKNOWN", 
+                                "key": "unknown"
+                            }, 
+                            {
+                                "type": "active", 
+                                "value": "___PO_CODE_GARAGEDOORCONTROL_OPENING", 
+                                "key": "opening"
+                            }, 
+                            {
+                                "type": "inactive", 
+                                "value": "___PO_CODE_GARAGEDOORCONTROL_CLOSING", 
+                                "key": "closing"
+                            }
+                        ], 
+                        "n": "var1"
+                    }
+                ], 
+                "label": "<var1>"
+            }, 
+            "iconUrl": null, 
+            "emphasis": false, 
+            "type": "device", 
+            "order": 1
+        }
+    ]
+}

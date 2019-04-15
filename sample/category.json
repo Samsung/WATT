@@ -1,0 +1,7 @@
+{
+    "crx": ["General"],
+    "iotjs": ["Network"],
+    "sthings": ["General", "IoT"],
+    "wasm": ["Application", "Nacl"],
+    "web": ["General", "IoT", "WASM"]
+}

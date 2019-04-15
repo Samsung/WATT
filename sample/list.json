@@ -5,7 +5,8 @@
     "src": "Calculator",
     "icon": "icon.png",
     "language": "C++",
-    "type": "wasm"
+    "type": "wasm",
+    "category": "Application"
   },
   {
     "name": "Hello World",
@@ -13,7 +14,8 @@
     "src": "HelloWorld",
     "icon": "icon.png",
     "language": "C",
-    "type": "wasm"
+    "type": "wasm",
+    "category": "Application"
   },
   {
     "name": "Matrix",
@@ -21,35 +23,193 @@
     "src": "Matrix",
     "icon": "icon.png",
     "language": "C++",
-    "type": "wasm"
+    "type": "wasm",
+    "category": "Application"
   },
   {
-    "name": "[NaCl] Hello World",
-    "description": "Convert 'Hello World' NaCl sample to WASM",
+    "name": "NaCl Hello World",
+    "description": "Convert 'Hello World' NaCl sample to JavaScript",
     "src": "HelloWorld_NaCl",
     "icon": "icon.png",
     "language": "C++",
-    "type": "wasm"
+    "type": "wasm",
+    "category": "Nacl"
+  },
+  {
+    "name": "NaCl Video Decoder",
+    "description": "NaCl Video Decoder API sample code",
+    "src": "video_decode_performance",
+    "icon": "icon.png",
+    "language": "C++",
+    "type": "wasm",
+    "category": "Nacl"
+  },
+  {
+    "name": "NaCl Host Resolver",
+    "description": "NaCl HostResolver API sample code",
+    "src": "hostresolver",
+    "icon": "icon.png",
+    "language": "C++",
+    "type": "wasm",
+    "category": "Nacl"
+  },
+  {
+    "name": "NaCl Flame Simulation",
+    "description": "NaCl Graphics2D API sample code",
+    "src": "graphics_2d",
+    "icon": "icon.png",
+    "language": "C++",
+    "type": "wasm",
+    "category": "WASM"
+  },
+  {
+    "name": "TAU Base Application",
+    "description": "Base application for TAU extensions.",
+    "src": "TAUBaseApplication",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "mobile,tv",
+    "category": "General"
+  },
+  {
+    "name": "SmartThings IoT Application",
+    "description": "IoT application for SmartThings",
+    "src": "TAUIoTApplication",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "mobile,tv",
+    "category": "IoT"
+  },
+  {
+    "name": "TAU Base",
+    "description": "Base application for TAU MDF extensions.",
+    "src": "TAU-BaseWearable",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "wearable",
+    "category": "IoT"
+  },
+  {
+    "name": "Iot Device Selector",
+    "description": "Shows devices list using selector widget.",
+    "src": "TAUIoTDeviceSelector",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "wearable",
+    "category": "IoT"
   },
   {
     "name": "Hello World",
     "description": "Print 'Hello World' using compiled 'Hello World' WASM module",
     "src": "HelloWorld",
     "icon": "icon.png",
-    "type": "web"
+    "type": "web",
+    "category": "WASM"
   },
   {
     "name": "Matrix",
     "description": "Move, scale and rotate rectangle using compiled 'Matrix' WASM module",
     "src": "Matrix",
     "icon": "icon.png",
-    "type": "web"
+    "type": "web",
+    "category": "WASM"
+  },
+  {
+    "name": "Survival Shooter",
+    "description": "Isometric 3D survival shooter game",
+    "src": "SurvivalShooter",
+    "icon": "icon.png",
+    "type": "web",
+    "extension": "unity",
+    "category": "WASM"
+  },
+  {
+    "name": "Unreal",
+    "description": "Sample application to use Unreal API using Unreal WASM module",
+    "src": "Unreal",
+    "icon": "icon.png",
+    "type": "web",
+    "category": "WASM"
+  },
+  {
+    "name": "Unreal with physics",
+    "description": "Sample application to use Unreal physics API using Unreal WASM module",
+    "src": "UnrealPhysics",
+    "icon": "icon.png",
+    "type": "web",
+    "extension": "unity",
+    "category": "WASM"
+  },
+  {
+    "name": "Unity Basic",
+    "description": "Unity sample application",
+    "src": "Unity",
+    "icon": "icon.png",
+    "type": "web",
+    "extension": "unity",
+    "category": "WASM"
   },
   {
     "name": "Wash Machine",
     "description": "Spin many objects like as Wash Machine using Ammo.js and Three.js",
     "src": "WashMachine",
     "icon": "icon.png",
-    "type": "web"
+    "type": "web",
+    "category": "WASM"
+  },
+  {
+    "name": "TAU UI Components demo",
+    "description": "TAU UI Components demo",
+    "src": "UIComponents",
+    "icon": "icon.png",
+    "type": "web",
+    "category": "General"
+  },
+  {
+    "name": "Net Hello",
+    "description": "Server & Client example",
+    "src": "net-hello",
+    "type": "iotjs",
+    "category": "Network"
+  },
+  {
+    "name": "Multi-Device",
+    "description": "Base application for TAU MDF extensions.",
+    "src": "MultiDevice",
+    "icon": "icon.png",
+    "type": "sthings",
+    "category": "IoT"
+  },
+  {
+    "name": "Add-On",
+    "description": "Sample Chromium Extension",
+    "src": "ad_plus",
+    "icon": "icon.png",
+    "type": "crx",
+    "category": "General"
+  },
+  {
+    "name": "Book",
+    "description": "Sample Book application for MD project",
+    "src": "Book",
+    "icon": "icon.png",
+    "type": "sthings",
+    "category": "General"
+  },
+  {
+    "name": "Controller",
+    "description": "Sample Controller application for MD project",
+    "src": "Controller",
+    "icon": "icon.png",
+    "type": "sthings",
+    "category": "General"
+  },
+  {
+    "name": "I3D Test Page",
+    "description": "Sample application for the I3D",
+    "src": "I3D",
+    "icon": "icon.png",
+    "type": "sthings",
+    "category": "General"
   }
 ]

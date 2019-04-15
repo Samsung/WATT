@@ -1,0 +1,73 @@
+From b371881bb6a197ced2447392e534dbf5eda23c4a Mon Sep 17 00:00:00 2001
+From: Hunseop Jeong <hs85.jeong@samsung.com>
+Date: Tue, 26 Sep 2017 14:30:00 +0900
+Subject: [PATCH] Implement IoT.js code hint plugin
+
+ - Enable iotjs code hint if project type is iotjs.
+ - Excluding third party js from the eslint
+
+Signed-off-by: Hunseop Jeong <hs85.jeong@samsung.com>
+---
+ .../default/JavaScriptCodeHints/ScopeManager.js    |  3 +-
+ .../default/JavaScriptCodeHints/tern-worker.js     | 43 ++++++++++++++--------
+ 2 files changed, 29 insertions(+), 17 deletions(-)
+
+diff --git a/src/extensions/default/JavaScriptCodeHints/ScopeManager.js b/src/extensions/default/JavaScriptCodeHints/ScopeManager.js
+index 3524a8f..15641c4 100644
+--- a/src/extensions/default/JavaScriptCodeHints/ScopeManager.js
++++ b/src/extensions/default/JavaScriptCodeHints/ScopeManager.js
+@@ -1096,7 +1096,8 @@ define(function (require, exports, module) {
+                     dir         : dir,
+                     files       : files,
+                     env         : ternEnvironment,
+-                    timeout     : PreferencesManager.get("jscodehints.inferenceTimeout")
++                    timeout     : PreferencesManager.get("jscodehints.inferenceTimeout"),
++                    iotjs       : PreferencesManager.getViewState("projectType") === "iotjs"
+                 };
+ 
+                 if (worker) {
+diff --git a/src/extensions/default/JavaScriptCodeHints/tern-worker.js b/src/extensions/default/JavaScriptCodeHints/tern-worker.js
+index 1ed4c7f..3079dd3 100644
+--- a/src/extensions/default/JavaScriptCodeHints/tern-worker.js
++++ b/src/extensions/default/JavaScriptCodeHints/tern-worker.js
+@@ -33,11 +33,12 @@ var config = {};
+ 
+     var MessageIds, HintUtils2;
+     var Tern, Infer;
++    var iotjsEnabled = false;
+     require(["./MessageIds", "./HintUtils2"], function (messageIds, hintUtils2) {
+         MessageIds = messageIds;
+         HintUtils2 = hintUtils2;
+         var ternRequire = require.config({baseUrl: "./thirdparty"});
+-        ternRequire(["tern/lib/tern", "tern/lib/infer", "tern/plugin/requirejs", "tern/plugin/doc_comment", "tern/plugin/angular"], function (tern, infer, requirejs, docComment) {
++        ternRequire(["tern/lib/tern", "tern/lib/infer", "tern/plugin/requirejs", "tern/plugin/doc_comment", "tern/plugin/iotjs"], function (tern, infer, requirejs, docComment) {
+             Tern = tern;
+             Infer = infer;
+ 
+@@ -119,8 +120,13 @@ var config = {};
+                     defs: env,
+                     async: true,
+                     getFile: getFile,
+-                    plugins: {requirejs: {}, doc_comment: true, angular: true}
++                    plugins: {requirejs: {}, doc_comment: true}
+                 };
++
++                if (iotjsEnabled) {
++                    ternOptions.plugins.iotjs = true;
++                }
++
+                 ternServer = new Tern.Server(ternOptions);
+ 
+                 files.forEach(function (file) {
+@@ -619,6 +628,8 @@ var config = {};
+                         files   = request.files;
+                     inferenceTimeout = request.timeout;
+ 
++                    iotjsEnabled = request.iotjs;
++
+                     initTernServer(env, files);
+                 } else if (type === MessageIds.TERN_COMPLETIONS_MSG) {
+                     offset  = request.offset;
+-- 
+2.7.4
+

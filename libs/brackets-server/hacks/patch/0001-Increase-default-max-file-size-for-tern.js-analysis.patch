@@ -1,0 +1,32 @@
+From 97ecc8e43dbafeb8bfef4cbb32f5d1964f945492 Mon Sep 17 00:00:00 2001
+From: Grzegorz Ludwikowski <g.ludwikowsk@samsung.com>
+Date: Thu, 4 Jan 2018 16:56:34 +0100
+Subject: [PATCH] Increase default max file size for tern.js analysis
+
+Current default max file size is too small to let tern.js analyze
+unreal.js and ammo.js loader code, so we don't get any hints from that
+files.
+
+Bug: http://suprem.sec.samsung.net/jira/browse/RWASP-3095
+
+Signed-off-by: Grzegorz Ludwikowski <g.ludwikowsk@samsung.com>
+---
+ src/extensions/default/JavaScriptCodeHints/Preferences.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/extensions/default/JavaScriptCodeHints/Preferences.js b/src/extensions/default/JavaScriptCodeHints/Preferences.js
+index b8e08d15c..4eb921fcf 100644
+--- a/src/extensions/default/JavaScriptCodeHints/Preferences.js
++++ b/src/extensions/default/JavaScriptCodeHints/Preferences.js
+@@ -151,7 +151,7 @@ define(function (require, exports, module) {
+             // exclude require and jquery since we have special knowledge of those
+             BASE_EXCLUDED_FILES = /^require.*\.js$|^jquery.*\.js$/,
+             DEFAULT_MAX_FILE_COUNT = 100,
+-            DEFAULT_MAX_FILE_SIZE = 512 * 1024;
++            DEFAULT_MAX_FILE_SIZE = 10 * 1024 * 1024;
+ 
+         if (prefs) {
+             this._excludedDirectories = settingsToRegExp(prefs["excluded-directories"],
+-- 
+2.14.2.dirty
+

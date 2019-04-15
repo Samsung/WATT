@@ -1,0 +1,11 @@
+{
+  "id": "default.plugin",
+  "name": "generic",
+  "version": "1",
+  "versionName": "0.0.1",
+  "url": "ppks/default.plugin_0.0.1.ppk",
+  "deviceType": "generic",
+  "deviceSubType": "generic",
+  "deviceManufacturer": "N/A",
+  "platformVersion": "1.0.0"
+}

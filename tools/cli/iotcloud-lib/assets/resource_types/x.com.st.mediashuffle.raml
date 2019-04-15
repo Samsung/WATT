@@ -1,0 +1,86 @@
+#%RAML 0.8
+title: WWST Player Shuffle Mode
+version: v1.0.0-20170911
+schemas:
+- Mode: |
+    {
+      "id": "http://www.samsung.com/schemas/x.com.st.mediashuffle.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "WWST Mode",
+      "definitions": {
+        "x.com.st.mediashuffle": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "enabled",
+                "disabled"
+              ],
+              "description": "State of the ShuffleMode."
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.mediashuffle"
+        }
+      ],
+      "required": [
+        "mode"
+      ]
+    }
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.a","oic.if.s","oic.if.baseline"]
+
+/WWSTPlayerShuffleModeResURI:
+  description: |
+        Media Player Shuffle Mode
+  displayName: WWST Media Player Shuffle Mode
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current Media ShuffleMode mode
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Mode
+            example: |
+              {
+                "rt":             ["x.com.st.mediashuffle"],
+                "id":             "unique_example_id",
+                "mode": "enabled"
+              }
+
+  post:
+    description: |
+      Sets the desired Media Player Shuffle Mode
+    body:
+      application/json:
+        schema: Mode
+        example: |
+          {
+            "id":    "unique_example_id",
+            "mode": "enabled"
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            schema: Mode
+            example: |
+              {
+                "id":    "unique_example_id",
+                "mode": "enabled"
+              }

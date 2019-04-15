@@ -1,0 +1,104 @@
+#%RAML 0.8
+title: STValve
+version: v1.1.1-20161122
+schemas:
+- valve: |
+    {
+      "id": "http://www.samsung.com/schemas/x.com.st.valve.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016, SmartThings. All rights reserved.",
+      "title": "st valve",
+      "definitions": {
+        "x.com.st.valve": {
+          "type": "object",
+          "properties": {
+            "valve": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "oic.core.json#/definitions/oic.core"
+        },
+        {
+          "$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"
+        },
+        {
+          "$ref": "#/definitions/x.com.st.valve"
+        }
+      ],
+      "required": [
+        "valve"
+      ]
+    }
+traits:
+ - interface :
+     queryParameters:
+       if:
+         enum: ["oic.if.baseline","oic.if.a"]
+/valve:
+  displayName: WWST valve
+  description: |
+    This resource implements tamper alert capability from SmartThings.
+  is : ['interface']
+
+  get:
+    description: |
+      Retrieves the current value of valve.
+    responses :
+      200:
+        body:
+          application/json:
+            schema: valve
+            example: |
+              {
+                "rt":    ["x.com.st.valve"],
+                "id": "unique_example_id",
+                "valve": true
+              }
+      400:
+        body:
+          application/json:
+            schema: Exception
+            example: |
+              {
+                "code": "OCF_001",
+                "message": "Failed to process OCF request!"
+              }
+
+
+  post:
+    description: |
+      Update  the current value of valve.
+
+    body:
+      application/json:
+        schema: valve
+        example: |
+          {
+            "id": "unique_example_id",
+            "valve":	true
+          }
+    responses :
+      200:
+        body:
+          application/json:
+            schema: valve
+            example: |
+              {
+                "rt": ["x.com.st.valve"],
+                "id": "unique_example_id",
+                "valve":	true
+              }
+      403:
+        body:
+          application/json:
+            schema: Exception
+            example: |
+              {
+                "code": "OCF_01",
+                "message": "Failed to process OCF request!"
+              }

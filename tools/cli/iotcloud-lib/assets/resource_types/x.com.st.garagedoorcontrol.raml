@@ -1,0 +1,133 @@
+#%RAML 0.8
+title: ST Garage Door Control
+version: v1.1.0-20161130
+schemas:
+- DoorControlGet: |
+    {
+      "id": "http://samsung.com/schemas/x.com.st.garagedoorcontrol.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016 Samsung Electronics, Inc. All rights reserved.",
+      "title": "ST Door Control",
+      "definitions": {
+        "x.com.st.garagedoorcontrol": {
+          "type": "object",
+          "properties": {
+            "doorState": {
+              "type": "string",
+              "enum": ["unknown", "open", "closing", "closed", "opening"],
+              "description":"Status of the door"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.garagedoorcontrol"}
+      ],
+      "required": ["doorState"]
+    }
+- DoorControlPost: |
+    {
+      "id": "http://samsung.com/schemas/x.com.st.garagedoorcontrol.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016 Samsung Electronics, Inc. All rights reserved.",
+      "title": "ST Door Control",
+      "definitions": {
+        "x.com.st.garagedoorcontrol": {
+          "type": "object",
+          "properties": {
+            "doorState": {
+              "type": "string",
+              "enum": ["open", "closing", "closed", "opening"],
+              "description":"Status of the door"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.garagedoorcontrol"}
+      ],
+      "required": ["doorState"]
+    }
+- Exception: |
+    {
+      "id": "http://samsung.com/iotdatamodels/schemas/stocfexception.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description": "Copyright (c) 2016 Samsung, Inc. All rights reserved.",
+      "title": "StOcfException",
+      "definition": {
+        "stOcfError": {
+        "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "enum": ["OCF_001", "OCF_005"],
+              "description": "Code of the exception"
+            },
+            "message": {
+              "type": "string",
+              "description": "Message of the exception"
+            }
+          }
+        }
+      }
+    }
+traits:
+ - interface :
+     queryParameters:
+       if:
+         enum: ["oic.if.baseline"]
+
+/DoorControl:
+  displayName: DoorControl
+  description: |
+    This resource implements Door Control capability from SmartThings.
+
+  is : ['interface']
+  get:
+    description: |
+      Retrieve the current state and operation of the window shade.
+
+    responses :
+      200:
+        body:
+          application/json:
+            schema: DoorControlGet
+            example: |
+              {
+                  "id": "unique_example_id",
+                  "doorState":	"closing"
+              }
+
+  post:
+    description: |
+      Update the current status of door.
+      Posting opening or open in the closed or closing state will transit
+      the state to opening. The opening state will last for 10 - 20 seconds
+      until the door is completely open. Posting closing or closed in the
+      open or closed state will transit the state to closing. The closing
+      state will last for 10 - 20 seconds until the door is completely closed.
+
+    body:
+      application/json:
+        schema: DoorControlPost
+        example: |
+          {
+            "id": "unique_example_id",
+            "doorState":	"closing"
+          }
+    responses :
+      200:
+        body:
+          application/json:
+            schema: DoorControlPost
+            example: |
+              {
+                "id":    "unique_example_id",
+                "doorState":"closing"
+              }

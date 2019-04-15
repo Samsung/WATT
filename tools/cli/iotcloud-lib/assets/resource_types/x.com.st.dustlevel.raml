@@ -1,0 +1,75 @@
+#%RAML 0.8
+title: WWST Dust sensor level
+version: v1.0.0-20170911
+schemas:
+- DustLevel: |
+    {
+      "id": "http://www.samsung.com/schemas/x.com.st.dustlevel.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+      "title": "Air Quality Sensor Level",
+      "definitions": {
+        "x.com.st.dustlevel": {
+          "type": "object",
+          "properties": {
+            "fineDustLevel": {
+              "type": "number",
+              "description": "A value representation of PM 2.5, micrograms per cubic meter"
+            },
+            "fineDustUnit": {
+              "type": "string",
+              "enum": ["μg/m^3"],
+              "description": "The unit of fine dust measured"
+            },
+            "dustLevel": {
+              "type": "number",
+              "description": "A value representation of PM 10, micrograms per cubic meter"
+            },
+            "dustUnit": {
+              "type": "string",
+              "enum": ["μg/m^3"],
+              "description": "The unit of dust measured"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.dustlevel"}
+      ],
+      "required": [
+        "fineDustLevel",
+        "dustLevel"
+      ]
+    }
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTDustsensorlevelesURI:
+  description: |
+        Dust sensor level
+  displayName: WWST Dust sensor level
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current Dust sensor level
+    responses:
+      200:
+        body:
+          application/json:
+            schema: DustLevel
+            example: |
+              {
+                "rt":             ["x.com.st.dustlevel"],
+                "id":             "unique_example_id",
+                "fineDustLevel" : 10,
+                "fineDustUnit" : "μg/m^3",
+                "dustLevel" : 10,
+                "dustUnit" : "μg/m^3"
+              }

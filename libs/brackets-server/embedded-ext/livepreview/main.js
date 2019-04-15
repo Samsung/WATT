@@ -116,7 +116,7 @@ define(function (require, exports, module) {
                 var pfx = ["webkit", "moz", "ms", ""];
                 function _runPrefixMethod(obj, method) {
                     var m, p = 0, t;
-                  	while (p < pfx.length && !obj[m]) {
+                    while (p < pfx.length && !obj[m]) {
                         m = method;
                         if (pfx[p] === "") {
                             m = m.substr(0,1).toLowerCase() + m.substr(1);
@@ -128,7 +128,7 @@ define(function (require, exports, module) {
                             return (t === "function" ? obj[m]() : obj[m]);
                         }
                         p++;
-                  	}
+                    }
                 }
 
                 $("#fullscreen-toggle").click(function(e) {

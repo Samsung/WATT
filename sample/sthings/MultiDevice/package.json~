@@ -1,0 +1,8 @@
+{
+  "profile": "mobile",
+  "category": "TAU",
+  "thumbnail": "thumbnail.png",
+  "label": "TAUBase",
+  "libraries": [
+  ]
+}

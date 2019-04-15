@@ -1,0 +1,5 @@
+{
+  "name": "lightFollowsMeAutomation",
+  "runtime": "nodejs6.10",
+  "handler": "index.handler"
+}

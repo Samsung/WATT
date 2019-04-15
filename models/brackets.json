@@ -1,0 +1,7 @@
+{
+    "fonts.fontSize": "14px",
+    "fonts.fontFamily": "Consolas, 'Courier New', monospace",
+    "useTabChar": false,
+    "spaceUnits": 2,
+    "themes.theme": "dark-theme"
+}

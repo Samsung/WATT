@@ -1,0 +1,51 @@
+{
+    "dpResources": [
+        {
+            "iconUrl": {
+                "large": "", 
+                "small": "", 
+                "vector": "", 
+                "mid": "icon://ic_function_color_temperature"
+            }, 
+            "controllable": true, 
+            "group": null, 
+            "name": "Color Temperature", 
+            "ruleEvent": false, 
+            "valueType": null, 
+            "step": 0, 
+            "label": {
+                "n": null, 
+                "arguments": null, 
+                "label": "___PO_CODE_COLORTEMPERATURE"
+            }, 
+            "visible": null, 
+            "range": null, 
+            "controlType": "List", 
+            "ruleAction": false, 
+            "link": {
+                "rt": "x.com.st.color.temperature", 
+                "href": "/capability/colorTemperature/0", 
+                "if": "oic.if.a"
+            }, 
+            "property": "ct", 
+            "order": 1, 
+            "emphasis": false
+        }
+    ], 
+    "ma": [], 
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_COLORTEMPERATURE", 
+                    "label": "Color temperature"
+                }
+            ], 
+            "locale": "en_US", 
+            "version": "0.0.1"
+        }
+    ], 
+    "voiceCapability": [], 
+    "capability": "Color Temperature", 
+    "ms": []
+}

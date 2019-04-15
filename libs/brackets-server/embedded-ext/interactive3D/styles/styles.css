@@ -1,0 +1,21 @@
+#model-name {
+    border: 1px solid rgb(156, 158, 158);
+    box-shadow: rgba(0,0,0,0.117647) 0 1px 0 0 inset;
+    outline: none;
+    width: 470px;
+}
+
+#search-model {
+    border-radius: 0 3px 3px 0;
+    margin: -10px 0 0 -4px;
+}
+
+#model-list {
+    background-color: white;
+    border: 1px solid rgb(156, 158, 158);
+    border-radius: 3px 0 0 3px;
+    box-shadow: rgba(0,0,0,0.117647) 0 1px 0 0 inset;
+    height: 200px;
+    overflow: scroll;
+    width: 480px;
+}

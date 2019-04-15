@@ -1,0 +1,28 @@
+#panel-document {
+    position: relative;
+}
+
+#panel-document-frame {
+    border: none;
+}
+
+#close-toggle {
+    background-image: url(images/close.png);
+    background-size: contain;
+    cursor: pointer;
+    filter: drop-shadow(0 0 1px #fff);
+    -webkit-filter: drop-shadow(0 0 2px #fff);
+    height: 32px;
+    opacity: 0.05;
+    padding: 0;
+    position: absolute;
+    right: 21px;
+    top: 8px;
+    transition-duration: .2s;
+    transition-property: opacity;
+    width: 28px;
+}
+
+#panel-document:hover #close-toggle {
+    opacity: 0.8;
+}

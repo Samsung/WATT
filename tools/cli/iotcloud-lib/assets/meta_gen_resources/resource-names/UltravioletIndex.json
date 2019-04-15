@@ -1,0 +1,88 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Ultraviolet Index",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_ULTRAVIOLETINDEX",
+                "n": "st Ultraviolet Index resource"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_radiation_uv"
+            },
+            "range": [
+                0,
+                255
+            ],
+            "link": {
+                "rt": "oic.r.sensor.radiation.uv",
+                "href": "/capability/ultravioletIndex/0",
+                "if": "oic.if.baseline"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "measurement",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Ultraviolet Index",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": true,
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_ULTRAVIOLETINDEX",
+                "n": "st Ultraviolet Index resource"
+            },
+            "iconUrl": {
+                "small": "",
+                "large": "",
+                "vector": "",
+                "mid": "icon://ic_function_radiation_uv"
+            },
+            "range": [
+                0,
+                255
+            ],
+            "link": {
+                "rt": "oic.r.sensor.radiation.uv",
+                "href": "/capability/ultravioletIndex/0",
+                "if": "oic.if.baseline"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "measurement",
+            "order": 2,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.2",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_ULTRAVIOLETINDEX",
+                    "label": "Ultraviolet Index"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Ultraviolet Index",
+    "ms": [],
+    "voiceVersion": "0.0.1"
+}

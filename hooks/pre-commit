@@ -10,4 +10,8 @@ if [ $count != 0 ]; then
       cat $LOG_FILE
       exit 1;
     fi
+    npm test
+    result=$?
+    exit $result 
 fi
+

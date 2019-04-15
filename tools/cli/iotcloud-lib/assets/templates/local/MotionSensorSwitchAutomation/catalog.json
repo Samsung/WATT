@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "MotionSensorSwitchAutomation",
+      "appType": "automationApp",
+      "versions": [
+        {
+          "appData": {
+            "automationAppData": {
+              "endpointApp": {
+                "endpointAppId": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,988 @@
+{
+    "2.4": {
+        "mobile": {
+            "doc": {
+                "local": "tau-doc/2.4/",
+                "network": ""
+            },
+            "api": {
+                "tau": {
+                    "back": {
+                        "name": "Page",
+                        "href": "Base/page.htm"
+                    },
+                    "changePage": {
+                        "name": "Page",
+                        "href": "Base/page.htm"
+                    },
+                    "closePopup": {
+                        "name": "Popup",
+                        "href": "Base/popup.htm"
+                    },
+                    "event": {
+                        "enableGesture": {
+                            "name": "Gesture",
+                            "href": "Gesture_Events/gesture.htm"
+                        },
+                        "disableGesture": {
+                            "name": "Gesture",
+                            "href": "Gesture_Events/gesture.htm"
+                        },
+                        "gesture": {
+                            "Drag": {
+                                "name": "Drag",
+                                "href": "Gesture_Events/drag.htm"
+                            },
+                            "Swipe": {
+                                "name": "Swipe",
+                                "href": "Gesture_Events/swipe.htm"
+                            }
+                        }
+                    },
+                    "openPopup": {
+                        "name": "Popup",
+                        "href": "Base/popup.htm"
+                    },
+                    "widget": {
+                        "Button": {
+                            "name": "Button",
+                            "href": "Mobile_UIComponents/mobile_Button.htm"
+                        },
+                        "Checkbox": {
+                            "name": "Checkbox",
+                            "href": "Mobile_UIComponents/mobile_Checkbox.htm"
+                        },
+                        "ColoredListview": {
+                            "name": "ColoredListview",
+                            "href": "Mobile_UIComponents/mobile_ColoredListview.htm"
+                        },
+                        "Drawer": {
+                            "name": "Drawer",
+                            "href": "Mobile_UIComponents/mobile_Drawer.htm"
+                        },
+                        "DropdownMenu": {
+                            "name": "DropdownMenu",
+                            "href": "Mobile_UIComponents/mobile_DropdownMenu.htm"
+                        },
+                        "Expandable": {
+                            "name": "Expandable",
+                            "href": "Mobile_UIComponents/mobile_Expandable.htm"
+                        },
+                        "FloatingActions": {
+                            "name": "FloatingActions",
+                            "href": "Mobile_UIComponents/mobile_FloatingActions.htm"
+                        },
+                        "GridView": {
+                            "name": "GridView",
+                            "href": "Mobile_UIComponents/mobile_GridView.htm"
+                        },
+                        "IndexScrollbar": {
+                            "name": "IndexScrollbar",
+                            "href": "Mobile_UIComponents/mobile_IndexScrollbar.htm"
+                        },
+                        "Listview": {
+                            "name": "Listview",
+                            "href": "Mobile_UIComponents/mobile_Listview.htm"
+                        },
+                        "Navigation": {
+                            "name": "Navigation",
+                            "href": "Mobile_UIComponents/mobile_Navigation.htm"
+                        },
+                        "PageIndicator": {
+                            "name": "PageIndicator",
+                            "href": "Mobile_UIComponents/mobile_PageIndicator.htm"
+                        },
+                        "PanelChanger": {
+                            "name": "PanelChanger",
+                            "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                        },
+                        "Popup": {
+                            "name": "Popup",
+                            "href": "Mobile_UIComponents/mobile_Popup.htm"
+                        },
+                        "Progress": {
+                            "name": "Progress",
+                            "href": "Mobile_UIComponents/mobile_Progress.htm"
+                        },
+                        "Radio": {
+                            "name": "Radio",
+                            "href": "Mobile_UIComponents/mobile_Radio.htm"
+                        },
+                        "SearchInput": {
+                            "name": "SearchInput",
+                            "href": "Mobile_UIComponents/mobile_SearchInput.htm"
+                        },
+                        "SectionChanger": {
+                            "name": "SectionChanger",
+                            "href": "Mobile_UIComponents/mobile_SectionChanger.htm"
+                        },
+                        "Slider": {
+                            "name": "Slider",
+                            "href": "Mobile_UIComponents/mobile_Slider.htm"
+                        },
+                        "Tabs": {
+                            "name": "Tabs",
+                            "href": "Mobile_UIComponents/mobile_Tabs.htm"
+                        },
+                        "TextEnveloper": {
+                            "name": "TextEnveloper",
+                            "href": "Mobile_UIComponents/mobile_TextEnveloper.htm"
+                        },
+                        "TextInput": {
+                            "name": "TextInput",
+                            "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                        },
+                        "ToggleSwitch": {
+                            "name": "ToggleSwitch",
+                            "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                        }
+                    }
+                }
+            }
+        },
+        "wearable": {
+        }
+    },
+    "3.0": {
+        "mobile": {
+            "doc": {
+                "local": "tau-doc/3.0/",
+                "network": ""
+            },
+            "api": {
+                "tau": {
+                    "back": {
+                        "name": "Page",
+                        "href": "Base/page.htm"
+                    },
+                    "changePage": {
+                        "name": "Page",
+                        "href": "Base/page.htm"
+                    },
+                    "closePopup": {
+                        "name": "Popup",
+                        "href": "Base/popup.htm"
+                    },
+                    "event": {
+                        "enableGesture": {
+                            "name": "Gesture",
+                            "href": "Gesture_Events/gesture.htm"
+                        },
+                        "disableGesture": {
+                            "name": "Gesture",
+                            "href": "Gesture_Events/gesture.htm"
+                        },
+                        "gesture": {
+                            "Drag": {
+                                "name": "Drag",
+                                "href": "Gesture_Events/drag.htm"
+                            },
+                            "Swipe": {
+                                "name": "Swipe",
+                                "href": "Gesture_Events/swipe.htm"
+                            }
+                        }
+                    },
+                    "openPopup": {
+                        "name": "Popup",
+                        "href": "Base/popup.htm"
+                    },
+                    "widget": {
+                        "Button": {
+                            "name": "Button",
+                            "href": "Mobile_UIComponents/mobile_Button.htm"
+                        },
+                        "Checkbox": {
+                            "name": "Checkbox",
+                            "href": "Mobile_UIComponents/mobile_Checkbox.htm"
+                        },
+                        "ColoredListview": {
+                            "name": "ColoredListview",
+                            "href": "Mobile_UIComponents/mobile_ColoredListview.htm"
+                        },
+                        "Drawer": {
+                            "name": "Drawer",
+                            "href": "Mobile_UIComponents/mobile_Drawer.htm"
+                        },
+                        "DropdownMenu": {
+                            "name": "DropdownMenu",
+                            "href": "Mobile_UIComponents/mobile_DropdownMenu.htm"
+                        },
+                        "Expandable": {
+                            "name": "Expandable",
+                            "href": "Mobile_UIComponents/mobile_Expandable.htm"
+                        },
+                        "FloatingActions": {
+                            "name": "FloatingActions",
+                            "href": "Mobile_UIComponents/mobile_FloatingActions.htm"
+                        },
+                        "GridView": {
+                            "name": "GridView",
+                            "href": "Mobile_UIComponents/mobile_GridView.htm"
+                        },
+                        "IndexScrollbar": {
+                            "name": "IndexScrollbar",
+                            "href": "Mobile_UIComponents/mobile_IndexScrollbar.htm"
+                        },
+                        "Listview": {
+                            "name": "Listview",
+                            "href": "Mobile_UIComponents/mobile_Listview.htm"
+                        },
+                        "Navigation": {
+                            "name": "Navigation",
+                            "href": "Mobile_UIComponents/mobile_Navigation.htm"
+                        },
+                        "PageIndicator": {
+                            "name": "PageIndicator",
+                            "href": "Mobile_UIComponents/mobile_PageIndicator.htm"
+                        },
+                        "PanelChanger": {
+                            "name": "PanelChanger",
+                            "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                        },
+                        "Popup": {
+                            "name": "Popup",
+                            "href": "Mobile_UIComponents/mobile_Popup.htm"
+                        },
+                        "Progress": {
+                            "name": "Progress",
+                            "href": "Mobile_UIComponents/mobile_Progress.htm"
+                        },
+                        "Radio": {
+                            "name": "Radio",
+                            "href": "Mobile_UIComponents/mobile_Radio.htm"
+                        },
+                        "SearchInput": {
+                            "name": "SearchInput",
+                            "href": "Mobile_UIComponents/mobile_SearchInput.htm"
+                        },
+                        "SectionChanger": {
+                            "name": "SectionChanger",
+                            "href": "Mobile_UIComponents/mobile_SectionChanger.htm"
+                        },
+                        "Slider": {
+                            "name": "Slider",
+                            "href": "Mobile_UIComponents/mobile_Slider.htm"
+                        },
+                        "Tabs": {
+                            "name": "Tabs",
+                            "href": "Mobile_UIComponents/mobile_Tabs.htm"
+                        },
+                        "TextEnveloper": {
+                            "name": "TextEnveloper",
+                            "href": "Mobile_UIComponents/mobile_TextEnveloper.htm"
+                        },
+                        "TextInput": {
+                            "name": "TextInput",
+                            "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                        },
+                        "ToggleSwitch": {
+                            "name": "ToggleSwitch",
+                            "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                        }
+                    }
+                }
+            },
+            "html": {
+                "button": {
+                    "name": "Button",
+                    "href" : "Mobile_UIComponents/mobile_Button.htm"
+                },
+                ".ui-btn": {
+                    "name": "Button",
+                    "href" : "Mobile_UIComponents/mobile_Button.htm"
+                },
+                "[data-role='button']": {
+                    "name": "Button",
+                    "href" : "Mobile_UIComponents/mobile_Button.htm"
+                },
+                "input[type='checkbox']": {
+                    "name": "Input",
+                    "href": "Mobile_UIComponents/mobile_Checkbox.htm"
+                },
+                "ul.ui-colored-list": {
+                    "name": "ColoredListview",
+                    "href": "Mobile_UIComponents/mobile_ColoredListview.htm"
+                },
+                "ul[data-role='coloredlistview']": {
+                    "name": "ColoredListview",
+                    "href": "Mobile_UIComponents/mobile_ColoredListview.htm"
+                },
+                "div.ui-drawer": {
+                    "name": "Drawer",
+                    "href": "Mobile_UIComponents/mobile_Drawer.htm"
+                },
+                "div[data-role='drawer']": {
+                    "name": "Drawer",
+                    "href": "Mobile_UIComponents/mobile_Drawer.htm"
+                },
+                "select": {
+                    "name": "DropdownMenu",
+                    "href": "Mobile_UIComponents/mobile_DropdownMenu.htm"
+                },
+                ".ui-expandable": {
+                    "name": "Expandable",
+                    "href": "Mobile_UIComponents/mobile_Expandable.htm"
+                },
+                ".ui-floatingactions": {
+                    "name": "FloatingActions",
+                    "href": "Mobile_UIComponents/mobile_FloatingActions.htm"
+                },
+                "[data-role='floatingactions']": {
+                    "name": "FloatingActions",
+                    "href": "Mobile_UIComponents/mobile_FloatingActions.htm"
+                },
+                "ul.ui-gridview": {
+                    "name": "GridView",
+                    "href": "Mobile_UIComponents/mobile_GridView.htm"
+                },
+                "ul[data-role='gridview']": {
+                    "name": "GridView",
+                    "href": "Mobile_UIComponents/mobile_GridView.htm"
+                },
+                ".ui-indexscrollbar": {
+                    "name": "IndexScrollbar",
+                    "href": "Mobile_UIComponents/mobile_IndexScrollbar.htm"
+                },
+                "[data-role='indexscrollbar']": {
+                    "name": "IndexScrollbar",
+                    "href": "Mobile_UIComponents/mobile_IndexScrollbar.htm"
+                },
+                "ol.ui-listview": {
+                    "name": "Listview",
+                    "href": "Mobile_UIComponents/mobile_Listview.htm"
+                },
+                "ol[data-role='listview']": {
+                    "name": "Listview",
+                    "href": "Mobile_UIComponents/mobile_Listview.htm"
+                },
+                "ul.ui-listview": {
+                    "name": "Listview",
+                    "href": "Mobile_UIComponents/mobile_Listview.htm"
+                },
+                "ul[data-role='listview']": {
+                    "name": "Listview",
+                    "href": "Mobile_UIComponents/mobile_Listview.htm"
+                },
+                "nav.ui-navigation": {
+                    "name": "Navigation",
+                    "href": "Mobile_UIComponents/mobile_Navigation.htm"
+                },
+                "nav[data-role='navigation']": {
+                    "name": "Navigation",
+                    "href": "Mobile_UIComponents/mobile_Navigation.htm"
+                },
+                ".ui-pageindicator": {
+                    "name": "PageIndicator",
+                    "href": "Mobile_UIComponents/mobile_PageIndicator.htm"
+                },
+                "[data-role='page-indicator']": {
+                    "name": "PageIndicator",
+                    "href": "Mobile_UIComponents/mobile_PageIndicator.htm"
+                },
+                ".ui-panel-changer": {
+                    "name": "PanelChanger",
+                    "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                },
+                "[data-role='panel-changer']": {
+                    "name": "PanelChanger",
+                    "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                },
+                ".ui-panel": {
+                    "name": "Panel",
+                    "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                },
+                "[data-role='panel']": {
+                    "name": "Panel",
+                    "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                },
+                ".ui-popup": {
+                    "name": "Popup",
+                    "href": "Mobile_UIComponents/mobile_Popup.htm"
+                },
+                "[data-role='popup']": {
+                    "name": "Popup",
+                    "href": "Mobile_UIComponents/mobile_Popup.htm"
+                },
+                ".ui-progress": {
+                    "name": "Progress",
+                    "href": "Mobile_UIComponents/mobile_Progress.htm"
+                },
+                "[data-role='progress']": {
+                    "name": "Progress",
+                    "href": "Mobile_UIComponents/mobile_Progress.htm"
+                },
+                "input[type='radio']": {
+                    "name": "Radio",
+                    "href": "Mobile_UIComponents/mobile_Radio.htm"
+                },
+                ".ui-radio": {
+                    "name": "Radio",
+                    "href": "Mobile_UIComponents/mobile_Radio.htm"
+                },
+                "input[type='search']": {
+                    "name": "SearchInput",
+                    "href": "Mobile_UIComponents/mobile_SearchInput.htm"
+                },
+                ".ui-search-input": {
+                    "name": "SearchInput",
+                    "href": "Mobile_UIComponents/mobile_SearchInput.htm"
+                },
+                ".ui-section-changer": {
+                    "name": "SectionChanger",
+                    "href": "Mobile_UIComponents/mobile_SectionChanger.htm"
+                },
+                "[data-role='section-changer']": {
+                    "name": "SectionChanger",
+                    "href": "Mobile_UIComponents/mobile_SectionChanger.htm"
+                },
+                "input[type='range']": {
+                    "name": "Slider",
+                    "href": "Mobile_UIComponents/mobile_Slider.htm"
+                },
+                "input[data-type='range']": {
+                    "name": "Slider",
+                    "href": "Mobile_UIComponents/mobile_Slider.htm"
+                },
+                "input[data-role='slider']": {
+                    "name": "Slider",
+                    "href": "Mobile_UIComponents/mobile_Slider.htm"
+                },
+                ".ui-tabs": {
+                    "name": "Tabs",
+                    "href": "Mobile_UIComponents/mobile_Tabs.htm"
+                },
+                "[data-role='tabs']": {
+                    "name": "Tabs",
+                    "href": "Mobile_UIComponents/mobile_Tabs.htm"
+                },
+                ".ui-text-enveloper": {
+                    "name": "TextEnveloper",
+                    "href": "Mobile_UIComponents/mobile_TextEnveloper.htm"
+                },
+                "[data-role='textenveloper']": {
+                    "name": "TextEnveloper",
+                    "href": "Mobile_UIComponents/mobile_TextEnveloper.htm"
+                },
+                "input[type='text']": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input[type='number']": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input[type='password']": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input[type='email']": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input[type='url']": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input[type='tel']": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "textarea": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input.ui-text-input": {
+                    "name": "TextInput",
+                    "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                },
+                "input.ui-toggleswitch": {
+                    "name": "ToggleSwitch",
+                    "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                },
+                "input[data-role='toggleswitch']": {
+                    "name": "ToggleSwitch",
+                    "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                },
+                "select.ui-toggleswitch": {
+                    "name": "ToggleSwitch",
+                    "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                },
+                "select[data-role='toggleswitch']": {
+                    "name": "ToggleSwitch",
+                    "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                }
+            }
+        },
+        "wearable": {
+            "doc": {
+                "local": "tau-doc/3.0/",
+                "network": ""
+            },
+            "api": {
+                "tau": {
+                    "changePage": {
+                        "name": "PageHandling",
+                        "href": "Base/page.htm"
+                    },
+                    "back": {
+                        "name": "PageHandling",
+                        "href": "Base/page.htm"
+                    },
+                    "openPopup": {
+                        "name": "PopupHandling",
+                        "href": "Base/popup.htm"
+                    },
+                    "closePopup": {
+                        "name": "PopupHandling",
+                        "href": "Base/popup.htm"
+                    },
+                    "event": {
+                        "enableGesture": {
+                            "name": "GestureEvent",
+                            "href": "Gesture/gesture.htm"
+                        },
+                        "disableGesture": {
+                            "name": "GestureEvent",
+                            "href": "Gesture/gesture.htm"
+                        },
+                        "gesture": {
+                            "Drag": {
+                                "name": "DragEvent",
+                                "href": "Gesture/drag.htm"
+                            },
+                            "Swipe": {
+                                "name": "SwipeEvent",
+                                "href": "Gesture/swipe.htm"
+                            }
+                        }
+                    }
+                }
+            },
+            "html": {
+                ".ui-page": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-header": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-content": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-footer": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-btn": {
+                    "name": "Button",
+                    "href": "Wearable_UIComponents/wearable_button.htm"
+                },
+                "input[type='checkbox']": {
+                    "name": "Checkbox",
+                    "href": "Wearable_UIComponents/wearable_checkbox.htm"
+                },
+                "input[type='radio']": {
+                    "name": "Checkbox",
+                    "href": "Wearable_UIComponents/wearable_checkbox.htm"
+                },
+                "progress.ui-circle-progress": {
+                    "name": "CircleProgressBar",
+                    "href": "Wearable_UIComponents/wearable_circleprogressbar.htm"
+                },
+                ".ui-circularindexscrollbar": {
+                    "name": "CircularIndexScrollBar",
+                    "href": "Wearable_UIComponents/wearable_circularindexscrollbar.htm"
+                },
+                ".ui-drawer": {
+                    "name": "Drawer",
+                    "href": "Wearable_UIComponents/wearable_drawer.htm"
+                },
+                ".ui-indexscrollbar": {
+                    "name": "IndexScrollBar",
+                    "href": "Wearable_UIComponents/wearable_indexscrollbar.htm"
+                },
+                ".ui-listview": {
+                    "name": "List",
+                    "href": "Wearable_UIComponents/wearable_list.htm"
+                },
+                ".ui-marquee": {
+                    "name": "Marquee",
+                    "href": "Wearable_UIComponents/wearable_marquee.htm"
+                },
+                ".ui-page-indicator": {
+                    "name": "PageIndicator",
+                    "href": "Wearable_UIComponents/wearable_pageindicator.htm"
+                },
+                ".ui-popup": {
+                    "name": "Popup",
+                    "href": "Wearable_UIComponents/wearable_popup.htm"
+                },
+                ".ui-popup-toast": {
+                    "name": "Popup",
+                    "href": "Wearable_UIComponents/wearable_popup.htm"
+                },
+                "progress": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                ".ui-progress-indeterminate": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                "div.ui-progress-proportion": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                "div.ui-progress-ratio": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                "section": {
+                    "name": "SectionChanger",
+                    "href": "Wearable_UIComponents/wearable_sectionchanger.htm"
+                },
+                "input[type='range']": {
+                    "name": "Slider",
+                    "href": "Wearable_UIComponents/wearable_slider.htm"
+                },
+                "div.ui-switch": {
+                    "name": "ToggleSwitch",
+                    "href": "Wearable_UIComponents/wearable_toggleswitch.htm"
+                },
+                ".ui-toggleswitch": {
+                    "name": "ToggleSwitch",
+                    "href": "Wearable_UIComponents/wearable_toggleswitch.htm"
+                },
+                "input.ui-switch-input[type='checkbox']": {
+                    "name": "ToggleSwitch",
+                    "href": "Wearable_UIComponents/wearable_toggleswitch.htm"
+                },
+                ".ui-view-switcher": {
+                    "name": "ViewSwitcher",
+                    "href": "Wearable_UIComponents/wearable_viewSwitcher.htm"
+                },
+                "ul.ui-listview ui-virtuallistview": {
+                    "name": "VirtualList",
+                    "href": "Wearable_UIComponents/wearable_virtuallist.htm"
+                }
+            }
+        }
+    },
+    "4.0": {
+        "mobile": {
+            "doc": {
+                "local": "tau-doc/4.0/",
+                "network": ""
+            },
+            "api": {
+                "tau": {
+                    "back": {
+                        "name": "Page",
+                        "href": "Base/page.htm"
+                    },
+                    "changePage": {
+                        "name": "Page",
+                        "href": "Base/page.htm"
+                    },
+                    "closePopup": {
+                        "name": "Popup",
+                        "href": "Base/popup.htm"
+                    },
+                    "event": {
+                        "enableGesture": {
+                            "name": "Gesture",
+                            "href": "Gesture_Events/gesture.htm"
+                        },
+                        "disableGesture": {
+                            "name": "Gesture",
+                            "href": "Gesture_Events/gesture.htm"
+                        },
+                        "gesture": {
+                            "Drag": {
+                                "name": "Drag",
+                                "href": "Gesture_Events/drag.htm"
+                            },
+                            "Swipe": {
+                                "name": "Swipe",
+                                "href": "Gesture_Events/swipe.htm"
+                            }
+                        }
+                    },
+                    "openPopup": {
+                        "name": "Popup",
+                        "href": "Base/popup.htm"
+                    },
+                    "widget": {
+                        "Button": {
+                            "name": "Button",
+                            "href": "Mobile_UIComponents/mobile_Button.htm"
+                        },
+                        "Checkbox": {
+                            "name": "Checkbox",
+                            "href": "Mobile_UIComponents/mobile_Checkbox.htm"
+                        },
+                        "ColoredListview": {
+                            "name": "ColoredListview",
+                            "href": "Mobile_UIComponents/mobile_ColoredListview.htm"
+                        },
+                        "Drawer": {
+                            "name": "Drawer",
+                            "href": "Mobile_UIComponents/mobile_Drawer.htm"
+                        },
+                        "DropdownMenu": {
+                            "name": "DropdownMenu",
+                            "href": "Mobile_UIComponents/mobile_DropdownMenu.htm"
+                        },
+                        "Expandable": {
+                            "name": "Expandable",
+                            "href": "Mobile_UIComponents/mobile_Expandable.htm"
+                        },
+                        "FloatingActions": {
+                            "name": "FloatingActions",
+                            "href": "Mobile_UIComponents/mobile_FloatingActions.htm"
+                        },
+                        "GridView": {
+                            "name": "GridView",
+                            "href": "Mobile_UIComponents/mobile_GridView.htm"
+                        },
+                        "IndexScrollbar": {
+                            "name": "IndexScrollbar",
+                            "href": "Mobile_UIComponents/mobile_IndexScrollbar.htm"
+                        },
+                        "Listview": {
+                            "name": "Listview",
+                            "href": "Mobile_UIComponents/mobile_Listview.htm"
+                        },
+                        "Navigation": {
+                            "name": "Navigation",
+                            "href": "Mobile_UIComponents/mobile_Navigation.htm"
+                        },
+                        "PageIndicator": {
+                            "name": "PageIndicator",
+                            "href": "Mobile_UIComponents/mobile_PageIndicator.htm"
+                        },
+                        "PanelChanger": {
+                            "name": "PanelChanger",
+                            "href": "Mobile_UIComponents/mobile_PanelChanger.htm"
+                        },
+                        "Popup": {
+                            "name": "Popup",
+                            "href": "Mobile_UIComponents/mobile_Popup.htm"
+                        },
+                        "Progress": {
+                            "name": "Progress",
+                            "href": "Mobile_UIComponents/mobile_Progress.htm"
+                        },
+                        "Radio": {
+                            "name": "Radio",
+                            "href": "Mobile_UIComponents/mobile_Radio.htm"
+                        },
+                        "SearchInput": {
+                            "name": "SearchInput",
+                            "href": "Mobile_UIComponents/mobile_SearchInput.htm"
+                        },
+                        "SectionChanger": {
+                            "name": "SectionChanger",
+                            "href": "Mobile_UIComponents/mobile_SectionChanger.htm"
+                        },
+                        "Slider": {
+                            "name": "Slider",
+                            "href": "Mobile_UIComponents/mobile_Slider.htm"
+                        },
+                        "Tabs": {
+                            "name": "Tabs",
+                            "href": "Mobile_UIComponents/mobile_Tabs.htm"
+                        },
+                        "TextEnveloper": {
+                            "name": "TextEnveloper",
+                            "href": "Mobile_UIComponents/mobile_TextEnveloper.htm"
+                        },
+                        "TextInput": {
+                            "name": "TextInput",
+                            "href": "Mobile_UIComponents/mobile_TextInput.htm"
+                        },
+                        "ToggleSwitch": {
+                            "name": "ToggleSwitch",
+                            "href": "Mobile_UIComponents/mobile_ToggleSwitch.htm"
+                        }
+                    }
+                }
+            }
+        },
+        "wearable": {
+            "doc": {
+                "local": "tau-doc/4.0/",
+                "network": ""
+            },
+            "api": {
+                "tau": {
+                    "changePage": {
+                        "name": "PageHandling",
+                        "href": "Base/page.htm"
+                    },
+                    "back": {
+                        "name": "PageHandling",
+                        "href": "Base/page.htm"
+                    },
+                    "openPopup": {
+                        "name": "PopupHandling",
+                        "href": "Base/popup.htm"
+                    },
+                    "closePopup": {
+                        "name": "PopupHandling",
+                        "href": "Base/popup.htm"
+                    },
+                    "event": {
+                        "enableGesture": {
+                            "name": "GestureEvent",
+                            "href": "Gesture/gesture.htm"
+                        },
+                        "disableGesture": {
+                            "name": "GestureEvent",
+                            "href": "Gesture/gesture.htm"
+                        },
+                        "gesture": {
+                            "Drag": {
+                                "name": "DragEvent",
+                                "href": "Gesture/drag.htm"
+                            },
+                            "Swipe": {
+                                "name": "SwipeEvent",
+                                "href": "Gesture/swipe.htm"
+                            }
+                        }
+                    }
+                }
+            },
+            "html": {
+                ".ui-page": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-header": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-content": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-footer": {
+                    "name": "PageHandling",
+                    "href": "Base/page.htm"
+                },
+                ".ui-btn": {
+                    "name": "Button",
+                    "href": "Wearable_UIComponents/wearable_button.htm"
+                },
+                "input[type='checkbox']": {
+                    "name": "CheckboxandRadioButton",
+                    "href": "Wearable_UIComponents/wearable_checkbox.htm"
+                },
+                "input[type='radio']": {
+                    "name": "CheckboxandRadioButton",
+                    "href": "Wearable_UIComponents/wearable_checkbox.htm"
+                },
+                "progress.ui-circle-progress": {
+                    "name": "CircleProgressBar",
+                    "href": "Wearable_UIComponents/wearable_circleprogressbar.htm"
+                },
+                ".ui-circularindexscrollbar": {
+                    "name": "CircularIndexScrollBar",
+                    "href": "Wearable_UIComponents/wearable_circularindexscrollbar.htm"
+                },
+                ".ui-drawer": {
+                    "name": "Drawer",
+                    "href": "Wearable_UIComponents/wearable_drawer.htm"
+                },
+                ".ui-indexscrollbar": {
+                    "name": "IndexScrollBar",
+                    "href": "Wearable_UIComponents/wearable_indexscrollbar.htm"
+                },
+                ".ui-listview": {
+                    "name": "List",
+                    "href": "Wearable_UIComponents/wearable_list.htm"
+                },
+                ".ui-marquee": {
+                    "name": "Marquee",
+                    "href": "Wearable_UIComponents/wearable_marquee.htm"
+                },
+                ".ui-page-indicator": {
+                    "name": "PageIndicator",
+                    "href": "Wearable_UIComponents/wearable_pageindicator.htm"
+                },
+                ".ui-popup": {
+                    "name": "Popup",
+                    "href": "Wearable_UIComponents/wearable_popup.htm"
+                },
+                ".ui-popup-toast": {
+                    "name": "Popup",
+                    "href": "Wearable_UIComponents/wearable_popup.htm"
+                },
+                ".ui-processing": {
+                    "name": "Popup",
+                    "href": "Wearable_UIComponents/wearable_processing.htm"
+                },
+                "progress": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                ".ui-progress-indeterminate": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                "div.ui-progress-proportion": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                "div.ui-progress-ratio": {
+                    "name": "Progress",
+                    "href": "Wearable_UIComponents/wearable_progress.htm"
+                },
+                "section": {
+                    "name": "SectionChanger",
+                    "href": "Wearable_UIComponents/wearable_sectionchanger.htm"
+                },
+                ".ui-selector": {
+                    "name": "Selector",
+                    "href": "Wearable_UIComponents/wearable_selector.htm"
+                },
+                "input[type='range']": {
+                    "name": "Slider",
+                    "href": "Wearable_UIComponents/wearable_slider.htm"
+                },
+                ".ui-listview.ui-snap-listview": {
+                    "name": "SnapListview",
+                    "href": "Wearable_UIComponents/wearable_snaplistview.htm"
+                },
+                ".ui-listview.ui-swipelist-list": {
+                    "name": "SwipeList",
+                    "href": "Wearable_UIComponents/wearable_swipelist.htm"
+                },
+                "div.ui-switch": {
+                    "name": "ToggleSwitch",
+                    "href": "Wearable_UIComponents/wearable_toggleswitch.htm"
+                },
+                ".ui-toggleswitch": {
+                    "name": "ToggleSwitch",
+                    "href": "Wearable_UIComponents/wearable_toggleswitch.htm"
+                },
+                "input.ui-switch-input[type='checkbox']": {
+                    "name": "ToggleSwitch",
+                    "href": "Wearable_UIComponents/wearable_toggleswitch.htm"
+                },
+                ".ui-view-switcher": {
+                    "name": "ViewSwitcher",
+                    "href": "Wearable_UIComponents/wearable_viewSwitcher.htm"
+                },
+                "ul.ui-listview ui-virtuallistview": {
+                    "name": "VirtualList",
+                    "href": "Wearable_UIComponents/wearable_virtuallist.htm"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../../../lib/tau/mobile/theme/default/tau.css">
+	<link rel="stylesheet" href="../../../css/style.css">
+	<script type="text/javascript" src="../../../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+</head>
+<body>
+<div class="ui-page" id="grid-move-page">
+	<div class="ui-header" data-position="fixed">
+		<h1>Grid View with move</h1>
+	</div>
+	<div class="ui-content">
+		<ul id="gridview" class="ui-gridview">
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/1.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/2.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/3.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/4.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/5.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/6.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/7.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/8.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/9.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/10.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/11.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/12.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/13.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/14.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/15.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/16.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/17.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/18.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/19.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/20.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/21.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/22.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/23.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/24.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/25.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/26.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/27.jpg">
+				<div class="ui-gridview-handler"></div>
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/28.jpg">
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/29.jpg">
+			</li>
+			<li class="ui-gridview-item">
+				<img class="ui-gridview-image" src="../../../images/30.jpg">
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		(function (tau) {
+			/**
+			 * elPage - Grid view page element
+			 * elGrid - Grid view element
+			 * modeBtn - Mode toggle button element
+			 * gridList - TAU grid view instance
+			 */
+			var elPage = document.getElementById("grid-move-page"),
+				elGrid = document.getElementById("gridview"),
+				bindEvents,
+				unbindEvents,
+				gridList;
+
+			/**
+			 * pageshow event handler
+			 * Do preparatory works and adds event listeners
+			 */
+			elPage.addEventListener("pageshow", function () {
+				gridList = tau.widget.GridView(elGrid);
+				if (window.screen.orientation.type === "portrait-primary") {
+					gridList.option("cols", 4);
+				} else {
+					gridList.option("cols", 7);
+				}
+				gridList.option("reorder", true);
+				window.addEventListener("orientationchange", bindEvents);
+				window.addEventListener("pagebeforehide", unbindEvents);
+			});
+
+			bindEvents = function () {
+
+				if (gridList.options.cols === 4) {
+					gridList.option("cols", 7);
+					gridList.refresh();
+				} else {
+					gridList.option("cols", 4);
+					gridList.refresh();
+				}
+			};
+
+			unbindEvents = function () {
+				window.removeEventListener("orientationchange", bindEvents);
+				window.removeEventListener("pagebeforehide", unbindEvents);
+			};
+
+		}(window.tau));
+	</script>
+</div>
+</div>
+</body>
+</html>

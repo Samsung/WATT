@@ -9,6 +9,8 @@
         "en"
     ],
     "dependencies": {
-        "tmp": ">=0.0.31"
+        "child-process-promise": "^2.2.1",
+        "promisify-node": ">=0.4.0",
+        "tmp-promise": ">=0.0.31"
     }
 }

@@ -1,0 +1,449 @@
+{
+  "n": "air purifier",
+  "version": "0.0.1",
+  "vid": "",
+  "mnmn": "",
+  "language": [
+    {
+      "locale": "en_US",
+      "version": "0.0.1",
+      "poCodes": [
+        {
+          "po": "__PO_CODE_POWERSWITCH_ON",
+          "label": "On"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH_OFF",
+          "label": "Off"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH",
+          "label": "Power"
+        },
+        {
+          "label": "Air Quality Sensor Level",
+          "po": "__PO_CODE_AIRQUALITYSENSOR_LEVEL"
+        },
+        {
+          "label": "Dust Sensor Level",
+          "po": "__PO_CODE_DUSTSENSOR_STATE"
+        },
+        {
+          "label": "Energy Consumption",
+          "po": "___PO_CODE_ENERGYMETER_ENERGY_CONSUMPTION"
+        },
+        {
+          "label": "Fan Speed",
+          "po": "___PO_CODE_FANSPEED_FANSPEED"
+        },
+        {
+          "label": "Normal",
+          "po": "__PO_CODE_FILTERSTATUS_NORMAL"
+        },
+        {
+          "label": "Replace",
+          "po": "__PO_CODE_FILTERSTATUS_REPLACE"
+        },
+        {
+          "label": "Filter Status",
+          "po": "__PO_CODE_FILTERSTATUS_STATE"
+        },
+        {
+          "label": "Odor Sensor Level",
+          "po": "__PO_CODE_ODORSENSOR_STATE"
+        }
+      ],
+      "mnmn": "",
+      "vid": ""
+    }
+  ],
+  "ma": [
+    {
+      "name": "PowerSwitch",
+      "type": "main",
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": false
+    }
+  ],
+  "ms": [
+    {
+      "name": "PowerSwitch",
+      "type": "device",
+      "order": 1,
+      "label": {
+        "label": "<var1>",
+        "arguments": [
+          {
+            "n": "var1",
+            "href": "/capability/switch/main/0",
+            "property": "power",
+            "valueType": null,
+            "alternatives": [
+              {
+                "key": "on",
+                "value": "__PO_CODE_POWERSWITCH_ON"
+              },
+              {
+                "key": "off",
+                "value": "__PO_CODE_POWERSWITCH_OFF",
+                "type": "inactive"
+              }
+            ]
+          }
+        ]
+      },
+      "emphasis": false
+    }
+  ],
+  "dpInfo": [
+    {
+      "os": "android",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.airpurifier"
+    },
+    {
+      "os": "ios",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.airpurifier"
+    }
+  ],
+  "dpResources": [
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": true
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 2,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": false
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 3,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": true,
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "ruleEvent": false,
+      "order": 4,
+      "step": 0,
+      "property": "airQuality",
+      "controlType": "List",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_air_quality_sensor_level",
+        "large": "",
+        "small": ""
+      },
+      "name": "Air Quality Sensor",
+      "controllable": false,
+      "link": {
+        "href": "/capability/airQualitySensor/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.airqualitylevel"
+      },
+      "label": {
+        "n": "ST Air Quality Sensor Level Resource",
+        "label": "__PO_CODE_AIRQUALITYSENSOR_LEVEL"
+      },
+      "alternatives": [],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "ruleEvent": false,
+      "order": 5,
+      "step": 0,
+      "property": "dustLevel",
+      "controlType": "List",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_dust_sensor_level",
+        "large": "",
+        "small": ""
+      },
+      "name": "Dust Sensor",
+      "controllable": false,
+      "link": {
+        "href": "/capability/dustSensor/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.dustlevel"
+      },
+      "label": {
+        "n": "ST Dust Sensor Level Resource",
+        "label": "__PO_CODE_DUSTSENSOR_STATE"
+      },
+      "alternatives": [],
+      "ruleAction": false
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "step": 0,
+      "link": {
+        "rt": "x.com.st.energymeter",
+        "href": "/capability/energyMeter/main/0",
+        "if": "oic.if.r"
+      },
+      "controlType": "List",
+      "name": "Energy Consumption",
+      "label": {
+        "label": "___PO_CODE_ENERGYMETER_ENERGY_CONSUMPTION"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_energy_consumption",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "order": 6,
+      "property": "energy"
+    },
+    {
+      "ruleAction": true,
+      "controllable": true,
+      "range": [
+        1,
+        100
+      ],
+      "link": {
+        "rt": "oic.r.light.dimming",
+        "href": "/capability/fanSpeed/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Fan Speed",
+      "label": {
+        "label": "___PO_CODE_FANSPEED_FANSPEED",
+        "n": "st dimming level resource"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_fan_speed",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 7,
+      "property": "fanSpeed"
+    },
+    {
+      "ruleAction": false,
+      "controllable": true,
+      "range": [
+        1,
+        100
+      ],
+      "link": {
+        "rt": "x.com.st.fanspeed",
+        "href": "/capability/fanSpeed/main/0",
+        "if": "oic.if.a"
+      },
+      "step": 0,
+      "controlType": "List",
+      "name": "Fan Speed",
+      "label": {
+        "label": "___PO_CODE_FANSPEED_FANSPEED",
+        "n": "st dimming level resource"
+      },
+      "emphasis": false,
+      "ruleEvent": false,
+      "iconUrl": {
+        "mid": "icon://ic_function_fan_speed",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "order": 8,
+      "property": "fanSpeed"
+    },
+    {
+      "emphasis": false,
+      "order": 9,
+      "ruleEvent": false,
+      "property": "currentMachineState",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_filter_state",
+        "large": "",
+        "small": ""
+      },
+      "name": "Filter Status",
+      "controllable": false,
+      "link": {
+        "href": "/capability/filterStatus/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.filter"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Filter Status Resource",
+        "label": "__PO_CODE_FILTERSTATUS_STATE"
+      },
+      "alternatives": [
+        {
+          "key": "normal",
+          "value": "__PO_CODE_FILTERSTATUS_NORMAL"
+        },
+        {
+          "key": "replace",
+          "value": "__PO_CODE_FILTERSTATUS_REPLACE"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "ruleEvent": false,
+      "order": 10,
+      "step": 0,
+      "property": "odorLevel",
+      "controlType": "List",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_order_sensor_level",
+        "large": "",
+        "small": ""
+      },
+      "name": "Odor Sensor",
+      "controllable": false,
+      "link": {
+        "href": "/capability/odorSensor/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.gaslevel"
+      },
+      "label": {
+        "n": "ST Odor Sensor Level Resource",
+        "label": "__PO_CODE_ODORSENSOR_STATE"
+      },
+      "alternatives": [],
+      "ruleAction": false
+    }
+  ]
+}

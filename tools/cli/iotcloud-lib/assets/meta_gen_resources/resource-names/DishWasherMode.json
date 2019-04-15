@@ -1,0 +1,204 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Dish Washer Mode",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_AUTO",
+                    "key": "auto"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_QUICK",
+                    "key": "quick"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_RINSE",
+                    "key": "rinse"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_DRY",
+                    "key": "dry"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_DISHWASHERMODE_MODE",
+                "n": "ST Dish Washer Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mode_dishwasher"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.mode.dishwasher",
+                "href": "/capability/dishwasherMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Dish Washer Mode",
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_AUTO",
+                    "key": "auto"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_QUICK",
+                    "key": "quick"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_RINSE",
+                    "key": "rinse"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_DRY",
+                    "key": "dry"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_DISHWASHERMODE_MODE",
+                "n": "ST Dish Washer Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mode_dishwasher"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/dishwasherMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        },
+        {
+            "controllable": true,
+            "name": "Dish Washer Mode",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_AUTO",
+                    "key": "auto"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_QUICK",
+                    "key": "quick"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_RINSE",
+                    "key": "rinse"
+                },
+                {
+                    "value": "___PO_CODE_DISHWASHERMODE_DRY",
+                    "key": "dry"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_DISHWASHERMODE_MODE",
+                "n": "ST Dish Washer Mode Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_mode_dishwasher"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "oic.r.mode",
+                "href": "/capability/dishwasherMode/0",
+                "if": "oic.if.a"
+            },
+            "ruleAction": true,
+            "controlType": "List",
+            "property": "modes",
+            "order": 1
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_DISHWASHERMODE_AUTO",
+                    "label": "Auto"
+                },
+                {
+                    "po": "___PO_CODE_DISHWASHERMODE_QUICK",
+                    "label": "Quick"
+                },
+                {
+                    "po": "___PO_CODE_DISHWASHERMODE_RINSE",
+                    "label": "Rinse"
+                },
+                {
+                    "po": "___PO_CODE_DISHWASHERMODE_DRY",
+                    "label": "Dry"
+                },
+                {
+                    "po": "___PO_CODE_DISHWASHERMODE_MODE",
+                    "label": "Dish Washer Mode"
+                }
+            ]
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Dish Washer Mode",
+    "ms": [
+        {
+            "group": null,
+            "name": "Dish Washer Mode",
+            "iconUrl": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "href": "/capability/dishwasherMode/0",
+                        "valueType": null,
+                        "property": "modes",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_DISHWASHERMODE_AUTO",
+                                "key": "auto"
+                            },
+                            {
+                                "value": "___PO_CODE_DISHWASHERMODE_QUICK",
+                                "key": "quick"
+                            },
+                            {
+                                "value": "___PO_CODE_DISHWASHERMODE_RINSE",
+                                "key": "rinse"
+                            },
+                            {
+                                "value": "___PO_CODE_DISHWASHERMODE_DRY",
+                                "key": "dry"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Dish Washer Mode Resource"
+            },
+            "visible": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ]
+}

@@ -1,0 +1,610 @@
+diff --git a/lib/codecs/h264.js b/lib/codecs/h264.js
+index 4ab9812..2678581 100644
+--- a/lib/codecs/h264.js
++++ b/lib/codecs/h264.js
+@@ -141,6 +141,7 @@ H264Stream = function() {
+     trackId,
+     currentPts,
+     currentDts,
++    currentFps,
+
+     discardEmulationPreventionBytes,
+     readSequenceParameterSet,
+@@ -156,6 +157,7 @@ H264Stream = function() {
+     trackId = packet.trackId;
+     currentPts = packet.pts;
+     currentDts = packet.dts;
++    currentFps = packet.fps;
+
+     nalByteStream.push(packet);
+   };
+@@ -166,6 +168,7 @@ H264Stream = function() {
+         trackId: trackId,
+         pts: currentPts,
+         dts: currentDts,
++        fps: currentFps,
+         data: data
+       };
+
+@@ -181,6 +184,7 @@ H264Stream = function() {
+       event.nalUnitType = 'seq_parameter_set_rbsp';
+       event.escapedRBSP = discardEmulationPreventionBytes(data.subarray(1));
+       event.config = readSequenceParameterSet(event.escapedRBSP);
++      event.config['fps'] = currentFps;
+       break;
+     case 0x08:
+       event.nalUnitType = 'pic_parameter_set_rbsp';
+@@ -412,7 +416,452 @@ H264Stream = function() {
+ };
+ H264Stream.prototype = new Stream();
+
++var NAL_UNIT_TYPES = {
++  "UNSPECIFIED": 0,
++  "CODED_SLICE_NON_IDR": 1,
++  "CODED_SLICE_DATA_PARTITION_A": 2,
++  "CODED_SLICE_DATA_PARTITION_B": 3,
++  "CODED_SLICE_DATA_PARTITION_C": 4,
++  "CODED_SLICE_IDR": 5,
++  "SEI": 6,
++  "SPS": 7,
++  "PPS": 8,
++  "AUD": 9,
++  "END_OF_SEQUENCE": 10,
++  "END_OF_STREAM": 11,
++  "FILLER": 12,
++  "SPS_EXT": 13,
++  "CODED_SLICE_AUX": 19
++};
++
++var H264StreamParser = function() {
++  var
++    settings = {
++      debug: false,
++    };
++
++  var
++    self = this,
++    m_buffer,
++    m_iterator = 0,
++    m_startNalPosition = -1,
++    m_prevNalPosition = -1,
++    m_nalPosition = -1,
++    m_trackId = 1,
++    m_lastDts = 0,
++    m_frameCounter = 0,
++    m_separateColourPlaneFlag,
++    m_frameMbsOnlyFlag = 0,
++    m_picOrderCntType = 0,
++    m_picOrderCntLsbLength = 4,
++    m_log2MaxFrameNumMinus4Length = 4,
++    m_framerate = 90000/30, // initial 30 FPS, later read from SPS
++    m_fps = 30,
++    m_prevPicOrderCntMsb = 0,
++    m_prevPicOrderCntLsb = 0,
++    m_maxPicOrderCntLsb,
++    m_bottomFieldPicOrderInFramePresentFlag = 0, // inital 0, later read from PPS
++    m_bytesDeliveredPosition = 0,
++    m_audEntry = [0, 0, 0, 1, 9, 240],
++    m_IdrPicFlag = 0;
++  H264StreamParser.prototype.init.call(this);
++
++  this.push = function(data) {
++    var swapBuffer;
++
++    if (!m_buffer) {
++      m_buffer = data;
++    } else {
++      swapBuffer = new Uint8Array(m_buffer.byteLength + data.byteLength - m_bytesDeliveredPosition);
++      swapBuffer.set(m_buffer.subarray(m_bytesDeliveredPosition));
++      swapBuffer.set(data, m_buffer.byteLength - m_bytesDeliveredPosition);
++      m_buffer = swapBuffer;
++      m_prevNalPosition = m_prevNalPosition - m_bytesDeliveredPosition;
++      m_startNalPosition = m_startNalPosition - m_bytesDeliveredPosition;
++      m_iterator = m_iterator - m_bytesDeliveredPosition;
++      m_bytesDeliveredPosition = 0;
++    }
++    if (settings.debug)
++      console.log("H264StreamParser.push() Current buffer length:", m_buffer.byteLength);
++
++    if(m_startNalPosition === -1)
++      this.findFirstNalSyncPoint();
++
++    //Now m_startNalPosition should be correct. Else need more data
++    if(m_startNalPosition === -1)
++      return;
++
++    //find next
++    while (this.findNextNalSyncPoint()) {
++      var nalUnitType = m_buffer[m_prevNalPosition + 3] & 0x1F;
++      m_IdrPicFlag = (nalUnitType == NAL_UNIT_TYPES.CODED_SLICE_IDR);
++
++      if (settings.debug) console.log("nalUnitType:",nalUnitType);
++
++      if (nalUnitType == NAL_UNIT_TYPES.SPS) {
++        var nal_data = m_buffer.subarray(m_prevNalPosition + 3 + 1, m_nalPosition);
++        var sps_info = this.read_seq_parameter_set_data(nal_data);
++        if (settings.debug) console.log("sps_info", sps_info);
++
++        m_fps = (sps_info.timeScale / sps_info.numUnitsInTick) / 2;
++        m_framerate = 90000 / m_fps;  // TODO what to do when framerate changes?
++      }
++      if (nalUnitType == NAL_UNIT_TYPES.PPS) {
++        var nal_data = m_buffer.subarray(m_prevNalPosition + 3 + 1, m_nalPosition);
++        this.read_pic_parameter_set_rbsp(nal_data);
++      }
++      if (nalUnitType <= NAL_UNIT_TYPES.CODED_SLICE_IDR) {
++
++        if (nalUnitType != NAL_UNIT_TYPES.CODED_SLICE_IDR &&
++            nalUnitType != NAL_UNIT_TYPES.CODED_SLICE_NON_IDR) {
++          // currently H264StreamParser supports only
++          // CODED_SLICE_IDR and CODED_SLICE_NON_IDR
++          console.error("Not supported NAL unit type", nalUnitType);
++          return;
++        }
++
++        var max_needed_end_slice_layer = (m_nalPosition - m_prevNalPosition > 32) ? m_prevNalPosition + 32: m_nalPosition;
++        var tmp_nal_data = m_buffer.subarray(m_prevNalPosition + 3 + 1, max_needed_end_slice_layer);
++        var sh_info = this.read_slice_layer_without_partitioning_rbsp(tmp_nal_data);
++        if (settings.debug) console.log("slice header info:", sh_info);
++
++        var TopFieldOrderCnt = 0, BottomFieldOrderCnt = 0, PicOrderCntMsb = 0, PicOrderCnt = 0;
++        if (nalUnitType == NAL_UNIT_TYPES.CODED_SLICE_IDR) {
++          m_lastDts = m_lastDts + m_frameCounter * m_framerate;
++          m_frameCounter = 1;
++          m_prevPicOrderCntMsb = 0;
++          m_prevPicOrderCntLsb = 0;
++        }
++        // compute PicOrderCntMsb, TopFieldOrderCnt according to
++        // 8.2.1.1 Decoding process for picture order count type 0
++        if (nalUnitType == NAL_UNIT_TYPES.CODED_SLICE_NON_IDR) {
++          m_frameCounter++;
++          if ((sh_info.pic_order_cnt_lsb < m_prevPicOrderCntLsb) &&
++              ((m_prevPicOrderCntLsb - sh_info.pic_order_cnt_lsb) >= (m_maxPicOrderCntLsb / 2))) {
++            PicOrderCntMsb = m_prevPicOrderCntMsb + m_maxPicOrderCntLsb;
++          }
++          else if ((sh_info.pic_order_cnt_lsb > m_prevPicOrderCntLsb) &&
++              ((sh_info.pic_order_cnt_lsb - m_prevPicOrderCntLsb) > (m_maxPicOrderCntLsb / 2))) {
++            PicOrderCntMsb = m_prevPicOrderCntMsb - m_maxPicOrderCntLsb;
++          }
++          else{
++            PicOrderCntMsb = m_prevPicOrderCntMsb;
++          }
++          TopFieldOrderCnt = PicOrderCntMsb + sh_info.pic_order_cnt_lsb;
++          if (!sh_info.field_pic_flag)
++            BottomFieldOrderCnt = TopFieldOrderCnt + sh_info.delta_pic_order_cnt_bottom;
++          else
++            BottomFieldOrderCnt = PicOrderCntMsb + sh_info.pic_order_cnt_lsb;
++          PicOrderCnt = Math.min(TopFieldOrderCnt,BottomFieldOrderCnt);
++        }
++        if (settings.debug) console.log("PicOrderCnt:", PicOrderCnt);
++
++        m_prevPicOrderCntMsb = PicOrderCntMsb;
++        m_prevPicOrderCntLsb = sh_info.pic_order_cnt_lsb;
++
++        var dts = m_lastDts + (m_frameCounter - 1) * m_framerate;
++        var pts = m_lastDts + (PicOrderCnt/2) * m_framerate;
++
++        var extBuffer = new Uint8Array(m_nalPosition - m_startNalPosition + m_audEntry.length );
++        extBuffer.set(m_audEntry);
++        extBuffer.set(m_buffer.subarray(m_startNalPosition, m_nalPosition), m_audEntry.length);
++
++        var packetData = extBuffer;
++        m_startNalPosition = m_nalPosition;
++        m_bytesDeliveredPosition = m_startNalPosition;
++
++        if (nalUnitType == NAL_UNIT_TYPES.CODED_SLICE_IDR) // I-frame
++          if(m_lastDts > 0) // and not the first one
++            //flush the rest of pipeline then add packet with new I-frame
++            self.flush();
++
++        var
++          event = {
++            type: 'video',
++            trackId: m_trackId,
++            pts: pts,
++            dts: dts,
++            fps: m_fps,
++            data: packetData
++          };
++        self.trigger('data', event);
++      }
++      m_prevNalPosition = m_nalPosition;
++    }
++  };
++
++  this.findFirstNalSyncPoint = function() {
++    var i = 0;
++    for (; i < m_buffer.byteLength - 3; i++) {
++      if (m_buffer[i] === 0 &&
++          m_buffer[i + 1] === 0 &&
++          m_buffer[i + 2 ] === 1) {
++        m_nalPosition = m_prevNalPosition = m_startNalPosition = i;
++        break;
++      }
++    }
++    m_iterator = i;
++  };
++
++  this.findNextNalSyncPoint = function() {
++    var i = m_iterator+4;
++    for (; i < m_buffer.byteLength - 3; i++) {
++      if ((m_buffer[i] === 0) &&
++           m_buffer[i + 1] === 0 &&
++           m_buffer[i + 2] === 1) {
++        m_nalPosition = i;
++        m_iterator = i;
++        return true;
++      }
++    }
++    m_iterator = i;
++    return false;
++  };
++
++  this.removeEmulationPreventionByte = function(data) {
++    var tmpBuffer = new Uint8Array(data.byteLength);
++    var i, startByte = 0, totalBytes = 0;
++    for (i = 0; i < tmpBuffer.byteLength-2; i++) {
++      if (data[i] === 0 &&
++          data[i + 1] === 0 &&
++          data[i + 2] === 3) {
++          // remove emulation prevention
++            tmpBuffer.set(data.subarray(startByte, i+2), totalBytes);
++            totalBytes += i+2 - startByte;
++            startByte = i+3;
++            i += 2;
++            continue;
++      }
++    }
++    tmpBuffer.set(data.subarray(startByte, i+2), totalBytes);
++    return tmpBuffer;
++  };
++
++  this.read_seq_parameter_set_data = function(dataEm) {
++    var
++      frameCropLeftOffset = 0,
++      frameCropRightOffset = 0,
++      frameCropTopOffset = 0,
++      frameCropBottomOffset = 0,
++      sarScale = 1,
++      expGolombDecoder, profileIdc, levelIdc, profileCompatibility,
++      chromaFormatIdc, picOrderCntType,
++      numRefFramesInPicOrderCntCycle, picWidthInMbsMinus1,
++      picHeightInMapUnitsMinus1,
++      frameMbsOnlyFlag,
++      scalingListCount,
++      sarRatio,
++      aspectRatioIdc,
++      num_units_in_tick,
++      time_scale = -1,
++      fixed_frame_rate_flag = -1,
++      log2_max_frame_num_minus4,
++      log2_max_pic_order_cnt_lsb_minus4,
++      separate_colour_plane_flag = 0,
++      i;
++
++    var data = this.removeEmulationPreventionByte(dataEm);
++
++    expGolombDecoder = new ExpGolomb(data);
++
++    profileIdc = expGolombDecoder.readUnsignedByte(); // profile_idc
++    profileCompatibility = expGolombDecoder.readUnsignedByte(); // constraint_set[0-5]_flag
++    levelIdc = expGolombDecoder.readUnsignedByte(); // level_idc u(8)
++    expGolombDecoder.skipUnsignedExpGolomb(); // seq_parameter_set_id
++
++    // some profiles have more optional data we don't need
++    if (PROFILES_WITH_OPTIONAL_SPS_DATA[profileIdc]) {
++      chromaFormatIdc = expGolombDecoder.readUnsignedExpGolomb();
++      if (chromaFormatIdc === 3) {
++        separate_colour_plane_flag = expGolombDecoder.readBits(1); // separate_colour_plane_flag
++      }
++      expGolombDecoder.skipUnsignedExpGolomb(); // bit_depth_luma_minus8
++      expGolombDecoder.skipUnsignedExpGolomb(); // bit_depth_chroma_minus8
++      expGolombDecoder.skipBits(1); // qpprime_y_zero_transform_bypass_flag
++      if (expGolombDecoder.readBoolean()) { // seq_scaling_matrix_present_flag
++        scalingListCount = (chromaFormatIdc !== 3) ? 8 : 12;
++        for (i = 0; i < scalingListCount; i++) {
++          if (expGolombDecoder.readBoolean()) { // seq_scaling_list_present_flag[ i ]
++            if (i < 6) {
++              skipScalingList(16, expGolombDecoder);
++            } else {
++              skipScalingList(64, expGolombDecoder);
++            }
++          }
++        }
++      }
++    }
++
++    log2_max_frame_num_minus4 = expGolombDecoder.readUnsignedExpGolomb(); // log2_max_frame_num_minus4
++    picOrderCntType = expGolombDecoder.readUnsignedExpGolomb(); // pic_order_cnt_type
++
++    if (picOrderCntType === 0) {
++      log2_max_pic_order_cnt_lsb_minus4 = expGolombDecoder.readUnsignedExpGolomb(); // log2_max_pic_order_cnt_lsb_minus4
++    } else if (picOrderCntType === 1) {
++      expGolombDecoder.skipBits(1); // delta_pic_order_always_zero_flag
++      expGolombDecoder.skipExpGolomb(); // offset_for_non_ref_pic
++      expGolombDecoder.skipExpGolomb(); // offset_for_top_to_bottom_field
++      numRefFramesInPicOrderCntCycle = expGolombDecoder.readUnsignedExpGolomb();
++      for (i = 0; i < numRefFramesInPicOrderCntCycle; i++) {
++        expGolombDecoder.skipExpGolomb(); // offset_for_ref_frame[ i ]
++      }
++    }
++
++    expGolombDecoder.skipUnsignedExpGolomb(); // max_num_ref_frames
++    expGolombDecoder.skipBits(1); // gaps_in_frame_num_value_allowed_flag
++
++    picWidthInMbsMinus1 = expGolombDecoder.readUnsignedExpGolomb();
++    picHeightInMapUnitsMinus1 = expGolombDecoder.readUnsignedExpGolomb();
++
++    frameMbsOnlyFlag = expGolombDecoder.readBits(1);  //frame_mbs_only_flag
++    if (frameMbsOnlyFlag === 0) {
++      expGolombDecoder.skipBits(1); // mb_adaptive_frame_field_flag
++    }
++
++    expGolombDecoder.skipBits(1); // direct_8x8_inference_flag
++    if (expGolombDecoder.readBoolean()) { // frame_cropping_flag
++      frameCropLeftOffset = expGolombDecoder.readUnsignedExpGolomb();
++      frameCropRightOffset = expGolombDecoder.readUnsignedExpGolomb();
++      frameCropTopOffset = expGolombDecoder.readUnsignedExpGolomb();
++      frameCropBottomOffset = expGolombDecoder.readUnsignedExpGolomb();
++    }
++    if (expGolombDecoder.readBoolean()) {
++      // vui_parameters_present_flag
++      if (expGolombDecoder.readBoolean()) {
++        // aspect_ratio_info_present_flag
++        aspectRatioIdc = expGolombDecoder.readUnsignedByte();
++        switch (aspectRatioIdc) {
++          case 1: sarRatio = [1, 1]; break;
++          case 2: sarRatio = [12, 11]; break;
++          case 3: sarRatio = [10, 11]; break;
++          case 4: sarRatio = [16, 11]; break;
++          case 5: sarRatio = [40, 33]; break;
++          case 6: sarRatio = [24, 11]; break;
++          case 7: sarRatio = [20, 11]; break;
++          case 8: sarRatio = [32, 11]; break;
++          case 9: sarRatio = [80, 33]; break;
++          case 10: sarRatio = [18, 11]; break;
++          case 11: sarRatio = [15, 11]; break;
++          case 12: sarRatio = [64, 33]; break;
++          case 13: sarRatio = [160, 99]; break;
++          case 14: sarRatio = [4, 3]; break;
++          case 15: sarRatio = [3, 2]; break;
++          case 16: sarRatio = [2, 1]; break;
++          case 255: {
++            sarRatio = [expGolombDecoder.readUnsignedByte() << 8 |
++                        expGolombDecoder.readUnsignedByte(),
++                        expGolombDecoder.readUnsignedByte() << 8 |
++                        expGolombDecoder.readUnsignedByte() ];
++            break;
++          }
++        }
++        if (sarRatio) {
++          sarScale = sarRatio[0] / sarRatio[1];
++        }
++      }
++      if (expGolombDecoder.readBoolean()) {
++        // overscan_info_present_flag
++        expGolombDecoder.skipBits(1); // overscan_appropriate_flag
++      }
++      if (expGolombDecoder.readBoolean()) {
++        // video_signal_type_present_flag
++        expGolombDecoder.skipBits(3); // video_format
++        expGolombDecoder.skipBits(1); // video_full_range_flag
++        if (expGolombDecoder.readBoolean()) {
++        // colour_description_present_flag
++          expGolombDecoder.skipBits(8); // colour_primaries
++          expGolombDecoder.skipBits(8); // transfer_characteristics
++          expGolombDecoder.skipBits(8); // matrix_coefficients
++        }
++      }
++      if (expGolombDecoder.readBoolean()) {
++        // chroma_loc_info_present_flag
++        expGolombDecoder.readUnsignedExpGolomb(); // chroma_sample_loc_type_top_field
++        expGolombDecoder.readUnsignedExpGolomb(); // chroma_sample_loc_type_bottom_field
++      }
++      if (expGolombDecoder.readBoolean()) {
++        //timing_info_present_flag
++        num_units_in_tick = expGolombDecoder.readUnsignedByte() << 24 | // num_units_in_tick u(32)
++          expGolombDecoder.readUnsignedByte() << 16 |
++          expGolombDecoder.readUnsignedByte() << 8 |
++          expGolombDecoder.readUnsignedByte();
++        time_scale = expGolombDecoder.readUnsignedByte() << 24 | // time_scale u(32)
++          expGolombDecoder.readUnsignedByte() << 16 |
++          expGolombDecoder.readUnsignedByte() << 8 |
++          expGolombDecoder.readUnsignedByte();
++        fixed_frame_rate_flag = expGolombDecoder.readBoolean(); // fixed_frame_rate_flag
++      }
++    }
++    m_maxPicOrderCntLsb = Math.pow(2, log2_max_pic_order_cnt_lsb_minus4 + 4);
++    m_picOrderCntLsbLength = log2_max_pic_order_cnt_lsb_minus4 + 4;
++    m_log2MaxFrameNumMinus4Length = log2_max_frame_num_minus4 + 4;
++    m_picOrderCntType = picOrderCntType;
++    m_separateColourPlaneFlag = separate_colour_plane_flag;
++    m_frameMbsOnlyFlag = frameMbsOnlyFlag;
++    return {
++      numUnitsInTick: num_units_in_tick,
++      timeScale: time_scale,
++      fixedFrameRateFlag: fixed_frame_rate_flag
++    };
++  };
++
++  this.read_pic_parameter_set_rbsp = function(data) {
++    var expGolombDecoder = new ExpGolomb(data);
++
++    expGolombDecoder.skipExpGolomb(); // pic_parameter_set_id
++    expGolombDecoder.skipExpGolomb(); // seq_parameter_set_id
++    expGolombDecoder.skipBits(1); // entropy_coding_mode_flag
++    m_bottomFieldPicOrderInFramePresentFlag = expGolombDecoder.readBoolean(); // bottom_field_pic_order_in_frame_present_flag
++  }
++
++  this.read_slice_layer_without_partitioning_rbsp = function(data) {
++    var
++      first_mb_in_slice,
++      slice_type,
++      pic_parameter_set_id,
++      frame_num,
++      field_pic_flag = 0,
++      bottom_field_flag,
++      idr_pic_id,
++      delta_pic_order_cnt_bottom = 0,
++      pic_order_cnt_lsb = -1;
++
++    var expGolombDecoder = new ExpGolomb(data);
++
++    first_mb_in_slice =  expGolombDecoder.readUnsignedExpGolomb(); // first_mb_in_slice
++    slice_type = expGolombDecoder.readUnsignedExpGolomb(); // slice_type
++    pic_parameter_set_id = expGolombDecoder.readUnsignedExpGolomb(); // pic_parameter_set_id
++    if (m_separateColourPlaneFlag) {
++      expGolombDecoder.skipBits(2); // colour_plane_id
++    }
++    frame_num = expGolombDecoder.readBits(m_log2MaxFrameNumMinus4Length); // frame_num
++    if (!m_frameMbsOnlyFlag) {
++      field_pic_flag = expGolombDecoder.readBits(1); // field_pic_flag
++      if (field_pic_flag) {
++        bottom_field_flag = expGolombDecoder.readBits(1); // bottom_field_flag
++      }
++    }
++    if (m_IdrPicFlag) {
++      idr_pic_id = expGolombDecoder.readUnsignedExpGolomb(); // idr_pic_id
++    }
++    if(!m_picOrderCntType) {
++      pic_order_cnt_lsb = expGolombDecoder.readBits(m_picOrderCntLsbLength); // pic_order_cnt_lsb
++      if(m_bottomFieldPicOrderInFramePresentFlag && !field_pic_flag){
++        delta_pic_order_cnt_bottom = expGolombDecoder.readExpGolomb(); // delta_pic_order_cnt_bottom
++      }
++    }
++    return {
++      pic_order_cnt_lsb: pic_order_cnt_lsb,
++      field_pic_flag: field_pic_flag,
++      delta_pic_order_cnt_bottom: delta_pic_order_cnt_bottom
++    };
++  };
++};
++
++H264StreamParser.prototype = new Stream();
++
+ module.exports = {
+   H264Stream: H264Stream,
+-  NalByteStream: NalByteStream
++  NalByteStream: NalByteStream,
++  H264StreamParser: H264StreamParser
+ };
+diff --git a/lib/mp4/transmuxer.js b/lib/mp4/transmuxer.js
+index d298515..8ca9f62 100644
+--- a/lib/mp4/transmuxer.js
++++ b/lib/mp4/transmuxer.js
+@@ -15,6 +15,7 @@ var mp4 = require('./mp4-generator.js');
+ var m2ts = require('../m2ts/m2ts.js');
+ var AdtsStream = require('../codecs/adts.js');
+ var H264Stream = require('../codecs/h264').H264Stream;
++var H264StreamParser = require('../codecs/h264').H264StreamParser;
+ var AacStream = require('../aac');
+ var coneOfSilence = require('../data/silence');
+ var clock = require('../utils/clock');
+@@ -33,7 +34,8 @@ var VIDEO_PROPERTIES = [
+   'height',
+   'profileIdc',
+   'levelIdc',
+-  'profileCompatibility'
++  'profileCompatibility',
++  'fps'
+ ];
+
+ var ONE_SECOND_IN_TS = 90000; // 90kHz clock
+@@ -45,6 +47,7 @@ var VideoSegmentStream, AudioSegmentStream, Transmuxer, CoalesceStream;
+ var
+   createDefaultSample,
+   isLikelyAacData,
++  isLikelyH264BitstreamData,
+   collectDtsInfo,
+   clearDtsInfo,
+   calculateTrackBaseMediaDecodeTime,
+@@ -77,6 +80,16 @@ isLikelyAacData = function(data) {
+   return false;
+ };
+
++isLikelyH264BitstreamData = function(data) {
++  if ((data[0] === 0) &&
++      (data[1] === 0) &&
++      (data[2] === 0) &&
++      (data[3] === 1)) {
++    return true;
++  }
++  return false;
++};
++
+ /**
+  * Compare two arrays (even typed) for same-ness
+  */
+@@ -1167,7 +1180,7 @@ CoalesceStream.prototype.flush = function(flushSource) {
+   }
+   // We add this to every single emitted segment even though we only need
+   // it for the first
+-  event.metadata.dispatchType = this.metadataStream.dispatchType;
++  // event.metadata.dispatchType = this.metadataStream.dispatchType;
+
+   // Reset stream state
+   this.pendingTracks.length = 0;
+@@ -1370,6 +1383,40 @@ Transmuxer = function(options) {
+     pipeline.coalesceStream.on('done', this.trigger.bind(this, 'done'));
+   };
+
++  this.setupH264Pipeline = function() {
++    var pipeline = {};
++    this.transmuxPipeline_ = pipeline;
++
++    pipeline.type = 'h264';
++
++    // set up the parsing pipeline
++    pipeline.h264StreamParser = new H264StreamParser();
++    pipeline.h264Stream = new H264Stream();
++    pipeline.captionStream = new m2ts.CaptionStream();
++    pipeline.coalesceStream = new CoalesceStream(options);
++
++    videoTrack = {
++      "timelineStartInfo": {
++        "baseMediaDecodeTime":0
++      },
++      type:"video"
++    };
++
++    pipeline.videoSegmentStream = new VideoSegmentStream(videoTrack, options);
++
++    pipeline.headOfPipeline = pipeline.h264StreamParser;
++
++    pipeline.h264StreamParser
++      .pipe(pipeline.h264Stream);
++
++    pipeline.h264Stream
++            .pipe(pipeline.videoSegmentStream)
++            .pipe(pipeline.coalesceStream);
++
++    pipeline.coalesceStream.on('data',
++        this.trigger.bind(this, 'data')
++        );
++  };
+   // hook up the segment streams once track metadata is delivered
+   this.setBaseMediaDecodeTime = function(baseMediaDecodeTime) {
+     var pipeline = this.transmuxPipeline_;
+@@ -1417,11 +1464,17 @@ Transmuxer = function(options) {
+   this.push = function(data) {
+     if (hasFlushed) {
+       var isAac = isLikelyAacData(data);
+-
+-      if (isAac && this.transmuxPipeline_.type !== 'aac') {
+-        this.setupAacPipeline();
+-      } else if (!isAac && this.transmuxPipeline_.type !== 'ts') {
+-        this.setupTsPipeline();
++      var isH264 = isLikelyH264BitstreamData(data);
++
++      if (isAac) {
++        if (this.transmuxPipeline_.type !== 'aac')
++          this.setupAacPipeline();
++      } else if (isH264) {
++        if (this.transmuxPipeline_.type !== 'h264')
++          this.setupH264Pipeline();
++      } else {
++        if (this.transmuxPipeline_.type !== 'ts')
++          this.setupTsPipeline();
+       }
+       hasFlushed = false;
+     }

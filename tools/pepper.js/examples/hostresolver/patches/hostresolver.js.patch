@@ -1,0 +1,11 @@
+--- hostresolver.js_org	2018-07-12 16:38:54.992397755 +0200
++++ hostresolver.js	2018-07-12 16:39:13.007971705 +0200
+@@ -9888,7 +9888,7 @@
+   var method = 'native-wasm';
+ 
+   var wasmTextFile = 'hostresolver.wast';
+-  var wasmBinaryFile = 'hostresolver.wasm';
++  var wasmBinaryFile = 'data/hostresolver.wasm';
+   var asmjsCodeFile = 'hostresolver.temp.asm.js';
+ 
+   if (typeof Module['locateFile'] === 'function') {

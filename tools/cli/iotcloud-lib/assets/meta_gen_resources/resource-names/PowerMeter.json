@@ -1,0 +1,80 @@
+{
+    "dpResources": [
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_meter"
+            },
+            "controllable": false,
+            "group": null,
+            "name": "Power Meter",
+            "ruleEvent": true,
+            "valueType": null,
+            "step": 0,
+            "label": {
+                "n": "st Power Meter resource",
+                "label": "___PO_CODE_POWERMETER"
+            },
+            "visible": null,
+            "range": null,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.powermeter",
+                "href": "/capability/powerMeter/0",
+                "if": "oic.if.r"
+            },
+            "property": "power",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_power_meter"
+            },
+            "controllable": false,
+            "group": null,
+            "name": "Power Meter",
+            "ruleEvent": false,
+            "valueType": null,
+            "step": 0,
+            "label": {
+                "n": "st Power Meter resource",
+                "label": "___PO_CODE_POWERMETER"
+            },
+            "visible": null,
+            "range": null,
+            "controlType": "List",
+            "ruleAction": false,
+            "link": {
+                "rt": "x.com.st.powermeter",
+                "href": "/capability/powerMeter/0",
+                "if": "oic.if.r"
+            },
+            "property": "power",
+            "order": 1,
+            "emphasis": false
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_POWERMETER",
+                    "label": "Power meter"
+                }
+            ],
+            "locale": "en_US",
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Power Meter",
+    "ms": []
+}

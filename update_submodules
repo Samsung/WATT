@@ -1,0 +1,76 @@
+#!/usr/bin/env python
+
+import argparse, fnmatch, os, subprocess, sys
+
+def log_err(s):
+  sys.stdout.write('\033[1;31m' + s + '\033[0m\n')
+  sys.stdout.flush()
+
+def get_subrepos():
+  subrepos = subprocess.check_output('git submodule', shell=True).split('\n')
+  # Last line is empty
+  subrepos.pop()
+  # Extract subrepos from git submodule output
+  return map(lambda s: s[1:].split()[1], subrepos)
+
+def main():
+  parser = argparse.ArgumentParser(description='Updates submodules applying additional patches')
+  parser.add_argument('-v', '--verbose', action='store_true', help='Print stderr and stdout during')
+  args = parser.parse_args()
+  brackets = 'libs/brackets-server/brackets-src'
+  codemirror_url = 'https://github.com/codemirror/CodeMirror.git'
+  codemirror_subrepo = 'src/thirdparty/CodeMirror'
+
+  subrepos = get_subrepos()
+  # Brackets needs to update CodeMirror submodule, so treat it differently
+  subrepos.remove(brackets)
+
+  if args.verbose:
+    out = None
+    err = None
+  else:
+    out = open(os.devnull, 'w')
+    err = subprocess.STDOUT
+
+  def call_git_cmd(cmd):
+    git_cmd = 'git ' + cmd
+    if (subprocess.call(git_cmd, shell=True, stdout=out, stderr=err)) != 0:
+      log_err('Command failed: ' + git_cmd)
+      return False
+    return True
+
+  for s in subrepos:
+    if not call_git_cmd('submodule update --init --recursive -- ' + s):
+      return 1
+
+  if not call_git_cmd('submodule update --init -- ' + brackets):
+    return 1
+
+  curr_dir = os.getcwd()
+  os.chdir(brackets)
+  brackets_subrepos = get_subrepos()
+  # CodeMirror needs to be updated from different url, as current one is deprecated. so treat it differently
+  brackets_subrepos.remove(codemirror_subrepo)
+  for s in brackets_subrepos:
+    if not call_git_cmd('submodule update --init --recursive -- ' + s):
+      os.chdir(curr_dir)
+      return 1
+
+  if (
+      not call_git_cmd('config submodule.' + codemirror_subrepo + '.url ' + codemirror_url) or
+      not call_git_cmd('submodule update --recursive --remote -- ' + codemirror_subrepo)
+     ):
+    os.chdir(curr_dir)
+    return 1
+  cached_output = subprocess.check_output('git submodule status --cached -- ' + codemirror_subrepo, shell=True).split('\n')
+  # Get cached commit id
+  cached_commit_id = cached_output[0][1:].split()[0]
+  os.chdir(codemirror_subrepo)
+  if not call_git_cmd('checkout ' + cached_commit_id):
+    os.chdir(curr_dir)
+    return 1
+  os.chdir(curr_dir)
+  return 0
+
+if __name__ == '__main__':
+  sys.exit(main())

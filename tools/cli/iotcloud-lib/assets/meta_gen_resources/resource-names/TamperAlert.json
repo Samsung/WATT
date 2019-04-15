@@ -1,0 +1,145 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Tamper Alert",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "value": "___PO_CODE_TAMPERALERT_DETECTED",
+                    "key": "true"
+                },
+                {
+                    "type": "inactive",
+                    "value": "___PO_CODE_TAMPERALERT_CLEAR",
+                    "key": "false"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_TAMPERALERT",
+                "arguments": null,
+                "n": null
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_tamper_alert"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.tamperalert",
+                "href": "/capability/tamperAlert/0",
+                "if": "oic.if.baseline"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "value",
+            "order": 1,
+            "emphasis": false
+        },
+        {
+            "controllable": false,
+            "group": null,
+            "name": "Tamper Alert",
+            "visible": null,
+            "valueType": null,
+            "ruleEvent": true,
+            "alternatives": [
+                {
+                    "type": "active",
+                    "value": "___PO_CODE_TAMPERALERT_DETECTED",
+                    "key": "true"
+                }
+            ],
+            "step": 0,
+            "label": {
+                "label": "___PO_CODE_TAMPERALERT",
+                "arguments": null,
+                "n": null
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_tamper_alert"
+            },
+            "range": null,
+            "link": {
+                "rt": "x.com.st.tamperalert",
+                "href": "/capability/tamperAlert/0",
+                "if": "oic.if.baseline"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "value",
+            "order": 2,
+            "emphasis": false
+        }
+    ],
+    "uiVersion": "0.0.2",
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_TAMPERALERT",
+                    "label": "Tamper Alert"
+                },
+                {
+                    "po": "___PO_CODE_TAMPERALERT_CLEAR",
+                    "label": "No Tamper"
+                },
+                {
+                    "po": "___PO_CODE_TAMPERALERT_DETECTED",
+                    "label": "Tampered"
+                }
+            ],
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Tamper Alert",
+    "ms": [
+        {
+            "group": null,
+            "name": "Tamper Alert",
+            "visible": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "property": "value",
+                        "valueType": null,
+                        "href": "/capability/tamperAlert/0",
+                        "alternatives": [
+                            {
+                                "type": "active",
+                                "value": "___PO_CODE_TAMPERALERT_DETECTED",
+                                "key": "true"
+                            },
+                            {
+                                "type": "inactive",
+                                "value": "___PO_CODE_TAMPERALERT_CLEAR",
+                                "key": "false"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": null
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ],
+    "voiceVersion": "0.0.1"
+}

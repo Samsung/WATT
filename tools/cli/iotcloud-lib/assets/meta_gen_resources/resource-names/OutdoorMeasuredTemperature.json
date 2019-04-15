@@ -1,0 +1,133 @@
+{
+    "dpResources": [
+        {
+            "controllable": false,
+            "property": "temperature",
+            "group": null,
+            "name": "Temperature Measurement",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_temperature_measured_outdoor"
+            },
+            "valueType": null,
+            "ruleEvent": true,
+            "alternatives": null,
+            "emphasis": false,
+            "label": {
+                "n": "temperature",
+                "arguments": null,
+                "label": "___PO_CODE_TEMPERATUREMEASUREMENT_OUT_DOOR_TEMPERATURE"
+            },
+            "visible": null,
+            "step": 0,
+            "link": {
+                "rt": "oic.r.temperature",
+                "href": "/capability/temperatureMeasurement/outdoor/0",
+                "if": "oic.if.r"
+            },
+            "ruleAction": false,
+            "range": [
+                -20,
+                50
+            ],
+            "order": 1,
+            "controlType": "List"
+        },
+        {
+            "controllable": false,
+            "property": "temperature",
+            "group": null,
+            "name": "Temperature Measurement",
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_temperature_measured_outdoor"
+            },
+            "valueType": null,
+            "ruleEvent": false,
+            "alternatives": null,
+            "emphasis": false,
+            "label": {
+                "n": "temperature",
+                "arguments": null,
+                "label": "___PO_CODE_TEMPERATUREMEASUREMENT_OUT_DOOR_TEMPERATURE"
+            },
+            "visible": null,
+            "step": 0,
+            "link": {
+                "rt": "x.com.st.temperature.measured",
+                "href": "/capability/temperatureMeasurement/outdoor/0",
+                "if": "oic.if.r"
+            },
+            "ruleAction": false,
+            "range": [
+                -20,
+                50
+            ],
+            "order": 1,
+            "controlType": "List"
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_TEMPERATUREMEASUREMENT_OUT_DOOR_TEMPERATURE",
+                    "label": "OutDoor Temperature"
+                }
+            ],
+            "locale": "en_US",
+            "version": "0.0.1"
+        }
+    ],
+    "voiceCapability": [],
+    "capability": "Temperature Measurement",
+    "ms": [
+        {
+            "group": null,
+            "name": "Temperature Measurement",
+            "visible": null,
+            "label": {
+                "n": "ST Outdoor Measured Temperatureresource",
+                "arguments": [
+                    {
+                        "property": "temperature",
+                        "valueType": null,
+                        "href": "/capability/temperatureMeasurement/outdoor/0",
+                        "alternatives": null,
+                        "n": "var1"
+                    },
+                    {
+                        "property": "units",
+                        "valueType": null,
+                        "href": "/capability/temperatureMeasurement/outdoor/0",
+                        "alternatives": [
+                            {
+                                "key": "C",
+                                "value": "\u00b0C"
+                            },
+                            {
+                                "key": "K",
+                                "value": "\u00b0K"
+                            },
+                            {
+                                "key": "F",
+                                "value": "\u00b0F"
+                            }
+                        ],
+                        "n": "var2"
+                    }
+                ],
+                "label": "<var1> <var2>"
+            },
+            "iconUrl": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ]
+}

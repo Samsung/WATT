@@ -67,6 +67,9 @@ var STRING_RESOURCE = 0;
 var ARRAY_BUFFER_RESOURCE = 1;
 
 var INPUT_EVENT_RESOURCE = 2;
+// For now all other input event types (PPB_KeyboardInputEvent,
+// PPB_IMEInputEvent, PPB_MouseInputEvent, PPB_TouchInputEvent,
+// PPB_WheelInputEvent) use the same resource type id - INPUT_EVENT_RESOURCE
 
 var FILE_SYSTEM_RESOURCE = 3;
 var FILE_REF_RESOURCE = 4;
@@ -95,6 +98,33 @@ var GRAPHICS_3D_RESOURCE = 20;
 var ARRAY_RESOURCE = 21;
 var DICTIONARY_RESOURCE = 22;
 var WEB_SOCKET_RESOURCE = 23;
+
+var VIDEO_RESOURCE = 24;
+
+var NET_ADDRESS_RESOURCE = 25;
+
+var NETWORK_LIST_RESOURCE = 26;
+var NETWORK_MONITOR_RESOURCE = 27;
+var TCP_SOCKET_RESOURCE = 28;
+var UDP_SOCKET_RESOURCE = 29;
+
+var HOST_RESOLVER_RESOURCE = 30;
+
+var AUDIO_BUFFER_RESOURCE = 31;
+var AUDIO_ENCODER_RESOURCE = 32;
+
+var COMPOSITOR_RESOURCE = 33;
+var COMPOSITOR_LAYER_RESOURCE = 34;
+
+var MEDIA_STREAM_AUDIO_TRACK_RESOURCE = 35;
+var MEDIA_STREAM_VIDEO_TRACK_RESOURCE = 36;
+
+var MESSAGE_LOOP_RESOURCE = 37;
+
+var VIDEO_ENCODER_RESOURCE = 38;
+var VIDEO_FRAME_RESOURCE = 39;
+
+var VPN_PROVIDER_RESOURCE = 40;
 
 var ResourceManager = function() {
   this.lut = {};
@@ -278,7 +308,7 @@ var createInterface = function(name, functions) {
   var getFuncPtr = function(f) {
     // Memoize - a single function may appear in multiple versions of an interface.
     if (f.func_ptr === undefined) {
-      f.func_ptr = Runtime.addFunction(f, 1);
+      f.func_ptr = addFunction(f, 1);
     }
     return f.func_ptr;
   };
@@ -296,6 +326,45 @@ var createInterface = function(name, functions) {
   interfaces[name] = ptr;
 };
 
+var promiseXHR = function(url) {
+  return new Promise(function (resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'arraybuffer';
+      xhr.open("GET", url);
+
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 0) {
+          var res = {'ok': true, 'arrayBuffer': () => xhr.response};
+          resolve(res);
+        } else {
+          reject({
+            status: xhr.status,
+            statusText: xhr.statusText
+          });
+        }
+      };
+      xhr.onerror = function () {
+        reject({
+          status: xhr.status,
+          statusText: xhr.statusText
+        });
+      };
+      xhr.send();
+  });
+};
+
+var safeFetch = function(url) {
+  // Make sure that url is an absolute one, so we can check protocol
+  var a = document.createElement('a');
+  a.href = url;
+  var absoluteUrl = new URL(a.href);
+  if (absoluteUrl.protocol === "file:") {
+    return promiseXHR(url);
+  } else {
+    return fetch(url);
+  }
+};
+
 var Module = {
   "noInitialRun": true,
   "noExitRuntime": true,
@@ -309,6 +378,32 @@ var Module = {
       }
     }
     declaredInterfaces = [];
+  },
+  "locateFile": function(url) {
+    // Save wasm binary path, because it is not available in 'Module' object
+    if (url.endsWith(".wasm")) {
+      Module["__wasmBinaryFile"] = url;
+    }
+    return url;
+  },
+  "instantiateWasm": function(info, receiveInstance) {
+    var Module = info["parent"];
+    var wasmBinaryFile = Module["__wasmBinaryFile"];
+    safeFetch(wasmBinaryFile).then(response => {
+      if (!response['ok']) {
+        throw Error("Failed to load wasm binary file at '" + wasmBinaryFile + "'");
+      }
+      return response['arrayBuffer']();
+    }).then(binary => {
+      return WebAssembly.instantiate(binary, info);
+    }).then(result => {
+      receiveInstance(result["instance"], result["module"]);
+    }).catch(error => {
+      console.error("Failed to instantiate wasm", error.stack);
+      throw error;
+    });
+    // Return empty exports like emscripten does
+    return {};
   }
 };
 
@@ -337,7 +432,12 @@ var CreateInstance = function(width, height, shadow_instance) {
 
     // Post messages are resolved asynchronously.
     glue.defer(function() {
-      _DoPostMessage(instance, var_ptr);
+      var instance_object = resources.resolve(instance, INSTANCE_RESOURCE);
+      if (instance_object && instance_object._registeredMessageHandler) {
+        instance_object._registeredMessageHandler(instance, var_ptr);
+      } else {
+        _DoPostMessage(instance, var_ptr);
+      }
       // Note: the callee releases the var so we don't need to.
       // This is different than most interfaces.
       _free(var_ptr);
@@ -457,7 +557,8 @@ var CreateInstance = function(width, height, shadow_instance) {
     },
     destroy: function() {
       this.unbind();
-    }
+    },
+    _registeredMessageHandler: null
   });
 
   // Allows shadow_instance.postMessage to work.
@@ -819,7 +920,7 @@ glue.getCompletionCallback = function(ptr) {
     if (typeof result !== 'number') {
       throw "Invalid argument to callback: " + result;
     }
-    Runtime.dynCall('vii', func, [user_data, result]);
+    dynCall('vii', func, [user_data, result]);
   };
 };
 
@@ -935,6 +1036,15 @@ var ppapi = (function() {
      * thread.
      */
     PP_ERROR_WRONG_THREAD: -52,
+    /**
+     * This value is returned when attempting to bind an address that
+     * is already in use.
+     */
+    PP_ERROR_ADDRESS_IN_USE: -108,
+    /**
+     * This value indicates that the host name could not be resolved.
+     */
+    PP_ERROR_NAME_NOT_RESOLVED: -110,
 
     PP_GRAPHICS3DATTRIB_ALPHA_SIZE: 0x3021,
     PP_GRAPHICS3DATTRIB_BLUE_SIZE: 0x3022,

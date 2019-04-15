@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright 2014 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<head>
+<style>
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+#fps {
+  position: absolute;
+  background-color: white;
+  width: 170px;
+  top: 20px;
+  left: 20px;
+}
+
+</style>
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<script type="text/javascript" src="platform.js"></script>
+<title>Video Decode Performance</title>
+
+<script type="text/javascript">
+function toggleVisibility(element) {
+  if (element.style.visibility == "visible") {
+    element.style.visibility = "hidden";
+  } else {
+    element.style.visibility = "visible";
+  }
+}
+
+function handleMessage(message_event) {
+  document.getElementById("fps").innerHTML
+    = message_event.data.replace(/(\r\n|\r|\n)/g, '<br>')
+}
+
+function handleKey(e) {
+  var key_code = e.keyCode;
+  switch (key_code) {
+  case tvKeyButtons.KEY_RETURN:
+  case 9: // BACKSPACE
+    toggleVisibility(document.getElementById("fps"));
+    break;
+  }
+}
+
+</script>
+</head>
+
+<body bgcolor=black onload="platformOnLoad()">
+<div id="listener">
+</div>
+<script type="text/javascript">
+  var listener = document.getElementById('listener')
+  var fps = document.createElement('div');
+  fps.id='fps';
+  listener.appendChild(fps);
+  var plugin = document.createElement('embed');
+  plugin.id='nacl_module';
+  plugin.type=MIME_TYPE;
+  plugin.src=NMF_FILE_NAME;
+  plugin.width='1920';
+  plugin.height='1080';
+  listener.appendChild(plugin);
+  document.getElementById('nacl_module').focus();
+  listener.addEventListener('message', handleMessage, true);
+  listener.addEventListener('keydown', handleKey, true);
+</script>
+</body>
+</html>

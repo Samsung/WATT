@@ -1,0 +1,497 @@
+{
+  "n": "dish washer",
+  "version": "0.0.1",
+  "vid": "",
+  "mnmn": "",
+  "language": [
+    {
+      "locale": "en_US",
+      "version": "0.0.1",
+      "poCodes": [
+        {
+          "po": "__PO_CODE_POWERSWITCH_ON",
+          "label": "On"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH_OFF",
+          "label": "Off"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH",
+          "label": "Power"
+        },
+        {
+          "label": "Auto",
+          "po": "__PO_CODE_DISHWASHERMODE_AUTO"
+        },
+        {
+          "label": "Quick",
+          "po": "__PO_CODE_DISHWASHERMODE_QUICK"
+        },
+        {
+          "label": "Rinse",
+          "po": "__PO_CODE_DISHWASHERMODE_RINSE"
+        },
+        {
+          "label": "Dry",
+          "po": "__PO_CODE_DISHWASHERMODE_DRY"
+        },
+        {
+          "label": "Dish Washer Mode",
+          "po": "__PO_CODE_DISHWASHERMODE_MODE"
+        },
+        {
+          "label": "Cooling",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_COOLING"
+        },
+        {
+          "label": "Drying",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_DRYING"
+        },
+        {
+          "label": "Finish",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_FINISH"
+        },
+        {
+          "label": "Pre Drain",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_PREDRAIN"
+        },
+        {
+          "label": "Pre Wash",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_PREWASH"
+        },
+        {
+          "label": "Rinse",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_RINSE"
+        },
+        {
+          "label": "Spin",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_SPIN"
+        },
+        {
+          "label": "Unknown",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_UNKNOWN"
+        },
+        {
+          "label": "Wash",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_WASH"
+        },
+        {
+          "label": "Dish Washer Job State",
+          "po": "__PO_CODE_DISHWASHEROPERATIONALSTATE_OPERATIONALSTATE"
+        },
+        {
+          "label": "Energy Consumption",
+          "po": "___PO_CODE_ENERGYMETER_ENERGY_CONSUMPTION"
+        }
+      ],
+      "mnmn": "",
+      "vid": ""
+    }
+  ],
+  "ma": [
+    {
+      "name": "PowerSwitch",
+      "type": "main",
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": false
+    }
+  ],
+  "ms": [
+    {
+      "name": "PowerSwitch",
+      "type": "device",
+      "order": 1,
+      "label": {
+        "label": "<var1>",
+        "arguments": [
+          {
+            "n": "var1",
+            "href": "/capability/switch/main/0",
+            "property": "power",
+            "valueType": null,
+            "alternatives": [
+              {
+                "key": "on",
+                "value": "__PO_CODE_POWERSWITCH_ON"
+              },
+              {
+                "key": "off",
+                "value": "__PO_CODE_POWERSWITCH_OFF",
+                "type": "inactive"
+              }
+            ]
+          }
+        ]
+      },
+      "emphasis": false
+    }
+  ],
+  "dpInfo": [
+    {
+      "os": "android",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.dishwasher"
+    },
+    {
+      "os": "ios",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.dishwasher"
+    }
+  ],
+  "dpResources": [
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": true
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 2,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": false
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 3,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": true,
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 4,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_dish_washer_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Dish Washer Mode",
+      "controllable": true,
+      "link": {
+        "href": "/capability/dishwasherMode/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mode.dishwasher"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Dish Washer Mode Resource",
+        "label": "__PO_CODE_DISHWASHERMODE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "auto",
+          "value": "__PO_CODE_DISHWASHERMODE_AUTO"
+        },
+        {
+          "key": "quick",
+          "value": "__PO_CODE_DISHWASHERMODE_QUICK"
+        },
+        {
+          "key": "rinse",
+          "value": "__PO_CODE_DISHWASHERMODE_RINSE"
+        },
+        {
+          "key": "dry",
+          "value": "__PO_CODE_DISHWASHERMODE_DRY"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 5,
+      "ruleEvent": true,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_dish_washer_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Dish Washer Mode",
+      "controllable": true,
+      "link": {
+        "href": "/capability/dishwasherMode/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Dish Washer Mode Resource",
+        "label": "__PO_CODE_DISHWASHERMODE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "auto",
+          "value": "__PO_CODE_DISHWASHERMODE_AUTO"
+        },
+        {
+          "key": "quick",
+          "value": "__PO_CODE_DISHWASHERMODE_QUICK"
+        },
+        {
+          "key": "rinse",
+          "value": "__PO_CODE_DISHWASHERMODE_RINSE"
+        },
+        {
+          "key": "dry",
+          "value": "__PO_CODE_DISHWASHERMODE_DRY"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 6,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_dish_washer_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Dish Washer Mode",
+      "controllable": true,
+      "link": {
+        "href": "/capability/dishwasherMode/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Dish Washer Mode Resource",
+        "label": "__PO_CODE_DISHWASHERMODE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "auto",
+          "value": "__PO_CODE_DISHWASHERMODE_AUTO"
+        },
+        {
+          "key": "quick",
+          "value": "__PO_CODE_DISHWASHERMODE_QUICK"
+        },
+        {
+          "key": "rinse",
+          "value": "__PO_CODE_DISHWASHERMODE_RINSE"
+        },
+        {
+          "key": "dry",
+          "value": "__PO_CODE_DISHWASHERMODE_DRY"
+        }
+      ],
+      "ruleAction": true
+    },
+    {
+      "emphasis": false,
+      "order": 7,
+      "ruleEvent": false,
+      "property": "currentJobState",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_dish_washer_job_state",
+        "large": "",
+        "small": ""
+      },
+      "name": "Dishwasher Operational State",
+      "controllable": false,
+      "link": {
+        "href": "/capability/dishwasherOperatingState/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.operationalstate.dishwasher"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Dish Washer Job State Resource",
+        "label": "__PO_CODE_DISHWASHEROPERATIONALSTATE_OPERATIONALSTATE"
+      },
+      "alternatives": [
+        {
+          "key": "cooling",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_COOLING"
+        },
+        {
+          "key": "drying",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_DRYING"
+        },
+        {
+          "key": "finish",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_FINISH"
+        },
+        {
+          "key": "preDrain",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_PREDRAIN"
+        },
+        {
+          "key": "prewash",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_PREWASH"
+        },
+        {
+          "key": "rinse",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_RINSE"
+        },
+        {
+          "key": "spin",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_SPIN"
+        },
+        {
+          "key": "unknown",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_UNKNOWN"
+        },
+        {
+          "key": "wash",
+          "value": "__PO_CODE_DISHWASHEROPERATIONALSTATE_WASH"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "ruleAction": false,
+      "emphasis": false,
+      "controllable": false,
+      "step": 0,
+      "link": {
+        "rt": "x.com.st.energymeter",
+        "href": "/capability/energyMeter/main/0",
+        "if": "oic.if.r"
+      },
+      "controlType": "List",
+      "name": "Energy Consumption",
+      "label": {
+        "label": "___PO_CODE_ENERGYMETER_ENERGY_CONSUMPTION"
+      },
+      "iconUrl": {
+        "mid": "icon://ic_function_energy_consumption",
+        "large": "",
+        "small": "",
+        "vector": ""
+      },
+      "ruleEvent": false,
+      "order": 8,
+      "property": "energy"
+    }
+  ]
+}

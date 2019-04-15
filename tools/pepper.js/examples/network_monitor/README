@@ -1,0 +1,79 @@
+# How to run network_monitor example
+
+
+## Build examples
+
+Go to examples directory and clean it to avoid build errors.
+
+  $ cd pepper.js/examples
+  $ make clean
+
+Set EMSCRIPTEN env vars.
+
+  $ . /path/to/emsdk/emsdk_env.sh
+
+Set NACL_SDK_ROOT env var.
+
+  $ export NACL_SDK_ROOT=/path/to/nacl_sdk/pepper_49
+
+Build all examples
+
+  $ make TOOLCHAIN=emscripten CONFIG=Debug
+
+Note: if build fails create empty 'data' dir in every example directory
+
+Use 'XMLHttpRequest' instead of 'fetch' in
+examples/network_monitor/emscripten/Debug/network_monitor.js because Tizen web
+apps use 'file://' protocol unsupported by 'fetch'.
+
+  <       return fetch(wasmBinaryFile, { credentials: 'same-origin' }).then(function(response) {
+  ---
+  >       return (new Promise((resolve, reject) => {
+  >           var xhr = new XMLHttpRequest();
+  >           xhr.responseType = 'arraybuffer';
+  >           xhr.open("GET", wasmBinaryFile);
+  >           xhr.onload = () => {resolve({ok: true, arrayBuffer: () => xhr.response});};
+  >           xhr.onerror = () => reject("Fetch failed");
+  >           xhr.send();
+  >       })).then(function(response) {
+
+Note: you have to do this after each 'make', because network_monitor.js is
+overwritten during the build.
+
+
+## Create Tizen web app
+
+Install tizen studio with samsung tv plugins.
+
+Create empty project for tv-samsung-4.0
+
+Replace its contents with 'examples/network_monitor' contents.
+
+Add 'http://developer.samsung.com/privilege/network.public' privilege in
+'config.xml' because network.js uses samsung tv network API (note that
+$WEBAPIS/webapis/webapis.js script is currently imported on nacl user side).
+
+Build signed package
+
+
+## Run Tizen web app
+
+Copy .wgt file to tv.
+
+  $ scp appname.wgt root@tvIP:/home/owner/content/Downloads
+
+Install the app.
+
+  $ ssh root@tvIP
+  $ su - owner
+  $ wascmd -i appID -p /home/owner/content/Downloads/appname.wgt
+
+Run the app with debug on
+
+  $ app_launcher -s appID.appname -w
+
+app_launcher should return debug port.
+
+Connect to remote web inspector on tv with chromium (tvIP:port).
+
+Go to network_monitor remote console, it should contain tv's ip address

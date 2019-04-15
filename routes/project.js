@@ -9,13 +9,129 @@ var xml2js = require('xml2js');
 var util = require('../libs/util');
 var Project = require('../models/project');
 
-module.exports = function(express) {
+var addApplicationToProject = function (req, res) {
+  var data = req.body;
+  var user = req.user;
+  var projectId = data.projectId;
+  var profiles = data['profiles[]'];
+
+  if (typeof profiles === 'string') {
+    profiles = [profiles];
+  }
+
+  Project.find({'user': user._id}, function (err, projects) {
+    if (err) {
+      debug(err);
+      return res.status(400).send(err);
+    }
+
+    if (process.env.NODE_ENV === 'test') {
+      return res.send(projects);
+    }
+
+    var projectPath;
+
+    async.waterfall([
+      function (callback) {
+        // Create app folder
+        projectPath = path.join(process.cwd(), 'projects', projectId, 'apps', data.name);
+
+        fse.ensureDir(projectPath, function (error) {
+          if (error) {
+            return callback(error);
+          }
+
+          callback(null);
+        });
+      },
+      function (callback) {
+        // Copy the template to project folder
+        var templatePath = path.join(process.cwd(), data.format, data.type, data.templateName);
+
+        fse.ensureDir(templatePath, function (error) {
+          if (error) {
+            return callback(error);
+          }
+
+          fse.copy(templatePath, projectPath, function (err) {
+            if (err) {
+              return callback(err);
+            }
+
+            callback(null);
+          });
+        });
+      },
+      function (callback) {
+        // Check project type because we create config.xml for 'web' project
+
+        var allow = ['sthings'];
+        if (allow.indexOf(data.type) === -1) {
+          return callback(null);
+        }
+
+        var xmlFileName = 'config_sthings.xml';
+
+        // Create config xml
+        let xmlFilePath = path.join(process.cwd(), 'models', xmlFileName);
+
+        fs.readFile(xmlFilePath, function (error, config) {
+          if (error) {
+            return callback(error);
+          }
+
+          var parser = new xml2js.Parser();
+          parser.parseString(config, function (parseError, result) {
+            if (parseError) {
+              return callback(parseError);
+            }
+
+            var widget = result.widget;
+            var appName = data.name;
+            var tizenPackage = projectId.substring(0, 10);
+
+            widget.name[0] = appName;
+            widget['tizen:application'][0]['$'].package = tizenPackage;
+            widget['tizen:application'][0]['$'].id = [tizenPackage, appName].join('.');
+            widget['tizen:application'][0]['$']['required_version'] = data.requiredVersion;
+            widget['$'].id = 'http://yourdomain/' + appName;
+            widget['tizen:profile'][0]['$'].name = profiles[0];
+
+            // The 'internet' privilege should be set in S-Things Project for connecting device
+            if (data.type.indexOf('sthings') !== -1) {
+              widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
+            }
+
+            var builderOption = {
+              xmldec: {
+                'version': '1.0',
+                'encoding': 'UTF-8'
+              }
+            };
+
+            var builder = new xml2js.Builder(builderOption);
+            var xml = builder.buildObject(result);
+            fs.writeFile(path.join(projectPath, 'config.xml'), xml, callback);
+          });
+        });
+      }
+    ], function (error) {
+      if (error) {
+        return res.status(400).send(error);
+      }
+
+      res.send(projectId);
+    });
+  });
+};
+
+module.exports = function (express) {
   var router = express.Router();
 
-  router.get('/', util.isLoggedIn, function(req, res) {
+  router.get('/', util.isLoggedIn, function (req, res) {
     var user = req.user;
 
-    Project.find({ 'user' : user._id }, function(err, projects) {
+    Project.find({'user': user._id}, function (err, projects) {
       if (err) {
         debug(err);
         return res.status(400).send(err);
@@ -27,25 +143,28 @@ module.exports = function(express) {
 
       res.render('project', {
         user: user,
-        projects : projects,
-        isPWE: config.PWE
+        projects: projects,
+        isPWE: config.PWE,
+        isIOTJS: process.env.SUPPORT_IOTJS === 'true',
+        isSThings: process.env.SUPPORT_STHINGS === 'true'
       });
     });
   });
 
-  router.put('/', util.isLoggedIn, function(req, res) {
+  router.put('/', util.isLoggedIn, function (req, res) {
     var user = req.user;
     var data = req.body;
 
     // Check the type of project data whether it is correct
     if (typeof data !== 'object' ||
-        typeof data.name !== 'string' ||
-        typeof data.description !== 'string' ||
-        typeof data.format !== 'string' ||
-        typeof data.profile !== 'string' ||
-        typeof data.version !== 'string' ||
-        typeof data.type !== 'string' ||
-        typeof data.templateName !== 'string') {
+      typeof data.name !== 'string' ||
+      typeof data.description !== 'string' ||
+      typeof data.format !== 'string' ||
+      typeof data.profile !== 'string' ||
+      typeof data.version !== 'string' ||
+      typeof data.type !== 'string' ||
+      typeof data.templateName !== 'string' ||
+      (data.extension && typeof data.extension !== 'string')) {
       return res.status(400).send('Project data is wrong');
     }
 
@@ -54,15 +173,15 @@ module.exports = function(express) {
     var supportPath;
 
     async.waterfall([
-      function(callback) {
+      function (callback) {
         // Finder the projects using user id
-        Project.find({'user': user._id}, function(error, projects) {
+        Project.find({'user': user._id}, function (error, projects) {
           if (error) {
             return callback(error);
           }
 
           // Check duplicated project name
-          for (var i=0; i<projects.length; i++) {
+          for (var i = 0; i < projects.length; i++) {
             if (projects[i].name === data.name) {
               return callback('Duplicated project name.');
             }
@@ -71,7 +190,7 @@ module.exports = function(express) {
           callback(null);
         });
       },
-      function(callback) {
+      function (callback) {
         // Create new project
         var newProject = new Project();
 
@@ -83,7 +202,7 @@ module.exports = function(express) {
         newProject.type = data.type;
         newProject.description = data.description;
 
-        newProject.save(function(error, project) {
+        newProject.save(function (error, project) {
           if (error) {
             return callback(error);
           }
@@ -91,12 +210,16 @@ module.exports = function(express) {
           callback(null, project);
         });
       },
-      function(project, callback) {
+      function (project, callback) {
         // Create the project folder
         projectId = project._id.toString();
         projectPath = path.join(process.cwd(), 'projects', projectId);
 
-        fse.ensureDir(projectPath, function(error) {
+        // if (data.type === "sthings") {
+        //   projectPath = path.join(projectPath, "apps", data.name);
+        // }
+
+        fse.ensureDir(projectPath, function (error) {
           if (error) {
             return callback(error);
           }
@@ -104,7 +227,7 @@ module.exports = function(express) {
           callback(null);
         });
       },
-      function(callback) {
+      function (callback) {
         // Skip copy template when empty check box is enabled
         if (data.templateName === '') {
           return callback(null);
@@ -112,12 +235,12 @@ module.exports = function(express) {
 
         // Copy the template to project folder
         var templatePath = path.join(process.cwd(), data.format, data.type, data.templateName);
-        fse.ensureDir(templatePath, function(error) {
+        fse.ensureDir(templatePath, function (error) {
           if (error) {
             return callback(error);
           }
 
-          fse.copy(templatePath, projectPath, function(err) {
+          fse.copy(templatePath, projectPath, function (err) {
             if (err) {
               return callback(err);
             }
@@ -126,20 +249,28 @@ module.exports = function(express) {
           });
         });
       },
-      function(callback) {
+      function (callback) {
         // Check project type because we create config.xml for 'web' project
-        if (data.type !== 'web') {
+        var allow = ['web', 'sthings'];
+        if (allow.indexOf(data.type) === -1) {
           return callback(null);
         }
 
+        var xmlFileName;
+        if (data.type.indexOf('sthings') !== -1) {
+          xmlFileName = 'config_sthings.xml';
+        } else {
+          xmlFileName = 'config.xml';
+        }
+
         // Create config xml        
-        fs.readFile(path.join(process.cwd(), 'models', 'config.xml'), function(error, config) {
+        fs.readFile(path.join(process.cwd(), 'models', xmlFileName), function (error, config) {
           if (error) {
             return callback(error);
           }
 
           var parser = new xml2js.Parser();
-          parser.parseString(config, function(parseError, result) {
+          parser.parseString(config, function (parseError, result) {
             if (parseError) {
               return callback(parseError);
             }
@@ -155,6 +286,11 @@ module.exports = function(express) {
             widget['$'].id = 'http://yourdomain/' + projectName;
             widget['tizen:profile'][0]['$'].name = data.profile;
 
+            // The 'internet' privilege should be set in S-Things Project for connecting device
+            if (data.type.indexOf('sthings') !== -1) {
+              widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
+            }
+
             var builderOption = {
               xmldec: {
                 'version': '1.0',
@@ -168,10 +304,10 @@ module.exports = function(express) {
           });
         });
       },
-      function(callback) {
+      function (callback) {
         // Create project support folder
         supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
-        fse.ensureDir(supportPath, function(error) {
+        fse.ensureDir(supportPath, function (error) {
           if (error) {
             return callback(error);
           }
@@ -182,17 +318,29 @@ module.exports = function(express) {
           state.projectType = data.type;
           state.projectProfile = data.profile;
           state.projectVersion = data.version;
+          state.projectExtension = data.extension;
           if (process.env.NODE_ENV === 'pwe') {
             state.projectUser = user.pwe.id;
           }
           fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), callback);
         });
+      },
+      function (callback) {
+        // Create a configuration file of the brackets
+        fse.ensureDir(supportPath, function (error) {
+          if (error) {
+            return callback(error);
+          }
+
+          var brackets = require(path.join(process.cwd(), 'models', 'brackets.json'));
+          fs.writeFile(path.join(supportPath, 'brackets.json'), JSON.stringify(brackets), callback);
+        });
       }
-    ], function(error) {
+    ], function (error) {
       if (error) {
         // Remove project database if adding project failed
         if (projectId) {
-          Project.remove({'_id': projectId }, function(removeError) {
+          Project.remove({'_id': projectId}, function (removeError) {
             if (removeError) {
               console.error(removeError);
             }
@@ -201,7 +349,7 @@ module.exports = function(express) {
 
         // Remove project folder if adding project failed
         if (projectPath) {
-          fse.remove(projectPath, function(removeError) {
+          fse.remove(projectPath, function (removeError) {
             if (removeError) {
               console.error(removeError);
             }
@@ -210,7 +358,7 @@ module.exports = function(express) {
 
         // Remove project support folder if adding project failed
         if (supportPath) {
-          fse.remove(supportPath, function(removeError) {
+          fse.remove(supportPath, function (removeError) {
             if (removeError) {
               console.error(removeError);
             }
@@ -224,11 +372,13 @@ module.exports = function(express) {
     });
   });
 
-  router.get('/:projectId', util.isLoggedIn, function(req, res) {
+  router.post('/appadd', util.isLoggedIn, addApplicationToProject);
+
+  router.get('/:projectId', util.isLoggedIn, function (req, res) {
     var projectId = req.params.projectId;
     var user = req.user;
 
-    Project.find({ '_id' : projectId }, function(err, projects) {
+    Project.find({'_id': projectId}, function (err, projects) {
       if (err) {
         debug(err);
         return res.status(400).send(err);
@@ -247,23 +397,24 @@ module.exports = function(express) {
     });
   });
 
-  router.post('/:projectId', util.isLoggedIn, function(req, res) {
+  router.post('/:projectId', util.isLoggedIn, function (req, res) {
     var data = req.body;
     var projectId = req.params.projectId;
     var user = req.user;
 
     // Check the type of project data whether it is correct
     if (typeof data !== 'object' ||
-        typeof data.name !== 'string' ||
-        typeof data.description !== 'string' ||
-        typeof data.profile !== 'string' ||
-        typeof data.version !== 'string') {
+      typeof data.name !== 'string' ||
+      typeof data.description !== 'string' ||
+      typeof data.type !== 'string' ||
+      typeof data.profile !== 'string' ||
+      typeof data.version !== 'string') {
       return res.status(400).send('Project data is wrong');
     }
 
     async.waterfall([
-      function(callback) {
-        Project.find({ '_id' : projectId }, function(error, projects) {
+      function (callback) {
+        Project.find({'_id': projectId}, function (error, projects) {
           if (error) {
             debug(error);
             return callback(error);
@@ -281,13 +432,13 @@ module.exports = function(express) {
           // If input name is diffrent with existing name,
           // we try to check project name whether it is duplicated or not
           if (project.name !== data.name) {
-            Project.find({'user': user._id}, function(error, projects) {
+            Project.find({'user': user._id}, function (error, projects) {
               if (error) {
                 return callback(error);
               }
 
               // Check duplicated project name
-              for (var i=0; i<projects.length; i++) {
+              for (var i = 0; i < projects.length; i++) {
                 if (projects[i].name === data.name) {
                   return callback('Duplicated project name.');
                 }
@@ -300,16 +451,17 @@ module.exports = function(express) {
           }
         });
       },
-      function(project, callback) {
+      function (project, callback) {
         // Save modified project information
         project.name = data.name;
         project.description = data.description;
+        project.type = data.type;
         if (project.type === 'web') {
           project.profile = data.profile;
           project.version = data.version;
         }
 
-        project.save(function(saveError, result) {
+        project.save(function (saveError, result) {
           if (saveError) {
             debug(saveError);
             return callback(saveError);
@@ -317,15 +469,16 @@ module.exports = function(express) {
 
           callback(null, result);
         });
-      }, function(project, callback) {
+      }, function (project, callback) {
         var supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
         var state = require(path.join(supportPath, 'state.json'));
         state.projectName = data.name;
+        state.projectType = data.type;
         if (state.projectType === 'web') {
           state.projectProfile = data.profile;
           state.projectVersion = data.version;
         }
-        fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), function(error) {
+        fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), function (error) {
           if (error) {
             return callback(error);
           }
@@ -333,7 +486,7 @@ module.exports = function(express) {
           callback(null, project);
         });
       }
-    ], function(error, project) {
+    ], function (error, project) {
       if (error) {
         debug(error);
         return res.status(400).send(error);
@@ -343,14 +496,14 @@ module.exports = function(express) {
     });
   });
 
-  router.delete('/:projectId', util.isLoggedIn, function(req, res) {
+  router.delete('/:projectId', util.isLoggedIn, function (req, res) {
     var projectId = req.params.projectId;
     var user = req.user;
 
     async.waterfall([
-      function(callback) {
+      function (callback) {
         // Remove the project using projectId
-        Project.remove({ '_id': projectId }, function(error) {
+        Project.remove({'_id': projectId}, function (error) {
           if (error) {
             return callback(error);
           }
@@ -358,15 +511,15 @@ module.exports = function(express) {
           callback(null);
         });
       },
-      function(callback) {
+      function (callback) {
         // Remove the project folder
         var projectPath = path.join(process.cwd(), 'projects', projectId);
-        fse.ensureDir(projectPath, function(error) {
+        fse.ensureDir(projectPath, function (error) {
           if (error) {
             return callback(error);
           }
 
-          fse.remove(projectPath, function(err) {
+          fse.remove(projectPath, function (err) {
             if (err) {
               return callback(err);
             }
@@ -375,15 +528,15 @@ module.exports = function(express) {
           });
         });
       },
-      function(callback) {
+      function (callback) {
         // Remove the project support folder
         var supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
-        fse.ensureDir(supportPath, function(error) {
+        fse.ensureDir(supportPath, function (error) {
           if (error) {
             return callback(error);
           }
 
-          fse.remove(supportPath, function(err) {
+          fse.remove(supportPath, function (err) {
             if (err) {
               return callback(err);
             }
@@ -392,7 +545,7 @@ module.exports = function(express) {
           });
         });
       }
-    ], function(error) {
+    ], function (error) {
       if (error) {
         return res.status(400).send(error);
       }
@@ -400,6 +553,7 @@ module.exports = function(express) {
       res.send();
     });
   });
+
 
   return router;
 };

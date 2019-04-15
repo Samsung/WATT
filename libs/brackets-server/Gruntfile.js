@@ -230,16 +230,6 @@ module.exports = function (grunt) {
                 src: ["embedded-ext/**/*.css"]
             }
         },
-        concurrent: {
-            options: {
-                logConcurrentOutput: true
-            },
-            debug_all: ["node-inspector", "shell:debug:all"],
-            debug_server: ["node-inspector", "shell:debug:server"]
-        },
-        "node-inspector": {
-            "default": {}
-        },
         release: {
             options: {
                 npm: false
@@ -286,7 +276,7 @@ module.exports = function (grunt) {
                             "extensions/default/JavaScriptCodeHints/**",
                             "extensions/default/*/**/*.{css,less,json,svg,png}",
                             "!extensions/default/HealthData/**",
-                            "!extensions/default/StaticServer/**",                            
+                            "!extensions/default/StaticServer/**",
                             "!extensions/default/*/unittest-files/**",
                             "extensions/dev/*",
                             "thirdparty/CodeMirror/lib/{,*/}*.css",
@@ -310,9 +300,12 @@ module.exports = function (grunt) {
                         dest: "brackets-srv/extensions/default",
                         cwd: "embedded-ext/",
                         src: [
+                          "brackets-iotjs/node/**",
                           "brackets-minify/node/**",
                           "project/node/**",
                           "file-extension/node/**",
+                          "interactive3D/node/**",
+                          "swmitra.html-designer/i3d/node/**",
                           "tizen-profile/node/**",
                           "pwe/node/**",
                           "wasm-debug/node/**"
@@ -341,9 +334,10 @@ module.exports = function (grunt) {
                         cwd: "embedded-ext/",
                         src: [
                             "**",
+                            "**/**", /*this is needed as grunt copy does not copy symlink subdirs*/
                             "!*/main.js"
                         ]
-                    }
+                    },
                 ]
             }
         },
@@ -499,15 +493,34 @@ module.exports = function (grunt) {
             }
         },
         git: {
-            reset: {
+            resetBrackets: {
                 options: {
-                    hard: "3df0ac6fa18b1ccfc34f6d234da2aa8c43643a93",
+                    hard: "HEAD",
                     simple: {
+                        cmd: 'reset',
                         cwd: './brackets-src'
                     }
                 }
             },
-            apply: {
+            resetTern: {
+                options: {
+                    hard: "7606a6448a8f7a2aacd50d10d9752440689803e8",
+                    simple: {
+                        cmd: 'reset',
+                        cwd: './brackets-src/src/extensions/default/JavaScriptCodeHints/thirdparty/tern'
+                    }
+                }
+            },
+            resetRequirejs: {
+                options: {
+                    hard: "a5f5750896bd06a21c2a96e4678cf47e03d80a1a",
+                    simple: {
+                        cmd: 'reset',
+                        cwd: './brackets-src/src/thirdparty/requirejs'
+                    }
+                }
+            },
+            applyBrackets: {
                 options: {
                     index: [
                         '../hacks/patch/0001-Add-BinaryView-in-order-to-present-selction-of-wasm-.patch',
@@ -515,10 +528,36 @@ module.exports = function (grunt) {
                         '../hacks/patch/0001-Fix-find-in-files-feature-correctly.patch',
                         '../hacks/patch/0001-Fix-ImageViewer-to-show-the-image-correctly.patch',
                         '../hacks/patch/0001-Remove-unused-menus-and-buttons.patch',
-                        '../hacks/patch/0001-Fix-module-not-found-issue-after-71.patch'
+                        '../hacks/patch/0001-Implement-IoT.js-code-hint-plugin.patch',
+                        '../hacks/patch/0001-Enable-node-option-of-jslint-if-project-type-is-iot.patch',
+                        '../hacks/patch/0001-Fix-module-not-found-issue-after-71.patch',
+                        '../hacks/patch/0001-Increase-default-max-file-size-for-tern.js-analysis.patch'
                     ],
                     simple: {
+                        cmd: 'apply',
                         cwd: './brackets-src/'
+                    }
+                }
+            },
+            applyTern: {
+                options: {
+                    index: [
+                        '../../../../../../../hacks/patch/0002-Implement-IoT.js-code-hint-plugin.patch'
+                    ],
+                    simple: {
+                        cmd: 'apply',
+                        cwd: './brackets-src/src/extensions/default/JavaScriptCodeHints/thirdparty/tern/'
+                    }
+                }
+            },
+            applyRequirejs: {
+                options: {
+                    index: [
+                        '../../../../hacks/patch/0001-Increase-the-waitSeconds-of-requirejs.patch'
+                    ],
+                    simple: {
+                        cmd: 'apply',
+                        cwd: './brackets-src/src/thirdparty/requirejs/'
                     }
                 }
             }
@@ -567,7 +606,7 @@ module.exports = function (grunt) {
         "htmlmin",
         "requirejs",
         "concat",
-        "copy:dist",
+        "copy",
         "usemin",
         "compress",
         "build-config"
@@ -580,15 +619,6 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run(["simplemocha:" + arg]);
-    });
-
-    grunt.registerTask("test-debug", function () {
-        var arg = "all";
-        if (this.args && this.args.length > 0) {
-            arg = this.args[0];
-        }
-
-        grunt.task.run(["concurrent:debug_" + arg]);
     });
 
     grunt.registerTask("docs", ["jsdoc", "gh-pages"]);

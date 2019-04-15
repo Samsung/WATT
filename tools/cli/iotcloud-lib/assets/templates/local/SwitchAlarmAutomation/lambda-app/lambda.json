@@ -1,0 +1,7 @@
+{
+  "name": "switchAlarmAutomation",
+  "handler": "index.handle",
+  "runtime": "nodejs6.10",
+  "memory": 512,
+  "timeout": 10
+}

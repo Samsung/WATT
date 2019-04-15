@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple replacement example</title>
+  <meta charset="utf-8">
+  
+  <script type="text/javascript">
+      window.onload = function() {
+      xhr.open('GET', "./wasm/unreal.wasm", true);
+        // download rest of scripts
+        [
+          "./resources/StarterResources.data.js",
+          "./js/unreal.js"
+        ].map(function (url) {
+          let script = document.createElement('script');
+          script.src = url;
+          document.body.appendChild(script);
+        });
+    };
+</script>
+</head>
+<body>
+  Replacement test
+  This text: unreal.js unreal.js unreal.js unreal.js unreal.wasm unreal.wasm unreal.wasm unreal.wasm
+  <br/>
+  Should not be replaced
+</body>
+</html>

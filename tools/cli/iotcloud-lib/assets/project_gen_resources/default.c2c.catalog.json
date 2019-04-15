@@ -1,0 +1,14 @@
+{
+  "items": [{
+    "name": "",
+    "appType": "setupApp",
+    "versions": [{
+      "appData": {
+        "setupAppData": {
+          "type": "endpointApp",
+          "endpointAppId": ""
+        }
+      }
+    }]
+  }]
+}

@@ -1,0 +1,1122 @@
+{
+    "accelerationSensor": [
+        {
+            "component": "main",
+            "href": "/capability/accelerationSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.acceleration",
+            "title": "Acceleration Sensor",
+            "description": "Retrieve acceleration sensing status"
+        }
+    ],
+    "activityLightingMode": [
+        {
+            "component": "main",
+            "href": "/capability/activityLightingMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.activityLightingMode",
+            "title": "Activity Lighting Mode",
+            "description": "Retrieves the activity lighting mode"
+        }
+    ],
+    "airConditionerMode": [
+        {
+            "component": "main",
+            "href": "/capability/airConditionerMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.airconditioner",
+            "title": "Air Conditioner Mode",
+            "description": "Airconditioner mode"
+        }
+    ],
+    "airQualitySensor": [
+        {
+            "component": "main",
+            "href": "/capability/airQualitySensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.airqualitylevel",
+            "title": "Air Quality Sensor Level",
+            "description": "Air quality level"
+        }
+    ],
+    "alarm": [
+        {
+            "component": "main",
+            "href": "/capability/alarm/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.alarm",
+            "title": "Alarm",
+            "description": "Control Alarm"
+        }
+    ],
+    "audioMute": [
+        {
+            "component": "main",
+            "href": "/capability/audioMute/main/0",
+            "if": [
+                "oic.if.s",
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.audiomute",
+            "title": "Audio Mute",
+            "description": "Allows for the control of audio mute"
+        }
+    ],
+    "audioNotification": [
+        {
+            "component": "main",
+            "href": "/capability/audioNotification/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.audioNotification",
+            "title": "Audio Notification",
+            "description": "Play a track or a message as an audio notification"
+        }
+    ],
+    "audioTrackData": [
+        {
+            "component": "main",
+            "href": "/capability/audioTrackData/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.audiotrackdata",
+            "title": "Audio Track Data",
+            "description": "Media information"
+        }
+    ],
+    "audioVolume": [
+        {
+            "component": "main",
+            "href": "/capability/audioVolume/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.audiovolume",
+            "title": "Audio volume",
+            "description": "Volume control for TV, Network speakers"
+        }
+    ],
+    "battery": [
+        {
+            "component": "main",
+            "href": "/capability/battery/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.energy.battery",
+            "title": "Battery",
+            "description": "Retrieve stgatus of a device's battery"
+        }
+    ],
+    "bodyMassIndexMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/bodyMassIndexMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.bodyMassIndexMeasurement",
+            "title": "Body Mass Index Measurement",
+            "description": "Retrieves the body mass index of an individual"
+        }
+    ],
+    "bodyWeightMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/bodyWeightMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.bodyWeightMeasurement",
+            "title": "Body Weight Measurement",
+            "description": "Retrieves the weight of an individual expressed in kg, lbs, or 斤"
+        }
+    ],
+    "button": [
+        {
+            "component": "main",
+            "href": "/capability/button/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.button",
+            "title": "Button",
+            "description": "A device with one or more buttons"
+        }
+    ],
+    "carbonDioxideMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/carbonDioxideMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.carbonDioxideMeasurement",
+            "title": "Carbon Dioxide Measurement",
+            "description": "Measure carbon dioxide levels"
+        }
+    ],
+    "carbonMonoxideDetector": [
+        {
+            "component": "main",
+            "href": "/capability/carbonMonoxideDetector/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.carbonmonoxidedetector",
+            "title": "Carbon Monoxide Detector",
+            "description": "Observe carbon monoxide detector status"
+        }
+    ],
+    "carbonMonoxideMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/carbonMonoxideMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.carbonMonoxideMeasurement",
+            "title": "Carbon Monoxide Measurement",
+            "description": "The level of carbon monoxide detected"
+        }
+    ],
+    "colorControl": [
+        {
+            "component": "main",
+            "href": "/capability/colorControl/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "oic.r.colour.chroma",
+            "title": "Color Control",
+            "description": "Control lights color, hue and saturation only"
+        }
+    ],
+    "colorTemperature": [
+        {
+            "component": "main",
+            "href": "/capability/colorTemperature/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.color.temperature",
+            "title": "Color Temperature",
+            "description": "Control lighting color temperature"
+        }
+    ],
+    "contactSensor": [
+        {
+            "component": "main",
+            "href": "/capability/contactSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.sensor.contact",
+            "title": "Contact Sensor",
+            "description": "Retrieve contact sensing status"
+        }
+    ],
+    "dishwasherMode": [
+        {
+            "component": "main",
+            "href": "/capability/dishwasherMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.dishwasher",
+            "title": "Dish Washer mode",
+            "description": "Dish Washer mode"
+        }
+    ],
+    "dishwasherOperatingState": [
+        {
+            "component": "main",
+            "href": "/capability/dishwasherOperatingState/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.operationalstate.dishwasher",
+            "title": "Dish Washer job state",
+            "description": "Dish Washer job state"
+        }
+    ],
+    "doorControl": [
+        {
+            "component": "main",
+            "href": "/capability/doorControl/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.doorcontrol",
+            "title": "Door Control",
+            "description": "Control door"
+        }
+    ],
+    "dryerMode": [
+        {
+            "component": "main",
+            "href": "/capability/dryerMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.dryer",
+            "title": "Dryer mode",
+            "description": "Dryer mode"
+        }
+    ],
+    "dryerOperatingState": [
+        {
+            "component": "main",
+            "href": "/capability/dryerOperatingState/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.operationalstate.dryer",
+            "title": "Dryer job state",
+            "description": "Dryer job state"
+        }
+    ],
+    "dustSensor": [
+        {
+            "component": "main",
+            "href": "/capability/dustSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.dustlevel",
+            "title": "Dust sensor level",
+            "description": "Dust level"
+        }
+    ],
+    "energyMeter": [
+        {
+            "component": "main",
+            "href": "/capability/energyMeter/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.energymeter",
+            "title": "Energy Consumption",
+            "description": "Energy meter reading for outlets"
+        }
+    ],
+    "equivalentCarbonDioxideMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/equivalentCarbonDioxideMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.equivalentCarbonDioxideMeasurement",
+            "title": "Equivalent Carbon Dioxide Measurement",
+            "description": "Measure equivalent carbon dioxide levels"
+        }
+    ],
+    "fanSpeed": [
+        {
+            "component": "main",
+            "href": "/capability/fanSpeed/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.fanspeed",
+            "title": "Fan Speed",
+            "description": "Discrete fan speed controller"
+        }
+    ],
+    "formaldehydeMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/formaldehydeMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.formaldehydeMeasurement",
+            "title": "Formaldehyde Measurement",
+            "description": "The level of Formaldehyde detected"
+        }
+    ],
+    "filterStatus": [
+        {
+            "component": "main",
+            "href": "/capability/filterStatus/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.filter",
+            "title": "Filter Status",
+            "description": "Filter"
+        }
+    ],
+    "garageDoorControl": [
+        {
+            "component": "main",
+            "href": "/capability/garageDoorControl/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.garagedoorcontrol",
+            "title": "Garage Door Control",
+            "description": "Control garage door"
+        }
+    ],
+    "illuminanceMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/illuminanceMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.sensor.illuminance",
+            "title": "Illuminance Measurement",
+            "description": "Retrieve measurement of luminous flux"
+        }
+    ],
+    "infraredLevel": [
+        {
+            "component": "main",
+            "href": "/capability/infraredLevel/main/0",
+            "if": [
+                "oic.if.a",
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.infraredLevel",
+            "title": "Infrared Level",
+            "description": "Allows for the control of the infrared level attribute of a device"
+        }
+    ],
+    "lock": [
+        {
+            "component": "main",
+            "href": "/capability/lock/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.lock",
+            "title": "Lock",
+            "description": "Retrieve status of a lock"
+        }
+    ],
+    "mediaInputSource": [
+        {
+            "component": "main",
+            "href": "/capability/mediaInputSource/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mediainputsource",
+            "title": "Media Input Source",
+            "description": "Media input source controller"
+        }
+    ],
+    "mediaPlayback": [
+        {
+            "component": "main",
+            "href": "/capability/mediaPlayback/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mediaplayer",
+            "title": "Player Control",
+            "description": "Allows for the control of the media playback"
+        }
+    ],
+    "mediaPlaybackRepeat": [
+        {
+            "component": "main",
+            "href": "/capability/mediaPlaybackRepeat/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mediarepeat",
+            "title": "Player Repeat Mode",
+            "description": "Repeat mode"
+        }
+    ],
+    "mediaPlaybackShuffle": [
+        {
+            "component": "main",
+            "href": "/capability/mediaPlaybackShuffle/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mediashuffle",
+            "title": "Player Shuffle Mode",
+            "description": "Allows for the control of media playback shuffle."
+        }
+    ],
+    "mediaPresets": [
+        {
+            "component": "main",
+            "href": "/capability/mediaPresets/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mediaPreset",
+            "title": "Media Preset",
+            "description": "Allows setting a preset from a know list of presets for the media player"
+        }
+    ],
+    "mediaTrackControl": [
+        {
+            "component": "main",
+            "href": "/capability/mediaTrackControl/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mediatrackcontrol",
+            "title": "Player Track Control",
+            "description": "Media track control"
+        }
+    ],
+    "momentary": [
+        {
+            "component": "main",
+            "href": "/capability/momentary/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.momentary",
+            "title": "Momentary",
+            "description": "Allows for the control of a momentary switch device"
+        }
+    ],
+    "motionSensor": [
+        {
+            "component": "main",
+            "href": "/capability/motionSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.sensor.motion",
+            "title": "Motion Sensor",
+            "description": "Retrieve motion sensing status"
+        }
+    ],
+    "notification": [
+        {
+            "component": "main",
+            "href": "/capability/notification/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.notification",
+            "title": "Notification",
+            "description": "Allows for displaying notifications on devices that allow notifications to be displayed"
+        }
+    ],
+    "odorSensor": [
+        {
+            "component": "main",
+            "href": "/capability/odorSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.gaslevel",
+            "title": "Odor sensor level",
+            "description": "Odor level"
+        }
+    ],
+    "ovenMode": [
+        {
+            "component": "main",
+            "href": "/capability/ovenMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.oven",
+            "title": "Oven mode",
+            "description": "Oven mode"
+        }
+    ],
+    "ovenOperatingState": [
+        {
+            "component": "main",
+            "href": "/capability/ovenOperatingState/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.operationalstate.oven",
+            "title": "Oven job state",
+            "description": "Oven job state"
+        }
+    ],
+    "ovenSetpoint": [
+        {
+            "component": "main",
+            "href": "/capability/ovenSetpoint/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.temperature.oven",
+            "title": "Oven Temperature",
+            "description": "Oven Setting temperature"
+        }
+    ],
+    "pHMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/pHMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.pHMeasurement",
+            "title": "PH Measurement",
+            "description": "Read the pH value off of a pH measurement capable device"
+        }
+    ],
+    "powerMeter": [
+        {
+            "component": "main",
+            "href": "/capability/powerMeter/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.powermeter",
+            "title": "Power Meter",
+            "description": "Power meter reading for outlets"
+        }
+    ],
+    "powerSource": [
+        {
+            "component": "main",
+            "href": "/capability/powerSource/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.powersource",
+            "title": "Power Source",
+            "description": "Retrieves the current power source for the device"
+        }
+    ],
+    "presenceSensor": [
+        {
+            "component": "main",
+            "href": "/capability/presenceSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.sensor.presence",
+            "title": "Presence Sensor",
+            "description": "Retrieve presence status"
+        }
+    ],
+    "rapidCooling": [
+        {
+            "component": "main",
+            "href": "/capability/rapidCooling/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.rapidcooling",
+            "title": "Rapid Refrigeration Mode",
+            "description": "Rapid cooling or freezing mode"
+        }
+    ],
+    "refrigerationSetpoint": [
+        {
+            "component": "main",
+            "href": "/capability/refrigerationSetpoint/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.temperature.refrigeration",
+            "title": "Refrigeration Temperature",
+            "description": "Setting temperature for a refrigerator or freezer"
+        }
+    ],
+    "refresh": [
+        {
+            "component": "main",
+            "href": "/capability/refresh/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.refresh",
+            "title": "Refresh",
+            "description": "Allow the execution of the refresh command for devices that support it"
+        }
+    ],
+    "relativeHumidityMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/relativeHumidityMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.humidity",
+            "title": "Humidity",
+            "description": "Adjust humidity of device"
+        }
+    ],
+    "robotCleanerCleaningMode": [
+        {
+            "component": "main",
+            "href": "/capability/robotCleanerCleaningMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.robot.cleaner.cleaning",
+            "title": "Robot Cleaner Cleaning mode",
+            "description": "Robot cleaner cleaning mode"
+        }
+    ],
+    "robotCleanerMovement": [
+        {
+            "component": "main",
+            "href": "/capability/robotCleanerMovement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.robot.cleaner.movement",
+            "title": "Robot Cleaner Movement",
+            "description": "Robot cleaner movement"
+        }
+    ],
+    "robotCleanerTurboMode": [
+        {
+            "component": "main",
+            "href": "/capability/robotCleanerTurboMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.robot.cleaner.turbo",
+            "title": "Robot Cleaner Turbo mode",
+            "description": "Robot cleaner Turbo mode"
+        }
+    ],
+    "scent": [
+        {
+            "component": "main",
+            "href": "/capability/scent/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.scent",
+            "title": "Scent",
+            "description": "Retrieves the state of the scent"
+        }
+    ],
+    "signalStrength": [
+        {
+            "component": "main",
+            "href": "/capability/signalStrength/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.signalstrength",
+            "title": "Signal Strength",
+            "description": "Retrieve signal strength of device"
+        }
+    ],
+    "sleepSensor": [
+        {
+            "component": "main",
+            "href": "/capability/sleepSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "oic.r.sensor.sleep",
+            "title": "Sleep Sensor",
+            "description": "A Device that senses whether or not someone is sleeping"
+        }
+    ],
+    "smokeDetector": [
+        {
+            "component": "main",
+            "href": "/capability/smokeDetector/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.smokedetector",
+            "title": "Smoke Detector",
+            "description": "Retrieve smoke detection sensor information"
+        }
+    ],
+    "soundSensor": [
+        {
+            "component": "main",
+            "href": "/capability/soundSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.soundsensor",
+            "title": "Sound Sensor",
+            "description": "Retrieve sound sensing information"
+        }
+    ],
+    "soundPressureLevel": [
+        {
+            "component": "main",
+            "href": "/capability/soundPressureLevel/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.soundPressureLevel",
+            "title": "Sound Pressure Level",
+            "description": "The level of sound pressure"
+        }
+    ],
+    "switch": [
+        {
+            "component": "main",
+            "href": "/capability/switch/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.powerswitch",
+            "title": "Power Switch",
+            "description": "Turn a device on and off"
+        }
+    ],
+    "switchLevel": [
+        {
+            "component": "main",
+            "href": "/capability/switchLevel/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "oic.r.light.dimming",
+            "title": "Light Dimmer",
+            "description": "Control the brightness of lights"
+        }
+    ],
+    "tamperAlert": [
+        {
+            "component": "main",
+            "href": "/capability/tamperAlert/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.tamperalert",
+            "title": "Tamper Alert",
+            "description": "Status of the tamper alert"
+        }
+    ],
+    "temperatureMeasurement": [
+       {
+            "component": "main",
+            "href": "/capability/temperatureMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.temperature.measured",
+            "title": "Measured Temperature",
+            "description": "Indoor measured temperature, used by thermostats, air conditioners, thermometers"
+        },
+        {
+            "component": "outdoor",
+            "href": "/capability/temperatureMeasurement/outdoor/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "x.com.st.temperature.measured",
+            "title": "Outdoor Measured Temperature",
+            "description": "Outdoor measured temperature, used by thermostats, air conditioners, thermometers"
+        }
+    ],
+    "thermostatCoolingSetpoint": [
+        {
+            "component": "main",
+            "href": "/capability/thermostatCoolingSetpoint/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.temperature.cooling",
+            "title": "Cooling Temperature",
+            "description": "Setting temperature for indoor cooling"
+        }
+    ],
+    "thermostatFanMode": [
+        {
+            "component": "main",
+            "href": "/capability/thermostatFanMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.fan.thermostat",
+            "title": "Thermostat Fan",
+            "description": "Controlling thermostat fan mode"
+        }
+    ],
+    "thermostatHeatingSetpoint": [
+        {
+            "component": "main",
+            "href": "/capability/thermostatHeatingSetpoint/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.temperature.heating",
+            "title": "Heating Temperature",
+            "description": "Setting temperature for indoor heating"
+        }
+    ],
+    "thermostatMode": [
+        {
+            "component": "main",
+            "href": "/capability/thermostatMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.thermostat",
+            "title": "Thermostat Mode",
+            "description": "Controlling thermostat mode"
+        }
+    ],
+    "thermostatOperatingState": [
+        {
+            "component": "main",
+            "href": "/capability/thermostatOperatingState/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.operationalstate.thermostat",
+            "title": "Thermostat Operational State",
+            "description": "Check and manipulate the operational and job states of a device"
+        }
+    ],
+    "thermostatSetpoint": [
+        {
+            "component": "main",
+            "href": "/capability/thermostatSetpoint/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.temperature.setpoint",
+            "title": "Temperature Setpoint",
+            "description": "Control an indoor desired temperature, used for the feature that automatically decides cooling or heating according to the desired temperature"
+        }
+    ],
+    "threeAxis": [
+        {
+            "component": "main",
+            "href": "/capability/threeAxis/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "oic.r.sensor.threeaxis",
+            "title": "Three Axis",
+            "description": "Gives the three axis coordinates for devices that support it"
+        }
+    ],
+    "tone": [
+        {
+            "component": "main",
+            "href": "/capability/tone/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.tone",
+            "title": "Tone",
+            "description": "Generate a beep tone on device"
+        }
+    ],
+    "tvChannel": [
+        {
+            "component": "main",
+            "href": "/capability/tvChannel/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.tvchannel",
+            "title": "TV Channel control",
+            "description": "TV channel control"
+        }
+    ],
+    "tvocMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/tvocMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.tvocMeasurement",
+            "title": "TVOC Measurement",
+            "description": "Retrieves the level of total volatile organic compounds detected"
+        }
+    ],
+    "valve": [
+        {
+            "component": "main",
+            "href": "/capability/valve/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.valve",
+            "title": "Valve",
+            "description": ""
+        }
+    ],
+    "ultravioletIndex": [
+        {
+            "component": "main",
+            "href": "/capability/ultravioletIndex/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.ultravioletindex",
+            "title": "Ultraviolet Index",
+            "description": "The ultraviolet index from devices that report"
+        }
+    ],
+    "voltageMeasurement": [
+        {
+            "component": "main",
+            "href": "/capability/voltageMeasurement/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.s"
+            ],
+            "rt": "x.com.st.voltageMeasurement",
+            "title": "Voltage Measurement",
+            "description": "Get the value of voltage measured from devices that support it"
+        }
+    ],
+    "washerMode": [
+        {
+            "component": "main",
+            "href": "/capability/washerMode/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.mode.washer",
+            "title": "Washer mode",
+            "description": "Washer mode"
+        }
+    ],
+    "washerOperatingState": [
+        {
+            "component": "main",
+            "href": "/capability/washerOperatingState/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.a"
+            ],
+            "rt": "x.com.st.operationalstate.washer",
+            "title": "Washer job state",
+            "description": "Washer job state"
+        }
+    ],
+    "waterSensor": [
+        {
+            "component": "main",
+            "href": "/capability/waterSensor/main/0",
+            "if": [
+                "oic.if.baseline",
+                "oic.if.r"
+            ],
+            "rt": "oic.r.sensor.water",
+            "title": "Water Sensor",
+            "description": "Retrieve water sensing status"
+        }
+    ],
+    "windowShade": [
+        {
+          "component": "main",
+            "href": "/capability/windowShade/main/0",
+            "if": [
+                "oic.if.baseline"
+            ],
+            "rt": "x.com.st.windowshade",
+            "title": "Window Shade",
+            "description": "Status of the window shade"
+        }
+    ]
+}

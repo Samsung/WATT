@@ -1,0 +1,12 @@
+{
+    "name": "tau.document",
+    "version": "1.0.0",
+    "title": "Tau Document",
+    "description": "A description of TAU API",
+    "engines": {
+        "brackets": ">=1.3.0"
+    },
+    "author": "Hunseop Jeong",
+    "license": "MIT",
+    "i18n": ["en", "ko"]
+}

@@ -1,0 +1,154 @@
+{
+    "dpResources": [
+        {
+            "controllable": true,
+            "name": "Dryer Operational State",
+            "ruleEvent": false,
+            "alternatives": [
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_COOLING",
+                    "key": "cooling"
+                },
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_DELAY_WASH",
+                    "key": "delayWash"
+                },
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_DRYING",
+                    "key": "drying"
+                },
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_FINISHED",
+                    "key": "finished"
+                },
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_NONE",
+                    "key": "none"
+                },
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_WEIGHTSENSING",
+                    "key": "weightSensing"
+                },
+                {
+                    "value": "___PO_CODE_DRYEROPERATIONALSTATE_WRINKLEPREVENT",
+                    "key": "wrinklePrevent"
+                }
+            ],
+            "label": {
+                "label": "___PO_CODE_DRYEROPERATIONALSTATE_STATE",
+                "n": "ST Dryer Job State Resource"
+            },
+            "iconUrl": {
+                "large": "",
+                "small": "",
+                "vector": "",
+                "mid": "icon://ic_function_operational_state_dryer"
+            },
+            "emphasis": false,
+            "link": {
+                "rt": "x.com.st.operationalstate.dryer",
+                "href": "/capability/dryerOperatingState/0",
+                "if": "oic.if.s"
+            },
+            "ruleAction": false,
+            "controlType": "List",
+            "property": "dryerJobState",
+            "order": 1
+        }
+    ],
+    "ma": [],
+    "language": [
+        {
+            "locale": "en_US",
+            "poCodes": [
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_COOLING",
+                    "label": "Cooling"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_DELAY_WASH",
+                    "label": "Delay Wash"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_DRYING",
+                    "label": "Drying"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_FINISHED",
+                    "label": "Finished"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_WEIGHTSENSING",
+                    "label": "Weight Sensing"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_WRINKLEPREVENT",
+                    "label": "Wrinkle Prevent"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_NONE",
+                    "label": "None"
+                },
+                {
+                    "po": "___PO_CODE_DRYEROPERATIONALSTATE_STATE",
+                    "label": "Dryer Job State"
+                }
+            ]
+        }
+    ],
+    "voiceCapability": {},
+    "capability": "Dryer Operational State",
+    "ms": [
+        {
+            "group": null,
+            "name": "Dryer Job State",
+            "iconUrl": null,
+            "label": {
+                "label": "<var1>",
+                "arguments": [
+                    {
+                        "href": "/capability/dryerOperatingState/0",
+                        "valueType": null,
+                        "property": "dryerJobState",
+                        "alternatives": [
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_COOLING",
+                                "key": "cooling"
+                            },
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_DELAY_WASH",
+                                "key": "delayWash"
+                            },
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_DRYING",
+                                "key": "drying"
+                            },
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_FINISHED",
+                                "key": "finished"
+                            },
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_NONE",
+                                "key": "none"
+                            },
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_WEIGHTSENSING",
+                                "key": "weightSensing"
+                            },
+                            {
+                                "value": "___PO_CODE_DRYEROPERATIONALSTATE_WRINKLEPREVENT",
+                                "key": "wrinklePrevent"
+                            }
+                        ],
+                        "n": "var1"
+                    }
+                ],
+                "n": "ST Dryer Job State Resource"
+            },
+            "visible": null,
+            "emphasis": false,
+            "type": "device",
+            "order": 1
+        }
+    ]
+}

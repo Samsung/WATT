@@ -1,0 +1,1184 @@
+{
+  "n": "NetworkAudio",
+  "version": "0.0.1",
+  "vid": "",
+  "mnmn": "",
+  "language": [
+    {
+      "locale": "en_US",
+      "version": "0.0.1",
+      "mnmn": "",
+      "vid": "",
+      "poCodes": [
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_STATION",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_TITLE",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_ARTIST",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_Album",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_TRACKNUMBER",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_TRACKURI",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_TRACKDESCRIPTION",
+          "label": "Audio Track Data"
+        },
+        {
+          "po": "___PO_CODE_AUDIO_TRACK_DATA_THUMBNAIL",
+          "label": "Audio Track Data"
+        },
+        {
+          "label": "Volume",
+          "po": "___PO_CODE_AUDIOVOLUME_COMMAND"
+        },
+        {
+          "label": "Increase",
+          "po": "___PO_CODE_AUDIOVOLUME_INCREASE"
+        },
+        {
+          "label": "Decrease",
+          "po": "___PO_CODE_AUDIOVOLUME_DECREASE"
+        },
+        {
+          "label": "Max",
+          "po": "___PO_CODE_AUDIOVOLUME_MAX"
+        },
+        {
+          "label": "Min",
+          "po": "___PO_CODE_AUDIOVOLUME_MIN"
+        },
+        {
+          "label": "Volume",
+          "po": "___PO_CODE_AUDIOVOLUME_VOLUME"
+        },
+        {
+          "label": "Mute",
+          "po": "___PO_CODE_AUDIOVOLUME_MUTE"
+        },
+        {
+          "label": "Unmute",
+          "po": "___PO_CODE_AUDIOVOLUME_UNMUTE"
+        },
+        {
+          "label": "Volume",
+          "po": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH_ON",
+          "label": "On"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH_OFF",
+          "label": "Off"
+        },
+        {
+          "po": "__PO_CODE_POWERSWITCH",
+          "label": "Power"
+        },
+        {
+          "label": "Play",
+          "po": "__PO_CODE_MEDIAPLAYBACK_PLAY"
+        },
+        {
+          "label": "Stop",
+          "po": "__PO_CODE_MEDIAPLAYBACK_STOP"
+        },
+        {
+          "label": "Pause",
+          "po": "__PO_CODE_MEDIAPLAYBACK_PAUSE"
+        },
+        {
+          "label": "Player Control",
+          "po": "__PO_CODE_MEDIAPLAYBACK_MODE"
+        },
+        {
+          "label": "Enabled",
+          "po": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_ENABLED"
+        },
+        {
+          "label": "Disabled",
+          "po": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_DISABLED"
+        },
+        {
+          "label": "Player Shuffle Mode",
+          "po": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_MODE"
+        },
+        {
+          "label": "All",
+          "po": "__PO_CODE_MEDIAPLAYBACKREPEAT_ALL"
+        },
+        {
+          "label": "Off",
+          "po": "__PO_CODE_MEDIAPLAYBACKREPEAT_OFF"
+        },
+        {
+          "label": "One",
+          "po": "__PO_CODE_MEDIAPLAYBACKREPEAT_ONE"
+        },
+        {
+          "label": "Player Repeat Mode",
+          "po": "__PO_CODE_MEDIAPLAYBACKREPEAT_MODE"
+        }
+      ]
+    }
+  ],
+  "ma": [
+    {
+      "name": "PowerSwitch",
+      "type": "main",
+      "order": 1,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": false
+    }
+  ],
+  "ms": [
+    {
+      "name": "PowerSwitch",
+      "type": "device",
+      "order": 1,
+      "label": {
+        "label": "<var1>",
+        "arguments": [
+          {
+            "n": "var1",
+            "href": "/capability/switch/main/0",
+            "property": "power",
+            "valueType": null,
+            "alternatives": [
+              {
+                "key": "on",
+                "value": "__PO_CODE_POWERSWITCH_ON"
+              },
+              {
+                "key": "off",
+                "value": "__PO_CODE_POWERSWITCH_OFF",
+                "type": "inactive"
+              }
+            ]
+          }
+        ]
+      },
+      "emphasis": false
+    }
+  ],
+  "dpInfo": [
+    {
+      "os": "android",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.networkaudio"
+    },
+    {
+      "os": "ios",
+      "dpType": "vendorPlugIn",
+      "dpUri": "wwst://com.example.stdevice.plugin.networkaudio"
+    }
+  ],
+  "dpResources": [
+    {
+      "name": "Audio Track Station",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_STATION",
+        "n": "Audio Track Station"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 1,
+      "property": "station",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track Title",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_TITLE",
+        "n": "Audio Track Title"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 2,
+      "property": "title",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track Artist",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_ARTIST",
+        "n": "Audio Track Artist"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 3,
+      "property": "artist",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track Album",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_Album",
+        "n": "Audio Track Album"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 4,
+      "property": "album",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track TrackNumber",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_TRACKNUMBER",
+        "n": "Audio Track TrackNumber"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 5,
+      "property": "trackNumber",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track TrackUri",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_TRACKURI",
+        "n": "Audio Track TrackUri"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 6,
+      "property": "trackUri",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track TrackDescription",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_TRACKDESCRIPTION",
+        "n": "Audio Track TrackDescription"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 7,
+      "property": "trackDescription",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "name": "Audio Track Thumbnail",
+      "controlType": "List",
+      "controllable": false,
+      "label": {
+        "label": "___PO_CODE_AUDIO_TRACK_DATA_THUMBNAIL",
+        "n": "Audio Track Thumbnail"
+      },
+      "link": {
+        "href": "/capability/audioTrackData/main/0",
+        "if": "oic.if.s",
+        "rt": "x.com.st.audiotrackdata"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_media_track_info"
+      },
+      "step": 0,
+      "order": 8,
+      "property": "thumbnail",
+      "ruleAction": false,
+      "ruleEvent": false,
+      "emphasis": false
+    },
+    {
+      "controlType": "List",
+      "name": "Audio Volume Command",
+      "controllable": true,
+      "property": "command",
+      "emphasis": false,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "alternatives": [
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_INCREASE",
+          "key": "increase"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_DECREASE",
+          "key": "decrease"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_MAX",
+          "key": "max"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_MIN",
+          "key": "min"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_COMMAND",
+        "n": "Audio Volume Command"
+      },
+      "ruleEvent": false,
+      "ruleAction": false,
+      "order": 9
+    },
+    {
+      "controlType": "List",
+      "name": "Audio Volume Command",
+      "controllable": true,
+      "property": "command",
+      "emphasis": false,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "alternatives": [
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_INCREASE",
+          "key": "increase"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_DECREASE",
+          "key": "decrease"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_MAX",
+          "key": "max"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_MIN",
+          "key": "min"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_COMMAND",
+        "n": "Audio Volume Command"
+      },
+      "ruleEvent": false,
+      "ruleAction": true,
+      "order": 10
+    },
+    {
+      "controlType": "List",
+      "name": "Audio Volume Command",
+      "controllable": true,
+      "property": "command",
+      "emphasis": false,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "alternatives": [
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_INCREASE",
+          "key": "increase"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_DECREASE",
+          "key": "decrease"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_MAX",
+          "key": "max"
+        },
+        {
+          "value": "___PO_CODE_AUDIOVOLUME_MIN",
+          "key": "min"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_COMMAND",
+        "n": "Audio Volume Command"
+      },
+      "ruleEvent": true,
+      "ruleAction": false,
+      "order": 11
+    },
+    {
+      "controlType": "slider",
+      "name": "Audio Volume",
+      "controllable": true,
+      "property": "volume",
+      "emphasis": false,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "range": [
+        0,
+        100
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_VOLUME",
+        "n": "Volume"
+      },
+      "ruleEvent": false,
+      "ruleAction": false,
+      "order": 12
+    },
+    {
+      "controlType": "slider",
+      "name": "Audio Volume",
+      "controllable": true,
+      "property": "volume",
+      "emphasis": false,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "range": [
+        0,
+        100
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_VOLUME",
+        "n": "Volume"
+      },
+      "ruleEvent": false,
+      "ruleAction": true,
+      "order": 13
+    },
+    {
+      "name": "Mute Action/Event",
+      "controllable": true,
+      "controlType": "ToggleSwitch",
+      "property": "mute",
+      "emphasis": true,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "alternatives": [
+        {
+          "type": "inactive",
+          "value": "___PO_CODE_AUDIOVOLUME_MUTE",
+          "key": "true"
+        },
+        {
+          "type": "active",
+          "value": "___PO_CODE_AUDIOVOLUME_UNMUTE",
+          "key": "false"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION",
+        "n": "mute status"
+      },
+      "ruleEvent": false,
+      "ruleAction": false,
+      "order": 14
+    },
+    {
+      "name": "Mute Action/Event",
+      "controllable": true,
+      "controlType": "ToggleSwitch",
+      "property": "mute",
+      "emphasis": true,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "alternatives": [
+        {
+          "type": "inactive",
+          "value": "___PO_CODE_AUDIOVOLUME_MUTE",
+          "key": "true"
+        },
+        {
+          "type": "active",
+          "value": "___PO_CODE_AUDIOVOLUME_UNMUTE",
+          "key": "false"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION",
+        "n": "mute status"
+      },
+      "ruleEvent": false,
+      "ruleAction": true,
+      "order": 15
+    },
+    {
+      "name": "Mute Action/Event",
+      "controllable": true,
+      "controlType": "ToggleSwitch",
+      "property": "mute",
+      "emphasis": true,
+      "link": {
+        "rt": "x.com.st.audiovolume",
+        "href": "/capability/audioVolume/main/0",
+        "if": "oic.if.a"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_audio_volume"
+      },
+      "alternatives": [
+        {
+          "type": "inactive",
+          "value": "___PO_CODE_AUDIOVOLUME_MUTE",
+          "key": "true"
+        },
+        {
+          "type": "active",
+          "value": "___PO_CODE_AUDIOVOLUME_UNMUTE",
+          "key": "false"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "___PO_CODE_AUDIOVOLUME_MUTE_ACTION",
+        "n": "mute status"
+      },
+      "ruleEvent": true,
+      "ruleAction": false,
+      "order": 16
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 17,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": true
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 18,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": false,
+      "ruleAction": false
+    },
+    {
+      "name": "PowerSwitch",
+      "controllable": true,
+      "order": 19,
+      "link": {
+        "href": "/capability/switch/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.powerswitch"
+      },
+      "iconUrl": {
+        "vector": "",
+        "small": "",
+        "large": "",
+        "mid": "icon://ic_function_power_switch"
+      },
+      "property": "power",
+      "controlType": "ToggleSwitch",
+      "alternatives": [
+        {
+          "key": "on",
+          "value": "__PO_CODE_POWERSWITCH_ON"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_POWERSWITCH_OFF",
+          "type": "inactive"
+        }
+      ],
+      "step": 0,
+      "label": {
+        "label": "__PO_CODE_POWERSWITCH"
+      },
+      "emphasis": true,
+      "ruleEvent": true,
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 20,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_control",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlayback/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mediaplayer"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Player Control Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACK_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "play",
+          "value": "__PO_CODE_MEDIAPLAYBACK_PLAY"
+        },
+        {
+          "key": "stop",
+          "value": "__PO_CODE_MEDIAPLAYBACK_STOP"
+        },
+        {
+          "key": "pause",
+          "value": "__PO_CODE_MEDIAPLAYBACK_PAUSE"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 21,
+      "ruleEvent": true,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_control",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlayback/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Player Control Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACK_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "play",
+          "value": "__PO_CODE_MEDIAPLAYBACK_PLAY"
+        },
+        {
+          "key": "stop",
+          "value": "__PO_CODE_MEDIAPLAYBACK_STOP"
+        },
+        {
+          "key": "pause",
+          "value": "__PO_CODE_MEDIAPLAYBACK_PAUSE"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 22,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_control",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlayback/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Player Control Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACK_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "play",
+          "value": "__PO_CODE_MEDIAPLAYBACK_PLAY"
+        },
+        {
+          "key": "stop",
+          "value": "__PO_CODE_MEDIAPLAYBACK_STOP"
+        },
+        {
+          "key": "pause",
+          "value": "__PO_CODE_MEDIAPLAYBACK_PAUSE"
+        }
+      ],
+      "ruleAction": true
+    },
+    {
+      "emphasis": false,
+      "order": 23,
+      "ruleEvent": false,
+      "property": "mode",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_shuffle_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback Shuffle",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlaybackShuffle/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mediashuffle"
+      },
+      "controlType": "ToggleSwitch",
+      "label": {
+        "n": "ST Player Shuffle Mode Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "enabled",
+          "value": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_ENABLED"
+        },
+        {
+          "key": "disabled",
+          "value": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_DISABLED",
+          "type": "inactive"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 24,
+      "ruleEvent": true,
+      "property": "mode",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_shuffle_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback Shuffle",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlaybackShuffle/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mediashuffle"
+      },
+      "controlType": "ToggleSwitch",
+      "label": {
+        "n": "ST Player Shuffle Mode Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "enabled",
+          "value": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_ENABLED"
+        },
+        {
+          "key": "disabled",
+          "value": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_DISABLED",
+          "type": "inactive"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 25,
+      "ruleEvent": false,
+      "property": "mode",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_shuffle_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback Shuffle",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlaybackShuffle/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mediashuffle"
+      },
+      "controlType": "ToggleSwitch",
+      "label": {
+        "n": "ST Player Shuffle Mode Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "enabled",
+          "value": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_ENABLED"
+        },
+        {
+          "key": "disabled",
+          "value": "__PO_CODE_MEDIAPLAYBACKSHUFFLE_DISABLED",
+          "type": "inactive"
+        }
+      ],
+      "ruleAction": true
+    },
+    {
+      "emphasis": false,
+      "order": 26,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_repeat_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback Repeat",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlaybackRepeat/main/0",
+        "if": "oic.if.a",
+        "rt": "x.com.st.mediarepeat"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Player Repeat Mode Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACKREPEAT_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "all",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_ALL"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_OFF"
+        },
+        {
+          "key": "one",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_ONE"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 27,
+      "ruleEvent": true,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_repeat_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback Repeat",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlaybackRepeat/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Player Repeat Mode Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACKREPEAT_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "all",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_ALL"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_OFF"
+        },
+        {
+          "key": "one",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_ONE"
+        }
+      ],
+      "ruleAction": false
+    },
+    {
+      "emphasis": false,
+      "order": 28,
+      "ruleEvent": false,
+      "property": "modes",
+      "iconUrl": {
+        "vector": "",
+        "mid": "icon://ic_function_player_repeat_mode",
+        "large": "",
+        "small": ""
+      },
+      "name": "Media Playback Repeat",
+      "controllable": true,
+      "link": {
+        "href": "/capability/mediaPlaybackRepeat/main/0",
+        "if": "oic.if.a",
+        "rt": "oic.r.mode"
+      },
+      "controlType": "List",
+      "label": {
+        "n": "ST Player Repeat Mode Resource",
+        "label": "__PO_CODE_MEDIAPLAYBACKREPEAT_MODE"
+      },
+      "alternatives": [
+        {
+          "key": "all",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_ALL"
+        },
+        {
+          "key": "off",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_OFF"
+        },
+        {
+          "key": "one",
+          "value": "__PO_CODE_MEDIAPLAYBACKREPEAT_ONE"
+        }
+      ],
+      "ruleAction": true
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+html, body {
+	height:100%;
+	margin: 0;
+}
+
+#leftBtn {
+	background-color: #4CAF50;
+	position: fixed;
+	border: none;
+	color: white;
+	border-radius: 50%;
+	margin: 10px;
+	width: 100px;
+	height: 100px;
+	top: 80%;
+	font-size: 40px;
+	z-index: 3;
+}
+
+#rightBtn {
+	right: 0px;
+	background-color: #4CAF50;
+	position: fixed;
+	border: none;
+	margin: 10px;
+	color: white;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	top: 80%;
+	font-size: 40px;
+	z-index: 2;
+}
+
+#show {
+	right: 0px;
+	background-color: #4CAF50;
+	position: fixed;
+	border: none;
+	color: white;
+	margin: 10px;
+	border-radius: 30px;
+	width: 80px;
+	height: 80px;
+	font-size: 40px;
+	z-index: 1;
+}
+
+#show:disabled {
+	background-color: #dddddd
+}
+
+#container {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}

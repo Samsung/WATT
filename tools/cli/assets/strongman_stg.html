@@ -1,0 +1,15 @@
+<script>
+  onload = () => {
+    const webview = document.querySelector('webview');
+    webview.addEventListener('did-finish-load', () => {
+      if (webview.getURL().includes('authorize/finalize')) {
+        require('electron').ipcRenderer.send('strongman', 'close');
+      }
+    });
+  }
+</script>
+<webview
+  src="https://strongman-regionals.smartthingsgdev.com/debug"
+  style="height: 100%; width:100%;"
+>
+</webview>

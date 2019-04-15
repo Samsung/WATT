@@ -1,0 +1,56 @@
+#%RAML 0.8
+title: ST Sleep Sensor
+version: v1.1.0-20180803
+schemas:
+- SleepSensor: |
+    {
+      "id": "http://samsung.com/schemas/x.com.st.sleepSensor.json#",
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "description" : "Copyright (c) 2016,2017,2018 Samsung Electronics, Inc. All rights reserved.",
+      "title": "ST Sleep Sensor",
+      "definitions": {
+        "x.com.st.sleepSensor": {
+          "type": "object",
+          "properties": {
+            "sleeping": {
+              "type": "string",
+              "enum": ["awake", "sleeping"],
+              "description":"A representation of the sleeping value from the Device"
+            }
+          }
+        }
+      },
+      "type": "object",
+      "allOf": [
+        {"$ref": "oic.core.json#/definitions/oic.core"},
+        {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+        {"$ref": "#/definitions/x.com.st.sleepSensor"}
+      ],
+      "required": ["sleeping"]
+    }
+traits:
+  - interface:
+      queryParameters:
+        if:
+          enum: ["oic.if.s","oic.if.baseline"]
+
+/WWSTSleepSensorResURI:
+  description: |
+        Sleep Sensor
+  displayName: WWST sleep sensor
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current sleep sensor for the device
+    responses:
+      200:
+        body:
+          application/json:
+            schema: SleepSensor
+            example: |
+              {
+                "rt": ["x.com.st.sleepSensor"],
+                "id": "unique_example_id",
+                "sleeping" : "sleeping"
+              }

@@ -1,6 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
-import argparse, os, platform, re, select, stat, subprocess, sys, tarfile, zipfile
+import argparse, json, os, platform, re, select, stat, subprocess, sys, shutil, tarfile, zipfile
 
 class Log:
   level = 0
@@ -32,57 +32,27 @@ class Log:
     sys.stdout.flush()
 
 SERVICE = 'WATT'
-OS_UBUNTU = 'Ubuntu'
-OS_LINUX = 'Linux'
-OS_DARWIN = 'Darwin'
+supported = ('trusty', 'xenial')
 
 root_path = os.path.abspath(os.path.dirname(__file__))
 tool_path = os.path.join(root_path, 'tools')
 
 os_name = platform.system()
-if os_name == OS_LINUX:
-  try:
+if os_name == 'Linux':
+  try: 
     os_name = subprocess.check_output(['lsb_release', '-i']).strip().split('\t')[1]
     os_dist = subprocess.check_output(['lsb_release', '-c']).strip().split('\t')[1]
   except subprocess.CalledProcessError:
-    Log.err('Unsupported os')
+    Log.err('Unsupport os')
     sys.exit(1)
 
-if os_name != OS_UBUNTU and os_name != OS_DARWIN:
-  Log.err('Unsupported %s os' % os_name)
+if os_name != 'Ubuntu' and os_name != 'Darwin':
+  Log.err('Unsupport %s os' % os_name)
   sys.exit(1)
 
-def install_curl():
-  Log.info('Install curl with "apt-get" (sudo privileges required)')
-  try:
-    subprocess.check_call('sudo apt-get install -y curl', shell=True)
-  except subprocess.CalledProcessError:
-    Log.err('Exception is occurred during install curl.')
-    return False
-  return True
-
-def install_pip():
-  if os_name == OS_DARWIN:
-    Log.info('Install pip with "brew"')
-    cmds = ['brew update', 'brew install python']
-  else:
-    Log.info('Install pip with "apt-get" (sudo privileges required)')
-    cmds = ['sudo apt-get install -y python-pip']
-
-  try:
-    for cmd in cmds: subprocess.check_call(cmd, shell=True)
-  except subprocess.CalledProcessError:
-    Log.err('Exception is occurred during install pip.')
-    return False
-  return True
-
 def import_additional():
-  if os_name == OS_DARWIN:
-    status = subprocess.call('which pip2 > /dev/null', shell=True)
-  else:
-    status = subprocess.call('which pip > /dev/null', shell=True)
-    
-  if status != 0 and not install_pip():
+  status = subprocess.call('which pip > /dev/null', shell=True)
+  if status != 0 and not install_deb_package('pip'):
     Log.err('Fail to install pip')
     sys.exit(1)
 
@@ -92,7 +62,7 @@ def import_additional():
       module = __import__(package)
     except ImportError:
       Log.info('Install %s packages. (sudo privileges required)' % package)
-      status = subprocess.call(['sudo', 'pip2', 'install', package])
+      status = subprocess.call(['sudo', 'pip', 'install', package])
       if status != 0:
         Log.err('Fail to install %s' % package)
       module = __import__(package)
@@ -100,17 +70,17 @@ def import_additional():
 import_additional()
 
 def install_nodejs():
-  if os_name == OS_DARWIN:
+  if os_name == 'Darwin':
     Log.info('Install nodejs with "brew"')
     cmds = ['brew update', 'brew install node']
   else:
     status = subprocess.call('which curl > /dev/null', shell=True)
-    if status != 0 and not install_curl():
+    if status != 0 and not install_deb_package('curl'):
       Log.err('Fail to install curl')
       sys.exit(1)
 
     Log.info('Install nodejs with "apt-get" (sudo privileges required)')
-    cmds = ['curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -', \
+    cmds = ['curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -', \
       'sudo apt-get install -y nodejs']
 
   try:
@@ -132,7 +102,7 @@ def ensure_nodejs():
 (https://nodejs.org/en/download/)''')
     return False
   ver = get_version(subprocess.check_output('node --version', shell=True))
-  active = 6
+  active = 10
   if ver[0] < active:
     Log.err('''Current nodejs is to old to run this.
 Please remove nodejs and install newer version nodejs or re-run this.''')
@@ -168,7 +138,7 @@ def install_nodejs_dependencies(path, mode, option):
       Log.info('Remove previously dependencies of %s in reinstall mode' % path)
       subprocess.call('rm -rf %s;git checkout %s 2>/dev/null' % (dest, dest), shell=True)
   Log.info('Install nodejs dependencies in %s' % path)
-  cmd = 'cd %s;npm install %s && npm ls --prod --dev>/dev/null' % (path, option)
+  cmd = 'cd %s && npm install %s' % (path, option)
   try:
     subprocess.check_call(cmd, shell=True)
   except:
@@ -178,28 +148,33 @@ def install_nodejs_dependencies(path, mode, option):
     return False
   return True
 
-def prepare_nodejs(mode):
+def prepare_nodejs(mode, pwe):
   Log.info('Check nodejs')
   if not ensure_nodejs():
     return False, ''
   Log.info('Check grunt')
   npm_path = os.path.join(tool_path, 'npm')
   bin_path = os.path.join(npm_path, 'bin')
-  status = subprocess.call('which grunt > /dev/null', shell=True)
-  if status != 0:
-    if not os.path.isfile(os.path.join(bin_path, 'grunt')) \
-        and not install_grunt(npm_path):
-      Log.err('Fail to install grunt.')
-      return False, ''
+  if not os.path.isfile(os.path.join(bin_path, 'grunt')) \
+      and not install_grunt(npm_path):
+    Log.err('Fail to install grunt.')
+    return False, ''
 
   install_option = []
   pathlist = ['.',
     'libs/brackets-server',
+    'libs/brackets-server/embedded-ext/brackets-iotjs/node',
     'libs/brackets-server/embedded-ext/brackets-minify/node',
-    'libs/brackets-server/embedded-ext/project/node',
-    'libs/brackets-server/embedded-ext/pwe/node',
     'libs/brackets-server/embedded-ext/file-extension/node',
-    'libs/brackets-server/embedded-ext/tizen-profile/node']
+    'libs/brackets-server/embedded-ext/interactive3D/node',
+    'libs/brackets-server/embedded-ext/project/node',
+    'libs/brackets-server/embedded-ext/swmitra.html-designer/i3d/node',
+    'libs/brackets-server/embedded-ext/tizen-profile/node',
+    'libs/tau-wysiwig',
+    'tools/crx',
+    'tools/cli']
+  if pwe:
+    pathlist.append('libs/brackets-server/embedded-ext/pwe/node')
   install_option = ' '.join(install_option)
   for path in pathlist:
     if not install_nodejs_dependencies(path, mode, install_option):
@@ -207,13 +182,23 @@ def prepare_nodejs(mode):
       return False, ''
   return True, bin_path
 
-def install_mongodb():
-  supported = ('trusty', 'xenial')
+def prepare_DE():
+  #TODO consider moving this code to WATT's build option
+  Log.info('Preparing Design Editor')
+  cmd = 'cd libs/tau-wysiwig && npm install && npm run-script build-watt'
+  try:
+    subprocess.check_call(cmd, shell=True)
+  except:
+    Log.err('Failed to prepare Design Editor')
+    return False
+  Log.info('Design Editor prepared successfully')
+  return True
 
-  if os_name == OS_DARWIN:
+def install_mongodb():
+  if os_name == 'Darwin':
     Log.info('Install mongodb with "brew"')
     cmds = ['brew update', 'brew install mongodb']
-  elif (os_name == OS_UBUNTU) and (os_dist in supported):
+  elif (os_name == 'Ubuntu') and (os_dist in supported):
     Log.info('Install mongodb with "apt-get" (sudo privileges required)')
     cmds = ['sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80' \
       + ' --recv 0C49F3730359A14518585931BC711F9BA15703C6', '', \
@@ -244,8 +229,21 @@ def is_run_process(name):
       return True
   return False
 
+def check_libgconf():
+  Log.info('Check libgconf-2-4 library')
+  status = subprocess.call('ldconfig -p | grep libgconf-2 > /dev/null', shell=True)
+  if status != 0 and not install_deb_package('libgconf-2-4'):
+    Log.err('''Fail to install libgconf-2.4 Please install libgconf-2.4 manually.''')
+    return False
+  return True
+
 def check_mongodb():
   Log.info('Check mongodb service')
+
+  if os.environ.get('NODE_ENV') == 'docker':
+    Log.info('WATT will connect to external mongodb')
+    return True
+
   if is_run_process('mongod'):
     Log.info('mongodb service is started already.')
     return True
@@ -259,7 +257,7 @@ def check_mongodb():
 
   Log.info('Try to start mongodb service. (sudo privileges required)')
   try:
-    if os_name == OS_UBUNTU:
+    if os_name == 'Ubuntu':
       subprocess.check_call(['sudo', 'service', 'mongod', 'start'])
     else:
       subprocess.Popen(['mongod', '--dbpath', root_path])
@@ -291,13 +289,15 @@ Please check REQUESTS_CA_BUNDLE environ variable for certificate.
   return True
 
 def preinstall_emsdk():
-  if os_name == OS_UBUNTU:
-    cmds = ['sudo apt-get update', 'sudo apt-get install -y build-essential cmake git-core']
-    try:
-      for cmd in cmds: subprocess.check_call(cmd, shell=True)
-    except subprocess.CalledProcessError:
-      Log.err('Exception is occurred during pre-install.')
+  if os.environ.get('NODE_ENV') == 'docker':
+    Log.info('Skip preinstall_emsdk in docker')
+    return True
+
+  pkgs = [ 'build-essential', 'cmake', 'git-core' ]
+  for pkg in pkgs:
+    if not install_deb_package(pkg):
       return False
+
   return True
 
 def ensure_emsdk(emsdk_path):
@@ -391,12 +391,29 @@ def get_wabt_path():
 
   return wabt_bin_path
 
+def ensure_deb_package(name):
+  Log.info('Check %s package' % name)
+  status = subprocess.call('dpkg -l | grep %s > /dev/null' % name, shell=True)
+  if status != 0 and not install_deb_package(name):
+    Log.err('''Fail to install %s. Please install it manually.''' % name)
+    return False
+  return True
+
+def install_deb_package(name):
+  Log.info('Install %s package (sudo privileges required)' % name)
+  try:
+    subprocess.check_call('sudo apt-get install -y %s' % name, shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during install %s.' % name)
+    return False
+  return True
+
 def ensure_nacl(nacl_path):
   bin_path = os.path.join(nacl_path, 'naclsdk')
   if os.path.isfile(bin_path): return True
 
   work_path = os.path.dirname(nacl_path)
-  Log.warn('Download NaCl tool')
+  Log.info('Download NaCl tool')
   url = 'http://storage.googleapis.com/nativeclient-mirror/nacl/nacl_sdk/'
   file_name = 'nacl_sdk.zip'
   dest_path = os.path.join(work_path, file_name)
@@ -407,6 +424,40 @@ def ensure_nacl(nacl_path):
   zip.close()
   os.remove(dest_path)
   return True
+
+def update_nacl_cert(update_nacl_cmd, nacl_path, invalidCertErrorString):
+  Log.info('Update nacl cacerts.txt')
+  # NaCl's SDK has out of dated CA, https://groups.google.com/forum/#!topic/native-client-discuss/ViBofmhWpyM
+
+  if not ensure_deb_package('ca-certificates'):
+    return False;
+
+  global_ca_path = os.path.join(os.sep, 'etc', 'ssl', 'certs', 'GlobalSign_Root_CA_-_R2.pem')
+  if not os.path.exists(global_ca_path):
+    Log.err('Could not find root CA at ' + global_ca_path)
+    return False;
+
+  nacl_ca_path = os.path.join(nacl_path, 'sdk_tools', 'cacerts.txt')
+  if not os.path.exists(nacl_ca_path):
+    Log.err('Could not find nacl CA at ' + nacl_ca_path)
+    return False;
+
+  shutil.copy(global_ca_path, nacl_ca_path)
+
+  try:
+    subprocess.check_output(update_nacl_cmd, stderr=subprocess.STDOUT, shell=True)
+  except subprocess.CalledProcessError as e:
+    # First call to update overwrites cacerts.txt, copy cert and call update again.
+    if invalidCertErrorString in e.output:
+      shutil.copy(global_ca_path, nacl_ca_path)
+    try:
+      subprocess.check_call(update_nacl_cmd, shell=True)
+      Log.info('Successfully run %s' % update_nacl_cmd)
+    except subprocess.CalledProcessError:
+      Log.err('Exception occurred during nacl CA update.')
+      Log.warn(e.output)
+      return False
+  return True;
 
 def get_nacl_path():
   Log.info('Check Google Native client SDK')
@@ -420,29 +471,36 @@ def get_nacl_path():
 (https://developer.chrome.com/native-client/sdk/download)''')
     return ''
 
+  if not ensure_deb_package('libc6:i386'):
+    return False;
+
   bin_path = os.path.join(nacl_path, 'naclsdk')
+
   st = os.stat(bin_path)
   os.chmod(bin_path, st.st_mode | stat.S_IEXEC)
-  cmds = [
-    '%s update %s' % (bin_path, 'pepper_49')
-  ]
+  update_cmd = '%s update %s' % (bin_path, 'pepper_49')
   try:
-    for cmd in cmds: subprocess.check_call(cmd, shell=True)
-  except subprocess.CalledProcessError:
-    Log.err('Exception is occurred during download NaCl SDK.')
-    return ''
-  return nacl_pepper_path
+    subprocess.check_output(update_cmd, stderr=subprocess.STDOUT, shell=True)
+  except subprocess.CalledProcessError as e:
+    invalidCertError = 'InvalidCertificateException: Host storage.googleapis.com returned an invalid certificate'
+    if invalidCertError in e.output:
+      Log.warn('Invalid CA in naclsdk')
+      if update_nacl_cert(update_cmd, nacl_path, invalidCertError):
+        return nacl_pepper_path
+      else:
+        return ''
+    else:
+      Log.err('Exception occurred during download NaCl SDK.')
+      Log.warn(e.output)
+      return ''
 
 def get_tizen_path():
   path = os.path.join(os.path.expanduser('~'), 'tizen-studio')
   tizen_path = os.path.join(path, 'tools', 'ide', 'bin', 'tizen')
-  pkg_manager = os.path.join(path, 'package-manager', 'package-manager-cli.bin')
-  if not os.path.isdir(path) or not os.path.isfile(tizen_path) or not os.path.isfile(pkg_manager):
+  if not os.path.isdir(path) or not os.path.isfile(tizen_path):
     Log.warn('''Can not find tizen studio.
 Please ensure to execute tizen command if use WGT packaging.''')
     return ''
-  subprocess.Popen('%s show-pkgs | grep "^i" | grep NativeCLI > /dev/null || %s install NativeCLI'
-    % (pkg_manager, pkg_manager), shell=True)
   return os.path.dirname(tizen_path)
 
 def build_brackets():
@@ -455,7 +513,60 @@ def build_brackets():
     return False
   return True
 
-def run_service(verbose):
+def sync_tau_wysiwig():
+    Log.info('Syncing TAU WYSIWIG extension')
+    try:
+        subprocess.call('cd libs/brackets-server/embedded-ext' \
+          '&& test -L ./tau' \
+          '|| ln -s ../../tau-wysiwig/dist/watt tau', shell=True);
+    except:
+        Log.err('Failed to sync TAU WYSIWIG extension')
+        return False
+    return True
+
+def preinstall_iotjs():
+  pkgs = [ 'gyp', 'cmake', 'build-essential', 'valgrind' ]
+  for pkg in pkgs:
+    if not install_deb_package(pkg):
+      return False
+  return True
+
+def ensure_iotjs(iotjs_path, version):
+  if os.path.isdir(iotjs_path): return True
+  if not preinstall_iotjs(): return False
+
+  try:
+    subprocess.check_call('cd tools/; git clone https://github.com/Samsung/iotjs.git', shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during git clone')
+    return False
+  return True
+
+def get_iotjs_path(version):
+  Log.info('Check iotjs')
+  iotjs_path = os.path.join(tool_path, 'iotjs')
+
+  if platform.machine().endswith('64'):
+    iotjs_build_path = os.path.join(iotjs_path, 'build', 'x86_64-linux', 'debug', 'bin')
+  else:
+    iotjs_build_path = os.path.join(iotjs_path, 'build', 'x86-linux', 'debug', 'bin')
+
+  iotjs_bin_path = os.path.join(iotjs_build_path, 'iotjs')
+  if os.path.isfile(iotjs_bin_path): return iotjs_build_path
+
+  if not ensure_iotjs(iotjs_path, version):
+    Log.err('Fail to install IoT.js. Please install IoT.js manually.(https://github.com/Samsung/iotjs)')
+    return ''
+
+  Log.warn('Build iot.js')
+  try:
+    subprocess.check_call('cd tools/iotjs/; ./tools/build.py --no-check-test', shell=True)
+  except subprocess.CalledProcessError:
+    Log.err('Exception is occurred during IoT.js build.')
+    return ''
+  return iotjs_build_path
+
+def run_service(args):
   print_msg = True
   need_rebuild = False
   watch_srv = None
@@ -463,7 +574,37 @@ def run_service(verbose):
   rlist = [sys.stdin]
   devnull = open(os.devnull, 'w')
 
-  if verbose:
+  if args.pwe:
+    try:
+      module = __import__('validators')
+    except ImportError:
+      Log.info('Install validators packages. (sudo privileges required)')
+      status = subprocess.call(['sudo', 'pip', 'install', 'validators'])
+      if status != 0:
+        Log.err('Fail to install validators package')
+        sys.exit(1)
+      module = __import__('validators')
+    globals()['validators'] = module
+    os.putenv('NODE_ENV', 'pwe')
+    Log.info('Start in pwe mode.')
+    config_path = os.path.join(root_path, 'config/pwe.json')
+    file_object = open(config_path, 'r')
+    json_object = json.load(file_object)
+    if 'HUB_URL' in json_object:
+      Log.info('S-HUB_URL: ' + json_object['HUB_URL'])
+    else:
+      input_url = raw_input('Please input S-Hub URL(ex. https://domain.com): ')
+      if not validators.url(input_url):
+        Log.err('Invalid url. Please try rerun and input valid url')
+        sys.exit(1)
+      json_object['HUB_URL'] = input_url
+      file_object.close()
+      file_object = open(config_path, 'w')
+      data = json.dumps(json_object)
+      file_object.write(data)
+      file_object.close()
+
+  if args.verbose:
     out = None
     err = None
   else:
@@ -482,7 +623,7 @@ def run_service(verbose):
       if watch_srv and watch_srv.stdout in ready_rlist:
         msg = watch_srv.stdout.readline().strip()
         if msg.startswith('[WatchEvent]'):
-          if verbose: Log.trace(msg)
+          if args.verbose: Log.trace(msg)
           if not need_rebuild: Log.info('File changing is detected')
           need_rebuild = True
       if sys.stdin in ready_rlist:
@@ -499,7 +640,8 @@ def run_service(verbose):
           if len(cmd_list) == 1:
             Log.info('mode value is missing. It will use update mode.')
             cmd_list.append('update')
-          prepare_nodejs(cmd_list[1])
+          prepare_nodejs(cmd_list[1], args.pwe)
+          prepare_DE()
         elif cmd == 'rerun' or cmd == 'r':
           if (need_rebuild):
             Log.warn('Need rebuild')
@@ -546,30 +688,50 @@ def run_service(verbose):
 def main():
   parser = argparse.ArgumentParser(description=('Launch %s' % SERVICE))
   parser.add_argument('-v', '--verbose', action='store_true',
-    help='If set, print message from %s' % SERVICE)
+    help='Print message from %s' % SERVICE)
   parser.add_argument('-d', '--dry', action='store_true',
-    help='If set, do dry run')
+    help='Launch with dry mode')
   parser.add_argument('-n', '--npm', choices=['quick', 'update', 'reinstall'],
     default='quick', help='Check mode for installing dependency packages')
-  parser.add_argument('-ns', '--nacl_sdk', action='store_true',
-    help='If set, install Google Native Client SDK')
+  parser.add_argument('-bpnacl', '--bypass_nacl_sdk', action='store_true',
+    help='Bypass downloading NaCl')
   group = parser.add_mutually_exclusive_group()
   group.add_argument('-ep', '--emscripten_path',
-    help='If set, use the emscripten at specified path')
-  group.add_argument('-ev', '--emscripten_version', default='1.37.16',
-    help='If set, use the emscripten with specified version')
+    help='Use the emscripten of the specific path')
+  group.add_argument('-ev', '--emscripten_version', default='1.38.11',
+    help='Use the emscripten of the specific version')
+  parser.add_argument('-i', '--iotjs', action='store_true',
+    help='Support iot.js extension')
+  parser.add_argument('-p', '--pwe', action='store_true',
+    help='Launch with pwe mode')
+  parser.add_argument('-s', '--sthings', action='store_true',
+    help='Support sthings extension')
+  parser.add_argument('-bp', '--bypass', action='store_true',
+    help='bypass submodule update')
+
   args = parser.parse_args()
 
-  Log.info('Update submodules')
-  if (subprocess.call('git submodule update --init --recursive', shell=True)) != 0:
-    Log.err('Fail to initialize or update submodules.')
+  if args.bypass == 0:
+    Log.info('Update submodules')
+    if (subprocess.check_call('./update_submodules' + (' --verbose' if args.verbose else ''), shell=True)) != 0:
+      Log.err('Fail to initialize or update submodules.')
+      return 1
+
+  ret, grunt_path = prepare_nodejs(args.npm, args.pwe)
+  if not ret:
     return 1
 
-  ret, grunt_path = prepare_nodejs(args.npm)
+  if args.sthings and not ensure_deb_package('android-tools-adb'):
+    return 1
+
+  ret = prepare_DE()
   if not ret:
     return 1
 
   if not check_mongodb():
+    return 1
+
+  if args.sthings and not check_libgconf():
     return 1
 
   if args.emscripten_path == None or not os.path.isdir(args.emscripten_path):
@@ -591,12 +753,28 @@ def main():
   if tizen_path != '':
     pathlist.insert(-1, tizen_path)
   # Temporary path for API-Grepper
-  pathlist.insert(-1, os.path.join(tool_path, 'api_grepper', '0.0.1'))
+  pathlist.insert(-1, os.path.join(tool_path, 'api_grepper'))
   os.putenv('PATH', os.pathsep.join(pathlist) + os.environ['PATH'])
 
-  if args.nacl_sdk:
-    # Path for NACL_SDK_ROOT
+  if not args.bypass_nacl_sdk:
+    # Path for NACL_SDK_ROOT for pepper.js
     os.putenv('NACL_SDK_ROOT', get_nacl_path())
+
+  if args.iotjs:
+    if (os_name == 'Ubuntu') and (os_dist in supported):
+      iotjs_path = get_iotjs_path('1.0')
+      if iotjs_path == '': return 1
+
+      os.putenv('SUPPORT_IOT_JS', 'true')
+      os.putenv('IOT_JS_ROOT', iotjs_path)
+    else:
+      Log.err('Ubuntu 14.04 or 16.04 are recommended.')
+      sys.exit(1)
+
+  if args.sthings:
+    os.putenv('SUPPORT_STHINGS', 'true')
+
+  sync_tau_wysiwig()
 
   if not build_brackets():
     return 1
@@ -604,8 +782,7 @@ def main():
   if args.dry:
     Log.warn('Skip run service')
     return 0
-
-  return run_service(args.verbose)
+  return run_service(args)
 
 if __name__ == '__main__':
   returncode = main()

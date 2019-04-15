@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://sample-web-application.tizen.org/UIComponents" version="1.0.0" viewmodes="fullscreen">
+    <tizen:application id="1234567890.TAUBase" package="1234567890" required_version="3.0"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal"/>
+    <icon src="icon.png"/>
+    <name>TAUBase</name>
+    <tizen:profile name="wearable"/>
+</widget>

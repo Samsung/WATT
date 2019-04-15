@@ -16,7 +16,17 @@
         </div>
         <div class="form-group">
           <span>Project type: </span>
-          <input class="form-control" id="edit-project-type" type="text" readonly>
+          <div class="btn-group">
+            <button id="edit-project-type" type="button" class="btn btn-default"></button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul id="edit-project-type-dropdown" class="dropdown-menu">
+              <li>wasm</li>
+              <li>web</li>
+            </ul>
+          </div>
         </div>
         <div class="form-group" id="edit-project-profile" style="display:none;">
           <span>Profile: </span>

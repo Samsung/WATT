@@ -1,0 +1,102 @@
+<script i3d-target="{{TARGET}}" i3d-model="{{MODEL}}" i3d-format="{{FORMAT}}">
+    var camera, controls, scene, renderer;
+    var container, animator;
+
+    var clock = new THREE.Clock();
+    var isAnimating = false;
+    var mixers = [];
+    var actions = [];
+
+    function init() {
+        container = document.querySelector("{{CONTAINER_ID}}");
+        container.style.background = "none";
+
+        camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 1, 2000);            
+        camera.position.set(100, 200, 300);
+
+        controls = new THREE.OrbitControls(camera);
+        controls.target.set(0, 100, 0);
+        controls.update();
+
+        scene = new THREE.Scene();
+        group = new THREE.Group();
+        scene.add(group);
+
+        var light = new THREE.HemisphereLight(0xffffff, 0x444444);
+        light.position.set(0, 200, 0);
+        group.add(light);
+
+        light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(0, 200, 100);
+        group.add(light);
+
+        var fbxLoader = new THREE.FBXLoader();
+        fbxLoader.load('{{FBX_PATH}}', function(object) {
+            object.mixer = new THREE.AnimationMixer(object);
+            mixers.push(object.mixer);
+
+            for (var animation of object.animations) {
+                actions.push(object.mixer.clipAction(animation));
+            }
+            
+            object.traverse( function ( child ) {
+                if ( child.isMesh ) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                }
+            } );
+
+            scene.add( object );
+        });
+
+        renderer = new THREE.WebGLRenderer({alpha:true});
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( container.offsetWidth, container.offsetHeight );
+        container.appendChild( renderer.domElement );
+    }
+
+    function animate() {
+        animator = requestAnimationFrame( animate );
+
+        if ( mixers.length > 0 ) {
+            for ( var i = 0; i < mixers.length; i ++ ) {
+                mixers[ i ].update( clock.getDelta() );
+            }
+        }
+
+        renderer.render(scene, camera);
+    }
+
+    function show() {
+        if (isAnimating) {
+            return;
+        }
+
+        init();
+        animate();
+        isAnimating = true;
+    }
+
+    function hide() {
+        if (!isAnimating) {
+            return;
+        }
+        
+        isAnimating = false;
+        cancelAnimationFrame(animator);
+        container.removeChild(renderer.domElement);
+    }
+
+    function play(name) {
+        if (!isAnimating) {
+            return;
+        }
+
+        for (var action of actions) {
+            if (action._clip.name === name) {
+                action.play();
+                break;
+            }
+        }
+    }
+</script>
