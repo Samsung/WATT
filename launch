@@ -706,8 +706,10 @@ def main():
     help='Launch with pwe mode')
   parser.add_argument('-s', '--sthings', action='store_true',
     help='Support sthings extension')
+  parser.add_argument('-bdc', '--bypassDEcompilation', action='store_true',
+    default=False, help='Bypass Design Editor compilation')
   parser.add_argument('-bp', '--bypass', action='store_true',
-    help='bypass submodule update')
+    help='Bypass submodule update')
 
   args = parser.parse_args()
 
@@ -724,8 +726,7 @@ def main():
   if args.sthings and not ensure_deb_package('android-tools-adb'):
     return 1
 
-  ret = prepare_DE()
-  if not ret:
+  if not args.bypassDEcompilation and not prepare_DE():
     return 1
 
   if not check_mongodb():
