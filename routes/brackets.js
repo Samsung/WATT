@@ -59,15 +59,21 @@ module.exports = function(express, server, wsServer) {
       }
     } else {
       if (fs.existsSync(cntPath)) {
+	console.log("fs.existsSync: " + cntPath);
         res.sendFile(path.join(bracketsDist, url));
       } else {
         // Try to connect index.html if the basename of the url is project Id
+	
+	console.log("Project.findOne");
         Project.findOne({'_id': path.basename(url) }, (err, project) => {
           if (project) {
+
             // Save project to notify project updates
             project.save();
 
             const projectId = path.basename(url);
+
+    	    console.log("Project.findOne projectId: " + projectId);
 
             const bracketsOpts = {
               httpRoot: '/brackets/' + projectId,
@@ -79,6 +85,8 @@ module.exports = function(express, server, wsServer) {
 
             res.sendFile(path.join(bracketsDist, 'index.html'));
           } else {
+            
+	    console.log("Project.findOne fail"+ cntPath);
             debug(cntPath + ' is not found.');
             next();
           }

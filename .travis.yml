@@ -3,13 +3,11 @@ language: node_js
 git:
   submodules: false
 
-script: 'true'
-
 matrix:
   include:
     - os: linux
       dist: xenial
       sudo: enabled
 
-install:
+ install:
   - ./launch -d
