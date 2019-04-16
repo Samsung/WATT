@@ -185,7 +185,7 @@ def prepare_nodejs(mode, pwe):
 def prepare_DE():
   #TODO consider moving this code to WATT's build option
   Log.info('Preparing Design Editor')
-  cmd = 'cd libs/tau-wysiwig && npm install && npm run-script build-watt'
+  cmd = 'cd libs/tau-wysiwig && npm install && npm run-script build-watt > prepare_DE.log'
   try:
     subprocess.check_call(cmd, shell=True)
   except:
