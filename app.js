@@ -87,6 +87,7 @@ app.use('/project', require('./routes/project')(express));
 app.use('/update', require('./routes/update')(express));
 app.use('/brackets', require('./routes/brackets')(express, server, wsServer));
 app.use('/brackets-ext', require('./routes/brackets-ext')(express));
+app.use('/demos', require('./routes/demos')(express));
 // Iotivty api is rest one, so need to implement different response (json) and its timeout handling
 // TODO: In future add keep alive mechanism
 if (sthingsEnabled) {
