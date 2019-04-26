@@ -72,6 +72,15 @@
     "category": "General"
   },
   {
+    "name": "TAU Checkbox Application",
+    "description": "TAU Checkbox Application.",
+    "src": "TAUCheckboxApplication",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "mobile,tv",
+    "category": "General"
+  },
+  {
     "name": "SmartThings IoT Application",
     "description": "IoT application for SmartThings",
     "src": "TAUIoTApplication",
