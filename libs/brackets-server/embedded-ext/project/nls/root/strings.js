@@ -12,7 +12,6 @@ define({
     "MENU_TITLE"                        : "Compile File",
     "DIALOG_TITLE"                      : "Compile File",
     "MENU_TITLE_PACK_WGT"               : "Pack to WGT package",
-    "MENU_TITLE_PACK_PPK"               : "Pack to Plugin package",
     "MENU_TITLE_PACK_CRX"               : "Pack to Chrome Extension",
     "MENU_TITLE_INSTALL_WGT"            : "Install S-Things client app package",
     "MENU_TITLE_BUILD_UNITY"            : "Build Unity",

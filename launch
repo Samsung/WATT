@@ -171,8 +171,7 @@ def prepare_nodejs(mode, pwe):
     'libs/brackets-server/embedded-ext/swmitra.html-designer/i3d/node',
     'libs/brackets-server/embedded-ext/tizen-profile/node',
     'libs/tau-wysiwig',
-    'tools/crx',
-    'tools/cli']
+    'tools/crx']
   if pwe:
     pathlist.append('libs/brackets-server/embedded-ext/pwe/node')
   install_option = ' '.join(install_option)

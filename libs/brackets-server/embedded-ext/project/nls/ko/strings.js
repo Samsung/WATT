@@ -12,7 +12,6 @@ define({
     "MENU_TITLE"                        : "파일 컴파일",
     "DIALOG_TITLE"                      : "파일 컴파일",
     "MENU_TITLE_PACK_WGT"               : "빌드(wgt)",
-    "MENU_TITLE_PACK_PPK"               : "빌드(ppk)",
     "MENU_TITLE_PACK_CRX"               : "빌드(crx)",
     "MENU_TITLE_INSTALL_WGT"            : "S-Things 클라이언트 앱 설치",
     "MENU_TITLE_BUILD_UNITY"            : "빌드(unity)",
