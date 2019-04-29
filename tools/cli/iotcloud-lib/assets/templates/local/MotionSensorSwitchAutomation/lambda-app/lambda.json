@@ -1,5 +1,0 @@
-{
-  "name": "motionSensorSwitchAutomation",
-  "runtime": "nodejs6.10",
-  "handler": "index.handler"
-}

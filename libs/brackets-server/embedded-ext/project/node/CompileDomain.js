@@ -246,8 +246,7 @@
             // In docker, latest Tizen Studio CLI (3.2) produces the following error while packing:
             // java.lang.IllegalStateException: org.tizen.common.sign.exception.CertificationException: Invaild password
             // Tizen 2.5 does not have such issue.
-            const tizenCommand = process.env.NODE_ENV == "docker" ?  nodePath.join(os.homedir(), "tizen-studio-2.5", "tools", "ide", "bin", "tizen") : "tizen";
-
+            const tizenCommand = process.env.NODE_ENV === "docker" ?  nodePath.join(os.homedir(), "tizen-studio-2.5", "tools", "ide", "bin", "tizen") : "tizen";
             const addProfileCommand = `${tizenCommand} security-profiles add --name "${userId}" -a ${keyFilePath} --password ${keyPassword} --ca ${authorCAPath} --dist ${distributorCertPath} --dist-password ${distributorCertPassword} --dist-ca ${distributorCAPath}`;
             console.log("workDirPath", workDirPath);
             const buildPackageCommand = `${tizenCommand} package --type wgt --sign "${userId}" -- ${workDirPath}`;
@@ -304,28 +303,6 @@
         child.on("error", (err) => {
             console.error("Error");
             callback(err);
-        });
-    }
-
-    function packPPK(projectId, callback) {
-        console.log("Installing project: " + projectId);
-        var install = new Promise(function (resolve, reject) {
-            cmd.get(
-                `node tools/cli/installPlugin.js ${projectId}`,
-                function (err, data, stderr) {
-                    if (err) {
-                        console.log(stderr)
-                        reject(stderr);
-                    } else {
-                        console.log("Result> installPlugin: ", data);
-                        resolve(data);
-                    }
-                }
-            );
-        }).then(() => {
-            callback(null, JSON.stringify("success"));
-        }).catch((errorData) => {
-            callback(JSON.stringify(errorData), null);
         });
     }
 
@@ -695,21 +672,6 @@
             packWGT,
             true,
             "Build WGT package from project",
-            [
-                {name: "projectId", type: "string"},
-                {name: "replacementValues", type: "string"}
-            ],
-            [
-                {name: "data", type: "string"},
-            ]
-        );
-
-        _domainManager.registerCommand(
-            "compileEmscripten",
-            "packPPK",
-            packPPK,
-            true,
-            "Build Plugin package from project",
             [
                 {name: "projectId", type: "string"},
                 {name: "replacementValues", type: "string"}

@@ -58,7 +58,6 @@ define(function (require, exports, module) {
     var PROJECT_COMPILE_PROJECT = "project.compileProject";
     var PROJECT_CLEAN_PROJECT = "project.cleanProject";
     var PROJECT_PACK_WGT = "project.packWGT";
-    var PROJECT_PACK_PPK = "project.packPPK";
     var PROJECT_PACK_CRX = "project.packCRX";
     var PROJECT_INSTALL_WGT = "project.installWGT";
     var PROJECT_BUILD_UNITY = "project.buildUnity";
@@ -460,30 +459,6 @@ define(function (require, exports, module) {
                 DefaultDialogs.DIALOG_ID_ERROR,
                 ExtensionStrings.PACKING_FAILURE,
                 `Couldn't build WGT package: "${result.message}", details: "${JSON.stringify(result.details)}"`
-            );
-        });
-    }
-
-    function handlePackPPK() {
-        const projectId = PreferencesManager.getViewState("projectId");
-
-        const loadingDialog = showProgressDialog(ExtensionStrings.PACKAGING_DIALOG_TITLE);
-
-        _nodeDomain.exec("packPPK", projectId).done((value) => {
-            loadingDialog.close();
-
-            Dialogs.showModalDialog(
-                DefaultDialogs.DIALOG_ID_OK,
-                ExtensionStrings.INSTALLATION_SUCCESS,
-                "Install Success"
-            );
-        }).fail((stderr) => {
-            loadingDialog.close();
-
-            Dialogs.showModalDialog(
-                DefaultDialogs.DIALOG_ID_ERROR,
-                ExtensionStrings.INSTALLATION_FAILURE,
-                stderr.toString()
             );
         });
     }
@@ -1293,10 +1268,6 @@ define(function (require, exports, module) {
     CommandManager.register(ExtensionStrings.MENU_TITLE_OPTIONS_SELECT, PROJECT_SELECT_OPTIONS, handleSelectOptions);
     var packWGTCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_WGT, PROJECT_PACK_WGT, handlePackWGT);
     _nodeDomain.exec("checkPackWGT").done(function(canBuild) { packWGTCommand.setEnabled(canBuild); });
-    var packPPKCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_PPK, PROJECT_PACK_PPK, handlePackPPK);
-    _nodeDomain.exec("checkPackPPK").done(function (canBuild) {
-        packPPKCommand.setEnabled(canBuild);
-    });
     var packCRXCommand = CommandManager.register(ExtensionStrings.MENU_TITLE_PACK_CRX, PROJECT_PACK_CRX, handlePackCRX);
     _nodeDomain.exec("checkPackCRX").done(function (canBuild) {
         packCRXCommand.setEnabled(canBuild);
@@ -1325,7 +1296,6 @@ define(function (require, exports, module) {
         menu.addMenuItem(PROJECT_PACK_CRX);
     } else if (type === "web" || type === "sthings") {
         menu.addMenuItem(PROJECT_PACK_WGT);
-        menu.addMenuItem(PROJECT_PACK_PPK);
 
         if (PreferencesManager.getViewState("projectExtension") === "unity") {
             // Add unity build menu if the project state is unity extension.

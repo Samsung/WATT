@@ -1,7 +1,0 @@
-{
-  "name": "switchc2c",
-  "handler": "index.handler",
-  "runtime": "nodejs6.10",
-  "memory": 128,
-  "timeout": 10
-}
