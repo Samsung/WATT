@@ -80,6 +80,9 @@ RUN git submodule deinit -f .
 
 EXPOSE 3000
 
+# Stop bower from asking for statistics when installing.
+ENV CI=true
+
 ENV NODE_ENV=docker
 
 # Prepare WATT (download node modules, emsdk, build DE ).

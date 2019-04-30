@@ -141,17 +141,17 @@ mongo                                                                           
 ```
  * [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html)
  * [Push images to aws repositories](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr).
+ * If you need to update WATT image only, just tag your local watt image with Uri from [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region=us-east-2) and push the image (no need to create separate image repositories). Pushing mongod image can be also omitted.
  * Images should be available at [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region=us-east-2).
 
 ## Setup WATT on AWS
  * Update docker-compose-aws.yml with new docker images repositories.
  * You can change default memory limits for each container in ecs-params.yml
  * [Install the Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html)
- * [Create Your Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html), for example,
+ * [Create Your Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html), to prepare a separate instance. You can omitt this steep in order to use already existing watt cluster.
 ```bash
 ecs-cli up --force --keypair id_rsa --capability-iam --size 1 --instance-type t2.large --vpc vpc-0d05d256d9261ccb5 --subnets subnet-0b31dfed2f9dddb0a --security-group sg-09d2b747ca8b77f1a --cluster-config watt-cluster-config --region us-east-2
 ```
- * It is recommended to create your own Virtual Private Cloud (vpc), Subnet and Security Group unless you are just replacing current image.
  * [Deploy the Compose File to a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html#ECS_CLI_tutorial_compose_deploy), for example,
 ```bash
 ecs-cli compose --file docker-compose-aws.yml --verbose up --create-log-groups --cluster-config watt-cluster-config --region us-east-2
@@ -164,12 +164,12 @@ aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name wa
  * Due to no support for [interactive mode in compose](https://github.com/aws/amazon-ecs-cli/issues/706) there is a need to manually edit task definition
  * Go to Task [Definitions](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/taskDefinitions) and chose your task.
  * Click "Create new revision"
- * In 'JSON' tab, add the following section to watt container:
+ * At the bottom, click on "Configure via JSON" button and replace *null* to *true* for the following properties in watt container:
 ```bash
 "interactive": true,
 "pseudoTerminal": true,
 ```
- * Run task (Actions -> Run Task)
+ * Run task (Actions -> Run Task) and change cluster to *watt-cluster*
  * Verify if WATT starts properly by inspecting the logs.
 
 
