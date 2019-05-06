@@ -119,7 +119,7 @@ And type 'b', container id comes from
 docker container ls
 ```
 
-## Inspecting running contatiner
+## Inspecting running container
 It's possible to execute any command on running container:
 ```bash
 docker container exec -i 12cf98736487 bash
@@ -140,25 +140,33 @@ watt_watt_container                                                             
 mongo                                                                             3.4.19              056cb4b05c15        5 weeks ago         376MB
 ```
  * [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html)
- * [Push images to aws repositories](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr).
- * If you need to update WATT image only, just tag your local watt image with Uri from [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region=us-east-2) and push the image (no need to create separate image repositories). Pushing mongod image can be also omitted.
- * Images should be available at [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region=us-east-2).
+ * Push watt and mongo images to [aws repositories](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr) to desired region. To push the image to [Asia Pacific Seoul](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) you can pass --region ap-northeast-2 while creating repository..
+ * If you need to update WATT image only, just tag your local watt image with Uri from [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region=ap-northeast-2) and push the image.
+ * Images should be available at [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region==ap-northeast-2).
 
-## Setup WATT on AWS
+## Creating cluster
+ * You can steeps below in order to use already existing watt cluster.
+ * [Install the Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html).
+ * Create network infrastructure:
+    * Define [VPC with Elastic IP](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-public-private-vpc.html).
+    * Define *security group* using previously created *VPC*.
+    * Add 22 and 3000 ports to *Inboud Roules* of newly created security group.
+ * [Create Your Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html), for example, 
+```bash
+ecs-cli up --force --keypair id_rsa --capability-iam --size 1 --instance-type t2.large --vpc vpc-0d05d256d9261ccb5 --subnets subnet-0b31dfed2f9dddb0a --security-group sg-09d2b747ca8b77f1a --cluster-config watt-cluster-config --region ap-northeast-2
+```
+ * To find subnet id go to [Subnet dashboard](https://ap-northeast-2.console.aws.amazon.com/vpc/home?region=ap-northeast-2#subnets:sort=SubnetId) and copy public subnet id associated with newly created VPC.
+
+## Deploying the compose file to a cluster
  * Update docker-compose-aws.yml with new docker images repositories.
  * You can change default memory limits for each container in ecs-params.yml
- * [Install the Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html)
- * [Create Your Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html), to prepare a separate instance. You can omitt this steep in order to use already existing watt cluster.
-```bash
-ecs-cli up --force --keypair id_rsa --capability-iam --size 1 --instance-type t2.large --vpc vpc-0d05d256d9261ccb5 --subnets subnet-0b31dfed2f9dddb0a --security-group sg-09d2b747ca8b77f1a --cluster-config watt-cluster-config --region us-east-2
-```
  * [Deploy the Compose File to a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html#ECS_CLI_tutorial_compose_deploy), for example,
 ```bash
-ecs-cli compose --file docker-compose-aws.yml --verbose up --create-log-groups --cluster-config watt-cluster-config --region us-east-2
+ecs-cli compose --file docker-compose-aws.yml --verbose up --create-log-groups --cluster-config watt-cluster-config --region ap-northeast-2
 ```
- * See watt-awslogs-group at [CloudWatch](https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=us-east-2#logs), you can also download them by
+ * See watt-awslogs-group at [CloudWatch](https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#logs), you can also download them by
 ```bash
-aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name watt/watt_container/0f16fa2e-6db9-4cff-8b13-821b3c72f446 --output text --region us-east-2
+aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name watt/watt_container/0f16fa2e-6db9-4cff-8b13-821b3c72f446 --output text --region ap-northeast-2
 ```
  * If you see 'Invalid command () was entered' please follow further steps
  * Due to no support for [interactive mode in compose](https://github.com/aws/amazon-ecs-cli/issues/706) there is a need to manually edit task definition
