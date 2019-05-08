@@ -7,7 +7,8 @@ define(function (require, exports, module) {
         return;
     }
 
-    var CommandManager              = brackets.getModule("command/CommandManager"),
+    var Commands                    = brackets.getModule("command/Commands"),
+        CommandManager              = brackets.getModule("command/CommandManager"),
         DefaultDialogs              = brackets.getModule("widgets/DefaultDialogs"),
         Dialogs                     = brackets.getModule("widgets/Dialogs"),
         ExtensionUtils              = brackets.getModule("utils/ExtensionUtils"),
@@ -32,6 +33,32 @@ define(function (require, exports, module) {
         .done(function(data) {
             _typeTable = data;
         });
+
+    ProjectManager.on("projectOpen", function () {
+        // if this is project with config.xml
+        const file = FileSystem.getFileForPath(ProjectManager.getProjectRoot().fullPath + "config.xml");
+        file.exists(function (err, exists) {
+            if (err) {
+                console.log("Error opening config.xml: " + err);
+            }
+            else if (exists) {
+                FileUtils.readAsText(file).done((text, readTimestamp) => {
+                    // try to extract "content" field describing main project file
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(text, "text/xml");
+                    const elements = xmlDoc.getElementsByTagNameNS("http://www.w3.org/ns/widgets", "content");
+                    if (elements.length > 0) {
+                        const content = elements[0].attributes["src"].nodeValue;
+                        if (!!content) {
+                            const htmlPath = ProjectManager.getProjectRoot().fullPath + content;
+                            // open main project file
+                            CommandManager.execute(Commands.FILE_OPEN, { fullPath:  htmlPath});
+                        }
+                    }
+                })
+            }
+        });
+    });
 
     let _configuration;
 
