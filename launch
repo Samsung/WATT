@@ -74,13 +74,11 @@ def install_nodejs():
     Log.info('Install nodejs with "brew"')
     cmds = ['brew update', 'brew install node']
   else:
-    status = subprocess.call('which curl > /dev/null', shell=True)
-    if status != 0 and not install_deb_package('curl'):
-      Log.err('Fail to install curl')
-      sys.exit(1)
+    if not ensure_deb_package('wget'):
+      return False;
 
     Log.info('Install nodejs with "apt-get" (sudo privileges required)')
-    cmds = ['curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -', \
+    cmds = ['wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -', \
       'sudo apt-get install -y nodejs']
 
   try:

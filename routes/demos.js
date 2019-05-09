@@ -1,13 +1,15 @@
 const path = require('path');
 const async = require('async');
 const Project = require('../models/project');
+const exec = require('child_process').exec;
 const fs = require('fs');
 const fse = require('fs-extra');
+const config = require('config');
 const authenticateAsAnonymous = require('../libs/util').authenticateAsAnonymous;
 
 module.exports = function (express) {
   var router = express.Router();
-  router.get('/:name/:profile/:majorVersion.:minorVersion/:type',
+  router.get('/*',
     authenticateAsAnonymous,
     (req, res) => {
       let projectId;
@@ -16,12 +18,13 @@ module.exports = function (express) {
         // Create new project.
         callback => {
           const newProject = new Project();
-          newProject.name = req.params.name;
+          newProject.name = "Tau Sample Demo";
+          newProject.type = "web";
           newProject.user = req.user._id;
           newProject.created = new Date();
-          newProject.profile = req.params.profile;
-          newProject.version = req.params.majorVersion + '.' + req.params.minorVersion;
-          newProject.type = req.params.type;
+          // FIXME: take them from config.xml
+          newProject.profile = "";
+          newProject.version = "";
           newProject.save((error, project) => {
             if (error) {
               return callback(error);
@@ -30,7 +33,7 @@ module.exports = function (express) {
           });
         },
 
-        // Create project's dir in demos folder.
+        // Create project's dir in projects folder.
         (project, callback) => {
           projectId = project._id.toString();
           const projectPath = path.join(process.cwd(), 'projects', projectId);
@@ -42,15 +45,24 @@ module.exports = function (express) {
           });
         },
 
-        // Copy requested demo to the project.
+        // Download requested demo to the project folder.
         (project, projectPath, callback) => {
-          // TODO: take the sample from external url.
-          const samplePath = path.join(process.cwd(), 'sample', project.type, project.name);
-          fse.copy(samplePath, projectPath, function (err) {
-            if (err) {
-              return callback(err);
+          const tauExamplesHost = config.get('TAUExamplesHost');
+          const samplePath = req.query.path;
+          if (!tauExamplesHost || !samplePath)
+            return callback(`Could not resolve path: ${tauExamplesHost}${samplePath}`);
+
+          const sampleUrl = new URL(samplePath, tauExamplesHost);
+          // Define number of unnecessary directories to be omitted while downloading.
+          const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/mobile|werable\/UIComponents/g) ? 4 : 0;
+          exec(`wget --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
+            if (error) {
+              console.log(error);
+              // FIXME: background-image's url from tau.css references file that
+              // does not exist on server. Uncomment line below once it's fixed.
+              // return callback(error);
             }
-            callback(null, project);
+            callback(null, projectPath);
           });
         },
 
@@ -74,13 +86,11 @@ module.exports = function (express) {
           state.projectProfile = project.profile;
           state.projectVersion = project.version;
           state.projectExtension = "";
-          console.log(JSON.stringify(state));
           fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), () => callback(null, project, supportPath));
         },
 
         // Add brackets.json to support folder.
         (project, supportPath, callback) => {
-          console.log("6");
           const brackets = require(path.join(process.cwd(), 'models', 'brackets.json'));
           fs.writeFile(path.join(supportPath, 'brackets.json'), JSON.stringify(brackets), () => res.redirect('/brackets/' + projectId));
         }
@@ -88,8 +98,8 @@ module.exports = function (express) {
           if (error) {
             res.status(400).send('Can not open demo. ' + error);
           }
-        }
-    )
-  });
+      })
+    }
+  );
   return router;
 };
