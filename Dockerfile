@@ -22,17 +22,16 @@ RUN apt-get update && \
         android-tools-adb \
         git \
         python-pip \
-        curl \
         build-essential \
         cmake \
         ca-certificates \
         libc6:i386 \
         pciutils \
-        curl \
+        wget \
         zip && \
     apt-get -o Dpkg::Options::="--force-overwrite" install -y \
         openjdk-8-jdk && \
-    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    wget -qO- https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs && \
     apt-get -y clean && \
     apt-get -y autoclean && \
@@ -53,7 +52,7 @@ USER watt_user
 WORKDIR /home/watt_user/
 
 # Download and install (latest) Tizen Studio 3.2 into default ~/tizen-studio (for user certificate creation)
-RUN curl -sL http://download.tizen.org/sdk/Installer/tizen-studio_3.2/web-cli_Tizen_Studio_3.2_ubuntu-64.bin > web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
+RUN wget -qO- http://download.tizen.org/sdk/Installer/tizen-studio_3.2/web-cli_Tizen_Studio_3.2_ubuntu-64.bin > web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
     chmod +x web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
     mkdir /home/watt_user/tizen-studio && \
     ./web-cli_Tizen_Studio_3.2_ubuntu-64.bin --accept-license /home/watt_user/tizen-studio && \
@@ -63,7 +62,7 @@ RUN curl -sL http://download.tizen.org/sdk/Installer/tizen-studio_3.2/web-cli_Ti
 # Latest version is unable to pack to wgt once user cert is specified
 # More details at http://suprem.sec.samsung.net/jira/browse/TIZENWF-2298
 # or https://developer.tizen.org/ko/forums/sdk-ide/pwd-fle-format-profile.xml-certificates?langredirect=1
-RUN curl -sL http://download.tizen.org/sdk/Installer/tizen-studio_2.5/web-cli_Tizen_Studio_2.5_ubuntu-64.bin > web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
+RUN wget -qO- http://download.tizen.org/sdk/Installer/tizen-studio_2.5/web-cli_Tizen_Studio_2.5_ubuntu-64.bin > web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
     chmod +x web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
     mkdir /home/watt_user/tizen-studio-2.5 && \
     ./web-cli_Tizen_Studio_2.5_ubuntu-64.bin --accept-license /home/watt_user/tizen-studio-2.5 && \
