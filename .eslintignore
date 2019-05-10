@@ -1,1 +1,7 @@
-libs/iotivity.js
+libs/brackets-server/brackets-src/**
+tools/crx/**
+tools/pepper.js/tools/video.js/mux-js/**
+libs/tau-wysiwig/**
+**/node_modules/**
+
+
