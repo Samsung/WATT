@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./app.js",
-    "test": "make test"
+    "test": "make test",
+    "lint-check": "lint-diff $TRAVIS_COMMIT_RANGE"
   },
   "nyc": {
     "exclude": [
@@ -55,12 +56,14 @@
     "babel-eslint": "^10.0.1",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "eslint": "^5.16.0",
     "grunt-contrib-csslint": "^2.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^21.0.0",
     "grunt-gitnewer": "^1.0.5",
     "grunt-html": "^8.4.0",
+    "lint-diff": "^1.2.1",
     "load-grunt-tasks": "^3.5.2",
     "mocha": "^3.2.0",
     "node-mocks-http": "^0.0.6",
