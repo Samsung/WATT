@@ -5,12 +5,12 @@ const exec = require('child_process').exec;
 const fs = require('fs');
 const fse = require('fs-extra');
 const config = require('config');
-const authenticateAsAnonymous = require('../libs/util').authenticateAsAnonymous;
+const util = require('../libs/util');
 
 module.exports = function (express) {
   var router = express.Router();
   router.get('/*',
-    authenticateAsAnonymous,
+    util.authenticateAsAnonymous,
     (req, res) => {
       let projectId;
       async.waterfall([
@@ -18,13 +18,12 @@ module.exports = function (express) {
         // Create new project.
         callback => {
           const newProject = new Project();
-          newProject.name = "Tau Sample Demo";
-          newProject.type = "web";
+          newProject.name = 'Tau Sample Demo';
+          newProject.type = 'web';
           newProject.user = req.user._id;
           newProject.created = new Date();
-          // FIXME: take them from config.xml
-          newProject.profile = "";
-          newProject.version = "";
+          newProject.profile = req.query.path.includes('mobile') ? 'mobile' : 'werable';
+          newProject.version = '2.4';
           newProject.save((error, project) => {
             if (error) {
               return callback(error);
@@ -49,8 +48,9 @@ module.exports = function (express) {
         (project, projectPath, callback) => {
           const tauExamplesHost = config.get('TAUExamplesHost');
           const samplePath = req.query.path;
-          if (!tauExamplesHost || !samplePath)
+          if (!tauExamplesHost || !samplePath) {
             return callback(`Could not resolve path: ${tauExamplesHost}${samplePath}`);
+          }
 
           const sampleUrl = new URL(samplePath, tauExamplesHost);
           // Define number of unnecessary directories to be omitted while downloading.
@@ -62,23 +62,49 @@ module.exports = function (express) {
               // does not exist on server. Uncomment line below once it's fixed.
               // return callback(error);
             }
-            callback(null, projectPath);
+            callback(null, project, projectPath);
           });
         },
 
+        // Add config.xml (Design Editor and Tizen Packaging require it).
+        (project, projectPath, callback) => {
+          const isMobileProfile = req.query.path.includes('mobile');
+          const isWerableProfile = req.query.path.includes('werable');
+          const componentMobile = path.join('mobile', 'UIComponents');
+          const componentWerable = path.join('werable', 'UIComponents');
+
+          util.createConfigXML(projectPath,
+            {
+              sthingsSupport: false
+            },
+            {
+              id: projectId.substring(0, 10),
+              name: project.name,
+              // cut {mobile|werable}/UIComponents from path since it was omitted in wget command, + 1 is for skipping leading path separator.
+              contentSrc: req.query.path.substring(isMobileProfile ? componentMobile.length + 1 : isWerableProfile ? componentWerable.length + 1 : 0),
+              profile: project.profile,
+              requiredVersion: project.version,
+            }, (error) => {
+              if (error) {
+                return callback(error);
+              }
+              callback(null, project, projectPath);
+            });
+        },
+
         // Create support folder.
-        (project, callback) => {
+        (project, projectPath, callback) => {
           const supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
           fse.ensureDir(supportPath, function (error) {
             if (error) {
               return callback(error);
             }
-            callback(null, project, supportPath);
+            callback(null, project, projectPath, supportPath);
           });
         },
 
         // Add state.json to support folder.
-        (project, supportPath, callback) => {
+        (project, projectPath, supportPath, callback) => {
           const state = require(path.join(process.cwd(), 'models', 'state.json'));
           state.projectId = projectId;
           state.projectName = project.name;
@@ -86,11 +112,11 @@ module.exports = function (express) {
           state.projectProfile = project.profile;
           state.projectVersion = project.version;
           state.projectExtension = "";
-          fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), () => callback(null, project, supportPath));
+          fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), () => callback(null, supportPath));
         },
 
         // Add brackets.json to support folder.
-        (project, supportPath, callback) => {
+        (supportPath, callback) => {
           const brackets = require(path.join(process.cwd(), 'models', 'brackets.json'));
           fs.writeFile(path.join(supportPath, 'brackets.json'), JSON.stringify(brackets), () => res.redirect('/brackets/' + projectId));
         }

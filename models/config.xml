@@ -3,7 +3,7 @@
     <tizen:application id="" package="" required_version=""/>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
-    <icon src="icon.png"/>
+    <icon src=""/>
     <name></name>
     <tizen:profile name=""/>
 </widget>

@@ -1,5 +1,8 @@
 var config = require('config');
 var debug = require('debug')('libs:util');
+var fs = require('fs');
+var xml2js = require('xml2js');
+var path = require('path');
 var User = require('../models/user');
 
 exports.isLoggedIn = function (req, res, next) {
@@ -57,4 +60,45 @@ function authenticateUser(req, res, next, user) {
     }
     next();
   });
-}
+};
+
+exports.createConfigXML = function(dstPath, configPreferences, configContent, callback) {
+  const configName = configPreferences.sthingsSupport ? 'config_sthings.xml' : 'config.xml';
+  fs.readFile(path.join(process.cwd(), 'models', configName), function (error, config) {
+    if (error) {
+      return callback(error);
+    }
+
+    const parser = new xml2js.Parser();
+    parser.parseString(config, function (parseError, result) {
+      if (parseError) {
+        return callback(parseError);
+      }
+
+      const widget = result.widget;
+
+      widget.name[0] = configContent.name;
+      widget['tizen:application'][0]['$'].package = configContent.id;
+      widget['tizen:application'][0]['$'].id = [configContent.id, configContent.name].join('.');
+      widget['tizen:application'][0]['$']['required_version'] = configContent.requiredVersion;
+      widget['content'][0]['$'].src = configContent.contentSrc || 'index.html';
+      widget['icon'][0]['$'].src = configContent.iconSrc || '';
+      widget['$'].id = 'http://yourdomain/' + configContent.name;
+      widget['tizen:profile'][0]['$'].name = configContent.profile;
+      if (configPreferences.sthingsSupport) {
+        widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
+      }
+
+      const builderOption = {
+        xmldec: {
+          'version': '1.0',
+          'encoding': 'UTF-8'
+        }
+      };
+
+      const builder = new xml2js.Builder(builderOption);
+      const xml = builder.buildObject(result);
+      fs.writeFile(path.join(dstPath, 'config.xml'), xml, callback);
+    });
+  });
+};

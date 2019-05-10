@@ -4,7 +4,6 @@ var debug = require('debug')('routes:project');
 var fs = require('fs');
 var fse = require('fs-extra');
 var path = require('path');
-var xml2js = require('xml2js');
 
 var util = require('../libs/util');
 var Project = require('../models/project');
@@ -70,51 +69,23 @@ var addApplicationToProject = function (req, res) {
           return callback(null);
         }
 
-        var xmlFileName = 'config_sthings.xml';
-
-        // Create config xml
-        let xmlFilePath = path.join(process.cwd(), 'models', xmlFileName);
-
-        fs.readFile(xmlFilePath, function (error, config) {
-          if (error) {
-            return callback(error);
-          }
-
-          var parser = new xml2js.Parser();
-          parser.parseString(config, function (parseError, result) {
-            if (parseError) {
-              return callback(parseError);
+        util.createConfigXML(projectPath,
+          {
+            sthingsSupport: true
+          },
+          {
+            id: projectId.substring(0, 10),
+            name: data.name,
+            iconSrc: 'icon.png',
+            profile: profiles[0],
+            requiredVersion: data.requiredVersion
+          }, (error) => {
+            if (error) {
+              return callback(error);
             }
-
-            var widget = result.widget;
-            var appName = data.name;
-            var tizenPackage = projectId.substring(0, 10);
-
-            widget.name[0] = appName;
-            widget['tizen:application'][0]['$'].package = tizenPackage;
-            widget['tizen:application'][0]['$'].id = [tizenPackage, appName].join('.');
-            widget['tizen:application'][0]['$']['required_version'] = data.requiredVersion;
-            widget['$'].id = 'http://yourdomain/' + appName;
-            widget['tizen:profile'][0]['$'].name = profiles[0];
-
-            // The 'internet' privilege should be set in S-Things Project for connecting device
-            if (data.type.indexOf('sthings') !== -1) {
-              widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
-            }
-
-            var builderOption = {
-              xmldec: {
-                'version': '1.0',
-                'encoding': 'UTF-8'
-              }
-            };
-
-            var builder = new xml2js.Builder(builderOption);
-            var xml = builder.buildObject(result);
-            fs.writeFile(path.join(projectPath, 'config.xml'), xml, callback);
+           callback(null);
           });
-        });
-      }
+       }
     ], function (error) {
       if (error) {
         return res.status(400).send(error);
@@ -255,54 +226,21 @@ module.exports = function (express) {
         if (allow.indexOf(data.type) === -1) {
           return callback(null);
         }
-
-        var xmlFileName;
-        if (data.type.indexOf('sthings') !== -1) {
-          xmlFileName = 'config_sthings.xml';
-        } else {
-          xmlFileName = 'config.xml';
-        }
-
-        // Create config xml        
-        fs.readFile(path.join(process.cwd(), 'models', xmlFileName), function (error, config) {
-          if (error) {
-            return callback(error);
-          }
-
-          var parser = new xml2js.Parser();
-          parser.parseString(config, function (parseError, result) {
-            if (parseError) {
-              return callback(parseError);
-            }
-
-            var widget = result.widget;
-            var projectName = data.name;
-            var packageId = projectId.substring(0, 10);
-
-            widget.name[0] = projectName;
-            widget['tizen:application'][0]['$'].package = packageId;
-            widget['tizen:application'][0]['$'].id = [packageId, projectName].join('.');
-            widget['tizen:application'][0]['$']['required_version'] = data.version;
-            widget['$'].id = 'http://yourdomain/' + projectName;
-            widget['tizen:profile'][0]['$'].name = data.profile;
-
-            // The 'internet' privilege should be set in S-Things Project for connecting device
-            if (data.type.indexOf('sthings') !== -1) {
-              widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
-            }
-
-            var builderOption = {
-              xmldec: {
-                'version': '1.0',
-                'encoding': 'UTF-8'
-              }
-            };
-
-            var builder = new xml2js.Builder(builderOption);
-            var xml = builder.buildObject(result);
-            fs.writeFile(path.join(projectPath, 'config.xml'), xml, callback);
-          });
-        });
+        util.createConfigXML(projectPath,
+          {
+            sthingsSupport: data.type.indexOf('sthings') !== -1
+          },
+          {
+            id: projectId.substring(0, 10),
+            name: data.name,
+            iconSrc: "icon.png",
+            profile: data.profile,
+            requiredVersion: data.version
+          }, (error) => {
+            if (error)
+              return callback(error);
+            callback(null);
+           });
       },
       function (callback) {
         // Create project support folder
