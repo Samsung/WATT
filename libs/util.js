@@ -26,7 +26,7 @@ exports.isAuthenticated = function(req, res, next) {
 // This is needed to allow opening WATT samples without user authentication.
 exports.authenticateAsAnonymous = function(req, res, next) {
   // Find anonymous user.
-  const annonymousEmail = "annonymoususer@watt.com";
+  const annonymousEmail = 'annonymoususer@watt.com';
   User.findOne({ 'local.email' : annonymousEmail }, function(err, user) {
     if (err) {
       res.status(404).send('Can not find anonymous user: ' + JSON.stringify(err));
@@ -37,7 +37,7 @@ exports.authenticateAsAnonymous = function(req, res, next) {
     if (!user) {
       user = new User();
       user.local.email = annonymousEmail;
-      user.local.password = user.generateHash("pass");
+      user.local.password = user.generateHash('pass');
       user.save(function(err) {
         if (err) {
           res.status(404).send('Can not create anonymous user: ' + JSON.stringify(err));

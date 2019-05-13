@@ -63,7 +63,6 @@ var addApplicationToProject = function (req, res) {
       },
       function (callback) {
         // Check project type because we create config.xml for 'web' project
-
         var allow = ['sthings'];
         if (allow.indexOf(data.type) === -1) {
           return callback(null);
@@ -83,9 +82,9 @@ var addApplicationToProject = function (req, res) {
             if (error) {
               return callback(error);
             }
-           callback(null);
+            callback(null);
           });
-       }
+      }
     ], function (error) {
       if (error) {
         return res.status(400).send(error);
@@ -233,14 +232,15 @@ module.exports = function (express) {
           {
             id: projectId.substring(0, 10),
             name: data.name,
-            iconSrc: "icon.png",
+            iconSrc: 'icon.png',
             profile: data.profile,
             requiredVersion: data.version
           }, (error) => {
-            if (error)
+            if (error) {
               return callback(error);
+            }
             callback(null);
-           });
+          });
       },
       function (callback) {
         // Create project support folder
