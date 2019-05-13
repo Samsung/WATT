@@ -111,7 +111,7 @@ module.exports = function (express) {
           state.projectType = project.type;
           state.projectProfile = project.profile;
           state.projectVersion = project.version;
-          state.projectExtension = "";
+          state.projectExtension = '';
           fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), () => callback(null, supportPath));
         },
 
@@ -121,10 +121,10 @@ module.exports = function (express) {
           fs.writeFile(path.join(supportPath, 'brackets.json'), JSON.stringify(brackets), () => res.redirect('/brackets/' + projectId));
         }
       ], error => {
-          if (error) {
-            res.status(400).send('Can not open demo. ' + error);
-          }
-      })
+        if (error) {
+          res.status(400).send('Can not open demo. ' + error);
+        }
+      });
     }
   );
   return router;
