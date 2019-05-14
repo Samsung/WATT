@@ -1,4 +1,3 @@
 {
-    "DBHost": "mongodb://mongo_container:27017/watt",
-    "PORT": 3000
+    "DBHost": "mongodb://mongo_container:27017/watt"
 }
