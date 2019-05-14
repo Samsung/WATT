@@ -5,8 +5,10 @@ os: linux
 dist: xenial
 sudo: enabled
 install:
-- "./launch -d"
+# avoid default npm install
+- true
 script:
+- "./launch -d"
 - npm run lint-check
 - npm test
 
