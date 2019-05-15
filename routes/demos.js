@@ -22,7 +22,7 @@ module.exports = function (express) {
           newProject.type = 'web';
           newProject.user = req.user._id;
           newProject.created = new Date();
-          newProject.profile = req.query.path.includes('mobile') ? 'mobile' : 'werable';
+          newProject.profile = req.query.path.includes('mobile') ? 'mobile' : 'wearable';
           newProject.version = '2.4';
           newProject.save((error, project) => {
             if (error) {
@@ -54,7 +54,7 @@ module.exports = function (express) {
 
           const sampleUrl = new URL(samplePath, tauExamplesHost);
           // Define number of unnecessary directories to be omitted while downloading.
-          const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/mobile|werable\/UIComponents/g) ? 4 : 0;
+          const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/mobile|wearable\/UIComponents/g) ? 4 : 0;
           exec(`wget --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
             if (error) {
               console.log(error);
@@ -69,9 +69,9 @@ module.exports = function (express) {
         // Add config.xml (Design Editor and Tizen Packaging require it).
         (project, projectPath, callback) => {
           const isMobileProfile = req.query.path.includes('mobile');
-          const isWerableProfile = req.query.path.includes('werable');
+          const isWerableProfile = req.query.path.includes('wearable');
           const componentMobile = path.join('mobile', 'UIComponents');
-          const componentWerable = path.join('werable', 'UIComponents');
+          const componentWerable = path.join('wearable', 'UIComponents');
 
           util.createConfigXML(projectPath,
             {
@@ -80,7 +80,7 @@ module.exports = function (express) {
             {
               id: projectId.substring(0, 10),
               name: project.name,
-              // cut {mobile|werable}/UIComponents from path since it was omitted in wget command, + 1 is for skipping leading path separator.
+              // cut {mobile|wearable}/UIComponents from path since it was omitted in wget command, + 1 is for skipping leading path separator.
               contentSrc: req.query.path.substring(isMobileProfile ? componentMobile.length + 1 : isWerableProfile ? componentWerable.length + 1 : 0),
               profile: project.profile,
               requiredVersion: project.version,
