@@ -58,9 +58,7 @@ module.exports = function (express) {
           exec(`wget --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
             if (error) {
               console.log(error);
-              // FIXME: background-image's url from tau.css references file that
-              // does not exist on server. Uncomment line below once it's fixed.
-              // return callback(error);
+              return callback(`Could not download sample from ${sampleUrl}`);
             }
             callback(null, project, projectPath);
           });
