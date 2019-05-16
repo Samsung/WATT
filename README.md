@@ -145,7 +145,7 @@ mongo                                                                           
  * Images should be available at [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region==ap-northeast-2).
 
 ## Creating cluster
- * You can steeps below in order to use already existing watt cluster.
+ * You can omit steeps below in order to use already existing watt cluster.
  * [Install the Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html).
  * Create network infrastructure:
     * Define [VPC with Elastic IP](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-public-private-vpc.html).
@@ -158,11 +158,16 @@ ecs-cli up --force --keypair id_rsa --capability-iam --size 1 --instance-type t2
  * To find subnet id go to [Subnet dashboard](https://ap-northeast-2.console.aws.amazon.com/vpc/home?region=ap-northeast-2#subnets:sort=SubnetId) and copy public subnet id associated with newly created VPC.
 
 ## Deploying the compose file to a cluster
+ * You can omit steeps below in order to use already created task definition based on compose file.
  * Update docker-compose-aws.yml with new docker images repositories.
  * You can change default memory limits for each container in ecs-params.yml
  * [Deploy the Compose File to a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html#ECS_CLI_tutorial_compose_deploy), for example,
 ```bash
 ecs-cli compose --file docker-compose-aws.yml --verbose up --create-log-groups --cluster-config watt-cluster-config --region ap-northeast-2
+```
+ * [Stop current task](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/clusters/watt-cluster/tasks) If container can not be run due to the following error:
+```bash
+INFO[0003] Couldn't run containers                       reason="RESOURCE:MEMORY"
 ```
  * See watt-awslogs-group at [CloudWatch](https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#logs), you can also download them by
 ```bash
@@ -170,16 +175,19 @@ aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name wa
 ```
  * If you see 'Invalid command () was entered' please follow further steps
  * Due to no support for [interactive mode in compose](https://github.com/aws/amazon-ecs-cli/issues/706) there is a need to manually edit task definition
- * Go to Task [Definitions](https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/taskDefinitions) and chose your task.
- * Click "Create new revision"
+ * Go WATT Task [Definition](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/taskDefinitions/WATT).
+ * Click "Create new revision".
  * At the bottom, click on "Configure via JSON" button and replace *null* to *true* for the following properties in watt container:
 ```bash
 "interactive": true,
 "pseudoTerminal": true,
 ```
- * Run task (Actions -> Run Task) and change cluster to *watt-cluster*
- * Verify if WATT starts properly by inspecting the logs.
 
+## Running WATT in AWS instance
+ * [Stop current task](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/clusters/watt-cluster/tasks)
+ * Got to [WATT Task](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/taskDefinitions/WATT/status/ACTIVE) and chose *Run Task* from *Actions* menu.
+ * Change cluster to *watt-cluster*.
+ * Verify if WATT starts properly by inspecting the logs.
 
 ## License
 Refer [WATT License](https://github.com/Samsung/WATT/wiki/License)
