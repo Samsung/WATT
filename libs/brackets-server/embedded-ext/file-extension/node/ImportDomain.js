@@ -88,7 +88,8 @@
                 console.log(stdout);
                 console.log(stderr);
                 if (err) {
-                    return callback("Could not init in " + packagePath + ": " + err);
+                    console.log(`initPackage error: ${err}`);
+                    return callback(`could not init in ${packagePath}`);
                 } else {
                     return callback(null);
                 }
@@ -105,7 +106,8 @@
                 console.log(stderr);
 
                 if (err) {
-                    return callback("Could not install " + packageName + " from " + wpmAddress + ", error: " + err);
+                    console.log(`installPackage error: ${err}`);
+                    return callback(`could not install ${packageName} from ${wpmAddress}`);
                 }
 
                 // Get rid of node_modules folder.
@@ -120,11 +122,12 @@
 
         function publishPackage(packagePath, wpmAddress, callback) {
             const npmPublishCommand = "npm publish " + packagePath + " --registry " + wpmAddress;
-            exec(npmPublishCommand, (error, stdout, stderr) => {
+            exec(npmPublishCommand, (err, stdout, stderr) => {
                 console.log(stdout);
                 console.log(stderr);
-                if (error) {
-                    return callback(error.toString());
+                if (err) {
+                    console.log(`publishPackage error: ${err}`);
+                    return callback(`could not publish to ${wpmAddress}`);
                 } else {
                     return callback(null);
                 }
