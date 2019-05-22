@@ -98,7 +98,7 @@ var addApplicationToProject = function (req, res) {
 module.exports = function (express) {
   var router = express.Router();
 
-  router.get('/', util.isLoggedIn, function (req, res) {
+  router.get('/', util.forbidAnonymousUser, function (req, res) {
     var user = req.user;
 
     Project.find({'user': user._id}, function (err, projects) {
