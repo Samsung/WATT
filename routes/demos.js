@@ -53,14 +53,23 @@ module.exports = function (express) {
           }
 
           const sampleUrl = new URL(samplePath, tauExamplesHost);
-          // Define number of unnecessary directories to be omitted while downloading.
-          const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/mobile|wearable\/UIComponents/g) ? 4 : 0;
-          exec(`wget --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
+          // check if url is valid, spider option doesn't download anything
+          exec(`wget --spider ${sampleUrl}`, (error, stdout, stderr) => {
             if (error) {
               console.log(error);
               return callback(`Could not download sample from ${sampleUrl}`);
             }
-            callback(null, project, projectPath);
+            else {
+              // Define number of unnecessary directories to be omitted while downloading.
+              const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/mobile|wearable\/UIComponents/g) ? 4 : 0;
+              exec(`wget --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
+                if (error) {
+                  // we don't return here because there may be samples with not existing resources
+                  console.log(error);
+                }
+                callback(null, project, projectPath);
+              });
+            }
           });
         },
 
