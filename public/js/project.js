@@ -452,7 +452,7 @@ $('#delete-project').on('show.bs.modal', function(evt) {
 
   $('#delete-button').on('click', function() {
     $.ajax({
-      url: '/project/'+id,
+      url: '/project/' + id,
       type: 'delete'
     }).done(function() {
       $.get('/update').done(function(data) {
@@ -465,7 +465,9 @@ $('#delete-project').on('show.bs.modal', function(evt) {
         $('#delete-project').modal('hide');
       });
     }).fail(function(err) {
+      $('#delete-project').modal('hide');
       console.error(err);
+      window.alert(err.responseText);
     });
   });
 });
