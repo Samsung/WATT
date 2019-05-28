@@ -62,22 +62,26 @@ module.exports = function(express, server, wsServer) {
         res.sendFile(path.join(bracketsDist, url));
       } else {
         // Try to connect index.html if the basename of the url is project Id
-        Project.findOne({'_id': path.basename(url) }, (err, project) => {
+        const projectId = path.basename(url);
+        Project.findOne({'_id': projectId }, (err, project) => {
           if (project) {
-            // Save project to notify project updates
-            project.save();
+            util.isProjectCreatedByUser(projectId, req.user, function(createdByCurrentUser) {
+              if (!createdByCurrentUser) {
+                return res.sendStatus(403);
+              }
+              // Save project to notify project updates
+              project.save();
 
-            const projectId = path.basename(url);
+              const bracketsOpts = {
+                httpRoot: '/brackets/' + projectId,
+                projectsDir: path.join(process.cwd(), 'projects', projectId),
+                supportDir: path.join(process.cwd(), 'projects', 'support', projectId)
+              };
 
-            const bracketsOpts = {
-              httpRoot: '/brackets/' + projectId,
-              projectsDir: path.join(process.cwd(), 'projects', projectId),
-              supportDir: path.join(process.cwd(), 'projects', 'support', projectId)
-            };
+              brackets(server, wsServer, bracketsOpts);
 
-            brackets(server, wsServer, bracketsOpts);
-
-            res.sendFile(path.join(bracketsDist, 'index.html'));
+              res.sendFile(path.join(bracketsDist, 'index.html'));
+            });
           } else {
             debug(cntPath + ' is not found.');
             next();

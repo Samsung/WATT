@@ -4,6 +4,7 @@ var fs = require('fs');
 var xml2js = require('xml2js');
 var path = require('path');
 var User = require('../models/user');
+var Project = require('../models/project');
 
 exports.isLoggedIn = function (req, res, next) {
   // if user is authenticated in the session, carry on
@@ -61,6 +62,25 @@ exports.forbidAnonymousUser = function (req, res, next) {
     req.logout();
   }
   res.redirect('/');
+};
+
+exports.isProjectCreatedByUser = function (projectId, user, callback) {
+  Project.find({'_id': projectId}, function (err, projects) {
+    if (err) {
+      return callback(false);
+    }
+
+    if (projects.length === 0) {
+      return callback(false);
+    }
+
+    var project = projects[0];
+    if (project.user.toString() !== user._id.toString()) {
+      return callback(false);
+    }
+
+    return callback(true);
+  });
 };
 
 function authenticateUser(req, res, next, user) {

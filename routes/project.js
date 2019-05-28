@@ -436,28 +436,12 @@ module.exports = function (express) {
 
   router.delete('/:projectId', util.forbidAnonymousUser, function (req, res) {
     var projectId = req.params.projectId;
-    var user = req.user;
 
     async.waterfall([
       // Check if project was created by current user.
       function (callback) {
-        const errorMessage = 'Invalid project';
-        Project.find({'_id': projectId}, function (err, projects) {
-          if (err) {
-            console.error(JSON.stringify(err));
-            return callback(errorMessage);
-          }
-
-          if (projects.length === 0) {
-            return callback(errorMessage);
-          }
-
-          var project = projects[0];
-          if (project.user.toString() !== user._id.toString()) {
-            return callback(errorMessage);
-          }
-
-          callback(null);
+        util.isProjectCreatedByUser(projectId, req.user, function(createdByCurrentUser) {
+          callback(createdByCurrentUser ? null : 'Invalid project');
         });
       },
       function (callback) {
