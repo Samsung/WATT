@@ -7,10 +7,105 @@ const fse = require('fs-extra');
 const config = require('config');
 const util = require('../libs/util');
 
+let projectsDeletionInProgress = false;
+
+function canCreateAnonymousProject(req, res, next) {
+  const anonymousProjectsLimit = config.get('AnonymousProjectsLimit');
+  Project.find({'user': req.user._id}, function (err, anonymousProjects) {
+    if (err) {
+      return res.status(400).send(err);
+    }
+
+    if (anonymousProjects.length >= anonymousProjectsLimit) {
+      tryDeleteOutDatedProjects(anonymousProjects, function(didDelete) {
+        if (didDelete) {
+          next();
+        } else {
+          return res.status(400).send('No possible to create more demos. Please try again later.');
+        }
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+function tryDeleteOutDatedProjects(projects, completionCallback) {
+  let numberDeletedPojects = 0;
+  if (projectsDeletionInProgress) {
+    console.log('Anonymous projects are being deleted ...');
+    return completionCallback(numberDeletedPojects);
+  }
+
+  function isProjectOutDated(project) {
+    const deprecationAge = config.get('AnonymousProjectsDeprecationAgeInMinutes');
+    const projectCreatedDatePlusDeprecationAge = new Date(project.created);
+    projectCreatedDatePlusDeprecationAge.setMinutes(projectCreatedDatePlusDeprecationAge.getMinutes() + deprecationAge);
+    return projectCreatedDatePlusDeprecationAge <= Date.now();
+  }
+
+  const outDatedProjects = projects.filter(isProjectOutDated);
+  if (outDatedProjects.length === 0) {
+    return completionCallback(numberDeletedPojects);
+  }
+
+  projectsDeletionInProgress = true;
+  let numberHandledPojects = 0;
+
+  outDatedProjects.forEach(function(project) {
+    async.waterfall([
+      function (callback) {
+        // Remove the project using projectId
+        Project.remove({'_id': project._id}, function (error) {
+          if (error) {
+            return callback(error);
+          }
+          callback(null);
+        });
+      },
+      function (callback) {
+        // Remove the project folder
+        var projectPath = path.join(process.cwd(), 'projects', project._id.toString());
+        fse.remove(projectPath, function (err) {
+          if (err) {
+            return callback(err);
+          }
+          callback(null);
+        });
+      },
+      function (callback) {
+        // Remove the project support folder
+        var supportPath = path.join(process.cwd(), 'projects', 'support', project._id.toString());
+        fse.remove(supportPath, function (err) {
+          if (err) {
+            return callback(err);
+          }
+          callback(null);
+        });
+      }
+    ], function (error) {
+      numberHandledPojects++;
+      if (error) {
+        console.error(error);
+      } else {
+        // We treat project as deleted if it's successfully removed from db and
+        // project folder and its support folder are removed as well.
+        numberDeletedPojects++;
+      }
+      if (numberHandledPojects === outDatedProjects.length) {
+        projectsDeletionInProgress = false;
+        console.log('Finished deleting anonymous projects');
+        return completionCallback(numberDeletedPojects);
+      }
+    });
+  });
+};
+
 module.exports = function (express) {
   var router = express.Router();
   router.get('/*',
     util.authenticateAsAnonymous,
+    canCreateAnonymousProject,
     (req, res) => {
       let projectId;
       async.waterfall([
