@@ -18,6 +18,11 @@ define(function (require, exports, module) {
         PreferencesManager  = brackets.getModule("preferences/PreferencesManager"),
         WorkspaceManager    = brackets.getModule("view/WorkspaceManager");
 
+    // Do not add live preview icon for remote samples.
+    if (PreferencesManager.getViewState("projectType") === "demo") {
+        return;
+    }
+
     // Templates
     var panelHTML       = require("text!templates/panel.html");
 
