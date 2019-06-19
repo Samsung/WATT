@@ -92,6 +92,9 @@ usermod: user 'foo' does not exist
 ```bash
 ./docker-run.sh
 ```
+
+* This pulls and builds necessary images if they do not exists on local machine. Otherwise, docker tries to use existing images even if they are out of dated. Add '--rebuild' paramter in order to create new image.
+
 * Ensure 3000 port to be free. You should see logs on terminal:
 ```bash
 watt_container_1   | Listening on port 3000
@@ -128,7 +131,7 @@ docker container exec -i 12cf98736487 bash
 ## Pushing docker images to AWS repositories
  * Make sure your .git folder is not huge since its size significantly increases docker image.
 ```bash
-./docker-run.sh
+./docker-run.sh --rebuild
 ```
  * List docker images:
 ```bash

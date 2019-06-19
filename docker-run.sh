@@ -13,10 +13,9 @@ if [ "$CONT" = "y" ]; then
   if [ "$1" = "--rebuild" ]; then
     echo "Rebuilding ..."
     docker-compose down
-    docker-compose build
+    docker-compose build --no-cache
     if [ $? -ne 0 ]; then
         echo "Could not rebuild images"
-        echo "Try to add --no-cache option to docker-compose build"
         exit 1
     fi
   fi
