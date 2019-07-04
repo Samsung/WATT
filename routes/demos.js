@@ -156,7 +156,7 @@ module.exports = function (express) {
             }
             else {
               // Define number of unnecessary directories to be omitted while downloading.
-              const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/mobile|wearable\/UIComponents/g) ? 4 : 0;
+              const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/+.+\/examples\/mobile|wearable\/UIComponents/g) ? 6 : 0;
               exec(`wget --recursive --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
                 if (error) {
                   // we don't return here because there may be samples with not existing resources
@@ -172,8 +172,8 @@ module.exports = function (express) {
         (project, projectPath, callback) => {
           const isMobileProfile = req.query.path.includes('mobile');
           const isWerableProfile = req.query.path.includes('wearable');
-          const componentMobile = path.join('mobile', 'UIComponents');
-          const componentWerable = path.join('wearable', 'UIComponents');
+          const componentMobile = path.join('+.+', 'examples', 'mobile', 'UIComponents');
+          const componentWerable = path.join('+.+', 'examples', 'wearable', 'UIComponents');
 
           util.createConfigXML(projectPath,
             {

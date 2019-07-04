@@ -77,7 +77,7 @@ describe('test demos.js', () => {
   describe('test successfull demo download', () => {
     it('should succeed', (done) => {
       chai.request(server)
-        .get('/demos?path=wearable%2FUIComponents%2Fcontents%2Fcontrols%2Fnumberpicker%2Findex.html')
+        .get('/demos?path=1.0%2Fexamples%2Fwearable%2FUIComponents%2Fcontents%2Fcontrols%2Fnumberpicker%2Findex.html')
         .end((error,res) => {
           res.status.should.equal(200);
           done();
