@@ -80,7 +80,11 @@ app.use('/components/jquery', express.static(path.join(__dirname, 'node_modules'
 app.use('/components/magnific-popup', express.static(path.join(__dirname, 'node_modules', 'magnific-popup', 'dist')));
 app.use('/components/scrollreveal', express.static(path.join(__dirname, 'node_modules', 'scrollreveal', 'dist')));
 
-app.use('/', require('./routes/index')(express, passport));
+// For docker envrionment we disable user login feature
+if (config.util.getEnv('NODE_ENV') !== 'docker') {
+  app.use('/', require('./routes/index')(express, passport));
+}
+
 app.use('/import', require('./routes/import')(express));
 app.use('/export', require('./routes/export')(express));
 app.use('/project', require('./routes/project')(express));
