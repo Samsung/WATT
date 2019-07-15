@@ -8,7 +8,7 @@ install:
 # avoid default npm install
 - true
 script:
-- "./launch -d"
+- "./launch -d -n update"
 - npm run lint-check
 - npm test
 
