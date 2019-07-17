@@ -130,22 +130,13 @@ docker container exec -i 12cf98736487 bash
 
 ## Pushing docker images to AWS repositories
  * Make sure your .git folder is not huge since its size significantly increases docker image.
-```bash
-./docker-run.sh --rebuild
-```
- * List docker images:
-```bash
-docker images
-```
- * Sample output:
-```bash
-watt_watt_container                                                               latest              fa2fc69d89a1        5 days ago          3.36GB
-mongo                                                                             3.4.19              056cb4b05c15        5 weeks ago         376MB
-```
  * [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html)
- * Push watt and mongo images to [aws repositories](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr) to desired region. To push the image to [Asia Pacific Seoul](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) you can pass --region ap-northeast-2 while creating repository..
- * If you need to update WATT image only, just tag your local watt image with Uri from [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region=ap-northeast-2) and push the image.
- * Images should be available at [repositories](https://us-east-2.console.aws.amazon.com/ecr/repositories?region==ap-northeast-2).
+ * Build and push watt docker image to AWS repositories
+```bash
+./docker-watt-image-push.sh AWS_ACCOUNT_ID
+```
+ * If you need additional steeps, for example, updating mongod image or create new repository just follow [this guide.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr)
+ * Images should be available at [repositories](https://ap-northeast-2.console.aws.amazon.com/ecr/repositories?region=ap-northeast-2#).
 
 ## Creating cluster
  * You can omit steeps below in order to use already existing watt cluster.
