@@ -72,15 +72,6 @@
     "category": "IoT"
   },
   {
-    "name": "Iot Device Selector",
-    "description": "Shows devices list using selector widget.",
-    "src": "TAUIoTDeviceSelector",
-    "icon": "icon.png",
-    "type": "web",
-    "profile": "wearable",
-    "category": "IoT"
-  },
-  {
     "name": "Hello World",
     "description": "Print 'Hello World' using compiled 'Hello World' WASM module",
     "src": "HelloWorld",
