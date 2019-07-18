@@ -63,39 +63,12 @@
     "category": "WASM"
   },
   {
-    "name": "TAU Base Application",
-    "description": "Base application for TAU extensions.",
-    "src": "TAUBaseApplication",
-    "icon": "icon.png",
-    "type": "web",
-    "profile": "mobile,tv",
-    "category": "General"
-  },
-  {
-    "name": "TAU Checkbox Application",
-    "description": "TAU Checkbox Application.",
-    "src": "TAUCheckboxApplication",
-    "icon": "icon.png",
-    "type": "web",
-    "profile": "mobile,tv",
-    "category": "General"
-  },
-  {
     "name": "SmartThings IoT Application",
     "description": "IoT application for SmartThings",
     "src": "TAUIoTApplication",
     "icon": "icon.png",
     "type": "web",
     "profile": "mobile,tv",
-    "category": "IoT"
-  },
-  {
-    "name": "TAU Base",
-    "description": "Base application for TAU MDF extensions.",
-    "src": "TAU-BaseWearable",
-    "icon": "icon.png",
-    "type": "web",
-    "profile": "wearable",
     "category": "IoT"
   },
   {
@@ -165,14 +138,6 @@
     "icon": "icon.png",
     "type": "web",
     "category": "WASM"
-  },
-  {
-    "name": "TAU UI Components demo",
-    "description": "TAU UI Components demo",
-    "src": "UIComponents",
-    "icon": "icon.png",
-    "type": "web",
-    "category": "General"
   },
   {
     "name": "Net Hello",
