@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, user-scalable=no" name="viewport" />
+	<link href="../../lib/tau/mobile/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../css/style.css" rel="stylesheet" />
+	<script data-build-remove="false" src="../../lib/tau/mobile/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" id="list-drag-page">
+		<div class="ui-header" data-position="fixed">
+			<h1>
+				Reorder List
+			</h1>
+			<a class="ui-header-btn ui-header-btn-text ui-header-btn-right" id="drag">
+				DRAG
+			</a>
+		</div>
+		<div class="ui-content">
+			<ul class="ui-listview ui-colored-list" id="drag-list">
+				<li class="ui-li-flex">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+							<span class="ui-li-text-sub-2">
+								Sub Text 2
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+							<span class="ui-li-text-sub-2">
+								Sub Text 2
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							<span>
+								Secondary text
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							<span>
+								Secondary text
+							</span>
+							<span class="ui-li-text-sub-3">
+								Sub Text 3
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary long text, long text, long text, long text, long text
+							</span>
+							<span class="ui-li-text-sub-2">
+								Sub Text 2
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							<span>
+								Secondary long text, long text, long text, long text, long text
+							</span>
+							<span class="ui-li-text-sub-3">
+								Sub Text 3
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines ui-li-flex-reverse">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+							<span class="ui-li-text-sub-2">
+								Sub Text 2
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							<span>
+								Secondary text
+							</span>
+							<span class="ui-li-text-sub-3">
+								Sub Text 3
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							Primary text
+						</span>
+						<span alt="icon-search" class="ui-li-icon app-icon-favorite">
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text, long text, long text, long text, long text, long text, long text
+							</span>
+							<span alt="icon-search" class="ui-li-icon app-icon-favorite">
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							Primary text
+						</span>
+						<span class="ui-li-icon ui-li-icon-left app-icon-favorite">
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+							<span class="ui-li-icon app-icon-favorite">
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							<span>
+								Secondary text
+							</span>
+							<span class="ui-li-text-sub-3">
+								Sub Text 3
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+							<span class="ui-li-icon app-icon-favorite">
+							</span>
+							<span class="ui-li-icon ui-li-icon-left app-icon-favorite">
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							<span>
+								Secondary text
+							</span>
+							<span class="ui-li-text-sub-3">
+								Sub Text 3
+							</span>
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							Multi primary text
+						</span>
+						<span class="ui-li-text">
+							Multi primary text
+						</span>
+						<span class="ui-li-text">
+							Multi primary text
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+					</span>
+				</li>
+				<li class="ui-li-flex ui-li-multilines">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+						</span>
+						<span class="ui-li-text-2">
+							Secondary text
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+						<span class="ui-li-text-sub">
+							Multi sublines
+						</span>
+					</span>
+				</li>
+				<!-- checkbox -->
+				<li class="ui-li-flex">
+					<span class="ui-li-area ui-li-area-a">
+						<span class="ui-li-text">
+							<span>
+								Primary text
+							</span>
+						</span>
+					</span>
+					<input class="ui-li-area-b" name="c1line-check2" type="checkbox" />
+				</li>
+			</ul>
+		</div>
+		<script src="reorder.js" type="text/javascript">
+		</script>
+	</div>
+</body>
+
+</html>

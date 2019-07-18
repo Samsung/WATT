@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<title>Wearable UI</title>
+	<link rel="stylesheet" href="../../../lib/tau/wearable/theme/default/tau.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)"
+		  href="../../../lib/tau/wearable/theme/default/tau.circle.css">
+	<link rel="stylesheet" href="../../../css/style.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)"
+		  href="../../../css/style.circle.css">
+</head>
+<body>
+	<div class="ui-page" id="dimmer-page">
+		<div class="ui-content dimmer-content">
+			<div class="ui-dimmer" id="dimmer"></div>
+			<input id="slider" type="range" value="50" min="0" max="100">
+		</div>
+		<script src="dimmer.js"></script>
+	</div>
+</body>
+<script src="../../../lib/tau/wearable/js/tau.js"></script>
+</html>

@@ -1,0 +1,11 @@
+.ui-content section {
+	overflow: hidden;
+	overflow-y: auto;
+	text-align: center;
+}
+
+.ui-content section h3 {
+	margin-top: 140px;
+}
+
+

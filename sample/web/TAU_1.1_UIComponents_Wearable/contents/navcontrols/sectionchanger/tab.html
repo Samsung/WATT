@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable Extra UI - Section changer
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" data-enable-page-scroll="false" id="tabsectionchangerPage">
+		<link href="css/sectionchanger.css" rel="stylesheet" />
+		<header class="ui-header">
+			<h2 class="ui-title">
+				Tab
+			</h2>
+		</header>
+		<div class="ui-content" id="tabsectionchanger">
+			<!-- section changer has only one child. -->
+			<div>
+				<section style="text-align:center">
+					<h3>
+						LEFT2 PAGE
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						LEFT1 PAGE
+					</h3>
+				</section>
+				<section class="ui-section-active" style="text-align:center">
+					<h3>
+						MAIN PAGE
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						RIGHT1 PAGE
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						RIGHT2 PAGE
+					</h3>
+				</section>
+			</div>
+		</div>
+		<script src="tab.js">
+		</script>
+	</div>
+</body>
+
+</html>

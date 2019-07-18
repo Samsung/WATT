@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, user-scalable=no" name="viewport" />
+	<link href="../../lib/tau/mobile/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../css/style.css" rel="stylesheet" />
+	<script data-build-remove="false" src="../../lib/tau/mobile/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" data-role="page" id="ctxpopup-demo-page">
+		<div class="ui-header" data-position="fixed">
+			<h1>
+				Contextual Popup
+			</h1>
+		</div>
+		<div class="ui-content">
+			<ul class="ui-listview ui-colored-list">
+				<li class="ui-group-index">
+					Horizontal Style
+				</li>
+				<li class="ui-li-anchor">
+					<a data-inline="true" data-rel="popup" href="#ctxpopup_horizontal_basic">
+						Horizontal Basic
+					</a>
+				</li>
+				<li class="ui-li-anchor">
+					<a data-inline="true" data-rel="popup" href="#ctxpopup_horizontal_scroll">
+						Horizontal Scroll
+					</a>
+				</li>
+				<li class="ui-li-anchor">
+					<a data-inline="true" data-rel="popup" href="#ctxpopup_horizontal_icons">
+						Horizontal Icons
+					</a>
+				</li>
+				<li class="ui-li-anchor">
+					<a data-inline="true" data-rel="popup" href="#ctxpopup_horizontal_iconstext">
+						Horizontal Icons + Text
+					</a>
+				</li>
+				<li class="ui-group-index">
+					Vertical Style
+				</li>
+				<li class="ui-li-anchor">
+					<a data-inline="true" data-rel="popup" href="#ctxpopup_vertical_basic">
+						Vertical Basic
+					</a>
+				</li>
+				<li class="ui-li-anchor">
+					<a data-inline="true" data-rel="popup" href="#ctxpopup_vertical_icons">
+						Vertical with Icons
+					</a>
+				</li>
+			</ul>
+			<div class="ui-popup ui-ctxpopup-basic" data-overlay="false" id="ctxpopup_horizontal_basic">
+				<ul class="ui-listview">
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Copy
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Cut
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Paste
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-popup ui-ctxpopup-basic" data-overlay="false" id="ctxpopup_horizontal_scroll">
+				<ul class="ui-listview">
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Copy
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Cut
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Paste
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Clipboard
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Refresh
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Close
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-popup ui-ctxpopup-icons" data-overlay="false" id="ctxpopup_horizontal_icons">
+				<ul class="ui-listview">
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-copy">
+							</span>
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-cut">
+							</span>
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-paste">
+							</span>
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-close">
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-popup ui-ctxpopup-icons-text" data-overlay="false" id="ctxpopup_horizontal_iconstext">
+				<ul class="ui-listview">
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-copy">
+							</span>
+							Copy
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-cut">
+							</span>
+							Cut
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-paste">
+							</span>
+							Paste
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-clipboard">
+							</span>
+							Clipboard
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-close">
+							</span>
+							Close
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-popup ui-ctxpopup-vertical" data-overlay="false" id="ctxpopup_vertical_basic">
+				<ul class="ui-listview">
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Copy
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Cut
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Paste
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							Clipboard
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-popup ui-ctxpopup-vertical" data-overlay="false" id="ctxpopup_vertical_icons">
+				<ul class="ui-listview">
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-copy">
+							</span>
+							Copy
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-cut">
+							</span>
+							Cut
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-paste">
+							</span>
+							Paste
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-clipboard">
+							</span>
+							Clipboard
+						</a>
+					</li>
+					<li class="ui-li-anchor">
+						<a data-rel="back" href="#">
+							<span class="ui-icon ui-icon-close">
+							</span>
+							Close
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

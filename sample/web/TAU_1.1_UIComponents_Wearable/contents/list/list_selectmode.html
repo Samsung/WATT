@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable UI
+	</title>
+	<link href="../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../css/style.css" rel="stylesheet" />
+	<link href="../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../js/circle-helper.js">
+	</script>
+	<script src="../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" id="selectModePage">
+		<header class="ui-header">
+			<h2 class="ui-title">
+				Select Mode
+			</h2>
+		</header>
+		<div class="ui-content">
+			<div class="ui-more">
+				handler
+			</div>
+			<ul class="ui-listview ui-selectmode-list">
+				<li class="ui-selectmode-item">
+					List one
+				</li>
+				<li class="ui-selectmode-item">
+					List two
+				</li>
+				<li class="ui-selectmode-item">
+					List three
+				</li>
+				<li class="ui-selectmode-item">
+					List four
+				</li>
+				<li class="ui-selectmode-item">
+					List five
+				</li>
+				<li class="ui-selectmode-item">
+					List six
+				</li>
+			</ul>
+		</div>
+		<div class="select-mode">
+			<!-- select button -->
+			<div class="select-btn" id="select-btn">
+				<a class="select-btn-text" id="select-btn-text">
+				</a>
+			</div>
+			<!-- select option popup -->
+			<div class="select-popup">
+				<ul class="ui-listview select-mode-btn-list">
+					<li>
+						<a href="#" id="select-all">
+							Select all
+						</a>
+					</li>
+					<li>
+						<a href="#" id="deselect-all">
+							Deselect all
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Circle Profile -->
+		<div class="ui-popup" id="moreoptionsPopupCircle">
+			<div class="ui-selector" id="selector">
+				<div class="ui-item show-icon" data-title="Show">
+				</div>
+				<div class="ui-item human-icon" data-title="Human">
+				</div>
+				<div class="ui-item delete-icon" data-title="Delete">
+				</div>
+				<div class="ui-item show-icon" data-title="Show">
+				</div>
+				<div class="ui-item human-icon" data-title="Human">
+				</div>
+				<div class="ui-item delete-icon" data-title="Delete">
+				</div>
+			</div>
+		</div>
+		<script src="list_selectmode.js">
+		</script>
+	</div>
+</body>
+
+</html>

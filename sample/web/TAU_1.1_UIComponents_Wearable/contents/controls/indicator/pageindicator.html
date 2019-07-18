@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable Extra UI - Section changer
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" data-enable-page-scroll="false" id="pageIndicatorPage">
+		<link href="pageindicator.css" rel="stylesheet" />
+		<div class="ui-page-indicator" id="pageIndicator">
+		</div>
+		<div class="ui-content" id="hsectionchanger">
+			<!-- section changer has only one child. -->
+			<div>
+				<section class="ui-section-active" style="text-align:center">
+					<h3>
+						Page1 of 5
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						Page2 of 5
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						Page3 of 5
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						Page4 of 5
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						Page5 of 5
+					</h3>
+				</section>
+			</div>
+		</div>
+		<script src="pageindicator.js">
+		</script>
+	</div>
+</body>
+
+</html>

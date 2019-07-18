@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		UI Components
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page circle-progress-page" data-enable-page-scroll="false">
+		<header>
+			<h2 class="ui-title">
+				Progress
+			</h2>
+		</header>
+		<div class="ui-content ui-content-padding">
+			<div class="result">
+			</div>
+			<progress class="ui-circle-progress" data-size="medium" max="100" value="20">
+			</progress>
+		</div>
+		<footer class="ui-grid-col-2">
+			<a class="ui-btn minus" href="#">
+				-10%
+			</a>
+			<a class="ui-btn plus" href="#">
+				+10%
+			</a>
+		</footer>
+		<script src="progress.js">
+		</script>
+	</div>
+</body>
+
+</html>

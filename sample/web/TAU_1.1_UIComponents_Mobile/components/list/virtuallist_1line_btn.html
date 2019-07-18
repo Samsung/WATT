@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, user-scalable=no" name="viewport" />
+	<link href="../../lib/tau/mobile/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../css/style.css" rel="stylesheet" />
+	<script data-build-remove="false" src="../../lib/tau/mobile/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page virtuallist_demo_page" id="virtuallist-normal_1line-btn1">
+		<div class="ui-header" data-position="fixed">
+			<h1>
+				Virtual list - Normal 1line-btn1
+			</h1>
+		</div>
+		<div class="ui-content">
+			<ul id="virtuallist-normal_1line-btn1_ul">
+			</ul>
+		</div>
+		<!-- sample list for virtual list -->
+		<script id="tmp-1line-btn1" type="text">
+			<span class="ui-li-text-main">${NAME}</span>
+		<div class="ui-btn" data-inline="true">${ACTIVE}</div>
+   </script>
+		<script>
+			window.pageId = "virtuallist-normal_1line-btn1";
+			window.listId = "virtuallist-normal_1line-btn1_ul";
+			window.templateId = "tmp-1line-btn1";
+			window.itemClass = ["ui-li-static", "li-has-right-btn"];
+		</script>
+		<script src="virtuallist-db-demo.js">
+		</script>
+		<script src="virtuallist.js">
+		</script>
+		<link href="virtuallist.css" rel="stylesheet" />
+	</div>
+</body>
+
+</html>

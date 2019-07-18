@@ -1,0 +1,41 @@
+#virtuallist-normal_1line_ul li .ui-li-text-main {
+    max-width:95%;
+    display:inline-block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#virtuallist-normal_1line-btn1_ul li .ui-li-text-main {
+    max-width:60%;
+    display:inline-block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#virtuallist-normal_1line-bigicon5_ul li .ui-li-text-main {
+    max-width:75%;
+    display:inline-block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#virtuallist-normal_2line-star1_ul > li .ui-li-text-main {
+    max-width:95%;
+    display:inline-block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#virtuallist-normal_2line-star1_ul > li .ui-li-text-sub2 {
+    max-width:60%;
+    width: auto;
+    top: 49px;
+}
+#virtuallist-normal_2line-star1_ul > li .ui-li-icon-sub {
+    vertical-align: middle;
+}
