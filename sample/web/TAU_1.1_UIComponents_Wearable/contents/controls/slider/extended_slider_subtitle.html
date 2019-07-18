@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable UI
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" id="pageSlider">
+		<div class="ui-content ui-content-padding">
+			<input class="ui-slider" data-buttons="true" id="slider" max="10" name="circleSlider" type="range" />
+			<div class="ui-slider-icon" id="slider-icon" style="opacity: 0.5">
+			</div>
+			<div class="ui-slider-title">
+				Slider name
+			</div>
+			<div class="ui-slider-subtitle">
+				Description
+			</div>
+		</div>
+		<script src="extended_slider.js">
+		</script>
+	</div>
+</body>
+
+</html>

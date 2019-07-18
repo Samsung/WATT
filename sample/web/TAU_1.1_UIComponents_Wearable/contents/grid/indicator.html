@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<!--
+	Template contains one page with Gallery widget.
+	The Gallery widget has three modes:
+	 - gallery
+	 - view
+	 - thumbnail
+	The Gallery widget has public methods:
+	 - add(url, index)
+	 - remove(index)
+	 - mode(type)
+	 - changeIndex(index)
+	 - getIndex()
+-->
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Tizen Web IDE - Template - Tizen Web UI Framework - Image Gallery
+	</title>
+	<link href="../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../css/style.css" rel="stylesheet" />
+	<link href="../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../js/circle-helper.js">
+	</script>
+	<script src="../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<!-- Start of first page: #one -->
+	<div class="ui-page" data-enable-page-scroll="false" id="grid-page-indicator">
+		<div class="ui-content">
+			<ul class="ui-grid" id="grid-grid-indicator">
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_01.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_02.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="img" src="images/default/gallery_default_image_03.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_04.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_05.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_06.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_07.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_08.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_09.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_10.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_11.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_12.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_13.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_14.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_01.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_02.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_03.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_04.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_05.jpg" />
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="images/default/gallery_default_image_06.jpg" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="ui-page-indicator" id="grid-indicator" style="visibility: hidden">
+		</div>
+		<script src="./indicator.js">
+		</script>
+	</div>
+	<!-- /page one -->
+</body>
+
+</html>

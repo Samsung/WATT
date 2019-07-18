@@ -185,5 +185,41 @@
     "icon": "icon.png",
     "type": "sthings",
     "category": "General"
+  },
+  {
+    "name": "TAU Base",
+    "description": "Base application with TAU 1.1",
+    "src": "TAU_1.1_Base_Mobile",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "mobile,tv",
+    "category": "General"
+  },
+  {
+    "name": "TAU UI Components",
+    "description": "Application demonstrating how to use UI Components with TAU 1.1",
+    "src": "TAU_1.1_UIComponents_Mobile",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "mobile,tv",
+    "category": "General"
+  },
+  {
+    "name": "TAU Base",
+    "description": "Base application with TAU 1.1",
+    "src": "TAU_1.1_Base_Wearable",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "wearable",
+    "category": "General"
+  },
+  {
+    "name": "TAU UI Components",
+    "description": "Application demonstrating how to use UI Components with TAU 1.1",
+    "src": "TAU_1.1_UIComponents_Wearable",
+    "icon": "icon.png",
+    "type": "web",
+    "profile": "wearable",
+    "category": "General"
   }
 ]

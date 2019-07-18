@@ -1,0 +1,9 @@
+.ui-content section {
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.ui-content section h3 {
+	position: relative;
+	top: 100px;
+}

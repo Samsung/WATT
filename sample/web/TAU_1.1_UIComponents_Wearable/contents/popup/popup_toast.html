@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable UI
+	</title>
+	<link href="../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../css/style.css" rel="stylesheet" />
+	<link href="../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../js/circle-helper.js">
+	</script>
+	<script src="../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page">
+		<header>
+			<h2 class="ui-title">
+				Toast Popup
+			</h2>
+		</header>
+		<div class="ui-content">
+			<ul class="ui-listview">
+				<li class="ui-listview-divider">
+					Normal
+				</li>
+				<li>
+					<a data-rel="popup" href="#popup-toast">
+						Text
+					</a>
+				</li>
+				<li>
+					<a data-rel="popup" href="#graphic-popup-toast">
+						Graphic with Text
+					</a>
+				</li>
+				<li class="ui-listview-divider">
+					Small
+				</li>
+				<li>
+					<a data-rel="popup" href="#small-popup-toast">
+						Text
+					</a>
+				</li>
+				<li>
+					<a data-rel="popup" href="#small-graphic-popup-toast">
+						Graphic
+					</a>
+				</li>
+				<li>
+					<a data-rel="popup" href="#small-graphic-text-popup-toast">
+						Graphic with Text
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="ui-popup ui-popup-toast toast-text-only" id="popup-toast">
+			<div class="ui-popup-content">
+				Your mobile
+				<br />
+				network is not available
+			</div>
+		</div>
+		<div class="ui-popup ui-popup-toast ui-popup-toast-graphic" id="graphic-popup-toast">
+			<div class="ui-popup-content">
+				<div class="ui-popup-toast-icon ui-popup-toast-check-icon">
+				</div>
+				Toast popup
+			</div>
+		</div>
+		<div class="ui-popup ui-toast-popup ui-popup-toast-small" id="small-popup-toast">
+			<div class="ui-popup-content">
+				Network is not available
+			</div>
+		</div>
+		<div class="ui-popup ui-toast-popup ui-popup-toast-small ui-popup-toast-graphic-only" id="small-graphic-popup-toast">
+			<div class="ui-popup-content">
+				<div class="ui-popup-toast-icon ui-popup-toast-check-icon">
+				</div>
+			</div>
+		</div>
+		<div class="ui-popup ui-toast-popup ui-popup-toast-small ui-popup-toast-graphic" id="small-graphic-text-popup-toast">
+			<div class="ui-popup-content">
+				<div class="ui-popup-toast-icon ui-popup-toast-check-icon">
+				</div>
+				Toast popup
+			</div>
+		</div>
+	</div>
+	<script src="../../js/app.js">
+	</script>
+	<script src="../../js/lowBatteryCheck.js">
+	</script>
+</body>
+
+</html>

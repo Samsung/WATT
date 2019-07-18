@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Multiple Buttons
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" id="bottomButtonWithMorePage">
+		<header>
+			<h2 class="ui-title">
+				Multiple Buttons
+			</h2>
+		</header>
+		<div class="ui-content ui-content-padding">
+			This is example of multiple buttons.
+		</div>
+		<!-- Circle Profile -->
+		<a class="ui-more" data-rel="popup" href="#moreButtonPopup">
+		</a>
+		<div class="ui-popup" id="moreButtonPopup">
+			<div class="ui-selector" id="selector">
+				<div class="ui-item show-icon" data-title="2">
+				</div>
+				<div class="ui-item human-icon" data-title="3">
+				</div>
+			</div>
+		</div>
+		<footer class="ui-footer ui-grid-col-3 ui-bottom-button">
+			<a class="ui-btn" href="#">
+				1
+			</a>
+			<a class="ui-btn" href="#">
+				2
+			</a>
+			<a class="ui-btn" href="#">
+				3
+			</a>
+		</footer>
+		<script src="multiplebutton.js">
+		</script>
+	</div>
+	<script src="../../../js/app.js">
+	</script>
+	<script src="../../../js/lowBatteryCheck.js">
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable UI
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" data-enable-page-scroll="false" id="accelerated-number-picker-page">
+		<header class="ui-header ui-header-big">
+			<h2 class="ui-title">
+				Title
+			</h2>
+		</header>
+		<div class="ui-content">
+			<label>
+				unit
+				<input data-accelerated="100" id="accelerated-number-picker" max="3000" min="0" step="1" type="number" value="500" />
+			</label>
+		</div>
+		<script src="./accelerated.js">
+		</script>
+	</div>
+</body>
+
+</html>

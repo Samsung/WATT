@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable Extra UI - Section changer
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" data-enable-page-scroll="false" id="addSectionchangerPage">
+		<link href="css/sectionchanger.css" rel="stylesheet" />
+		<header class="ui-header">
+			<h2 class="ui-title">
+				Add/Remove
+			</h2>
+		</header>
+		<div class="ui-content" id="addSectionchanger">
+			<!-- section changer has only one child. -->
+			<div id="addSectionWrap">
+				<section style="text-align:center">
+					<h3>
+						LEFT2 PAGE
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						LEFT1 PAGE
+					</h3>
+				</section>
+				<section class="ui-section-active" style="text-align:center">
+					<h3>
+						MAIN PAGE
+					</h3>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						RIGHT1 PAGE
+					</h3>
+					<ul class="ui-listview">
+						<li>
+							List Item1
+						</li>
+						<li>
+							List Item2
+						</li>
+						<li>
+							List Item3
+						</li>
+						<li>
+							List Item4
+						</li>
+						<li>
+							List Item5
+						</li>
+						<li>
+							List Item6
+						</li>
+						<li>
+							List Item7
+						</li>
+						<li>
+							List Item8
+						</li>
+						<li>
+							List Item9
+						</li>
+						<li>
+							List Item10
+						</li>
+					</ul>
+				</section>
+				<section style="text-align:center">
+					<h3>
+						RIGHT2 PAGE
+					</h3>
+				</section>
+			</div>
+		</div>
+		<footer class="ui-footer ui-grid-col-2">
+			<button class="ui-btn" id="addBtn">
+				Add
+			</button>
+			<button class="ui-btn" id="removeBtn">
+				Remove
+			</button>
+		</footer>
+		<script src="add.js">
+		</script>
+	</div>
+</body>
+
+</html>

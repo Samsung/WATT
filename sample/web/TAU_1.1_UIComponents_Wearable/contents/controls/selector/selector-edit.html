@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+	<title>
+		Wearable UI
+	</title>
+	<link href="../../../lib/tau/wearable/theme/default/tau.css" rel="stylesheet" />
+	<link href="../../../lib/tau/wearable/theme/default/tau.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<link href="../../../css/style.css" rel="stylesheet" />
+	<link href="../../../css/style.circle.css" media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+	<script src="../../../js/circle-helper.js">
+	</script>
+	<script src="../../../lib/tau/wearable/js/tau.js">
+	</script>
+</head>
+
+<body>
+	<div class="ui-page" data-enable-page-scroll="false" id="rotary-selector-edit-mode-page">
+		<div class="ui-selector" data-editable="true" id="rotary-selector-edit-mode">
+			<div class="ui-item human-icon" data-removable="false" data-title="Human">
+			</div>
+			<div class="ui-item show-icon" data-subtitle="go to phone" data-title="This is invisible title">
+			</div>
+			<div class="ui-item delete-icon" data-icon="../../../css/images/b_more_option_delete_icon.png" data-title="Delete">
+			</div>
+			<div class="ui-item show-icon" data-subtitle="action" data-title="Show">
+			</div>
+			<div class="ui-item human-icon" data-title="Human">
+			</div>
+			<div class="ui-item delete-icon" data-title="Delete">
+			</div>
+			<div class="ui-item x-icon" data-removable="false" data-title="X Icon">
+			</div>
+			<div class="ui-item fail-icon" data-removable="false" data-title="Fail">
+			</div>
+			<div class="ui-item show-icon" data-title="Show on phone">
+			</div>
+		</div>
+		<script src="selector-edit.js">
+		</script>
+	</div>
+	<script src="../../../js/app.js">
+	</script>
+	<script src="../../../js/lowBatteryCheck.js">
+	</script>
+</body>
+
+</html>
