@@ -63,15 +63,6 @@
     "category": "WASM"
   },
   {
-    "name": "SmartThings IoT Application",
-    "description": "IoT application for SmartThings",
-    "src": "TAUIoTApplication",
-    "icon": "icon.png",
-    "type": "web",
-    "profile": "mobile,tv",
-    "category": "IoT"
-  },
-  {
     "name": "Hello World",
     "description": "Print 'Hello World' using compiled 'Hello World' WASM module",
     "src": "HelloWorld",
