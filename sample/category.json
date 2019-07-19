@@ -3,5 +3,5 @@
     "iotjs": ["Network"],
     "sthings": ["General", "IoT"],
     "wasm": ["Application", "Nacl"],
-    "web": ["General", "IoT", "WASM"]
+    "web": ["General", "WASM"]
 }
