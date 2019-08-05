@@ -3,6 +3,13 @@
 # Usage:
 # ./docker-watt-image-push.sh AWS_ACCOUNT_ID
 
+# Check jq package.
+if ! dpkg -s jq > /dev/null; then
+    echo "jq package is not installed. Use the following command for installation:"
+    echo "sudo apt-get install -y jq"
+    exit 1
+fi
+
 if [ -z "$1" ]; then
     echo "Please give your aws account id as first param."
     exit 1
@@ -61,3 +68,34 @@ if [ $? -ne 0 ]; then
 fi
 
 echo -e "\033[0;32mSuccessfully pushed watt image to \033[0m"$watt_docker_aws_repository_uri
+
+# Get ARN of running watt task.
+watt_cluster="watt-cluster"
+watt_task_arn=`aws ecs list-tasks --cluster $watt_cluster --region $region | jq '.taskArns[0]'`
+if [[ $watt_task_arn = null ]]; then
+    echo "Could not found running watt task to be stopped."
+    exit 1
+fi
+
+# Get task id from full task arn.
+watt_task_id=${watt_task_arn#*/}
+# Cut the last " character.
+watt_task_id=${watt_task_id:0:-1}
+
+# Stop WATT task.
+if ! aws ecs stop-task --cluster $watt_cluster --task $watt_task_id --region $region; then
+    echo "Could not stop watt task."
+    exit 1
+fi
+
+# Make sure task has been stopped.
+sleep 5
+echo -e "\033[0;32mSuccessfully stopped WATT task\033[0m"
+
+# Run WATT task in order to take new image into account.
+if ! aws ecs run-task --cluster $watt_cluster --task-definition WATT:5 --region $region; then
+    echo "Could not run watt task."
+    exit 1
+fi
+
+echo -e "\033[0;32mSuccessfully run WATT task\033[0m"
