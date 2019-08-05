@@ -128,15 +128,19 @@ It's possible to execute any command on running container:
 docker container exec -i 12cf98736487 bash
 ```
 
-## Pushing docker images to AWS repositories
+## Updating WATT in AWS instance
  * Make sure your .git folder is not huge since its size significantly increases docker image.
  * [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html)
- * Build and push watt docker image to AWS repositories
+ * Build and push watt docker image to AWS repositories and finally restart WATT Task by
 ```bash
-./docker-watt-image-push.sh AWS_ACCOUNT_ID
+./watt-aws-update.sh AWS_ACCOUNT_ID
 ```
  * If you need additional steeps, for example, updating mongod image or create new repository just follow [this guide.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr)
  * Images should be available at [repositories](https://ap-northeast-2.console.aws.amazon.com/ecr/repositories?region=ap-northeast-2#).
+ * Running task should be available [here](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/clusters/watt-cluster/tasks)
+ * Verify if WATT starts properly by inspecting the logs.
+ * Check instance by visiting [TAU checkbox sample](https://code.tizen.org/demos?path=1.0%2Fexamples%2Fmobile%2FUIComponents%2Fcomponents%2Fcontrols%2Fcheckbox.html).
+
 
 ## Creating cluster
  * You can omit steeps below in order to use already existing watt cluster.
@@ -176,12 +180,6 @@ aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name wa
 "interactive": true,
 "pseudoTerminal": true,
 ```
-
-## Running WATT in AWS instance
- * [Stop current task](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/clusters/watt-cluster/tasks)
- * Got to [WATT Task](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/taskDefinitions/WATT/status/ACTIVE) and chose *Run Task* from *Actions* menu.
- * Change cluster to *watt-cluster*.
- * Verify if WATT starts properly by inspecting the logs.
 
 ## License
 Refer [WATT License](https://github.com/Samsung/WATT/wiki/License)
