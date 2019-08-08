@@ -131,9 +131,9 @@ docker container exec -i 12cf98736487 bash
 ## Updating WATT in AWS instance
  * Make sure your .git folder is not huge since its size significantly increases docker image.
  * [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html)
- * Build and push watt docker image to AWS repositories and finally restart WATT Task by
+ * Build and push watt docker image to AWS repositories and finally restart all WATT instances by
 ```bash
-./watt-aws-update.sh AWS_ACCOUNT_ID
+./watt-aws-instances-update.sh AWS_ACCOUNT_ID
 ```
  * If you need additional steeps, for example, updating mongod image or create new repository just follow [this guide.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#use-ecr)
  * Images should be available at [repositories](https://ap-northeast-2.console.aws.amazon.com/ecr/repositories?region=ap-northeast-2#).
