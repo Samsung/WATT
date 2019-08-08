@@ -142,44 +142,65 @@ docker container exec -i 12cf98736487 bash
  * Check instance by visiting [TAU checkbox sample](https://code.tizen.org/demos?path=1.0%2Fexamples%2Fmobile%2FUIComponents%2Fcomponents%2Fcontrols%2Fcheckbox.html).
 
 
-## Creating cluster
- * You can omit steeps below in order to use already existing watt cluster.
+## WATT instances on AWS
+ * [ap-northeast-2 Seoul](http://54.180.160.96:3000), [checkbox example](http://54.180.160.96:3000/demos?path=1.0%2Fexamples%2Fmobile%2FUIComponents%2Fcomponents%2Fcontrols%2Fcheckbox.html).
+ * [ap-south-1 Mumbai](http://13.233.41.131:3000), [checkbox example](http://13.233.41.131:3000/demos?path=1.0%2Fexamples%2Fmobile%2FUIComponents%2Fcomponents%2Fcontrols%2Fcheckbox.html).
+
+
+## Creating new AWS instance in desired AWS region
  * [Install the Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html).
+ * [Switch AWS Web Console](https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#Instances:sort=instanceId) to region to which you want to set up new instance (top right corner, next to Support).
  * Create network infrastructure:
     * Define [VPC with Elastic IP](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-public-private-vpc.html).
     * Define *security group* using previously created *VPC*.
     * Add 22 and 3000 ports to *Inboud Roules* of newly created security group.
  * [Create Your Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html), for example, 
 ```bash
-ecs-cli up --force --keypair id_rsa --capability-iam --size 1 --instance-type t2.large --vpc vpc-0d05d256d9261ccb5 --subnets subnet-0b31dfed2f9dddb0a --security-group sg-09d2b747ca8b77f1a --cluster-config watt-cluster-config --region ap-northeast-2
+ecs-cli up --force --keypair id_rsa --capability-iam --size 1 --instance-type t2.large --vpc vpc-0d05d256d9261ccb5 --subnets subnet-0b31dfed2f9dddb0a --security-group sg-09d2b747ca8b77f1a --cluster-config watt-cluster-config --region REGION_CODE
 ```
- * To find subnet id go to [Subnet dashboard](https://ap-northeast-2.console.aws.amazon.com/vpc/home?region=ap-northeast-2#subnets:sort=SubnetId) and copy public subnet id associated with newly created VPC.
-
-## Deploying the compose file to a cluster
- * You can omit steeps below in order to use already created task definition based on compose file.
- * Update docker-compose-aws.yml with new docker images repositories.
+ * To find subnet id go to [Subnet dashboard](https://ap-northeast-2.console.aws.amazon.com/vpc/home?region=ap-northeast-2#subnets:sort=SubnetId) change the region and copy public subnet id associated with newly created VPC.
+ * Get WATT and mongod images using the following script:
+```bash
+./docker-run.sh --rebuild
+```
+ * You don't have to necessarily wait for complete WATT set up in docker environment. It's enough to have required images that can be checked by:
+```bash
+docker images
+```
+ * Visit [docker repositories](https://ap-northeast-2.console.aws.amazon.com/ecr/repositories?region=ap-northeast-2#), change the region and create repositories for WATT and mongod images.
+ * Update docker-compose-aws.yml with new docker images repositories and awslogs-region.
  * You can change default memory limits for each container in ecs-params.yml
  * [Deploy the Compose File to a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cli-tutorial-ec2.html#ECS_CLI_tutorial_compose_deploy), for example,
 ```bash
-ecs-cli compose --file docker-compose-aws.yml --verbose up --create-log-groups --cluster-config watt-cluster-config --region ap-northeast-2
+ecs-cli compose --file docker-compose-aws.yml --verbose up --create-log-groups --cluster-config watt-cluster-config --region REGION_CODE
 ```
  * [Stop current task](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/clusters/watt-cluster/tasks) If container can not be run due to the following error:
 ```bash
 INFO[0003] Couldn't run containers                       reason="RESOURCE:MEMORY"
 ```
- * See watt-awslogs-group at [CloudWatch](https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#logs), you can also download them by
+ * See watt-awslogs-group at [CloudWatch](https://us-east-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#logs), change the region
+ * Logs can be also download them by
 ```bash
-aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name watt/watt_container/0f16fa2e-6db9-4cff-8b13-821b3c72f446 --output text --region ap-northeast-2
+aws logs get-log-events --log-group-name watt-awslogs-group --log-stream-name watt/watt_container/ID --output text --region REGION_CODE
 ```
  * If you see 'Invalid command () was entered' please follow further steps
  * Due to no support for [interactive mode in compose](https://github.com/aws/amazon-ecs-cli/issues/706) there is a need to manually edit task definition
- * Go WATT Task [Definition](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/taskDefinitions/WATT).
+ * Go WATT Task [Definition](https://ap-northeast-2.console.aws.amazon.com/ecs/home?region=ap-northeast-2#/taskDefinitions/WATT) and change the region.
  * Click "Create new revision".
- * At the bottom, click on "Configure via JSON" button and replace *null* to *true* for the following properties in watt container:
+ * At the bottom, click on "Configure via JSON" button and replace *null* to *true* for the following properties in watt (not mongodb) container:
 ```bash
 "interactive": true,
 "pseudoTerminal": true,
 ```
+ * Click "Create" button.
+ * Click "Actions" button and select "Run task".
+ * Select "watt-cluster" from Cluster menu and click "Run Task" button.
+ * Verify logs if WATT was started.
+ * Go to "ECS Instances" tab in [custer view](https://ap-south-1.console.aws.amazon.com/ecs/home?region=ap-south-1#/clusters/watt-cluster/tasks).
+ * Change region.
+ * Click on "ECS Instance", for example, i-03e55f244e70c32f
+ * Copy instance ip.
+ * Verify this instance by visiting demo page: http://INSTANCEIP:3000/demos?path=1.0%2Fexamples%2Fmobile%2FUIComponents%2Fcomponents%2Fcontrols%2Fcheckbox.html
 
 ## License
 Refer [WATT License](https://github.com/Samsung/WATT/wiki/License)
