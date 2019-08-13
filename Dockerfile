@@ -16,6 +16,7 @@ RUN dpkg --add-architecture i386
 # since it is expected to be run as regular user and sudo is not recommended
 # by docker documentation.
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y \
         lsb-release \
         libgconf-2-4 \
@@ -93,3 +94,4 @@ ENV NODE_ENV=docker
 # Launch WATT by CMD command so you can replace it by any command to test image.
 # Features behind flags like pwe, smart things are not added.
 CMD [ "./launch", "--verbose" ]
+
