@@ -57,6 +57,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/temp', express.static(path.join(__dirname, 'temp')));
+app.use('/TAU', express.static(path.join(__dirname, 'TAU')));
 
 // required for passport
 app.use(session({

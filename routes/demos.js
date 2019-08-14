@@ -142,12 +142,14 @@ module.exports = function (express) {
         // Download requested demo to the project folder.
         (project, projectPath, callback) => {
           const tauExamplesHost = config.get('TAUExamplesHost');
+          const tauExamplesPath = config.get('TAUExamplesPath');
+          const port = config.get('PORT');
           const samplePath = req.query.path;
-          if (!tauExamplesHost || !samplePath) {
-            return callback(`Could not resolve path: ${tauExamplesHost}${samplePath}`);
+          if (!tauExamplesHost || !tauExamplesPath || !port || !samplePath) {
+            return callback('Could not resolve tau host');
           }
 
-          const sampleUrl = new URL(samplePath, tauExamplesHost);
+          const sampleUrl = new URL(tauExamplesPath + samplePath, tauExamplesHost + ':' + port);
           // check if url is valid, spider option doesn't download anything
           exec(`wget --spider ${sampleUrl}`, (error, stdout, stderr) => {
             if (error) {
@@ -156,7 +158,7 @@ module.exports = function (express) {
             }
             else {
               // Define number of unnecessary directories to be omitted while downloading.
-              const numDirsToCut = sampleUrl.pathname.match(/TAU\/examples\/+.+\/examples\/mobile|wearable\/UIComponents/g) ? 6 : 0;
+              const numDirsToCut = sampleUrl.pathname.match(/TAU\/+.+\/examples\/mobile|wearable\/UIComponents/g) ? 5 : 0;
               exec(`wget --recursive --page-requisites --convert-links --no-host-directories --cut-dirs=${numDirsToCut} --directory-prefix ${projectPath} ${sampleUrl}`, (error, stdout, stderr) => {
                 if (error) {
                   // we don't return here because there may be samples with not existing resources
