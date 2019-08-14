@@ -1,7 +1,8 @@
 {
     "DBHost": "mongodb://localhost:27017/watt",
     "PORT": 3000,
-    "TAUExamplesHost": "https://samsung.github.io/TAU/examples/",
+    "TAUExamplesHost": "http://localhost",
+    "TAUExamplesPath": "/TAU/",
     "AnonymousEmail": "anonymoususer@watt.com",
     "AnonymousProjectsLimit": 100,
     "AnonymousProjectsDeprecationAgeInMinutes": 60
