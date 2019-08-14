@@ -13,3 +13,6 @@
 	path = libs/tau-wysiwig
 	url = https://github.com/Samsung/TAU-Design-Editor
 	ignore = dirty
+[submodule "1.0"]
+	path = TAU/1.0
+	url = https://github.com/Samsung/TAU.git
