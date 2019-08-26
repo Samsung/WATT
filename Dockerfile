@@ -5,7 +5,7 @@
 # $ sudo docker run -it simple bash
 
 # Download base image ubuntu 16.04 since most developers are using it.
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ################################ AS ROOT ################################
 
