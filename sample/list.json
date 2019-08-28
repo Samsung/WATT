@@ -175,7 +175,11 @@
     "icon": "icon.png",
     "type": "web",
     "profile": "mobile,tv",
-    "category": "General"
+    "category": "General",
+    "includes": [{
+      "src": "TAU/1.1/dist",
+      "dest": "lib/tau"
+    }]
   },
   {
     "name": "TAU UI Components",
@@ -184,7 +188,11 @@
     "icon": "icon.png",
     "type": "web",
     "profile": "mobile,tv",
-    "category": "General"
+    "category": "General",
+    "includes": [{
+      "src": "TAU/1.1/dist",
+      "dest": "lib/tau"
+    }]
   },
   {
     "name": "TAU Base",
@@ -193,7 +201,11 @@
     "icon": "icon.png",
     "type": "web",
     "profile": "wearable",
-    "category": "General"
+    "category": "General",
+    "includes": [{
+      "src": "TAU/1.1/dist",
+      "dest": "lib/tau"
+    }]
   },
   {
     "name": "TAU UI Components",
@@ -202,6 +214,10 @@
     "icon": "icon.png",
     "type": "web",
     "profile": "wearable",
-    "category": "General"
+    "category": "General",
+    "includes": [{
+      "src": "TAU/1.1/dist",
+      "dest": "lib/tau"
+    }]
   }
 ]
