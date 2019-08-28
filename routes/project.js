@@ -219,6 +219,65 @@ module.exports = function (express) {
           });
         });
       },
+      function(callback) {
+        // Get list of templates
+        var templateDir = path.join(process.cwd(), data.format);
+
+        fse.ensureDir(templateDir, function(error) {
+          if (error) {
+            return callback(error);
+          }
+
+          var items = require(path.join(templateDir, 'list.json'));
+          callback(null, items);
+        });
+      },
+      function (templateList, callback) {
+        var count = 0,
+          includes = [],
+          numberOfIncludes,
+          template;
+
+        template = templateList.filter(function (template) {
+          return template.src === data.templateName;
+        });
+        if (!template) { // template not found on list
+          return callback(null);
+        }
+        template = template[0];
+
+        numberOfIncludes = (!template.includes) ? 0 : template.includes.length;
+
+        // Skip copy template when empty check box is enabled
+        if (numberOfIncludes === 0) {
+          return callback(null);
+        }
+
+        function onLoadSuccess() {
+          count++;
+          if (count === numberOfIncludes) {
+            callback(null);
+          }
+        }
+
+        // Copy the includes to project folder
+        template.includes.forEach(function (include) {
+          var dest = path.join(projectPath, include.dest),
+            options = {
+              'overwrite': true,
+              'dereference': true
+            },
+            src = include.src;
+
+          fse.copy(src, dest, options, function (err) {
+            if (err) {
+              return callback(err);
+            }
+
+            onLoadSuccess();
+          });
+        });
+      },
       function (callback) {
         // Check project type because we create config.xml for 'web' project
         var allow = ['web', 'sthings'];
