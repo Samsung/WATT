@@ -317,8 +317,17 @@ def ensure_emsdk(emsdk_path):
   os.rename(portable_path, emsdk_path)
   return True
 
-def get_emscripten_path(version):
+def get_emscripten_path(version, user_emscripten_path):
   Log.info('Check emscripten')
+
+  # Verify user's emscripten path.
+  if user_emscripten_path != None:
+    if os.path.isdir(user_emscripten_path):
+      return user_emscripten_path
+    else:
+      Log.err('emscripten path (%s) is not valid.' % user_emscripten_path)
+      return ''
+
   emsdk_path = os.path.join(tool_path, 'emsdk')
   emscripten_path = os.path.join(emsdk_path, 'emscripten', version)
   if platform.machine().endswith('64'):
@@ -694,9 +703,11 @@ def main():
     help='Bypass downloading NaCl')
   group = parser.add_mutually_exclusive_group()
   group.add_argument('-ep', '--emscripten_path',
-    help='Use the emscripten of the specific path')
+    help='Use the emscripten of the specific path. Not valid with --bypass_emscripten.')
   group.add_argument('-ev', '--emscripten_version', default='1.38.11',
-    help='Use the emscripten of the specific version')
+    help='Use the emscripten of the specific version. Not valid with --bypass_emscripten.')
+  parser.add_argument('-bpe', '--bypass_emscripten', action='store_true',
+    help='Bypass Emscripten')
   parser.add_argument('-i', '--iotjs', action='store_true',
     help='Support iot.js extension')
   parser.add_argument('-p', '--pwe', action='store_true',
@@ -732,24 +743,20 @@ def main():
   if args.sthings and not check_libgconf():
     return 1
 
-  if args.emscripten_path == None or not os.path.isdir(args.emscripten_path):
-    if args.emscripten_path != None:
-      Log.warn('emscripten path (%s) is not valid.' % args.emscripten_path)
-    emscripten_path = ''
-  else:
-    emscripten_path = args.emscripten_path
-  if emscripten_path == '':
-    emscripten_path = get_emscripten_path(args.emscripten_version)
-    if emscripten_path == '': return 1
+  pathlist = [grunt_path, os.path.join(tool_path, 'WebIDLBinder'), '']
 
-  Log.info('Use emscripten at %s' % emscripten_path)
+  if not args.bypass_emscripten:
+    emscripten_path = get_emscripten_path(args.emscripten_version, args.emscripten_path)
+    wabt_bin_path = get_wabt_path()
+    if emscripten_path == '' or wabt_bin_path == '':
+      return 1
+    pathlist.insert(-1, emscripten_path)
+    pathlist.insert(-1, wabt_bin_path)
 
-  wabt_bin_path = get_wabt_path()
-
-  pathlist = [grunt_path, emscripten_path, os.path.join(tool_path, 'WebIDLBinder'), wabt_bin_path, '']
   tizen_path = get_tizen_path()
   if tizen_path != '':
     pathlist.insert(-1, tizen_path)
+
   # Temporary path for API-Grepper
   pathlist.insert(-1, os.path.join(tool_path, 'api_grepper'))
   os.putenv('PATH', os.pathsep.join(pathlist) + os.environ['PATH'])
