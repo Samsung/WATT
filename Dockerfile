@@ -9,8 +9,8 @@ FROM ubuntu:18.04
 
 ################################ AS ROOT ################################
 
-# nacl_sdk requires libc for i386
-RUN dpkg --add-architecture i386
+# nacl_sdk requires libc for i386. Uncomment this for nacl_sdk support.
+# RUN dpkg --add-architecture i386
 
 # Install WATT's dependencies to avoid doing this by launch script
 # since it is expected to be run as regular user and sudo is not recommended
@@ -23,10 +23,12 @@ RUN apt-get update && \
         android-tools-adb \
         git \
         python-pip \
-        build-essential \
-        cmake \
-        ca-certificates \
-        libc6:i386 \
+        # Uncomment them for emscripten support.
+        # build-essential \
+        # cmake \
+        # Uncomment them for nacl_sdk support.
+        # ca-certificates \
+        # libc6:i386 \
         pciutils \
         wget \
         zip && \
@@ -93,5 +95,4 @@ ENV NODE_ENV=docker
 
 # Launch WATT by CMD command so you can replace it by any command to test image.
 # Features behind flags like pwe, smart things are not added.
-CMD [ "./launch", "--verbose" ]
-
+CMD [ "./launch", "--verbose", "--bypass_emscripten", "--bypass_nacl_sdk" ]
