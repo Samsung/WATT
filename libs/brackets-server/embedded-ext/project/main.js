@@ -1321,7 +1321,7 @@ define(function (require, exports, module) {
         menu.addMenuItem(PROJECT_PACK_WGT);
     } else if (type === "crx") {
         menu.addMenuItem(PROJECT_PACK_CRX);
-    } else if (type === "web" || type === "sthings") {
+    } else if (type === "web" || type === "sthings" || type === "demo") {
         menu.addMenuItem(PROJECT_PACK_WGT);
 
         if (PreferencesManager.getViewState("projectExtension") === "unity") {

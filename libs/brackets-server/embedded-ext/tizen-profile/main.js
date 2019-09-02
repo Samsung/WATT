@@ -5,8 +5,7 @@ define(function (require, exports, module) {
     const PreferencesManager = brackets.getModule("preferences/PreferencesManager");
     const projectType = PreferencesManager.getViewState("projectType");
 
-    const allowProjectType = ["sthings", "web", "wasm"];
-    // Return extension when project type is not equal to web or sthings
+    const allowProjectType = ["sthings", "web", "demo", "wasm"];
     if (allowProjectType.indexOf(projectType) === -1) {
         return;
     }
