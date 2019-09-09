@@ -52,7 +52,7 @@ if os_name != 'Ubuntu' and os_name != 'Darwin':
 
 def import_additional():
   status = subprocess.call('which pip > /dev/null', shell=True)
-  if status != 0 and not install_deb_package('pip'):
+  if status != 0 and not install_deb_package('python-pip'):
     Log.err('Fail to install pip')
     sys.exit(1)
 
@@ -67,7 +67,6 @@ def import_additional():
         Log.err('Fail to install %s' % package)
       module = __import__(package)
     globals()[package] = module
-import_additional()
 
 def install_nodejs():
   if os_name == 'Darwin':
@@ -730,6 +729,8 @@ def main():
     if (subprocess.check_call('./update_submodules' + (' --verbose' if args.verbose else ''), shell=True)) != 0:
       Log.err('Fail to initialize or update submodules.')
       return 1
+
+  import_additional()
 
   ret, grunt_path = prepare_nodejs(args.npm, args.pwe)
   if not ret:
