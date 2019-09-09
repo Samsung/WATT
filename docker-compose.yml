@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mongo_container:
-    image: "mongo:3.4.19"
+    image: "mongo:4.2"
     restart: always
 
   watt_container:
