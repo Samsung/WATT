@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage:
-# ./watt-aws-instances-update.sh AWS_ACCOUNT_ID
+# ./watt-aws-instances-update.sh AWS_ACCOUNT_ID [--simultaneous-image-push]
 
 # Check jq package.
 if ! dpkg -s jq > /dev/null; then
@@ -74,15 +74,25 @@ for region in ${regions[*]}; do
         exit 1
     fi
 
-    # Push the image to repository Uri.
-    docker push $watt_docker_aws_repository_uri
-    if [ $? -ne 0 ]; then
-        echo "Could not push image to "$watt_docker_aws_repository_uri
-        exit 1
+    # Push the image to repository Uri depending on --simultaneous-image-push flag.
+    if [ "$2" = "--simultaneous-image-push" ]; then
+        # Push the image in background.
+        # FIXME: layer's progress is reported to the same line from different image push.
+        docker push $watt_docker_aws_repository_uri && echo -e "\033[0;32mSuccessfully pushed watt image to \033[0m"$watt_docker_aws_repository_uri &
+    else
+        docker push $watt_docker_aws_repository_uri
+        if [ $? -ne 0 ]; then
+            echo "Could not push images"
+            exit 1
+        fi
+        echo -e "\033[0;32mSuccessfully pushed watt image to \033[0m"$watt_docker_aws_repository_uri
     fi
-
-    echo -e "\033[0;32mSuccessfully pushed watt image to \033[0m"$watt_docker_aws_repository_uri
 done
+
+# Wait for all images being pushed in background.
+if [ "$2" = "--simultaneous-image-push" ]; then
+    wait
+fi
 
 ##################################################################################################
 #       Restart WATT instances for all regions to take new images into account.
