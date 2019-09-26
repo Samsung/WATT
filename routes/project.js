@@ -264,7 +264,7 @@ module.exports = function (express) {
         template.includes.forEach(function (include) {
           var dest = path.join(projectPath, include.dest),
             options = {
-              'overwrite': true,
+              'overwrite': false,
               'dereference': true
             },
             src = include.src;
