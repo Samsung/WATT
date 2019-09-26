@@ -177,8 +177,8 @@
     "profile": "mobile,tv",
     "category": "General",
     "includes": [{
-      "src": "TAU/1.1/dist",
-      "dest": "lib/tau"
+      "src": "TAU/1.1/examples/mobile/SinglePage",
+      "dest": "."
     }]
   },
   {
@@ -190,8 +190,8 @@
     "profile": "mobile,tv",
     "category": "General",
     "includes": [{
-      "src": "TAU/1.1/dist",
-      "dest": "lib/tau"
+      "src": "TAU/1.1/examples/mobile/UIComponents",
+      "dest": "."
     }]
   },
   {
@@ -203,8 +203,8 @@
     "profile": "wearable",
     "category": "General",
     "includes": [{
-      "src": "TAU/1.1/dist",
-      "dest": "lib/tau"
+      "src": "TAU/1.1/examples/wearable/Basic",
+      "dest": "."
     }]
   },
   {
@@ -216,8 +216,8 @@
     "profile": "wearable",
     "category": "General",
     "includes": [{
-      "src": "TAU/1.1/dist",
-      "dest": "lib/tau"
+      "src": "TAU/1.1/examples/wearable/UIComponents",
+      "dest": "."
     }]
   }
 ]
