@@ -117,9 +117,11 @@ if (sthingsEnabled) {
     },
     (err, req, res, next_ignoreUnused) => {
       if (err.constructor.name === 'ValidationError') {
-        return res.status(STATUS_CODES.BAD_REQUEST).json({error: 'validation-error', keyPath: err.keyPath.join('.'), message: err.message});
+        res.status(STATUS_CODES.BAD_REQUEST).json({error: 'validation-error', keyPath: err.keyPath.join('.'), message: err.message});
       }
-      res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({error: 'internal-server-error'});
+      else {
+        res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({error: 'internal-server-error'});
+      }
     });
 } else {
   app.use('/iotivity',
@@ -180,7 +182,6 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  var exitCondition = false;
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -191,22 +192,18 @@ function onError(error) {
   switch (error.code) {
   case 'EACCES':
     console.error(bind + ' requires elevated privileges');
-    exitCondition = true;
     break;
   case 'EADDRINUSE':
     console.error(bind + ' is already in use');
-    exitCondition = true;
     break;
   default:
     throw error;
   }
 
-  if (exitCondition) {
-    if (config.util.getEnv('NODE_ENV') !== 'test') {
-      process.exit(1); 
-    } else {
-      throw error;
-    }
+  if (config.util.getEnv('NODE_ENV') !== 'test') {
+    process.exit(1);
+  } else {
+    throw error;
   }
 }
 
