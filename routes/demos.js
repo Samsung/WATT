@@ -13,7 +13,8 @@ function canCreateAnonymousProject(req, res, next) {
   const anonymousProjectsLimit = config.get('AnonymousProjectsLimit');
   Project.find({'user': req.user._id}, function (err, anonymousProjects) {
     if (err) {
-      return res.status(400).send(err);
+      res.status(400).send(err);
+      return;
     }
 
     if (anonymousProjects.length >= anonymousProjectsLimit) {
@@ -21,7 +22,7 @@ function canCreateAnonymousProject(req, res, next) {
         if (didDelete) {
           next();
         } else {
-          return res.status(400).send('No possible to create more demos. Please try again later.');
+          res.status(400).send('No possible to create more demos. Please try again later.');
         }
       });
     } else {
@@ -34,7 +35,8 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
   let numberDeletedPojects = 0;
   if (projectsDeletionInProgress) {
     console.log('Anonymous projects are being deleted ...');
-    return completionCallback(numberDeletedPojects);
+    completionCallback(numberDeletedPojects);
+    return;
   }
 
   function isProjectOutDated(project) {
@@ -46,7 +48,8 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
 
   const outDatedProjects = projects.filter(isProjectOutDated);
   if (outDatedProjects.length === 0) {
-    return completionCallback(numberDeletedPojects);
+    completionCallback(numberDeletedPojects);
+    return;
   }
 
   projectsDeletionInProgress = true;
@@ -58,9 +61,10 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
         // Remove the project using projectId
         Project.remove({'_id': project._id}, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null);
           }
-          return callback(null);
         });
       },
       function (callback) {
@@ -68,9 +72,10 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
         var projectPath = path.join(process.cwd(), 'projects', project._id.toString());
         fse.remove(projectPath, function (err) {
           if (err) {
-            return callback(err);
+            callback(err);
+          } else {
+            callback(null);
           }
-          return callback(null);
         });
       },
       function (callback) {
@@ -78,9 +83,10 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
         var supportPath = path.join(process.cwd(), 'projects', 'support', project._id.toString());
         fse.remove(supportPath, function (err) {
           if (err) {
-            return callback(err);
+            callback(err);
+          } else {
+            callback(null);
           }
-          return callback(null);
         });
       }
     ], function (error) {
@@ -95,7 +101,7 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
       if (numberHandledPojects === outDatedProjects.length) {
         projectsDeletionInProgress = false;
         console.log('Finished deleting anonymous projects');
-        return completionCallback(numberDeletedPojects);
+        completionCallback(numberDeletedPojects);
       }
     });
   });
@@ -121,9 +127,10 @@ module.exports = function (express) {
           newProject.version = '2.4';
           newProject.save((error, project) => {
             if (error) {
-              return callback(error);
+              callback(error);
+            } else {
+              callback(null, project);
             }
-            callback(null, project);
           });
         },
 
@@ -133,9 +140,10 @@ module.exports = function (express) {
           const projectPath = path.join(process.cwd(), 'projects', projectId);
           fse.ensureDir(projectPath, function (error) {
             if (error) {
-              return callback(error);
+              callback(error);
+            } else {
+              callback(null, project, projectPath);
             }
-            callback(null, project, projectPath);
           });
         },
 
@@ -146,7 +154,8 @@ module.exports = function (express) {
           const port = config.get('PORT');
           const samplePath = req.query.path;
           if (!tauExamplesHost || !tauExamplesPath || !port || !samplePath) {
-            return callback('Could not resolve tau host');
+            callback('Could not resolve tau host');
+            return;
           }
 
           const sampleUrl = new URL(tauExamplesPath + samplePath, tauExamplesHost + ':' + port);
@@ -154,7 +163,7 @@ module.exports = function (express) {
           exec(`wget --spider ${sampleUrl}`, (error, stdout, stderr) => {
             if (error) {
               console.log(error);
-              return callback(`Could not download sample from ${sampleUrl}`);
+              callback(`Could not download sample from ${sampleUrl}`);
             }
             else {
               // Define number of unnecessary directories to be omitted while downloading.
@@ -190,9 +199,10 @@ module.exports = function (express) {
               requiredVersion: project.version,
             }, (error) => {
               if (error) {
-                return callback(error);
+                callback(error);
+              } else {
+                callback(null, project, projectPath);
               }
-              callback(null, project, projectPath);
             });
         },
 
@@ -201,9 +211,10 @@ module.exports = function (express) {
           const supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
           fse.ensureDir(supportPath, function (error) {
             if (error) {
-              return callback(error);
+              callback(error);
+            } else {
+              callback(null, project, projectPath, supportPath);
             }
-            return callback(null, project, projectPath, supportPath);
           });
         },
 
