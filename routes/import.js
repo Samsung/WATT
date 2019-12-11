@@ -73,7 +73,7 @@ module.exports = function(express) {
             return callback(error);
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       function(callback) {
@@ -88,6 +88,7 @@ module.exports = function(express) {
           state.projectId = projectId;
           state.projectName = data.name;
           fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), callback);
+          return;
         });
       }
     ], (error) => {
@@ -123,7 +124,9 @@ module.exports = function(express) {
       }
 
       res.send(projectId);
+      return;
     });
+    return;
   });
 
   router.post('/archive/upload/:projectId', util.isLoggedIn, function(req, res) {
@@ -179,6 +182,7 @@ module.exports = function(express) {
           }
 
           fs.unlink(filePath, callback);
+          return;
         });
       }
     ], function(error) {
@@ -188,6 +192,7 @@ module.exports = function(express) {
       }
 
       res.send();
+      return;
     });
   });
 
