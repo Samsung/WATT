@@ -14,6 +14,7 @@ exports.isLoggedIn = function (req, res, next) {
 
   // if they aren't redirect them to the home page
   res.redirect('/');
+  return;
 };
 
 exports.isAuthenticated = function(req, res, next) {
@@ -62,6 +63,7 @@ exports.forbidAnonymousUser = function (req, res, next) {
     req.logout();
   }
   res.redirect('/');
+  return;
 };
 
 exports.isProjectCreatedByUser = function (projectId, user, callback) {
@@ -130,6 +132,8 @@ exports.createConfigXML = function(dstPath, configPreferences, configContent, ca
       const builder = new xml2js.Builder(builderOption);
       const xml = builder.buildObject(result);
       fs.writeFile(path.join(dstPath, 'config.xml'), xml, callback);
+      return;
     });
   });
+  return;
 };
