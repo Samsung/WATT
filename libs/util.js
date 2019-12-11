@@ -9,11 +9,12 @@ var Project = require('../models/project');
 exports.isLoggedIn = function (req, res, next) {
   // if user is authenticated in the session, carry on
   if (req.isAuthenticated()) {
-    return next();
+    next();
   }
-
-  // if they aren't redirect them to the home page
-  res.redirect('/');
+  else {
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+  }
 };
 
 exports.isAuthenticated = function(req, res, next) {
@@ -57,11 +58,15 @@ exports.forbidAnonymousUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     const anonymousEmail = config.get('AnonymousEmail');
     if (req.user.local.email !== anonymousEmail) {
-      return next();
+      next();
     }
-    req.logout();
+    else {
+      req.logout();
+    }
   }
-  res.redirect('/');
+  else {
+    res.redirect('/');
+  }
 };
 
 exports.isProjectCreatedByUser = function (projectId, user, callback) {
@@ -97,39 +102,41 @@ exports.createConfigXML = function(dstPath, configPreferences, configContent, ca
   const configName = configPreferences.sthingsSupport ? 'config_sthings.xml' : 'config.xml';
   fs.readFile(path.join(process.cwd(), 'models', configName), function (error, config) {
     if (error) {
-      return callback(error);
+      callback(error);
     }
-
-    const parser = new xml2js.Parser();
-    parser.parseString(config, function (parseError, result) {
-      if (parseError) {
-        return callback(parseError);
-      }
-
-      const widget = result.widget;
-
-      widget.name[0] = configContent.name;
-      widget['tizen:application'][0]['$'].package = configContent.id;
-      widget['tizen:application'][0]['$'].id = [configContent.id, configContent.name].join('.');
-      widget['tizen:application'][0]['$']['required_version'] = configContent.requiredVersion;
-      widget['content'][0]['$'].src = configContent.contentSrc || 'index.html';
-      widget['icon'][0]['$'].src = configContent.iconSrc || '';
-      widget['$'].id = 'http://yourdomain/' + configContent.name;
-      widget['tizen:profile'][0]['$'].name = configContent.profile;
-      if (configPreferences.sthingsSupport) {
-        widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
-      }
-
-      const builderOption = {
-        xmldec: {
-          'version': '1.0',
-          'encoding': 'UTF-8'
+    else {
+      const parser = new xml2js.Parser();
+      parser.parseString(config, function (parseError, result) {
+        if (parseError) {
+          callback(parseError);
         }
-      };
+        else {
+          const widget = result.widget;
 
-      const builder = new xml2js.Builder(builderOption);
-      const xml = builder.buildObject(result);
-      fs.writeFile(path.join(dstPath, 'config.xml'), xml, callback);
-    });
+          widget.name[0] = configContent.name;
+          widget['tizen:application'][0]['$'].package = configContent.id;
+          widget['tizen:application'][0]['$'].id = [configContent.id, configContent.name].join('.');
+          widget['tizen:application'][0]['$']['required_version'] = configContent.requiredVersion;
+          widget['content'][0]['$'].src = configContent.contentSrc || 'index.html';
+          widget['icon'][0]['$'].src = configContent.iconSrc || '';
+          widget['$'].id = 'http://yourdomain/' + configContent.name;
+          widget['tizen:profile'][0]['$'].name = configContent.profile;
+          if (configPreferences.sthingsSupport) {
+            widget['tizen:privilege'][0]['$'].name = 'http://tizen.org/privilege/internet';
+          }
+
+          const builderOption = {
+            xmldec: {
+              'version': '1.0',
+              'encoding': 'UTF-8'
+            }
+          };
+
+          const builder = new xml2js.Builder(builderOption);
+          const xml = builder.buildObject(result);
+          fs.writeFile(path.join(dstPath, 'config.xml'), xml, callback);
+        }
+      });
+    }
   });
 };
