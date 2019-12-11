@@ -36,7 +36,7 @@ module.exports = function(express) {
             if (err) {
               return callback(err);
             }
-            callback(null);
+            return callback(null);
           });
         } else {
           callback('Project path is wrong');
@@ -87,7 +87,7 @@ module.exports = function(express) {
             if (err) {
               return callback(err);
             }
-            callback(null);
+            return callback(null);
           });
         } else {
           callback('Project path is wrong');
@@ -142,7 +142,7 @@ module.exports = function(express) {
           var widget = result.widget;
           var projectName = widget.name[0];
 
-          callback(null, projectName);
+          return callback(null, projectName);
         });
       }, function(projectName, callback) {
         var wgtName = projectName + '.wgt';

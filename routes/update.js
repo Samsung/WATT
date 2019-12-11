@@ -54,7 +54,7 @@ module.exports = function(express) {
           var items = require(path.join(templateDir, 'list.json'));
           categories = require(path.join(templateDir, 'category.json'))[projectType];
 
-          callback(null, items);
+          return callback(null, items);
         });
       },
       function(items, callback) {
