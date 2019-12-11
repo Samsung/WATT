@@ -119,7 +119,7 @@ if (sthingsEnabled) {
       if (err.constructor.name === 'ValidationError') {
         return res.status(STATUS_CODES.BAD_REQUEST).json({error: 'validation-error', keyPath: err.keyPath.join('.'), message: err.message});
       }
-      res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({error: 'internal-server-error'});
+      return res.status(STATUS_CODES.INTERNAL_SERVER_ERROR).json({error: 'internal-server-error'});
     });
 } else {
   app.use('/iotivity',
@@ -201,7 +201,7 @@ function onError(error) {
     throw error;
   }
 
-  if (exitCondition) {
+  if (exitCondition === true) {
     if (config.util.getEnv('NODE_ENV') !== 'test') {
       process.exit(1); 
     } else {
