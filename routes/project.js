@@ -40,7 +40,7 @@ var addApplicationToProject = function (req, res) {
             return callback(error);
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       function (callback) {
@@ -57,7 +57,7 @@ var addApplicationToProject = function (req, res) {
               return callback(err);
             }
 
-            callback(null);
+            return callback(null);
           });
         });
       },
@@ -157,7 +157,7 @@ module.exports = function (express) {
             }
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       function (callback) {
@@ -177,7 +177,7 @@ module.exports = function (express) {
             return callback(error);
           }
 
-          callback(null, project);
+          return callback(null, project);
         });
       },
       function (project, callback) {
@@ -194,7 +194,7 @@ module.exports = function (express) {
             return callback(error);
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       function (callback) {
@@ -215,7 +215,7 @@ module.exports = function (express) {
               return callback(err);
             }
 
-            callback(null);
+            return callback(null);
           });
         });
       },
@@ -229,7 +229,7 @@ module.exports = function (express) {
           }
 
           var items = require(path.join(templateDir, 'list.json'));
-          callback(null, items);
+          return callback(null, items);
         });
       },
       function (templateList, callback) {
@@ -298,7 +298,7 @@ module.exports = function (express) {
             if (error) {
               return callback(error);
             }
-            callback(null);
+            return callback(null);
           });
       },
       function (callback) {
@@ -441,10 +441,10 @@ module.exports = function (express) {
                 }
               }
 
-              callback(null, project);
+              return callback(null, project);
             });
           } else {
-            callback(null, project);
+            return callback(null, project);
           }
         });
       },
@@ -464,7 +464,7 @@ module.exports = function (express) {
             return callback(saveError);
           }
 
-          callback(null, result);
+          return callback(null, result);
         });
       }, function (project, callback) {
         var supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
@@ -480,7 +480,7 @@ module.exports = function (express) {
             return callback(error);
           }
 
-          callback(null, project);
+          return callback(null, project);
         });
       }
     ], function (error, project) {
@@ -510,7 +510,7 @@ module.exports = function (express) {
             return callback(error);
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       function (callback) {
@@ -526,7 +526,7 @@ module.exports = function (express) {
               return callback(err);
             }
 
-            callback(null);
+            return callback(null);
           });
         });
       },
@@ -543,7 +543,7 @@ module.exports = function (express) {
               return callback(err);
             }
 
-            callback(null);
+            return callback(null);
           });
         });
       }

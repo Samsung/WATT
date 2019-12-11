@@ -40,7 +40,7 @@ module.exports = function(express) {
             }
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       (callback) => {
@@ -60,7 +60,7 @@ module.exports = function(express) {
             return callback(error);
           }
 
-          callback(null, project);
+          return callback(null, project);
         });
       },
       (project, callback) => {
@@ -148,7 +148,7 @@ module.exports = function(express) {
             return callback('Not user project');
           }
 
-          callback(null);
+          return callback(null);
         });
       },
       (callback) => {

@@ -60,7 +60,7 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
           if (error) {
             return callback(error);
           }
-          callback(null);
+          return callback(null);
         });
       },
       function (callback) {
@@ -70,7 +70,7 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
           if (err) {
             return callback(err);
           }
-          callback(null);
+          return callback(null);
         });
       },
       function (callback) {
@@ -80,7 +80,7 @@ function tryDeleteOutDatedProjects(projects, completionCallback) {
           if (err) {
             return callback(err);
           }
-          callback(null);
+          return callback(null);
         });
       }
     ], function (error) {
@@ -203,7 +203,7 @@ module.exports = function (express) {
             if (error) {
               return callback(error);
             }
-            callback(null, project, projectPath, supportPath);
+            return callback(null, project, projectPath, supportPath);
           });
         },
 
