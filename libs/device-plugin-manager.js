@@ -80,13 +80,12 @@ const createDeviceProfile = (deviceName, capabilities, projectId) =>
 const prepareDir = (projectId, filePath) =>
   new Promise((resolve, reject) => {
     const dirPath = path.join('/tmp', 'WATT', projectId, filePath);
-    fs.mkdir(dirPath, { recursive: true }, err => {
+    fs.ensureDir(dirPath, err => {
       if (err) {
-        if (!err.code === 'EEXISTS') {
-          reject(err);
-        }
+        reject(err);
+      } else {
+        resolve(dirPath);
       }
-      resolve(dirPath);
     });
   });
 
