@@ -24,7 +24,7 @@ module.exports = function(express, server, wsServer) {
     if (url.startsWith('/proxy/')) {
       const reqUrl = decodeURIComponent(url.substr('/proxy/'.length));
       let options = urlUtil.parse(reqUrl);
-      const httpClient  = options.protocol === 'http' ? http : https;
+      let httpClient  = options.protocol === 'http' ? http : https;
       if (config.util.getEnv('NODE_ENV') === 'test') {
         httpClient = httpMock;
       } 
