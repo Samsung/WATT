@@ -55,7 +55,9 @@ module.exports = function(express) {
         return res.status(400).send(error);
       }
       res.send(projectId);
+      return;
     });
+    return;
   });
 
   router.post('/share', util.isLoggedIn, function(req, res) {
@@ -106,7 +108,9 @@ module.exports = function(express) {
         return res.status(400).send(error);
       }
       res.send(projectId);
+      return;
     });
+    return;
   });
 
   router.get('/tizen/:projectId', function(req, res) {
@@ -167,6 +171,7 @@ module.exports = function(express) {
         name: wgtName,
         path: wgtPath
       });
+      return;
     });
   });
 
