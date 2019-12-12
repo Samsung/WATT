@@ -34,7 +34,8 @@ describe('routes/project.js Unit Test', function() {
     // Remove all projects before starting test
     Project.remove({}, function(error) {
       if (error) {
-        return done(error);
+        done(error);
+        return;
       }
 
       // Login before starting test
@@ -42,10 +43,10 @@ describe('routes/project.js Unit Test', function() {
         .send({email: 'test@samsung.com', password: 'test'})
         .end(function(loginError, res) {
           if (loginError) {
-            return done(loginError);
+            done(loginError);
+          } else {
+            done();
           }
-
-          done();
         });
     });
   });
@@ -120,10 +121,10 @@ describe('routes/project.js Unit Test', function() {
       ], function(error) {
         if (error) {
           debug(error);
-          return done(error);
+          done(error);
+        } else {
+          done();
         }
-
-        done();
       });
     });
   });
@@ -167,10 +168,10 @@ describe('routes/project.js Unit Test', function() {
         }
       ], function(error) {
         if (error) {
-          return done(error);
+          done(error);
+        } else {
+          done();
         }
-
-        done();
       });
     });
   });
@@ -214,10 +215,10 @@ describe('routes/project.js Unit Test', function() {
       ], function(error) {
         if (error) {
           debug(error);
-          return done(error);
+          done(error);
+        } else {
+          done();
         }
-
-        done();
       });
     });
   });
@@ -254,10 +255,10 @@ describe('routes/project.js Unit Test', function() {
       ], function(error) {
         if (error) {
           debug(error);
-          return done(error);
+          done(error);
+        } else {
+          done();
         }
-
-        done();
       });
     });
   });
@@ -309,10 +310,10 @@ describe('routes/project.js Unit Test', function() {
       ], function(error) {
         if (error) {
           debug(error);
-          return done(error);
+          done(error);
+        } else {
+          done();
         }
-
-        done();
       });
     });
   });
