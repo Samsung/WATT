@@ -176,19 +176,19 @@ module.exports = function(express) {
       (callback) => {
         extractZip(filePath, {dir: projectPath}, (err) => {
           if (err) {
-            return callback(err);
+            callback(err);
+          } else {
+            fs.unlink(filePath, callback);
           }
-
-          fs.unlink(filePath, callback);
         });
       }
     ], function(error) {
       if (error) {
         debug(error);
-        return res.status(400).send(error);
+        res.status(400).send(error);
+      } else {
+        res.send();
       }
-
-      res.send();
     });
   });
 
