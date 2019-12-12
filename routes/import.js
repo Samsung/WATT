@@ -57,10 +57,10 @@ module.exports = function(express) {
 
         newProject.save((error, project) => {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null, project);
           }
-
-          return callback(null, project);
         });
       },
       (project, callback) => {
@@ -70,10 +70,10 @@ module.exports = function(express) {
 
         fse.ensureDir(projectPath, (error) => {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null);
           }
-
-          callback(null);
         });
       },
       function(callback) {
@@ -119,7 +119,8 @@ module.exports = function(express) {
           });
         }
 
-        return res.status(400).send(error);
+        res.status(400).send(error);
+        return;
       }
 
       res.send(projectId);

@@ -34,9 +34,10 @@ module.exports = function(express) {
           var tempPath = path.join(process.cwd(), 'temp', projectId);
           fse.copy(projectPath, tempPath, function(err) {
             if (err) {
-              return callback(err);
+              callback(err);
+            } else {
+              callback(null);
             }
-            return callback(null);
           });
         } else {
           callback('Project path is wrong');
@@ -52,7 +53,8 @@ module.exports = function(express) {
             }
           });
         }
-        return res.status(400).send(error);
+        res.status(400).send(error);
+        return;
       }
       res.send(projectId);
     });
@@ -85,9 +87,10 @@ module.exports = function(express) {
           sharePath = path.join(process.cwd(), 'share', projectName);
           fse.copy(projectPath, sharePath, function(err) {
             if (err) {
-              return callback(err);
+              callback(err);
+            } else {
+              callback(null);
             }
-            return callback(null);
           });
         } else {
           callback('Project path is wrong');
@@ -103,7 +106,8 @@ module.exports = function(express) {
             }
           });
         }
-        return res.status(400).send(error);
+        res.status(400).send(error);
+        return;
       }
       res.send(projectId);
     });
