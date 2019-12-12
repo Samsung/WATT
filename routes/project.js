@@ -66,7 +66,8 @@ var addApplicationToProject = function (req, res) {
         // Check project type because we create config.xml for 'web' project
         var allow = ['sthings'];
         if (allow.indexOf(data.type) === -1) {
-          return callback(null);
+          callback(null);
+          return;
         }
 
         util.createConfigXML(projectPath,
@@ -81,17 +82,18 @@ var addApplicationToProject = function (req, res) {
             requiredVersion: data.requiredVersion
           }, (error) => {
             if (error) {
-              return callback(error);
+              callback(error);
+            } else {
+              callback(null);
             }
-            callback(null);
           });
       }
     ], function (error) {
       if (error) {
-        return res.status(400).send(error);
+        res.status(400).send(error);
+      } else {
+        res.send(projectId);
       }
-
-      res.send(projectId);
     });
   });
 };
@@ -105,11 +107,13 @@ module.exports = function (express) {
     Project.find({'user': user._id}, function (err, projects) {
       if (err) {
         debug(err);
-        return res.status(400).send(err);
+        res.status(400).send(err);
+        return;
       }
 
       if (process.env.NODE_ENV === 'test') {
-        return res.send(projects);
+        res.send(projects);
+        return;
       }
 
       res.render('project', {
@@ -128,15 +132,16 @@ module.exports = function (express) {
 
     // Check the type of project data whether it is correct
     if (typeof data !== 'object' ||
-      typeof data.name !== 'string' ||
-      typeof data.description !== 'string' ||
-      typeof data.format !== 'string' ||
-      typeof data.profile !== 'string' ||
-      typeof data.version !== 'string' ||
-      typeof data.type !== 'string' ||
-      typeof data.templateName !== 'string' ||
-      (data.extension && typeof data.extension !== 'string')) {
-      return res.status(400).send('Project data is wrong');
+        typeof data.name !== 'string' ||
+        typeof data.description !== 'string' ||
+        typeof data.format !== 'string' ||
+        typeof data.profile !== 'string' ||
+        typeof data.version !== 'string' ||
+        typeof data.type !== 'string' ||
+        typeof data.templateName !== 'string' ||
+        (data.extension && typeof data.extension !== 'string')) {
+      res.status(400).send('Project data is wrong');
+      return;
     }
 
     var projectId;
@@ -148,17 +153,19 @@ module.exports = function (express) {
         // Finder the projects using user id
         Project.find({'user': user._id}, function (error, projects) {
           if (error) {
-            return callback(error);
+            callback(error);
+            return;
           }
 
           // Check duplicated project name
           for (var i = 0; i < projects.length; i++) {
             if (projects[i].name === data.name) {
-              return callback('Duplicated project name.');
+              callback('Duplicated project name.');
+              return;
             }
           }
 
-          return callback(null);
+          callback(null);
         });
       },
       function (callback) {
@@ -201,14 +208,16 @@ module.exports = function (express) {
       function (callback) {
         // Skip copy template when empty check box is enabled
         if (data.templateName === '') {
-          return callback(null);
+          callback(null);
+          return;
         }
 
         // Copy the template to project folder
         var templatePath = path.join(process.cwd(), data.format, data.type, data.templateName);
         fse.ensureDir(templatePath, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+            return;
           }
 
           fse.copy(templatePath, projectPath, function (err) {
@@ -243,7 +252,8 @@ module.exports = function (express) {
           return template.src === data.templateName;
         });
         if (!template) { // template not found on list
-          return callback(null);
+          callback(null);
+          return;
         }
         template = template[0];
 
@@ -251,13 +261,15 @@ module.exports = function (express) {
 
         // Skip copy template when empty check box is enabled
         if (numberOfIncludes === 0) {
-          return callback(null);
+          callback(null);
+          return;
         }
 
         function onLoadSuccess() {
           count++;
           if (count === numberOfIncludes) {
             callback(null);
+            return;
           }
         }
 
@@ -272,10 +284,10 @@ module.exports = function (express) {
 
           fse.copy(src, dest, options, function (err) {
             if (err) {
-              return callback(err);
+              callback(err);
+            } else {
+              onLoadSuccess();
             }
-
-            onLoadSuccess();
           });
         });
       },
@@ -283,8 +295,10 @@ module.exports = function (express) {
         // Check project type because we create config.xml for 'web' project
         var allow = ['web', 'sthings'];
         if (allow.indexOf(data.type) === -1) {
-          return callback(null);
+          callback(null);
+          return;
         }
+
         util.createConfigXML(projectPath,
           {
             sthingsSupport: data.type.indexOf('sthings') !== -1
@@ -308,7 +322,8 @@ module.exports = function (express) {
         supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
         fse.ensureDir(supportPath, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+            return;
           }
 
           var state = require(path.join(process.cwd(), 'models', 'state.json'));
@@ -328,7 +343,8 @@ module.exports = function (express) {
         // Create a configuration file of the brackets
         fse.ensureDir(supportPath, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+            return;
           }
 
           var brackets = require(path.join(process.cwd(), 'models', 'brackets.json'));
@@ -364,10 +380,10 @@ module.exports = function (express) {
           });
         }
 
-        return res.status(400).send(error);
+        res.status(400).send(error);
+      } else {
+        res.send(projectId);
       }
-
-      res.send(projectId);
     });
   });
 
@@ -403,12 +419,13 @@ module.exports = function (express) {
 
     // Check the type of project data whether it is correct
     if (typeof data !== 'object' ||
-      typeof data.name !== 'string' ||
-      typeof data.description !== 'string' ||
-      typeof data.type !== 'string' ||
-      typeof data.profile !== 'string' ||
-      typeof data.version !== 'string') {
-      return res.status(400).send('Project data is wrong');
+        typeof data.name !== 'string' ||
+        typeof data.description !== 'string' ||
+        typeof data.type !== 'string' ||
+        typeof data.profile !== 'string' ||
+        typeof data.version !== 'string') {
+      res.status(400).send('Project data is wrong');
+      return;
     }
 
     async.waterfall([
@@ -416,16 +433,19 @@ module.exports = function (express) {
         Project.find({'_id': projectId}, function (error, projects) {
           if (error) {
             debug(error);
-            return callback(error);
+            callback(error);
+            return;
           }
 
           if (projects.length === 0) {
-            return callback('Not found project');
+            callback('Not found project');
+            return;
           }
 
           var project = projects[0];
           if (project.user.toString() !== user._id.toString()) {
-            return callback('Not user project');
+            callback('Not user project');
+            return;
           }
 
           // If input name is diffrent with existing name,
@@ -433,20 +453,22 @@ module.exports = function (express) {
           if (project.name !== data.name) {
             Project.find({'user': user._id}, function (error, projects) {
               if (error) {
-                return callback(error);
+                callback(error);
+                return;
               }
 
               // Check duplicated project name
               for (var i = 0; i < projects.length; i++) {
                 if (projects[i].name === data.name) {
-                  return callback('Duplicated project name.');
+                  callback('Duplicated project name.');
+                  return;
                 }
               }
 
-              return callback(null, project);
+              callback(null, project);
             });
           } else {
-            return callback(null, project);
+            callback(null, project);
           }
         });
       },
