@@ -68,7 +68,8 @@ module.exports = function(express) {
     if (typeof data !== 'object' ||
         typeof data.projectId !== 'string' ||
         typeof data.projectName !== 'string') {
-      return res.status(400).send('Project id is wrong');
+      res.status(400).send('Project id is wrong');
+      return;
     }
 
     var projectPath, sharePath;
@@ -162,7 +163,8 @@ module.exports = function(express) {
       }
     ], function(error, wgtName) {
       if (error) {
-        return res.status(400).send(error);
+        res.status(400).send(error);
+        return;
       }
 
       // Send wgt information if existing the wgt file
