@@ -21,7 +21,8 @@ var addApplicationToProject = function (req, res) {
   Project.find({'user': user._id}, function (err, projects) {
     if (err) {
       debug(err);
-      return res.status(400).send(err);
+      res.status(400).send(err);
+      return;
     }
 
     if (process.env.NODE_ENV === 'test') {
@@ -37,10 +38,10 @@ var addApplicationToProject = function (req, res) {
 
         fse.ensureDir(projectPath, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null);
           }
-
-          return callback(null);
         });
       },
       function (callback) {
@@ -54,10 +55,10 @@ var addApplicationToProject = function (req, res) {
 
           fse.copy(templatePath, projectPath, function (err) {
             if (err) {
-              return callback(err);
-            }
-
-            return callback(null);
+              callback(err);
+            } else {
+              callback(null);
+            } 
           });
         });
       },
@@ -174,10 +175,10 @@ module.exports = function (express) {
 
         newProject.save(function (error, project) {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null, project);
           }
-
-          return callback(null, project);
         });
       },
       function (project, callback) {
@@ -191,10 +192,10 @@ module.exports = function (express) {
 
         fse.ensureDir(projectPath, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null);
           }
-
-          return callback(null);
         });
       },
       function (callback) {
@@ -212,10 +213,10 @@ module.exports = function (express) {
 
           fse.copy(templatePath, projectPath, function (err) {
             if (err) {
-              return callback(err);
+              callback(err);
+            } else {
+              callback(null);
             }
-
-            return callback(null);
           });
         });
       },
@@ -296,9 +297,10 @@ module.exports = function (express) {
             requiredVersion: data.version
           }, (error) => {
             if (error) {
-              return callback(error);
+              callback(error);
+            } else {
+              callback(null);
             }
-            return callback(null);
           });
       },
       function (callback) {
@@ -461,10 +463,10 @@ module.exports = function (express) {
         project.save(function (saveError, result) {
           if (saveError) {
             debug(saveError);
-            return callback(saveError);
+            callback(saveError);
+          } else {
+            callback(null, result);
           }
-
-          return callback(null, result);
         });
       }, function (project, callback) {
         var supportPath = path.join(process.cwd(), 'projects', 'support', projectId);
@@ -477,10 +479,10 @@ module.exports = function (express) {
         }
         fs.writeFile(path.join(supportPath, 'state.json'), JSON.stringify(state), function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null, project);
           }
-
-          return callback(null, project);
         });
       }
     ], function (error, project) {
@@ -507,10 +509,10 @@ module.exports = function (express) {
         // Remove the project using projectId
         Project.remove({'_id': projectId}, function (error) {
           if (error) {
-            return callback(error);
+            callback(error);
+          } else {
+            callback(null);
           }
-
-          return callback(null);
         });
       },
       function (callback) {
@@ -523,10 +525,10 @@ module.exports = function (express) {
 
           fse.remove(projectPath, function (err) {
             if (err) {
-              return callback(err);
+              callback(err);
+            } else {
+              callback(null);
             }
-
-            return callback(null);
           });
         });
       },
@@ -540,10 +542,10 @@ module.exports = function (express) {
 
           fse.remove(supportPath, function (err) {
             if (err) {
-              return callback(err);
+              callback(err);
+            } else {
+              callback(null);
             }
-
-            return callback(null);
           });
         });
       }
