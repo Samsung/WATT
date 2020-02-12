@@ -512,6 +512,38 @@ Please ensure to execute tizen command if use WGT packaging.''')
     return ''
   return os.path.dirname(tizen_path)
 
+def install_nvm():
+  if not ensure_deb_package('wget'):
+    return False
+
+  status = subprocess.call('wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash', shell=True)
+  if status != 0:
+    Log.err('Fail to install nvm')
+    return False
+
+  os.environ["NVM_DIR"] = os.path.join(os.environ['HOME'], '.nvm')
+  return True
+
+def build_tau():
+  if not install_nvm():
+    return False
+
+  git_submodules = subprocess.check_output(['git', 'submodule'])
+  for submodule in git_submodules.splitlines():
+    if "TAU" in submodule:
+      tau_dir = submodule.split(' ')[2]
+      Log.info('Building TAU: %s' % tau_dir)
+      nvmrc_path = os.path.join(tau_dir, '.nvmrc')
+      if not os.path.exists(nvmrc_path):
+        Log.warn('Can not find .nvmrc file in %s, node version is not specified.' % nvmrc_path)
+
+      status = subprocess.call('cd %s && \. %s/nvm.sh; nvm install && npm install && npm run build' %(tau_dir, os.environ['NVM_DIR']), shell=True)
+      if status != 0:
+        Log.err('Fail to build TAU in %s.' % tau_dir)
+        return False
+
+  return True
+
 def build_brackets():
   Log.info('Build brackets if necessary.')
   try:
@@ -719,6 +751,8 @@ def main():
     help='Support sthings extension')
   parser.add_argument('-bdc', '--bypassDEcompilation', action='store_true',
     default=False, help='Bypass Design Editor compilation')
+  parser.add_argument('-bpt', '--bypass_tau_build', action='store_true',
+    help='Bypass TAU build')
   parser.add_argument('-bp', '--bypass', action='store_true',
     help='Bypass submodule update')
 
@@ -729,6 +763,9 @@ def main():
     if (subprocess.check_call('./update_submodules' + (' --verbose' if args.verbose else ''), shell=True)) != 0:
       Log.err('Fail to initialize or update submodules.')
       return 1
+
+  if not args.bypass_tau_build and not build_tau():
+    return 1
 
   import_additional()
 
