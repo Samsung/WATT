@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/licence-Apache%202.0-brightgreen.svg?style=flat)](LICENSE)
 [![Build Status](https://travis-ci.org/Samsung/WATT.svg?branch=master)](https://travis-ci.org/Samsung/WATT)
 
-WATT is server-based WebAssembly IDE.
+WATT is server-based WebAssembly IDE
 
 If you want to contribute code, please check the [contribution guidelines](https://github.com/Samsung/WATT/blob/master/CONTRIBUTING.md).
 
