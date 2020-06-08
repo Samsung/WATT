@@ -54,22 +54,24 @@ USER watt_user
 
 WORKDIR /home/watt_user/
 
-# Download and install (latest) Tizen Studio 3.2 into default ~/tizen-studio (for user certificate creation)
-RUN wget -qO- http://download.tizen.org/sdk/Installer/tizen-studio_3.2/web-cli_Tizen_Studio_3.2_ubuntu-64.bin > web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
-    chmod +x web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
-    mkdir /home/watt_user/tizen-studio && \
-    ./web-cli_Tizen_Studio_3.2_ubuntu-64.bin --accept-license /home/watt_user/tizen-studio && \
-    rm web-cli_Tizen_Studio_3.2_ubuntu-64.bin
+# FIXME: Update Tizen Studio and make it work on headless environment.
 
-# Download and install Tizen Studio 2.5 into ~/tizen-studio-2.5 (for profile creation and packaging)
-# Latest version is unable to pack to wgt once user cert is specified
-# More details at http://suprem.sec.samsung.net/jira/browse/TIZENWF-2298
-# or https://developer.tizen.org/ko/forums/sdk-ide/pwd-fle-format-profile.xml-certificates?langredirect=1
-RUN wget -qO- http://download.tizen.org/sdk/Installer/tizen-studio_2.5/web-cli_Tizen_Studio_2.5_ubuntu-64.bin > web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
-    chmod +x web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
-    mkdir /home/watt_user/tizen-studio-2.5 && \
-    ./web-cli_Tizen_Studio_2.5_ubuntu-64.bin --accept-license /home/watt_user/tizen-studio-2.5 && \
-    rm web-cli_Tizen_Studio_2.5_ubuntu-64.bin
+# Download and install (latest) Tizen Studio 3.2 into default ~/tizen-studio (for user certificate creation)
+# RUN wget -qO- http://download.tizen.org/sdk/Installer/tizen-studio_3.2/web-cli_Tizen_Studio_3.2_ubuntu-64.bin > web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
+#     chmod +x web-cli_Tizen_Studio_3.2_ubuntu-64.bin && \
+#     mkdir /home/watt_user/tizen-studio && \
+#     ./web-cli_Tizen_Studio_3.2_ubuntu-64.bin --accept-license /home/watt_user/tizen-studio && \
+#     rm web-cli_Tizen_Studio_3.2_ubuntu-64.bin
+#
+# # Download and install Tizen Studio 2.5 into ~/tizen-studio-2.5 (for profile creation and packaging)
+# # Latest version is unable to pack to wgt once user cert is specified
+# # More details at http://suprem.sec.samsung.net/jira/browse/TIZENWF-2298
+# # or https://developer.tizen.org/ko/forums/sdk-ide/pwd-fle-format-profile.xml-certificates?langredirect=1
+# RUN wget -qO- http://download.tizen.org/sdk/Installer/tizen-studio_2.5/web-cli_Tizen_Studio_2.5_ubuntu-64.bin > web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
+#     chmod +x web-cli_Tizen_Studio_2.5_ubuntu-64.bin && \
+#     mkdir /home/watt_user/tizen-studio-2.5 && \
+#     ./web-cli_Tizen_Studio_2.5_ubuntu-64.bin --accept-license /home/watt_user/tizen-studio-2.5 && \
+#     rm web-cli_Tizen_Studio_2.5_ubuntu-64.bin
 
 # Consider cloning WATT from scratch once new (docker) user will be created to access github.
 COPY --chown=watt_user:watt_group . /home/watt_user/WATT
