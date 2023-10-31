@@ -301,24 +301,7 @@ def preinstall_emsdk():
   return True
 
 def ensure_emsdk(emsdk_path):
-  bin_path = os.path.join(emsdk_path, 'emsdk')
-  if os.path.isfile(bin_path): return True
-  if not preinstall_emsdk(): return False
-
-  work_path = os.path.dirname(emsdk_path)
-  Log.warn('Download emsdk tool')
-  url = 'https://s3.amazonaws.com/mozilla-games/emscripten/releases/'
-  file_name = 'emsdk-portable.tar.gz'
-  dest_path = os.path.join(work_path, file_name)
-  if not download_file(url + file_name, dest_path): return False
-
-  tar = tarfile.open(dest_path)
-  tar.extractall(work_path)
-  tar.close()
-  os.remove(dest_path)
-  portable_path = os.path.join(work_path, 'emsdk-portable')
-  os.rename(portable_path, emsdk_path)
-  return True
+  return False
 
 def get_emscripten_path(version):
   Log.info('Check emscripten')
