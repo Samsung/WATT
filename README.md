@@ -2,6 +2,18 @@
 # WATT (WebAssembly Translation Toolkit)
 [![License](https://img.shields.io/badge/licence-Apache%202.0-brightgreen.svg?style=flat)](LICENSE)
 [![Build Status](https://travis-ci.org/Samsung/WATT.svg?branch=master)](https://travis-ci.org/Samsung/WATT)
+[![Archived](https://img.shields.io/badge/Status-Archived-red?style=flat)]()
+
+> ⚠️ **This repository has been archived and is no longer actively maintained.**
+>
+> | 항목 | 내용 |
+> |------|------|
+> | **Archive Date** | 2026-05-22 |
+> | **Archive Reason** | Service discontinued |
+> | **Security Patches** | Not provided |
+>
+> This project is now read-only. Issues, pull requests, and new commits are disabled.
+
 
 WATT is server-based WebAssembly IDE.
 
