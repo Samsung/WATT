@@ -4,7 +4,12 @@
 [![Build Status](https://travis-ci.org/Samsung/WATT.svg?branch=master)](https://travis-ci.org/Samsung/WATT)
 [![Archived](https://img.shields.io/badge/Status-Archived-red?style=flat)]()
 
-> ⚠️ **This repository has been archived and is no longer actively maintained.**
+> ⚠️ **This project has been archived and is no longer maintained.  
+We does not provide security support, vulnerability review, patches, releases, or CVE assignment/coordination for this project. 
+Vulnerability reports related to this project may be declined on the grounds that the project is unsupported.  
+Users should carefully evaluate the security implications before using this project.  
+However, a third-party CNA or the CVE Program may still assign a CVE ID under its own policies.  
+For questions regarding such assignments, please contact the CVE Program directly.**
 >
 > | 항목 | 내용 |
 > |------|------|
