@@ -9,6 +9,6 @@
   "dependencies": {
     "clean-css": "3.3.6",
     "mkpath": "^1.0.0",
-    "uglify-js": "2.4.24"
+    "uglify-js": "3.6.9"
   }
 }
